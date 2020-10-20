@@ -1,0 +1,78 @@
+#Xenial for upgraded pip -v
+dist: xenial
+language: python
+python:
+  - "3.6"
+
+# Whitelist branch
+branches:
+ only:
+ - master
+ - /(improvement|bug|feature)\/(:?[\S]*)/
+ - /(\d+.\d+.\d+)(\S*)?/
+
+before_script:
+  - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
+  - "echo Commit#: $TRAVIS_COMMIT Commit-message: $TRAVIS_COMMIT_MESSAGE"
+  - "echo Tag-name: $TRAVIS_TAG If it exist"
+  - "npm ci"
+
+# NPM setup for building dist
+script:
+  - "npm run build"
+  - "echo Testing"
+  - "npm run test"
+
+# # Removing the current folder uploaded
+# # Needs pip -v 10+ at least
+# # Run only if it isn't a tag
+# before_deploy:
+# # - pip install --upgrade pip
+# - |
+#   if [ -z "$TRAVIS_TAG" ]; then
+#     pip install awscli
+#     aws configure set aws_access_key_id $AWS_KEY_ID
+#     aws configure set aws_secret_access_key $AWS_KEY_SECRET
+#     aws configure set default.region $AWS_DEFAULT_REGION
+#     aws s3 rm --recursive s3://corporate-ui-deploy-test/build/global/branch/$TRAVIS_BRANCH
+#   fi
+# #Deploy for S3 on AWS for branches and releases
+# #Not for PR
+
+# #Deploy for branches
+# deploy:
+#   - provider: s3
+#     access_key_id: "$AWS_KEY_ID"
+#     secret_access_key: "$AWS_KEY_SECRET"
+#     bucket: "corporate-ui-deploy-test"
+#     region: "eu-west-1"
+#     local_dir: "dist"
+#     upload_dir: "build/global/branch/$TRAVIS_BRANCH"
+#     skip_cleanup: true
+#     acl: public_read
+#     on:
+#       branch: $TRAVIS_BRANCH
+#       tags: false
+
+# #Deploy for releases
+#   - provider: s3
+#     access_key_id: "$AWS_KEY_ID"
+#     secret_access_key: "$AWS_KEY_SECRET"
+#     bucket: "corporate-ui-deploy-test"
+#     region: "eu-west-1"
+#     local_dir: "dist"
+#     upload_dir: "build/global/releases/$TRAVIS_TAG"
+#     skip_cleanup: true
+#     acl: public_read
+#     on:
+#       branch: $TRAVIS_TAG
+#       tags: true
+
+#   # Deploy for NPM
+#   - provider: npm
+#     email: "andreas.wikstrom@scania.com"
+#     api_key: "$NPM_ACCESS_KEY"
+#     skip_cleanup: true
+#     on:
+#       tags: true
+#       tag: beta

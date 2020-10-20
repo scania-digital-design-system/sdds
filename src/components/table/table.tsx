@@ -15,13 +15,17 @@ export class TableComponent {
   @Prop() content = [];
 
   /* Sets the class for the table */
-  @Prop() tblClass = "";
+  @Prop() tblClass: string;
   
   /* Events to set edit and delete callbacks */
-  @Prop() hasEdit: Boolean;
+  @Prop() hasEdit: boolean;
   @Event() optEdit: EventEmitter;
-  @Prop() hasDelete: Boolean;
+  @Prop() hasDelete: boolean;
   @Event() optDelete: EventEmitter;
+  @Prop() hasHover: boolean;
+  @Event() optHover: EventEmitter;
+  @Prop() descrCustomLink: string;
+  @Event() optCustomLink: EventEmitter;
 
   @State() data = [];
   @State() filteredData = [];
@@ -68,12 +72,21 @@ export class TableComponent {
     if (!(this.el && this.el.nodeName)) return;
 
     this.tagName = this.el.nodeName.toLowerCase();
+
+    this.header.map(item => {
+      item.key = this.removeDot(item.key);
+    })
   }
 
   componentDidLoad() {
     this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
     
     themeStyle(this.currentTheme, this.tagName, this.style, this.el)
+  }
+
+  private removeDot(key){
+    const newKey = key.replace(/\./g,'-');
+    return newKey;
   }
 
   /* Filter the content that will show on the table */
@@ -122,11 +135,7 @@ export class TableComponent {
       this.filteredData.sort((a, b) => (a[key] < b[key]) ? 1 : -1);
     }
     
-    /* Disable other sort-active class and set the active the current selected */
-    let actives = (this.el.shadowRoot || this.el).querySelectorAll(".sort-active");
-    [].forEach.call(actives, function(active) {
-      active.classList.remove("sort-active");
-    });
+    this.removeSortActive();
 
       input.classList.add("sort-active");
   }
@@ -142,10 +151,16 @@ export class TableComponent {
 
     for (const key of keys) {
       const inputId = "search" + key;
-      let inputValue = ((this.el.shadowRoot || this.el).getElementById(inputId) as HTMLInputElement).value;
+
+      let inputValue = ((this.el.shadowRoot || this.el).querySelector('#' + inputId) as HTMLInputElement).value;
       
       if(inputValue)
       {
+        var iconFilter = (this.el.shadowRoot || this.el).querySelector("#iconFilter" + key);
+        var iconCross = (this.el.shadowRoot || this.el).querySelector("#iconCross" + key);
+        iconFilter.style.display = "none";
+        iconCross.style.display = "inline";
+
         /* Gets all values from column */
         const column = items.map(cl => cl[key])
 
@@ -161,6 +176,13 @@ export class TableComponent {
           items.push(item);
         }
       }
+      else {
+        /* Shows icons */
+        var iconFilter = (this.el.shadowRoot || this.el).querySelector("#iconFilter" + key);
+        var iconCross = (this.el.shadowRoot || this.el).querySelector("#iconCross" + key);
+        iconFilter.style.display = "inline";
+        iconCross.style.display = "none";
+      }
     }
 
     this.filteredData = items;
@@ -175,6 +197,20 @@ export class TableComponent {
     }
   }
 
+  private clearInputField(key) {
+    var inputSearch = (this.el.shadowRoot || this.el).querySelector("#search" + key);
+    inputSearch.value = "";
+    this.removeSortActive();
+    this.searchColumn();
+  }
+
+  /* Remove all sort-active class */
+  private removeSortActive() {
+    let actives = (this.el.shadowRoot || this.el).querySelectorAll(".sort-active");
+    [].forEach.call(actives, function(active) {
+      active.classList.remove("sort-active");
+    });
+  }
 
   /* Sets the header of the table */
   private setHeader(): any {
@@ -194,7 +230,8 @@ export class TableComponent {
           </div>
           <div class="input-field">
             <input id={"search" + a.key} onKeyUp={() => this.searchColumn()} type="text" class="form-control" />
-            <div id={"icon" + a.key} class="input-icon-filter"></div>
+              { <div id={"iconFilter" + a.key} class="input-icon-filter"></div> }
+              { <div id={"iconCross" + a.key} class="input-icon-cross" onClick={() => this.clearInputField(a.key)} ></div> }
           </div>
         </th>
     ))}
@@ -211,7 +248,7 @@ export class TableComponent {
 
     return (this.filteredData.map((obj) =>
         <tr>
-          { keys.map(key => <td>{obj[key]}</td>) }
+          { keys.map(key => <td onClick={ () => this.hasHover && this.callbackDropdown("hover", obj.rowIndex) }>{obj[key]}</td>) }
           { this.setDropDown(obj.rowIndex) }
         </tr>
     ));
@@ -225,6 +262,7 @@ export class TableComponent {
         <c-dropdown buttonType="primary" menuAlignment="dropdown-menu-right">
           <span slot="dropdown-title">Action</span>          
           { this.hasEdit && <a slot="dropdown-item" class="dropdown-item" onClick={ () => this.callbackDropdown("edit", rowIndex) }>Edit</a> }
+          { this.descrCustomLink && <a class="dropdown-item" onClick={ () => this.callbackDropdown("customLink", rowIndex) }>{ this.descrCustomLink }</a> }
           { this.hasDelete && <a slot="dropdown-item" class="dropdown-item text-danger" onClick={ () => this.callbackDropdown("delete", rowIndex) }>Delete</a> }
         </c-dropdown>
       </td>
@@ -235,11 +273,27 @@ export class TableComponent {
   {
     let obj = this.content[rowIndex];
 
-    if(event === "edit")
-      this.optEdit.emit(obj);
-
-    if(event === "delete")
-      this.optDelete.emit(obj);
+    switch(event) {
+      case "hover": {
+        this.optHover.emit(obj);
+        break;
+      }
+      case "edit": {
+        this.optEdit.emit(obj);
+        break;
+      }
+      case "delete": {
+        this.optDelete.emit(obj);
+        break;
+      }
+      case "customLink": {
+        this.optCustomLink.emit(obj);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 
   /* Flatten objects in order to match it's keys by path */
@@ -274,7 +328,7 @@ export class TableComponent {
         </div>
       }
 
-      return <table class={"table " + this.tblClass }>
+      return <table class={"table " + (this.hasHover && "table-hover ") + this.tblClass }>
           <thead>
             { this.setHeader() }
           </thead>
