@@ -1,0 +1,31 @@
+// Required
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/transitions';
+
+// Optional
+@import 'node_modules/bootstrap/scss/utilities';
+@import 'node_modules/bootstrap/scss/navbar';
+@import 'node_modules/bootstrap/scss/nav';
+
+@import '../../components.scss';
+
+::slotted(c-navigation),
+c-navigation {
+  width: 100%;
+}
+
+.navbar-toggler-icon {
+  background-image: $navbar-light-toggler-icon-bg;
+}
+
+.navbar-default[short-name]:after {
+  content: attr(short-name);
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-brand {
+    display: inline-block;
+  }
+}

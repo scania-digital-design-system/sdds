@@ -1,0 +1,69 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+$Interaction-types: primary, secondary, success, info, warning, danger, light, dark;
+
+@mixin list-to-string($items, $prefix:"") {
+  $list: ();
+  @each $item in $items {
+    $list: append($list, "#{$prefix}#{$item},");
+  }
+  #{$list} {
+    @content;
+  }
+}
+
+// Used after bootstrap style has rendered for FOUC reasons
+html body {
+  visibility: visible;
+}
+
+.btn {
+
+  @include list-to-string($Interaction-types, "&-") {
+
+    &:hover {
+      box-shadow: inset 0 0 0 99999px rgba(0, 0, 0, 0.2);
+    }
+  }
+  @each $type in $Interaction-types {
+    &-#{$type} {
+
+      &,
+      &:hover {
+        background-color: Var(--#{$type});
+        border-color: Var(--#{$type});
+      }
+    }
+  }
+  &-link {
+    color: Var(--link-color);
+  }
+  &-light {
+
+    &,
+    &:hover {
+      color: Var(--dark);
+      border-color: Var(--dark);
+    }
+  }
+}
+
+// TODO: We should probably not use inversed media rules like this.
+// Would be better to do mobile first pattern
+@media (max-width: 991px) {
+
+  // For dropdowns in navigation on mobile
+  .dropdown-toggle.nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    + .dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      float: none;
+      margin: 10px -25px -10px;
+      border: 0px;
+    }
+  }
+}

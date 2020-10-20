@@ -1,0 +1,16 @@
+@import '../../components.scss';
+
+:host {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*::slotted(section) {
+  color: var(--danger) !important;
+}
+
+::slotted(section) div {
+  color: yellow !important;
+}*/

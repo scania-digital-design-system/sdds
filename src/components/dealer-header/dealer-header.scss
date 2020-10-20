@@ -1,0 +1,6 @@
+@import '../../components.scss';
+
+// TODO: Review this when FOUC is solved or when we work on initial styling
+img {
+  max-height: 30px;
+}

@@ -1,0 +1,92 @@
+// Required
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+// Optional
+@import 'node_modules/bootstrap/scss/reboot';
+@import 'node_modules/bootstrap/scss/modal';
+@import 'node_modules/bootstrap/scss/close';
+
+:host {
+  @extend .modal;
+}
+:host(.inline) {
+  position: static;
+
+  .modal {
+
+    &-dialog {
+      min-height: 0;
+      max-width: none;
+      margin: 0;
+
+      &:before {
+        height: auto;
+      }
+    }
+    &-content {
+      min-height: 0;
+    }
+  }
+}
+
+slot[name=header] {
+  display: block;
+
+  &::slotted(*) {
+    @extend .modal-title;
+
+    margin-bottom: 0 !important; // Maybe we shouldnt force this?
+  }
+}
+// This is used for IE (We should make a mixin for this later on)
+[slot=header] {
+  @extend .modal-title;
+
+  margin-bottom: 0 !important; // Maybe we shouldnt force this?
+}
+
+.modal {
+
+  &-dialog {
+    max-width: 1060px;
+  }
+  &-body {
+    display: flex;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 992px) {
+
+  ::slotted(button) {
+    margin-left: 5px !important;
+  }
+}
+
+// TODO: Should we reverse these rules so it follows mobile first
+@media (max-width: 991px) {
+
+  ::slotted(button) {
+    width: 100%;
+  }
+
+  .modal {
+
+    &-dialog {
+      margin: 0;
+      max-height: 100%;
+
+      &.modal-dialog-scrollable {
+
+        .modal-content {
+          overflow: auto;
+        }
+      }
+    }
+    &-footer {
+      flex-wrap: wrap;
+    }
+  }
+}

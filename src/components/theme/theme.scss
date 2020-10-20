@@ -1,0 +1,139 @@
+// @import 'node_modules/bootstrap/scss/functions';
+// @import 'node_modules/bootstrap/scss/variables';
+// @import 'node_modules/bootstrap/scss/mixins';
+
+:root {
+  font-size: 62.5%;
+
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+
+// data environment
+body[data-env]:before {
+  background-color: #ddd;
+  border: 2px solid #fafafa;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 52px 50px 2px;
+  content: attr(data-env);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1170;
+  -ms-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+  -moz-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+  -o-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+  transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+  text-transform: uppercase;
+}
+
+body[data-env=""]:before,
+body[data-env=prod]:before,
+body[data-env=production]:before,
+body[data-env=hidden]:before {
+  display: none;
+}
+
+body[data-env=development]:before {
+  content: "dev";
+}
+
+// Copied from bootstrap mixin grid framework and modified to support prefix and sufix
+// @mixin make-grid-columns(
+//   $columns: $grid-columns,
+//   $gutter: $grid-gutter-width,
+//   $breakpoints: $grid-breakpoints
+// ) {
+
+//   @each $breakpoint in map-keys($breakpoints) {
+//     $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+//     [apa=#{$infix}],
+//     [size] {
+//       position: relative;
+//       width: 100%;
+//     }
+
+//     @include media-breakpoint-up($breakpoint, $breakpoints) {
+//       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+//       [apa=#{$infix}],
+//       [size] {
+//         flex-basis: 0;
+//         flex-grow: 1;
+//         max-width: 100%;
+//       }
+//       [#{$infix}=auto] {
+//         flex: 0 0 auto;
+//         width: auto;
+//         max-width: 100%; // Reset earlier grid tiers
+//       }
+
+//       @for $i from 1 through $columns {
+//         [#{$infix}=#{$i}],
+//         [size*="#{$infix}:#{$i}"] {
+//           @include make-col($i, $columns);
+//         }
+//       }
+
+//       // .order#{$infix}-first {
+//       //   order: -1;
+//       // }
+
+//       // .order#{$infix}-last {
+//       //   order: $columns + 1;
+//       // }
+
+//       @for $i from 0 through $columns {
+//         [#{$infix}*="order:#{$i}"],
+//         [size*="#{$infix}"][size*="order:#{$i}"] {
+//           order: $i;
+//         }
+//       }
+
+//       // `$columns - 1` because offsetting by the width of an entire row isn't possible
+//       @for $i from 0 through ($columns - 1) {
+//         @if not($infix == '' and $i == 0) {
+//           // Avoid emitting useless .offset-0
+//           [#{$infix}*="offset:#{$i}"],
+//           [size*="#{$infix}"][size*="offset:#{$i}"] {
+//             @include make-col-offset($i, $columns);
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include make-grid-columns();

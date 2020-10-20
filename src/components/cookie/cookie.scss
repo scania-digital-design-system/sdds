@@ -1,0 +1,188 @@
+// Required
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/transitions';
+
+// Optional
+@import 'node_modules/bootstrap/scss/reboot';
+@import 'node_modules/bootstrap/scss/buttons';
+@import 'node_modules/bootstrap/scss/badge';
+@import 'node_modules/bootstrap/scss/grid';
+@import 'node_modules/bootstrap/scss/nav';
+@import 'node_modules/bootstrap/scss/list-group';
+@import 'node_modules/bootstrap/scss/custom-forms';
+
+@import 'node_modules/bootstrap/scss/utilities/display';
+@import 'node_modules/bootstrap/scss/utilities/flex';
+
+:host {
+  --link-decoration-hover: none;
+  --link-color: Var(--info);
+  --link-color-hover: Var(--info);
+  --link-color-active: Var(--info);
+}
+
+::slotted(a) {
+  font-weight: bold;
+  padding: 1.7rem;
+}
+
+slot[name=config],
+::slotted([slot=config]) {
+  display: none;
+}
+main {
+  flex: 1;
+}
+nav {
+
+  c-icon {
+    transform: rotate(-90deg);
+    font-size: 4rem;
+    margin: -12px;
+  }
+}
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+  min-height: 33vh;
+  padding: 15px;
+  background-color: $dark;
+  background-color: Var(--dark);
+  color: $light;
+  color: Var(--light);
+  align-items: center;
+
+  // Notice that the folowing ruleset is used for IE to make align-items work with min-height
+  // More info: https://github.com/philipwalton/flexbugs/issues/231#issuecomment-362790042
+  &:before {
+    content: '';
+    min-height: inherit;
+    font-size: 0;
+  }
+  &.inline {
+    position: static;
+  }
+}
+
+.row {
+  flex: 1;
+}
+.content {
+  display: flex;
+  height: 100%;
+}
+.tab-content {
+  overflow-y: auto;
+
+  c-icon {
+    transform: rotate(90deg);
+    font-size: 4rem;
+    margin: -12px;
+  }
+}
+.btn-container {
+  align-self: center;
+}
+.icon {
+  line-height: 1;
+}
+
+@media (min-width: 992px) {
+
+  .tab-content {
+    padding-right: 4.5rem;
+    padding-left: 4.5rem;
+  }
+}
+
+// TODO: Should we reverse these rules so it follows mobile first
+@media (max-width: 991px) {
+
+  main {
+    min-width: 100%;
+    // overflow: hidden auto; // two value shorthand can't be used in safari mobile
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0 -30px;
+
+    > .row {
+      flex: none;
+      width: 200%;
+      margin: 0;
+    }
+  }
+  footer {
+    height: auto;
+    padding: 15px;
+  }
+  button[slot=footer] {
+    margin-bottom: 10px;
+
+    &.btn-secondary {
+      order: 1;
+    }
+  }
+
+  .list-group {
+    margin: 0 -15px;
+
+    &-item {
+      border-left: 0;
+      border-right: 0;
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+  }
+  .navigation {
+    opacity: 1;
+    transition: opacity 500ms;
+
+    .active & {
+      opacity: 0;
+    }
+  }
+  .tab {
+
+    &-content {
+      --link-decoration: none;
+
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0;
+      z-index: 100;
+      transition: left 500ms;
+      padding: 3rem;
+
+      .active & {
+        left: 0;
+        opacity: 1;
+      }
+      .custom-switch {
+        // This is added because when scaling is used it
+        // doesnt increas the space it takes in the view
+        margin: 0 10px;
+      }
+    }
+  }
+  .btn-back {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration: Var(--link-decoration);
+  }
+  .custom-switch {
+    display: inline-block;
+    transform: scale(1.5);
+  }
+}

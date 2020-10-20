@@ -1,0 +1,13 @@
+@import '../../components.scss';
+
+:host {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+
+  svg {
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+  }
+}

@@ -1,0 +1,59 @@
+// Required
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/transitions';
+
+// Optional
+@import 'node_modules/bootstrap/scss/tables';
+@import 'node_modules/bootstrap/scss/forms';
+@import 'node_modules/bootstrap/scss/dropdown';
+
+:host {
+  display: block;
+  .table-title {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+    > div:first-child {
+      padding-right: 1rem;
+    }
+    > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      div {
+        display: flex;
+      }
+    }
+  }
+
+  .input-field {
+    display: flex;
+    position: relative;
+  }
+
+  .input-icon-filter {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojOTc5OTliO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTEzLjEyNCwwSC44NzZBLjg3Ni44NzYsMCwwLDAsLjI1NywxLjQ5NEw1LjI1LDYuNDg3djUuMTA2YS44NzUuODc1LDAsMCwwLC4zLjY1OUw3LjMsMTMuNzgzYS44NzUuODc1LDAsMCwwLDEuNDUxLS42NThWNi40ODdsNC45OTMtNC45OTRBLjg3Ni44NzYsMCwwLDAsMTMuMTI0LDBaTTcuODc1LDYuMTI1djdsLTEuNzUtMS41MzFWNi4xMjVMLjg3NS44NzVoMTIuMjVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwKSIvPjwvc3ZnPg==") no-repeat !important;
+    background-position: center !important;
+    position: absolute;
+    top: 7px;
+    right: 18px;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .input-icon-cross {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDojNTM1NjVhO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTkwLjUsNzkuMzc0bC0uODU3LS44NTdMODQuNSw4My42NTlsLTUuMTQyLTUuMTQzLS44NTcuODU3LDUuMTQyLDUuMTQzTDc4LjUsODkuNjU4bC44NTcuODU3TDg0LjUsODUuMzczbDUuMTQyLDUuMTQzLjg1Ny0uODU3LTUuMTQyLTUuMTQzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc4LjQ5NiAtNzguNTE2KSIvPjwvc3ZnPg==") no-repeat !important;
+    position: absolute;
+      top: 13px;
+      right: 15px;
+    cursor: pointer;
+    width: 23px;
+      height: 23px;
+  }
+  .form-control {
+    padding-right: 25px !important;
+  }
+}
+  

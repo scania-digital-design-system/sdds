@@ -1,0 +1,37 @@
+# Compiled from Stencil
+.stencil/
+.build/
+.www/
+.data/
+
+# Compiled theme
+src/themes.built/
+
+# Compiled from gulpfile.babel.js
+.storybook/
+dist/
+www/
+
+*~
+*.sw[mnpcod]
+*.log
+*.lock
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+*.d.ts
+
+.idea/
+.vscode/
+.sass-cache/
+.versions/
+node_modules/
+$RECYCLE.BIN/
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.env
+.npmrc

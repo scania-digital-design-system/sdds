@@ -1,0 +1,32 @@
+@import 'node_modules/highlight.js/styles/vs2015';
+
+//TODO: Might wanna move this component into site instead?
+
+:host {
+  display: block;
+}
+
+::slotted(*:not(pre)) {
+  // We have important here because slotted rules have lowest prio
+  display: none !important;
+}
+
+pre {
+  padding: 40px;
+  background-color: var(--black);
+  background-color: #2D2926; //FIXME: Fallback for IE
+  color: #FAFAFA; //Fallback for IE, due to highligh.js not working
+}
+
+pre,
+pre code {
+  font-size: 1.3rem;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+// Line break on attributes doesnt work for multi line examples
+// .hljs-attr:before {
+//   content: "\a   ";
+//   white-space: pre;
+// }

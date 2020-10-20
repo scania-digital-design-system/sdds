@@ -1,0 +1,19 @@
+// Required
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+// Optional
+@import 'node_modules/bootstrap/scss/reboot';
+@import 'node_modules/bootstrap/scss/dropdown';
+@import 'node_modules/bootstrap/scss/buttons';
+
+:host {
+  .dropdown{
+    @extend .dropdown;
+  }
+}
+slot[name=dropdown-item],
+::slotted([slot=dropdown-item]) {
+  cursor: pointer;
+}
