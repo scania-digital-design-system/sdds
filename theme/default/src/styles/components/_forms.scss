@@ -1,0 +1,159 @@
+@import '../variables';
+
+// Input
+$input-border-color:          $border-color;
+$input-padding-x:             1.2rem;
+$input-padding-y:             1rem;
+$input-padding-y-sm:          0.7rem;
+$input-padding-x-sm:          1.2rem;
+$input-border-radius:         $border-radius;
+$input-background-color:      $secondary;
+
+$form-validation-states: (
+  'valid': (
+    'background-color': 'success-01',
+    'border-color' : 'success'
+  ),
+  'invalid': (
+    'background-color': 'danger-01',
+    'border-color' : 'danger'
+  ),
+);
+
+.form-control {
+
+  &, &:focus {
+    color: $dark;
+    color: Var(--dark);
+  }
+
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  height: auto;
+  border-radius: $input-border-radius;
+  padding: $input-padding-y $input-padding-x;
+  background-color: $input-background-color;
+  border-color: $input-border-color;
+
+  &:focus {
+    border-color: $info;
+    background-color: $light-01;
+    box-shadow: none;
+  }
+
+  // Override browser autocomplete background color
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px white inset;
+    box-shadow: 0 0 0 50px white inset;
+  }
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $dark-01;;
+    opacity: 1; /* Firefox */
+  }
+  // needs to keep separated to make it works
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 & Edge */
+    color: $dark-01;;
+  }
+
+  &[readonly] {
+    background-color: $input-background-color;
+    border: 0;
+    border-bottom: 1px solid $light-04;
+    border-bottom: 1px solid Var(--light-04);
+    padding-left: 0;
+    border-radius: 0;
+    line-height: 2.1rem;
+    opacity: 0.8;
+  }
+
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+    background-color: Var(--light-02);
+    color: Var(--dark-01);
+    border-color: Var(--light-02);
+  }
+}
+
+.form-control-lg {
+  font-size: 2.1rem;
+  line-height: 2.8rem;
+}
+
+.form-control-sm {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  padding: $input-padding-y-sm $input-padding-x-sm;
+}
+
+select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTIiIGhlaWdodD0iNjMiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEwNS4wOTcwMDAxNDA0Mjg1NSwyLjc2NTY1NTQ4MjQwNjI1OTZlLTggTDU2LjA4NDAwMDE0MDQyODU0LDQ5LjAxMjAwMDAyNzY1NjU3IEw3LjA3MTAwMDE0MDQyODUzOCwyLjc2NTY1NTQ4MjQwNjI1OTZlLTggbC03LjA3MSw3LjA3MSBMNTYuMDg0MDAwMTQwNDI4NTQsNjMuMTU1MDAwMDI3NjU2NTQgbDU2LjA4MywtNTYuMDg0IHoiLz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  background-position: calc(100% - 1.2rem) center;
+  padding-right: 40px;
+}
+
+// remove default arrow in IE10+
+select::-ms-expand {
+  display: none;
+}
+
+select.form-control[multiple] {
+  background-image: none;
+}
+
+textarea.form-control,
+select.form-control[multiple] {
+  padding: $input-padding-x;
+}
+
+// Form validation
+@mixin form-validation-state($state, $data) {
+  .#{$state}-feedback {
+    border: 1px solid $light-01;
+    border-left: 5px solid map-get($theme-colors, map-get($data, 'border-color'));
+    color: $dark;
+    line-height: normal;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    padding: .8rem;
+    border-radius: 5px;
+  }
+
+  .form-control {
+
+    &.is-#{$state},
+    .was-validated &:#{$state} {
+      background-image: none;
+      padding-right: 1.2rem;
+
+      @each $key, $value in $data {
+        #{$key} : map-get($theme-colors, $value);
+        #{$key} : Var(--#{$value});
+      }
+
+      &:focus {
+        box-shadow: none;
+        border-color: map-get($theme-colors, map-get($data, 'border-color'));
+        border-color: Var(--(map-get($data, 'border-color')));
+      }
+    }
+  }
+}
+
+@each $state, $data in $form-validation-states {
+  @include form-validation-state($state, $data);
+}
+
+// Checkboxes and radios
+
+.form-check-label {
+  margin-left: 1rem;
+}

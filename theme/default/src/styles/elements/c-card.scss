@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.card {
+
+  &-body {
+    // This might go in a dark card theme later on?
+    background-color: #e8e8e8;
+  }
+  &-footer {
+    background-color: transparent;
+    border-top: 0;
+  }
+}

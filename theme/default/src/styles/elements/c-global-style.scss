@@ -1,0 +1,110 @@
+@import '../variables';
+@import '../mixins';
+
+// TODO: We might wanna add a global loader to load **
+// Bootstrap components
+@import '../components/alert';
+@import '../components/badges';
+@import '../components/breadcrumbs';
+@import '../components/button';
+@import '../components/button-group';
+@import '../components/cards';
+@import '../components/custom-forms';
+@import '../components/dropdowns';
+@import '../components/forms';
+@import '../components/input-group';
+@import '../components/list-group';
+@import '../components/modal';
+@import '../components/navs';
+@import '../components/pagination';
+@import '../components/progressbars';
+@import '../components/table';
+
+
+// Utilities
+@import '../utilities/data-env.scss';
+@import '../utilities/loading.scss';
+@import '../utilities/typography.scss';
+
+$components: badge, list-group-item;
+$componentsLight: alert, table;
+
+@each $name, $hex in $interaction-colors {
+  .bg-#{$name} {
+    // @include background($name);
+    background-color: $hex !important;
+    background-color: Var(--#{$name}) !important;
+  }
+
+  .text-#{$name} {
+    // @include text($name);
+    color: $hex !important;
+    color: Var(--#{$name}) !important;
+  }
+
+  .border-#{$name} {
+    // @include border($name);
+    border-color: $hex !important;
+    border-color: Var(--#{$name}) !important;
+  }
+
+  @each $element in $components {
+    .#{$element}-#{$name} {
+      // @include component($name, $element);
+      background-color: $hex;
+      background-color: Var(--#{$name});
+      color: $white;
+      color: Var(--white);
+    }
+  }
+
+  @each $element in $componentsLight {
+    @if map-get($theme-colors, #{$name}-#{'02'}) {
+      .#{$element}-#{$name} {
+        // @include component($name, $element);
+        background-color: map-get($theme-colors, #{$name}-#{'02'});
+        background-color: Var(--#{$name}-#{'02'});
+        color: map-get($theme-colors, #{$name}-#{'04'});
+        color: Var(--#{$name}-#{'04'});
+        border-color: map-get($theme-colors, #{$name}-#{'03'});
+        border-color: Var(--#{$name}-#{'03'});
+      }
+    }
+  }
+}
+
+@each $type in $interaction-types2 {
+  @each $element in $components {
+    .#{$element}-#{$type} {
+      color: $dark;
+      color: Var(--dark-#{'03'});
+    }
+  }
+}
+
+
+// @each $key, $value in $util-props {
+//   .#{$key} {
+   
+//     @each $type in $types {
+//       &-#{$type} {
+//         #{$value}: map-get($interaction-colors, $type) !important;
+//         #{$value}: Var(--#{$type}) !important;
+//       }
+//     }
+//   }
+// }
+
+// @each $el in $elements {
+//   .#{$el} {
+//     @each $type in join($interaction-types, $interaction-types3) {
+//       $selector: if($el == table, '&-#{$type} th, &-#{$type} td', '&-#{$type}');
+//       #{$selector} {
+//         background-color: map-get($interaction-colors, $type);
+//         background-color: Var(--#{$type});
+//         color: #fff;
+//         color: Var(--white);
+//       }
+//     }
+//   }
+// }

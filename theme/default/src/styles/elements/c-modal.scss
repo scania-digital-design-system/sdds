@@ -1,0 +1,52 @@
+@import '../components/modal';
+
+.modal {
+
+  &-content {
+    margin-top: 0;
+  }
+  &-header,
+  &-body,
+  &-footer {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border: 0;
+  }
+  &-header {
+    padding-top: 3rem;
+    padding-bottom: 0;
+  }
+  &-body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  &-footer {
+    padding-top: 0;
+    padding-bottom: 3rem;
+  }
+}
+
+// TODO: Should we reverse these rules so it follows mobile first
+@media (max-width: 991px) {
+
+  .modal {
+
+    &-content {
+      border-radius: 0;
+
+      &:after {
+        content: "";
+        display: block;
+        height: 60px;
+        width: 100%;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.001), #eee);
+        position: fixed;
+        bottom: 0;
+      }
+    }
+    &-body {
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "../variables";
+
+body[data-env=dev]:before,
+body[data-env=proj]:before,
+body[data-env=demo]:before,
+body[data-env=proto]:before,
+body[data-env=development]:before,
+body[data-env^=beta]:before {
+  @include background('info-02');
+  @include text('info-04');
+  @include border('info-03');
+}
+
+body[data-env=sys]:before {
+  @include background('success-02');
+  @include text('success-04');
+  @include border('success-03');
+}
+
+body[data-env=acc]:before,
+body[data-env=pre]:before {
+  @include background('warning-02');
+  @include text('warning-04');
+  @include border('warning-03');
+}
+
+body[data-env=proto]:before {
+  font-size: 10px;
+}

@@ -1,0 +1,32 @@
+@import '../variables';
+
+.nav-link {
+  --link-color:#{$dark-01};
+
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 1rem 1.4rem 0.9rem;
+  padding: 0;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    color: $blue;
+  }
+
+  &:active,
+  &.active,
+  &[active]:not([active="false"]) {
+    &, &:hover {
+      border-bottom: 2px solid #{$red};
+    }
+  }
+
+  &.disabled {
+    color: $link-color-disabled;
+    font-weight: normal;
+  }
+}

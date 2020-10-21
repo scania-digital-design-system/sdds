@@ -1,0 +1,210 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+
+@import 'node_modules/bootstrap/scss/mixins/transition';
+@import 'node_modules/bootstrap/scss/mixins/gradients';
+
+@import '../variables';
+
+$gray-500:                                        $dark-02;
+$component-bg:                                    theme-color("light");
+$component-active-color:                          $white;
+$component-active-bg:                             theme-color("primary");
+
+$custom-control-text-color:                       #53565A;
+$custom-control-disabled-color:                   #97999B;
+
+$custom-control-size:                             1.8rem;
+$custom-control-indicator-size:                   1.8rem;
+$custom-control-indicator-border-color:           transparent;
+$custom-control-indicator-border-width:           1px;
+
+$custom-control-indicator-unchecked-bg:           $component-bg;
+$custom-control-indicator-unchecked-border-color: $custom-control-indicator-unchecked-bg;
+
+$custom-control-indicator-checked-bg:             $component-active-bg;
+$custom-control-indicator-checked-border-color:   $custom-control-indicator-checked-bg;
+$custom-control-indicator-checked-disabled-bg:    lighten($component-active-bg, 20%);
+$custom-control-indicator-checked-box-shadow:     none;
+
+$custom-control-padding:                          ($custom-control-size + 1);
+
+$custom-control-radio-space-around:               0.2;
+$custom-control-radio-size:                       ($custom-control-size - ($custom-control-radio-space-around * 2));
+$custom-control-radio-padding:                    ($custom-control-padding - $custom-control-radio-space-around);
+
+$custom-switch-width:                             $custom-control-indicator-size * 1.9;
+$custom-switch-indicator-border-radius:           $custom-control-indicator-size / 2;
+$custom-switch-indicator-size:                    calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 2});
+
+.custom-control {
+  padding-left: $custom-control-padding;
+
+  label {
+    color: $custom-control-text-color;
+  }
+}
+
+.custom-control-label {
+
+  &:after,
+  &:before {
+   width: $custom-control-size;
+   height: $custom-control-size;
+   left: (-1 * $custom-control-padding);
+  }
+
+  &:focus{
+
+    &,
+    &:after,
+    &:before {
+      outline: none;
+    }
+  }
+}
+
+.custom-control-input {
+
+  &:checked ~ .custom-control-label::before {
+    background-color: $primary;
+    background-color: Var(--primary);
+    border-color: $primary;
+    border-color: Var(--primary);
+  }
+
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+
+    & ~ .custom-control-label {
+      color: $custom-control-disabled-color;
+      &:before {
+        background-color: transparent;
+        border-color: $custom-control-disabled-color;
+      }
+    }
+  }
+}
+
+.custom-checkbox {
+
+  .custom-control-input {
+
+    &:checked ~ .custom-control-label::after {
+      width: 1.8rem;
+      left: -2.8rem;
+    }
+
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      &:checked ~ .custom-control-label {
+
+        &::before {
+          background-color:transparent;
+          border-color: $custom-control-disabled-color;
+        }
+        &::after {
+          background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%208%208%22%3E%3Cpath%20fill%3D%22%23C8C9C7%22%20d%3D%22M6.564.75l-3.59%203.612-1.538-1.55L0%204.26%202.974%207.25%208%202.193z%22%2F%3E%3C%2Fsvg%3E');
+        }
+      }
+    }
+  }
+}
+
+.custom-radio {
+
+  .custom-control-input {
+
+    &:checked ~ .custom-control-label {
+
+      &:before {
+        background: #fff;
+      }
+
+      &:after {
+        background-image: none;
+        width: $custom-control-radio-size;
+        height: $custom-control-radio-size;
+        background-color: $primary;
+        background-color: Var(--primary);
+        border-radius: 50%;
+        left: ($custom-control-radio-padding * -1);
+        top: #{(2 * $custom-control-radio-space-around) + 0.05}rem;
+      }
+    }
+
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      &:checked ~ .custom-control-label::before {
+        background-color:transparent;
+        border-color: $custom-control-disabled-color;
+      }
+
+      &:checked ~ .custom-control-label::after {
+        background-color: $light;
+        background-color: Var(--light);
+      }
+    }
+  }
+}
+
+.custom-switch {
+  padding-left: $custom-switch-width + $custom-control-gutter;
+
+  .custom-control-input {
+
+    &:checked ~ .custom-control-label {
+
+      &::before {
+        color: $custom-control-indicator-checked-color;
+        border-color: $custom-control-indicator-checked-border-color;
+        @include gradient-bg($custom-control-indicator-checked-bg);
+        box-shadow: $custom-control-indicator-checked-box-shadow;
+      }
+      &::after {
+        background-color: $custom-control-indicator-bg;
+        transform: translateX($custom-switch-width - $custom-control-indicator-size);
+      }
+    }
+    &:disabled {
+
+      &:checked ~ .custom-control-label::before {
+        background-color: $custom-control-indicator-checked-disabled-bg;
+      }
+    }
+    &:focus ~ .custom-control-label::before {
+      border: $custom-control-indicator-border-color solid $custom-control-indicator-border-width;
+    }
+    &:not(:disabled):active ~ .custom-control-label::before {
+      background-color: gray;
+      border-color: gray;
+    }
+
+    ~ .custom-control-label {
+
+      &::before {
+        left: -($custom-switch-width + $custom-control-gutter);
+        width: $custom-switch-width;
+        pointer-events: all;
+        // stylelint-disable-next-line property-blacklist
+        border-radius: $custom-switch-indicator-border-radius;
+        border-color: $custom-control-indicator-unchecked-border-color;
+        @include gradient-bg($custom-control-indicator-unchecked-bg);
+        box-shadow: $custom-control-indicator-checked-box-shadow;
+      }
+      &::after {
+        top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
+        left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 1});
+        width: $custom-switch-indicator-size;
+        height: $custom-switch-indicator-size;
+        background-color: $custom-control-indicator-bg;
+        // stylelint-disable-next-line property-blacklist
+        border-radius: $custom-switch-indicator-border-radius;
+        @include transition(transform .15s ease-in-out, $custom-forms-transition);
+      }
+    }
+  }
+}

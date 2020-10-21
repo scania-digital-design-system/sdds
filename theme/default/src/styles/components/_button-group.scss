@@ -1,0 +1,14 @@
+.btn-group {
+
+  &-lg {
+    > .btn {
+      @extend .btn-lg;
+    }
+  }
+
+  &-sm {
+    > .btn {
+      @extend .btn-sm;
+    }
+  }
+}

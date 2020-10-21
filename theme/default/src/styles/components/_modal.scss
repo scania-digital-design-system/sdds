@@ -1,0 +1,42 @@
+@import '../variables';
+
+.modal {
+
+  &-content {
+    border-radius: $border-radius;
+    box-shadow: 0px 2px 20px rgba(0,0,0,0.2); //TODO: check intesnity of the shadow against the .fade
+    border: none;
+    margin-top: 30px; // Should we really have this?
+  }
+  &-header {
+    padding: $modal-padding;
+    border-color: $modal-border-color;
+
+    & .close { //TODO: Should look into the btn.close
+      font-size: 3rem;
+      font-weight: normal;
+      padding: 5px;
+    }
+  }
+  &-body {
+    padding: $modal-padding;
+  }
+  &-footer {
+    padding: $modal-padding;
+    border-color: $modal-border-color;
+  }
+}
+
+// TODO: Should we reverse these rules so it follows mobile first
+@media (max-width: 991px) {
+
+  .modal {
+
+    &-content {
+      overflow-y: auto;
+    }
+    &-body {
+      flex: none;
+    }
+  }
+}

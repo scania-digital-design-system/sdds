@@ -1,0 +1,23 @@
+//TODO: Look into regular badges design
+//TODO: Fix focus colors on badge-link
+
+.badge {
+  padding: .5rem .85rem .5rem .85rem;
+  border-radius: 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+
+  &.badge-pill {
+    padding: .6rem 1.6rem .7rem 1.6rem;
+    border-radius: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  @each $type in $types {
+    &-#{$type} {
+      background-color: map-get($interaction-colors, $type);
+      background-color: Var(--#{$type});
+    }
+  }
+}

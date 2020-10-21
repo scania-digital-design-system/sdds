@@ -1,0 +1,43 @@
+@import '../variables';
+
+.table {
+  border: 1px solid $table-border-color;
+  border-collapse: collapse;
+
+  caption {
+    caption-side: top;
+    padding: .75rem;
+    font-weight: bold;
+    color: $secondary;
+    color: Var(--secondary);
+    background-color: $primary;
+    background-color: Var(--primary);
+  }
+  thead {
+
+    &:first-child {
+      color: $secondary;
+      color: Var(--secondary);
+      background-color: $table-thead-bg-color;
+    }
+
+    th {
+      border: 1px solid $table-thead-border-color;
+      border-top-color: $table-thead-border-color;
+      border-bottom-color: $table-thead-border-color;
+    }
+  }
+  th,
+  td {
+    background-color: inherit;
+    box-shadow: inherit;
+    padding: 1.2rem 1.2rem 1.3rem;
+  }
+
+  &.table-sm {
+    th,
+    td {
+      padding: .4rem .5rem .5rem;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../variables';
+
+@mixin renderMap($mapping, $prop) {
+  @each $key, $value in $mapping {
+    #{$key} { #{$prop}: $value; }
+  }
+}
+
+@mixin text($color, $important: true) {
+  @include rule('color', $color, $important);
+}
+
+@mixin background($color, $important: true) {
+  @include rule('background-color', $color, $important);
+}
+
+@mixin border($color, $important: true) {
+  @include rule('border-color', $color, $important);
+}
+
+@mixin component($type, $name: '') {
+  $color: 'light';
+
+  // When dealing with alert we want the color to be the same as the background-color
+  @if $name == 'alert' OR $name == 'table' {
+    $color: $type;
+
+    // TODO: When we have color tints lets use those instead of box/text-shadow
+    box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.7);
+    text-shadow: 0px 0px #000;
+  }
+
+  @include background($type, false);
+  @include text(if($type == 'light' OR $type == 'secondary', 'dark', $color), false);
+}
+
+@mixin rule($type, $color, $important) {
+  #{$type}: map-get($theme-colors, $color) if($important, !important, null);
+  #{$type}: Var(--#{$color}) if($important, !important, null);
+}

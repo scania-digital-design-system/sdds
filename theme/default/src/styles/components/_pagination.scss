@@ -1,0 +1,34 @@
+@import "../variables";
+
+.pagination {
+  font-size: 1.6rem;
+
+  .page-item {
+    background-color: $pagination-bg-color; //TODO: Look into background-color for every state
+
+    &.active {
+
+      .page-link {
+        background-color: $pagination-bg-color;
+        color: $primary;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+
+    //TODO: Focus state interaction with page-link
+    .page-link {
+      border: none;
+      color: #909090;
+      text-decoration: none;
+      background-color: $pagination-bg-color;
+
+
+      &:hover {
+        background-color: $pagination-bg-color;
+        color: $primary;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,61 @@
+@import '../variables';
+@import '../mixins';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headings-font-family;
+  color: $headings-color;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@include renderMap($heading-sizes, 'font-size');
+
+h5,
+h6 { font-family: $font-family-base; }
+h6 { font-style: italic; }
+
+a {
+  color: $link-color; //IE
+  color: Var(--link-color);
+  text-decoration: $link-decoration; //IE
+  text-decoration: Var(--link-decoration);
+  background-color: $link-bg; //IE
+  background-color: Var(--link-bg);
+
+  &:hover,
+  &:active,
+  &.active,
+  &[active]:not([active="false"]) {
+    color: $link-color-hover; //IE
+    color: Var(--link-color-hover);
+    text-decoration: $link-decoration-hover; //IE
+    text-decoration: Var(--link-decoration-hover);
+    background-color: $link-bg-hover; //IE
+    background-color: Var(--link-bg-hover);
+  }
+
+  &:active,
+  &.active {
+    color: $link-color-active; //IE
+    color: Var(--link-color-active);
+  }
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  font-size: 1.8rem;
+}
+
+label {
+  font-weight: bold;
+  color: $dark-01; //IE
+  color: Var(--dark-01);
+}

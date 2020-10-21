@@ -1,0 +1,50 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+@import '../../../node_modules/bootstrap/scss/spinners';
+
+@import '../variables';
+
+.loading {
+  position: relative;
+
+  &:not(.btn) {
+    color: $primary;
+  }
+
+  &:before {
+    content:'';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 250, 250, 0.6);
+  }
+
+  &:after {
+    content: '';
+    @extend .spinner-border;
+    top: 50%;
+    left: 50%;
+    margin-left: (-1 * $spinner-width);
+    position: absolute;
+  }
+
+  &.btn {
+
+    &:after {
+      margin-top: -9px;
+      margin-left: -1rem;
+    }
+
+    &:not(:disabled):not(.disabled) {
+      &:hover {
+        box-shadow: none;
+        cursor: auto;
+        pointer-events: none;
+      }
+    }
+  }
+}

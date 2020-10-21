@@ -1,0 +1,72 @@
+@import '../variables';
+@import '../components/button';
+@import '../components/badges';
+@import '../components/list-group';
+@import '../components/custom-forms';
+@import '../utilities/typography';
+
+@import 'node_modules/bootstrap/scss/mixins/breakpoints';
+@import 'node_modules/bootstrap/scss/utilities/spacing';
+
+// TODO: Maybe this should go in a file that is included in all components
+:host {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+
+  p {
+    font-size: inherit;
+  }
+}
+
+::slotted(a) {
+  color: $link-color;
+  color: Var(--link-color);
+  text-decoration: none;
+  text-decoration: Var(--link-decoration, none);
+}
+::slotted(a:hover) {
+  color: $link-color-hover;
+  color: Var(--link-color-hover);
+  text-decoration: underline;
+  text-decoration: Var(--link-decoration-hover, underline);
+}
+
+footer {
+  background-color: $dark-03;
+  background-color: Var(--dark-03);
+  color: $light;
+  color: Var(--light);
+}
+
+.container {
+  display: flex;
+}
+.list-group-item {
+  font: inherit;
+}
+
+// TODO: Should we reverse these rules so it follows mobile first
+@media (max-width: 991px) {
+
+  ::slotted(a) {
+    padding: 1.7rem 3rem;
+  }
+
+  .main {
+    flex: 0 0 auto;
+  }
+  .list-group {
+
+    &-item {
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding: 1.7rem 3rem;
+
+      &.active {
+        background-color: transparent;
+        color: inherit;
+        border-color: $light-04;
+      }
+    }
+  }
+}

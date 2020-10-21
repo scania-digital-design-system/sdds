@@ -1,0 +1,27 @@
+@import '../variables';
+
+.card {
+  border-color: $light-04;
+  border-radius: $border-radius;
+
+  .card-body {
+    padding: 3.0rem 1.7rem;
+  }
+
+  //TODO: should it match regular a element
+  .card-link {
+    color: $link-color;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: underline;
+    }
+
+    &:active,
+    &.active {
+      color: $link-color-active;
+    }
+  }
+}

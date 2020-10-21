@@ -1,0 +1,14 @@
+// TODO: Font-size for the text inside progressbar
+// TODO: Add variable for border-radius that is global
+
+@import '../variables';
+
+.progress-bar {
+  @include background('primary');
+}
+
+.progress {
+  border-radius: $border-radius;
+  height: 12px; //Default height
+  font-size: 1.2rem;
+}
