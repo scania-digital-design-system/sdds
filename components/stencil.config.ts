@@ -8,24 +8,42 @@ const fb = () => ({});
 const dep = fs.existsSync('./.env') ? dotenvPlugin : fb;
 
 export const config: Config = {
-  namespace: 'corporate-ui',
+  namespace: 'sdds-components',
   globalScript: 'src/global.ts',
   enableCache: false,
   hashFileNames: false,
-  // devMode: true,
+  buildEs5: true,
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    shadowDomShim: true,
+    safari10: true,
+    scriptDataOpts: true,
+    appendChildSlotFix: true,
+    cloneNodeFix: false,
+    slotChildNodesFix: true,
+  },
   outputTargets: [
     {
       type: 'dist',
+      esmLoaderPath: 'loader',
       copy: [
         { src: '../.build/index.js', dest: 'index.js' },
-        { src: 'helpers/cdn.js', dest: '../corporate-ui-dev.js', warn:true },
+        { src: 'helpers/cdn.js', dest: '../core.js', warn:true },
       ]
+    },
+    {
+      type: 'dist-custom-elements-bundle',
     },
     {
       type: 'www',
       dir: '.www',
       serviceWorker: null, // disable service workers
     },
+    {
+      type: 'docs-json',
+      file: 'dist/collection/custom-elements.json'
+    }
   ],
   testing: {
     testPathIgnorePatterns: ['/node_modules/', 'global.spec'],

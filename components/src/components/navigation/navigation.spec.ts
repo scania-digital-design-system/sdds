@@ -1,57 +1,64 @@
-// import { store } from '../../store';
 import { Navigation } from './navigation';
 import { applyTheme } from '../../global.spec';
+import store from '../../store';
 
-const component = new Navigation();
+const navigation = new Navigation();
 
-describe('navigation', (function () {
+describe('navigation', function () {
   const primaryItems = [{ text: 'home' }];
   const secondaryItems = [{ text: 'user' }];
 
-  applyTheme.call(this);
+  beforeEach(() => {
+    store.dispose();
+  });
+
+  it('set theme', () => {
+    const component = new Navigation();
+    applyTheme(component);
+  });
 
   it('is initiated', () => {
-    expect(this).toBeTruthy();
+    expect(navigation).toBeTruthy();
   });
 
   it('should generate navigation links', () => {
     // arrange expected conditions
 
     // act on set items methods
-    this.setPrimaryItems(primaryItems);
-    this.setSecondaryItems(secondaryItems);
+    navigation.setPrimaryItems(primaryItems);
+    navigation.setSecondaryItems(secondaryItems);
 
     // assert expected results has been occured
-    expect(this.primaryItems).toEqual(primaryItems);
-    expect(this.secondaryItems).toEqual(secondaryItems);
+    expect(navigation.primaryItems).toEqual(primaryItems);
+    expect(navigation.secondaryItems).toEqual(secondaryItems);
   });
 
-  // TODO: failed due to $hostelement$ undefined
-  // it('should toggle navigation', () => {
-  //   // assert open status
-  //   expect(this.navigationOpen).toBe(true);
+  // create new Class inside "it" function to avoid "$hostelement$ undefined"
+  it('should toggle navigation', () => {
+    const component = new Navigation();
+    // assert open status
+    expect(component.store.navigation.open).toBe(false);
 
-  //   // change open status
-  //   this.toggleNavigation(false);
+    // change open status
+    navigation.toggleNavigation(true);
 
-  //   // assert open status
-  //   expect(this.navigationOpen).toBe(false);
-  // });
+    // assert open status
+    expect(component.store.navigation.open).toBe(true);
+  });
 
-  // it('should toggle sub navigation', () => {
-  //   // ensure sub navigation fetch the open state from store
-  //   expect(this.navigationExpanded).not.toBeNull();
+  it('should toggle sub navigation', () => {
+    const component = new Navigation();
 
-  //   // change expanded status
-  //   this.toggleSubNavigation(true);
+    // change expanded status
+    navigation.toggleSubNavigation(true);
 
-  //   // assert expanded status
-  //   expect(this.navigationExpanded).toBe(true);
+    // assert expanded status
+    expect(component.store.navigation.expanded).toBe(true);
 
-  //   // change expanded status
-  //   this.toggleSubNavigation(false);
+    // change expanded status
+    navigation.toggleSubNavigation(false);
 
-  //   // assert expanded status
-  //   expect(this.navigationExpanded).toBe(false);
-  // });
-}).bind(component));
+    // assert expanded status
+    expect(component.store.navigation.expanded).toBe(false);
+  });
+});

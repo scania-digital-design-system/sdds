@@ -1,32 +1,40 @@
-// import { store } from '../../store';
 import { applyTheme } from '../../global.spec';
+import store from '../../store';
 import { Header } from './header';
 
-const component = new Header();
+const header = new Header();
 
-describe('header', (function () {
+describe('header', function () {
   const items = [{ text: 'global' }];
   
-  applyTheme.call(this);
+  beforeEach(() => {
+    store.dispose();
+  });
+
+  it('set theme', () => {
+    const component = new Header();
+    applyTheme(component);
+  });
 
   it('is initiated', () => {
-    expect(this).toBeTruthy();
+    expect(header).toBeTruthy();
   });
 
   it('should generate top links', () => {
-    expect(this.items).toEqual([]);
+    expect(header.items).toEqual([]);
 
-    this.setItems(items);
+    header.setItems(items);
 
-    expect(this.items).toEqual(items);
+    expect(header.items).toEqual(items);
   });
 
-  // TODO: failed due to $hostelement$ undefined
-  // it('should toggle navigation', () => {
-  //   expect(this.navigationOpen).toBe(false);
+  it('should toggle navigation', () => {
+    // need to create new Class inside to avoid "$hostelement$ undefined"
+    const component = new Header();
+    expect(component.navigationOpen).toBe(false);
 
-  //   this.toggleNavigation(true);
+    component.toggleNavigation(true);
 
-  //   expect(this.navigationOpen).toBe(true);
-  // });
-}).bind(component));
+    expect(component.navigationOpen).toBe(true);
+  });
+});

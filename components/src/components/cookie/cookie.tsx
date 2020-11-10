@@ -1,7 +1,9 @@
 import {
   Component, h, Prop, State, Element, Watch
 } from '@stencil/core';
+
 import { themeStyle } from '../../helpers/themeStyle';
+import store from '../../store';
 
 import JsCookie from 'js-cookie';
 import Tab from 'bootstrap/js/src/tab';
@@ -12,8 +14,6 @@ import Tab from 'bootstrap/js/src/tab';
   shadow: true,
 })
 export class Cookie {
-  @Prop({ context: 'store' }) ContextStore: any;
-
   /** Per default, this will inherit the value from c-theme name property */
   @Prop({ mutable: true }) theme: string;
 
@@ -39,7 +39,7 @@ export class Cookie {
 
   @Prop() inline: boolean;
 
-  @State() store: any;
+  @State() store = store.state;
 
   @State() tagName: string;
 
@@ -49,7 +49,9 @@ export class Cookie {
 
   @State() items: Array<any> = [];
 
-  @State() tab;
+  @State() tab : HTMLElement;
+
+  @State() tabs : Array<HTMLElement> = [];
 
   @State() all = false;
 
@@ -67,8 +69,9 @@ export class Cookie {
 
   @Watch('theme')
   setTheme(name = undefined) {
-    this.theme = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.theme];
+    this.theme = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.theme];
+    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
   }
 
   @Watch('inline')
@@ -77,23 +80,25 @@ export class Cookie {
     this.modalConfig = { ...this.modalConfig, backdrop: inline ? !inline : 'static' };
   }
 
-  @Watch('tab')
-  initTabs(el) {
+  @Watch('tabs')
+  initTabs(tabs) {
     // TODO: Maybe we can solve this in a better way later
     if(this.el.parentNode.nodeName !== 'C-CODE-SAMPLE') {
-      const tab = new Tab(el);
+      tabs.forEach(el => {
+        const tab = new Tab(el);
 
-      // We use a timeout here to make sure the dynamic tab-content have time to get added
-      setTimeout(() => {
-        const target = (this.el.shadowRoot || this.el).querySelector(el.getAttribute('href'));
+        // We use a timeout here to make sure the dynamic tab-content have time to get added
+        setTimeout(() => {
+          const target = (this.el.shadowRoot || this.el).querySelector(el.getAttribute('href'));
 
-        el.onclick = (event) => {
-          event.preventDefault();
-          tab.show();
+          el.onclick = (event) => {
+            event.preventDefault();
+            tab.show();
 
-          // Due to bs methods having document hardcoded we need to do this
-          tab._activate(target, target.parentNode, () => {});
-        }
+            // Due to bs methods having document hardcoded we need to do this
+            tab._activate(target, target.parentNode, () => {});
+          }
+        });
       });
     }
   }
@@ -141,16 +146,15 @@ export class Cookie {
   componentWillLoad() {
     this.loadLibs();
 
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    this.store.theme = store.get('theme');
+    
+    store.use({set: (function(value){
+      if(value === 'theme') this.theme = store.state.theme.current;
+    }).bind(this)});
 
     this.setTheme(this.theme);
 
     this.configureBackdrop(this.inline);
-
-    this.store.subscribe(() => {
-      this.setTheme();
-      themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-    });
 
     if (!(this.el && this.el.nodeName)) return;
 
@@ -199,6 +203,10 @@ export class Cookie {
     });
   }
 
+  setRef = (function(ref){
+    this.tabs = [...this.tabs, ref];
+  }).bind(this);
+
   render() {
     return [
       <form onSubmit={event => this.save(event)} onReset={(event) => { event.preventDefault(); this.open = false }}>
@@ -217,8 +225,30 @@ export class Cookie {
                   </div>
                 : ''}
 
-                <nav class="list-group" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  {this.items.map((item, index) => (
+                <nav class="list-group" role="tablist" aria-orientation="vertical">
+                  {
+                    this.items.map((item, index) => (
+                    <a href={'#v-pills-' + index}
+                      class={'list-group-item list-group-item-action' + (index === 0 ? ' active' : '')}
+                      data-toggle="pill"
+                      ref={this.setRef}
+                      onClick={() => this.active = true}
+                    >
+                      <span class="ml-3 mr-auto">{item.text}</span>
+
+                      {item.toggable ?
+                        item.attributes.disabled ?
+                          <input type="checkbox" name={item.type || item.id} checked={this.items[index].attributes.checked} value="true" hidden />
+                        :
+                          <div class="custom-control custom-switch" onClick={event => event.stopPropagation()}>
+                            <input type="checkbox" name={item.type || item.id} id={item.type || item.id} value="true" class="custom-control-input d-none" onChange={() => this.check(item, index)} { ... { ...item.attributes } } />
+                            <label class="custom-control-label" { ... { for: item.type || item.id } }></label>
+                          </div>
+                      : ''}
+                    </a>
+                    ))
+                  }
+                  {/* {this.items.map((item, index) => (
                     <a href={'#v-pills-' + index} class={'list-group-item list-group-item-action' + (index === 0 ? ' active' : '')} data-toggle="pill" ref={el => this.tab = el} onClick={() => this.active = true}>
                       <c-icon name='scania-angle-down' class="d-lg-none"></c-icon>
 
@@ -235,7 +265,7 @@ export class Cookie {
                       : ''}
 
                     </a>
-                  ))}
+                  ))} */}
 
                   <slot name="link" />
                 </nav>
