@@ -3,7 +3,7 @@ import {
 } from '@stencil/core';
 import { themeStyle } from '../../helpers/themeStyle';
 
-import { actions } from '../../store';
+import store from '../../store';
 
 @Component({
   tag: 'c-navigation',
@@ -11,8 +11,6 @@ import { actions } from '../../store';
   shadow: true,
 })
 export class Navigation {
-  @Prop({ context: 'store' }) ContextStore: any;
-
   /** Per default, this will inherit the value from c-theme name property */
   @Prop({ mutable: true }) theme: string;
 
@@ -34,11 +32,7 @@ export class Navigation {
   /** Option to disable sticky feature */
   @Prop() sticky = true;
 
-  @State() store: any;
-
-  @State() navigationOpen: boolean = true;
-
-  @State() navigationExpanded: string = undefined;
+  @State() store = store.state;
 
   @State() isSub: boolean;
 
@@ -70,8 +64,9 @@ export class Navigation {
 
   @Watch('theme')
   setTheme(name = undefined) {
-    this.theme = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.theme];
+    this.theme = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.theme];
+    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
   }
 
   @Listen('scroll', { target: 'window' })
@@ -102,28 +97,24 @@ export class Navigation {
   }
 
   toggleNavigation(open) {
-    this.store.dispatch({ type: actions.TOGGLE_NAVIGATION, open });
+    this.store.navigation = {open: open, expanded: this.store.navigation.expanded};
   }
 
   toggleSubNavigation(expanded) {
-    this.store.dispatch({ type: actions.TOGGLE_SUB_NAVIGATION, expanded });
+    this.store.navigation = {open: this.store.navigation.open, expanded: expanded};
   }
 
   componentWillLoad() {
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    this.store = store.state;
+
+    store.use({set: (function(value){
+      if(value === 'theme') this.theme = store.get('theme').current;
+      if(value === 'navigation') this.store.navigation = store.get('navigation');
+    }).bind(this)});
 
     this.setTheme(this.theme);
     this.setPrimaryItems(this.primaryItems);
     this.setSecondaryItems(this.secondaryItems);
-
-    this.store.subscribe(() => {
-      this.navigationOpen = this.store.getState().navigation.open;
-      this.navigationExpanded = this.store.getState().navigation.expanded;
-
-      this.setTheme();
-
-      themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-    });
 
     if (!(this.el && this.el.nodeName)) return;
 
@@ -133,7 +124,6 @@ export class Navigation {
     this.isIE = !document.head.attachShadow;
 
     this.toggleSubNavigation(undefined);
-    this.toggleNavigation(true);
   }
 
   componentDidUpdate() {
@@ -196,7 +186,7 @@ export class Navigation {
 
   hostData() {
     return {
-      expand: (this.target && this.target === this.navigationExpanded) || (!this.isSub && this.navigationExpanded) ? 'true' : 'false',
+      expand: (this.target && this.target === this.store.navigation.expanded) || (!this.isSub && this.store.navigation.expanded) ? 'true' : 'false',
     };
   }
 
@@ -208,7 +198,7 @@ export class Navigation {
     return [
       this.currentTheme ? <style id="themeStyle">{ this.currentTheme.components[this.tagName] }</style> : '',
 
-      <div class={`navbar-container ${this.navigationOpen ? ' open' : ''}`}>
+      <div class={`navbar-container ${this.store.navigation.open ? ' open' : ''}`}>
         <nav class={`navbar navbar-expand-lg ${this.orientation}`}>
             <nav class='navbar-nav'>
               { this.isSub

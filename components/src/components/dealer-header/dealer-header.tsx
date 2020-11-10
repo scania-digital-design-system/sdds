@@ -2,6 +2,7 @@ import {
   Component, h, Element, Prop, State, Watch,
 } from '@stencil/core';
 import { themeStyle } from '../../helpers/themeStyle';
+import store from '../../store';
 
 @Component({
   tag: 'c-dealer-header',
@@ -23,11 +24,9 @@ export class DealerHeader {
 
   @Prop({ mutable: true }) theme: string;
 
-  @Prop({ context: 'store' }) ContextStore: any;
-
   @State() currentTheme = { components: [] };
 
-  @State() store: any;
+  @State() store = store.state;
 
   @State() tagName: string;
 
@@ -37,19 +36,19 @@ export class DealerHeader {
 
   @Watch('theme')
   setTheme(name = undefined) {
-    this.theme = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.theme];
+    this.theme = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.theme];
+    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
   }
 
   componentWillLoad() {
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    this.store.theme = store.get('theme');
+
+    store.use({set: (function(value){
+      if(value === 'theme') this.theme = store.state.theme.current;
+    }).bind(this)});
 
     this.setTheme(this.theme);
-
-    this.store.subscribe(() => {
-      this.setTheme();
-      themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-    });
 
     if (!(this.el && this.el.nodeName)) return;
 

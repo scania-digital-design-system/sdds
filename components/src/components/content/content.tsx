@@ -2,21 +2,21 @@ import {
   Component, h, Prop, State, Element, Watch,
 } from '@stencil/core';
 
+import store from '../../store';
+
 @Component({
   tag: 'c-content',
   styleUrl: 'content.scss',
   shadow: true,
 })
 export class Content {
-  @Prop({ context: 'store' }) ContextStore: any;
-
   /** Per default, this will inherit the value from c-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   /** This property is in experimental state */
   @Prop() router: boolean;
 
-  @State() store: any;
+  @State() store = store.state;
 
   @State() tagName: string;
 
@@ -26,16 +26,18 @@ export class Content {
 
   @Watch('theme')
   setTheme(name = undefined) {
-    this.theme = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.theme];
+    this.theme = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.theme];
   }
 
   componentWillLoad() {
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    this.store.theme = store.get('theme');
+
+    store.use({set: (function(value){
+      if(value === 'theme') this.theme = store.state.theme.current;
+    }).bind(this)});
 
     this.setTheme(this.theme);
-
-    this.store.subscribe(() => this.setTheme());
 
     if (!(this.el && this.el.nodeName)) return;
 

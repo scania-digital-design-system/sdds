@@ -1,14 +1,21 @@
-// import { store } from '../../store';
 import { applyTheme } from '../../global.spec';
+import store from '../../store';
 import { DealerHeader } from './dealer-header';
 
-const component = new DealerHeader();
+const dealerHeader = new DealerHeader();
 
-describe('dealer-header', (function () {
+describe('dealer-header', function () {
 
-  applyTheme.call(this);
+  beforeEach(() => {
+    store.dispose();
+  });
+
+  it('set theme', () => {
+    const component = new DealerHeader();
+    applyTheme(component);
+  });
 
   it('is initiated', () => {
-    expect(this).toBeTruthy();
+    expect(dealerHeader).toBeTruthy();
   });
-}).bind(component));
+});

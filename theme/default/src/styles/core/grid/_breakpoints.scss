@@ -1,0 +1,82 @@
+@import 'grid-vars';
+/* Grid breakpoints used for setting up every grid in different sizes
+ - All values most be added
+ - Contains gutterless grid breakpoints also
+*/
+
+//TODO: Add rem instead of px, map doesn't give correct rem value, need a converter
+$sdds-grid-breakpoints: (
+  sm: (
+    width: 320px,
+    columns: 4,
+    margin: 0,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04
+  ),
+  md: (
+    width: 672px,
+    columns: 8,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04
+  ),
+  lg: (
+    width: 1056px,
+    columns: 16,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04
+  ),
+  xlg: (
+    width: 1312px,
+    columns: 16,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-02,
+    gutter: $spacing-layout-04
+  ),
+  xxlg: (
+    width: 1584px,
+    columns: 16,
+    margin: $spacing-layout-03,
+    padding: $spacing-layout-02,
+    gutter: $spacing-layout-04
+  ),
+) !default;
+
+$sdds-grid-breakpoints-gutterless: (
+  sm: (
+    width: 320px,
+    columns: 4,
+    margin: 0,
+    padding: $spacing-layout-02,
+    gutter: 0
+  ),
+  md: (
+    width: 672px,
+    columns: 8,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-02,
+    gutter: 0
+  ),
+  lg: (
+    width: 1056px,
+    columns: 16,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-02,
+    gutter: 0
+  ),
+  xlg: (
+    width: 1312px,
+    columns: 16,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-02,
+    gutter: 0
+  ),
+  xxlg: (
+    width: 1584px,
+    columns: 16,
+    margin: $spacing-layout-03,
+    padding: $spacing-layout-02,
+    gutter: 0
+  ),
+) !default;
