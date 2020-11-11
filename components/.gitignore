@@ -9,7 +9,7 @@
 src/themes.built/
 
 # Compiled from gulpfile.babel.js
-.storybook/
+# .storybook/
 dist/
 www/
 
