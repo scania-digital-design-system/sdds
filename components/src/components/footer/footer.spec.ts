@@ -1,40 +1,51 @@
-// import { store } from '../../store';
+import store from '../../store';
 import { Footer } from './footer';
 import { applyTheme } from '../../global.spec';
 
-const component = new Footer();
+// const component = new Footer();
 
 describe('footer', (function () {
-  const items = [{ text: 'contact us' }];
-  const socialItems = [{ icon: 'youtube' }];
+  const items = [{ text: 'contact us' }]; 
+  const socialItems = [{ icon: 'youtube' }]; 
+  
+  beforeEach(() => {
+    store.dispose();
+  });
 
-  applyTheme.call(this);
+  it('set theme', () => {
+    const component = new Footer();
+    applyTheme(component);
+  });
 
   it('is initiated', () => {
-    expect(this).toBeTruthy();
+    const component = new Footer();
+    expect(component).toBeTruthy();
   });
 
   it('should have copyright text', () => {
-    expect(this.text).toBeTruthy();
+    const component = new Footer();
+    expect(component.text).toBeTruthy();
   });
 
   it('should generate footer links', () => {
     // check if initial property is empty
-    expect(this.items).toEqual([]);
+    const component = new Footer();
+    expect(component.items).toEqual([]);
 
-    this.setItems(items);
+    component.setItems(items);
 
     // check if functionality to generate link items work
-    expect(this.items).toEqual(items);
+    expect(component.items).toEqual(items);
   });
 
   it('should generate footer social links', () => {
     // check if initial property is empty
-    expect(this.socialItems).toEqual([]);
+    const component = new Footer();
+    expect(component.socialItems).toEqual([]);
 
-    this.setSocialItems(socialItems);
+    component.setSocialItems(socialItems);
 
     // check if functionality to generate link items work
-    expect(this.socialItems).toEqual(socialItems);
+    expect(component.socialItems).toEqual(socialItems);
   });
-}).bind(component));
+}));

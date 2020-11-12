@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../core/spacing/spacing';
 
 @mixin nav-link {
   color: $dark-02; // IE
@@ -16,7 +17,8 @@
 @mixin title {
   font-family: 'Scania Sans Headline';
   font-weight: normal;
-  font-size: 1.8rem;
+  //FIXME: Add correct rem
+  font-size: 4.5rem;
   color: #53565a;
   line-height: 1;
   padding: 0 10px;
@@ -39,7 +41,8 @@
   flex-shrink: 0;
   background-color: #fff;
   font-family: 'Scania Sans';
-  font-size: 1.4rem;
+  //FIXME: Add correct rem
+  font-size: 3.5rem;
   z-index: 1000;
   padding: 0;
   border-bottom: 1px solid #e2e2e2;
@@ -84,7 +87,8 @@
   }
   .navbar-nav {
     font-family: 'Scania Sans';
-    font-size: 1.2rem;
+    //FIXME: Add correct rem
+    font-size: $spacing-element-04;
     text-transform: uppercase;
     color: #747472;
     margin-top: -10px;
@@ -157,6 +161,8 @@
   &-icon {
     // This make the icon the same size as the logotype, making it easier to handle the parent element padding needed
     margin: 8px;
+    //FIXME: Add correct rem
+    font-size: 3.125rem;
   }
 }
 

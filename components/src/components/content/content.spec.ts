@@ -1,13 +1,20 @@
 import { Content } from './content';
 import { applyTheme } from '../../global.spec';
+import store from '../../store';
 
-const component = new Content();
+describe('content', function () {
 
-describe('content', (function () {
+  beforeEach(() => {
+    store.dispose();
+  });
 
-  applyTheme.call(this);
+  it('set theme', () => {
+    const component = new Content();
+    applyTheme(component);
+  });
 
   it('is initiated', () => {
-    expect(this).toBeTruthy();
+    const component = new Content();
+    expect(component).toBeTruthy();
   });
-}).bind(component));
+});

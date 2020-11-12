@@ -23,7 +23,8 @@
 
   // These settings are needed to adjust the miss
   // alignment for brand icon files
-  font-size: 3.8rem;
+  //FIXME: Add correct rem
+  font-size: 9.5rem;
   padding: 2px;
 
   // IE
@@ -71,7 +72,8 @@
 
 // Copyright text
 p {
-  font-size: 1.4rem;
+  //FIXME: Add correct rem
+  font-size: 3.5rem;
   color: #fff;
   text-align: center;
   padding: 50px 10px;
@@ -86,7 +88,8 @@ p {
   .navbar-nav {
     text-transform: uppercase;
     font-family: 'Scania Sans';
-    font-size: 1.4rem;
+    //FIXME: Add correct rem
+    font-size: 3.5rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 30px;
@@ -167,7 +170,8 @@ p {
     text-align: left;
     padding: 0;
     margin: 15px 0 0;
-    font-size: 1rem;
+    //FIXME: Add correct rem
+    font-size: 2.5rem;
     color: #97999b;
   }
 

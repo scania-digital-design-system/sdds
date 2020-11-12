@@ -5,14 +5,14 @@ export { defineCustomElements, addTheme };
 function defineCustomElements() {
   fixFouc();
 
-  return applyPolyfills().then(() => dce(window));
+  return applyPolyfills().then(() => dce());
 }
 
 function addTheme(_theme) {
-  const { store, actions, storeReady } = window.CorporateUi || {};
+  const { store, storeReady } = window.CorporateUi || {};
 
   if (storeReady) {
-    return init(_theme, { detail: { store, actions } });
+    return init(_theme, { detail: { store } });
   }
 
   // TODO: Maybe this event listener should be accesable from the theme itself?
@@ -20,14 +20,16 @@ function addTheme(_theme) {
 
   function init(theme, event) {
     const name = Object.keys(theme)[0];
-    theme[name].components = document.head.attachShadow ? theme[name].components.default : theme[name].components.ie;
+    const store = event.detail.store;
+    // need to get store theme through get API to make it work in IE
+    const storeTheme = store.get('theme');
 
-    [
-      { type: 'ADD_THEME', theme },
-    ].map(item => {
-      item.type = event.detail.actions[item.type];
-      event.detail.store.dispatch(item);
-    });
+    theme[name].components = document.head.attachShadow ? theme[name].components.default : theme[name].components.ie;
+    
+    storeTheme.items[name] = theme[name];
+
+    store.set('theme', storeTheme);
+    
   }
 }
 

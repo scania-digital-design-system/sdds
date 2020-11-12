@@ -1,17 +1,20 @@
 //TODO: Look into regular badges design
 //TODO: Fix focus colors on badge-link
+@import '../core/spacing/spacing';
 
 .badge {
-  padding: .5rem .85rem .5rem .85rem;
-  border-radius: 1.2rem;
-  font-size: 1.2rem;
-  line-height: 1.4rem;
+  //FIXME: Add correct rem
+  padding: 1.25rem 8.5px 1.25rem 8.5px;
+  border-radius: $spacing-element-04;
+  font-size: $spacing-element-04;
+  line-height: 3.5rem;
 
   &.badge-pill {
-    padding: .6rem 1.6rem .7rem 1.6rem;
-    border-radius: 1.6rem;
-    font-size: 1.4rem;
-    line-height: 1.7rem;
+    //FIXME: Add corect rem
+    padding: 1.5rem $spacing-element-05 1.75rem $spacing-element-05;
+    border-radius: $spacing-element-05;
+    font-size: 3.4rem;
+    line-height: 4.25rem;
   }
 
   @each $type in $types {
