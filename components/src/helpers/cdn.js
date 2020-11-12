@@ -9,7 +9,9 @@
   var url = parts.join('/');
 
   scriptElm = doc.createElement('script');
+  // when stop supporting IE 11, change to /corporate-ui.esm.js and type="module"
   scriptElm.src = url + '/corporate-ui.js';
+  scriptElm.nomodule = true;
 
   fixFouc();
   doc.head.insertBefore(scriptElm, parentScript[0]);

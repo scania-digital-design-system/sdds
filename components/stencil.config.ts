@@ -12,14 +12,28 @@ export const config: Config = {
   globalScript: 'src/global.ts',
   enableCache: false,
   hashFileNames: false,
-  // devMode: true,
+  buildEs5: true,
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    shadowDomShim: true,
+    safari10: true,
+    scriptDataOpts: true,
+    appendChildSlotFix: true,
+    cloneNodeFix: false,
+    slotChildNodesFix: true,
+  },
   outputTargets: [
     {
       type: 'dist',
+      esmLoaderPath: 'loader',
       copy: [
         { src: '../.build/index.js', dest: 'index.js' },
-        { src: 'helpers/cdn.js', dest: '../corporate-ui-dev.js', warn:true },
+        { src: 'helpers/cdn.js', dest: '../corporate-ui.js', warn:true },
       ]
+    },
+    {
+      type: 'dist-custom-elements-bundle',
     },
     {
       type: 'www',

@@ -15,9 +15,11 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    margin-bottom: 1rem;
+    //FIXME: Add correct rem
+    margin-bottom: 2.5rem;
     > div:first-child {
-      padding-right: 1rem;
+        //FIXME: Add correct rem
+      padding-right: 2.5rem;
     }
     > div:nth-child(2) {
       display: flex;
@@ -42,7 +44,7 @@
     width: 25px;
     height: 25px;
   }
-  
+
   .input-icon-cross {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDojNTM1NjVhO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTkwLjUsNzkuMzc0bC0uODU3LS44NTdMODQuNSw4My42NTlsLTUuMTQyLTUuMTQzLS44NTcuODU3LDUuMTQyLDUuMTQzTDc4LjUsODkuNjU4bC44NTcuODU3TDg0LjUsODUuMzczbDUuMTQyLDUuMTQzLjg1Ny0uODU3LTUuMTQyLTUuMTQzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc4LjQ5NiAtNzguNTE2KSIvPjwvc3ZnPg==") no-repeat !important;
     position: absolute;
@@ -57,4 +59,3 @@
     padding-right: 25px !important;
   }
 }
-  

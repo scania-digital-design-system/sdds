@@ -1,3 +1,5 @@
+@import '../core/spacing/spacing';
+
 :host {
   display: flex;
   flex-direction: column;
@@ -5,6 +7,7 @@
 }
 
 ::slotted(section) {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  //FIXME: Add correct rem
+  padding-top: $spacing-element-09;
+  padding-bottom: $spacing-element-09;
 }

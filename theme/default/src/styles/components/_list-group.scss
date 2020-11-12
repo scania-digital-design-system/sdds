@@ -3,7 +3,8 @@
 .list-group {
 
   &-item {
-    padding: 1.7rem;
+    //FIXME: Add correct rem
+    padding: 4.25rem;
     border-color: $light-04;
     display: flex;
     text-decoration: none;

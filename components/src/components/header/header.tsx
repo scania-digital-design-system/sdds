@@ -2,7 +2,7 @@ import {
   Component, h, Prop, State, Element, Watch,
 } from '@stencil/core';
 
-import { actions } from '../../store';
+import store from '../../store';
 import { themeStyle } from '../../helpers/themeStyle';
 
 @Component({
@@ -11,8 +11,6 @@ import { themeStyle } from '../../helpers/themeStyle';
   shadow: true,
 })
 export class Header {
-  @Prop({ context: 'store' }) ContextStore: any;
-
   /** Per default, this will inherit the value from c-theme name property */
   @Prop({ mutable: true }) theme: string;
 
@@ -23,17 +21,17 @@ export class Header {
   @Prop() siteUrl = '/';
 
   /** Header links that will be placed in the top right part of the header */
-  @Prop({ mutable: true }) items: any;
+  @Prop({ mutable: true }) items: any = [];
 
   /** Short name will be displayed in the top-centered of the header on mobile mode */
   @Prop() shortName: string;
 
   /** Variation to header */
-  @Prop({ reflectToAttr: true }) variation: string;
+  @Prop({ reflect: true }) variation: string;
 
-  @State() store: any;
+  @State() store = store.state;
 
-  @State() navigationOpen: Boolean;
+  @State() navigationOpen: Boolean = false;
 
   @State() tagName: string;
 
@@ -54,29 +52,41 @@ export class Header {
 
   @Watch('theme')
   setTheme(name = undefined) {
-    this.theme = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.theme];
+    this.theme = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.theme];
+    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
   }
 
   toggleNavigation(open) {
-    this.store.dispatch({ type: actions.TOGGLE_NAVIGATION, open });
-    setTimeout(() => {
-      this.navigationOpen ? document.body.classList.add('nav-show') : document.body.classList.remove('nav-show');
-    }, 350);
+    const newValue = {
+      open: open,
+      expanded: this.store.navigation.expanded
+    }
+    
+    store.set('navigation', newValue);
+    
+    this.navigationOpen = this.store.navigation.open;
+  }
+
+  @Watch('navigationOpen')
+  addBodyClass() {
+    this.navigationOpen ? document.body.classList.add('nav-show') : document.body.classList.remove('nav-show');
   }
 
   componentWillLoad() {
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    // IE11 does not support stencil store state proxy objects, so these 2 lines are required
+    this.store.theme = store.get('theme');
+    this.store.navigation = store.get('navigation');
+
+    store.use({set: (function(value){
+      if(value === 'theme') this.theme = store.state.theme.current;
+      if(value === 'navigation') this.navigationOpen = store.state.navigation.open;
+    }).bind(this)});
 
     this.setTheme(this.theme);
     this.setItems(this.items);
 
-    this.store.subscribe(() => {
-      this.setTheme();
-      this.navigationOpen = this.store.getState().navigation.open;
-
-      themeStyle(this.currentTheme, this.tagName, this.style, this.el)
-    });
+    this.navigationOpen = this.store.navigation.open;
 
     this.hasNav = !!document.querySelector('c-navigation');
 
