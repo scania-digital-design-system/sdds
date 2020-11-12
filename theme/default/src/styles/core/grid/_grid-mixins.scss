@@ -37,7 +37,6 @@
   }
 }
 
-// Grid breakpoints for full-width
 @mixin grid-container-full-width-breakpoints($prefix,$breakpoint-width,$breakpoint-margin) {
   @media (min-width:  $breakpoint-width) {
     #{$prefix}-container-fluid {
@@ -65,6 +64,9 @@
      $breakpoint-padding: map-get($values, 'padding');
      $breakpoint-width: map-get($values, 'width');
 
+    // Create columns that doesn't need a number, it bases it spacing on the area available
+    @include grid-make-col-auto($prefix,$sizes ,$breakpoint-width ,$breakpoint-padding , $breakpoint-gutter);
+
     //  Each column for everysize
     @for $i from 1 through $breakpoint-columns {
 
@@ -74,9 +76,20 @@
         #{$prefix}-col-#{$sizes}-#{$i} {
           @include grid-col-size($breakpoint-columns, $i);
           @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
-
         }
       }
+    }
+  }
+}
+
+@mixin grid-make-col-auto($prefix, $sizes, $width, $padding, $gutter) {
+
+  @media (min-width:  $width) {
+    #{$prefix}-col ,#{$prefix}-col-#{$sizes} {
+      flex-grow: 1;
+      flex-basis: 0;
+      max-width: 100%;
+      @include grid-gutters($gutter, $padding);
     }
   }
 }
@@ -101,7 +114,11 @@
   max-width: percentage(($i / $columns));
 }
 
-// Gutters
+/*
+Gutters
+*/
+
+// Gutters padding calculation
 @mixin grid-gutters($gutter, $breakpoint-padding) {
   $padding: $gutter / 2 + $breakpoint-padding;
   padding: 0 $padding;
@@ -131,7 +148,11 @@
   }
 }
 
-// Column offset
+/*
+  Offset
+*/
+
+// Column offset for every breakpoint
 @mixin grid-offset-col($breakpoints) {
 
   @each $sizes, $values in $breakpoints {

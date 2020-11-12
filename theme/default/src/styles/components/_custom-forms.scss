@@ -5,6 +5,7 @@
 @import 'node_modules/bootstrap/scss/mixins/gradients';
 
 @import '../variables';
+@import '../core/spacing/spacing';
 
 $gray-500:                                        $dark-02;
 $component-bg:                                    theme-color("light");
@@ -14,8 +15,9 @@ $component-active-bg:                             theme-color("primary");
 $custom-control-text-color:                       #53565A;
 $custom-control-disabled-color:                   #97999B;
 
-$custom-control-size:                             1.8rem;
-$custom-control-indicator-size:                   1.8rem;
+//FIXME: Add correct rem
+$custom-control-size:                             4.5rem;
+$custom-control-indicator-size:                   4.5rem;
 $custom-control-indicator-border-color:           transparent;
 $custom-control-indicator-border-width:           1px;
 
@@ -27,11 +29,12 @@ $custom-control-indicator-checked-border-color:   $custom-control-indicator-chec
 $custom-control-indicator-checked-disabled-bg:    lighten($component-active-bg, 20%);
 $custom-control-indicator-checked-box-shadow:     none;
 
-$custom-control-padding:                          ($custom-control-size + 1);
+//FIXME: Add correct rem
+$custom-control-padding:                          7rem;
 
-$custom-control-radio-space-around:               0.2;
-$custom-control-radio-size:                       ($custom-control-size - ($custom-control-radio-space-around * 2));
-$custom-control-radio-padding:                    ($custom-control-padding - $custom-control-radio-space-around);
+$custom-control-radio-space-around:               0.7rem;
+$custom-control-radio-size:                       3.5rem;
+$custom-control-radio-padding:                    6.5rem;
 
 $custom-switch-width:                             $custom-control-indicator-size * 1.9;
 $custom-switch-indicator-border-radius:           $custom-control-indicator-size / 2;
@@ -92,8 +95,8 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
   .custom-control-input {
 
     &:checked ~ .custom-control-label::after {
-      width: 1.8rem;
-      left: -2.8rem;
+      width: 4.5rem;
+      left: -7rem;
     }
 
     &:disabled,
@@ -131,7 +134,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
         background-color: Var(--primary);
         border-radius: 50%;
         left: ($custom-control-radio-padding * -1);
-        top: #{(2 * $custom-control-radio-space-around) + 0.05}rem;
+        top: $custom-control-radio-space-around;
       }
     }
 

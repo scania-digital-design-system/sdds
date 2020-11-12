@@ -1,10 +1,16 @@
-@import 'grid-vars';
+@import '../spacing/spacing';
 /* Grid breakpoints used for setting up every grid in different sizes
  - All values most be added
  - Contains gutterless grid breakpoints also
 */
 
 //TODO: Add rem instead of px, map doesn't give correct rem value, need a converter
+$screen-s: 80rem; //320px
+$screen-md: 164rem; // 672px
+$screen-l: 264rem; //1056px
+$screen-xl: 328rem; //1312px
+$screen-xxl: 396rem; //1584px
+
 $sdds-grid-breakpoints: (
   sm: (
     width: 320px,
