@@ -295,7 +295,7 @@ export class TableComponent {
   }
 
   /* Flatten objects in order to match it's keys by path */
-  /* Eg: { "address": { "city": "Sydney" } } becomes { "address.city": "Sydney" }*/
+  /* Eg: { "address": { "city": "Sydney" } } becomes { "address-city": "Sydney" }*/
   private flattenObject(obj) {
     let toReturn = {};
 
@@ -307,7 +307,7 @@ export class TableComponent {
         for (var x in flatObject) {
           if (!flatObject.hasOwnProperty(x)) continue;
 
-          toReturn[i + '.' + x] = flatObject[x];
+          toReturn[i + '-' + x] = flatObject[x];
         }
       } else {
         toReturn[i] = obj[i];

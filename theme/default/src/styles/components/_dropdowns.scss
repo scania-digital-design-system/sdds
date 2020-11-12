@@ -1,16 +1,20 @@
 @import '../variables';
 @import '../mixins';
+@import '../core/spacing/spacing';
 
 .dropdown-menu{
-  padding: .8rem 1rem;
+  //FIXME: Add correct rem
+  padding: $spacing-element-03 2.5rem;
   border: 1px solid $light-04;
-  font-size: 1.4rem;
+  //FIXME: Add correct rem
+  font-size: 3.5rem;
   border-radius: $border-radius;
 }
 
 .dropdown-item {
   color: $dark;
-  padding: .4rem .2rem;
+  //FIXME: Add correct rem
+  padding: $spacing-element-02 $spacing-element-01;
   text-decoration: none;
 
   &:focus,
@@ -28,17 +32,20 @@
 }
 
 .dropdown-toggle-split {
-  padding-right: 0.5625rem;
-  padding-left: 0.5625rem;
+  //FIXME: Add correct rem
+  padding-right: 5.625px;
+  padding-left: 5.625px;
 
  .btn-lg + & {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    //FIXME: Add correct rem
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
  }
 
  .btn-sm + & {
-    padding-right: 0.375rem;
-    padding-left: 0.375rem;
+    //FIXME: Add correct rem
+    padding-right: 3.75px;
+    padding-left: 3.75px;
   }
 }
 

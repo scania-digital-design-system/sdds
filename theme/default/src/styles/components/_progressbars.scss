@@ -2,6 +2,7 @@
 // TODO: Add variable for border-radius that is global
 
 @import '../variables';
+@import '../core/spacing/spacing';
 
 .progress-bar {
   @include background('primary');
@@ -10,5 +11,6 @@
 .progress {
   border-radius: $border-radius;
   height: 12px; //Default height
-  font-size: 1.2rem;
+  //FIXME: Add correct rem
+  font-size: $spacing-element-04;
 }

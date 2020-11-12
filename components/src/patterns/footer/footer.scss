@@ -14,7 +14,8 @@
   display: inline-block;
   border: 2px solid black;
   margin-right: 10px;
-  font-size: 2.6rem;
+  //FIXME: Add correct rem
+  font-size: 6.5rem;
 }
 
 ::slotted(a[slot="social-items"]) {

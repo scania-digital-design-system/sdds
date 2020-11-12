@@ -8,21 +8,25 @@
   &-header,
   &-body,
   &-footer {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    //FIXME: Add correct rem
+    padding-left: 7.5rem;
+    padding-right: 7.5rem;
     border: 0;
   }
   &-header {
-    padding-top: 3rem;
+    //FIXME: Add correct rem
+    padding-top: 7.5rem;
     padding-bottom: 0;
   }
   &-body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    //FIXME: Add correct rem
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
   }
   &-footer {
+    //FIXME: Add correct rem
     padding-top: 0;
-    padding-bottom: 3rem;
+    padding-bottom: 7.5rem;
   }
 }
 

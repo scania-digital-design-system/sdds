@@ -25,7 +25,8 @@
 
 ::slotted(a) {
   font-weight: bold;
-  padding: 1.7rem;
+  //FIXME: Add correct rem
+  padding: 4.25rem;
 }
 
 slot[name=config],
@@ -39,7 +40,8 @@ nav {
 
   c-icon {
     transform: rotate(-90deg);
-    font-size: 4rem;
+    //FIXME: Add correct rem
+    font-size: 10rem;
     margin: -12px;
   }
 }
@@ -82,7 +84,8 @@ footer {
 
   c-icon {
     transform: rotate(90deg);
-    font-size: 4rem;
+    //FIXME: Add correct rem
+    font-size: 10rem;
     margin: -12px;
   }
 }
@@ -96,8 +99,9 @@ footer {
 @media (min-width: 992px) {
 
   .tab-content {
-    padding-right: 4.5rem;
-    padding-left: 4.5rem;
+    //FIXME: Add correct rem
+    padding-right: 11.25rem;
+    padding-left: 11.25rem;
   }
 }
 
@@ -163,7 +167,8 @@ footer {
       opacity: 0;
       z-index: 100;
       transition: left 500ms;
-      padding: 3rem;
+      //FIXME: Add correct rem
+      padding: 7.5rem;
 
       .active & {
         left: 0;

@@ -36,7 +36,8 @@
 
     &:after {
       margin-top: -9px;
-      margin-left: -1rem;
+      //FIXME: Add correct rem
+      margin-left: -2.5rem;
     }
 
     &:not(:disabled):not(.disabled) {
