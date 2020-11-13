@@ -26,6 +26,10 @@
 @import '../utilities/loading.scss';
 @import '../utilities/typography.scss';
 
+
+//grid
+@import '../core/grid/grid';
+
 $components: badge, list-group-item;
 $componentsLight: alert, table;
 

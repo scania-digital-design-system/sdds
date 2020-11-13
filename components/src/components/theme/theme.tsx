@@ -7,15 +7,14 @@ import {
 // Typescript does not support loading of resources outside of "src"
 // So instead of a relative path we do this hack.
 import { version } from '@stencil/../../package.json';
-import { actions } from '../../store';
+
+import store from '../../store'
 
 @Component({
   tag: 'c-theme',
   styleUrl: 'theme.scss',
 })
 export class Theme {
-  @Prop({ context: 'store' }) ContextStore: any;
-
   /** Set the brand name that will set the theme styling for the page. */
   @Prop({ mutable: true }) name: string;
 
@@ -24,29 +23,40 @@ export class Theme {
 
   @Element() el: HTMLElement;
 
-  @State() store: any;
-
   @State() tagName: string;
 
   @State() currentTheme = { favicons: [], components: [] };
 
   @State() favicons: string[];
 
+  // Proxy objects are not supported by IE11 (not even with a polyfill), 
+  // so we need to use the store.get and store.set methods of the API to support IE11.
+  @State() store = store.state;
+
   @Watch('name')
   setName(name) {
-    this.setTheme(name);
-
-    this.store.dispatch({ type: actions.SET_THEME, current: name });
+    const newValue = {
+      current : name,
+      global : store.state.theme.global,
+      items : store.state.theme.items
+    }
+    
+    store.set('theme', newValue);
   }
-
+    
   @Watch('global')
   setGlobal(global) {
-    this.store.dispatch({ type: actions.SET_GLOBAL, global });
+    const newValue = {
+      current : store.state.theme.current,
+      global : global,
+      items : store.state.theme.items
+    }
+    store.set('theme', newValue);
   }
 
   setTheme(name = undefined) {
-    this.name = name || this.store.getState().theme.current;
-    this.currentTheme = this.store.getState().theme.items[this.name];
+    this.name = name || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.name];
     this.favicons = this.currentTheme ? this.currentTheme.favicons : undefined;
   }
 
@@ -63,15 +73,15 @@ export class Theme {
   }
 
   componentWillLoad() {
-    this.store = this.ContextStore || (window as any).CorporateUi.store;
+    this.store.theme = store.get('theme');
+    this.store.navigation = store.get('navigation');
 
     this.setName(this.name);
     this.setGlobal(this.global);
-
-    this.store.subscribe(() => this.setTheme());
+    this.setTheme();
 
     (window as any).CorporateUi = { ...(window as any).CorporateUi, version };
-    document.documentElement.setAttribute('corporate-ui-version', version);
+    document.documentElement.setAttribute('sdds-components-version', version);
 
     if (!(this.el && this.el.nodeName)) return;
 

@@ -1,7 +1,8 @@
 @import "../variables";
+@import "../core/spacing/spacing";
 
 .pagination {
-  font-size: 1.6rem;
+  font-size: $spacing-element-05;
 
   .page-item {
     background-color: $pagination-bg-color; //TODO: Look into background-color for every state
@@ -18,6 +19,8 @@
 
     //TODO: Focus state interaction with page-link
     .page-link {
+      //FIXME: Add correct rem
+      padding: 1.25rem 1.875rem;
       border: none;
       color: #909090;
       text-decoration: none;

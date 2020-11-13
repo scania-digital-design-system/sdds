@@ -10,7 +10,8 @@ h6 {
   font-family: $headings-font-family;
   color: $headings-color;
   font-weight: bold;
-  margin-bottom: 1rem;
+  //FIXME: Add correct rem
+  margin-bottom: 2.5rem;
 }
 
 @include renderMap($heading-sizes, 'font-size');
@@ -47,11 +48,13 @@ a {
 }
 
 p {
-  margin-bottom: 1.5rem;
+  //FIXME: Add correct rem
+  margin-bottom: 3.75rem;
 }
 
 .lead {
-  font-size: 1.8rem;
+  //FIXME: Add correct rem
+  font-size: 4.5rem;
 }
 
 label {
