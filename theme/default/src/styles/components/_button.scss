@@ -1,14 +1,17 @@
 @import '../variables';
 @import '../mixins';
+@import '../core/spacing/spacing';
 
 .btn {
   --link-decoration: none;
   --link-decoration-hover: none;
 
-  border-radius: .3rem;
+  //FIXME: Add correct rem
+  border-radius: 0.75rem;
   border-radius: 3px;
-  padding: .9rem 1.8rem .8rem;
-  font-size: 1.4rem;
+  //FIXME: Add correct rem
+  padding: 2.25rem 4.5rem $spacing-element-03;
+  font-size: 3.5rem;
   font-weight: bold;
 
   &,
@@ -71,12 +74,14 @@
     }
   }
   &-sm {
-    padding: .5rem 1.6rem .5rem;
-    font-size: 1.2rem;
+    //FIXME: Add correct rem
+    padding: 1.25rem $spacing-element-05 1.25rem;
+    font-size: $spacing-element-04;
   }
   &-lg {
-    padding: 1.4rem 2.0rem;
-    font-size: 1.6rem;
+    //FIXME: Add correct rem
+    padding: 3.5rem $spacing-element-06;
+    font-size: $spacing-element-05;
   }
 
   @at-root a#{&}.disabled {
@@ -149,7 +154,7 @@
           border-color: map-get($interaction-colors, $type);
           border-color: Var(--#{$type});
         }
-      }  
+      }
     }
   }
   @each $type in $interaction-types {

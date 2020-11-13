@@ -12,8 +12,10 @@
     padding: $modal-padding;
     border-color: $modal-border-color;
 
-    & .close { //TODO: Should look into the btn.close
-      font-size: 3rem;
+    & .close {
+      //TODO: Should look into the btn.close
+      //FIXME: Add correct rem
+      font-size: 7.5rem;
       font-weight: normal;
       padding: 5px;
     }

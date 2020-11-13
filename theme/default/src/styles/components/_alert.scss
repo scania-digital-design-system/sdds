@@ -1,6 +1,8 @@
 .alert {
   --link-color: none;
   --link-color-hover: none;
+  //FIXME: Add correct rem
+  padding: 1.875rem 3.125rem;
 
   a {
     color: inherit;

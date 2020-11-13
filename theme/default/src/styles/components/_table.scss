@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../core/spacing/spacing';
 
 .table {
   border: 1px solid $table-border-color;
@@ -6,7 +7,8 @@
 
   caption {
     caption-side: top;
-    padding: .75rem;
+    //FIXME: Add correct rem
+    padding: 1.875rem;
     font-weight: bold;
     color: $secondary;
     color: Var(--secondary);
@@ -31,13 +33,15 @@
   td {
     background-color: inherit;
     box-shadow: inherit;
-    padding: 1.2rem 1.2rem 1.3rem;
+    //FIXME: Add correct rem
+    padding: $spacing-element-04 $spacing-element-04 3.25rem;
   }
 
   &.table-sm {
     th,
     td {
-      padding: .4rem .5rem .5rem;
+      //FIXME: Add correct rem
+      padding: $spacing-element-01 1.25rem 1.25rem;
     }
   }
 }

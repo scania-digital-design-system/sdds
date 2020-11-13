@@ -1,8 +1,10 @@
 @import '../variables';
+@import '../core/spacing/spacing';
 
 .breadcrumb {
-  font-size: 1.6rem;
-  padding: 1.2rem 1.6rem 1.3rem;
+  //FIXME: Add correct rem
+  font-size: $spacing-element-05;
+  padding: $spacing-element-04 $spacing-element-05 3.25rem;
   border-radius: $border-radius;
   background-color: $light-02; //TODO: Should breadcrumb be transparent
 
