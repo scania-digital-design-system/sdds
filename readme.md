@@ -4,15 +4,13 @@ Visit [https://digitaldesign.scania.com/](https://digitaldesign.scania.com/)
 
 This example repo contains design system components.
 
-Structure :
-
 ### sdds/components
 
 Scania reusable web components built with StencilJS.
 
 ### sdds/theme
 
-- Default theme : Scania standard UI theming.
+- Light theme : Scania default UI theming.
 - Dark theme : Scania UI dark theme.
 
 ### sdds/demo
