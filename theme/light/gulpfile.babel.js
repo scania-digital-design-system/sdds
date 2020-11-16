@@ -266,7 +266,7 @@ async function initTheme(cb) {
 
   console.log('Generate css styles');
 
-  glob.sync('src/styles/elements/*.scss').forEach(generateCss);
+  glob.sync('src/styles/patterns/*.scss').forEach(generateCss);
 
   console.log('Generate style module');
 
