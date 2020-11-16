@@ -1,7 +1,7 @@
 {
-  "name": "@sdds/themes-default",
+  "name": "@sdds/theme-light",
   "version": "1.2.0",
-  "description": "Scania theme is a package to style Scania looks and feel in the Corporate UI 4.0 setup.",
+  "description": "Scania theme light is a package to style Scania looks and feel.",
   "main": "dist/module.js",
   "scripts": {
     "start": "gulp",
