@@ -4,7 +4,7 @@
 @import 'node_modules/bootstrap/scss/mixins/transition';
 @import 'node_modules/bootstrap/scss/mixins/gradients';
 
-@import '../variables';
+@import '../core/variables';
 @import '../core/spacing/spacing';
 
 $gray-500:                                        $dark-02;

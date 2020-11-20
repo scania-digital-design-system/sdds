@@ -10,6 +10,7 @@ const dep = fs.existsSync('./.env') ? dotenvPlugin : fb;
 export const config: Config = {
   namespace: 'sdds-components',
   globalScript: 'src/global.ts',
+  globalStyle: 'src/global/variables.css',
   enableCache: false,
   hashFileNames: false,
   buildEs5: true,
