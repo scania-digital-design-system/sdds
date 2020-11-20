@@ -11,6 +11,7 @@ src/themes.built/
 # .storybook/
 dist/
 www/
+demo/
 
 *~
 *.sw[mnpcod]

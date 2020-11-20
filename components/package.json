@@ -24,7 +24,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "prepublishOnly": "npm run build",
-    "storybook": "start-storybook -p 6006 --no-dll",
+    "sb": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"
   },
   "husky": {

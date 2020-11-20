@@ -1,4 +1,5 @@
-@import '../variables';
+@import '../core/variables';
+@import '../core/base-unit';
 @import '../mixins';
 
 // This file is generated and will exist in dist
@@ -8,12 +9,14 @@
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 
-// Reset bootstrap global colors
-$colors: ();
-
+// TODO: When we should remove BS root?
 @import 'node_modules/bootstrap/scss/root';
+@import '../core/css-vars.scss';
 
-
+:root,
+html {
+  font-size: $base-unit;
+}
 // Output rules
 * {
   box-sizing: border-box;

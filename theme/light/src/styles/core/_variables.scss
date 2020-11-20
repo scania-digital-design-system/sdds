@@ -1,80 +1,9 @@
-// Global colors
-$white:         #fafafa;
-$black:         #2D2926;
-$blue:          #041e42;
-$indigo:        #6610f2;
-$purple:        #6f42c1;
-$pink:          #e83e8c;
-$red:           #D6001C;
-$orange:        #E35205;
-$yellow:        #ffc107;
-$green:         #2C5234;
-$teal:          #20c997;
-$cyan:          #17a2b8;
+@import './spacing/spacing';
+@import './colour/colour';
+@import './typography/typography';
+@import './logotype/logotype';
+@import './base-unit';
 
-// Interaction colors
-$primary:       #033a6a;
-$secondary:     #fff;
-$success:       #44a878;
-$info:          #4a8ba4;
-$warning:       #f2855f;
-$danger:        #CC1040;
-$light:         #C8C9C7;
-$dark:          #53565A;
-
-// Theme colors
-$theme-01:      $blue;
-$theme-02:      $white;
-$theme-03:      $red;
-
-$success-01:   #f2f9f5;
-$success-02:   #dff0d8;
-$success-03:   #d6e9c6;
-$success-04:   #3c763d;
-
-$info-01:      #ebf6fb;
-$info-02:      #d9edf7;
-$info-03:      #bce8f1;
-$info-04:      #31708f;
-
-$warning-01:   #fffced;
-$warning-02:   #fcf8e3;
-$warning-03:   #faebcc;
-$warning-04:   #8a6d3b;
-
-$danger-01:    #faeeed;
-$danger-02:    #f2dede;
-$danger-03:    #ebccd1;
-$danger-04:    #a94442;
-
-$light-01:     #f8f9fa;
-$light-02:     #efefef;
-$light-03:     #e9ecef;
-$light-04:     #ced4da;
-
-$dark-01:      #94999d;
-$dark-02:      #6c757d;
-$dark-03:      #212529;
-
-// Global Font variables
-//FIXME: Add correct rem
-$font-size-base:              3.5rem;
-$font-weight-normal:          400;
-$font-weight-base:            $font-weight-normal;
-$line-height-base:            1.5;
-
-$font-family-sans-serif:      'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;
-$font-family-monospace:       $font-family-sans-serif;
-$font-family-base:            $font-family-sans-serif;
-
-$h1-font-size:                $font-size-base * 1.72;
-$h2-font-size:                $font-size-base * 1.43;
-$h3-font-size:                $font-size-base * 1.29;
-$h4-font-size:                $font-size-base * 1.14;
-$h5-font-size:                $font-size-base;
-$h6-font-size:                $font-size-base;
-
-$headings-font-family:        'Scania Sans Semi Condensed', Arial, Helvetica, sans-serif;
 $headings-color:              $theme-01;
 
 // Body

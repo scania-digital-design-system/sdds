@@ -11,6 +11,65 @@
 
 @import '../../components.scss';
 
+@mixin nav-link {
+  color: Var(--sdds-header-link-color);
+  padding: Var(--sdds-header-nav-padding);
+  text-align: center;
+  background: transparent; //IE
+  text-decoration: none; //IE
+
+  &:hover {
+    text-decoration: underline; //IE
+    color: Var(--sdds-header-link-color);
+  }
+}
+
+@mixin title {
+  font-family: var(--sdds-header-title-font-family);
+  font-weight: normal;
+  //FIXME: Add correct rem
+  font-size: 4.5rem;
+  color: #53565a;
+  line-height: 1;
+  padding: 0 10px;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:host {
+  // Header colors
+  --sdds-header-link-color: var(--color-font-base);
+  --sdds-header-background-color: var(--color-background-base);
+
+  // Header spacing
+  --sdds-header-nav-padding: var(--spacing-element-05);
+  
+  // Header font
+  --sdds-header-font-size: 3rem;
+  --sdds-header-font-family: var(--font-family-sans);
+  --sdds-header-title-font-family: var(--font-family-headline);
+
+  --link-color: Var(--dark-02);
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-color-hover: Var(--dark-02);
+  --link-color-active: Var(--dark-02);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  background-color: Var(--sdds-header-background-color);
+  font-family: Var(--sdds-header-font-family);
+  //FIXME: Add correct rem
+  font-size: Var(--sdds-header-font-size);
+  z-index: 1000;
+  padding: 0;
+  border-bottom: 1px solid #e2e2e2;
+}
+
 ::slotted(c-navigation),
 c-navigation {
   width: 100%;
@@ -24,6 +83,234 @@ c-navigation {
   content: attr(short-name);
 }
 
+::slotted(a) {
+  @include nav-link;
+}
+::slotted(a:first-of-type) {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.navbar {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+  background-color: inherit;
+  z-index: 10;
+
+  &:after {
+    @include title;
+  }
+
+  .navbar-brand {
+    padding: 13px;
+    background-color: transparent;
+
+    &:before {
+      display: block;
+      content: '';
+      background-image: var(--background-image-scania-wordmark-png);
+      background-image: var(--background-image-scania-wordmark-svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 170px;
+      height: 28px;
+    }
+  }
+  .navbar-title {
+    @include title;
+  }
+  .navbar-nav {
+    font-family: var(--sdds-header-font-family);
+    //FIXME: Add correct rem
+    font-size: Var(--sdds-header-font-size);
+    text-transform: uppercase;
+    color: #747472;
+    margin-top: -10px;
+
+    .nav-item {
+
+      &.nav-link {
+        @include nav-link;
+      }
+    }
+  }
+  .navbar-collapse {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 25vh;
+    align-content: center;
+    transition: height 300ms ease-in-out;
+    background: #fff;
+
+    &:not(.show) {
+      display: block;
+      height: 0;
+    }
+
+    .navbar-nav {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.navbar-default[short-name] {
+
+  .navbar-title {
+    display: none;
+  }
+}
+.navbar-symbol {
+  padding: 13px;
+  border-left: 1px solid #e2e2e2;
+
+  background-color: inherit;
+  z-index: 1;
+
+  &:before {
+    display: block;
+    content: '';
+    background-image: var(--background-image-scania-symbol-png);
+    background-image: var(--background-image-scania-symbol-svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 37px;
+    transition: all 100ms ease-in-out;
+  }
+}
+.navbar-toggler {
+  border-width: 0 1px 0 0;
+  border-color: #e2e2e2;
+  padding: 13px;
+  height: 100%;
+
+  &:focus {
+    outline: none;
+  }
+
+  &-icon {
+    // This make the icon the same size as the logotype, making it easier to handle the parent element padding needed
+    margin: 8px;
+    //FIXME: Add correct rem
+    font-size: 3.125rem;
+  }
+}
+
+:host([variation=dealer]) {
+  .navbar {
+
+    .navbar-brand {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .navbar-symbol{
+    &:before {
+      background-image: var(--background-image-scania-logotype-png);
+      background-image: var(--background-image-scania-logotype-svg);
+    }
+  }
+}
+
+::slotted(strong[slot="brand-logo"]) {
+  @include title;
+  padding-left: 0;
+}
+
+@media (min-width: 992px) {
+
+  :host {
+    // IE fallback
+    position: relative;
+    transition: all 0.2s ease-out;
+  }
+
+  ::slotted(a) {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  ::slotted(a:first-of-type) {
+    border-bottom: 0;
+  }
+
+  .navbar {
+    padding: 19px 11px 10px;
+    margin-right: 75px;
+
+    &[short-name] {
+
+      &:after {
+        display: none;
+      }
+
+      .navbar-title {
+        display: inline-block;
+      }
+    }
+
+    .navbar-brand {
+      margin-left: 6px;
+      margin-right: 2px;
+    }
+    .navbar-title {
+      text-align: left;
+      border-left: 1px solid #e2e2e2;
+      padding-left: 15px;
+    }
+    .navbar-collapse {
+      height: auto;
+      position: relative;
+      width: auto;
+      text-align: right;
+
+      .navbar-nav {
+        display: inline-block;
+      }
+    }
+  }
+  .navbar-symbol {
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin-top: 8px;
+    margin-right: 12px;
+    margin-bottom: 2px;
+    border-left: 0;
+    border-bottom: 0;
+    background-color: transparent;
+
+    &:before {
+      width: 48px;
+      height: 46px;
+    }
+  }
+  :host([variation=dealer]) {
+    .navbar {
+
+      margin-right: 235px;
+
+      .navbar-brand {
+        text-decoration: none;
+      }
+
+      > .navbar-title {
+        display: none;
+      }
+    }
+
+    .navbar-symbol {
+      &::before {
+        width: 210px;
+        height: 42px;
+      }
+    }
+  }
+}
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-brand {
     display: inline-block;

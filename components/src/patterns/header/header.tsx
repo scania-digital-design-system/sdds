@@ -3,7 +3,7 @@ import {
 } from '@stencil/core';
 
 import store from '../../store';
-import { themeStyle } from '../../helpers/themeStyle';
+// import { themeStyle } from '../../helpers/themeStyle';
 
 @Component({
   tag: 'c-header',
@@ -50,12 +50,12 @@ export class Header {
     this.items = Array.isArray(items) ? items : JSON.parse(items || '[]');
   }
 
-  @Watch('theme')
-  setTheme(name = undefined) {
-    this.theme = name || this.store.theme.current;
-    this.currentTheme = this.store.theme.items[this.theme];
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-  }
+  // @Watch('theme')
+  // setTheme(name = undefined) {
+  //   this.theme = name || this.store.theme.current;
+  //   this.currentTheme = this.store.theme.items[this.theme];
+  //   themeStyle(this.currentTheme, this.tagName, this.style, this.el);
+  // }
 
   toggleNavigation(open) {
     const newValue = {
@@ -75,15 +75,15 @@ export class Header {
 
   componentWillLoad() {
     // IE11 does not support stencil store state proxy objects, so these 2 lines are required
-    this.store.theme = store.get('theme');
+    // this.store.theme = store.get('theme');
     this.store.navigation = store.get('navigation');
 
     store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
+      // if(value === 'theme') this.theme = store.state.theme.current;
       if(value === 'navigation') this.navigationOpen = store.state.navigation.open;
     }).bind(this)});
 
-    this.setTheme(this.theme);
+    // this.setTheme(this.theme);
     this.setItems(this.items);
 
     this.navigationOpen = this.store.navigation.open;
@@ -98,11 +98,11 @@ export class Header {
     this.tagName = this.el.nodeName.toLowerCase();
   }
 
-  componentDidLoad() {
-    this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
+  // componentDidLoad() {
+  //   this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
 
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el)
-  }
+  //   themeStyle(this.currentTheme, this.tagName, this.style, this.el)
+  // }
 
   combineClasses(classes) {
     return [
