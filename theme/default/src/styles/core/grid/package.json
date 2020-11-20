@@ -1,0 +1,14 @@
+{
+  "name": "@sdds/sdds-grid",
+  "version": "1.0.0-alpha.0",
+  "description": "Scania Digital Design System Grid",
+  "scripts": {
+    "build": "node compile.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.29.0"
+  }
+}
