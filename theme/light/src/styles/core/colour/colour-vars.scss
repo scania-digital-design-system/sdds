@@ -30,9 +30,9 @@
 --dark:          #53565A;
 
 // Theme colors
---theme-01:      --blue;
---theme-02:      --white;
---theme-03:      --red;
+--theme-01: var(--blue);
+--theme-02: var(--white);
+--theme-03: var(--red);
 
 --success-01:   #f2f9f5;
 --success-02:   #dff0d8;
