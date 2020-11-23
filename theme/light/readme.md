@@ -4,7 +4,7 @@
 
 # Scania Theme
 
-# @sdds/themes/default
+# @sdds/themes/light
 
 Scania theme is a package to style Scania looks and feel in the [Corporate UI 4.0 setup](https://github.com/scania/corporate-ui/).
 
