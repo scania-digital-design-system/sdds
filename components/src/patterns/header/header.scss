@@ -86,6 +86,10 @@ c-navigation {
 ::slotted(a) {
   @include nav-link;
 }
+
+::slotted(a:hover) {
+  text-decoration: underline;
+}
 ::slotted(a:first-of-type) {
   border-bottom: 1px solid #e2e2e2;
 }
