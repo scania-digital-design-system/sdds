@@ -1,5 +1,5 @@
 {
-  "name": "@sdds/sdds-grid",
+  "name": "@scania/grid",
   "version": "1.0.0-alpha.0",
   "description": "Scania Digital Design System Grid",
   "scripts": {
