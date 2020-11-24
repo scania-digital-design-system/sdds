@@ -1,25 +1,6 @@
 @import '../core/variables';
 @import '../mixins';
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $headings-font-family;
-  color: $headings-color;
-  font-weight: bold;
-  //FIXME: Add correct rem
-  margin-bottom: 2.5rem;
-}
-
-@include renderMap($heading-sizes, 'font-size');
-
-h5,
-h6 { font-family: $font-family-base; }
-h6 { font-style: italic; }
-
 a {
   color: $link-color; //IE
   color: Var(--link-color);
