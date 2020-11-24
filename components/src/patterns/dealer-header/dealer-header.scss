@@ -4,3 +4,6 @@
 img {
   max-height: 30px;
 }
+img[slot=brand-logo] {
+  height: 28px;
+}

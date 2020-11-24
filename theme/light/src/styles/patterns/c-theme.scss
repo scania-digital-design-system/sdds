@@ -1,0 +1,72 @@
+@import '../core/variables';
+@import '../core/base-unit';
+@import '../mixins';
+
+// This file is generated and will exist in dist
+@import url(../fonts/fonts.css);
+
+// Bootstrap imports
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+
+// TODO: When we should remove BS root?
+@import 'node_modules/bootstrap/scss/root';
+@import '../core/css-vars.scss';
+
+:root,
+html {
+  font-size: $base-unit;
+}
+// Output rules
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  display: flex;
+  flex-direction: column;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $body-color;
+  color: Var(--dark);
+  margin: 0;
+  flex: 1;
+
+  &.nav-show {
+    overflow: hidden;
+  }
+}
+
+// TODO: Should we really do this?
+c-cookie {
+
+  a {
+    color: $info;
+    color: Var(--info);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+
+  body.nav-show {
+    overflow: auto;
+  }
+}
+
+// .app {
+
+//   body,
+//   body& {
+
+//   }
+// }

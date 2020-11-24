@@ -1,0 +1,28 @@
+@import '../core/variables';
+
+.card {
+  border-color: $light-04;
+  border-radius: $border-radius;
+
+  .card-body {
+    //FIXME: Add correct rem
+    padding: 7rem 4.25rem;
+  }
+
+  //TODO: should it match regular a element
+  .card-link {
+    color: $link-color;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: underline;
+    }
+
+    &:active,
+    &.active {
+      color: $link-color-active;
+    }
+  }
+}
