@@ -346,7 +346,7 @@ document.addEventListener('storeReady', function(event) {
 function generateVars(input){
   console.log('Generate css variables for '+ input);
 
-  const varFile = `src/styles/core/${input}/_${input}.scss`;
+  const varFile = `src/styles/core/${input}/_vars.scss`;
 
   const data = fs.readFileSync(path.resolve(varFile), 'utf8');
   
