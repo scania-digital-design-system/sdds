@@ -6,20 +6,22 @@
 
   :root, html {
  // Global colors
---white:         #fafafa;
---black:         #2D2926;
---blue:          #041e42;
---indigo:        #6610f2;
---purple:        #6f42c1;
---pink:          #e83e8c;
---red:           #D6001C;
---orange:        #E35205;
---yellow:        #ffc107;
---green:         #2C5234;
---teal:          #20c997;
---cyan:          #17a2b8;
 
-// Interaction colors
+// Grey scale
+
+// PRIMARY PALETTE
+--blue:          #041e42;
+--red:           #D6001C;
+--black:         #000;
+--white:         #fff;
+
+// SECONDARY PALETTE
+--orange:        #E35205;
+--beige:         #CEB888;
+--green:         #2C5234;
+
+
+// Old Interaction colors
 --primary:       #033a6a;
 --secondary:     #fff;
 --success:       #44a878;

@@ -4,18 +4,18 @@
 @import './logotype/logotype';
 @import './base-unit';
 
-$headings-color:              $theme-01;
+$headings-color:              get-colour(grey-900);
 
 // Body
-$body-bg:                     $white;
-$body-color:                  $dark;
+$body-bg:                     get-colour(white);
+$body-color:                  get-colour(grey-900);
 
 //Link
 // FIXME: Add correct colours when foundation is done
-$link-color:                  $dark-02;
-$link-color-hover:            $light;
-$link-color-active:           $blue;
-$link-color-disabled:         $light;
+$link-color:                  get-colour(grey-500);
+$link-color-hover:            get-colour(grey-200);
+$link-color-active:           get-colour(blue);
+$link-color-disabled:         get-colour(grey-200);
 $link-bg:                     inherit;
 $link-bg-hover:               inherit;
 $link-decoration:             underline;
@@ -23,11 +23,11 @@ $link-decoration-hover:       none;
 
 // Global Border settings
 $border-radius:               3px;
-$border-color:                $light;
+$border-color:                get-colour(grey-200);
 
 // Modal
 $modal-padding:               15px;
-$modal-border-color:          $light-03;
+$modal-border-color:          get-colour(grey-50);
 
 // Table
 $table-border-color:          $border-color;
@@ -40,111 +40,111 @@ $pagination-bg-color:         transparent;
 // List-groups
 $border-radius-list-group:    $border-radius;
 
-// All colours
-$global-colors: (
-  'blue':       $blue,
-  'red':        $red,
-  'orange':     $orange,
-  'green':      $green,
-  'white':      $white,
-  'black':      $black
-);
+// // All colours
+// $global-colors: (
+//   'blue':       $blue,
+//   'red':        $red,
+//   'orange':     $orange,
+//   'green':      $green,
+//   'white':      $white,
+//   'black':      $black
+// );
 
-$theme-colors: (
-  'theme-01': $theme-01,
-  'theme-02': $theme-02,
-  'theme-03': $theme-03
-);
+// $theme-colors: (
+//   'theme-01': $theme-01,
+//   'theme-02': $theme-02,
+//   'theme-03': $theme-03
+// );
 
-$success-colors: (
-  'success-01': $success-01,
-  'success-02': $success-02,
-  'success-03': $success-03,
-  'success-04': $success-04
-);
+// $success-colors: (
+//   'success-01': $success-01,
+//   'success-02': $success-02,
+//   'success-03': $success-03,
+//   'success-04': $success-04
+// );
 
-$info-colors: (
-  'info-01': $info-01,
-  'info-02': $info-02,
-  'info-03': $info-03,
-  'info-04': $info-04
-);
+// $info-colors: (
+//   'info-01': $info-01,
+//   'info-02': $info-02,
+//   'info-03': $info-03,
+//   'info-04': $info-04
+// );
 
-$warning-colors: (
-  'warning-01': $warning-01,
-  'warning-02': $warning-02,
-  'warning-03': $warning-03,
-  'warning-04': $warning-04
-);
+// $warning-colors: (
+//   'warning-01': $warning-01,
+//   'warning-02': $warning-02,
+//   'warning-03': $warning-03,
+//   'warning-04': $warning-04
+// );
 
-$danger-colors: (
-  'danger-01': $danger-01,
-  'danger-02': $danger-02,
-  'danger-03': $danger-03,
-  'danger-04': $danger-04
-);
+// $danger-colors: (
+//   'danger-01': $danger-01,
+//   'danger-02': $danger-02,
+//   'danger-03': $danger-03,
+//   'danger-04': $danger-04
+// );
 
-$light-colors: (
-  'light-01': $light-01,
-  'light-02': $light-02,
-  'light-03': $light-03,
-  'light-04': $light-04
-);
+// $light-colors: (
+//   'light-01': $light-01,
+//   'light-02': $light-02,
+//   'light-03': $light-03,
+//   'light-04': $light-04
+// );
 
-$dark-colors: (
-  'dark-01': $dark-01,
-  'dark-02': $dark-02,
-  'dark-03': $dark-03
-);
+// $dark-colors: (
+//   'dark-01': $dark-01,
+//   'dark-02': $dark-02,
+//   'dark-03': $dark-03
+// );
 
-$interaction-colors: (
-  'primary':    $primary,
-  'secondary':  $secondary,
-  'success':    $success,
-  'info':       $info,
-  'warning':    $warning,
-  'danger':     $danger,
-);
+// $interaction-colors: (
+//   'primary':    $primary,
+//   'secondary':  $secondary,
+//   'success':    $success,
+//   'info':       $info,
+//   'warning':    $warning,
+//   'danger':     $danger,
+// );
 
-$extra-colors: (
-  'light':      $light,
-  'dark':       $dark
-);
+// $extra-colors: (
+//   'light':      $light,
+//   'dark':       $dark
+// );
 
-$link-options: (
-  'link-color': $link-color,
-  'link-color-hover': $link-color-hover,
-  'link-color-active': $link-color-active,
-  'link-color-disabled': $link-color-disabled,
-  'link-bg': $link-bg,
-  'link-bg-hover': $link-bg-hover,
-  'link-decoration': $link-decoration,
-  'link-decoration-hover': $link-decoration-hover
-);
+// $link-options: (
+//   'link-color': $link-color,
+//   'link-color-hover': $link-color-hover,
+//   'link-color-active': $link-color-active,
+//   'link-color-disabled': $link-color-disabled,
+//   'link-bg': $link-bg,
+//   'link-bg-hover': $link-bg-hover,
+//   'link-decoration': $link-decoration,
+//   'link-decoration-hover': $link-decoration-hover
+// );
 
-$all-colors: (
-  'global':       $global-colors,
-  'theme':        $theme-colors,
-  'success':      $success-colors,
-  'info':         $info-colors,
-  'warning':      $warning-colors,
-  'danger':       $danger-colors,
-  'light':        $light-colors,
-  'dark':         $dark-colors,
-  'interaction':  $interaction-colors,
-  'extra':        $extra-colors,
-  'link':         $link-options
-);
+// $all-colors: (
+//   'global':       $global-colors,
+//   'theme':        $theme-colors,
+//   'success':      $success-colors,
+//   'info':         $info-colors,
+//   'warning':      $warning-colors,
+//   'danger':       $danger-colors,
+//   'light':        $light-colors,
+//   'dark':         $dark-colors,
+//   'interaction':  $interaction-colors,
+//   'extra':        $extra-colors,
+//   'link':         $link-options
+// );
 
-// Merge all colors in to theme-colors and
-// let "root.scss" render the css variables
-@each $name, $type in $all-colors {
-  $theme-colors: map-merge($theme-colors, $type);
-}
+// // Merge all colors in to theme-colors and
+// // let "root.scss" render the css variables
+// @each $name, $type in $all-colors {
+//   $theme-colors: map-merge($theme-colors, $type);
+// }
 
-// Interaction lists
-$interaction-types: success, info, warning, danger;
-$interaction-types2: secondary, light;
-$interaction-types3: primary, dark;
+// // Interaction lists
+// $interaction-types: success, info, warning, danger;
+// $interaction-types2: secondary, light;
+// $interaction-types3: primary, dark;
 
-$types: join(join($interaction-types, $interaction-types2), $interaction-types3);
+// $types: join(join($interaction-types, $interaction-types2), $interaction-types3);

@@ -1,1 +1,116 @@
-@import './vars';
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+  @return $collection;
+};
+
+$grey:(
+  grey-900: #171719,
+  grey-800: #2B2C2F,
+  grey-700: #3A3B3F,
+  grey-600: #515257,
+  grey-500: #696170,
+  grey-400: #82848A,
+  grey-300: #A4A6AB,
+  grey-200: #C5C6C9,
+  grey-100: #E2E2E4,
+  grey-50:  #F6F6F7
+);
+
+$blue:(
+  blue-900: #041E42,
+  blue-800: #0F3263,
+  blue-700: #16317F,
+  blue-600: #2058A8,
+  blue-500: #2B70D3,
+  blue-400: #4A89F3,
+  blue-300: #9CA5C2,
+  blue-200: #C1C6D8,
+  blue-100: #E0E2EB,
+  blue-50:  #F6F6F9
+);
+
+$red:(
+  red-900: #450307,
+  red-800: #6A080F,
+  red-700: #950A16,
+  red-600: #D6001C,
+  red-500: #DE2B36,
+  red-400: #F35359,
+  red-300: #F58E90,
+  red-200: #F8B6B7,
+  red-100: #FADBDC,
+  red-50:  #FDF4F5
+);
+
+$green:(
+  green-900: #112616,
+  green-800: #1C3822,
+  green-700: #2C5234,
+  green-600: #386E44,
+  green-500: #438151,
+  green-400: #539E63,
+  green-300: #89B691,
+  green-200: #A6D1AD,
+  green-100: #CAEBD0,
+  green-50:  #F1F8F2
+);
+
+$orange:(
+  orange-900: #331103,
+  orange-800: #893B15,
+  orange-700: #C65416,
+  orange-600: #EB6200,
+  orange-500: #FA6E23,
+  orange-400: #F98A67,
+  orange-300: #F9A38D,
+  orange-200: #F9CAC0,
+  orange-100: #FBE3DF,
+  orange-50:  #FDF5F3
+);
+
+$original-colours : map-collect($grey, $blue, $red, $green, $orange);
+
+@function get-colour-original($token) {
+  @return map-get($original-colours, $token)
+};
+
+$primary: (
+  blue: get-colour-original(blue-900),
+  red: get-colour-original(red-900),
+  black: #000,
+  white: #fff
+);
+
+$semantic: (
+  cta: get-colour-original(blue-700),
+  negative: get-colour-original(red-500),
+  warning: get-colour-original(orange-500),
+  positive: get-colour-original(green-500),
+  information: get-colour-original(blue-500)
+);
+
+$all-colours : map-collect($grey, $blue, $red, $green, $orange, $semantic, $primary);
+
+// to get colour token from scss
+
+@function get-colour($token) {
+  @return map-get($all-colours, $token)
+};
+
+// generate colour class for background (.sdds-background-{token-name})
+@each $key, $value in $all-colours {
+  .sdds-background-#{$key} {
+    background-color: $value;
+  }
+}
+
+// generate colour class for text (.sdds-text-{token-name})
+@each $key, $value in $all-colours {
+  .sdds-text-#{$key} {
+    color: $value;
+  }
+}
