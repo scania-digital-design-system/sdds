@@ -7,12 +7,12 @@
   @return $collection;
 };
 
-$grey:(
+$grey-scale:(
   grey-900: #171719,
   grey-800: #2B2C2F,
   grey-700: #3A3B3F,
   grey-600: #515257,
-  grey-500: #696170,
+  grey-500: #696A70,
   grey-400: #82848A,
   grey-300: #A4A6AB,
   grey-200: #C5C6C9,
@@ -20,7 +20,7 @@ $grey:(
   grey-50:  #F6F6F7
 );
 
-$blue:(
+$blue-scale:(
   blue-900: #041E42,
   blue-800: #0F3263,
   blue-700: #16317F,
@@ -33,7 +33,7 @@ $blue:(
   blue-50:  #F6F6F9
 );
 
-$red:(
+$red-scale:(
   red-900: #450307,
   red-800: #6A080F,
   red-700: #950A16,
@@ -46,7 +46,7 @@ $red:(
   red-50:  #FDF4F5
 );
 
-$green:(
+$green-scale:(
   green-900: #112616,
   green-800: #1C3822,
   green-700: #2C5234,
@@ -59,7 +59,7 @@ $green:(
   green-50:  #F1F8F2
 );
 
-$orange:(
+$orange-scale:(
   orange-900: #331103,
   orange-800: #893B15,
   orange-700: #C65416,
@@ -72,13 +72,13 @@ $orange:(
   orange-50:  #FDF5F3
 );
 
-$original-colours : map-collect($grey, $blue, $red, $green, $orange);
+$original-colours : map-collect($grey-scale, $blue-scale, $red-scale, $green-scale, $orange-scale);
 
 @function get-colour-original($token) {
   @return map-get($original-colours, $token)
 };
 
-$primary: (
+$primary-new: (
   blue: get-colour-original(blue-900),
   red: get-colour-original(red-900),
   black: #000,
@@ -93,7 +93,7 @@ $semantic: (
   information: get-colour-original(blue-500)
 );
 
-$all-colours : map-collect($grey, $blue, $red, $green, $orange, $semantic, $primary);
+$all-colours : map-collect($original-colours, $semantic, $primary-new);
 
 // to get colour token from scss
 

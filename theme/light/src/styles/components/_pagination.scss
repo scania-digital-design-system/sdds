@@ -11,7 +11,7 @@
 
       .page-link {
         background-color: $pagination-bg-color;
-        color: $primary;
+        color: get-colour(blue);
         text-decoration: underline;
         font-weight: bold;
       }
@@ -29,7 +29,7 @@
 
       &:hover {
         background-color: $pagination-bg-color;
-        color: $primary;
+        color: get-colour(blue);
       }
     }
 

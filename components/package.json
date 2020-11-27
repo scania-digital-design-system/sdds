@@ -25,7 +25,7 @@
     "generate": "stencil generate",
     "prepublishOnly": "npm run build",
     "sb": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
+    "build-sb": "build-storybook --no-dll"
   },
   "husky": {
     "hooks": {
