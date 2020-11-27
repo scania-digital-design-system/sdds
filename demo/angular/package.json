@@ -36,7 +36,6 @@
     "@angular/language-service": "^8.0.3",
     "@scania/components": "file:../scania-components-4.2.0.tgz",
     "@scania/theme-light": "file:../scania-theme-light-1.2.0.tgz",
-    "@sdds/components": "file:../sdds-components-4.2.0.tgz",
     "@types/jasmine": "~3.3.13",
     "@types/jasminewd2": "~2.0.6",
     "@types/jest": "^24.0.23",
