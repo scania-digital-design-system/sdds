@@ -1,7 +1,7 @@
 @import '../core/variables';
 
 .nav-link {
-  --link-color:#{$dark-01};
+  --link-color: get-colour(grey-400);
 
   text-decoration: none;
   //FIXME: Add correct rem
@@ -16,14 +16,14 @@
   }
 
   &:hover {
-    color: $blue;
+    color: get-colour(blue);
   }
 
   &:active,
   &.active,
   &[active]:not([active="false"]) {
     &, &:hover {
-      border-bottom: 2px solid #{$red};
+      border-bottom: 2px solid get-colour(red);
     }
   }
 

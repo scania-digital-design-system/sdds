@@ -10,16 +10,16 @@
     //FIXME: Add correct rem
     padding: 1.875rem;
     font-weight: bold;
-    color: $secondary;
-    color: Var(--secondary);
+    color: get-colour(white);
+    color: Var(--white);
     background-color: $primary;
     background-color: Var(--primary);
   }
   thead {
 
     &:first-child {
-      color: $secondary;
-      color: Var(--secondary);
+      color: get-colour(white);
+      color: Var(--white);
       background-color: $table-thead-bg-color;
     }
 

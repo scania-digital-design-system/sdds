@@ -31,8 +31,8 @@ $modal-border-color:          get-colour(grey-50);
 
 // Table
 $table-border-color:          $border-color;
-$table-thead-border-color:    $blue;
-$table-thead-bg-color:        $blue;
+$table-thead-border-color:    get-colour(blue);
+$table-thead-bg-color:        get-colour(blue);
 
 //Pagination
 $pagination-bg-color:         transparent;
@@ -40,111 +40,114 @@ $pagination-bg-color:         transparent;
 // List-groups
 $border-radius-list-group:    $border-radius;
 
-// // All colours
-// $global-colors: (
-//   'blue':       $blue,
-//   'red':        $red,
-//   'orange':     $orange,
-//   'green':      $green,
-//   'white':      $white,
-//   'black':      $black
-// );
+// Bootstrap components colours
+// TODO: When adding more components, need to remove these colours below
+$primary:       get-colour(blue-900);
+$secondary:     #fff;
+$success:       get-colour(green-300);
+$info:         get-colour(information);
+$warning:      get-colour(orange-600);
+$danger:        get-colour(negative);
+$light:         get-colour(grey-400);
+$dark:          get-colour(grey-600);
+// All colours
+$global-colors: (
+  'blue':       get-colour(blue-900),
+  'red':        get-colour(red-600),
+  'orange':     get-colour(orange-600),
+  'green':      get-colour(green-300),
+  'white':      get-colour(white),
+  'black':      get-colour(grey-800)
+);
 
-// $theme-colors: (
-//   'theme-01': $theme-01,
-//   'theme-02': $theme-02,
-//   'theme-03': $theme-03
-// );
+$interaction-colors: (
+  'primary':    get-colour(cta),
+  'secondary':  get-colour(white),
+  'success':    get-colour(positive),
+  'info':       get-colour(information),
+  'warning':    get-colour(warning),
+  'danger':     get-colour(negative),
+);
 
-// $success-colors: (
-//   'success-01': $success-01,
-//   'success-02': $success-02,
-//   'success-03': $success-03,
-//   'success-04': $success-04
-// );
+$extra-colors: (
+  'light':      get-colour(grey-200),
+  'dark':       get-colour(grey-600)
+);
 
-// $info-colors: (
-//   'info-01': $info-01,
-//   'info-02': $info-02,
-//   'info-03': $info-03,
-//   'info-04': $info-04
-// );
+$success-colors: (
+  'success-01': get-colour(green-50),
+  'success-02': get-colour(green-100),
+  'success-03': get-colour(green-200),
+  'success-04': get-colour(green-600)
+);
 
-// $warning-colors: (
-//   'warning-01': $warning-01,
-//   'warning-02': $warning-02,
-//   'warning-03': $warning-03,
-//   'warning-04': $warning-04
-// );
+$info-colors: (
+  'info-01': get-colour(blue-50),
+  'info-02': get-colour(blue-100),
+  'info-03': get-colour(blue-300),
+  'info-04': get-colour(blue-600)
+);
 
-// $danger-colors: (
-//   'danger-01': $danger-01,
-//   'danger-02': $danger-02,
-//   'danger-03': $danger-03,
-//   'danger-04': $danger-04
-// );
+$warning-colors: (
+  'warning-01': get-colour(orange-50),
+  'warning-02': get-colour(orange-100),
+  'warning-03': get-colour(orange-200),
+  'warning-04': get-colour(orange-700)
+);
 
-// $light-colors: (
-//   'light-01': $light-01,
-//   'light-02': $light-02,
-//   'light-03': $light-03,
-//   'light-04': $light-04
-// );
+$danger-colors: (
+  'danger-01': get-colour(red-50),
+  'danger-02': get-colour(red-100),
+  'danger-03': get-colour(red-200),
+  'danger-04': get-colour(red-700)
+);
 
-// $dark-colors: (
-//   'dark-01': $dark-01,
-//   'dark-02': $dark-02,
-//   'dark-03': $dark-03
-// );
+$light-colors: (
+  'light-01': get-colour(grey-50),
+  'light-02': get-colour(grey-100),
+  'light-03': get-colour(grey-200),
+  'light-04': get-colour(grey-300)
+);
 
-// $interaction-colors: (
-//   'primary':    $primary,
-//   'secondary':  $secondary,
-//   'success':    $success,
-//   'info':       $info,
-//   'warning':    $warning,
-//   'danger':     $danger,
-// );
+$dark-colors: (
+  'dark-01': get-colour(grey-400),
+  'dark-02': get-colour(grey-500),
+  'dark-03': get-colour(grey-800)
+);
 
-// $extra-colors: (
-//   'light':      $light,
-//   'dark':       $dark
-// );
+$link-options: (
+  'link-color': $link-color,
+  'link-color-hover': $link-color-hover,
+  'link-color-active': $link-color-active,
+  'link-color-disabled': $link-color-disabled,
+  'link-bg': $link-bg,
+  'link-bg-hover': $link-bg-hover,
+  'link-decoration': $link-decoration,
+  'link-decoration-hover': $link-decoration-hover
+);
 
-// $link-options: (
-//   'link-color': $link-color,
-//   'link-color-hover': $link-color-hover,
-//   'link-color-active': $link-color-active,
-//   'link-color-disabled': $link-color-disabled,
-//   'link-bg': $link-bg,
-//   'link-bg-hover': $link-bg-hover,
-//   'link-decoration': $link-decoration,
-//   'link-decoration-hover': $link-decoration-hover
-// );
+$all-colors: (
+  'global':       $global-colors,
+  'success':      $success-colors,
+  'info':         $info-colors,
+  'warning':      $warning-colors,
+  'danger':       $danger-colors,
+  'light':        $light-colors,
+  'dark':         $dark-colors,
+  'interaction':  $interaction-colors,
+  'extra':        $extra-colors,
+  'link':         $link-options
+);
+$theme-colors: ();
+// Merge all colors in to theme-colors and
+// let "root.scss" render the css variables
+@each $name, $type in $all-colors {
+  $theme-colors: map-merge($theme-colors, $type);
+}
 
-// $all-colors: (
-//   'global':       $global-colors,
-//   'theme':        $theme-colors,
-//   'success':      $success-colors,
-//   'info':         $info-colors,
-//   'warning':      $warning-colors,
-//   'danger':       $danger-colors,
-//   'light':        $light-colors,
-//   'dark':         $dark-colors,
-//   'interaction':  $interaction-colors,
-//   'extra':        $extra-colors,
-//   'link':         $link-options
-// );
+// Interaction lists
+$interaction-types: success, info, warning, danger;
+$interaction-types2: secondary, light;
+$interaction-types3: primary, dark;
 
-// // Merge all colors in to theme-colors and
-// // let "root.scss" render the css variables
-// @each $name, $type in $all-colors {
-//   $theme-colors: map-merge($theme-colors, $type);
-// }
-
-// // Interaction lists
-// $interaction-types: success, info, warning, danger;
-// $interaction-types2: secondary, light;
-// $interaction-types3: primary, dark;
-
-// $types: join(join($interaction-types, $interaction-types2), $interaction-types3);
+$types: join(join($interaction-types, $interaction-types2), $interaction-types3);

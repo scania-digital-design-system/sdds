@@ -2,25 +2,25 @@
 
 
 @mixin nav-item {
-  color: $dark-01; // IE
+  color:get-colour(grey-400); // IE
   text-decoration: none; //IE
   padding: 10px 25px;
   border-top: 1px solid #e2e2e2;
-  background-color: $light-01; // IE
+  background-color: get-colour(grey-500); // IE
 
   // IE
   &:hover,
   &:active,
   &.active,
   a[active]:not([active="false"]) {
-    color: $blue;
+    color: get-colour(blue-900);
   }
 }
 
 :host {
-  --link-color:Var(--dark-01);
+  --link-color:Var(--grey-400);
   --link-decoration: none;
-  --link-color-hover: Var(--blue);
+  --link-color-hover: Var(--blue-900);
 
   display: block;
   font-family: 'Scania Sans';
@@ -90,7 +90,7 @@
 ::slotted(a:active),
 ::slotted(a.active),
 ::slotted(a[active]:not([active="false"])) {
-  color: $theme-01;
+  color: get-colour(blue-900);
 }
 ::slotted(div) {
   border-top: 1px solid #e2e2e2;
@@ -98,14 +98,14 @@
 
   // IE
   a {
-    color: $dark-01;
+    color: get-colour(grey-400);
     text-decoration: none;
 
     &:hover,
     &:active,
     &.active,
     a[active]:not([active="false"]) {
-      color: $theme-01;
+      color: get-colour(blue-900);
     }
   }
 }
@@ -125,7 +125,7 @@ ul {
 
   .navbar-nav {
 
-    background-color: $light-01; // IE
+    background-color: get-colour(grey-500); // IE
 
     .nav-item {
       @include nav-item;
@@ -167,8 +167,8 @@ ul {
 
     &:after {
       content: '';
-      border-bottom: 2px solid $theme-03; // Fallback for non supported browsers
-      border-bottom: 2px solid Var(--theme-03);
+      border-bottom: 2px solid get-colour(red-600); // Fallback for non supported browsers
+      border-bottom: 2px solid Var(--red-600);
       position: absolute;
       left: 15px;
       right: 15px;
