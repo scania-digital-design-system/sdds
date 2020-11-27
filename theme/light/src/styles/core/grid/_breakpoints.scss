@@ -5,11 +5,6 @@
 */
 
 //TODO: Add rem instead of px, map doesn't give correct rem value, need a converter
-$screen-s: 80rem; //320px
-$screen-md: 164rem; // 672px
-$screen-l: 264rem; //1056px
-$screen-xl: 328rem; //1312px
-$screen-xxl: 396rem; //1584px
 
 $sdds-grid-breakpoints: (
   sm: (
@@ -84,5 +79,56 @@ $sdds-grid-breakpoints-gutterless: (
     margin: $spacing-layout-03,
     padding: $spacing-layout-02,
     gutter: 0
+  ),
+) !default;
+
+$sdds-grid-breakpoints-push: (
+  sm: (
+    width: 320px,
+    columns: 4,
+    margin: 0,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04,
+    display: none
+  ),
+  md: (
+    width: 672px,
+    columns: 8,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-02,
+    content: 432px,
+    sidebar: 240px,
+    display: block
+  ),
+  lg: (
+    width: 1056px,
+    columns: 8,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04,
+    content: 800px,
+    sidebar: 256px,
+    display: block
+  ),
+  xlg: (
+    width: 1312px,
+    columns: 16,
+    margin: $spacing-layout-02,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04,
+    content: 1056px,
+    sidebar: 256px,
+    display: block
+  ),
+  xxlg: (
+    width: 1584px,
+    columns: 16,
+    margin: $spacing-layout-03,
+    padding: $spacing-layout-01,
+    gutter: $spacing-layout-04,
+    content: 1328px,
+    sidebar: 256px,
+    display: block
   ),
 ) !default;
