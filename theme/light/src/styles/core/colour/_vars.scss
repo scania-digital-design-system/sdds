@@ -1,8 +1,6 @@
-@import './colour';
-
 :root,
 html {
-  @each $key, $value in $all-colors {
+  @each $key, $value in $all-colours {
     --#{$key} : #{$value};
   }
 }

@@ -4,9 +4,6 @@
 @import 'node_modules/bootstrap/scss/mixins/transition';
 @import 'node_modules/bootstrap/scss/mixins/gradients';
 
-@import '../core/variables';
-@import '../core/spacing/spacing';
-
 $gray-500:                                        get-colour(grey-500);
 $component-bg:                                    get-colour(grey-200);
 $component-active-color:                          get-colour(white);
