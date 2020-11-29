@@ -1,5 +1,3 @@
-@import './core/variables';
-
 @mixin renderMap($mapping, $prop) {
   @each $key, $value in $mapping {
     #{$key} { #{$prop}: $value; }
@@ -35,6 +33,6 @@
 }
 
 @mixin rule($type, $color, $important) {
-  #{$type}: map-get($theme-colors, $color) if($important, !important, null);
+  #{$type}: map-get($theme-colors-bs, $color) if($important, !important, null);
   #{$type}: Var(--#{$color}) if($important, !important, null);
 }

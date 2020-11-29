@@ -2,7 +2,7 @@
 @import '../core/base-unit';
 @import '../mixins';
 
-// This file is generated and will exist in dist
+// Fonts - This file is generated and will exist in dist 
 @import url(../fonts/fonts.css);
 
 // Bootstrap imports
@@ -10,7 +10,8 @@
 @import 'node_modules/bootstrap/scss/variables';
 
 // TODO: When we should remove BS root?
-@import 'node_modules/bootstrap/scss/root';
+// @import 'node_modules/bootstrap/scss/root';
+// Import css variables
 @import '../core/css-vars.scss';
 
 :root,
@@ -33,7 +34,7 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   color: $body-color;
-  color: Var(--grey-600);
+  color: Var(--grey-900);
   margin: 0;
   flex: 1;
 

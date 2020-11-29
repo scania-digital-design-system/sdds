@@ -138,11 +138,11 @@ $all-colors: (
   'extra':        $extra-colors,
   'link':         $link-options
 );
-$theme-colors: ();
+$theme-colors-bs: ();
 // Merge all colors in to theme-colors and
 // let "root.scss" render the css variables
 @each $name, $type in $all-colors {
-  $theme-colors: map-merge($theme-colors, $type);
+  $theme-colors-bs: map-merge($theme-colors-bs, $type);
 }
 
 // Interaction lists

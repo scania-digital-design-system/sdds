@@ -12,7 +12,7 @@
 
 
 @mixin nav-link {
-  color: var(--light-01); // IE
+  color: var(--white); // IE
   padding: 5px;
   text-align: center;
   text-decoration: none; //IE
@@ -42,17 +42,17 @@
   // IE
   &:hover {
     color: #000;
-    background-color: var(--light-01);
+    background-color: var(--white);
   }
 
 }
 
 :host {
-  --link-color: Var(--light-01);
-  --link-color-hover: Var(--light-01);
+  --link-color: Var(--white);
+  --link-color-hover: Var(--white);
   --link-decoration: none;
   --link-decoration-hover: underline;
-  --link-color-active: Var(--light-01);
+  --link-color-active: Var(--white);
   --link-bg-hover: transparent;
 
   display: block;
@@ -87,7 +87,7 @@
 
 ::slotted(a[slot="social-items"]:hover) {
   color: #000;
-  background-color: var(--light-01);
+  background-color: var(--white);
 }
 
 .social-items {
