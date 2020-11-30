@@ -24,3 +24,6 @@ Setting up grid layout based on breakpoint maping
 
 // Adding offset classes for the grid
 @include grid-offset-col($sdds-grid-breakpoints);
+
+//Pushed grid
+@include grid-push($sdds-grid-breakpoints-push);
