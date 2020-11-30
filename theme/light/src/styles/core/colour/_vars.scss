@@ -1,6 +1,9 @@
+@import './scss-vars';
+
 :root,
 html {
   @each $key, $value in $all-colours {
-    --#{$key} : #{$value};
+    $keyval : '' + $key;
+    --sdds-#{$keyval} : #{$value};
   }
 }
