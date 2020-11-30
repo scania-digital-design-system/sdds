@@ -185,6 +185,10 @@ Gutters
     display: flex;
     @include grid-make-col($breakpoints)
   }
+
+  #{$prefix}-content-push {
+    flex-grow: 1;
+  }
 }
 
 @mixin grid-push-container($breakpoints) {
@@ -206,12 +210,12 @@ Gutters
       #{$prefix}-container-push {
         padding-right: $breakpoint-margin;
         padding-left: $breakpoint-margin;
+        max-width: $breakpoint-content-width;
       }
 
       #{$prefix}-container-push-fluid {
         padding-right: $breakpoint-margin;
         padding-left: $breakpoint-margin;
-        max-width: $breakpoint-content-width;
       }
     }
   }
