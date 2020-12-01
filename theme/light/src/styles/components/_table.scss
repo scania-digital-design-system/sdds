@@ -8,15 +8,15 @@
     padding: 1.875rem;
     font-weight: bold;
     color: get-colour(white);
-    color: Var(--white);
+    color: Var(--sdds-white);
     background-color: $primary;
-    background-color: Var(--primary);
+    // background-color: Var(--primary);
   }
   thead {
 
     &:first-child {
       color: get-colour(white);
-      color: Var(--white);
+      color: Var(--sdds-white);
       background-color: $table-thead-bg-color;
     }
 

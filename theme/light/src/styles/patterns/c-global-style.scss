@@ -37,28 +37,28 @@ $componentsLight: alert, table;
   .bg-#{$name} {
     // @include background($name);
     background-color: $hex !important;
-    background-color: Var(--#{$name}) !important;
+    background-color: Var(--sdds-#{$name}) !important;
   }
 
   .text-#{$name} {
     // @include text($name);
     color: $hex !important;
-    color: Var(--#{$name}) !important;
+    color: Var(--sdds-#{$name}) !important;
   }
 
   .border-#{$name} {
     // @include border($name);
     border-color: $hex !important;
-    border-color: Var(--#{$name}) !important;
+    border-color: Var(--sdds-#{$name}) !important;
   }
 
   @each $element in $components {
     .#{$element}-#{$name} {
       // @include component($name, $element);
       background-color: $hex;
-      background-color: Var(--#{$name});
+      background-color: Var(--sdds-#{$name});
       color: $white;
-      color: Var(--white);
+      color: Var(--sdds-white);
     }
   }
 

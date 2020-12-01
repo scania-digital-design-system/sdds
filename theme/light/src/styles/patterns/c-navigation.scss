@@ -18,9 +18,9 @@
 }
 
 :host {
-  --link-color:Var(--grey-400);
+  --link-color:Var(--sdds-grey-400);
   --link-decoration: none;
-  --link-color-hover: Var(--blue-900);
+  --link-color-hover: Var(--sdds-blue-900);
 
   display: block;
   font-family: 'Scania Sans';
@@ -168,7 +168,7 @@ ul {
     &:after {
       content: '';
       border-bottom: 2px solid get-colour(red-600); // Fallback for non supported browsers
-      border-bottom: 2px solid Var(--red-600);
+      border-bottom: 2px solid Var(--sdds-red-600);
       position: absolute;
       left: 15px;
       right: 15px;
