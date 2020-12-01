@@ -1,0 +1,24 @@
+// Global Font variables
+//FIXME: Add correct rem
+$font-size-base:              3.5rem;
+$font-weight-normal:          400;
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.5;
+
+$font-family-sans-serif:      'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;
+$font-family-sans:            'Scania Sans', Arial, Helvetica, sans-serif;
+
+$font-family-monospace:       $font-family-sans-serif;
+$font-family-base:            $font-family-sans-serif;
+$headings-font-family:        'Scania Sans Semi Condensed', Arial, Helvetica, sans-serif;
+
+// New value 2020 below this comment line
+
+$font-family-regular:         'Scania Sans', Arial, Helvetica, sans-serif;
+$font-family-semi-condensed:  'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;
+$font-family-headline:        'Scania Sans Headline', Arial, Helvetica, sans-serif;
+
+// Bold version is by adding font-weight:bold
+$font-family-bold:            'Scania Sans', Arial, Helvetica, sans-serif;
+$font-family-semi-condensed-bold:  'Scania Sans Semi Condensed', Arial, Helvetica, sans-serif;
+$font-family-headline-bold:   'Scania Sans Headline', Arial, Helvetica, sans-serif;
