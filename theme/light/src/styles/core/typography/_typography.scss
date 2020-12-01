@@ -17,5 +17,10 @@
     h#{$i} {
       @include type-style($key);
     }
-  }  
+  }
+  @if $i == 7 {
+    .h#{$i} {
+      @include type-style($key);
+    }
+  }
 }
