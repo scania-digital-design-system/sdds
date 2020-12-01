@@ -1,9 +1,9 @@
-@import './scss-vars';
+@import './tokens';
 
 :root,
 html {
   @each $key, $value in $all-colours {
     $keyval : '' + $key;
-    --#{$keyval} : #{$value};
+    --sdds-#{$keyval} : #{$value};
   }
 }

@@ -19,7 +19,7 @@
     &,
     &:hover {
       color: get-colour(white);
-      color: Var(--white);
+      color: Var(--sdds-white);
     }
   }
   &.disabled,
@@ -38,7 +38,7 @@
     &:active,
     &.active {
       color: get-colour(white);
-      color: Var(--white);
+      color: Var(--sdds-white);
 
       &,
       &:focus {
@@ -51,7 +51,7 @@
     &,
     &:hover {
       color: get-colour(information);
-      color: Var(--info);
+      color: Var(--sdds-info);
     }
     &:not(:disabled):not(.disabled) {
 
@@ -62,7 +62,7 @@
       &:active,
       &.active {
         color: get-colour(information);
-        color: Var(--info);
+        color: Var(--sdds-info);
 
         &,
         &:focus {
@@ -165,7 +165,7 @@
         &:active,
         &.active {
           color: get-colour(white);
-          color: Var(--white);
+          color: Var(--sdds-white);
         }
       }
     }
@@ -180,11 +180,11 @@
         &,
         &:hover {
           color: map-get($interaction-colors, primary);
-          color: Var(--primary);
+          // color: Var(--primary); BS vars has been removed
           background-color: map-get($interaction-colors, secondary);
-          background-color: Var(--secondary);
+          // background-color: Var(--secondary); BS vars has been removed
           border-color: map-get($interaction-colors, primary);
-          border-color: Var(--primary);
+          // border-color: Var(--primary); BS vars has been removed
         }
       }
       &:not(:disabled):not(.disabled) {
@@ -196,11 +196,11 @@
         &:active,
         &.active {
           color: map-get($interaction-colors, primary);
-          color: Var(--primary);
+          // color: Var(--primary);
           background-color: map-get($interaction-colors, secondary);
-          background-color: Var(--secondary);
+          // background-color: Var(--secondary);
           border-color: map-get($interaction-colors, primary);
-          border-color: Var(--primary);
+          // border-color: Var(--primary);
 
           &,
           &:focus {
@@ -219,7 +219,7 @@
         &:active,
         &.active {
           color: $primary;
-          color: Var(--primary);
+          // color: Var(--primary);
         }
       }
     }
@@ -227,7 +227,7 @@
   @each $type in $interaction-types3 {
     &-outline-#{$type} {
       color: get-colour(white);
-      color: Var(--white);
+      color: Var(--sdds-white);
     }
   }
 }

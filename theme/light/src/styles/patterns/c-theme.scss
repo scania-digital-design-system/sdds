@@ -34,7 +34,7 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   color: $body-color;
-  color: Var(--grey-900);
+  color: Var(--sdds-grey-900);
   margin: 0;
   flex: 1;
 
@@ -48,7 +48,7 @@ c-cookie {
 
   a {
     color: get-colour(information);
-    color: Var(--information);
+    color: Var(--sdds-information);
     text-decoration: none;
 
     &:hover {

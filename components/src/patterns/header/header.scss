@@ -49,14 +49,14 @@
   
   // Header font
   --sdds-header-font-size: 3rem;
-  --sdds-header-font-family: var(--font-family-sans);
-  --sdds-header-title-font-family: var(--font-family-headline);
+  --sdds-header-font-family: var(--sdds-font-family-sans);
+  --sdds-header-title-font-family: var(--sdds-font-family-headline);
 
-  --link-color: Var(--dark-02);
+  --link-color: Var(--sdds-grey-600);
   --link-decoration: none;
   --link-decoration-hover: underline;
-  --link-color-hover: Var(--dark-02);
-  --link-color-active: Var(--dark-02);
+  --link-color-hover: Var(--sdds-grey-600);
+  --link-color-active: Var(--sdds-grey-600);
 
   display: flex;
   flex-wrap: wrap;
@@ -112,8 +112,8 @@ c-navigation {
     &:before {
       display: block;
       content: '';
-      background-image: var(--background-image-scania-wordmark-png);
-      background-image: var(--background-image-scania-wordmark-svg);
+      background-image: var(--sdds-background-image-scania-wordmark-png);
+      background-image: var(--sdds-background-image-scania-wordmark-svg);
       background-repeat: no-repeat;
       background-size: cover;
       width: 170px;
@@ -176,8 +176,8 @@ c-navigation {
   &:before {
     display: block;
     content: '';
-    background-image: var(--background-image-scania-symbol-png);
-    background-image: var(--background-image-scania-symbol-svg);
+    background-image: var(--sdds-background-image-scania-symbol-png);
+    background-image: var(--sdds-background-image-scania-symbol-svg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 40px;
@@ -215,8 +215,8 @@ c-navigation {
 
   .navbar-symbol{
     &:before {
-      background-image: var(--background-image-scania-logotype-png);
-      background-image: var(--background-image-scania-logotype-svg);
+      background-image: var(--sdds-background-image-scania-logotype-png);
+      background-image: var(--sdds-background-image-scania-logotype-svg);
     }
   }
 }
