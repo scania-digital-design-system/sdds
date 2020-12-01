@@ -4,6 +4,6 @@
 html {
   @each $key, $value in $all-colours {
     $keyval : '' + $key;
-    --sdds-#{$keyval} : #{$value};
+    --#{$keyval} : #{$value};
   }
 }
