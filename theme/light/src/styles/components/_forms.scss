@@ -1,6 +1,3 @@
-@import '../core/variables';
-@import '../core/spacing/spacing';
-
 // Input
 $input-border-color:          $border-color;
 //FIXME: Add correct rem
@@ -9,8 +6,9 @@ $input-padding-y:             2.5rem;
 $input-padding-y-sm:          1.75rem;
 $input-padding-x-sm:          $spacing-element-04;
 $input-border-radius:         $border-radius;
-$input-background-color:      $secondary;
+$input-background-color:      get-colour(white);
 
+// REMOVE success-01 and danger-01
 $form-validation-states: (
   'valid': (
     'background-color': 'success-01',
@@ -25,8 +23,8 @@ $form-validation-states: (
 .form-control {
 
   &, &:focus {
-    color: $dark;
-    color: Var(--dark);
+    color: get-colour(grey-800);
+    color: Var(--grey-800);
   }
 
   //FIXME: Add correct rem
@@ -40,8 +38,8 @@ $form-validation-states: (
   border-color: $input-border-color;
 
   &:focus {
-    border-color: $info;
-    background-color: $light-01;
+    border-color: get-colour(information);
+    background-color: get-colour(grey-500);
     box-shadow: none;
   }
 
@@ -52,19 +50,19 @@ $form-validation-states: (
   }
 
   &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $dark-01;;
+    color: get-colour(grey-400);
     opacity: 1; /* Firefox */
   }
   // needs to keep separated to make it works
   &:-ms-input-placeholder { /* Internet Explorer 10-11 & Edge */
-    color: $dark-01;;
+    color: get-colour(grey-400);
   }
 
   &[readonly] {
     background-color: $input-background-color;
     border: 0;
-    border-bottom: 1px solid $light-04;
-    border-bottom: 1px solid Var(--light-04);
+    border-bottom: 1px solid get-colour(grey-400);
+    border-bottom: 1px solid Var(--grey-400);
     padding-left: 0;
     border-radius: 0;
     //FIXME: Add correct rem
@@ -75,9 +73,9 @@ $form-validation-states: (
   &:disabled,
   &.disabled,
   &[disabled] {
-    background-color: Var(--light-02);
-    color: Var(--dark-01);
-    border-color: Var(--light-02);
+    background-color: Var(--grey-100);
+    color: Var(--grey-400);
+    border-color: Var(--grey-100);
   }
 }
 
@@ -124,9 +122,9 @@ select.form-control[multiple] {
 // Form validation
 @mixin form-validation-state($state, $data) {
   .#{$state}-feedback {
-    border: 1px solid $light-01;
-    border-left: 5px solid map-get($theme-colors, map-get($data, 'border-color'));
-    color: $dark;
+    border: 1px solid get-colour(grey-500);
+    border-left: 5px solid map-get($interaction-colors, map-get($data, 'border-color'));
+    color: get-colour(grey-800);
     line-height: normal;
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
@@ -144,13 +142,13 @@ select.form-control[multiple] {
       padding-right: $spacing-element-04;
 
       @each $key, $value in $data {
-        #{$key} : map-get($theme-colors, $value);
+        #{$key} : map-get($interaction-colors, $value);
         #{$key} : Var(--#{$value});
       }
 
       &:focus {
         box-shadow: none;
-        border-color: map-get($theme-colors, map-get($data, 'border-color'));
+        border-color: map-get($interaction-colors, map-get($data, 'border-color'));
         border-color: Var(--(map-get($data, 'border-color')));
       }
     }

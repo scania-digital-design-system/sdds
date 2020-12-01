@@ -265,7 +265,6 @@ async function initTheme(cb) {
     }
   };
 
-  generateVars('colour');
   generateVars('logotype');
   generateVars('typography');
   generateVars('spacing');

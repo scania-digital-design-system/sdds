@@ -1,12 +1,9 @@
-@import '../core/variables';
-@import '../core/spacing/spacing';
-
 .breadcrumb {
   //FIXME: Add correct rem
   font-size: $spacing-element-05;
   padding: $spacing-element-04 $spacing-element-05 3.25rem;
   border-radius: $border-radius;
-  background-color: $light-02; //TODO: Should breadcrumb be transparent
+  background-color: get-colour(grey-100); //TODO: Should breadcrumb be transparent
 
   .breadcrumb-item {
 
@@ -20,7 +17,7 @@
     }
     // For the slash before breadcrumb item
     &+.breadcrumb-item:before {
-      color: $dark-01;
+      color: get-colour(grey-500);
     }
   }
 }

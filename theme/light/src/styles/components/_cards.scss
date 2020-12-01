@@ -1,7 +1,5 @@
-@import '../core/variables';
-
 .card {
-  border-color: $light-04;
+  border-color: get-colour(grey-200);
   border-radius: $border-radius;
 
   .card-body {

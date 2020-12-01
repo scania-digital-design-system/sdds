@@ -33,10 +33,10 @@
 }
 
 footer {
-  background-color: $dark-03;
-  background-color: Var(--dark-03);
-  color: $light;
-  color: Var(--light);
+  background-color: get-colour(grey-800);
+  background-color: Var(--grey-800);
+  color: get-colour(grey-200);
+  color: Var(--grey-200);
 }
 
 .container {
@@ -69,7 +69,7 @@ footer {
       &.active {
         background-color: transparent;
         color: inherit;
-        border-color: $light-04;
+        border-color: get-colour(grey-300);
       }
     }
   }

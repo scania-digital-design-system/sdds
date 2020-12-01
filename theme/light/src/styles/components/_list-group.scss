@@ -1,11 +1,9 @@
-@import '../core/variables';
-
 .list-group {
 
   &-item {
     //FIXME: Add correct rem
     padding: 4.25rem;
-    border-color: $light-04;
+    border-color: get-colour(grey-300);
     display: flex;
     text-decoration: none;
     align-items: center;
@@ -23,7 +21,7 @@
       @include border('dark', false);
 
       font-weight: bold;
-      color: $white; //TODO: look into what color active should use
+      color: get-colour(white); //TODO: look into what color active should use
     }
   }
 }
