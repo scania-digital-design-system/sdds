@@ -1,4 +1,3 @@
-@import '../core/variables';
 @import '../mixins';
 
 a {
@@ -40,6 +39,6 @@ p {
 
 label {
   font-weight: bold;
-  color: $dark-01; //IE
-  color: Var(--dark-01);
+  color: get-colour(grey-400); //IE
+  color: Var(--grey-400);
 }
