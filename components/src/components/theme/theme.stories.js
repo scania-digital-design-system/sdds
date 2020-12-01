@@ -57,6 +57,7 @@ Detail.args =  {
   <p class='sdds-detail-04'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   <p class='sdds-detail-05'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   <p class='sdds-detail-06'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+  <p class='sdds-detail-07'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   `
 }
 

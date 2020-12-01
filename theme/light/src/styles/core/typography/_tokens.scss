@@ -114,6 +114,12 @@ $detail-06: (
   line-height: type-scale(4),
   letter-spacing: 0.08em
 );
+$detail-07: (
+  font-family: $font-family-semi-condensed,
+  font-size: type-scale(1),
+  line-height: 2rem,
+  letter-spacing: 0
+);
 
 // Expressive
 $expressive-headline-01:(
@@ -149,6 +155,7 @@ $typography-sets: (
   detail-04: $detail-04,
   detail-05: $detail-05,
   detail-06: $detail-06,
+  detail-07: $detail-07,
   expressive-headline-01: $expressive-headline-01,
   expressive-headline-02: $expressive-headline-02
 );
