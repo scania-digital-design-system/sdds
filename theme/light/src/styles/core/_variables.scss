@@ -4,18 +4,18 @@
 @import './logotype/logotype';
 @import './base-unit';
 
-$headings-color:              $theme-01;
+$headings-color:              get-colour(grey-900);
 
 // Body
-$body-bg:                     $white;
-$body-color:                  $dark;
+$body-bg:                     get-colour(white);
+$body-color:                  get-colour(grey-900);
 
 //Link
 // FIXME: Add correct colours when foundation is done
-$link-color:                  $dark-02;
-$link-color-hover:            $light;
-$link-color-active:           $blue;
-$link-color-disabled:         $light;
+$link-color:                  get-colour(grey-500);
+$link-color-hover:            get-colour(grey-200);
+$link-color-active:           get-colour(blue);
+$link-color-disabled:         get-colour(grey-200);
 $link-bg:                     inherit;
 $link-bg-hover:               inherit;
 $link-decoration:             underline;
@@ -23,16 +23,16 @@ $link-decoration-hover:       none;
 
 // Global Border settings
 $border-radius:               3px;
-$border-color:                $light;
+$border-color:                get-colour(grey-200);
 
 // Modal
 $modal-padding:               15px;
-$modal-border-color:          $light-03;
+$modal-border-color:          get-colour(grey-50);
 
 // Table
 $table-border-color:          $border-color;
-$table-thead-border-color:    $blue;
-$table-thead-bg-color:        $blue;
+$table-thead-border-color:    get-colour(blue);
+$table-thead-bg-color:        get-colour(blue);
 
 //Pagination
 $pagination-bg-color:         transparent;
@@ -40,75 +40,79 @@ $pagination-bg-color:         transparent;
 // List-groups
 $border-radius-list-group:    $border-radius;
 
+// Bootstrap components colours
+// TODO: When adding more components, need to remove these colours below
+$primary:       get-colour(blue-900);
+$secondary:     #fff;
+$success:       get-colour(green-300);
+$info:         get-colour(information);
+$warning:      get-colour(orange-600);
+$danger:        get-colour(negative);
+$light:         get-colour(grey-400);
+$dark:          get-colour(grey-600);
 // All colours
 $global-colors: (
-  'blue':       $blue,
-  'red':        $red,
-  'orange':     $orange,
-  'green':      $green,
-  'white':      $white,
-  'black':      $black
-);
-
-$theme-colors: (
-  'theme-01': $theme-01,
-  'theme-02': $theme-02,
-  'theme-03': $theme-03
-);
-
-$success-colors: (
-  'success-01': $success-01,
-  'success-02': $success-02,
-  'success-03': $success-03,
-  'success-04': $success-04
-);
-
-$info-colors: (
-  'info-01': $info-01,
-  'info-02': $info-02,
-  'info-03': $info-03,
-  'info-04': $info-04
-);
-
-$warning-colors: (
-  'warning-01': $warning-01,
-  'warning-02': $warning-02,
-  'warning-03': $warning-03,
-  'warning-04': $warning-04
-);
-
-$danger-colors: (
-  'danger-01': $danger-01,
-  'danger-02': $danger-02,
-  'danger-03': $danger-03,
-  'danger-04': $danger-04
-);
-
-$light-colors: (
-  'light-01': $light-01,
-  'light-02': $light-02,
-  'light-03': $light-03,
-  'light-04': $light-04
-);
-
-$dark-colors: (
-  'dark-01': $dark-01,
-  'dark-02': $dark-02,
-  'dark-03': $dark-03
+  'blue':       get-colour(blue-900),
+  'red':        get-colour(red-600),
+  'orange':     get-colour(orange-600),
+  'green':      get-colour(green-300),
+  'white':      get-colour(white),
+  'black':      get-colour(grey-800)
 );
 
 $interaction-colors: (
-  'primary':    $primary,
-  'secondary':  $secondary,
-  'success':    $success,
-  'info':       $info,
-  'warning':    $warning,
-  'danger':     $danger,
+  'primary':    get-colour(cta),
+  'secondary':  get-colour(white),
+  'success':    get-colour(positive),
+  'info':       get-colour(information),
+  'warning':    get-colour(warning),
+  'danger':     get-colour(negative),
 );
 
 $extra-colors: (
-  'light':      $light,
-  'dark':       $dark
+  'light':      get-colour(grey-200),
+  'dark':       get-colour(grey-600)
+);
+
+$success-colors: (
+  'success-01': get-colour(green-50),
+  'success-02': get-colour(green-100),
+  'success-03': get-colour(green-200),
+  'success-04': get-colour(green-600)
+);
+
+$info-colors: (
+  'info-01': get-colour(blue-50),
+  'info-02': get-colour(blue-100),
+  'info-03': get-colour(blue-300),
+  'info-04': get-colour(blue-600)
+);
+
+$warning-colors: (
+  'warning-01': get-colour(orange-50),
+  'warning-02': get-colour(orange-100),
+  'warning-03': get-colour(orange-200),
+  'warning-04': get-colour(orange-700)
+);
+
+$danger-colors: (
+  'danger-01': get-colour(red-50),
+  'danger-02': get-colour(red-100),
+  'danger-03': get-colour(red-200),
+  'danger-04': get-colour(red-700)
+);
+
+$light-colors: (
+  'light-01': get-colour(grey-50),
+  'light-02': get-colour(grey-100),
+  'light-03': get-colour(grey-200),
+  'light-04': get-colour(grey-300)
+);
+
+$dark-colors: (
+  'dark-01': get-colour(grey-400),
+  'dark-02': get-colour(grey-500),
+  'dark-03': get-colour(grey-800)
 );
 
 $link-options: (
@@ -124,7 +128,6 @@ $link-options: (
 
 $all-colors: (
   'global':       $global-colors,
-  'theme':        $theme-colors,
   'success':      $success-colors,
   'info':         $info-colors,
   'warning':      $warning-colors,
@@ -135,11 +138,11 @@ $all-colors: (
   'extra':        $extra-colors,
   'link':         $link-options
 );
-
+$theme-colors-bs: ();
 // Merge all colors in to theme-colors and
 // let "root.scss" render the css variables
 @each $name, $type in $all-colors {
-  $theme-colors: map-merge($theme-colors, $type);
+  $theme-colors-bs: map-merge($theme-colors-bs, $type);
 }
 
 // Interaction lists

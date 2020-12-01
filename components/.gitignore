@@ -13,6 +13,9 @@ src/themes.built/
 dist/
 www/
 
+# Compiled from storybook
+storybook-static/
+
 *~
 *.sw[mnpcod]
 *.log

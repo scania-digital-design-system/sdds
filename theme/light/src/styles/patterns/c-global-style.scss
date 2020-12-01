@@ -63,14 +63,14 @@ $componentsLight: alert, table;
   }
 
   @each $element in $componentsLight {
-    @if map-get($theme-colors, #{$name}-#{'02'}) {
+    @if map-get($theme-colors-bs, #{$name}-#{'02'}) {
       .#{$element}-#{$name} {
         // @include component($name, $element);
-        background-color: map-get($theme-colors, #{$name}-#{'02'});
+        background-color: map-get($theme-colors-bs, #{$name}-#{'02'});
         background-color: Var(--#{$name}-#{'02'});
-        color: map-get($theme-colors, #{$name}-#{'04'});
+        color: map-get($theme-colors-bs, #{$name}-#{'04'});
         color: Var(--#{$name}-#{'04'});
-        border-color: map-get($theme-colors, #{$name}-#{'03'});
+        border-color: map-get($theme-colors-bs, #{$name}-#{'03'});
         border-color: Var(--#{$name}-#{'03'});
       }
     }
