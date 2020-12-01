@@ -68,9 +68,9 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 
   &:checked ~ .custom-control-label::before {
     background-color: $primary;
-    background-color: Var(--primary);
+    // background-color: Var(--primary);
     border-color: $primary;
-    border-color: Var(--primary);
+    // border-color: Var(--primary);
   }
 
   &:disabled,
@@ -128,7 +128,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
         width: $custom-control-radio-size;
         height: $custom-control-radio-size;
         background-color: $primary;
-        background-color: Var(--primary);
+        // background-color: Var(--primary);
         border-radius: 50%;
         left: ($custom-control-radio-padding * -1);
         top: $custom-control-radio-space-around;
@@ -145,7 +145,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 
       &:checked ~ .custom-control-label::after {
         background-color: get-colour(grey-200);
-        background-color: Var(--grey-200);
+        background-color: Var(--sdds-grey-200);
       }
     }
   }

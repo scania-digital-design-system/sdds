@@ -24,7 +24,7 @@ $form-validation-states: (
 
   &, &:focus {
     color: get-colour(grey-800);
-    color: Var(--grey-800);
+    color: Var(--sdds-grey-800);
   }
 
   //FIXME: Add correct rem
@@ -62,7 +62,7 @@ $form-validation-states: (
     background-color: $input-background-color;
     border: 0;
     border-bottom: 1px solid get-colour(grey-400);
-    border-bottom: 1px solid Var(--grey-400);
+    border-bottom: 1px solid Var(--sdds-grey-400);
     padding-left: 0;
     border-radius: 0;
     //FIXME: Add correct rem
@@ -73,9 +73,9 @@ $form-validation-states: (
   &:disabled,
   &.disabled,
   &[disabled] {
-    background-color: Var(--grey-100);
-    color: Var(--grey-400);
-    border-color: Var(--grey-100);
+    background-color: Var(--sdds-grey-100);
+    color: Var(--sdds-grey-400);
+    border-color: Var(--sdds-grey-100);
   }
 }
 

@@ -1,4 +1,4 @@
-@import './scss-vars';
+@import './tokens';
 
 // generate colour class for background (.sdds-background-{token-name})
 @each $key, $value in $all-colours {

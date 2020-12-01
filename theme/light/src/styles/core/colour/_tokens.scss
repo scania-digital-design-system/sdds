@@ -68,7 +68,7 @@ $orange:(
 $original-colours : map-collect($grey, $blue, $red, $green, $orange);
 $primary-new: (
   blue: get-colour-original(blue-900),
-  red: get-colour-original(red-900),
+  red: get-colour-original(red-600),
   black: #000,
   white: #fff
 );
