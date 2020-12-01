@@ -1,0 +1,14 @@
+{
+  "name": "@scania/colour",
+  "version": "1.0.0-alpha.0",
+  "description": "Scania Digital Design System colour",
+  "main": "index.js",
+  "scripts": {
+    "build": "node compile.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.29.0"
+  }
+}

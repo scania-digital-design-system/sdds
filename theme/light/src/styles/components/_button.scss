@@ -1,6 +1,4 @@
-@import '../core/variables';
 @import '../mixins';
-@import '../core/spacing/spacing';
 
 .btn {
   --link-decoration: none;
@@ -20,7 +18,7 @@
 
     &,
     &:hover {
-      color: $white;
+      color: get-colour(white);
       color: Var(--white);
     }
   }
@@ -39,7 +37,7 @@
     }
     &:active,
     &.active {
-      color: $white;
+      color: get-colour(white);
       color: Var(--white);
 
       &,
@@ -52,7 +50,7 @@
 
     &,
     &:hover {
-      color: $info;
+      color: get-colour(information);
       color: Var(--info);
     }
     &:not(:disabled):not(.disabled) {
@@ -63,7 +61,7 @@
       }
       &:active,
       &.active {
-        color: $info;
+        color: get-colour(information);
         color: Var(--info);
 
         &,
@@ -166,7 +164,7 @@
         &:focus,
         &:active,
         &.active {
-          color: $white;
+          color: get-colour(white);
           color: Var(--white);
         }
       }
@@ -228,7 +226,7 @@
   }
   @each $type in $interaction-types3 {
     &-outline-#{$type} {
-      color: $white;
+      color: get-colour(white);
       color: Var(--white);
     }
   }

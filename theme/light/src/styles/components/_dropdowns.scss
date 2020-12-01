@@ -1,18 +1,16 @@
-@import '../core/variables';
 @import '../mixins';
-@import '../core/spacing/spacing';
 
 .dropdown-menu{
   //FIXME: Add correct rem
   padding: $spacing-element-03 2.5rem;
-  border: 1px solid $light-04;
+  border: 1px solid get-colour(grey-300);
   //FIXME: Add correct rem
   font-size: 3.5rem;
   border-radius: $border-radius;
 }
 
 .dropdown-item {
-  color: $dark;
+  color: get-colour(grey-600);
   //FIXME: Add correct rem
   padding: $spacing-element-02 $spacing-element-01;
   text-decoration: none;
@@ -21,13 +19,13 @@
   &:hover,
   &:active,
   &.active {
-    color: $dark-03;
-    background-color: $secondary;
+    color: get-colour(grey-800);
+    background-color: get-colour(white);
   }
 
   &:active, //TODO: Look into active state, based on 3.5.x
   &.active {
-    background-color: $light-01;
+    background-color: get-colour(grey-500);
   }
 }
 
@@ -54,7 +52,7 @@
   @each $type in $interaction-types {
     > .btn-#{$type}.dropdown-toggle {
       @extend .btn-#{$type};
-      color: $white;
+      color: get-colour(white);
     }
   }
   @each $type in $interaction-types2 {
