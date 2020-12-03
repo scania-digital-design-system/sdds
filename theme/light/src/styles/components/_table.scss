@@ -31,14 +31,14 @@
     background-color: inherit;
     box-shadow: inherit;
     //FIXME: Add correct rem
-    padding: $spacing-element-04 $spacing-element-04 3.25rem;
+    padding: $spacing-element-12 $spacing-element-12 3.25rem;
   }
 
   &.table-sm {
     th,
     td {
       //FIXME: Add correct rem
-      padding: $spacing-element-01 1.25rem 1.25rem;
+      padding: $spacing-element-2 1.25rem 1.25rem;
     }
   }
 }
