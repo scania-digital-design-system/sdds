@@ -2,7 +2,7 @@
 
 .dropdown-menu{
   //FIXME: Add correct rem
-  padding: $spacing-element-03 2.5rem;
+  padding: $spacing-element-8 2.5rem;
   border: 1px solid get-colour(grey-300);
   //FIXME: Add correct rem
   font-size: 3.5rem;
@@ -12,7 +12,7 @@
 .dropdown-item {
   color: get-colour(grey-600);
   //FIXME: Add correct rem
-  padding: $spacing-element-02 $spacing-element-01;
+  padding: $spacing-element-4 $spacing-element-2;
   text-decoration: none;
 
   &:focus,

@@ -4,14 +4,14 @@
 .badge {
   //FIXME: Add correct rem
   padding: 1.25rem 8.5px 1.25rem 8.5px;
-  border-radius: $spacing-element-04;
-  font-size: $spacing-element-04;
+  border-radius: $spacing-element-12;
+  font-size: $spacing-element-12;
   line-height: 3.5rem;
 
   &.badge-pill {
     //FIXME: Add corect rem
-    padding: 1.5rem $spacing-element-05 1.75rem $spacing-element-05;
-    border-radius: $spacing-element-05;
+    padding: 1.5rem $spacing-element-16 1.75rem $spacing-element-16;
+    border-radius: $spacing-element-16;
     font-size: 3.4rem;
     line-height: 4.25rem;
   }

@@ -1,7 +1,7 @@
 .breadcrumb {
   //FIXME: Add correct rem
-  font-size: $spacing-element-05;
-  padding: $spacing-element-04 $spacing-element-05 3.25rem;
+  font-size: $spacing-element-16;
+  padding: $spacing-element-12 $spacing-element-16 3.25rem;
   border-radius: $border-radius;
   background-color: get-colour(grey-100); //TODO: Should breadcrumb be transparent
 
