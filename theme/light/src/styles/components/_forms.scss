@@ -1,10 +1,10 @@
 // Input
 $input-border-color:          $border-color;
 //FIXME: Add correct rem
-$input-padding-x:             $spacing-element-04;
+$input-padding-x:             $spacing-element-12;
 $input-padding-y:             2.5rem;
 $input-padding-y-sm:          1.75rem;
-$input-padding-x-sm:          $spacing-element-04;
+$input-padding-x-sm:          $spacing-element-12;
 $input-border-radius:         $border-radius;
 $input-background-color:      get-colour(white);
 
@@ -29,7 +29,7 @@ $form-validation-states: (
 
   //FIXME: Add correct rem
   font-size: 3.5rem;
-  line-height: $spacing-element-05;
+  line-height: $spacing-element-16;
   font-weight: 400;
   height: auto;
   border-radius: $input-border-radius;
@@ -87,7 +87,7 @@ $form-validation-states: (
 
 .form-control-sm {
   //FIXME: Add correct rem
-  font-size: $spacing-element-04;
+  font-size: $spacing-element-12;
   line-height: 3.5rem;
   padding: $input-padding-y-sm $input-padding-x-sm;
 }
@@ -100,7 +100,7 @@ select.form-control {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTIiIGhlaWdodD0iNjMiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEwNS4wOTcwMDAxNDA0Mjg1NSwyLjc2NTY1NTQ4MjQwNjI1OTZlLTggTDU2LjA4NDAwMDE0MDQyODU0LDQ5LjAxMjAwMDAyNzY1NjU3IEw3LjA3MTAwMDE0MDQyODUzOCwyLjc2NTY1NTQ4MjQwNjI1OTZlLTggbC03LjA3MSw3LjA3MSBMNTYuMDg0MDAwMTQwNDI4NTQsNjMuMTU1MDAwMDI3NjU2NTQgbDU2LjA4MywtNTYuMDg0IHoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
   //FIXME: Add correct rem
-  background-size: $spacing-element-04;
+  background-size: $spacing-element-12;
   background-position: calc(100% - 3rem) center;
   padding-right: 40px;
 }
@@ -129,7 +129,7 @@ select.form-control[multiple] {
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
     //FIXME: Add correct rem
-    padding: $spacing-element-03;
+    padding: $spacing-element-8;
     border-radius: 5px;
   }
 
@@ -139,7 +139,7 @@ select.form-control[multiple] {
     .was-validated &:#{$state} {
       background-image: none;
       //FIXME: Add correct rem
-      padding-right: $spacing-element-04;
+      padding-right: $spacing-element-12;
 
       @each $key, $value in $data {
         #{$key} : map-get($interaction-colors, $value);

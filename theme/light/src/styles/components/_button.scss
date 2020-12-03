@@ -8,7 +8,7 @@
   border-radius: 0.75rem;
   border-radius: 3px;
   //FIXME: Add correct rem
-  padding: 2.25rem 4.5rem $spacing-element-03;
+  padding: 2.25rem 4.5rem $spacing-element-8;
   font-size: 3.5rem;
   font-weight: bold;
 
@@ -73,13 +73,13 @@
   }
   &-sm {
     //FIXME: Add correct rem
-    padding: 1.25rem $spacing-element-05 1.25rem;
-    font-size: $spacing-element-04;
+    padding: 1.25rem $spacing-element-16 1.25rem;
+    font-size: $spacing-element-12;
   }
   &-lg {
     //FIXME: Add correct rem
-    padding: 3.5rem $spacing-element-06;
-    font-size: $spacing-element-05;
+    padding: 3.5rem $spacing-element-20;
+    font-size: $spacing-element-16;
   }
 
   @at-root a#{&}.disabled {
