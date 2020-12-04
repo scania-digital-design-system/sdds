@@ -27,3 +27,4 @@ Setting up grid layout based on breakpoint maping
 
 //Pushed grid
 @include grid-push($sdds-grid-breakpoints-push);
+@include grid-push-no-padding($sdds-grid-breakpoints-push);
