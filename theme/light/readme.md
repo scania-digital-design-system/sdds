@@ -1,12 +1,12 @@
-[![npm version](http://img.shields.io/npm/v/scania-theme.svg?style=flat&color=1081C2)](https://npmjs.org/package/scania-theme)
-[![Github release](https://img.shields.io/github/v/tag/scania/scania-theme.svg?label=release&color=1081C2)](https://github.com/scania/scania-theme/releases)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/scania/scania-theme/Node%20CI)
+[![npm version](http://img.shields.io/npm/v/scania-theme.svg?style=flat&color=1081C2)](https://npmjs.org/package/@scania-sdds/theme-light)
+[![Github release](https://img.shields.io/github/v/tag/scania/scania-theme.svg?label=release&color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/scania-digital-design-system/sdds/Node%20CI)
 
 # Scania Theme
 
-# @sdds/themes/light
+# @scania-sdds/themes/light
 
-Scania theme is a package to style Scania looks and feel in the [Corporate UI 4.0 setup](https://github.com/scania/corporate-ui/).
+Scania theme is a package to style Scania looks and feel in the [Scania Digital Design System setup](https://github.com/scania-digital-design-system/sdds/).
 
 ## Installation
 
@@ -14,17 +14,17 @@ Scania theme is a package to style Scania looks and feel in the [Corporate UI 4.
  <summary><strong>NPM package</strong></summary>
 <br/>
  
-Install scania-theme package by running the command below.
+Install package by running the command below.
  
 ```shell
-npm i scania-theme
+npm i @scania-sdds/theme-light -D
 ```
 
 Import theme in the project and use it with addTheme function from corporate-ui.
 
 ```js
-import { defineCustomElements, addTheme } from 'corporate-ui'; 
-import { theme as scania } from 'scania-theme'; 
+import { defineCustomElements, addTheme } from '@scania-sdds/components'; 
+import { theme as scania } from '@scania-sdds/theme-light'; 
  
 defineCustomElements(); 
 addTheme(scania);
@@ -39,11 +39,11 @@ addTheme(scania);
 Add link to the script by adding the following to the head element. Make sure to include scania-theme script BEFORE the corporate-ui script.
  
 ```html
-<script src="https://static.scania.com/build/global/themes/scania/1.x/scania-theme.js"></script>
-<script src="https://static.scania.com/build/global/4.x/corporate-ui.js"></script>
+<script src="https://digitaldesign.scania.com/builds/@scania-sdds/theme-light/x/scania-theme.js"></script>
+<script src="https://digitaldesign.scania.com/builds/@scania-sdds/components/x/core.js"></script>
 ```
 
-Replace `x` with [available releases](https://www.npmjs.com/package/scania-theme).
+Replace `x` with [available releases](https://www.npmjs.com/@scania-sdds/theme-light).
 
 </details>
 
@@ -57,10 +57,10 @@ Initialize the theme with the `c-theme` component. Set `global` attribute to tru
 
 ## Setup local development
 
-1. Clone scania-theme repository
+1. Clone sdds repository
 
 ```shell
-git clone https://github.com/scania/scania-theme.git
+git clone https://github.com/scania-digital-design-system/sdds.git
 ```
 
 2. Download and install node.js: https://nodejs.org/en/
@@ -68,6 +68,7 @@ git clone https://github.com/scania/scania-theme.git
 4. From the scania-theme folder, run `npm i` to install package dependencies
 5. Start the local setup by running `npm start`
 6. Scania theme scripts will be served on http://localhost:1338/scania-theme.js
+7. Use demo inside the `demo` folder in sdds project.
 
 ## License
 
