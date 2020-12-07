@@ -97,9 +97,7 @@ $sdds-grid-breakpoints-push: (
     margin: $spacing-layout-16,
     padding: $spacing-layout-8,
     gutter: $spacing-layout-16,
-    content: 432px,
-    sidebar: 240px,
-    display: block
+    display: none
   ),
   lg: (
     width: 1056px,
