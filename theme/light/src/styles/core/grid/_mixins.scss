@@ -191,6 +191,31 @@ Gutters
   }
 }
 
+@mixin grid-push-no-padding($breakpoints) {
+  @each $sizes, $values in $breakpoints {
+    $breakpoint-columns: map-get($values, 'columns');
+    $breakpoint-gutter: map-get($values, 'gutter');
+    $breakpoint-padding: 0;
+    $breakpoint-width: map-get($values, 'width');
+
+   // Create columns that doesn't need a number, it bases it spacing on the area available
+   @include grid-make-col-auto($prefix,$sizes ,$breakpoint-width ,$breakpoint-padding , $breakpoint-gutter);
+
+   //  Each column for everysize
+   @for $i from 1 through $breakpoint-columns {
+
+     @include grid-col-size-full-width($prefix, $sizes, $i);
+
+     @media (min-width:  $breakpoint-width ) {
+       #{$prefix}-col-#{$sizes}-#{$i}.no-padding {
+         @include grid-col-size($breakpoint-columns, $i);
+         @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
+       }
+     }
+   }
+ }
+}
+
 @mixin grid-push-container($breakpoints) {
   @each $key, $values in $breakpoints {
 
