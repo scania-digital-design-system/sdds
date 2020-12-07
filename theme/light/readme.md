@@ -4,7 +4,7 @@
 
 # Scania Theme
 
-# @scania-sdds/themes/light
+# @scania-sdds/theme-light
 
 Scania theme is a package to style Scania looks and feel in the [Scania Digital Design System setup](https://github.com/scania-digital-design-system/sdds/).
 
