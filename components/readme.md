@@ -1,19 +1,15 @@
-[![npm version](http://img.shields.io/npm/v/corporate-ui.svg?style=flat&color=1081C2)](https://npmjs.org/package/corporate-ui)
-[![Github release](https://img.shields.io/github/v/tag/scania/corporate-ui.svg?label=release&color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
+[![Github release](https://img.shields.io/npm/v/@scania-sdds/components?color=1081C2)](https://www.npmjs.com/package/@scania-sdds/components)
+[![Github release](https://img.shields.io/github/v/release/scania-digital-design-system/sdds?color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-![](https://img.shields.io/github/license/scania/corporate-ui.svg?style=flat)
-[![Available components](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://digitaldesign.scania.com/components)
+![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
+[![Getting Started](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://digitaldesign.scania.com/getting-started/development)
 
 # Scania Digital Design System components
-
-**Demo page**
-
-[Simple HTML ↗](https://codepen.io/corporate-ui/pen/OYmqpr) | [Angular ↗](https://github.com/scania/corporate-ui-angular) | [React ↗](https://github.com/scania/corporate-ui-react) | [Vue ↗](https://github.com/scania/corporate-ui-vue)
 
 
 **Technical documentation**
 
-Check out [Scania Digital Design System](https://digitaldesign.scania.com/) for **migration guidelines**, **component status**, and technical documentation.
+Check out [Scania Digital Design System](https://digitaldesign.scania.com/) for implementation and technical documentation.
 
 
 ## Quick start
@@ -26,13 +22,13 @@ Several options to add components in the project:
    Install components via NPM package by running the command below.
 
    ```
-   npm i @scania/components
+   npm i @scania-sdds/components
    ```
 
    Import component as a module with `defineCustomElements` function.
 
    ```js
-   import { defineCustomElements } from '@scania/components';
+   import { defineCustomElements } from '@scania-sdds/components';
 
    defineCustomElements();
    ```
