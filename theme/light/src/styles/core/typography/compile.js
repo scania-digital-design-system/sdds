@@ -26,7 +26,7 @@ function createFolders() {
   console.log('creating folders...')
   fs.mkdirSync(outputFolder);
   fs.mkdirSync(`${outputFolder}/css`);
-  // fs.mkdirSync(`${outputFolder}/scss`);
+  fs.mkdirSync(`${outputFolder}/scss`);
 }
 
 // Create a scss folder will all scss files in current folder
@@ -35,18 +35,34 @@ function generateScss(name, data) {
   fs.writeFileSync(`${outputFolder}/scss/${name}.scss`, data)
 }
 
+function importFile(data) {
+  const toMatch =/(@import '\.\.\/(.*)\')/gm;
+  const files = toMatch.exec(data);
+  
+  if(files!==null){
+    const filePath = path.join(__dirname, '../', '_' + files[2] + '.scss');
+    const output = `${outputFolder}/_${files[2]}.scss`;
+    fs.createReadStream(filePath).pipe(fs.createWriteStream(output));
+  }
+}
+
 // Creates a css file for each scss file in current folder
 function generateCss(file) {
   const name = path.parse(file).name;
   console.log(`file: ${file}`)
-  const data = fs.readFileSync(path.resolve(file), 'utf8');
+  
+  fs.readFile(path.resolve(file), 'utf8', function(err, data){
+    if(err) throw err;
 
-  const content = sass.renderSync({
-    data
-  });
+    importFile(data);
 
-  fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
-  // generateScss(name,data);
+    const content = sass.renderSync({
+      data
+    });
+  
+    fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
+    generateScss(name,data);
+  })
 }
 
 
