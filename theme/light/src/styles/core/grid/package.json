@@ -1,10 +1,13 @@
 {
-  "name": "@scania/grid",
+  "name": "@scania-sdds/grid",
   "version": "1.0.0-alpha.0",
   "description": "Scania Digital Design System Grid",
   "scripts": {
     "build": "node compile.js"
   },
+  "files": [
+    "dist"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {},
