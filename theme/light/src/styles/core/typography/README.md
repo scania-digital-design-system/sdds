@@ -3,35 +3,46 @@
 ---
 
 This package contains both SCSS and CSS files available
-- Scss available for import
-- Css for classes and css variables for typograpjy
+- SCSS available for import
+- CSS classes to apply typography properties based on tokens
+- CSS variables for font-family
 
-How to install with npm
+### How to install with npm
+
 ```shell
-> npm i @scania/typography
-```
-How to build
-```shell
-> npm run build
+> npm i @scania-sdds/typography
 ```
 
-How to use
+### How to use
 
-See all available tokens in digitaldesign.scania.com
+See all available tokens in [digitaldesign.scania.com](https://digitaldesign.scania.com/foundation/typography)
+
 ```html
-
 // style.scss
 // you need to have sass compiler in your application
-@import '@scania/typography';
+@import '~node_modules/@scania-sdds/typography/dist/scss/mixins';
+@import '~node_modules/@scania-sdds/typography/dist/scss/tokens';
 
+// use SDDS mixin type-style(token-name) to add specific token properties
 .my-headline {
-    @include type-style('token-name');
+    @include type-style('headline-01');
+}
+
+// Result for code above:
+.my-headline {
+  font-family: "Scania Sans Headline", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 10rem;
+  line-height: 10rem;
+  letter-spacing: 0em;
 }
 
 // OR
 // use in HTML as a class
 //.sdds-{token-name}
-<p class=".sdds-headline-01"></p>
+<p class="sdds-headline-01">
+  This is a headline
+</p>
 ```
 
 
