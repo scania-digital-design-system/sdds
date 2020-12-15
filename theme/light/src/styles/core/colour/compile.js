@@ -4,14 +4,18 @@ const glob = require('glob');
 const path = require('path');
 const del = require('del');
 const outputFolder = 'dist';
-
+const bundleScss = require("bundle-scss");
 
 init();
+
+const dest= `${outputFolder}/scss/colour.scss`;
+const mask= "./*.scss";
 
 async function init() {
   await clean();
   await createFolders();
   await glob.sync('*.scss').forEach(generateCss);
+  bundleScss(mask, dest);
   console.log(`${outputFolder}/ folder contains all files`)
 }
 
@@ -26,13 +30,7 @@ function createFolders() {
   console.log('creating folders...')
   fs.mkdirSync(outputFolder);
   fs.mkdirSync(`${outputFolder}/css`);
-  // fs.mkdirSync(`${outputFolder}/scss`);
-}
-
-// Create a scss folder will all scss files in current folder
-//FIXME: Import of files outside current package
-function generateScss(name, data) {
-  fs.writeFileSync(`${outputFolder}/scss/${name}.scss`, data)
+  fs.mkdirSync(`${outputFolder}/scss`);
 }
 
 // Creates a css file for each scss file in current folder
@@ -44,9 +42,10 @@ function generateCss(file) {
   const content = sass.renderSync({
     data
   });
-
-  fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
-  // generateScss(name,data);
+  if(data!==''){
+    fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
+  }
+  
 }
 
 
