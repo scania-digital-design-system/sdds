@@ -1,10 +1,10 @@
-const sass = require("sass");
-const fs = require("fs-extra");
+const sass = require('sass');
+const fs = require('fs-extra');
 const glob = require('glob');
 const path = require('path');
 const del = require('del');
 const outputFolder = 'dist';
-const bundleScss = require("bundle-scss");
+const bundleScss = require('bundle-scss');
 
 init();
 
@@ -14,7 +14,7 @@ const mask= "./*.scss";
 async function init() {
   await clean();
   await createFolders();
-  await glob.sync('*.scss').forEach(generateCss);
+  await glob.sync('_colour.scss').forEach(generateCss);
   bundleScss(mask, dest);
   console.log(`${outputFolder}/ folder contains all files`)
 }
