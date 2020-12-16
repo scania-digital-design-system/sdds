@@ -1,14 +1,18 @@
 {
-  "name": "@scania/colour",
+  "name": "@scania-sdds/colour",
   "version": "1.0.0-alpha.0",
-  "description": "Scania Digital Design System colour",
-  "main": "index.js",
+  "description": "Scania Digital Design System colour package",
+  "main": "dist/scss/colour.scss",
   "scripts": {
     "build": "node compile.js"
   },
+  "files": [
+    "dist"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bundle-scss": "^1.4.17",
     "sass": "^1.29.0"
   }
 }
