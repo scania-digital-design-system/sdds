@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import '~bootstrap/scss/dropdown';
+
+
+.dropdown-toggle {
+  padding:0;
+  cursor: pointer;
+  color: #909090;
+
+  &:after {
+    margin-right: 25px;
+  }
+  .show & {
+    color: #041e42;
+  }
+}
