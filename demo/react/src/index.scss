@@ -1,0 +1,22 @@
+/* Should these be provided by Corporate UI? */
+html,
+body, #root {
+  display: flex;
+  flex-direction: column;
+}
+html, #root {
+  height: 100%;
+}
+body {
+  flex: 1;
+}
+section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+h1:first-child {
+  margin-top: 0;
+}
+* {
+  box-sizing: border-box;
+}
