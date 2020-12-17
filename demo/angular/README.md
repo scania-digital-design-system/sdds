@@ -1,4 +1,4 @@
-# Angular example application using Corporate-Ui and Scania-theme
+# Angular demo
 
 To run this project locally you will need to NodeJS and npm.
 
@@ -8,14 +8,14 @@ See the running example on [this link](https://scania.github.io/corporate-ui-ang
 
 Visit our Design System at [digitaldesign.scania.com](https://digitaldesign.scania.com/) for more information
 
-For more information about how to use Corporate-Ui and Scania-Theme go to [digitaldesign.scania.com/getting-started](https://digitaldesign.scania.com/getting-started/development)
+For more information about how to use SDDS, go to [digitaldesign.scania.com/getting-started/development](https://digitaldesign.scania.com/getting-started/development)
 
 ## Getting started
 
 Clone this repo, install all dependencies and start it:
 ```bash
-git clone https://github.com/scania/corporate-ui-angular.git
-cd corporate-ui-angular
+git clone https://github.com/scania-digital-design-system/sdds.git
+cd demo/angular
 npm i
 npm start
 ```
@@ -25,19 +25,19 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
 ## Project setup
 
-1. Install `corporate-ui` and `scania-theme` package from NPM in your project folder
+1. Install `components` and `scania-theme` package from NPM in your project folder
 
    ```bash
-   npm i corporate-ui
-   npm i scania-theme
+   npm i @scania-sdds/components
+   npm i @scania-sdds/theme-light
    ```
 2. Include `CUSTOM_ELEMENTS_SCHEMA` in the modules
-3. Import `defineCustomElements` and `add-theme` from corporate-ui package
-4. Import `theme` from scania-theme package and use `c-theme` component in the template
+3. Import `defineCustomElements` and `add-theme` from `@scania-sdds/components`
+4. Import `theme` from `@scania-sdds/theme-light` and use `c-theme` component in the template
 
    ```<c-theme name="scania" global="true"></c-theme>```
 
-   If the `global` attribute set to true, it will add bootstrap 4 styling classes & javascript.
+   Set `global` attribute to true, it will add CSS variables and SDDS tokens.
 
 ### Prerequisites
 
@@ -52,7 +52,7 @@ Import the polyfill inside `src/polyfill.ts`
 
 ## Including Custom Elements Schema
 
-Include `CUSTOM_ELEMENTS_SCHEMA` in the module that will use the Corporate UI components. This will tell Angular to allow web components and their attributes. Here is an example how to include `CUSTOM_ELEMENTS_SCHEMA` in `app.module.ts`
+Include `CUSTOM_ELEMENTS_SCHEMA` in the module that will use SDDS components. This will tell Angular to allow web components and their attributes. Here is an example how to include `CUSTOM_ELEMENTS_SCHEMA` in `app.module.ts`
 
 ```js
 import { BrowserModule } from '@angular/platform-browser';
@@ -77,15 +77,15 @@ export class AppModule { }
 
 ```
 
-## Use Corporate UI and Scania theme
+## Use Scania theme
 
-For all available components, check [this link](https://scania.github.io/corporate-ui-site/).
+You can use available CSS variables or classes to style your application. See all tokens in [digitaldesign.scania.com](https://digitaldesign.scania.com/).
 
 ```js
 import { Component, Injectable } from '@angular/core';
 
-import { defineCustomElements, addTheme } from 'corporate-ui';
-import { theme as scania } from 'scania-theme'; 
+import { defineCustomElements, addTheme } from '@scania-sdds/components';
+import { theme as scania } from '@scania-sdds/theme-light'; 
 
 defineCustomElements();
 addTheme(scania);
@@ -98,24 +98,18 @@ addTheme(scania);
   selector: '#app-root',
   template: `
   <c-theme name="scania" global="true"></c-theme>
-  <c-header
-    site-name="Corporate UI"
-    items='[{ "text": "Home", "href": "/" }]'>
-  </c-header>
-
-  <c-footer>
-    <a href="/cookies" slot="items">Cookies</a>
-    <a href="/contact-us" slot="items">Contact us</a>
-  </c-footer>
+  <div className="sdds-container">
+    <div className="sdds-row">
+      <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
+        <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
+        <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
+      </div>
+    </div>
+  </div>
   `
 })
 export class AppComponent {
-  title = 'angular-cui';
+  title = 'angular-project';
 }
 
-```
-
-To be able to have Scania sticky footer, set the root selector to the html body. So, in the `index.html`, add id to the `body`, for example:
-```html
-<body id="app-root"></body>
 ```
