@@ -1,0 +1,23 @@
+.tab-header {
+
+  a {
+    display: inline-block;
+    background-color: #eee;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+
+    &.active {
+      background-color: black;
+      color: white;
+    }
+
+    + a {
+      margin-left: 10px;
+    }
+  }
+}
+.tab-body {
+  border: 1px solid black;
+  padding: 10px;
+}
