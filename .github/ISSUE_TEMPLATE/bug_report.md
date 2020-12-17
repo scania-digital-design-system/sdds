@@ -23,8 +23,8 @@ _A clear and concise description of what you expected to happen._
 **Screenshots**  
 _If applicable, add screenshots to help explain your problem._
 
-**Version of Corporate-ui**  
- _E.g 4.0.0-alpha.1_
+**Version of SDDS**  
+ _E.g 1.0.0_
 
 
 **Framework and version**  
