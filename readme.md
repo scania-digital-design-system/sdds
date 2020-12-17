@@ -14,6 +14,7 @@ You can use SDDS CSS custom properties to use the design tokens for colour, typo
 You can also install a standalone package for different part. These are available packages:
 
 | Package Name | Description | 
+| ------------ | ----------- | 
 | [`@scania-sdds/components`](./components) | Scania reusable web components built with StencilJS |
 | [`@scania-sdds/theme-light`](./theme/light) | Scania default theming |
 | [`@scania-sdds/typography`](./theme/light/src/styles/core/typography) | Scania official typography styling package |
