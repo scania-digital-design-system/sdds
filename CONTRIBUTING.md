@@ -13,7 +13,7 @@ We're contributing, and are following, the coding standards available at https:/
 
 ## Report an issue
 
-- [Report bug](https://github.com/scania-digital-design-system/sdds/issues)
+- [Report bug](https://github.com/scania-digital-design-system/sdds/issues/new)
 - [Request feature](https://github.com/scania-digital-design-system/sdds/issues/new)
 
 <details>
@@ -23,14 +23,14 @@ We're contributing, and are following, the coding standards available at https:/
    
    ```
    # Clone your fork of the repo 
-   git clone https://github.com/<your-github-username>/corporate-ui.git
+   git clone https://github.com/<your-github-username>/sdds.git
    ```
    
 2. Sync your local to the original “upstream” repository by adding it as a remote. Pull in changes from “upstream” often so that you stay up to date so that when you submit your pull request, merge conflicts will be less likely. Read more [here](https://help.github.com/en/articles/syncing-a-fork). 
 
    ```
    # Navigate to the newly cloned repo
-   cd corporate-ui
+   cd sdds
    
    # Connect to the original "upstream" repo
    git remote add upstream https://github.com/scania-digital-design-system/sdds.git
@@ -49,7 +49,7 @@ We're contributing, and are following, the coding standards available at https:/
 
 4. Refers to [any relevant issues](https://github.com/scania-digital-design-system/sdds/issues) in the pull request. For example, write `Fixes #xxx` in the commit message to refers to a specific issue.
 
-5. Open a pull request and write clear title and description in the pull request interface. In the right side of the screen, assign yourself in the pull request and add the correct label. You can also add a reviewer from Corporate ui team.
+5. Open a pull request and write clear title and description in the pull request interface. In the right side of the screen, assign yourself in the pull request and add the correct label. You can also add a reviewer from SDDS team.
 
 </details>
 
@@ -66,25 +66,29 @@ We're contributing, and are following, the coding standards available at https:/
 
 ### Getting the code
 
-- Clone the repo and install package dependencies: 
+- Clone the SDDS repo and install package dependencies: 
 ```shell
 git clone https://github.com/scania-digital-design-system/sdds.git
 cd components
 npm i
 npm start
 
-cd theme/light
+cd themes/default
 npm i
 npm start
 ```
 
-- Open a new terminal and run storybook
+### Running demo and sync with theme project
 
+
+Start demo and run storybook to preview your components. Add stories to preview in storybook. See components/header/header.stories.js for stories example
 ```shell
-cd components
-npm run sb
-```
+// on sdds/components
+npm start
 
+// in a separate terminal
+npm run storybook
+```
 Visit http://localhost:6006/
 
 ### Running test
