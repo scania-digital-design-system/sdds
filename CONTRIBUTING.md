@@ -89,7 +89,7 @@ npm start
 // in a separate terminal
 npm run storybook
 ```
-Visit http://localhost:6006/
+Visit http://localhost:1339/
 
 ### Running test
 

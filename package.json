@@ -1,0 +1,11 @@
+{
+  "name": "sdds",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "install": "lerna bootstrap",
+    "start": "lerna run --parallel start",
+    "build": "lerna run build"
+  }
+}
