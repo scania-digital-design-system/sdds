@@ -10,7 +10,6 @@ export default {
 const Template = ({content}) => {
   return `
   <c-theme name="scania"></c-theme>
-  
   ${content}
   `
 };
