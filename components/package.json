@@ -13,7 +13,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "scripts": {
     "start": "concurrently \"npm:watch-*\"",
