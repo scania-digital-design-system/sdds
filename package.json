@@ -16,7 +16,8 @@
     "start": "lerna run --parallel start",
     "build": "lerna run build",
     "changelog": "lerna-changelog",
-    "clean": "lerna clean"
+    "clean": "lerna clean",
+    "version": "lerna version"
   },
   "changelog": {
     "ignoreCommitters": [
