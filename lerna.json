@@ -1,17 +1,20 @@
 {
   "version": "independent",
   "npmClient": "npm",
+  "packages": [
+    "components/**", "theme/**"
+  ],
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md", "components/dist/**/**"],
-      "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com"
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md",
+        "components/dist/**/**",
+        "**/dist/**/**"
+      ]
     },
     "bootstrap": {
       "ignore": "sdds-components-loader"
     }
-  },
-  "packages": [
-    "components/**", "theme/**"
-  ]
+  }
 }
