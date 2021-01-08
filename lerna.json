@@ -8,7 +8,7 @@
       "registry": "https://npm.pkg.github.com"
     },
     "bootstrap": {
-      "ignore": ["components/dist/**", "theme/*/(dist)/**"]
+      "ignore": "sdds-components-loader"
     }
   },
   "packages": [
