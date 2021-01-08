@@ -12,6 +12,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "concurrently \"npm:watch-*\"",
     "watch-stencil": "npm run build -- --watch",
