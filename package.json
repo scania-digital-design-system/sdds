@@ -19,7 +19,9 @@
     "clean": "lerna clean"
   },
   "changelog": {
-    "ignoreCommitters": ["dependabot"],
+    "ignoreCommitters": [
+      "dependabot"
+    ],
     "labels": {
       "Feature": ":rocket: New Feature",
       "Improvement": ":seedling: Improvements",
