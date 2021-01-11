@@ -1,20 +1,8 @@
 {
-  "version": "independent",
-  "npmClient": "npm",
   "packages": [
-    "components/**", "theme/**"
+    "theme/**",
+    "*"
   ],
-  "command": {
-    "publish": {
-      "ignoreChanges": [
-        "ignored-file",
-        "*.md",
-        "components/dist/**/**",
-        "**/dist/**/**"
-      ]
-    },
-    "bootstrap": {
-      "ignore": "sdds-components-loader"
-    }
-  }
+  "version": "independent",
+  "npmClient": "npm"
 }
