@@ -1,6 +1,6 @@
 {
   "name": "@scania-sdds/grid",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Scania Digital Design System Grid",
   "scripts": {
     "build": "node compile.js"
@@ -13,7 +13,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "bundle-scss": "^1.4.17",
     "sass": "^1.29.0"
