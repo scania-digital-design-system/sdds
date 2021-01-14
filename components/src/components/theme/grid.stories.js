@@ -47,6 +47,12 @@ const style = `
     .demo-example-cols [class*=col] > div {
       background-color: #ff565642;
       height: 100%;
+      border-left: 1px solid #ef1919;
+      border-right: 1px solid #ef1919;
+    }
+
+    .container-demo {
+      margin-top: 4rem;
     }
 
     @media (max-width: 1055px) {
@@ -403,7 +409,7 @@ const GridFluid = () => {
       </div>
     </div>
 
-    <div class="sdds-container">
+    <div class="sdds-container container-demo">
       <div class="sdds-row">
         <div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-2">sdds-container</div>
       </div>
