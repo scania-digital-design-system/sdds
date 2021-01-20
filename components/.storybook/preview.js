@@ -5,7 +5,7 @@ import { addTheme, defineCustomElements } from '../dist/collection/index';
 import { theme } from '@scania-sdds/theme-light';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: { expanded: true }
 }
 
 setCustomElements(customElements);

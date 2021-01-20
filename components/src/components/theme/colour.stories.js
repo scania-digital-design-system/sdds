@@ -1,11 +1,10 @@
 export default {
-  title: 'Foundation/Colour',
+  title: 'Foundation/Colour'
 };
 
 const Template = ({content}) => {
   return `
   <c-theme name="scania"></c-theme>
-  
   ${content}
   `
 };
@@ -16,7 +15,7 @@ let colours = ['<style>.box {display:inline-block; position:relative; width:100p
 let box;
 
 function renderColor(colour){
-  box = `<div class="sdds-row"><div class="sdds-col-md-16"><div class="box sdds-background-${colour}-50"><p>${colour}-50</p></div>`;
+  box = `<div class="sdds-row"><div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4"><div class="box sdds-background-${colour}-50"><p>${colour}-50</p></div>`;
   for (let i = 1; i < 10; i++) {
     box += `<div class="box sdds-background-${colour}-${i}00"><p>${colour}-${i}00</p></div>`;
   }
@@ -32,9 +31,6 @@ renderColor('orange');
 
 box = `</div>`;
 colours.push(box);
-
-
-
 
 ColourScale.args = {
   content: colours.join('')
