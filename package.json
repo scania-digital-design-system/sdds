@@ -21,7 +21,8 @@
     "build": "lerna run build",
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "next": "lerna publish -- --dist-tag next"
   },
   "changelog": {
     "ignoreCommitters": [
