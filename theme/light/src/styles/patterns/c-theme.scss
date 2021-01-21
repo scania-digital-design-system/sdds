@@ -2,15 +2,13 @@
 @import '../core/base-unit';
 @import '../mixins';
 
-// Fonts - This file is generated and will exist in dist 
+// Fonts - This file is generated and will exist in dist
 @import url(../fonts/fonts.css);
 
 // Bootstrap imports
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 
-// TODO: When we should remove BS root?
-// @import 'node_modules/bootstrap/scss/root';
 // Import css variables
 @import '../core/css-vars.scss';
 
@@ -63,11 +61,3 @@ c-cookie {
     overflow: auto;
   }
 }
-
-// .app {
-
-//   body,
-//   body& {
-
-//   }
-// }

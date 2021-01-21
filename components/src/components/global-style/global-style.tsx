@@ -26,6 +26,7 @@ export class GlobalStyle {
   }
 
   async loadLibs() {
+    //TODO: remove this bootstrap dependcies when all JS is removed in the components/patterns
     const jquery = await import('jquery');
     window['CorporateUi'].$ = jquery.default;
     await import('bootstrap');

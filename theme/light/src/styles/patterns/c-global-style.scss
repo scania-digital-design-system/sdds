@@ -3,29 +3,27 @@
 
 // TODO: We might wanna add a global loader to load **
 // Bootstrap components
-@import '../components/alert';
-@import '../components/badges';
-@import '../components/breadcrumbs';
-@import '../components/button';
-@import '../components/button-group';
-@import '../components/cards';
-@import '../components/custom-forms';
-@import '../components/dropdowns';
-@import '../components/forms';
-@import '../components/input-group';
-@import '../components/list-group';
-@import '../components/modal';
-@import '../components/navs';
-@import '../components/pagination';
-@import '../components/progressbars';
-@import '../components/table';
-
+// @import '../components/alert';
+// @import '../components/badges';
+// @import '../components/breadcrumbs';
+// @import '../components/button';
+// @import '../components/button-group';
+// @import '../components/cards';
+// @import '../components/custom-forms';
+// @import '../components/dropdowns';
+// @import '../components/forms';
+// @import '../components/input-group';
+// @import '../components/list-group';
+// @import '../components/modal';
+// @import '../components/navs';
+// @import '../components/pagination';
+// @import '../components/progressbars';
+// @import '../components/table';
 
 // Utilities
 @import '../utilities/data-env.scss';
 @import '../utilities/loading.scss';
 @import '../utilities/typography.scss';
-
 
 //grid
 @import '../core/grid/grid';
@@ -85,30 +83,3 @@ $componentsLight: alert, table;
     }
   }
 }
-
-
-// @each $key, $value in $util-props {
-//   .#{$key} {
-   
-//     @each $type in $types {
-//       &-#{$type} {
-//         #{$value}: map-get($interaction-colors, $type) !important;
-//         #{$value}: Var(--#{$type}) !important;
-//       }
-//     }
-//   }
-// }
-
-// @each $el in $elements {
-//   .#{$el} {
-//     @each $type in join($interaction-types, $interaction-types3) {
-//       $selector: if($el == table, '&-#{$type} th, &-#{$type} td', '&-#{$type}');
-//       #{$selector} {
-//         background-color: map-get($interaction-colors, $type);
-//         background-color: Var(--#{$type});
-//         color: #fff;
-//         color: Var(--white);
-//       }
-//     }
-//   }
-// }
