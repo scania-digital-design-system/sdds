@@ -1,0 +1,37 @@
+{
+  "name": "sdds",
+  "private": true,
+  "version": "0.0.0",
+  "description": "In this repository we're developing the next generation components for Scania Digital Design System",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scania-digital-design-system/sdds.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "useWorkspaces": true,
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "lerna-changelog": "^1.0.1"
+  },
+  "scripts": {
+    "install": "lerna bootstrap",
+    "start": "lerna run --parallel start",
+    "build": "lerna run build",
+    "changelog": "lerna-changelog",
+    "clean": "lerna clean",
+    "release": "lerna publish",
+    "next": "lerna publish -- --dist-tag next"
+  },
+  "changelog": {
+    "ignoreCommitters": [
+      "dependabot"
+    ],
+    "labels": {
+      "Feature": ":rocket: New Feature",
+      "Improvement": ":seedling: Improvements",
+      "bug": ":bug: Bug Fix"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@scania-sdds/components",
-  "version": "1.0.0",
+  "version": "1.0.1-1",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
@@ -12,8 +12,12 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "start": "npm run build -- --watch",
+    "start": "concurrently \"npm:watch-*\"",
+    "watch-stencil": "npm run build -- --watch",
     "build": "npm run babel && npm run stencil --",
     "stencil": "stencil build --docs-json dist/data/docs.json",
     "babel": "mkdirp .build && babel src/helpers/index.js --out-file .build/index.js",
@@ -24,7 +28,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "prepublishOnly": "npm run build",
-    "sb": "start-storybook -p 6006 --no-dll",
+    "watch-sb": "start-storybook -p 1339 --no-dll",
     "build-sb": "npm run build && build-storybook --no-dll"
   },
   "husky": {
@@ -42,6 +46,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
+    "@scania-sdds/theme-light": "^1.0.0-beta.2",
     "@stencil/core": "2.3.0",
     "@stencil/router": "1.0.1",
     "@stencil/sass": "1.3.2",
@@ -74,5 +79,7 @@
     "rollup-plugin-dotenv": "0.2.0"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
 }
