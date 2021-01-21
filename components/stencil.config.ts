@@ -30,7 +30,7 @@ export const config: Config = {
       esmLoaderPath: 'loader',
       copy: [
         { src: '../.build/index.js', dest: 'index.js' },
-        { src: 'helpers/cdn.js', dest: '../core.js', warn:true },
+        { src: 'helpers/core.js', dest: '../core.js'},
       ]
     },
     {
