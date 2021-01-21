@@ -14,7 +14,7 @@ This grid package contains both SCSS and CSS files available
 ### How to install with npm
 
 ```shell
-> npm i @scania-sdds/grid
+> npm i @scania/grid
 ```
 
 ### How to use
