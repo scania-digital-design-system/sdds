@@ -1,5 +1,5 @@
 {
-  "name": "@scania-sdds/colour",
+  "name": "@scania/colour",
   "version": "1.0.1-1",
   "description": "Scania Digital Design System colour package",
   "main": "dist/scss/colour.scss",
