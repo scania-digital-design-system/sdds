@@ -64,32 +64,29 @@ We're contributing, and are following, the coding standards available at https:/
 
 - If you're behind a firewall, CONFIGURE THE PROXY
 
-### Getting the code
+### Getting the code 
 
-- Clone the SDDS repo and install package dependencies: 
+This project is using [lerna](https://github.com/lerna/lerna#getting-started) to manage all different SDDS packages on this repo.
+
+- Clone the SDDS repo and install package dependencies:
+
 ```shell
 git clone https://github.com/scania-digital-design-system/sdds.git
-cd components
+cd sdds
 npm i
-npm start
-
-cd themes/default
-npm i
-npm start
 ```
 
 ### Running demo and sync with theme project
 
+Run the following command:
 
-Start demo and run storybook to preview your components. Add stories to preview in storybook. See components/header/header.stories.js for stories example
 ```shell
-// on sdds/components
+cd sdds
 npm start
-
-// in a separate terminal
-npm run storybook
 ```
-Visit http://localhost:6006/
+
+It will start demo and run storybook to preview your components. Add stories to preview in storybook. See components/header/header.stories.js for stories example.
+Visit http://localhost:1339/
 
 ### Running test
 
