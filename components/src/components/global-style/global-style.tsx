@@ -25,18 +25,7 @@ export class GlobalStyle {
     this.currentTheme = this.store.theme.items[this.theme];
   }
 
-  async loadLibs() {
-    //TODO: remove this bootstrap dependcies when all JS is removed in the components/patterns
-    const jquery = await import('jquery');
-    window['CorporateUi'].$ = jquery.default;
-    await import('bootstrap');
-
-    const event = new CustomEvent('bsReady', { detail: { jquery: jquery.default } });
-    document.dispatchEvent(event);
-  }
-
   componentWillLoad() {
-    this.loadLibs();
     this.store.theme = store.get('theme');
 
     store.use({set: (function(value){
