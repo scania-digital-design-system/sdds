@@ -10,7 +10,7 @@ This package contains both SCSS and CSS files available
 ### How to install with npm
 
 ```shell
-> npm i @scania-sdds/colour
+> npm i @scania/colour
 ```
 
 ### How to use
@@ -20,7 +20,7 @@ See all available tokens in [digitaldesign.scania.com](https://digitaldesign.sca
 ```html
 // style.scss
 // you need to have sass compiler in your application
-@import '~node_modules/@scania-sdds/colour/dist/scss/colour';
+@import '~node_modules/@scania/colour/dist/scss/colour';
 
 // use get-colour(token-name) function to get colour from SDDS colour scale
 .my-div {

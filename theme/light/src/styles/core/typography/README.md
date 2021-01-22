@@ -10,7 +10,7 @@ This package contains both SCSS and CSS files available
 ### How to install with npm
 
 ```shell
-> npm i @scania-sdds/typography
+> npm i @scania/typography
 ```
 
 ### How to use
@@ -20,8 +20,8 @@ See all available tokens in [digitaldesign.scania.com](https://digitaldesign.sca
 ```html
 // style.scss
 // you need to have sass compiler in your application
-@import '~node_modules/@scania-sdds/typography/dist/scss/mixins';
-@import '~node_modules/@scania-sdds/typography/dist/scss/tokens';
+@import '~node_modules/@scania/typography/dist/scss/mixins';
+@import '~node_modules/@scania/typography/dist/scss/tokens';
 
 // use SDDS mixin type-style(token-name) to add specific token properties
 .my-headline {
