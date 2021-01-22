@@ -28,12 +28,12 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 1. Install `components` and `scania-theme` package from NPM in your project folder
 
    ```bash
-   npm i @scania-sdds/components
-   npm i @scania-sdds/theme-light
+   npm i @scania/components
+   npm i @scania/theme-light
    ```
 2. Include `CUSTOM_ELEMENTS_SCHEMA` in the modules
-3. Import `defineCustomElements` and `add-theme` from `@scania-sdds/components`
-4. Import `theme` from `@scania-sdds/theme-light` and use `c-theme` component in the template
+3. Import `defineCustomElements` and `add-theme` from `@scania/components`
+4. Import `theme` from `@scania/theme-light` and use `c-theme` component in the template
 
    ```<c-theme name="scania" global="true"></c-theme>```
 
@@ -84,8 +84,8 @@ You can use available CSS variables or classes to style your application. See al
 ```js
 import { Component, Injectable } from '@angular/core';
 
-import { defineCustomElements, addTheme } from '@scania-sdds/components';
-import { theme as scania } from '@scania-sdds/theme-light'; 
+import { defineCustomElements, addTheme } from '@scania/components';
+import { theme as scania } from '@scania/theme-light'; 
 
 defineCustomElements();
 addTheme(scania);
