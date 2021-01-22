@@ -1,4 +1,4 @@
-[![Github release](https://img.shields.io/npm/v/@scania-sdds/components?color=1081C2)](https://www.npmjs.com/package/@scania-sdds/components)
+[![Github release](https://img.shields.io/npm/v/@scania/components?color=1081C2)](https://www.npmjs.com/package/@scania/components)
 [![Github release](https://img.shields.io/github/v/release/scania-digital-design-system/sdds?color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
@@ -22,13 +22,13 @@ Several options to add components in the project:
    Install components via NPM package by running the command below.
 
    ```
-   npm i @scania-sdds/components
+   npm i @scania/components
    ```
 
    Import component as a module with `defineCustomElements` function.
 
    ```js
-   import { defineCustomElements } from '@scania-sdds/components';
+   import { defineCustomElements } from '@scania/components';
 
    defineCustomElements();
    ```

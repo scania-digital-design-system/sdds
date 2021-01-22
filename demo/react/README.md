@@ -25,13 +25,13 @@ To include components in React application, follow these steps:
 1. Install `components` and `scania-theme` package from NPM in your project folder
 
    ```bash
-   npm i @scania-sdds/components
-   npm i @scania-sdds/theme-light
+   npm i @scania/components
+   npm i @scania/theme-light
    ```
 
-2. Import `defineCustomElements` and `add-theme` from `@scania-sdds/components`
+2. Import `defineCustomElements` and `add-theme` from `@scania/components`
 
-3. Import `theme` from `@scania-sdds/theme-light` and use `c-theme` component in the template
+3. Import `theme` from `@scania/theme-light` and use `c-theme` component in the template
 
 4.  Use `c-theme` component in the template
 
@@ -45,8 +45,8 @@ Set `global` attribute to true, it will add CSS variables and SDDS tokens.
 ```js
 import React from 'react';
 
-import { defineCustomElements, addTheme } from '@scania-sdds/components';
-import { theme as scania } from '@scania-sdds/theme-light'; 
+import { defineCustomElements, addTheme } from '@scania/components';
+import { theme as scania } from '@scania/theme-light'; 
 
 defineCustomElements();
 addTheme(scania);
