@@ -1,22 +1,22 @@
-name: Sync Pull Request to Azure Boards
+# name: Sync Pull Request to Azure Boards
 
-on:
-  pull_request:
-    types: [opened, edited, closed]
-    branches:
-      - master
+# on:
+#  pull_request:
+#    types: [opened, edited, closed]
+#    branches:
+#      - master
 
-jobs:
-  alert:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: danhellem/github-actions-pr-to-work-item@master
-      env:
-        ado_token: '${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}'
-        github_token: '${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}'
-        ado_organization: 'scaniadigitaldesignsystem'
-        ado_project: 'sdds'
-        ado_wit: 'Task' 
-        ado_new_state: 'New'
-        ado_active_state: 'Doing'
-        ado_close_state: 'Done'
+# jobs:
+#  alert:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: danhellem/github-actions-pr-to-work-item@master
+#      env:
+#        ado_token: '${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}'
+#        github_token: '${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}'
+#        ado_organization: 'scaniadigitaldesignsystem'
+#        ado_project: 'sdds'
+#        ado_wit: 'Task' 
+#        ado_new_state: 'New'
+#        ado_active_state: 'Doing'
+#        ado_close_state: 'Done'
