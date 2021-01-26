@@ -28,7 +28,7 @@ const sassExtract = require('sass-extract');
 const { CssSelectorParser } = require('css-selector-parser');
 
 const outputFolder = 'dist';
-const themeName = 'scania';
+const themeName = 'light';
 
 let faviconItems = [];
 let faviconItemsNoRefs;
@@ -330,7 +330,7 @@ document.addEventListener('storeReady', function(event) {
 
   const newValue = store.get('theme');
 
-  newValue.items['scania'] = theme;
+  newValue.items['light'] = theme;
 
   store.set('theme', newValue);
 });

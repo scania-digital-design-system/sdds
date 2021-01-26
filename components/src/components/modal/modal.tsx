@@ -76,8 +76,7 @@ export class Modal {
     // this.modal._setScrollbar = this.el.classList.contains('inline') ? () => {} : this.setScrollbar;
   }
 
-  appendStyle(state) {
-    if(state !== false) return;
+  appendStyle() {
 
     const css = `
       .modal-backdrop {
@@ -112,7 +111,7 @@ export class Modal {
 
     this.configureModal(this.config);
 
-    this.appendStyle(this.store.theme.global);
+    this.appendStyle();
   }
 
   componentDidLoad() {

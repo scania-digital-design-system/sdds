@@ -1,8 +1,7 @@
 import { createStore } from "@stencil/store";
 
 const theme = {
-  current: 'default',
-  global: false,
+  current: 'light',
   items: {}
 }
 
