@@ -21,7 +21,7 @@ const detail = { store };
 const event = new CustomEvent('storeReady', { detail });
 const icons = {};
 const fa_icons = {};
-const defaultTheme = { default: { icons: {}, components: {}, colors: {} } };
+const defaultTheme = { light: { icons: {}, components: {}, colors: {} } };
 
 Object.keys(fa_icons).map(key => {
   const item = fa_icons[key];
@@ -32,13 +32,12 @@ Object.keys(fa_icons).map(key => {
   };
 });
 
-defaultTheme.default.icons = icons;
 
 (<any>window).CorporateUi = { ...(<any>window).CorporateUi, ...detail };
 
 const newValue = store.get('theme');
 
-newValue.items['default'] = defaultTheme.default;
+newValue.items['light'] = defaultTheme.light;
 
 store.set('theme', newValue);
 
