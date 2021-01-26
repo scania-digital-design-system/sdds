@@ -5,7 +5,7 @@ export default {
 const ButtonTemplate = () => {
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <button class="btn btn-primary">Button</button>
+  <button class="sdds-btn sdds-btn-primary">Button</button>
   `
 };
 
