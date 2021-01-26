@@ -1,3 +1,6 @@
+// Components
+@import '../button/button.scss';
+
 // data environment
 body[data-env]:before {
   background-color: #ddd;

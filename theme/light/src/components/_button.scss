@@ -1,0 +1,8 @@
+@import '../mixins';
+@import '../core/prefix';
+
+:root,
+html{
+  --sdds-btn-primary-background: #{get-colour(blue-700)};
+  --sdds-btn-primary-text: #{get-colour(white)};
+}

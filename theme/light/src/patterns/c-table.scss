@@ -1,10 +1,10 @@
-@import '../core/variables';
+@import '../variables';
 
 //TODO: Remove bootstrap
 @import '../components/table';
 @import '../components/forms';
-@import '../components/dropdowns';
-@import '../components/button';
+// @import '../components/dropdowns';
+// @import '../components/button';
 
 .sort-desc {
   transform: rotate(180deg);
