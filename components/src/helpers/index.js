@@ -19,14 +19,13 @@ function addTheme(_theme) {
   document.addEventListener('storeReady', event => init(_theme, event));
 
   function init(theme, event) {
-    const name = Object.keys(theme)[0];
     const store = event.detail.store;
     // need to get store theme through get API to make it work in IE
     const storeTheme = store.get('theme');
 
-    theme[name].components = document.head.attachShadow ? theme[name].components.default : theme[name].components.ie;
+    theme['light'].components = document.head.attachShadow ? theme['light'].components.default : theme['light'].components.ie;
     
-    storeTheme.items[name] = theme[name];
+    storeTheme.items['light'] = theme['light'];
 
     store.set('theme', storeTheme);
     

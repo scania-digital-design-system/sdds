@@ -18,8 +18,7 @@ export class Theme {
   /** Set the brand name that will set the theme styling for the page. */
   @Prop({ mutable: true }) name: string;
 
-  /** By setting this to true bootstrap classes will be accessable globally */
-  @Prop() global = false;
+  @Prop() mode = 'light';
 
   @Element() el: HTMLElement;
 
@@ -33,30 +32,19 @@ export class Theme {
   // so we need to use the store.get and store.set methods of the API to support IE11.
   @State() store = store.state;
 
-  @Watch('name')
-  setName(name) {
+  @Watch('mode')
+  setName(mode) {
     const newValue = {
-      current : name,
-      global : store.state.theme.global,
+      current : mode,
       items : store.state.theme.items
     }
     
-    store.set('theme', newValue);
-  }
-    
-  @Watch('global')
-  setGlobal(global) {
-    const newValue = {
-      current : store.state.theme.current,
-      global : global,
-      items : store.state.theme.items
-    }
     store.set('theme', newValue);
   }
 
-  setTheme(name = undefined) {
-    this.name = name || this.store.theme.current;
-    this.currentTheme = this.store.theme.items[this.name];
+  setTheme(mode = undefined) {
+    this.mode = mode || this.store.theme.current;
+    this.currentTheme = this.store.theme.items[this.mode];
     this.favicons = this.currentTheme ? this.currentTheme.favicons : undefined;
   }
 
@@ -76,8 +64,7 @@ export class Theme {
     this.store.theme = store.get('theme');
     this.store.navigation = store.get('navigation');
 
-    this.setName(this.name);
-    this.setGlobal(this.global);
+    this.setName(this.mode);
     this.setTheme();
 
     (window as any).CorporateUi = { ...(window as any).CorporateUi, version };
@@ -90,7 +77,7 @@ export class Theme {
 
   render() {
     if(this.currentTheme!==undefined && this.currentTheme['version']!==undefined) {
-      document.documentElement.setAttribute(`theme`, `${this.name}-theme v${this.currentTheme['version']}`);
+      document.documentElement.setAttribute(`theme`, `scania/theme-${this.mode} v${this.currentTheme['version']}`);
     } else {
       document.documentElement.setAttribute(`theme`,'-')
     }
@@ -100,8 +87,7 @@ export class Theme {
     }
 
     return [
-      this.currentTheme ? <style>{ this.currentTheme.components[this.tagName] }</style> : '',
-      this.global ? <c-global-style></c-global-style> : <style { ... { innerHTML: 'html body { visibility: visible }' } }></style>,
+      this.currentTheme ? <style>{ this.currentTheme.components[this.tagName] }</style> : ''
     ];
   }
 }

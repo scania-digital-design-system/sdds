@@ -46,7 +46,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
-    "@scania/theme-light": "1.0.0-beta.0",
+    "@scania/theme-light": "^1.0.0-beta.0",
     "@stencil/core": "2.3.0",
     "@stencil/router": "1.0.1",
     "@stencil/sass": "1.3.2",
