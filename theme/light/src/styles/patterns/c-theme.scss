@@ -5,9 +5,12 @@
 // Fonts - This file is generated and will exist in dist
 @import url(../fonts/fonts.css);
 
-// Bootstrap imports
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
+// Utilities
+@import '../utilities/data-env.scss';
+@import '../utilities/loading.scss';
+
+//grid
+@import '../core/grid/grid';
 
 // Import css variables
 @import '../core/css-vars.scss';
@@ -24,6 +27,7 @@ html,
 body {
   display: flex;
   flex-direction: column;
+  visibility: visible;
 }
 html {
   height: 100%;
@@ -42,18 +46,18 @@ body {
 }
 
 // TODO: Should we really do this?
-c-cookie {
+// c-cookie {
 
-  a {
-    color: get-colour(information);
-    color: Var(--sdds-information);
-    text-decoration: none;
+//   a {
+//     color: get-colour(information);
+//     color: Var(--sdds-information);
+//     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+// }
 
 @media (min-width: 992px) {
 
