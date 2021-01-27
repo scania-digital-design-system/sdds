@@ -1,5 +1,3 @@
-@import '../core/spacing/spacing';
-
 :host {
   display: flex;
   flex-direction: column;
@@ -8,6 +6,6 @@
 
 ::slotted(section) {
   //FIXME: Add correct rem
-  padding-top: $spacing-element-40;
-  padding-bottom: $spacing-element-40;
+  padding-top: var(--sdds-spacing-element-40);
+  padding-bottom: var(--sdds-spacing-element-40);
 }

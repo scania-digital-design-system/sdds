@@ -55,8 +55,8 @@ function clean() {
 function watches(cb) {
   watch(
     [
-      'src/styles/**',
-      '!src/styles/**/**-vars.scss'
+      'src/**',
+      '!src/**/**-vars.scss'
     ],
     series(cleanStyles, initTheme),
   );
@@ -96,7 +96,7 @@ function initFolders(cb) {
 }
 
 function initFonts(cb) {
-  const fonts = 'src/fonts/**/*.ttf';
+  const fonts = '../core/assets/fonts/**/*.ttf';
   const fontmin = new Fontmin()
     .src(fonts)
     .use(Fontmin.glyph({
@@ -228,7 +228,7 @@ function initFavicons() {
     }
   };
 
-  return favicons('src/images/symbol.svg', options, function(error, response) {
+  return favicons('../core/assets/images/symbol.svg', options, function(error, response) {
     if (error) throw error;
 
     console.log('Generate favicon module');
@@ -271,7 +271,7 @@ async function initTheme(cb) {
 
   console.log('Generate css styles');
 
-  glob.sync('src/styles/patterns/*.scss').forEach(generateCss);
+  glob.sync('src/patterns/*.scss').forEach(generateCss);
 
   console.log('Generate style module');
 
@@ -298,7 +298,7 @@ async function initTheme(cb) {
   theme[themeName].favicons = faviconItems.map(item => item.replace(/(href|content)="/g, '$1="%root%/') )
   themeNoRefs[themeName].favicons = faviconItemsNoRefs;
 
-  const icons = await generateIcons('src/icons/*.svg');
+  const icons = await generateIcons('../core/assets/icons/*.svg');
 
   theme[themeName].icons = {};
   icons.map(item => theme[themeName].icons[item.name] = item);
@@ -345,11 +345,11 @@ document.addEventListener('storeReady', function(event) {
 function generateVars(input){
   console.log('Generate css variables for '+ input);
 
-  const varFile = `src/styles/core/${input}/_vars.scss`;
+  const varFile = `../core/${input}/_vars.scss`;
 
   const data = fs.readFileSync(path.resolve(varFile), 'utf8');
   
-  const filepath = `src/styles/core/${input}/${input}-vars.scss`;
+  const filepath = `../core/${input}/${input}-vars.scss`;
 
   let newContent = data.replace(/:+\s+\$(.+)\;$/gm, ': var\(--$1\);');
   newContent = newContent.replace(/\$/gm, '--sdds-');
@@ -397,7 +397,7 @@ function generateFontCss(file) {
 }
 
 function generateFontFace(file, props) {
-  const filename = file.replace(/src\/fonts\/|.ttf/g, '');
+  const filename = file.replace(/...core\/assets\/fonts\/|.ttf/g, '');
   return `@font-face {${
     props
   }
@@ -405,12 +405,12 @@ function generateFontFace(file, props) {
 }
 
 function copyImages() {
-  return src('src/images/*.svg')
+  return src('../core/assets/images/*.svg')
     .pipe(dest(`${outputFolder}/images/`));
 }
 
 function generateImages(cb) {
-  glob.sync('src/images/*.svg').forEach(file => {
+  glob.sync('../core/assets/images/*.svg').forEach(file => {
     const props = path.parse(file);
     const content = fs.readFileSync(file);
 
@@ -429,7 +429,7 @@ function generateCss(file) {
   const filepath = `${outputFolder}/styles/${name}`;
   const content = sass.renderSync({
     data,
-    includePaths: [ 'src/styles/**' ],
+    includePaths: [ 'src/**' ],
     sourceMapEmbed: true,
     sourceMapContents: true
   });
@@ -534,6 +534,6 @@ function ie(item, name) {
 
 function copyScss() {
   console.log('Copying scss...')
-  return src('src/styles/**/*.scss')
+  return src('src/**/*.scss')
   .pipe(dest(`${outputFolder}/scss/`));
 } 	

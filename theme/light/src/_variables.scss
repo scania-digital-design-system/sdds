@@ -1,8 +1,8 @@
-@import './spacing/spacing';
-@import './colour/colour';
-@import './typography/typography';
-@import './logotype/logotype';
-@import './base-unit';
+@import '../../core/spacing/spacing';
+@import '../../core/colour/tokens';
+@import '../../core/typography/typography';
+@import '../../core/logotype/logotype';
+@import '../../core/base-unit';
 
 $headings-color:              get-colour(grey-900);
 
