@@ -1,0 +1,16 @@
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+.sdds-textfield-input {
+  padding: var(--sdds-spacing-element-24);
+  height: 56px;
+}
+
+.sdds-textfield-input-md {
+  padding: 12px;
+  height: 48px;
+
+  &:focus {
+    border-bottom: 1px solid blue;
+  }
+}
