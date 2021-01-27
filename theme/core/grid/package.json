@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bundle-scss": "^1.4.17",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "scss-bundle": "^3.1.2"
   }
 }
