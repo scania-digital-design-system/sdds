@@ -4,20 +4,27 @@ const glob = require('glob');
 const path = require('path');
 const del = require('del');
 const outputFolder = 'dist';
-const bundleScss = require('bundle-scss');
+
+const { Bundler } = require('scss-bundle');
 
 init();
-
-const dest= `${outputFolder}/scss/grid.scss`;
-const mask= "./*.scss";
 
 async function init() {
   await clean();
   await createFolders();
-  await glob.sync('_grid.scss').forEach(generateCss);
-  bundleScss(mask, dest);
+  await glob.sync('_colour.scss').forEach(generateCss);
+  (async () => {
+    // Absolute project directory path.
+    const projectDirectory = path.resolve(__dirname, "./");
+    const bundler = new Bundler(undefined, projectDirectory);
+    // Relative file path to project directory path.
+    const result = await bundler.bundle("./_colour.scss");
+    fs.writeFileSync(`${outputFolder}/scss/colour.scss`, result.bundledContent)
+  })();
+  
   console.log(`${outputFolder}/ folder contains all files`)
 }
+
 
 // Remove dist
 function clean() {
@@ -42,8 +49,10 @@ function generateCss(file) {
   const content = sass.renderSync({
     data
   });
-
-  fs.writeFileSync(`${outputFolder}/css/${name.slice(1)}.css`, content.css)
+  if(data!==''){
+    fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
+  }
+  
 }
 
 

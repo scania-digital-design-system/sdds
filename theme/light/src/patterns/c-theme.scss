@@ -1,5 +1,5 @@
-@import '../core/variables';
 @import '../core/base-unit';
+@import '../variables';
 @import '../mixins';
 
 // Fonts - This file is generated and will exist in dist
@@ -9,11 +9,17 @@
 @import '../utilities/data-env.scss';
 @import '../utilities/loading.scss';
 
-//grid
+// Core classes
 @import '../core/grid/grid';
+@import '../core/colour/colour';
+@import '../core/typography/typography';
 
 // Import css variables
-@import '../core/css-vars.scss';
+@import '../css-vars.scss';
+
+// components
+@import '../components/button';
+@import '../components/navs';
 
 :root,
 html {

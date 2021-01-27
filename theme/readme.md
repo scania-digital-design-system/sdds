@@ -1,6 +1,5 @@
 
-# Themes
+# Scania theme
 
 - Default/light theme
-- Dark theme (Future)
-- high contrast (future)
+- Dark theme (Coming soon)
