@@ -9,6 +9,9 @@ $btn-sm-height: 10rem;
 $types: (
   primary, secondary, ghost, danger
 );
+$props : (
+  background, border, color
+);
 
 @mixin button-base{
   @include type-style('detail-02');
@@ -27,16 +30,23 @@ $types: (
 
   &:disabled,
   &.disabled {
-    cursor: not-allowed;
+    cursor: unset;
   }
 
-  #{$prefix}-btn-icon{
-    margin-left: var(--sdds-spacing-element-32);
+  &:focus{
+    outline: none;
+  }
+
+  #{$prefix}-btn-icon,
+  &#{$prefix}-btn-icon{
     fill: currentColor;
     color: inherit;
+    font-size: 4rem; //16px
+  }
+  #{$prefix}-btn-icon {
+    margin-left: var(--sdds-spacing-element-32);
     width: 16px;
     height: 16px;
-    font-size: 4rem; //16px
   }
 
   &#{$prefix}-btn-sm{
@@ -63,37 +73,31 @@ $types: (
 
   @each $type in $types {
     &#{$prefix}-btn-#{$type}{
-      background-color: var(--sdds-btn-#{$type}-background);
-      color: var(--sdds-btn-#{$type}-text);
-      border: var(--sdds-btn-#{$type}-border);
-
-      &:hover,
-      &:focus,
-      &:active, &.active,
-      &:disabled, &.disabled {
-        color: inherit; // if var is not defined, color inherit from default value
+      @each $prop in $props {
+        #{$prop} : var(--sdds-btn-#{$type}-#{$prop});
       }
   
       &:hover {
-        background-color: var(--sdds-btn-#{$type}-background-hover);
-        border: var(--sdds-btn-#{$type}-border-hover);
-        color: var(--sdds-btn-#{$type}-text-hover);
+        @each $prop in $props {
+          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-hover);
+        }
       }
       &:focus {
-        background-color: var(--sdds-btn-#{$type}-background-focus);
-        border: var(--sdds-btn-#{$type}-border-focus);
+        @each $prop in $props {
+          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-focus);
+        }
       }
       &:active,
       &.active{
-        background-color: var(--sdds-btn-#{$type}-background-active);
-        border: var(--sdds-btn-#{$type}-border-active);
-        color: var(--sdds-btn-#{$type}-text-active);
+        @each $prop in $props {
+          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-active);
+        }
       }
       &.disabled,
       &:disabled{
-        background-color: var(--sdds-btn-#{$type}-background-disabled);
-        color: var(--sdds-btn-#{$type}-text-disabled);
-        border: var(--sdds-btn-#{$type}-border-disabled);
+        @each $prop in $props {
+          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-disabled);
+        }
       }
     }
   }

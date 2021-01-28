@@ -22,11 +22,23 @@ export default {
       type: 'boolean',
       defaultValue: false,
       description:'Fluid width in certain components'
+    },
+    disabled: {
+      defaultValue: '',
+      table: {
+        disable:true
+      }
+    },
+    onlyIcon: {
+      defaultValue: false,
+      table: {
+        disable:true
+      }
     }
   }
 };
 
-const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled}) => {
+const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled='', onlyIcon}) => {
   let sizeValue='';
   switch (size) {
     case 'small':
@@ -42,15 +54,15 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
   const inlineStyle = fullbleed ? 'style="width:200px;"':'';
   const iconHTML = withIcon ? `
   <span class='sdds-btn-icon'>
-    <c-icon name='scania-external_link'></c-icon>
+    <c-icon name='scania-cross'></c-icon>
   </span>
   ` : '';
 
-  const disabledClass = disabled ? 'disabled':'';
+  const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabledClass}" ${inlineStyle}>
+  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled} ${onlyIconCss}" ${inlineStyle}>
     ${text}
     ${iconHTML}
   </button>
@@ -70,7 +82,13 @@ WithIcon.args = {
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
-  disabled:true,
+  disabled:'disabled',
   text: 'Button Disabled',
   withIcon: false
+}
+
+export const onlyIcon = ButtonTemplate.bind({});
+onlyIcon.args = {
+  text: `<c-icon name='scania-cross'></c-icon>`,
+  onlyIcon: true
 }
