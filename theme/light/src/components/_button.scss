@@ -5,4 +5,29 @@
 html{
   --sdds-btn-primary-background: #{get-colour(blue-700)};
   --sdds-btn-primary-text: #{get-colour(white)};
+  --sdds-btn-primary-border:0;
+  --sdds-btn-primary-background-hover: #{get-colour(blue-600)};
+  --sdds-btn-primary-border-hover: 0;
+  --sdds-btn-primary-background-focus: #{get-colour(blue-500)};
+  --sdds-btn-primary-border-focus: 1px solid #{get-colour(blue-600)};
+  --sdds-btn-primary-background-active: #{get-colour(blue-800)};
+  --sdds-btn-primary-border-active: 0;
+  --sdds-btn-primary-background-disabled: #{get-colour(grey-50)};
+  --sdds-btn-primary-text-disabled: #{get-colour(grey-200)};
+  --sdds-btn-primary-border-disabled: 0;
+
+  --sdds-btn-secondary-background: #{get-colour(white)};
+  --sdds-btn-secondary-text: #{get-colour(blue-700)};
+  --sdds-btn-secondary-border:1px solid #{get-colour(blue-700)};
+  --sdds-btn-secondary-background-hover: #{get-colour(blue-600)};
+  --sdds-btn-secondary-border-hover: 1px solid #{get-colour(blue-600)};
+  --sdds-btn-secondary-text-hover: #{get-colour(white)};
+  --sdds-btn-secondary-background-focus: #{get-colour(blue-500)};
+  --sdds-btn-secondary-border-focus: 1px solid #{get-colour(blue-600)};
+  --sdds-btn-secondary-background-active: #{get-colour(blue-800)};
+  --sdds-btn-secondary-border-active: 1px solid #{get-colour(blue-800)};
+  --sdds-btn-secondary-text-active: #{get-colour(white)};
+  --sdds-btn-secondary-background-disabled: #{get-colour(white)};
+  --sdds-btn-secondary-text-disabled: #{get-colour(grey-200)};
+  --sdds-btn-secondary-border-disabled: 1px solid #{get-colour(grey-200)};
 }
