@@ -4,101 +4,101 @@
 $btn-primary:(
   background: get-colour(blue-700),
   color: get-colour(white),
-  border: 0,
+  border-color: transparent,
   hover: (
     background: get-colour(blue-600),
     color: get-colour(white),
-    border: 0
+    border-color: transparent
   ),
   active: (
     background: get-colour(blue-800),
     color: get-colour(white),
-    border: 0
+    border-color: transparent
   ),
   focus: (
     background: get-colour(blue-500),
     color: get-colour(white),
-    border: 1px solid get-colour(blue-600)
+    border-color: get-colour(blue-600)
   ),
   disabled: (
     background: get-colour(grey-50),
     color: get-colour(grey-200),
-    border: 0
+    border-color: transparent
   )
 );
 $btn-secondary:(
   background: get-colour(white),
   color: get-colour(blue-700),
-  border: 1px solid get-colour(blue-700),
+  border-color: get-colour(blue-700),
   hover: (
     background: get-colour(blue-600),
     color: get-colour(white),
-    border: 1px solid get-colour(blue-600)
+    border-color: get-colour(blue-600)
   ),
   active: (
     background: get-colour(blue-800),
     color: get-colour(white),
-    border: 1px solid get-colour(blue-800)
+    border-color: get-colour(blue-800)
   ),
   focus: (
     background: get-colour(blue-500),
     color: get-colour(white),
-    border: 1px solid get-colour(blue-600)
+    border-color: get-colour(blue-600)
   ),
   disabled: (
     background: get-colour(white),
     color: get-colour(grey-200),
-    border: 1px solid get-colour(grey-200)
+    border-color: get-colour(grey-200)
   )
 );
 $btn-ghost:(
   background: transparent,
   color: get-colour(blue-700),
-  border: 0,
+  border-color: transparent,
   hover: (
     background: get-colour(blue-100),
     color: get-colour(blue-700),
-    border: 0
+    border-color: transparent
   ),
   active: (
     background: get-colour(blue-300),
     color: get-colour(blue-700),
-    border: 0
+    border-color: transparent
   ),
   focus: (
     background: get-colour(blue-200),
     color: get-colour(blue-700),
-    border: 1px solid get-colour(blue-300)
+    border-color: get-colour(blue-300)
   ),
   disabled: (
     background: transparent,
     color: get-colour(grey-200),
-    border: 0
+    border-color: transparent
   )
 );
 $btn-danger:(
   background: get-colour(red-600),
   color: get-colour(white),
-  border: 0,
+  border-color: transparent,
   hover: (
     background: get-colour(red-500),
   color: get-colour(white),
-  border: 0,
+  border-color: transparent,
   ),
   active: (
     background: get-colour(red-700),
     color: get-colour(white),
-    border: 0,
+    border-color: transparent,
   ),
   focus: (
     background: get-colour(red-400),
     color: get-colour(white),
-    border: 1px solid get-colour(red-700),
+    border-color: get-colour(red-700),
   ),
   disabled: (
     background: get-colour(grey-50),
     color: get-colour(grey-200),
-    border: 0
+    border-color: transparent
   )
 );
 

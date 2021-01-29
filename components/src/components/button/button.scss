@@ -10,7 +10,7 @@ $types: (
   primary, secondary, ghost, danger
 );
 $props : (
-  background, border, color
+  background, border-color, color
 );
 
 @mixin button-base{
@@ -27,6 +27,7 @@ $props : (
   @include button-base;
   height: $btn-default-height;
   padding: var(--sdds-spacing-element-20);
+  border: 1px solid;
 
   &:disabled,
   &.disabled {
