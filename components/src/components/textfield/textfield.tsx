@@ -27,6 +27,8 @@ export class Textfield {
 
   @Prop() labelinside: string = "";
 
+  @Prop() placeholder: string = "";
+
   @Prop() value = "";
 
   @Prop() disabled;
@@ -92,22 +94,23 @@ export class Textfield {
   render() {
     return (
       <div class={`${this.focusInput ? 'sdds-textfield-container active':' sdds-textfield-container'} ${this.labelinside.length > 0 ? 'sdds-textfield-container-label-inside' : ''}`}>
-        {this.label.length > 0 && <label class="sdds-textfield-label">{this.label}</label>}
+        {this.label.length > 0 &&
+         <label class={`sdds-textfield-label ${this.disabled ? 'sdds-textfield-label-disabled' : ''}`}>{this.label}</label>
+        }
         <input
           class={this.size !== 'md' ? 'sdds-textfield-input' : 'sdds-textfield-input-md'}
           type={this.type}
           disabled={this.disabled}
-          placeholder="Placeholder"
+          placeholder={this.placeholder}
           value={this.value}
           onInput={(event) => this.handleInputChange(event)}
         />
-        {this.labelinside.length > 0 && <label class="sdds-textfield-label-inside">{this.labelinside}</label>}
+        {this.labelinside.length > 0 &&
+          <label class="sdds-textfield-label-inside">{this.labelinside}</label>
+        }
         <div class="sdds-textfield-bar"></div>
+        {/* <div class="sdds-textfield-helper-text">helper text</div> */}
       </div>
     );
   }
 }
-
-// {`0 0 ${this.icon ? this.icon.width : '0'} ${this.icon ? this.icon.height : '0'}`}
-//FIX multi class
-//FIX outside label
