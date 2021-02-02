@@ -19,13 +19,13 @@ const Template = () => {
         </label>
       </div>
       <div class="sdds-radio-item">
-        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-3" checked="checked" disabled>
+        <input class="sdds-form-input" type="radio" name="rb-example-disabled" id="rb-option-3" checked="checked" disabled>
         <label class="sdds-form-label" for="rb-option-3">
           Label Text 3
         </label>
       </div>
       <div class="sdds-radio-item">
-        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-4" disabled>
+        <input class="sdds-form-input" type="radio" name="rb-example-disabled" id="rb-option-4" disabled>
         <label class="sdds-form-label" for="rb-option-4">
           Label Text 4
         </label>
