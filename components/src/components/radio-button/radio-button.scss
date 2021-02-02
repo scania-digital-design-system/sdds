@@ -22,11 +22,13 @@
     height: 4rem;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
 
     + label {
       padding-left: var(--sdds-spacing-element-8);
       padding-top: var(--sdds-spacing-element-4);
       padding-bottom: var(--sdds-spacing-element-4);
+      cursor: pointer;
     }
 
     &:before,
@@ -65,12 +67,14 @@
 
     &:disabled,
     &.disabled{
+      cursor: default;
       &:after {
         border-color:var(--sdds-radio-button-disabled);
       }
 
       + label {
         color: var(--sdds-radio-button-disabled);
+        cursor: default;
       }
 
       &:hover{
