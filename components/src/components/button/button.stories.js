@@ -62,10 +62,10 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled} ${onlyIconCss}" ${inlineStyle}>
+  <a href="#" class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled} ${onlyIconCss}" ${inlineStyle}>
     ${text}
     ${iconHTML}
-  </button>
+  </a>
   `
 };
 
