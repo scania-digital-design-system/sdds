@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import 'bootstrap/dist/css/bootstrap'; */
+@import '@scania/theme-light/dist/styles/global-style';
+
+:root,
+html{
+    --hello : red;
+}
+body{
+    color:blue;
+}
