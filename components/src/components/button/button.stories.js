@@ -1,25 +1,94 @@
 export default {
-  title: 'Component/Button'
+  title: 'Component/Button',
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options:['default', 'small', 'medium']
+      },
+      defaultValue: 'default',
+      description: 'Size of the button'
+    },
+    btnType: {
+      name: 'type',
+      defaultValue: 'primary',
+      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'ghost', 'danger']
+      }
+    },
+    fullbleed: {
+      type: 'boolean',
+      defaultValue: false,
+      description:'Fluid width in certain components'
+    },
+    disabled: {
+      defaultValue: '',
+      table: {
+        disable:true
+      }
+    },
+    onlyIcon: {
+      defaultValue: false,
+      table: {
+        disable:true
+      }
+    }
+  }
 };
 
-const ButtonTemplate = () => {
+const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled='', onlyIcon}) => {
+  let sizeValue='';
+  switch (size) {
+    case 'small':
+      sizeValue = 'sdds-btn-sm';
+      break;
+    case 'medium':
+      sizeValue = 'sdds-btn-md';
+      break;
+    default: sizeValue= '';
+      break;
+  }
+  const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
+  const inlineStyle = fullbleed ? 'style="width:200px;"':'';
+  const iconHTML = withIcon ? `
+  <span class='sdds-btn-icon'>
+    <c-icon name='scania-cross'></c-icon>
+  </span>
+  ` : '';
+
+  const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
+
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <button class="sdds-btn sdds-btn-primary">Button</button>
+  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled} ${onlyIconCss}" ${inlineStyle}>
+    ${text}
+    ${iconHTML}
+  </button>
   `
 };
 
 export const Basic = ButtonTemplate.bind({});
+Basic.args = {
+  text: 'Button'
+}
 
-Basic.args = {}
+export const WithIcon = ButtonTemplate.bind({});
+WithIcon.args = {
+  text: 'Button with Icon',
+  withIcon: true
+}
 
-// const ButtonDangerTemplate = () => {
-//   return `
-//   <c-theme name="scania"></c-theme>
-//   <button class="btn btn-danger">Button</button>
-//   `
-// };
+export const Disabled = ButtonTemplate.bind({});
+Disabled.args = {
+  disabled:'disabled',
+  text: 'Button Disabled',
+  withIcon: false
+}
 
-// export const Danger = ButtonDangerTemplate.bind({});
-
-// Danger.args = {}
+export const onlyIcon = ButtonTemplate.bind({});
+onlyIcon.args = {
+  text: `<c-icon name='scania-cross'></c-icon>`,
+  onlyIcon: true
+}
