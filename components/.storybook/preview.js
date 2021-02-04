@@ -15,7 +15,7 @@ const customViewports = {
   Medium: {
     name: 'Medium',
     styles: {
-      width: '627px',
+      width: '672px',
       height: '801px',
     },
   },
@@ -23,21 +23,21 @@ const customViewports = {
     name: 'Large',
     styles: {
       width: '1056px',
-      height: '801px',
+      height: '1200px',
     },
   },
   XLarge: {
     name: 'XLarge',
     styles: {
       width: '1312px',
-      height: '801px',
+      height: '1400px',
     },
   },
   XXLarge: {
     name: 'XXLarge',
     styles: {
       width: '1584px',
-      height: '801px',
+      height: '1600px',
     },
   },
 };
