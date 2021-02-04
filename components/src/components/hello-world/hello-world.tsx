@@ -12,7 +12,6 @@ export class HelloWorld {
     return (
       <div>
         <h2>{this.text} component</h2>
-        <p>fwafwafa</p>
       </div>
     );
   }
