@@ -1,0 +1,8 @@
+:root,
+html{
+  --sdds-breadcrumb-color: #{get-colour(grey-800)};
+  --sdds-breadcrumb-color-disabled: #{get-colour(grey-300)};
+  --sdds-breadcrumb-color-hover: #{get-colour(grey-500)};
+  --sdds-breadcrumb-color-focus: #{get-colour(grey-500)};
+  --sdds-breadcrumb-separator-color: #{get-colour(grey-300)};
+}

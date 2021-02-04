@@ -12,7 +12,7 @@ import store from '../../store'
 
 @Component({
   tag: 'c-theme',
-  styleUrl: 'theme.scss',
+  styleUrl: 'theme.scss'
 })
 export class Theme {
   /** Set the brand name that will set the theme styling for the page. */
