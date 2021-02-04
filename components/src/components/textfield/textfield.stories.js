@@ -12,28 +12,36 @@ const style =`<style>
 const textfieldTEmplate = ({...Basic}) => {
   return `
   ${style}
-  <c-theme name="scania" global="true"></c-theme>
+  <c-theme name="scania"></c-theme>
 
   <div class="demo">
+
     Regular HTML
-    <div class=sdds-textfield-container>
+
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input" type="text" placeholder="Placeholder" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input" type="text" value="Text value" placeholder="Placeholder" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input" type="password" value="password" placeholder="Placeholder" />
       <div class="sdds-textfield-bar"></div>
     </div>
+
   </div>
 
   <div class="demo">
-  Web-component
+    Web-component
+
     <c-textfield class="demo" placeholder="Placeholder text" ></c-textfield>
+
     <c-textfield class="demo" type="text" value="Text value" placeholder="Placeholder text" ></c-textfield>
+
     <c-textfield class="demo" type="password" value="password" placeholder="Placeholder" ></c-textfield>
   </div>
 
@@ -47,18 +55,18 @@ Basic.args = {}
 const textfieldMediumTemplate = ({placeholderText}) => {
   return `
   ${style}
-  <c-theme name="scania" global="true"></c-theme>
+  <c-theme name="scania"></c-theme>
   <div class="demo">
     Regular HTML
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input-md" type="text" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input-md" type="text" value="Text value" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input-md" type="password" value="password" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
@@ -83,18 +91,18 @@ medium.args = {
 const textfieldDisabledTemplate = ({placeholderText}) => {
   return `
   ${style}
-  <c-theme name="scania" global="true"></c-theme>
+  <c-theme name="scania"></c-theme>
   <div class="demo">
     Regular HTML
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input" disabled type="text" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <input class="sdds-textfield-input-md" disabled type="text" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <label class="sdds-textfield-label sdds-textfield-label-disabled">Label text</label>
       <input class="sdds-textfield-input" disabled type="text" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
@@ -120,7 +128,7 @@ disabled.args = {
 const textfieldLabelInsideTemplate = ({placeholderText}) => {
   return `
   ${style}
-  <c-theme name="scania" global="true"></c-theme>
+  <c-theme name="scania"></c-theme>
   Web-component
 
   <div class="demo">
@@ -163,12 +171,12 @@ const textfieldLabelOutsideTemplate = ({placeholderText}) => {
   <c-theme name="scania"></c-theme>
   <div>
     Regular HTML
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
       <label class="sdds-textfield-label">Label</label>
       <input class="sdds-textfield-input" type="text" value="text" placeholder="${placeholderText}" />
       <div class="sdds-textfield-bar"></div>
     </div>
-    <div class=sdds-textfield-container>
+    <div class="sdds-textfield-container">
     <label class="sdds-textfield-label">Label</label>
     <input class="sdds-textfield-input-md" type="text" value="text" placeholder="${placeholderText}" />
     <div class="sdds-textfield-bar"></div>
@@ -191,7 +199,7 @@ labelOutside.args = {
 
 // const textfieldPrefix = ({placeholderText}) => {
 //   return `
-//   <c-theme name="scania" global="true"></c-theme>
+//   <c-theme name="scania"></c-theme>
 //   <div class="sdds-textfield">
 //     <input class="sdds-textfield-input" type="text" placeholder="${placeholderText}">
 //     <label class="sdds-textfield-label-outside>label</label>
@@ -207,7 +215,7 @@ labelOutside.args = {
 
 // const textfieldSuffix = ({placeholderText}) => {
 //   return `
-//   <c-theme name="scania" global="true"></c-theme>
+//   <c-theme name="scania"></c-theme>
 //   <div class="sdds-textfield">
 //     <input class="sdds-textfield-input" type="text" placeholder="${placeholderText}">
 //     <label class="sdds-textfield-label-outside>label</label>
