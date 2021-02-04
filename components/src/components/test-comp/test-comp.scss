@@ -1,0 +1,65 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/transitions';
+
+:host { 
+    display: block;
+  }
+
+  .btn {
+    border-radius: 0.3rem;
+    border: none;
+    padding: 0 12px;
+    height: 38px;
+    outline: none;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    box-shadow: none;
+    padding: 40px;
+    font-size: 120%;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .btn.primary {
+    background: #16417f;
+    color: white;
+  }
+
+  .btn.primary:hover {
+    background: #2058a8;
+  }
+
+  .btn.secondary {
+    background: white;
+    color: #16417f;
+    border: 1px solid #16417f
+  }
+
+  .btn.secondary:hover {
+    background: #2058a8;
+    color: white;
+  }
+
+  .btn.ghost {
+    background: none;
+    color: #16417f;
+  }
+
+  .btn.ghost:hover {
+    background: rgb(192, 192, 192);
+  }
+
+  .btn.danger {
+    background: #d6001c;
+    color: white;
+  }
+
+  .btn.danger:hover {
+    background: #e4001e;
+  }
