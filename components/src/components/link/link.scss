@@ -4,6 +4,7 @@ a,
 #{$prefix}-link{
   cursor: pointer;
   outline: none;
+  border: 0;
 
   &,
   &.active,
@@ -23,7 +24,7 @@ a,
   &:focus{
     color: var(--sdds-link-focus);
     text-decoration: none;
-    border: var(--sdds-link-focus-border);
+    outline: var(--sdds-link-focus-border);
   }
 
   &:disabled,

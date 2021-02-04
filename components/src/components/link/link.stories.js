@@ -7,7 +7,7 @@ const Template = ({disabled=false}) => {
   return `
   <c-theme name="scania"></c-theme>
   <p>
-  This is an example of <a class="${disabledClass}" href="netflix.com">a link</a> inside a paragraph.
+  This is an example of <a class="${disabledClass}" href="#">a link</a> inside a paragraph.
   </p>
   `
 };
