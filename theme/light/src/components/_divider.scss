@@ -1,0 +1,14 @@
+$types: ('light': #{get-colour(grey-100)},'dark':#{get-colour(grey-700)},'coloured':#{get-colour(green-700)});
+$border-types: top,right,bottom,left;
+
+:root,
+html {
+
+  @each $type, $value in $types {
+    --sdds-divider-#{$type}:  #{$value};
+    --sdds-divider-#{$type}-vertical: #{$value};
+    @each $border-type in $border-types {
+      --sdds-divider-#{$type}-border-#{$border-type}:  #{$value};
+    }
+  }
+}
