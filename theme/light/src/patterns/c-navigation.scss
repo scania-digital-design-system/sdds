@@ -19,8 +19,11 @@
 
 :host {
   --link-color:Var(--sdds-grey-400);
+  --sdds-link:Var(--sdds-grey-400);
   --link-decoration: none;
   --link-color-hover: Var(--sdds-blue-900);
+  --sdds-link-hover: Var(--sdds-blue-900);
+  --sdds-link-text-decoration: none;
 
   display: block;
   font-family: 'Scania Sans';
@@ -83,6 +86,8 @@
 
 ::slotted(a) {
   @include nav-item;
+  text-decoration: none;
+  color: inherit;
 }
 
 // IE
