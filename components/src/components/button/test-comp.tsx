@@ -1,8 +1,8 @@
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'test-comp',
-  styleUrl: 'test-comp.scss',
+  tag: 'test-btn',
+  styleUrl: 'button.scss',
   shadow: true,
 })
 export class TestComp {
@@ -11,10 +11,9 @@ export class TestComp {
 
   render() {
     return (
-      <button class={`btn ${this.appearance}`} type="button">
+      <button class={`sdds-btn ${this.appearance}`} type="button">
         {this.text}
       </button>
     )
   }
-
 }
