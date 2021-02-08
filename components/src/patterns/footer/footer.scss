@@ -49,8 +49,11 @@
 
 :host {
   --link-color: Var(--sdds-white);
+  --sdds-link: Var(--sdds-white);
   --link-color-hover: Var(--sdds-white);
+  --sdds-link-hover: Var(--sdds-white);
   --link-decoration: none;
+  --sdds-link-text-decoration: none;
   --link-decoration-hover: underline;
   --link-color-active: Var(--sdds-white);
   --link-bg-hover: transparent;
