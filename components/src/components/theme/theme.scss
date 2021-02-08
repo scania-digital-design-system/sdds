@@ -5,6 +5,10 @@
 @import '../breadcrumb/breadcrumb.scss';
 @import '../checkbox/checkbox.scss';
 
+@import '../textfield/textfield.scss';
+@import '../divider/divider.scss';
+
+
 // data environment
 body[data-env]:before {
   background-color: #ddd;
