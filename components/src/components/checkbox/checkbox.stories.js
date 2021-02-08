@@ -1,11 +1,10 @@
-<div class="sdds-container mt-5">
-  <div class="sdds-row">
-    <div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-      <h1>Home</h1>
-      <h3>Visit Scania Digital Design System at <a target='_blank' href='https://digitaldesign.scania.com'>digitaldesign.scania.com</a><c-icon name='scania-external_link'></c-icon></h3>
-      <p>Developing in our design system visit our <a target='_blank' href='https://github.com/scania/corporate-ui'>github</a><c-icon name='scania-external_link'></c-icon></p>
-    </div>
-    <div>
+export default {
+    title: 'Component/Checkbox'
+  };
+  
+  const Template = () => {
+    return `
+      <c-theme name="scania"></c-theme>
       <div>
         <div class="sdds-checkbox-item">
           <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1">
@@ -32,6 +31,9 @@
           </label>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      `
+  };
+  
+  export const Basic = Template.bind({});
+  
+  Basic.args = {}

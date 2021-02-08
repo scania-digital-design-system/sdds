@@ -1,0 +1,35 @@
+@import '../../helpers/style-helpers.scss';
+
+a,
+#{$prefix}-link{
+  cursor: pointer;
+  outline: none;
+  border: 0;
+
+  &,
+  &.active,
+  &:active{
+    color: var(--sdds-link);
+    text-decoration: var(--sdds-link-text-decoration);
+  }
+
+  &:hover{
+    color: var(--sdds-link-hover);
+  }
+
+  &:visited{
+    color: var(--sdds-link-visited);
+  }
+
+  &:focus{
+    color: var(--sdds-link-focus);
+    text-decoration: none;
+    outline: var(--sdds-link-focus-border);
+  }
+
+  &:disabled,
+  &.disabled{
+    color: var(--sdds-link-disabled);
+    pointer-events: none;
+  }
+}
