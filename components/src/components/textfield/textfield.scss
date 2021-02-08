@@ -1,0 +1,170 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+
+@mixin textfield-base {
+  //Basic input element styling
+  min-width: 52rem;
+  margin: 0;
+  border-radius: 1rem 1rem 0 0;
+  border: none;
+  outline: none;
+  color: var(--sdds-textfield-color);
+  border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+
+  &::placeholder {
+    opacity: 1;
+    color: var(--sdds-textfield-placeholder);
+  }
+
+  &:hover {
+    outline: none;
+    border-bottom-color: var(--sdds-textfield-border-bottom-hover);
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: var(--sdds-textfield-disabled-bg);
+    color: var(--sdds-textfield-disabled-color);
+    border-bottom-color: transparent;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+    &::placeholder {
+      color: var(--sdds-textfield-disabled-placeholder);
+    }
+
+    ~ .sdds-textfield-label-inside {
+      color: var(--sdds-textfield-disabled-label);
+    }
+  }
+}
+
+//Sizes
+#{$prefix}-textfield-input {
+  @include textfield-base;
+  @include type-style('detail-02');
+  padding-left: var(--sdds-spacing-element-16);
+  padding-right: var(--sdds-spacing-element-16);
+  padding-top: var(--sdds-spacing-element-20);
+  padding-bottom: 19px;
+
+}
+
+#{$prefix}-textfield-input-md {
+  @include textfield-base;
+  @include type-style('detail-02');
+  padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-16) 15px var(--sdds-spacing-element-16);
+}
+
+//Textfield label
+#{$prefix}-textfield-label {
+  @include type-style('detail-05');
+  display:block;
+  margin-bottom: 8px;
+  color: var(--sdds-textfield-label-color);
+
+  &-disabled {
+    color: var(--sdds-grey-200);
+  }
+}
+
+#{$prefix}-textfield-label-inside {
+  @include type-style('detail-02');
+  position: absolute;
+  pointer-events: none;
+  color: var( --sdds-textfield-label-inside-color);
+  left: 16px;
+}
+
+@mixin textfield-container {
+  display: inline-block;
+  position: relative;
+}
+
+@mixin placeholder-label {
+  &::placeholder {
+    color:transparent
+  }
+
+  //Input field in focus
+  &:focus::placeholder {
+    color: var(--sdds-textfield-label-inside-focus-color);
+  }
+}
+//Textfield container
+#{$prefix}-textfield-container {
+  @include textfield-container;
+}
+
+//Textfield container with label inside
+#{$prefix}-textfield-container.sdds-textfield-container-label-inside {
+
+    #{$prefix}-textfield-input {
+      padding-top: var(--sdds-spacing-element-24);
+      padding-bottom: 15px;
+
+    ~ #{$prefix}-textfield-label-inside {
+      top: 20px;
+    }
+    @include placeholder-label;
+  }
+
+  #{$prefix}-textfield-input-md {
+    padding-top: var(--sdds-spacing-element-20);
+    padding-bottom: 11px;
+
+    ~ #{$prefix}-textfield-label-inside {
+      top: 16px;
+    }
+    @include placeholder-label;
+  }
+
+  &.active  #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside {
+    @include type-style('detail-07');
+    top: 12px;
+  }
+
+  &.active  #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
+    @include type-style('detail-07');
+    top: 8px;
+  }
+}
+
+//Textfield bottom bar when in focus
+#{$prefix}-textfield-bar 	{
+  position:relative;
+  display:block;
+
+  &:before,
+  &:after {
+    content:'';
+    height:2px;
+    top: -2px;
+    width:0;
+    position:absolute;
+    background: var(--sdds-textfield-bar);
+    transition:0.1s ease all;
+    -moz-transition:0.1s ease all;
+    -webkit-transition:0.1s ease all;
+  }
+
+  &:before {
+    left:50%;
+  }
+  &:after {
+    right:50%;
+  }
+  #{$prefix}-textfield-input:focus ~ &:before,
+  #{$prefix}-textfield-input-md:focus ~ &:before,
+  #{$prefix}-textfield-input:focus ~ &:after,
+  #{$prefix}-textfield-input-md:focus ~ &:after {
+    width:50%;
+  }
+}
