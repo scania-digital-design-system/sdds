@@ -37,9 +37,10 @@ We provide a css file that can help you maintain the UI of the components that h
 
 4. We are not providing Bootstrap 4 CSS and JS anymore. Import them separately from [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/). Either by using `<link>` in the head, or import package in your application. You need to add both Bootstrap CSS and JS.
 
-5. Import a helper CSS called `global-style.css` from @scania/theme-light in your main css file, that will help retain the UI for old components.
+5. Import a helper CSS called `global-style.css` from @scania/theme-light in your main css file, that will help retain the UI for old components. Make sure to import global-style after bootstrap.
 
    ```css
+   @import 'bootstrap/dist/css/bootstrap';
    @import '@scania/theme-light/dist/styles/global-style';
    ```
 
