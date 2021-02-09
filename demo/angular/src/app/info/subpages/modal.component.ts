@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-modal',
   template: `
   <h4>Modal</h4>
-  <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>Launch demo modal</button>
+  <button type='button' class='sdds-btn sdds-btn-primary' data-toggle='modal' data-target='#exampleModal'>Launch demo modal</button>
 
   <div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
     <div class='modal-dialog' role='document'>
@@ -19,8 +19,8 @@ import { Component, OnInit } from '@angular/core';
           <p>Modal body text goes here.</p>
         </div>
         <div class='modal-footer'>
-          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-          <button type='button' class='btn btn-primary'>Save changes</button>
+          <button type='button' class='sdds-btn sdds-btn-secondary' data-dismiss='modal'>Close</button>
+          <button type='button' class='sdds-btn sdds-btn-primary'>Save changes</button>
         </div>
       </div>
     </div>
