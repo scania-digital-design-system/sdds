@@ -20,10 +20,12 @@
 :host {
   --link-color:Var(--sdds-grey-400);
   --sdds-link:Var(--sdds-grey-400);
+  --sdds-link-focus:Var(--sdds-grey-400);
   --link-decoration: none;
   --link-color-hover: Var(--sdds-blue-900);
   --sdds-link-hover: Var(--sdds-blue-900);
   --sdds-link-text-decoration: none;
+  --sdds-link-focus-border:none;
 
   display: block;
   font-family: 'Scania Sans';
@@ -96,6 +98,7 @@
 ::slotted(a.active),
 ::slotted(a[active]:not([active="false"])) {
   color: get-colour(blue-900);
+  text-decoration: none;
 }
 ::slotted(div) {
   border-top: 1px solid #e2e2e2;
