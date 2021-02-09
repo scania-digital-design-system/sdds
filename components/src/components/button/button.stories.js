@@ -85,7 +85,7 @@ const TestBtnTemp = ({btnType, size, fullbleed}) => {
   }
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <test-btn text="Button" appearance="sdds-btn-${btnType} ${sizeValue} ${fbClass}" ${inlineStyle}></test-btn>
+  <c-button text="Button" appearance="sdds-btn-${btnType} ${sizeValue} ${fbClass}" ${inlineStyle}></c-button>
   `
 };
 
@@ -113,5 +113,5 @@ onlyIcon.args = {
   onlyIcon: true
 }
 
-export const BtnTest = TestBtnTemp.bind({});
-BtnTest.args = {}
+export const Cbutton = TestBtnTemp.bind({});
+Cbutton.args = {}

@@ -1,7 +1,7 @@
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'test-btn',
+  tag: 'c-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
