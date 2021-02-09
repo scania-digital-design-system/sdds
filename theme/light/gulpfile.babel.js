@@ -40,7 +40,7 @@ selectorParser.registerNestingOperators('>', '+', '~');
 selectorParser.registerAttrEqualityMods('^', '$', '*', '~');
 selectorParser.enableSubstitutes();
 
-const build = series(clean, initFolders, initFonts, initImages, initIcons, initFavicons, initTheme, copyScss);
+const build = series(clean, initFolders, initFonts, initImages, initIcons, initFavicons, initTheme, copyScss, copyGlobalStyle);
 const start = series(build, serve, watches);
 
 export {
@@ -536,4 +536,10 @@ function copyScss() {
   console.log('Copying scss...')
   return src('src/**/*.scss')
   .pipe(dest(`${outputFolder}/scss/`));
-} 	
+}
+
+function copyGlobalStyle() {
+  console.log('Copying corporate-ui-4 global style...')
+  return src('src/utilities/global-style.css')
+  .pipe(dest(`${outputFolder}/styles/`));
+}
