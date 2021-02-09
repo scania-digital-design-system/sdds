@@ -7,7 +7,13 @@ Bootstrap was a core technology in Corporate UI solution. In SDDS, we have decid
 If your current application use Corporate UI 4, and you want to upgrade your UI to follow the latest sdds solution, you don't have to worry. You can do upgrade to your UI gradually following our releases. All components that previously available in Corporate UI will be replaced by new UI and we will do gradual releases for those components.
 We provide a css file that can help you maintain the UI of the components that has not been released yet.
 
-How to do migration from Corporate UI to sdds:
+### Breaking changes
+
+1. Bootstrap 4 CSS and JS have been removed from sdds solution. See step by step **how to do migration** below.
+
+2. Base unit has been changed 4px. It means 1rem = 4px. If you use rem in your application, make sure to upgrade the value. For components from Corporate UI 4, all global-style values have been adjusted. You can apply new values by importing global-style.css in your application..
+
+### How to do migration from Corporate UI to sdds:
 
 1. Install sdds components and theme (Installation process is the same as Corporate UI 4)
    
@@ -31,9 +37,10 @@ How to do migration from Corporate UI to sdds:
 
 4. We are not providing Bootstrap 4 CSS and JS anymore. Import them separately from [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/). Either by using `<link>` in the head, or import package in your application. You need to add both Bootstrap CSS and JS.
 
-5. Import a helper CSS called `global-style.css` from @scania/theme-light in your main css file, that will help retain the UI for old components.
+5. Import a helper CSS called `global-style.css` from @scania/theme-light in your main css file, that will help retain the UI for old components. Make sure to import global-style after bootstrap.
 
    ```css
+   @import 'bootstrap/dist/css/bootstrap';
    @import '@scania/theme-light/dist/styles/global-style';
    ```
 
