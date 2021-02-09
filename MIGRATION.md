@@ -7,7 +7,13 @@ Bootstrap was a core technology in Corporate UI solution. In SDDS, we have decid
 If your current application use Corporate UI 4, and you want to upgrade your UI to follow the latest sdds solution, you don't have to worry. You can do upgrade to your UI gradually following our releases. All components that previously available in Corporate UI will be replaced by new UI and we will do gradual releases for those components.
 We provide a css file that can help you maintain the UI of the components that has not been released yet.
 
-How to do migration from Corporate UI to sdds:
+### Breaking changes
+
+1. Bootstrap 4 CSS and JS have been removed from sdds solution. See step by step **how to do migration** below.
+
+2. Base unit has been changed 4px. It means 1rem = 4px. If you use rem in your application, make sure to upgrade the value. For components from Corporate UI 4, all global-style values have been adjusted. You can apply new values by importing global-style.css in your application..
+
+### How to do migration from Corporate UI to sdds:
 
 1. Install sdds components and theme (Installation process is the same as Corporate UI 4)
    
