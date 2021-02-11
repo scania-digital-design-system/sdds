@@ -69,7 +69,7 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
   `
 };
 
-const TestBtnTemp = () => {
+const ComponentBtn = () => {
   return `
   <c-theme name="scania" global="true"></c-theme>
   <sdds-button type="primary" size="md" disabled="" fullbleed="true" text="Button"><c-icon name='scania-cross'></c-icon></sdds-button>
@@ -100,17 +100,5 @@ onlyIcon.args = {
   onlyIcon: true
 }
 
-export const Cbutton = TestBtnTemp.bind({});
+export const Cbutton = ComponentBtn.bind({});
 Cbutton.args = {}
-// const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
-//   const inlineStyle = fullbleed ? 'style="width:200px;"':'';
-//   let sizeValue='';
-//   switch (size) {
-//     case 'small':
-//       sizeValue = 'sdds-btn-sm';
-//       break;
-//     case 'medium':
-//       sizeValue = 'sdds-btn-md';
-//       break;
-//     default: sizeValue= '';
-//       break;
