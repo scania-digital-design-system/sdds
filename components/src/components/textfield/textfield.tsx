@@ -17,26 +17,36 @@ export class Textfield {
 
   @State() theme: string;
 
-  @State() currentTheme = { icons: { }, components: [] };
+  @State() currentTheme = { components: [] };
 
   @State() style: Array<CSSStyleSheet>;
 
+  /** Which input type, text, password or similar */
   @Prop() type: string = 'text';
 
+  /** Label that will be put outside the input */
   @Prop() label: string = "";
 
+   /** Label that will be put inside the input */
   @Prop() labelinside: string = "";
 
+  /** Placeholder text */
   @Prop() placeholder: string = "";
 
+  /** Value of the input text */
   @Prop() value = "";
 
+  /** Set input in disabled state */
   @Prop() disabled;
 
+  /** Size of the input */
   @Prop() size = "";
 
-  @State() focusInput;
+  /** Error state of input */
+  @Prop() error: boolean;
 
+  /** Listen to the focus state of the input */
+  @State() focusInput;
 
   @Element() el: any;
 
@@ -72,12 +82,13 @@ export class Textfield {
     }
   }
 
-  //Focus states
+  //Listener if input enters focus state
   @Listen('focus')
   handleFocusIn() {
     this.focusInput = true;
   }
 
+  //Listener if input leaves focus state
   @Listen('focusout')
   handleFocusOut() {
     this.focusInput = false;
@@ -86,7 +97,7 @@ export class Textfield {
     }
   }
 
-  //Data input event
+  //Data input event in value prop
   handleInputChange(event): void {
     this.value = event.target.value;
   }
@@ -108,8 +119,8 @@ export class Textfield {
         {this.labelinside.length > 0 &&
           <label class="sdds-textfield-label-inside">{this.labelinside}</label>
         }
-        <div class="sdds-textfield-bar"></div>
-        {/* <div class="sdds-textfield-helper-text">helper text</div> */}
+        <div class={`sdds-textfield-bar`}></div>
+        {/* <div class="sdds-textfield-helper">Helper text</div> */}
       </div>
     );
   }
