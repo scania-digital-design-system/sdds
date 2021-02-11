@@ -1,0 +1,10 @@
+:root,
+html{
+  --sdds-accordion-colour: #{get-colour(grey-900)};
+  --sdds-accordion-background: transparent;
+  --sdds-accordion-background-hover: #{get-colour(white)};
+  --sdds-accordion-background-focus: #{get-colour(white)};
+  --sdds-accordion-background-active: #{get-colour(grey-100)};
+  --sdds-accordion-border-focus: #{get-colour(grey-500)};
+  --sdds-accordion-colour-disabled: #{get-colour(grey-200)};
+}
