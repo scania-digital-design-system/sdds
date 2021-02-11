@@ -2,10 +2,10 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-
 @mixin textfield-base {
   //Basic input element styling
   min-width: 52rem;
+  box-sizing: border-box;
   margin: 0;
   border-radius: 1rem 1rem 0 0;
   border: none;
@@ -44,6 +44,10 @@
       color: var(--sdds-textfield-disabled-label);
     }
   }
+
+  // &:invalid {
+  //   border-bottom-color: red;
+  // }
 }
 
 //Sizes
@@ -95,6 +99,7 @@
 
   //Input field in focus
   &:focus::placeholder {
+    transition: color 0.35s ease;
     color: var(--sdds-textfield-label-inside-focus-color);
   }
 }
@@ -102,6 +107,7 @@
 #{$prefix}-textfield-container {
   @include textfield-container;
 }
+
 
 //Textfield container with label inside
 #{$prefix}-textfield-container.sdds-textfield-container-label-inside {
@@ -135,6 +141,11 @@
     @include type-style('detail-07');
     top: 8px;
   }
+
+  & #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside,
+  & #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
+    transition: all 0.1s ease;
+  }
 }
 
 //Textfield bottom bar when in focus
@@ -166,5 +177,29 @@
   #{$prefix}-textfield-input:focus ~ &:after,
   #{$prefix}-textfield-input-md:focus ~ &:after {
     width:50%;
+  }
+}
+
+//Helper text
+#{$prefix}-textfield-helper {
+  @include type-style('detail-05');
+  margin-top: 1rem;
+  color: var(--sdds-textfield-helper);
+}
+
+//Error State
+#{$prefix}-textfield-input-error {
+  border-bottom-color: var(--sdds-textfield-border-bottom-error);
+}
+
+#{$prefix}-textfield-helper-error {
+
+  color: var(--sdds-textfield-helper-error);
+}
+
+#{$prefix}-textfield-bar-error 	{
+  &:before,
+  &:after {
+    background: var(--sdds-textfield-bar-error);
   }
 }

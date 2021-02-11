@@ -12,4 +12,8 @@ html{
   --sdds-textfield-label-inside-color: #{get-colour(grey-500)};
   --sdds-textfield-label-inside-focus-color: #{get-colour(grey-500)};
   --sdds-textfield-bar: #{get-colour(blue-500)};
+  --sdds-textfield-helper: #{get-colour(grey-500)};
+  --sdds-textfield-border-bottom-error: #{get-colour(red-500)};
+  --sdds-textfield-helper-error: #{get-colour(red-500)};
+  --sdds-textfield-bar-error: #{get-colour(red-500)};
 }
