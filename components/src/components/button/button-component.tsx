@@ -6,7 +6,7 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 
-export class CButton {
+export class SddsButton {
   @Prop() text: string;
   @Prop() type: string;
   @Prop() size = "";
