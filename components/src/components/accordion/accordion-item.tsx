@@ -19,21 +19,21 @@ export class AccordionItem {
   /** Disabled option in `boolean`. */
   @Prop() disabled: boolean = false;
 
-  /** Set to true to open panel */
-  @Prop() open: boolean = false;
+  /** Set to true to expand panel open */
+  @Prop() expanded: boolean = false;
 
   /** Set divider individually or get it from c-accordion property */
   @Prop() divider: boolean = false;
 
   openAccordion() {
-    this.open = !this.open;
+    this.expanded = !this.expanded;
   }
 
   render() {
     return (
       <div class={`sdds-accordion-item 
         ${(this.disabled ? 'disabled' : '')} 
-        ${(this.open ? 'open' : '')}
+        ${(this.expanded ? 'expanded' : '')}
         ${(this.divider ? 'sdds-divider-light-border-bottom':'')}
         `}>
         <div class={`sdds-accordion-header-${this.affix}`}

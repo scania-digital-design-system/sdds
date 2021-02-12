@@ -1,5 +1,13 @@
 export default {
-  title: 'Component/Accordion'
+  title: 'Component/Accordion',
+  argTypes: {
+    affix: {
+      defaultValue: 'suffix',
+      table: {
+        disable:true
+      }
+    },
+  }
 };
 
 const Template = ({disabled=false, affix='suffix'}) => {
@@ -10,7 +18,7 @@ const Template = ({disabled=false, affix='suffix'}) => {
       <c-accordion-item header="First item" affix="${affix}" disabled="${disabled}" tabindex="1">
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
       </c-accordion-item>
-      <c-accordion-item header="Second item" affix="${affix}" disabled="${disabled}" open="true"  tabindex="1">
+      <c-accordion-item header="Second item" affix="${affix}" disabled="${disabled}" expanded="true"  tabindex="1">
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
       </c-accordion-item>
     </c-accordion>

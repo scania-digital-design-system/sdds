@@ -127,7 +127,7 @@
     }
   }
 
-  &.open {
+  &.expanded {
     #{$prefix}-accordion-panel {
       display: block;
     }
