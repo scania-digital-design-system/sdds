@@ -100,5 +100,5 @@ onlyIcon.args = {
   onlyIcon: true
 }
 
-export const Cbutton = ComponentBtn.bind({});
-Cbutton.args = {}
+export const sddsButton = ComponentBtn.bind({});
+sddsButton.args = {}
