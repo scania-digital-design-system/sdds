@@ -189,11 +189,11 @@ const textfieldHelperTemplate = ({...Helper}) => {
   ${style}
   <c-theme name="scania"></c-theme>
   <h5>HTML</h5>
-      <div class="sdds-textfield-container">
-        <input required class="sdds-textfield-input" type="text" placeholder="${Helper.placeholderText}" />
-        <div class="sdds-textfield-bar"></div>
-        <div class="sdds-textfield-helper">${Helper.text}</div>
-      </div>
+    <div class="sdds-textfield-container">
+      <input class="sdds-textfield-input" type="text" placeholder="${Helper.placeholderText}" />
+      <div class="sdds-textfield-bar"></div>
+      <div class="sdds-textfield-helper">${Helper.text}</div>
+    </div>
   `
 };
 
@@ -211,7 +211,7 @@ const textfieldErrorTemplate = ({...Error}) => {
   <c-theme name="scania"></c-theme>
   <h5>HTML</h5>
     <div class="sdds-textfield-container">
-      <input required class="sdds-textfield-input sdds-textfield-input-error" type="text" placeholder="${Error.placeholderText}" />
+      <input class="sdds-textfield-input sdds-textfield-input-error" type="text" placeholder="${Error.placeholderText}" />
       <div class="sdds-textfield-bar sdds-textfield-bar-error"></div>
       <div class="sdds-textfield-helper sdds-textfield-helper-error">${Error.text}</div>
     </div>
@@ -223,3 +223,28 @@ export const Error = textfieldErrorTemplate.bind({});
 Error.args = {
   text: 'Error text'
 };
+
+{/* <c-textfield class="demo" error="${TextCounter.error}" helper="${TextCounter.helper}" maxlength="${TextCounter.maxlength}" type="${TextCounter.type}" size="${TextCounter.size == 'Medium' ? 'md' : ''}" labelinside="${TextCounter.label}" placeholder="${TextCounter.placeholderText}" ></c-textfield> */}
+
+const textfieldTextCounterTemplate = ({...TextCounter}) => {
+  return `
+  ${style}
+  <c-theme name="scania"></c-theme>
+  <h5>Web-Component</h5>
+  <c-textfield class="demo" error="${TextCounter.error}" helper="${TextCounter.helper}" maxlength="${TextCounter.maxlength}" type="${TextCounter.type}" size="${TextCounter.size == 'Medium' ? 'md' : ''}" labelinside="${TextCounter.label}" placeholder="${TextCounter.placeholderText}" >
+    <span slot="sdds-prefix">333$</span> <span slot="sdds-suffix">3</sdds>
+  </c-textfield>
+
+  `
+};
+
+export const TextCounter = textfieldTextCounterTemplate.bind({});
+
+TextCounter.args = {
+  label: 'Label text',
+  size: 'Default',
+  maxlength: 20,
+  helper: '',
+  error: false
+};
+

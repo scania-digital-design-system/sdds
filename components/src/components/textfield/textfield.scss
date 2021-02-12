@@ -71,7 +71,7 @@
 #{$prefix}-textfield-label {
   @include type-style('detail-05');
   display:block;
-  margin-bottom: 8px;
+  margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
 
   &-disabled {
@@ -134,17 +134,18 @@
 
   &.active  #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside {
     @include type-style('detail-07');
+    transition:0.1s ease all;
+    -moz-transition:0.1s ease all;
+    -webkit-transition:0.1s ease all;
     top: 12px;
   }
 
   &.active  #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
     @include type-style('detail-07');
+    transition:0.1s ease all;
+    -moz-transition:0.1s ease all;
+    -webkit-transition:0.1s ease all;
     top: 8px;
-  }
-
-  & #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside,
-  & #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
-    transition: all 0.1s ease;
   }
 }
 
@@ -183,7 +184,8 @@
 //Helper text
 #{$prefix}-textfield-helper {
   @include type-style('detail-05');
-  margin-top: 1rem;
+  display: inline-block;
+  padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textfield-helper);
 }
 
@@ -201,5 +203,17 @@
   &:before,
   &:after {
     background: var(--sdds-textfield-bar-error);
+  }
+}
+
+#{$prefix}-textfield-textcounter {
+  @include type-style('detail-05');
+  padding-top: var(--sdds-spacing-element-4);
+  color: var(--sdds-grey-400);
+  float: right;
+
+  & #{$prefix}-textfield-textcounter-divider {
+    @include type-style('detail-05');
+    color: var(--sdds-grey-300);
   }
 }
