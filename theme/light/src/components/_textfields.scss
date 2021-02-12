@@ -16,4 +16,6 @@ html{
   --sdds-textfield-border-bottom-error: #{get-colour(red-500)};
   --sdds-textfield-helper-error: #{get-colour(red-500)};
   --sdds-textfield-bar-error: #{get-colour(red-500)};
+  --sdds-textfield-textcounter: #{get-colour(grey-400)};
+  --sdds-textfield-textcounter-divider: #{get-colour(grey-300)};
 }

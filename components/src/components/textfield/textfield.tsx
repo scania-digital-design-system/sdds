@@ -37,13 +37,19 @@ export class Textfield {
   @Prop() value = "";
 
   /** Set input in disabled state */
-  @Prop() disabled;
+  @Prop() disabled: boolean = false;
 
   /** Size of the input */
   @Prop() size = "";
 
   /** Error state of input */
   @Prop() error: boolean;
+
+  /** Helper text outside input */
+  @Prop() helper: string = '';
+
+  /** Max length of input */
+  @Prop() maxlength: number;
 
   /** Listen to the focus state of the input */
   @State() focusInput;
@@ -108,20 +114,33 @@ export class Textfield {
         {this.label.length > 0 &&
          <label class={`sdds-textfield-label ${this.disabled ? 'sdds-textfield-label-disabled' : ''}`}>{this.label}</label>
         }
+        {/* <slot name="sdds-prefix" /> */}
         <input
-          class={this.size !== 'md' ? 'sdds-textfield-input' : 'sdds-textfield-input-md'}
+          class={`${this.size !== 'md' ? 'sdds-textfield-input' : 'sdds-textfield-input-md'} ${this.error == true ? 'sdds-textfield-input-error' : ''}`}
           type={this.type}
           disabled={this.disabled}
           placeholder={this.placeholder}
           value={this.value}
+          maxlength={this.maxlength}
           onInput={(event) => this.handleInputChange(event)}
         />
         {this.labelinside.length > 0 &&
           <label class="sdds-textfield-label-inside">{this.labelinside}</label>
         }
-        <div class={`sdds-textfield-bar`}></div>
-        {/* <div class="sdds-textfield-helper">Helper text</div> */}
+        <div class={`sdds-textfield-bar ${this.error == true ? 'sdds-textfield-bar-error' : ''}`}></div>
+        {this.helper.length > 0 && <div class={`sdds-textfield-helper ${this.error == true ? 'sdds-textfield-helper-error' : ''}`}>
+          { this.helper }
+        </div>}
+        {this.maxlength > 0 &&
+          <div class="sdds-textfield-textcounter" >
+            {this.value.length}<span class="sdds-textfield-textcounter-divider"> / </span>{this.maxlength}
+          </div>
+        }
+         {/* <slot name="sdds-suffix"/> */}
       </div>
     );
   }
 }
+
+
+//FIXME: Naming of component SDDS- 
