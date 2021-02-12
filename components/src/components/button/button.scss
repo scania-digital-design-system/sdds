@@ -105,3 +105,9 @@ $props : (
   }
   
 }
+
+::slotted(*) {
+  margin-left: var(--sdds-spacing-element-32);
+  width: 16px;
+  height: 16px;
+}

@@ -17,9 +17,7 @@ export class SddsButton {
     return (
       <button class={`sdds-btn sdds-btn-${this.type} sdds-btn-${this.size} ${this.disabled} ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}`}>
           {this.text}
-          <span class='sdds-btn-icon'>
             <slot />
-          </span>
       </button>
     )
   }
