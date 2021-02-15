@@ -34,7 +34,6 @@ export class AccordionItem {
       <div class={`sdds-accordion-item 
         ${(this.disabled ? 'disabled' : '')} 
         ${(this.expanded ? 'expanded' : '')}
-        ${(this.divider ? 'sdds-divider-light-border-bottom':'')}
         `}>
         <div class={`sdds-accordion-header-${this.affix}`}
           onClick={() => this.openAccordion()}
