@@ -4,7 +4,7 @@ html{
   --sdds-accordion-border: #{get-colour(grey-100)};
   --sdds-accordion-background: transparent;
   --sdds-accordion-background-hover: #{get-colour(white)};
-  --sdds-accordion-background-focus: #{get-colour(white)};
+  --sdds-accordion-background-focus: transparent;
   --sdds-accordion-background-active: #{get-colour(grey-100)};
   --sdds-accordion-border-focus: #{get-colour(grey-300)};
   --sdds-accordion-colour-disabled: #{get-colour(grey-200)};
