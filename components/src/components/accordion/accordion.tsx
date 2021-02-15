@@ -14,12 +14,6 @@ export class Accordion {
   /** Enable or disable divider lines between items */
   @Prop() divider: boolean = true;
 
-  componentWillLoad() {
-    this.el.childNodes.forEach(element => {
-      element["divider"] = this.divider;
-    });
-  }
-
   render() {
     return (
       <div class={`sdds-accordion ${(this.divider ? 'sdds-accordion-divider':'')}`}>
