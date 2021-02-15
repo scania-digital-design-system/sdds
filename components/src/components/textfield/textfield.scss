@@ -3,15 +3,13 @@
 @import '@scania/typography/dist/scss/tokens';
 
 @mixin textfield-base {
-  //Basic input element styling
-  min-width: 52rem;
   box-sizing: border-box;
   margin: 0;
-  border-radius: 1rem 1rem 0 0;
   border: none;
   outline: none;
+  height: 100%;
   color: var(--sdds-textfield-color);
-  border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+  background-color: var(--sdds-textfield-bg);
 
   &::placeholder {
     opacity: 1;
@@ -20,7 +18,6 @@
 
   &:hover {
     outline: none;
-    border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
   &:focus {
@@ -31,11 +28,7 @@
   &:disabled {
     background-color: var(--sdds-textfield-disabled-bg);
     color: var(--sdds-textfield-disabled-color);
-    border-bottom-color: transparent;
 
-    &:hover {
-      border-bottom-color: transparent;
-    }
     &::placeholder {
       color: var(--sdds-textfield-disabled-placeholder);
     }
@@ -45,20 +38,13 @@
     }
   }
 
-  // &:invalid {
-  //   border-bottom-color: red;
-  // }
 }
 
 //Sizes
 #{$prefix}-textfield-input {
   @include textfield-base;
   @include type-style('detail-02');
-  padding-left: var(--sdds-spacing-element-16);
-  padding-right: var(--sdds-spacing-element-16);
-  padding-top: var(--sdds-spacing-element-20);
-  padding-bottom: 19px;
-
+  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16) 19px var(--sdds-spacing-element-16);
 }
 
 #{$prefix}-textfield-input-md {
@@ -67,16 +53,35 @@
   padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-16) 15px var(--sdds-spacing-element-16);
 }
 
+//Container for input field and prefix/suffix
+#{$prefix}-textfield-container {
+  display: flex;
+  position: relative;
+  height: 56px;
+  box-sizing: border-box;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--sdds-textfield-bg);
+  border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+
+  &:hover {
+    border-bottom-color: var(--sdds-textfield-border-bottom-hover);
+  }
+
+  #{$prefix}-form-textfield-md & {
+    height: 48px;
+  }
+}
+
+#{$prefix}-textfield-input-container {
+  position: relative;
+}
+
 //Textfield label
-#{$prefix}-textfield-label {
+slot[name=sdds-label]::slotted(*) {
   @include type-style('detail-05');
   display:block;
   margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
-
-  &-disabled {
-    color: var(--sdds-grey-200);
-  }
 }
 
 #{$prefix}-textfield-label-inside {
@@ -85,11 +90,6 @@
   pointer-events: none;
   color: var( --sdds-textfield-label-inside-color);
   left: 16px;
-}
-
-@mixin textfield-container {
-  display: inline-block;
-  position: relative;
 }
 
 @mixin placeholder-label {
@@ -103,14 +103,23 @@
     color: var(--sdds-textfield-label-inside-focus-color);
   }
 }
-//Textfield container
-#{$prefix}-textfield-container {
-  @include textfield-container;
+
+@mixin label-inside-transition {
+  transition:0.1s ease all;
+  -moz-transition:0.1s ease all;
+  -webkit-transition:0.1s ease all;
+}
+
+
+//Form control
+#{$prefix}-form-textfield {
+  display: inline-block;
 }
 
 
 //Textfield container with label inside
-#{$prefix}-textfield-container.sdds-textfield-container-label-inside {
+//Handling position, focus and transition for label inside
+#{$prefix}-form-textfield.sdds-textfield-container-label-inside {
 
     #{$prefix}-textfield-input {
       padding-top: var(--sdds-spacing-element-24);
@@ -132,39 +141,42 @@
     @include placeholder-label;
   }
 
-  &.active  #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside {
-    @include type-style('detail-07');
-    transition:0.1s ease all;
-    -moz-transition:0.1s ease all;
-    -webkit-transition:0.1s ease all;
-    top: 12px;
-  }
+    &#{$prefix}-textfield-focus,
+    &#{$prefix}-textfield-data {
 
-  &.active  #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
-    @include type-style('detail-07');
-    transition:0.1s ease all;
-    -moz-transition:0.1s ease all;
-    -webkit-transition:0.1s ease all;
-    top: 8px;
+      #{$prefix}-textfield-input-md ~ #{$prefix}-textfield-label-inside {
+      @include type-style('detail-07');
+      @include label-inside-transition;
+      top: 8px;
+    }
+    #{$prefix}-textfield-input ~ #{$prefix}-textfield-label-inside {
+      @include type-style('detail-07');
+      @include label-inside-transition;
+      top: 12px;
+    }
   }
 }
 
 //Textfield bottom bar when in focus
 #{$prefix}-textfield-bar 	{
-  position:relative;
-  display:block;
+  position: absolute;
+  width: 100%;
 
   &:before,
   &:after {
     content:'';
     height:2px;
-    top: -2px;
+    top: 54px;
     width:0;
     position:absolute;
     background: var(--sdds-textfield-bar);
-    transition:0.1s ease all;
-    -moz-transition:0.1s ease all;
-    -webkit-transition:0.1s ease all;
+    transition:0.35s ease all;
+    -moz-transition:0.35s ease all;
+    -webkit-transition:0.35s ease all;
+
+    #{$prefix}-form-textfield-md & {
+      top: 46px;
+    }
   }
 
   &:before {
@@ -173,10 +185,8 @@
   &:after {
     right:50%;
   }
-  #{$prefix}-textfield-input:focus ~ &:before,
-  #{$prefix}-textfield-input-md:focus ~ &:before,
-  #{$prefix}-textfield-input:focus ~ &:after,
-  #{$prefix}-textfield-input-md:focus ~ &:after {
+  #{$prefix}-textfield-focus &:before,
+  #{$prefix}-textfield-focus &:after {
     width:50%;
   }
 }
@@ -184,36 +194,86 @@
 //Helper text
 #{$prefix}-textfield-helper {
   @include type-style('detail-05');
-  display: inline-block;
+  display: block;
+  flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textfield-helper);
 }
 
+//Disabled state 
+#{$prefix}-form-textfield-disabled {
+
+  #{$prefix}-textfield-container {
+    border-bottom-color: transparent;
+  }
+
+  slot[name=sdds-prefix]::slotted(*),
+  slot[name=sdds-suffix]::slotted(*) {
+    color: var(--sdds-textfield-disabled-ps-color);
+  }
+
+  slot[name=sdds-label]::slotted(*) {
+    color: var(--sdds-textfield-disabled-label);
+  }
+}
+
 //Error State
-#{$prefix}-textfield-input-error {
-  border-bottom-color: var(--sdds-textfield-border-bottom-error);
-}
+#{$prefix}-form-textfield-error {
+  #{$prefix}-textfield-helper {
+    color: var(--sdds-textfield-helper-error);
+  }
 
-#{$prefix}-textfield-helper-error {
+  #{$prefix}-textfield-container {
+    border-bottom-color: var(--sdds-textfield-border-bottom-error);
+  }
 
-  color: var(--sdds-textfield-helper-error);
-}
+  #{$prefix}-textfield-bar 	{
+    &:before,
+    &:after {
+      background: var(--sdds-textfield-bar-error);
+    }
+  }
 
-#{$prefix}-textfield-bar-error 	{
-  &:before,
-  &:after {
-    background: var(--sdds-textfield-bar-error);
+  slot[name=sdds-prefix]::slotted(c-icon),
+  slot[name=sdds-suffix]::slotted(c-icon) {
+    color: var(--sdds-textfield-icon-error);
   }
 }
 
 #{$prefix}-textfield-textcounter {
   @include type-style('detail-05');
-  padding-top: var(--sdds-spacing-element-4);
-  color: var(--sdds-grey-400);
+  color: var( --sdds-textfield-textcounter);
   float: right;
 
   & #{$prefix}-textfield-textcounter-divider {
-    @include type-style('detail-05');
-    color: var(--sdds-grey-300);
+    // @include type-style('detail-05');
+    color: var( --sdds-textfield-textcounter-divider);
   }
 }
+
+slot[name=sdds-prefix]::slotted(*),
+slot[name=sdds-suffix]::slotted(*) {
+  @include type-style('detail-02');
+  align-self: center;
+  color: var(--sdds-textfield-ps-color);
+}
+
+slot[name=sdds-prefix]::slotted(c-icon),
+slot[name=sdds-suffix]::slotted(c-icon) {
+  font-size: 6rem; //TODO: change value with new icons
+}
+
+//Text gerenerated infront of the input field
+slot[name=sdds-prefix]::slotted(*) {
+  padding-left: var(--sdds-spacing-element-20);
+
+  & ~ #{$prefix}-textfield-input {
+    padding-left: var(--sdds-spacing-element-12);
+  }
+}
+
+//Text generated after the input field
+slot[name=sdds-suffix]::slotted(*){
+  padding-right: var(--sdds-spacing-element-20);
+}
+
