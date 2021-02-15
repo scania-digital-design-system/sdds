@@ -1,21 +1,30 @@
 :root,
 html{
   --sdds-textfield-color: #{get-colour(grey-700)};
+  --sdds-textfield-bg: #{get-colour(white)};
   --sdds-textfield-border-bottom: #{get-colour(grey-200)};
   --sdds-textfield-placeholder: #{get-colour(grey-500)};
   --sdds-textfield-border-bottom-hover: #{get-colour(grey-400)};
+  //Disabled
   --sdds-textfield-disabled-bg: #{get-colour(white)};
   --sdds-textfield-disabled-color: #{get-colour(grey-200)};
   --sdds-textfield-disabled-placeholder: #{get-colour(grey-200)};
   --sdds-textfield-disabled-label: #{get-colour(grey-200)};
+  --sdds-textfield-disabled-ps-color: #{get-colour(grey-200)};
+  //Label
   --sdds-textfield-label-color: #{get-colour(grey-900)};
   --sdds-textfield-label-inside-color: #{get-colour(grey-500)};
   --sdds-textfield-label-inside-focus-color: #{get-colour(grey-500)};
   --sdds-textfield-bar: #{get-colour(blue-500)};
   --sdds-textfield-helper: #{get-colour(grey-500)};
+  //error
   --sdds-textfield-border-bottom-error: #{get-colour(red-500)};
   --sdds-textfield-helper-error: #{get-colour(red-500)};
   --sdds-textfield-bar-error: #{get-colour(red-500)};
+  --sdds-textfield-icon-error: #{get-colour(red-500)};
+  //Textcounter
   --sdds-textfield-textcounter: #{get-colour(grey-400)};
   --sdds-textfield-textcounter-divider: #{get-colour(grey-300)};
+  //Prefix and Suffix
+  --sdds-textfield-ps-color: #{get-colour(grey-400)};
 }
