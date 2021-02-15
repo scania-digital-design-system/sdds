@@ -1,0 +1,86 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+#{$prefix}-toggle{
+  position: relative;
+  display: flex;
+  align-items: center;
+  &,
+  * {
+    box-sizing: border-box;
+  }
+  
+  #{$prefix}-toggle-input{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  #{$prefix}-toggle-switch{
+    width: var(--sdds-toggle-slider-width);
+    height: var(--sdds-toggle-slider-height);
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    &:before {
+      // slider
+      width: var(--sdds-toggle-slider-width);
+      height: var(--sdds-toggle-slider-height);
+      border-radius: var(--sdds-toggle-slider-border-radius); 
+      background-color: var(--sdds-toggle-off-slider);
+      left: 0;
+    }
+
+    &:after {
+      // switch
+      width: 16px;
+      height: 16px;
+      background-color: var(--sdds-toggle-switch);
+      border-radius: 50%;
+      left: 4px;
+      top: 4px;
+    }
+  }
+
+  #{$prefix}-toggle-label {
+    @include type-style('detail-01');
+    color: var(--sdds-toggle-label-colour);
+    padding-left: var(--sdds-spacing-element-8);
+  }
+
+  #{$prefix}-toggle-input:checked {
+    + #{$prefix}-toggle-switch{
+      &:before{
+        background-color: var(--sdds-toggle-on-slider);
+      }
+      &:after{
+        left: calc(var(--sdds-toggle-slider-width) - 20px); // slider width - switch width - padding
+      }
+    }
+  }
+
+  // Size small
+
+  &#{$prefix}-toggle-sm{
+    &,
+    &:before{
+      width: var(--sdds-toggle-slider-width);
+      height: var(--sdds-toggle-slider-height);
+    }
+    &:after{
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
