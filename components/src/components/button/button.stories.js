@@ -69,10 +69,26 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
   `
 };
 
-const ComponentBtn = () => {
+const ComponentBtn = ({size, btnType, fullbleed, text='Button'}) => {
+
+  let sizeValue='';
+  switch (size) {
+    case 'small':
+      sizeValue = 'sm';
+      break;
+    case 'medium':
+      sizeValue = 'md';
+      break;
+    default: sizeValue= '';
+      break;
+  }
+
+  const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
+  const inlineStyle = fullbleed ? 'style="width:200px;"':'';
+
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <sdds-button type="primary" size="md" disabled="" fullbleed="true" text="Button"><c-icon name='scania-cross'></c-icon></sdds-button>
+  <sdds-button type="${btnType}" size="${sizeValue}" disabled="" fullbleed="${fbClass}" text="${text}" ${inlineStyle}><c-icon slot='icon' name='scania-cross'></c-icon></sdds-button>
   `
 };
 

@@ -106,7 +106,7 @@ $props : (
   
 }
 
-::slotted(*) {
+::slotted( [slot="icon"] ) {
   margin-left: var(--sdds-spacing-element-32);
   width: 16px;
   height: 16px;
