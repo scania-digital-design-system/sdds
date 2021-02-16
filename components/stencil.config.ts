@@ -44,7 +44,8 @@ export const config: Config = {
     {
       type: 'docs-json',
       file: 'dist/collection/custom-elements.json'
-    }
+    },
+    { type: 'docs-readme' }
   ],
   testing: {
     testPathIgnorePatterns: ['/node_modules/', 'global.spec'],

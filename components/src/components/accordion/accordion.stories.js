@@ -1,3 +1,5 @@
+import readme from './readme.md';
+
 export default {
   title: 'Component/Accordion',
   argTypes: {
@@ -7,6 +9,14 @@ export default {
         disable:true
       }
     },
+  },
+  parameters: {
+    previewTabs: {
+      'storybook/docs/panel': {
+        hidden: true
+      }
+    },
+    notes: readme
   }
 };
 

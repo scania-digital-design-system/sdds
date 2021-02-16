@@ -22,9 +22,6 @@ export class AccordionItem {
   /** Set to true to expand panel open */
   @Prop() expanded: boolean = false;
 
-  /** Set divider individually or get it from c-accordion property */
-  @Prop() divider: boolean = false;
-
   openAccordion() {
     this.expanded = !this.expanded;
   }
