@@ -39,6 +39,8 @@
     background-color: var(--sdds-accordion-background);
 
     #{$prefix}-accordion-icon{
+      transform-origin: center;
+      transition: transform 0.15s ease-in-out;
       color: var(--sdds-accordion-colour);
     }
 
@@ -64,7 +66,7 @@
 
   #{$prefix}-accordion-header-suffix {     
     #{$prefix}-accordion-icon {
-      padding: 0 0 0 var(--sdds-spacing-element-32);
+      margin: 0 0 0 var(--sdds-spacing-element-32);
     }
   }
   #{$prefix}-accordion-header-prefix {
@@ -73,7 +75,7 @@
     }
     #{$prefix}-accordion-icon {
       order: 0;
-      padding: 0 var(--sdds-spacing-element-16) 0 0;
+      margin: 0 var(--sdds-spacing-element-16) 0 0;
     }
   }
   
@@ -133,14 +135,14 @@
     }
     #{$prefix}-accordion-header-suffix{
       #{$prefix}-accordion-icon {
-        padding-left: 0;
-        padding-right: var(--sdds-spacing-element-32);
+        margin-right: 0;
+        margin-left: var(--sdds-spacing-element-32);
       }
     }      
     #{$prefix}-accordion-header-prefix{
       #{$prefix}-accordion-icon {
-        padding-right: 0;
-        padding-left: var(--sdds-spacing-element-16);
+        margin-left: 0;
+        margin-right: var(--sdds-spacing-element-16);
       }
     }
     
