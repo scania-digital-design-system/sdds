@@ -3,7 +3,7 @@ import {
 } from '@stencil/core';
 
 @Component({
-  tag: 'c-accordion',
+  tag: 'sdds-accordion',
   styleUrl: 'accordion.scss',
   shadow: true,
 })
