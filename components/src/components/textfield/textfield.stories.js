@@ -1,5 +1,10 @@
+import readme from './readme.md';
+
 export default {
   title: 'Component/TextField',
+  parameters: {
+    notes: readme,
+  },
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
