@@ -16,11 +16,48 @@ export default {
         'text'
       ],
      },
+    },
+    size: {
+      name: 'Size',
+      description:'Switch between different sizes',
+      control: {
+        type: 'select',
+        options: [
+          'Default',
+          'Medium'
+        ],
+      }
+    },
+    label: {
+      name: 'Label text',
+      control: {
+        type: 'text'
+      }
+    },
+    labelplacement: {
+      name: 'Label inside',
+      control: {
+        type: 'boolean'
+      }
+    },
+    state: {
+      name: 'State',
+      description:'Switch success or error state',
+      control: {
+        type: 'select',
+        options: [
+          'none',
+          'success',
+          'error'
+        ]
+      }
     }
   },
   args: {
     placeholderText: 'Placeholder',
-    type: 'text'
+    type: 'text',
+    size: 'Default',
+    state: 'default'
   }
 };
 
@@ -31,403 +68,114 @@ const style =`<style>
 }
 </style>`;
 
-const textfieldTemplate = ({...Basic}) => {
+const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplacement,state,helper, prefix, suffix}) => {
+  let sizeValue;
+  switch (size) {
+    case 'Medium':
+      sizeValue = 'md'
+      break;
+  case 'Default':
+      sizeValue = 'default'
+      break;
+    default:
+      break;
+  }
+
   return `
   ${style}
   <c-theme></c-theme>
-
   <div class="demo">
     <sdds-textfield
-      type="${Basic.type}"
-      placeholder="${Basic.placeholderText}" >
+      type="${type}"
+      size="${sizeValue}"
+      state="${state}"
+      ${label && !labelplacement ? `labelinside="${label}"` : ''}
+      ${disabled ? 'disabled' : ''}
+      placeholder="${placeholderText}" >
+        ${prefix}
+        ${label && labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
+        ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+        ${suffix}
     </sdds-textfield>
   </div>
-
   `
 };
 
 export const Basic = textfieldTemplate.bind({});
 
-Basic.args = {}
-
-const textfieldMediumTemplate = ({...Medium}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-
-  <div class="demo">
-    <sdds-textfield
-     size="md"
-     type="${Medium.type}"
-     placeholder="${Medium.placeholderText}" >
-    </sdds-textfield>
-  </div>
-
-  `
-};
-
-export const Medium = textfieldMediumTemplate.bind({});
-
-Medium.args = {};
-
-
-const textfieldDisabledTemplate = ({...disabled}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-
-  <div class="demo">
-    <sdds-textfield
-      type="${disabled.type}"
-      disabled="true"
-      size="${disabled.size == 'Medium' ? 'md' : ''}"
-      placeholder="${disabled.placeholderText}" >
-    </sdds-textfield>
-  </div>
-
-  <div class="demo">
-    <sdds-textfield
-      type="${disabled.type}"
-      disabled="true"
-      size="${disabled.size == 'Medium' ? 'md' : ''}"
-      labelinside="Label inside"
-      placeholder="${disabled.placeholderText}" >
-    </sdds-textfield>
-  </div>
-  `
-};
-
-export const disabled = textfieldDisabledTemplate.bind({});
-
-disabled.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  }
+Basic.args = {
+  type: 'text'
 }
 
-disabled.args = {
-  size: 'Default'
-};
+export const Disabled = textfieldTemplate.bind({});
 
-
-const textfieldLabelInsideTemplate = ({...labelInside}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-
-  <div class="demo">
-    <sdds-textfield
-      type="${labelInside.type}"
-      size="${labelInside.size == 'Medium' ? 'md' : ''}"
-      labelinside="${labelInside.label}"
-      placeholder="${labelInside.placeholderText}" >
-    </sdds-textfield>
-  </div>
-
-  `
-};
-
-export const labelInside = textfieldLabelInsideTemplate.bind({});
-
-labelInside.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  },
+Disabled.args = {
+  disabled: true,
+  placeholderText: 'Disabled'
 }
 
-labelInside.args = {
+export const labels = textfieldTemplate.bind({});
+
+labels.args = {
+  disabled: false,
   label: 'Label text',
-  size: 'Default'
+  labelplacement: true
 };
 
-const textfieldLabelOutsideTemplate = ({...labelOutside}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-  <div>
-    <sdds-textfield
-        size="${labelOutside.size}"
-        placeholder="${labelOutside.placeholderText}" >
-        <span class="sdds-textfield-label" slot="sdds-label">${labelOutside.label}</span>
-    </sdds-textfield>
-  </div>
-  `
-};
+export const state = textfieldTemplate.bind({});
 
-export const labelOutside = textfieldLabelOutsideTemplate.bind({});
-
-labelOutside.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  },
-}
-
-labelOutside.args = {
-  label:'Label',
-  size: 'Default'
-};
-
-
-const textfieldHelperTemplate = ({...Helper}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-  <div class="demo">
-    <sdds-textfield placeholder="${Helper.placeholderText}" >
-      <span slot="sdds-helper">${Helper.text}</span>
-    </sdds-textfield>
-  </div>
-  `
-};
-
-export const Helper = textfieldHelperTemplate.bind({});
-
-Helper.args = {
-  text: 'Helper text'
-};
-
-
-
-const textfieldErrorTemplate = ({...Error}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-  <div class="demo">
-    <sdds-textfield 
-      error="true" 
-      placeholder="${Error.placeholderText}">
-      <span slot="sdds-helper">${Error.helper}</span>
-    </sdds-textfield>
-  </div>
-  `
-};
-
-export const Error = textfieldErrorTemplate.bind({});
-
-Error.args =  {
-  helper: 'Helper text'
-};
-
-const textfieldTextCounterTemplate = ({...TextCounter}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-  <div class="demo">
-    <sdds-textfield 
-      error="${TextCounter.error}"
-      maxlength="${TextCounter.maxlength}"
-      type="${TextCounter.type}"
-      size="${TextCounter.size == 'Medium' ? 'md' : ''}"
-      labelinside="${TextCounter.label}"
-      placeholder="${TextCounter.placeholderText}" >
-    </sdds-textfield>
-  </div>
-  `
-};
-
-export const TextCounter = textfieldTextCounterTemplate.bind({});
-
-TextCounter.args = {
+state.args = {
+  state: 'error',
+  disabled: false,
+  helper: 'Helper text',
   label: 'Label text',
-  size: 'Default',
-  maxlength: 20,
+  labelplacement: true
+};
+
+
+export const helper = textfieldTemplate.bind({});
+
+helper.args = {
+  disabled: false,
+  helper: 'Helper text',
+  label: 'Label text',
+  labelplacement: true
+};
+
+
+export const prefix = textfieldTemplate.bind({});
+
+prefix.argTypes = {};
+
+prefix.args = {
+  disabled: false,
   helper: '',
-  error: false,
-  disabled:''
-};
-
-const textfieldPrefixTemplate = ({...PrefixText}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-
-  <div class="demo">
-    <sdds-textfield
-      error="${PrefixText.error}"
-      disabled="${PrefixText.disabled}"
-      maxlength="${PrefixText.maxlength}"
-      type="${PrefixText.type}"
-      size="${PrefixText.size == 'Medium' ? 'md' : ''}"
-      labelinside="${PrefixText.label}"
-      placeholder="${PrefixText.placeholderText}" >
-        <span class="sdds-textfield-prefix" slot="sdds-prefix">$</span>
-        <span slot="sdds-helper">${PrefixText.helper}</span>
-    </sdds-textfield>
-  </div>
-
-  <div class="demo">
-    <sdds-textfield
-      error="${PrefixText.error}"
-      disabled="${PrefixText.disabled}"
-      maxlength="${PrefixText.maxlength}"
-      type="${PrefixText.type}"
-      size="${PrefixText.size == 'Medium' ? 'md' : ''}"
-      placeholder="${PrefixText.placeholderText}" >
-        <label slot="sdds-label">${PrefixText.label}</label>
-        <span slot="sdds-prefix">$</span>
-        <span slot="sdds-helper">${PrefixText.helper}</span>
-    </sdds-textfield>
-  </div>
-
-    `
-  };
-
-export const PrefixText = textfieldPrefixTemplate.bind({});
-
-PrefixText.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  }
-}
-
-PrefixText.args = {
   label: 'Label text',
-  size: 'Default',
-  maxlength: 20,
-  helper: 'Helper text',
-  error: false,
-  disabled: false
-};
-
-const textfieldSuffixTemplate = ({...SuffixText}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
-
-  <div class="demo">
-    <sdds-textfield
-      error="${SuffixText.error}"
-      disabled="${SuffixText.disabled}"
-      maxlength="${SuffixText.maxlength}"
-      type="${SuffixText.type}"
-      size="${SuffixText.size == 'Medium' ? 'md' : ''}"
-      labelinside="${SuffixText.label}"
-      placeholder="${SuffixText.placeholderText}" >
-        <span slot="sdds-suffix">$</span>
-        <span slot="sdds-helper">${SuffixText.helper}</span>
-    </sdds-textfield>
-  </div>
-
-  <div class="demo">
-    <sdds-textfield
-      error="${SuffixText.error}"
-      disabled="${SuffixText.disabled}"
-      maxlength="${SuffixText.maxlength}"
-      type="${SuffixText.type}"
-      size="${SuffixText.size == 'Medium' ? 'md' : ''}"
-      placeholder="${SuffixText.placeholderText}" >
-        <label slot="sdds-label">${SuffixText.label}</label>
-        <span slot="sdds-suffix">$</span>
-        <span slot="sdds-helper">${SuffixText.helper}</span>
-    </sdds-textfield>
-  </div>
-
-    `
-  };
-
-export const SuffixText = textfieldSuffixTemplate.bind({});
-
-SuffixText.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  }
-}
-
-SuffixText.args = {
-  label: 'Label text',
-  size: 'Default',
-  maxlength: 20,
-  helper: 'Helper text',
-  error: false,
-  disabled: false
+  labelplacement: true,
+  prefix: '<span slot="sdds-prefix">$</span>',
 };
 
 
-const textfieldIconTemplate = ({...Icon}) => {
-  return `
-  ${style}
-  <c-theme></c-theme>
+export const suffix = textfieldTemplate.bind({});
 
-  <div class="demo">
-    <sdds-textfield
-      error="${Icon.error}"
-      disabled="${Icon.disabled}"
-      maxlength="${Icon.maxlength}"
-      type="${Icon.type}"
-      size="${Icon.size == 'Medium' ? 'md' : ''}"
-      placeholder="${Icon.placeholderText}" >
-        <label slot="sdds-label">${Icon.label}</label>
-        <<c-icon name="scania-cross" slot="sdds-prefix"></c-icon>
-        <span slot="sdds-helper">${Icon.helper}</span>
-    </sdds-textfield>
-  </div>
+suffix.argTypes = {};
 
-  <div class="demo">
-    <sdds-textfield
-      error="${Icon.error}"
-      disabled="${Icon.disabled}"
-      maxlength="${Icon.maxlength}"
-      type="${Icon.type}"
-      size="${Icon.size == 'Medium' ? 'md' : ''}"
-      placeholder="${Icon.placeholderText}" >
-        <label slot="sdds-label">${Icon.label}</label>
-        <c-icon name="scania-cross" slot="sdds-suffix"></c-icon>
-        <span slot="sdds-helper">${Icon.helper}</span>
-    </sdds-textfield>
-  </div>
-
-    `
-  };
-
-export const Icon = textfieldIconTemplate.bind({});
-
-Icon.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: [
-        'Default',
-        'Medium'
-      ],
-    }
-  }
-}
-
-Icon.args = {
+suffix.args = {
+  disabled: false,
+  helper: '',
   label: 'Label text',
-  size: 'Default',
-  maxlength: 20,
-  helper: 'Helper text',
-  error: false,
-  disabled: false
+  labelplacement: true,
+  suffix: '<span slot="sdds-suffix">$</span>',
+};
+
+export const icon = textfieldTemplate.bind({});
+
+icon.argTypes = {};
+
+icon.args = {
+  disabled: false,
+  helper: '',
+  label: 'Label text',
+  labelplacement: true,
+  prefix: '<c-icon name="scania-cross_circle" slot="sdds-prefix"></c-icon>',
 };

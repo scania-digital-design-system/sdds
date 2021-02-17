@@ -3,6 +3,7 @@
 @import '@scania/typography/dist/scss/tokens';
 
 @mixin textfield-base {
+  border-radius: 1rem 1rem 0 0;
   box-sizing: border-box;
   margin: 0;
   border: none;
@@ -44,22 +45,22 @@
 #{$prefix}-textfield-input {
   @include textfield-base;
   @include type-style('detail-02');
-  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16) 19px var(--sdds-spacing-element-16);
+  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 #{$prefix}-textfield-input-md {
   @include textfield-base;
   @include type-style('detail-02');
-  padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-16) 15px var(--sdds-spacing-element-16);
+  padding: var(--sdds-spacing-element-16);
 }
 
 //Container for input field and prefix/suffix
 #{$prefix}-textfield-container {
+  border-radius: 1rem 1rem 0 0;
   display: flex;
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  border-radius: 1rem 1rem 0 0;
   background-color: var(--sdds-textfield-bg);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
 
@@ -110,12 +111,10 @@ slot[name=sdds-label]::slotted(*) {
   -webkit-transition:0.1s ease all;
 }
 
-
 //Form control
 #{$prefix}-form-textfield {
   display: inline-block;
 }
-
 
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
@@ -217,6 +216,15 @@ slot[name=sdds-label]::slotted(*) {
   }
 }
 
+
+//Success state
+#{$prefix}-form-textfield-success {
+    #{$prefix}-textfield-container {
+      border-bottom-color: var(--sdds-textfield-border-bottom-success);
+    }
+}
+
+
 //Error State
 #{$prefix}-form-textfield-error {
   #{$prefix}-textfield-helper {
@@ -258,9 +266,11 @@ slot[name=sdds-suffix]::slotted(*) {
   color: var(--sdds-textfield-ps-color);
 }
 
+//TODO: When new icons are avaliable have a look at this one
 slot[name=sdds-prefix]::slotted(c-icon),
 slot[name=sdds-suffix]::slotted(c-icon) {
-  font-size: 6rem; //TODO: change value with new icons
+  font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
+  line-height: 0;
 }
 
 //Text gerenerated infront of the input field
@@ -276,4 +286,3 @@ slot[name=sdds-prefix]::slotted(*) {
 slot[name=sdds-suffix]::slotted(*){
   padding-right: var(--sdds-spacing-element-20);
 }
-

@@ -30,7 +30,7 @@ export class Textfield {
   @Prop() size = "";
 
   /** Error state of input */
-  @Prop() error: boolean;
+  @Prop() state: string;
 
   /** Max length of input */
   @Prop() maxlength: number;
@@ -68,7 +68,7 @@ export class Textfield {
         ${this.labelinside.length > 0 ? 'sdds-textfield-container-label-inside' : ''}
         ${this.disabled ? 'sdds-form-textfield-disabled': ''}
         ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
-        ${this.error == true ? 'sdds-form-textfield-error' : ''}
+        ${this.state == 'error' || this.state == 'success' ? `sdds-form-textfield-${this.state}` : ''}
         `}
       >
 
