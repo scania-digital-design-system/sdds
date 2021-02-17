@@ -63,6 +63,13 @@ export default {
         type: 'text'
       }
     },
+    textcounter: {
+      name: 'Text counter',
+      description: 'Set a maximum value how long the text can be',
+      control: {
+        type:'number'
+      }
+    },
     state: {
       name: 'State',
       description:'Switch between success or error state',
@@ -84,7 +91,8 @@ export default {
     state: 'default',
     label: '',
     labelplacement: false,
-    helper: ''
+    helper: '',
+    textcounter: 0
   }
 };
 
@@ -95,7 +103,7 @@ const style =`<style>
 }
 </style>`;
 
-const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplacement,state,helper, prefix, suffix,icon}) => {
+const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplacement,state,helper, prefix, suffix,icon, textcounter}) => {
   let sizeValue;
   switch (size) {
     case 'Medium':
@@ -116,6 +124,7 @@ const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplace
       type="${type}"
       size="${sizeValue}"
       state="${state}"
+      maxlength="${textcounter}"
       ${label && labelplacement ? `labelinside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       placeholder="${placeholderText}" >
@@ -123,6 +132,7 @@ const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplace
         ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
         ${suffix}
+        ${icon}
     </sdds-textfield>
   </div>
   `
