@@ -16,8 +16,8 @@ export class SddsButton {
   render() {
     return (
       <button class={`sdds-btn sdds-btn-${this.type} ${this.size == 'sm' || this.size == 'md' ? 'sdds-btn-' + this.size : ''} ${this.disabled ? 'disabled' : ''} ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}`}>
-          {this.text}
-            <slot name='icon' />
+        {this.text}
+        <slot name='icon' />
       </button>
     )
   }
