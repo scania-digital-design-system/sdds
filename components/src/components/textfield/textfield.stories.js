@@ -1,239 +1,226 @@
+import readme from './readme.md';
+
 export default {
-  title: 'Component/TextField'
+  title: 'Component/TextField',
+  parameters: {
+    notes: readme,
+  },
+  argTypes: {
+    placeholderText: {
+      name: 'Placeholder',
+      description: 'Placeholder text',
+      control: {
+        type: 'text'
+      }
+    },
+    type: {
+      name: 'Type',
+      description: 'Which type of textfield',
+      control: {
+      type: 'select',
+      options: [
+        'password',
+        'text'
+      ],
+     },
+    },
+    size: {
+      name: 'Size',
+      description:'Switch between different sizes',
+      control: {
+        type: 'select',
+        options: [
+          'Default',
+          'Medium'
+        ],
+      }
+    },
+    disabled: {
+      description: 'Set textfield to disabled state',
+      name: 'Disabled',
+      control: {
+        type: 'boolean'
+      }
+    },
+    label: {
+      description: 'Label text for specific textfield',
+      name: 'Label text',
+      control: {
+        type: 'text'
+      }
+    },
+    labelplacement: {
+      description: 'Label can be placed inside the textfield',
+      name: 'Label inside',
+      control: {
+        type: 'boolean'
+      }
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Add helper text for the textfield',
+      control: {
+        type: 'text'
+      }
+    },
+    textcounter: {
+      name: 'Text counter',
+      description: 'Set a maximum value how long the text can be',
+      control: {
+        type:'number'
+      }
+    },
+    state: {
+      name: 'State',
+      description:'Switch between success or error state',
+      control: {
+        type: 'select',
+        options: [
+          'none',
+          'success',
+          'error'
+        ]
+      }
+    }
+  },
+  args: {
+    placeholderText: 'Placeholder',
+    type: 'text',
+    size: 'Default',
+    disabled: false,
+    state: 'default',
+    label: '',
+    labelplacement: false,
+    helper: '',
+  }
 };
 
 const style =`<style>
 
 .demo {
   margin-top: 20px;
+  width: 208px
 }
 </style>`;
 
-const textfieldTEmplate = ({...Basic}) => {
+const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplacement,state,helper, prefix, suffix,icon, textcounter}) => {
+  let sizeValue;
+  switch (size) {
+    case 'Medium':
+      sizeValue = 'md'
+      break;
+  case 'Default':
+      sizeValue = 'default'
+      break;
+    default:
+      break;
+  }
+
   return `
   ${style}
-  <c-theme name="scania"></c-theme>
-
+  <c-theme></c-theme>
   <div class="demo">
-
-    Regular HTML
-
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input" type="text" placeholder="Placeholder" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input" type="text" value="Text value" placeholder="Placeholder" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input" type="password" value="password" placeholder="Placeholder" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-
+    <sdds-textfield
+      type="${type}"
+      size="${sizeValue}"
+      state="${state}"
+      maxlength="${textcounter}"
+      ${label && labelplacement ? `labelinside="${label}"` : ''}
+      ${disabled ? 'disabled' : ''}
+      placeholder="${placeholderText}" >
+        ${prefix}
+        ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
+        ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+        ${suffix}
+        ${icon}
+    </sdds-textfield>
   </div>
-
-  <div class="demo">
-    Web-component
-
-    <c-textfield class="demo" placeholder="Placeholder text" ></c-textfield>
-
-    <c-textfield class="demo" type="text" value="Text value" placeholder="Placeholder text" ></c-textfield>
-
-    <c-textfield class="demo" type="password" value="password" placeholder="Placeholder" ></c-textfield>
-  </div>
-
   `
 };
 
-export const Basic = textfieldTEmplate.bind({});
+export const Basic = textfieldTemplate.bind({});
 
 Basic.args = {}
 
-const textfieldMediumTemplate = ({placeholderText}) => {
-  return `
-  ${style}
-  <c-theme name="scania"></c-theme>
-  <div class="demo">
-    Regular HTML
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input-md" type="text" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input-md" type="text" value="Text value" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input-md" type="password" value="password" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-  </div>
+export const Disabled = textfieldTemplate.bind({});
 
-  <div class="demo">
-    Web-component
-    <c-textfield class="demo" size="md" placeholder="${placeholderText}" ></c-textfield>
-    <c-textfield class="demo" size="md" type="text" value="Text value" placeholder="${placeholderText}" ></c-textfield>
-    <c-textfield class="demo" size="md" type="password" value="password" placeholder="${placeholderText}" ></c-textfield>
-  </div>
-  `
+Disabled.args = {
+  disabled: true,
+  placeholderText: 'Disabled'
+}
+
+export const labels = textfieldTemplate.bind({});
+
+labels.args = {
+  label: 'Label text'
 };
 
-export const medium = textfieldMediumTemplate.bind({});
+export const helper = textfieldTemplate.bind({});
 
-medium.args = {
-  placeholderText: 'Placeholder'
+helper.args = {
+  helper: 'Helper text',
+  label: 'Label text'
 };
 
+export const state = textfieldTemplate.bind({});
 
-const textfieldDisabledTemplate = ({placeholderText}) => {
-  return `
-  ${style}
-  <c-theme name="scania"></c-theme>
-  <div class="demo">
-    Regular HTML
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input" disabled type="text" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-    <div class="sdds-textfield-container">
-      <input class="sdds-textfield-input-md" disabled type="text" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-    <div class="sdds-textfield-container">
-      <label class="sdds-textfield-label sdds-textfield-label-disabled">Label text</label>
-      <input class="sdds-textfield-input" disabled type="text" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-  </div>
-
-  <div class="demo">
-    Web-component
-    <c-textfield class="demo" type="text" disabled="true" placeholder="${placeholderText}" ></c-textfield>
-    <c-textfield class="demo" type="text" disabled="true" labelinside="Label text" placeholder="${placeholderText}" ></c-textfield>
-    <c-textfield class="demo" type="text" disabled="true" label="Label text" placeholder="${placeholderText}" ></c-textfield>
-  </div>
-  `
+state.args = {
+  state: 'error',
+  helper: 'Helper text',
+  label: 'Label text'
 };
 
-export const disabled = textfieldDisabledTemplate.bind({});
+export const prefix = textfieldTemplate.bind({});
 
-disabled.args = {
-  placeholderText: 'Placeholder'
+prefix.argTypes = {
+  prefix: {
+    name:'Prefix',
+    description: 'Add prefix symbol/text before the textfield',
+    control: {
+      type: 'text'
+    }
+  }
+};
+
+prefix.args = {
+  helper: '',
+  label: 'Label text',
+  prefix: '<span slot="sdds-prefix">$</span>',
 };
 
 
-const textfieldLabelInsideTemplate = ({placeholderText}) => {
-  return `
-  ${style}
-  <c-theme name="scania"></c-theme>
-  Web-component
+export const suffix = textfieldTemplate.bind({});
 
-  <div class="demo">
-    Default size
-    <span>
-      <c-textfield class="demo" labelinside="Label text" placeholder="${placeholderText}" ></c-textfield>
-    </span>
-    <span>
-      <c-textfield class="demo" type="text" labelinside="Username" placeholder="${placeholderText}" value="CoolUser" ></c-textfield>
-    </span>
-    <span>
-      <c-textfield class="demo" type="password" labelinside="Password" placeholder="${placeholderText}" value="Text input" ></c-textfield>
-    </span>
-  </div>
-  <div class="demo">
-    Medium size
-    <span>
-      <c-textfield class="demo" size="md" labelinside="Label text" labelinside="true" placeholder="${placeholderText}" ></c-textfield>
-    </span>
-    <span>
-      <c-textfield class="demo" size="md" type="text" labelinside="Username" placeholder="${placeholderText}" value="CoolUser" ></c-textfield>
-    </span>
-    <span>
-      <c-textfield class="demo" size="md" type="password" labelinside="Password" placeholder="${placeholderText}" value="Text input" ></c-textfield>
-    </span>
-  </div>
-
-  `
+suffix.argTypes = {
+  suffix: {
+    name:'Suffix',
+    description: 'Add suffix symbol/text after the textfield',
+    control: {
+      type: 'text'
+    }
+  }
 };
 
-export const labelInside = textfieldLabelInsideTemplate.bind({});
-
-labelInside.args = {
-  placeholderText: 'Placeholder'
+suffix.args = {
+  helper: '',
+  label: 'Label text',
+  suffix: '<span slot="sdds-suffix">$</span>',
 };
 
-const textfieldLabelOutsideTemplate = ({placeholderText}) => {
-  return `
-  ${style}
-  <c-theme name="scania"></c-theme>
-  <div>
-    Regular HTML
-    <div class="sdds-textfield-container">
-      <label class="sdds-textfield-label">Label</label>
-      <input class="sdds-textfield-input" type="text" value="text" placeholder="${placeholderText}" />
-      <div class="sdds-textfield-bar"></div>
-    </div>
-    <div class="sdds-textfield-container">
-    <label class="sdds-textfield-label">Label</label>
-    <input class="sdds-textfield-input-md" type="text" value="text" placeholder="${placeholderText}" />
-    <div class="sdds-textfield-bar"></div>
-  </div>
-  </div>
-  <div>
-    Web-component
-    <c-textfield class="demo" label="Label text" placeholder="${placeholderText}" ></c-textfield>
-    <c-textfield class="demo" size="md" label="Label text" label="true" placeholder="${placeholderText}" ></c-textfield>
-  </div>
-  `
+export const icon = textfieldTemplate.bind({});
+
+icon.argTypes = {
+  icon: {
+    name:'Icon',
+    description: 'Add icon before or after the textfield',
+    control: {
+      type: 'text'
+    }
+  }
 };
 
-export const labelOutside = textfieldLabelOutsideTemplate.bind({});
-
-labelOutside.args = {
-  placeholderText: 'Placeholder'
+icon.args = {
+  helper: '',
+  label: 'Label text',
+  icon: '<c-icon name="scania-cross" slot="sdds-prefix"></c-icon>',
 };
-
-
-// const textfieldPrefix = ({placeholderText}) => {
-//   return `
-//   <c-theme name="scania"></c-theme>
-//   <div class="sdds-textfield">
-//     <input class="sdds-textfield-input" type="text" placeholder="${placeholderText}">
-//     <label class="sdds-textfield-label-outside>label</label>
-//   </div>
-//   `
-// };
-
-// export const prefix = textfieldPrefix.bind({});
-
-// prefix.args = {
-//   placeholderText: 'Placeholder'
-// };
-
-// const textfieldSuffix = ({placeholderText}) => {
-//   return `
-//   <c-theme name="scania"></c-theme>
-//   <div class="sdds-textfield">
-//     <input class="sdds-textfield-input" type="text" placeholder="${placeholderText}">
-//     <label class="sdds-textfield-label-outside>label</label>
-//   </div>
-//   `
-// };
-
-// export const suffix = textfieldSuffix.bind({});
-
-// suffix.args = {
-//   placeholderText: 'Placeholder'
-// };
-
-//Error example
-//Helper example
-//Counter example
-
-
-
-
-
