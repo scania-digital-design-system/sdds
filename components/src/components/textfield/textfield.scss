@@ -18,13 +18,8 @@
     color: var(--sdds-textfield-placeholder);
   }
 
-  &:hover {
-    outline: none;
-  }
-
-  &:focus {
-    box-shadow: none;
-    outline: none;
+  &:focus::placeholder {
+    color: var(--sdds-textfield-placeholder-focus-color);
   }
 
   &:disabled {
@@ -103,7 +98,7 @@ slot[name=sdds-label]::slotted(*) {
   //Input field in focus
   &:focus::placeholder {
     transition: color 0.35s ease;
-    color: var(--sdds-textfield-label-inside-focus-color);
+    color: var(--sdds-textfield-placeholder-focus-color);
   }
 }
 
