@@ -7,7 +7,10 @@ export default {
         options:['default', 'small']
       },
       defaultValue: 'default',
-      description: 'Size of the toggle'
+      description: 'Size of the toggle',
+      table: {
+        defaultValue: {summary: 'default'}
+      }
     },
     headline:{
       description:'Optional value to be used to clarify what the toggle is switching on / off'
@@ -17,6 +20,9 @@ export default {
         disable:true
       }
     }
+  },
+  args: {
+    headline: ''
   }
 };
 
