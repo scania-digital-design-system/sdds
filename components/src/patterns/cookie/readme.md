@@ -27,8 +27,8 @@
 
 ### Depends on
 
-- [c-modal](../modal)
-- [c-icon](../icon)
+- [c-modal](../../components/modal)
+- [c-icon](../../components/icon)
 
 ### Graph
 ```mermaid
