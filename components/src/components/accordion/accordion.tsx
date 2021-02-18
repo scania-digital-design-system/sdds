@@ -1,5 +1,5 @@
 import {
-  Component, h, Prop, Element
+  Component, h, Prop
 } from '@stencil/core';
 
 @Component({
@@ -9,7 +9,6 @@ import {
 })
 
 export class Accordion {
-  @Element() el: HTMLElement;
   
   /** Enable or disable divider lines between items */
   @Prop() divider: boolean = true;

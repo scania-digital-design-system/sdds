@@ -4,11 +4,22 @@ export default {
   title: 'Component/Accordion',
   argTypes: {
     affix: {
-      defaultValue: 'suffix',
+      control: {
+        type: 'select',
+        options:['suffix', 'prefix']
+      },
+      description: 'Icon position',
       table: {
-        disable:true
+        type: { summary: 'suffix | prefix'},
+        defaultValue: { summary: 'suffix' },
       }
     },
+    disabled: {
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      }
+    }
   },
   parameters: {
     previewTabs: {
@@ -17,10 +28,14 @@ export default {
       }
     },
     notes: readme
+  },
+  args: {
+    disabled: false,
+    affix: 'suffix'
   }
 };
 
-const Template = ({disabled=false, affix='suffix'}) => {
+const Template = ({disabled, affix}) => {
   return `
   <c-theme name="scania"></c-theme>
   <div class="container-demo" style="width:500px; padding:var(--sdds-spacing-layout-48);">
