@@ -4,6 +4,7 @@
 
 @mixin textfield-base {
   border-radius: 1rem 1rem 0 0;
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   border: none;
@@ -75,6 +76,7 @@
 
 #{$prefix}-textfield-input-container {
   position: relative;
+  width: 100%;
 }
 
 //Textfield label
@@ -113,7 +115,8 @@ slot[name=sdds-label]::slotted(*) {
 
 //Form control
 #{$prefix}-form-textfield {
-  display: inline-block;
+  display: block;
+  min-width: 208px;
 }
 
 //Textfield container with label inside

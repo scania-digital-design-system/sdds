@@ -3,13 +3,13 @@ html{
   --sdds-textfield-color: #{get-colour(grey-700)};
   --sdds-textfield-bg: #{get-colour(white)};
   --sdds-textfield-border-bottom: #{get-colour(grey-200)};
-  --sdds-textfield-placeholder: #{get-colour(grey-500)};
+  --sdds-textfield-placeholder: #{get-colour(grey-400)};
   --sdds-textfield-border-bottom-hover: #{get-colour(grey-400)};
   //Disabled
   --sdds-textfield-disabled-bg: #{get-colour(white)};
-  --sdds-textfield-disabled-color: #{get-colour(grey-400)};
-  --sdds-textfield-disabled-placeholder: #{get-colour(grey-400)};
-  --sdds-textfield-disabled-label: #{get-colour(grey-400)};
+  --sdds-textfield-disabled-color: #{get-colour(grey-200)};
+  --sdds-textfield-disabled-placeholder: #{get-colour(grey-200)};
+  --sdds-textfield-disabled-label: #{get-colour(grey-200)};
   --sdds-textfield-disabled-ps-color: #{get-colour(grey-200)};
   //Label
   --sdds-textfield-label-color: #{get-colour(grey-900)};
