@@ -92,7 +92,6 @@ export default {
     label: '',
     labelplacement: false,
     helper: '',
-    textcounter: 0
   }
 };
 
@@ -100,6 +99,7 @@ const style =`<style>
 
 .demo {
   margin-top: 20px;
+  width: 208px
 }
 </style>`;
 
