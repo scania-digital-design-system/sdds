@@ -23,15 +23,8 @@ export default {
       defaultValue: false,
       description:'Fluid width in certain components'
     },
-    // disabled: {
-    //   defaultValue: '',
-    //   table: {
-    //     disable:true
-    //   }
-    // },
     disabled: {
       type: 'boolean',
-      defaultValue: false,
       description: 'Choose to disable the button'
     },
     onlyIcon: {
@@ -39,11 +32,15 @@ export default {
       table: {
         disable:true
       }
+    },
+    icon: {
+      type: 'boolean',
+      description: 'Include icon'
     }
   }
 };
 
-const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled='', onlyIcon}) => {
+const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled='', onlyIcon, icon}) => {
   let sizeValue='';
   switch (size) {
     case 'small':
@@ -67,14 +64,14 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled} ${onlyIconCss}" ${inlineStyle}>
+  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     ${text}
-    ${iconHTML}
+    ${icon ? `<c-icon slot='icon' name='scania-cross'></c-icon>` : ''}
   </button>   
   `
 };
 
-const ComponentBtn = ({size, btnType, fullbleed, disabled, text='Button'}) => {
+const ComponentBtn = ({size, btnType, fullbleed, disabled, icon, text='Button'}) => {
 
   let sizeValue='';
   switch (size) {
@@ -92,7 +89,7 @@ const ComponentBtn = ({size, btnType, fullbleed, disabled, text='Button'}) => {
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? `fullbleed` : ''} text="${text}" ${inlineStyle}><c-icon slot='icon' name='scania-cross'></c-icon></sdds-button>
+  <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? `fullbleed` : ''} text="${text}" ${inlineStyle}> ${icon ? `<c-icon slot='icon' name='scania-cross'></c-icon>` : ''} </sdds-button>
   `
 };
 
