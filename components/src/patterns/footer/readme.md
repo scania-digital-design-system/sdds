@@ -9,8 +9,8 @@
 
 | Property      | Attribute      | Description                                                         | Type     | Default                     |
 | ------------- | -------------- | ------------------------------------------------------------------- | -------- | --------------------------- |
-| `items`       | `items`        | Set footer links                                                    | `any`    | `undefined`                 |
-| `socialItems` | `social-items` | Add social media icons                                              | `any`    | `undefined`                 |
+| `items`       | `items`        | Set footer links                                                    | `any`    | `[]`                        |
+| `socialItems` | `social-items` | Add social media icons                                              | `any`    | `[]`                        |
 | `text`        | `text`         | Change default copyright text                                       | `string` | `'Copyright © Scania 2019'` |
 | `theme`       | `theme`        | Per default, this will inherit the value from c-theme name property | `string` | `undefined`                 |
 
@@ -19,7 +19,7 @@
 
 ### Depends on
 
-- [c-icon](../icon)
+- [c-icon](../../components/icon)
 
 ### Graph
 ```mermaid

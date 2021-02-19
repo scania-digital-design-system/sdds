@@ -20,7 +20,7 @@
 
 ### Used by
 
- - [c-cookie](../cookie)
+ - [c-cookie](../../patterns/cookie)
 
 ### Graph
 ```mermaid
