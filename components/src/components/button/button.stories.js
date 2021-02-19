@@ -40,7 +40,7 @@ export default {
   }
 };
 
-const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disabled='', onlyIcon, icon}) => {
+const ButtonTemplate = ({size, btnType, fullbleed, text='Button', disabled='', onlyIcon, icon}) => {
   let sizeValue='';
   switch (size) {
     case 'small':
@@ -54,11 +54,6 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
   }
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const inlineStyle = fullbleed ? 'style="width:200px;"':'';
-  const iconHTML = withIcon ? `
-  <span class='sdds-btn-icon'>
-    <c-icon name='scania-cross'></c-icon>
-  </span>
-  ` : '';
 
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
@@ -66,7 +61,7 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', withIcon, disa
   <c-theme name="scania" global="true"></c-theme>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     ${text}
-    ${icon ? `<c-icon slot='icon' name='scania-cross'></c-icon>` : ''}
+    ${icon ? `<span class='sdds-btn-icon'><c-icon name='scania-cross'></c-icon></span>` : ''}
   </button>   
   `
 };
@@ -101,23 +96,31 @@ Basic.args = {
 export const WithIcon = ButtonTemplate.bind({});
 WithIcon.args = {
   text: 'Button with Icon',
-  withIcon: true
+  icon: true
 }
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
   disabled:'disabled',
   text: 'Button Disabled',
-  withIcon: false
+  icon: false
 }
 
 export const onlyIcon = ButtonTemplate.bind({});
 onlyIcon.args = {
   text: `<c-icon name='scania-cross'></c-icon>`,
-  onlyIcon: true
+  onlyIcon: true,
+}
+
+onlyIcon.argTypes = {
+  icon: {
+    table: {
+      disable: true
+    }
+  }
 }
 
 export const sddsButton = ComponentBtn.bind({});
 sddsButton.args = {
-  text: 'Button'
+  text: 'Button',
 }
