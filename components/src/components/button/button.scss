@@ -105,3 +105,9 @@ $props : (
   }
   
 }
+
+::slotted( [slot="icon"] ) {
+  margin-left: var(--sdds-spacing-element-32);
+  width: var(--sdds-spacing-element-16);
+  height: var(--sdds-spacing-element-16);
+}
