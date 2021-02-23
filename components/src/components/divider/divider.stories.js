@@ -26,8 +26,8 @@ const dividerTemplate = ({...Basic}) => {
   return `
   ${style}
     <c-theme></c-theme>
-    
-      <div style="width: ${Basic.width}px;" class="demo sdds-divider-${Basic.type}"></div>
+
+    <div style="width: ${Basic.width}px;" class="demo sdds-divider-${Basic.type}"></div>
   `
 };
 
@@ -54,9 +54,8 @@ const dividerVerticalTemplate = ({...Vertical}) => {
   return `
   ${style}
     <c-theme></c-theme>
-    <div class="demo">
-      <div style="height:${Vertical.height}px;" class="demo sdds-divider-${Vertical.type}-vertical"></div>
-    <div>
+
+    <div style="height:${Vertical.height}px;" class="demo sdds-divider-${Vertical.type}-vertical"></div>
   `
 };
 

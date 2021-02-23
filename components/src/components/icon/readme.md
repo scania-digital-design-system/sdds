@@ -16,8 +16,8 @@
 
 ### Used by
 
- - [c-cookie](../cookie)
- - [c-footer](../footer)
+ - [c-cookie](../../patterns/cookie)
+ - [c-footer](../../patterns/footer)
  - [c-table](../table)
 
 ### Graph
