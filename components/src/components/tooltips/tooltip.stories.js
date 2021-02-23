@@ -3,14 +3,18 @@ export default {
   argTypes: {}
 };
 
-const ComponentTooltip = ({}) => {
+const ComponentTooltip = ({text='HOOOOVER YEA'}) => {
 
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <sdds-tooltip>  </sdds-tooltip>
+  <div>
+  <sdds-tooltip text="${text}"> </sdds-tooltip>
+  </div>
   `
 };
 
 export const Basic = ComponentTooltip.bind({});
-Basic.args = {}
+Basic.args = {
+  text: 'yessir',
+}

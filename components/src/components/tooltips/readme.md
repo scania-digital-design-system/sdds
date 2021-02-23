@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type     | Default      |
 | -------- | --------- | ----------- | -------- | ------------ |
-| `text`   | `text`    |             | `string` | `'Click me'` |
+| `text`   | `text`    |             | `string` | `'Hover me'` |
 
 
 ----------------------------------------------
