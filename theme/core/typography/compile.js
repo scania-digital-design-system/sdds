@@ -94,11 +94,11 @@ function generateFontCss(file) {
   fs.writeFileSync(`${outputFolder}/fonts/fonts.css`, data, { flag: 'a' });
 }
 function generateFontFace(file, props) {
-  const filename = file.replace(/...core\/assets\/fonts\/|.ttf/g, '');
+  const filename = file.replace(/..\/assets\/fonts\/|.ttf/g, '');
   return `@font-face {${
     props
   }
-  src: url("${filename}.woff") format("woff")\n}\n`;
+  src: url("./${filename}.woff") format("woff")\n}\n`;
 }
 
 // Create a scss folder will all scss files in current folder
