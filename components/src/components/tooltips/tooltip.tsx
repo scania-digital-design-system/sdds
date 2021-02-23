@@ -7,15 +7,15 @@ import { Component, h, Prop } from '@stencil/core';
 })
 
 export class Tooltips {
-  @Prop() text = 'Click me'
+  @Prop() text = 'Hover me'
 
   render() {
     return (
-      <div class={``}>
-        <span class={``}>
-
+      <span class={`target`}> hi
+        <span class={`tooltips`}>
+          {this.text}
         </span>
-      </div>
+      </span>
     )
   }
 }

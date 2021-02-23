@@ -1,3 +1,38 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
+
+// .sdds-tooltip {
+//     ::slotted(*) {
+//         background-color: black;
+//         color: blue;
+//         visibility: hidden;
+//     }
+//     &:hover ::slotted(*) {
+//         visibility: visible;
+//     }
+// }
+
+// .sdds-tooltip ::slotted(*) {
+//     visibility: hidden;
+//     color:red;
+// }
+
+// .sdds-tooltip:hover ::slotted(*) {
+//     visibility: visible;
+//     background-color: grey;
+// }
+
+.tooltips {
+    color: blue;
+    display: none;
+}
+
+.target:hover .tooltips {
+    display: block;
+    background-color: grey;
+    color: #fff;
+    background-color: blue;
+    position: absolute;
+    z-index: 1;
+}
