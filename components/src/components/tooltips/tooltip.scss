@@ -2,37 +2,28 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-// .sdds-tooltip {
-//     ::slotted(*) {
-//         background-color: black;
-//         color: blue;
-//         visibility: hidden;
-//     }
-//     &:hover ::slotted(*) {
-//         visibility: visible;
-//     }
-// }
-
-// .sdds-tooltip ::slotted(*) {
-//     visibility: hidden;
-//     color:red;
-// }
-
-// .sdds-tooltip:hover ::slotted(*) {
-//     visibility: visible;
-//     background-color: grey;
-// }
-
-.tooltips {
-    color: blue;
-    display: none;
+.tooltip .tooltiptext {
+  @include type-style('detail-05');
+  visibility: hidden;
+  color: var(--sdds-tooltip-colour);
+  background-color: var(--sdds-tooltip-background);
+  border-radius: 0px 1rem 1rem 1rem;
+  max-width: 52rem;
+  padding: 2rem;
+  position: absolute;
+  word-wrap: break-word;
+  top: 150%;
+  // left: 25%;
+  right: 100%;
 }
 
-.target:hover .tooltips {
-    display: block;
-    background-color: grey;
-    color: #fff;
-    background-color: blue;
-    position: absolute;
-    z-index: 1;
+.tooltip {
+  position: relative;
+  display: flex;
+  margin-top: 10%;
+  margin-left: 50%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

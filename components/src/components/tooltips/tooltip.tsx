@@ -11,8 +11,8 @@ export class Tooltips {
 
   render() {
     return (
-      <span class={`target`}> hi
-        <span class={`tooltips`}>
+      <span class={`tooltip`}> Hello, hover me!
+        <span class={`tooltiptext`}>
           {this.text}
         </span>
       </span>
