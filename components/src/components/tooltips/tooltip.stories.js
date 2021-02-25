@@ -1,20 +1,27 @@
 export default {
   title: 'Component/Tooltip',
-  argTypes: {}
+  argTypes: {
+    position: {
+      defaultValue: 'primary',
+      description: 'Five different tooltip examples, including change of direction arrows',
+      control: {
+        type: 'radio',
+        options: ['Default', 'top-left', 'top-right', 'bottom-right', 'bottom-left']
+      }
+    },   
+  }
 };
 
-const ComponentTooltip = ({text='HOOOOVER YEA'}) => {
+const ComponentTooltip = ({text=''}) => {
 
 
   return `
   <c-theme name="scania" global="true"></c-theme>
-  <div>
   <sdds-tooltip text="${text}"> </sdds-tooltip>
-  </div>
   `
 };
 
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {
-  text: 'yessir',
+  text: 'Tooltip',
 }
