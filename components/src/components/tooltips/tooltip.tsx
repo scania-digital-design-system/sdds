@@ -7,15 +7,14 @@ import { Component, h, Prop } from '@stencil/core';
 })
 
 export class Tooltips {
-  @Prop() text = 'Hover me'
+  @Prop() text = 'Hover me';
+  @Prop() position = "";
 
   render() {
     return (
-      <span class={`tooltip`}> Hello, hover me!
-        <span class={`tooltiptext`}>
+        <span class={`sdds-tooltip ${this.position}`}>
           {this.text}
         </span>
-      </span>
     )
   }
 }
