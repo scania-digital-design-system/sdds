@@ -7,26 +7,17 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                         | Type     | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------- | -------- | ----------- |
-| `buttonType`    | `button-type`    | Button interaction pattern for dropdown                             | `string` | `"primary"` |
-| `direction`     | `direction`      | Dropdown direction: dropup, dropright, dropleft                     | `string` | `undefined` |
-| `menuAlignment` | `menu-alignment` | Custom dropdown menu alignment: dropdown-menu-right                 | `string` | `undefined` |
-| `theme`         | `theme`          | Per default, this will inherit the value from c-theme name property | `string` | `undefined` |
+| Property | Attribute | Description                                                      | Type     | Default     |
+| -------- | --------- | ---------------------------------------------------------------- | -------- | ----------- |
+| `value`  | `value`   | Value is a unique string that will be used for application logic | `string` | `undefined` |
 
 
-## Dependencies
+## Events
 
-### Used by
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `selectOption` |             | `CustomEvent<any>` |
 
- - [c-table](../table)
-
-### Graph
-```mermaid
-graph TD;
-  c-table --> c-dropdown
-  style c-dropdown fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

@@ -1,19 +1,70 @@
-// Required
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
-@import 'node_modules/bootstrap/scss/mixins';
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
-// Optional
-@import 'node_modules/bootstrap/scss/reboot';
-@import 'node_modules/bootstrap/scss/dropdown';
-@import 'node_modules/bootstrap/scss/buttons';
+:host,
+::slotted([slot="sdds-dropdown-label"]),
+::slotted([slot="sdds-dropdown-option"]){
+  --sdds-link: var(--sdds-dropdown-text);
+  --sdds-link-text-decoration: none;
 
-:host {
-  .dropdown{
-    @extend .dropdown;
+  @include type-style('detail-02');
+  color: var(--sdds-dropdown-text);
+}
+
+#{$prefix}-dropdown{  
+  background-color: var(--sdds-dropdown-background);
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: 1px solid;
+  border-color: var(--sdds-dropdown-border);
+  border-radius: 1rem;
+
+  #{$prefix}-dropdown-toggle {
+    cursor: pointer;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    background-color: inherit;
+    padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-32) var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
+  }
+
+  #{$prefix}-dropdown-menu {
+    position: absolute;
+    top:100%;
+    left: 0;
+    min-width: 100%;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
-slot[name=dropdown-item],
-::slotted([slot=dropdown-item]) {
-  cursor: pointer;
+
+:host{
+  ::slotted(*) {
+    padding: var(--sdds-spacing-element-16);
+    text-decoration: none;
+    display: block;
+    background-color: var(--sdds-dropdown-background);
+    border-bottom: 1px solid var(--sdds-dropdown-border);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.15s ease-in, opacity 0.15s ease-in;
+  }
+}
+
+:host(.is-open){
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+
+  #{$prefix}-dropdown {
+    #{$prefix}-dropdown-menu {
+      max-height: 90rem; // max 7 option items, then add scroll
+    }
+  }
+
+  ::slotted(*) {
+    visibility: visible;
+    opacity: 1;
+  }
 }

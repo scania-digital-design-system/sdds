@@ -1,120 +1,84 @@
 import {
-  Component, h, Prop, State, Element, Watch, Host, Listen
+  Component, h, Prop, State, Element, Listen, Host
 } from '@stencil/core';
 
-import BsDropdown from 'bootstrap/js/src/dropdown';
-import { themeStyle } from '../../helpers/themeStyle';
-import store from '../../store';
-
 @Component({
-  tag: 'c-dropdown',
+  tag: 'sdds-dropdown',
   styleUrl: 'dropdown.scss',
   shadow: true,
 })
 export class Dropdown {
-  /** Per default, this will inherit the value from c-theme name property */
-  @Prop({ mutable: true }) theme: string;
+  /** Label for dropdown with no selected item */
+  @Prop() label:string;
 
-  /** Button interaction pattern for dropdown */
-  @Prop() buttonType: string = "primary";
+  /** Add the value of the option to set it as default */
+  @Prop() defaultOption:string;
 
-  /** Dropdown direction: dropup, dropright, dropleft */
-  @Prop() direction: string;
+  /** `default`, `multiselect`, `filter`, `nested` */
+  @Prop() types:string = 'default';
 
-  /** Custom dropdown menu alignment: dropdown-menu-right */
-  @Prop() menuAlignment: string;
+  /** `large` (default), `small`, `medium` */
+  @Prop() size:string = 'large';
+  
+  /** Set to true to make the width following the label text length */
+  @Prop() inline:boolean = false;
 
-  @State() store = store.state;
+  /** Position of label: `no-label` (default), `inside`, `outside` */
+  @Prop() labelPosition:string = 'no-label';
 
-  @State() tagName: string;
-
-  @State() currentTheme = { components: [] };
-
-  @State() style: Array<CSSStyleSheet>;
+  /** Support `error` state */
+  @Prop() state:string = 'default'
 
   @State() items: Array<any> = [];
-
-  @State() dropdown;
+  
+  @State() open: boolean = false;
 
   @Element() el;
 
   @State() node: HTMLElement;
 
+  @State() selected:string='';
+
   @Listen('click', { target: 'window' })
   handleClick(ev) {
+    // To stop bubble click
+    ev.stopPropagation();
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
-    if(this.node === target || target.getAttribute('slot') === 'dropdown-title') {
-      const status = this.el.classList.contains('active') ? 'active' : 'inactive';
-      this.toggle(status);
+    if(this.node === target || target.getAttribute('slot') === 'sdds-dropdown-label') {
+      this.open = !this.open;
     } else {
-      this.toggle('active');
-    }    
+      // Click on window, always close dropdown
+      this.open = false;
+    } 
   }
 
-  @Watch('theme')
-  setTheme(name = undefined) {
-    this.theme = name || this.store.theme.current;
-    this.currentTheme = this.store.theme.items[this.theme];
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-  }
-
-  toggle(status){
-    if(status === 'active') {
-      this.dropdown.hide();
-      this.el.classList.remove('active')
-    } else {
-      this.dropdown.show();
-      this.el.classList.add('active')
-    }
-  }
-
-  componentWillLoad() {
-    this.store.theme = store.get('theme');
-
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
-    }).bind(this)});
-
-    this.setTheme(this.theme);
-
-    if (!(this.el && this.el.nodeName)) return;
-
-    this.tagName = this.el.nodeName.toLowerCase();
-  }
-
-  componentDidLoad() {
-    this.style = this.el.shadowRoot.adoptedStyleSheets || [];
-    
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-    this.dropdown = new BsDropdown(this.node);
+  @Listen('selectOption')
+  selectOptionHandler(event: CustomEvent<any>) {
+    this.selected = event.detail.label;
   }
 
   render() {
     return (
-      <Host>
-        <div class={`
-          dropdown
-          ${this.direction ? this.direction : ''}
-        `}>
-          <button 
-          class={`btn btn-${this.buttonType} dropdown-toggle`} 
-          type="button" id="dropdownMenuButton" 
-          data-toggle="dropdown" 
-          aria-haspopup="true" 
-          aria-expanded="false" 
-          onClick={(ev)=>this.handleClick(ev)} 
-          ref={(node) => this.node = node}>
-            <slot name="dropdown-title" data-toggle="dropdown"></slot>
-          </button>
-          <div class={`
-            dropdown-menu
-            ${this.menuAlignment ? this.menuAlignment : ''}
-          `}>
-            <slot name="dropdown-item" />
-          </div>
+      <Host class={{
+        'is-open': this.open,
+        'sdds-dropdown-inline': this.inline
+      }}>
+      <div class={`sdds-dropdown`}>
+        <button 
+        class={`sdds-dropdown-toggle`} 
+        type="button" 
+        onClick={(ev)=>this.handleClick(ev)} 
+        ref={(node) => this.node = node}>
+          <span class="sdds-dropdown-label">{
+            this.selected.length > 0 ? this.selected : this.label
+          }</span>
+        </button>
+        <div class="sdds-dropdown-menu">
+          <slot/>
         </div>
-      </Host>
+      </div>
+    </Host>
     )
   }
 }
