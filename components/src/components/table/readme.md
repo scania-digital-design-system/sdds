@@ -33,13 +33,11 @@
 ### Depends on
 
 - [c-icon](../icon)
-- [c-dropdown](../dropdown)
 
 ### Graph
 ```mermaid
 graph TD;
   c-table --> c-icon
-  c-table --> c-dropdown
   style c-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
