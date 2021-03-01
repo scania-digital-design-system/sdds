@@ -33,9 +33,8 @@ import {
     handleClick(ev) {
       // To stop bubble click
       ev.stopPropagation();
-      console.log('heello')
+      
       const target = ev.target.getAttribute('value');
-
       if(target !== this.value) this.selected = false;
     }
 
@@ -51,7 +50,12 @@ import {
         class={{
           'selected': this.selected
         }}>
-          <slot />
+          <span class="sdds-option-label"><slot /></span>
+          <span class="sdds-option-checkmark">
+            <svg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path d='M1 3L4 6L9 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/>
+            </svg>
+          </span>
         </Host>
       )
     }

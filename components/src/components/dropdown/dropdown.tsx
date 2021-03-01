@@ -14,6 +14,9 @@ export class Dropdown {
   /** Add the value of the option to set it as default */
   @Prop() defaultOption:string;
 
+   /** Add the value of the option to set it as default */
+   @Prop() disabled:boolean;
+
   /** `default`, `multiselect`, `filter`, `nested` */
   @Prop() types:string = 'default';
 
@@ -43,19 +46,20 @@ export class Dropdown {
   handleClick(ev) {
     // To stop bubble click
     ev.stopPropagation();
+
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
-    if(this.node === target || target.getAttribute('slot') === 'sdds-dropdown-label') {
+    if(this.node.contains(target)) {
       this.open = !this.open;
     } else {
-      // Click on window, always close dropdown
       this.open = false;
-    } 
+    }
   }
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selected = event.detail.label;
+    this.open = false;
   }
 
   render() {
@@ -73,6 +77,9 @@ export class Dropdown {
           <span class="sdds-dropdown-label">{
             this.selected.length > 0 ? this.selected : this.label
           }</span>
+          <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
+          </svg>
         </button>
         <div class="sdds-dropdown-menu">
           <slot/>
