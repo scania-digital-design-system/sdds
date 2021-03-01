@@ -1,6 +1,11 @@
 export default {
     title: 'Component/Dropdown',
     argTypes: {
+      label:{
+        type:'string',
+        defaultValue: 'Select option',
+        description:'Label text explains about dropdown'
+      },
       labelPosition: {
         control: {
           type: 'select',
@@ -12,10 +17,13 @@ export default {
     }
   };
   
-  const Template = ({disabled=false,labelPosition='no-label'}) => {
+  const Template = ({label,disabled=false,labelPosition,helper=''}) => {
     return `
     <c-theme name="scania"></c-theme>
-    <sdds-dropdown label="Select option" disabled="${disabled}" label-position="${labelPosition}">
+    <sdds-dropdown label="${label}"
+      disabled="${disabled}"
+      label-position="${labelPosition}"
+      helper="${helper}">
       <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
       <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
       <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
@@ -38,4 +46,9 @@ export default {
   LabelOutside.args = {
     disabled: false,
     labelPosition:'outside'
+  }
+
+  export const Helper = Template.bind({});
+  Helper.args = {
+    helper: 'Helper text'
   }
