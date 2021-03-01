@@ -1,6 +1,14 @@
 export default {
     title: 'Component/Dropdown',
     argTypes: {
+      size: {
+        control: {
+          type: 'select',
+          options:['large', 'small', 'medium']
+        },
+        defaultValue: 'large',
+        description: 'Size of the dropdown'
+      },
       label:{
         type:'string',
         defaultValue: 'Select option',
@@ -17,10 +25,12 @@ export default {
     }
   };
   
-  const Template = ({label,disabled=false,labelPosition,helper=''}) => {
+  const Template = ({size,label,disabled=false,labelPosition,helper=''}) => {
     return `
     <c-theme name="scania"></c-theme>
-    <sdds-dropdown label="${label}"
+    <sdds-dropdown 
+      size="${size}"
+      label="${label}"
       disabled="${disabled}"
       label-position="${labelPosition}"
       helper="${helper}">
