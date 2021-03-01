@@ -100,10 +100,12 @@
       padding: var(--sdds-spacing-element-12) var(--sdds-spacing-element-16);
     }
   }
+  
 }
 
 #{$prefix}-dropdown-helper {
   @include type-style('detail-05');
+  display: block;
   color: var(--sdds-dropdown-helper-text);
   margin-top: var(--sdds-spacing-element-4);
 }
@@ -117,6 +119,17 @@
       color: var(--sdds-dropdown-text-disabled);
       border-color: var(--sdds-dropdown-border-disabled);
     }
+  }
+}
+
+:host(.is-error){
+  #{$prefix}-dropdown{
+    #{$prefix}-dropdown-toggle {
+      border-color: var(--sdds-dropdown-error);
+    }
+  }
+  #{$prefix}-dropdown-helper {
+    color: var(--sdds-dropdown-error);
   }
 }
 
