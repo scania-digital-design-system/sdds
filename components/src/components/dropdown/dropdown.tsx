@@ -30,7 +30,10 @@ export class Dropdown {
   @Prop() labelPosition:string = 'no-label';
 
   /** Support `error` state */
-  @Prop() state:string = 'default'
+  @Prop() state:string = 'default';
+
+  /** Add helper text in the bottom of dropdown */
+  @Prop() helper:string = '';
 
   @State() items: Array<any> = [];
   
@@ -98,6 +101,7 @@ export class Dropdown {
           <slot/>
         </div>
       </div>
+      <span class='sdds-dropdown-helper'>{this.helper}</span>
     </Host>
     )
   }

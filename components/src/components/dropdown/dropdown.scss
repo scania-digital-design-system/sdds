@@ -88,6 +88,12 @@
   }
 }
 
+#{$prefix}-dropdown-helper {
+  @include type-style('detail-05');
+  color: var(--sdds-dropdown-helper-text);
+  margin-top: var(--sdds-spacing-element-4);
+}
+
 :host([disabled="true"]){
   cursor: not-allowed;
 
