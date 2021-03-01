@@ -42,11 +42,11 @@ export class Dropdown {
 
   @State() selected:string='';
 
-  @Listen('click', { target: 'window' })
+  @Listen('click', { target: 'document' })
   handleClick(ev) {
     // To stop bubble click
     ev.stopPropagation();
-
+    
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
     if(this.node.contains(target)) {
@@ -66,17 +66,30 @@ export class Dropdown {
     return (
       <Host class={{
         'is-open': this.open,
-        'sdds-dropdown-inline': this.inline
+        'sdds-dropdown-inline': this.inline,
+        'is-selected': this.selected.length > 0
       }}>
       <div class={`sdds-dropdown`}>
+        {
+          this.labelPosition==='outside' && this.selected.length > 0 ?
+          <span class='sdds-dropdown-label-outside'>{this.label}</span> 
+          : ''
+        }
         <button 
         class={`sdds-dropdown-toggle`} 
         type="button" 
         onClick={(ev)=>this.handleClick(ev)} 
         ref={(node) => this.node = node}>
-          <span class="sdds-dropdown-label">{
-            this.selected.length > 0 ? this.selected : this.label
-          }</span>
+          <div class='sdds-dropdown-label'>
+            {
+              this.labelPosition==='inside' && this.selected.length > 0 ?
+              <span class='sdds-dropdown-label-inside'>{this.label}</span> 
+              : ''
+            }
+            <span class="sdds-dropdown-label-main">{
+              this.selected.length > 0 ? this.selected : this.label
+            }</span>
+          </div>
           <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
           </svg>
