@@ -72,7 +72,7 @@ export class Dropdown {
         'sdds-dropdown-inline': this.inline,
         'is-selected': this.selected.length > 0
       }}>
-      <div class={`sdds-dropdown`}>
+      <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
         {
           this.labelPosition==='outside' && this.selected.length > 0 ?
           <span class='sdds-dropdown-label-outside'>{this.label}</span> 
