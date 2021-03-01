@@ -70,7 +70,8 @@ export class Dropdown {
       <Host class={{
         'is-open': this.open,
         'sdds-dropdown-inline': this.inline,
-        'is-selected': this.selected.length > 0
+        'is-selected': this.selected.length > 0,
+        'is-error': this.state === 'error'
       }}>
       <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
         {
