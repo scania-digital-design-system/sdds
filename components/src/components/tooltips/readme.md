@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type     | Default      |
-| ---------- | ---------- | ----------- | -------- | ------------ |
-| `position` | `position` |             | `string` | `""`         |
-| `text`     | `text`     |             | `string` | `'Hover me'` |
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `border` | `border`  |             | `string` | `undefined` |
+| `text`   | `text`    |             | `string` | `""`        |
 
 
 ----------------------------------------------

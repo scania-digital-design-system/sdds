@@ -2,31 +2,6 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-// .tooltip .tooltiptext {
-//   @include type-style('detail-05');
-//   // visibility: hidden;
-//   color: var(--sdds-tooltip-colour);
-//   background-color: var(--sdds-tooltip-background);
-//   border-radius: 0px 1rem 1rem 1rem;
-//   padding: 2rem;
-//   position: absolute;
-//   word-wrap: break-word;
-//   top: 150%;
-//   left: 25%;
-//   max-width: 52rem;
-// }
-
-// .tooltip {
-//   // position: ;
-//   display: flex;
-//   margin-top: 10%;
-//   margin-left: 50%;
-// }
-
-// .tooltip:hover .tooltiptext {
-//   visibility: visible;
-// }
-
 .sdds-tooltip {
   @include type-style('detail-05');
   color: var(--sdds-tooltip-colour);
@@ -36,6 +11,18 @@
   position: absolute;
   word-wrap: break-word;
   max-width: 48rem;
+
+  &.sdds-tooltip-top-left {
+    border-radius: 0rem 1rem 1rem 1rem;
+  }
+  &.sdds-tooltip-top-right {
+    border-radius: 1rem 0rem 1rem 1rem;
+  }
+  &.sdds-tooltip-bottom-right {
+    border-radius: 1rem 1rem 0rem 1rem;
+  }
+  &.sdds-tooltip-bottom-left {
+    border-radius: 1rem 1rem 1rem 0rem;
+  }
 }
 
-//b4 after
