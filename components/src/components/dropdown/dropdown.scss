@@ -87,6 +87,18 @@
     &:focus{
       outline: none;
     }
+    &::placeholder{
+      color: var(--sdds-dropdown-placeholder);
+    }
+    &::-webkit-input-placeholder {
+      color: var(--sdds-dropdown-placeholder);
+    }    
+    &::-moz-placeholder {
+      color: var(--sdds-dropdown-placeholder);
+    }    
+    &::-ms-placeholder {
+      color: var(--sdds-dropdown-placeholder);
+    }
   }
 
   #{$prefix}-dropdown-menu {

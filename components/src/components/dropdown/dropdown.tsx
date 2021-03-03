@@ -61,7 +61,6 @@ export class Dropdown {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
-    console.log(event.detail)
     this.selected = event.detail.label;
     this.open = false;
   }
@@ -76,6 +75,7 @@ export class Dropdown {
   handleSearch(ev){
     const searchTerm = ev.target.value;
     this.inputSearch.emit(searchTerm);
+    this.open = true;
   }
 
   render() {
