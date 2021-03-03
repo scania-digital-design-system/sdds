@@ -111,18 +111,45 @@ Error.args = {
   helper:'Error message'
 }
 
-export const Filter = ({}) => {
+const FilterTemplate = ({
+  size,
+  disabled=false,
+  helper='',
+  placeholder}) => {
   return `
     <c-theme name="scania"></c-theme>
     <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
         <sdds-dropdown-filter
-        placeholder="Select option"
+        size="${size}"
+        placeholder="${placeholder}"
+        disabled="${disabled}"
+        helper="${helper}"
         data='[{"value":"opt-1","label":"Jakarta"},{"value":"opt-2","label":"Stockholm"},{"value":"opt-3","label":"Barcelona"}]'
         ></sdds-dropdown-filter>
       </div>
       </div>
     </div>
   `
+}
+
+export const Filter = FilterTemplate.bind({});
+Filter.args = {}
+Filter.argTypes = {
+  labelPosition : {
+    table: {
+      disable:true
+    }
+  },
+  label : {
+    table: {
+      disable:true
+    }
+  },
+  state : {
+    table: {
+      disable:true
+    }
+  }
 }
