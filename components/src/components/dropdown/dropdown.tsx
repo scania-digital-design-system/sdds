@@ -39,11 +39,11 @@ export class Dropdown {
   
   @State() open: boolean = false;
 
-  @Element() host: HTMLElement;
-
   @State() node: HTMLElement;
 
   @State() selected:string='';
+
+  @Element() host: HTMLElement;
 
   @Listen('click', { target: 'document' })
   handleClick(ev) {
@@ -61,6 +61,7 @@ export class Dropdown {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
+    console.log(event.detail)
     this.selected = event.detail.label;
     this.open = false;
   }

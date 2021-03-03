@@ -2,11 +2,15 @@ import { Component, h, Listen, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-filter',
-  styleUrl: 'dropdown-filter.scss',
   shadow: true,
 })
 
 export class DropdownFilter {
+
+  @State() dataOptions = [];
+  @State() filteredContent = [];
+  @State() searchTerm = '';
+  @State() selectedOption:any;
 
   /** Label for dropdown with no selected item */
   @Prop() label:string;
@@ -37,10 +41,6 @@ export class DropdownFilter {
   */
   @Prop() data: string;
 
-  @State() dataOptions = [];
-  @State() filteredContent = [];
-  @State() searchTerm = '';
-
   componentWillLoad(){
     this.parseData(this.data);
   }
@@ -57,6 +57,11 @@ export class DropdownFilter {
     this.findData();
   }
 
+  @Listen('selectOption')
+  selectOptionHandler(event: CustomEvent<any>) {
+    this.selectedOption = event.detail.value;
+  }
+
   findData(){
     const searchAsRegEx = new RegExp(this.searchTerm, 'gmi');
     const newList = this.dataOptions.filter(option => {
@@ -70,7 +75,7 @@ export class DropdownFilter {
 
   setOptionsContent(){
     return (this.filteredContent.map((obj) =>
-      <sdds-dropdown-option value={obj.value}>{obj.label}</sdds-dropdown-option>
+      <sdds-dropdown-option value={obj.value} class={`${(this.selectedOption === obj.value ? 'selected':'')}`}>{obj.label}</sdds-dropdown-option>
     ))
   }
 

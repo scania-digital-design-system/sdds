@@ -107,10 +107,9 @@ Error.args = {
 export const Filter = ({}) => {
   return `
     <c-theme name="scania"></c-theme>
-
     <sdds-dropdown-filter
     label="Select option"
-    data='[{"value":"opt-1","label":"Option 1"},{"value":"opt-2","label":"Option 2"},{"value":"opt-3","label":"Option 3"}]'
+    data='[{"value":"opt-1","label":"Jakarta"},{"value":"opt-2","label":"Stockholm"},{"value":"opt-3","label":"Barcelona"}]'
     ></sdds-dropdown-filter>
   `
 }
