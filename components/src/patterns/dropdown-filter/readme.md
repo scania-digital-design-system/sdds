@@ -16,6 +16,7 @@
 | `inline`        | `inline`         | Set to true to make the width following the label text length                                                                             | `boolean` | `false`      |
 | `label`         | `label`          | Label for dropdown with no selected item                                                                                                  | `string`  | `undefined`  |
 | `labelPosition` | `label-position` | Position of label: `no-label` (default), `inside`, `outside`                                                                              | `string`  | `'no-label'` |
+| `placeholder`   | `placeholder`    | Placeholder text for dropdown with no selected item                                                                                       | `string`  | `''`         |
 | `size`          | `size`           | `large` (default), `small`, `medium`                                                                                                      | `string`  | `'large'`    |
 | `state`         | `state`          | Support `error` state                                                                                                                     | `string`  | `'default'`  |
 

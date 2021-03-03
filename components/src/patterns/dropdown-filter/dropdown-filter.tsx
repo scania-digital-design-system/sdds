@@ -12,6 +12,9 @@ export class DropdownFilter {
   @State() searchTerm = '';
   @State() selectedOption:any;
 
+  /** Placeholder text for dropdown with no selected item */
+  @Prop() placeholder:string='';
+
   /** Label for dropdown with no selected item */
   @Prop() label:string;
 
@@ -94,7 +97,8 @@ export class DropdownFilter {
         disabled={this.disabled}
         label-position={this.labelPosition}
         helper={this.helper}
-        state={this.state}
+        state={this.state}        
+        placeholder={this.placeholder}
         type="filter">
           {this.setOptionsContent()}
       </sdds-dropdown>
