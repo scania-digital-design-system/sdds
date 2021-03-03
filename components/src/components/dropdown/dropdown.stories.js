@@ -19,12 +19,12 @@ export default {
       defaultValue: 'large',
       description: 'Size of the dropdown'
     },
-    label:{
+    placeholder:{
       type:'string',
       defaultValue: 'Select option',
-      description:'Label text explains about dropdown'
+      description:'Placeholder text when no option is selected'
     },
-    labelOutside:{
+    label:{
       type:'string',
       defaultValue: 'Label text',
       description:'Label text explains about dropdown'
@@ -48,7 +48,7 @@ export default {
   }
 };
   
-const Template = ({size,label,disabled=false,labelPosition,helper='',state='default',labelOutside}) => {
+const Template = ({size,label,disabled=false,labelPosition,helper='',state='default',placeholder}) => {
   return `
   <c-theme name="scania"></c-theme>
   
@@ -57,10 +57,10 @@ const Template = ({size,label,disabled=false,labelPosition,helper='',state='defa
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
         <sdds-dropdown 
           size="${size}"
-          label="${label}"
+          placeholder="${placeholder}"
           disabled="${disabled}"
           label-position="${labelPosition}"
-          label-outside="${labelOutside}"
+          label="${label}"
           helper="${helper}"
           state="${state}">
           <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
@@ -88,7 +88,7 @@ export const LabelOutside = Template.bind({});
 LabelOutside.args = {
   disabled: false,
   labelPosition:'outside',
-  labelOutside:'Label text'
+  label:'Label text'
 }
 
 export const Helper = Template.bind({});

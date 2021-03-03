@@ -3,7 +3,8 @@
 ```html
 <sdds-dropdown 
     size="large"
-    label="Select option"
+    placeholder="Select option"
+    label="Label text"
     disabled="false"
     label-position="no-label"
     helper="Helper text"
