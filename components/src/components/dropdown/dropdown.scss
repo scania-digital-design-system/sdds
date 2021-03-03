@@ -62,14 +62,15 @@
 
   #{$prefix}-dropdown-label-inside,
   #{$prefix}-dropdown-label-outside{
-    @include type-style('detail-07');
     display: block;
     margin-bottom: var(--sdds-spacing-element-4);
   }
   #{$prefix}-dropdown-label-inside{
+    @include type-style('detail-07');
     color: var(--sdds-dropdown-label-inside);
   }
   #{$prefix}-dropdown-label-outside{
+    @include type-style('detail-05');
     color: var(--sdds-dropdown-label-outside);
   }
 
@@ -202,8 +203,7 @@
       visibility: visible;
     }
   }
-}
-:host-context(.is-open){
+
   ::slotted(sdds-dropdown-option){
     visibility: visible;
     opacity: 1;

@@ -29,6 +29,9 @@ export class Dropdown {
   /** Position of label: `no-label` (default), `inside`, `outside` */
   @Prop() labelPosition:string = 'no-label';
 
+  /** Label text for label outside */
+  @Prop() labelOutside:string;
+
   /** Support `error` state */
   @Prop() state:string = 'default';
 
@@ -75,8 +78,8 @@ export class Dropdown {
       }}>
       <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
         {
-          this.labelPosition==='outside' && this.selected.length > 0 ?
-          <span class='sdds-dropdown-label-outside'>{this.label}</span> 
+          this.labelPosition==='outside' && this.labelOutside.length > 0 ?
+          <span class='sdds-dropdown-label-outside'>{this.labelOutside}</span>
           : ''
         }
         <button 
