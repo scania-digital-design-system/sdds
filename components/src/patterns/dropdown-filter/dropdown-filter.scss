@@ -1,0 +1,8 @@
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+:host{
+  @include type-style('detail-02');
+  color: var(--sdds-dropdown-text);
+  box-sizing: border-box;
+}

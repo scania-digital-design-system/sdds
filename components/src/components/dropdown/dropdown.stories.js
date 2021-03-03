@@ -94,7 +94,8 @@ LabelOutside.args = {
 
 export const Helper = Template.bind({});
 Helper.args = {
-  helper: 'Helper text'
+  helper: 'Helper text',
+  type:'filter'
 }
 
 export const Error = Template.bind({});
@@ -103,7 +104,13 @@ Error.args = {
   helper:'Error message'
 }
 
-export const Filter = Template.bind({});
-Filter.args = {
-  type: 'filter'
+export const Filter = ({}) => {
+  return `
+    <c-theme name="scania"></c-theme>
+
+    <sdds-dropdown-filter
+    label="Select option"
+    data='[{"value":"opt-1","label":"Option 1"},{"value":"opt-2","label":"Option 2"},{"value":"opt-3","label":"Option 3"}]'
+    ></sdds-dropdown-filter>
+  `
 }

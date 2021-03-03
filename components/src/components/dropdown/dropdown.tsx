@@ -1,5 +1,5 @@
 import {
-  Component, h, Prop, State, Element, Listen, Host
+  Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter
 } from '@stencil/core';
 
 @Component({
@@ -39,7 +39,7 @@ export class Dropdown {
   
   @State() open: boolean = false;
 
-  @Element() el;
+  @Element() host: HTMLElement;
 
   @State() node: HTMLElement;
 
@@ -63,6 +63,18 @@ export class Dropdown {
   selectOptionHandler(event: CustomEvent<any>) {
     this.selected = event.detail.label;
     this.open = false;
+  }
+
+  @Event({
+    eventName: 'inputSearch',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) inputSearch: EventEmitter<any>;
+
+  handleSearch(ev){
+    const searchTerm = ev.target.value;
+    this.inputSearch.emit(searchTerm);
   }
 
   render() {
@@ -92,7 +104,7 @@ export class Dropdown {
             }
             {
               this.type==='filter' ?
-              <input class="sdds-dropdown-filter" type="text" placeholder={this.label} value={this.selected}/>
+              <input class="sdds-dropdown-filter" type="text" placeholder={this.label} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
               :
               <span class="sdds-dropdown-label-main">{
                 this.selected.length > 0 ? this.selected : this.label
