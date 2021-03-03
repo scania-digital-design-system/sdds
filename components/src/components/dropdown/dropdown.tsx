@@ -8,8 +8,8 @@ import {
   shadow: true,
 })
 export class Dropdown {
-  /** Label for dropdown with no selected item */
-  @Prop() label:string;
+  /** Placeholder text for dropdown with no selected item */
+  @Prop() placeholder:string;
 
   /** Add the value of the option to set it as default */
   @Prop() defaultOption:string;
@@ -30,7 +30,7 @@ export class Dropdown {
   @Prop() labelPosition:string = 'no-label';
 
   /** Label text for label outside */
-  @Prop() labelOutside:string;
+  @Prop() label:string;
 
   /** Support `error` state */
   @Prop() state:string = 'default';
@@ -78,8 +78,8 @@ export class Dropdown {
       }}>
       <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
         {
-          this.labelPosition==='outside' && this.labelOutside.length > 0 ?
-          <span class='sdds-dropdown-label-outside'>{this.labelOutside}</span>
+          this.labelPosition==='outside' && this.label.length > 0 ?
+          <span class='sdds-dropdown-label-outside'>{this.label}</span>
           : ''
         }
         <button 
@@ -94,7 +94,7 @@ export class Dropdown {
               : ''
             }
             <span class="sdds-dropdown-label-main">{
-              this.selected.length > 0 ? this.selected : this.label
+              this.selected.length > 0 ? this.selected : this.placeholder
             }</span>
           </div>
           <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
