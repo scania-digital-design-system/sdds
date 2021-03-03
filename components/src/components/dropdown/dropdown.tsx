@@ -8,8 +8,8 @@ import {
   shadow: true,
 })
 export class Dropdown {
-  /** Label for dropdown with no selected item */
-  @Prop() label:string;
+  /** Placeholder text for dropdown with no selected item */
+  @Prop() placeholder:string;
 
   /** Add the value of the option to set it as default */
   @Prop() defaultOption:string;
@@ -28,6 +28,9 @@ export class Dropdown {
 
   /** Position of label: `no-label` (default), `inside`, `outside` */
   @Prop() labelPosition:string = 'no-label';
+
+  /** Label text for label inside & outside */
+  @Prop() label:string;
 
   /** Support `error` state */
   @Prop() state:string = 'default';
@@ -88,8 +91,8 @@ export class Dropdown {
       }}>
       <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
         {
-          this.labelPosition==='outside' && this.selected.length > 0 ?
-          <span class='sdds-dropdown-label-outside'>{this.label}</span> 
+          this.labelPosition==='outside' && this.label.length > 0 ?
+          <span class='sdds-dropdown-label-outside'>{this.label}</span>
           : ''
         }
         <button 
@@ -105,10 +108,10 @@ export class Dropdown {
             }
             {
               this.type==='filter' ?
-              <input class="sdds-dropdown-filter" type="text" placeholder={this.label} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
+              <input class="sdds-dropdown-filter" type="text" placeholder={this.placeholder} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
               :
               <span class="sdds-dropdown-label-main">{
-                this.selected.length > 0 ? this.selected : this.label
+              this.selected.length > 0 ? this.selected : this.placeholder
               }</span>
             }
             
