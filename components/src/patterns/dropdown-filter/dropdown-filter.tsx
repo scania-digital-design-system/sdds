@@ -60,6 +60,13 @@ export class DropdownFilter {
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selectedOption = event.detail.value;
+    
+    // Reset list when search is done and user have selected one option
+    // To match with animation time for option list to fadeout first
+    setTimeout(()=>{
+      this.filteredContent = this.dataOptions
+    }, 200);
+    
   }
 
   findData(){
