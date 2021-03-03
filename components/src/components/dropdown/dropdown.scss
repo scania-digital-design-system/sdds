@@ -49,9 +49,8 @@
       border-color: var(--sdds-dropdown-toggle-border-selected);
       background-color: var(--sdds-dropdown-background-selected);
     }
-
     &.is-filter{
-      border-bottom: 2px solid var(--sdds-dropdown-filter-border);
+      transition: border 0.1s ease-in 0.1s;
       cursor: text;
     }
   }
@@ -208,6 +207,10 @@
       box-shadow:0px -1px 3px -1px rgba(0, 0, 0, 0.1);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      &.is-filter{
+        border-bottom: 2px solid var(--sdds-dropdown-filter-border);
+      }
     }
     #{$prefix}-dropdown-menu {
       max-height: 90rem; // max 7 option items, then add scroll
