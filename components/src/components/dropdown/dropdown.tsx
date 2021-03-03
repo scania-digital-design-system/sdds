@@ -18,7 +18,7 @@ export class Dropdown {
    @Prop() disabled:boolean;
 
   /** `default`, `multiselect`, `filter`, `nested` */
-  @Prop() types:string = 'default';
+  @Prop() type:string = 'default';
 
   /** `large` (default), `small`, `medium` */
   @Prop() size:string = 'large';
@@ -80,7 +80,7 @@ export class Dropdown {
           : ''
         }
         <button 
-        class={`sdds-dropdown-toggle`} 
+        class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`} 
         type="button" 
         onClick={(ev)=>this.handleClick(ev)} 
         ref={(node) => this.node = node}>
@@ -90,9 +90,15 @@ export class Dropdown {
               <span class='sdds-dropdown-label-inside'>{this.label}</span> 
               : ''
             }
-            <span class="sdds-dropdown-label-main">{
-              this.selected.length > 0 ? this.selected : this.label
-            }</span>
+            {
+              this.type==='filter' ?
+              <input class="sdds-dropdown-filter" type="text" placeholder={this.label} value={this.selected}/>
+              :
+              <span class="sdds-dropdown-label-main">{
+                this.selected.length > 0 ? this.selected : this.label
+              }</span>
+            }
+            
           </div>
           <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />

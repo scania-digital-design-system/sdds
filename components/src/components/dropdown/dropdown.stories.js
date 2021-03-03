@@ -43,7 +43,14 @@ export default {
   }
 };
   
-const Template = ({size,label,disabled=false,labelPosition,helper='',state='default'}) => {
+const Template = ({
+  size,
+  type,
+  label,
+  disabled=false,
+  labelPosition,
+  helper='',
+  state='default'}) => {
   return `
   <c-theme name="scania"></c-theme>
   
@@ -56,7 +63,8 @@ const Template = ({size,label,disabled=false,labelPosition,helper='',state='defa
           disabled="${disabled}"
           label-position="${labelPosition}"
           helper="${helper}"
-          state="${state}">
+          state="${state}"
+          type="${type}">
           <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
@@ -93,4 +101,9 @@ export const Error = Template.bind({});
 Error.args = {
   state: 'error',
   helper:'Error message'
+}
+
+export const Filter = Template.bind({});
+Filter.args = {
+  type: 'filter'
 }
