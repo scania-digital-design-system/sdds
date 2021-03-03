@@ -6,7 +6,7 @@ export default {
         type: 'select',
         options:['default', 'top-left', 'top-right', 'bottom-right', 'bottom-left']
       },
-      defaultValue: 'default',
+      defaultValue: 'top-left',
       description: 'Five different tooltip examples, including change of direction arrows'
     },
   }
