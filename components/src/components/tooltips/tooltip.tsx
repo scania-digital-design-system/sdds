@@ -6,15 +6,17 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 
-export class Tooltips {
+export class Tooltip {
   @Prop() text = "";
   @Prop() border: string;
 
   render() {
     return (
-        <span class={`sdds-tooltip sdds-tooltip-${this.border}`}  >
-          {this.text}
-        </span>  
+
+      <span class={`sdds-tooltip sdds-tooltip-${this.border}`}  >
+        {this.text}
+      </span>  
+  
     )
   }
 }
