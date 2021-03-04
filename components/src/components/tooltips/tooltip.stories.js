@@ -20,6 +20,9 @@ const ComponentTooltip = ({tooltipBorder, text=''}) => {
   .target-wrap:hover .tooltip-wrap {
     visibility: visible;
   }
+  .target-wrap:hover {
+    cursor: pointer;
+  }
   .target-wrap {
     margin: 10rem 10rem;
   }
