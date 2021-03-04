@@ -25,6 +25,11 @@ const ComponentTooltip = ({tooltipBorder, text=''}) => {
   }
   .target-wrap {
     margin: 10rem 10rem;
+    display: inline-block;
+    background: #16417F;
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
   }
   </style>
 
