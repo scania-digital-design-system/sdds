@@ -91,22 +91,23 @@ function generateFontCss(file) {
 
   const data = generateFontFace(file, content);
 
-  fs.writeFileSync(`${outputFolder}/fonts/fonts.css`, data, { flag: 'a' });
+  fs.writeFileSync(`${outputFolder}/scss/fonts.css`, data, { flag: 'a' });
 }
 function generateFontFace(file, props) {
   const filename = file.replace(/..\/assets\/fonts\/|.ttf/g, '');
   return `@font-face {${
     props
   }
-  src: url("./${filename}.woff") format("woff")\n}\n`;
+  src: url("../fonts/${filename}.woff") format("woff")\n}\n`;
 }
 
 // Create a scss folder will all scss files in current folder
-//FIXME: Import of files outside current package
 function generateScss(name, data) {
-  fs.writeFileSync(`${outputFolder}/scss/${name}.scss`, data)
+  fs.writeFileSync(`${outputFolder}/scss/${name}.scss`, data);
+  if(name === '_typography') replaceFontsScss();
 }
 
+// Import of files outside current package
 function importFile(data) {
   const toMatch =/(@import '\.\.\/(.*)\')/gm;
   const files = toMatch.exec(data);
@@ -116,6 +117,20 @@ function importFile(data) {
     const output = `${outputFolder}/_${files[2]}.scss`;
     fs.createReadStream(filePath).pipe(fs.createWriteStream(output));
   }
+}
+
+// On the dist folder replace fonts path to the correct one
+function replaceFontsScss(){
+  const file = `${outputFolder}/scss/_typography.scss`;
+  const toMatch =/(@import '\.\/dist\/scss\/fonts\')/gm;
+
+  fs.readFile(path.resolve(file), 'utf8', function(err, data){
+    if(err) throw err;
+
+    const newLine = data.replace(toMatch, "@import './fonts'");
+
+    fs.writeFileSync(file, newLine);
+  })
 }
 
 // Creates a css file for each scss file in current folder
@@ -136,5 +151,4 @@ function generateCss(file) {
     generateScss(name,data);
   })
 }
-
 
