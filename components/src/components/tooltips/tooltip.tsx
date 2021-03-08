@@ -9,14 +9,12 @@ import { Component, h, Prop } from '@stencil/core';
 export class Tooltip {
   @Prop() text = "";
   @Prop() border: string;
-
-  render() {
-    return (
-
-      <span class={`sdds-tooltip sdds-tooltip-${this.border}`}  >
-        {this.text}
-      </span>  
-  
-    )
+ 
+ render() {
+  return (  
+    <span class={`sdds-tooltip sdds-tooltip-${this.border}`}  >
+      {this.text}
+    </span>  
+  )
   }
 }
