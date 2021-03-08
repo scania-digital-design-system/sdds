@@ -1,6 +1,6 @@
 {
   "name": "@scania/theme-light",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Scania theme light is a package to style Scania looks and feel.",
   "main": "dist/module.js",
   "scripts": {
