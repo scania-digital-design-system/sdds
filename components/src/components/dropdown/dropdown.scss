@@ -96,6 +96,7 @@
     }    
     &::-moz-placeholder {
       color: var(--sdds-dropdown-placeholder);
+      opacity: 1;
     }    
     &::-ms-placeholder {
       color: var(--sdds-dropdown-placeholder);
