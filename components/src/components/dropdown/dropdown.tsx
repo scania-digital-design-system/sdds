@@ -1,5 +1,5 @@
 import {
-  Component, h, Prop, State, Element, Listen, Host
+  Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter
 } from '@stencil/core';
 
 @Component({
@@ -8,6 +8,8 @@ import {
   shadow: true,
 })
 export class Dropdown {
+  textInput?: HTMLInputElement;
+
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder:string;
 
@@ -18,7 +20,7 @@ export class Dropdown {
    @Prop() disabled:boolean;
 
   /** `default`, `multiselect`, `filter`, `nested` */
-  @Prop() types:string = 'default';
+  @Prop() type:string = 'default';
 
   /** `large` (default), `small`, `medium` */
   @Prop() size:string = 'large';
@@ -29,7 +31,7 @@ export class Dropdown {
   /** Position of label: `no-label` (default), `inside`, `outside` */
   @Prop() labelPosition:string = 'no-label';
 
-  /** Label text for label outside */
+  /** Label text for label inside & outside */
   @Prop() label:string;
 
   /** Support `error` state */
@@ -42,11 +44,11 @@ export class Dropdown {
   
   @State() open: boolean = false;
 
-  @Element() el;
-
   @State() node: HTMLElement;
 
   @State() selected:string='';
+
+  @Element() host: HTMLElement;
 
   @Listen('click', { target: 'document' })
   handleClick(ev) {
@@ -56,6 +58,7 @@ export class Dropdown {
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
     if(this.node.contains(target)) {
+      if(typeof this.textInput !== 'undefined' || this.textInput === null) this.textInput.focus();
       this.open = !this.open;
     } else {
       this.open = false;
@@ -66,6 +69,19 @@ export class Dropdown {
   selectOptionHandler(event: CustomEvent<any>) {
     this.selected = event.detail.label;
     this.open = false;
+  }
+
+  @Event({
+    eventName: 'inputSearch',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) inputSearch: EventEmitter<any>;
+
+  handleSearch(ev){
+    const searchTerm = ev.target.value;
+    this.inputSearch.emit(searchTerm);
+    this.open = true;
   }
 
   render() {
@@ -83,7 +99,7 @@ export class Dropdown {
           : ''
         }
         <button 
-        class={`sdds-dropdown-toggle`} 
+        class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`} 
         type="button" 
         onClick={(ev)=>this.handleClick(ev)} 
         ref={(node) => this.node = node}>
@@ -93,9 +109,15 @@ export class Dropdown {
               <span class='sdds-dropdown-label-inside'>{this.label}</span> 
               : ''
             }
-            <span class="sdds-dropdown-label-main">{
+            {
+              this.type==='filter' ?
+              <input ref={inputEl => this.textInput = inputEl as HTMLInputElement} class="sdds-dropdown-filter" type="text" placeholder={this.placeholder} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
+              :
+              <span class="sdds-dropdown-label-main">{
               this.selected.length > 0 ? this.selected : this.placeholder
-            }</span>
+              }</span>
+            }
+            
           </div>
           <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />

@@ -48,7 +48,15 @@ export default {
   }
 };
   
-const Template = ({size,label,disabled=false,labelPosition,helper='',state='default',placeholder}) => {
+const Template = ({
+  size,
+  type,
+  label,
+  disabled=false,
+  labelPosition,
+  helper='',
+  state='default',
+  placeholder}) => {
   return `
   <c-theme name="scania"></c-theme>
   
@@ -62,7 +70,8 @@ const Template = ({size,label,disabled=false,labelPosition,helper='',state='defa
           label-position="${labelPosition}"
           label="${label}"
           helper="${helper}"
-          state="${state}">
+          state="${state}"
+          type="${type}">
           <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
@@ -100,4 +109,47 @@ export const Error = Template.bind({});
 Error.args = {
   state: 'error',
   helper:'Error message'
+}
+
+const FilterTemplate = ({
+  size,
+  disabled=false,
+  helper='',
+  placeholder}) => {
+  return `
+    <c-theme name="scania"></c-theme>
+    <div class="sdds-container" style="margin-top:10rem;">
+    <div class="sdds-row">
+      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+        <sdds-dropdown-filter
+        size="${size}"
+        placeholder="${placeholder}"
+        disabled="${disabled}"
+        helper="${helper}"
+        data='[{"value":"opt-1","label":"Jakarta"},{"value":"opt-2","label":"Stockholm"},{"value":"opt-3","label":"Barcelona"}]'
+        ></sdds-dropdown-filter>
+      </div>
+      </div>
+    </div>
+  `
+}
+
+export const Filter = FilterTemplate.bind({});
+Filter.args = {}
+Filter.argTypes = {
+  labelPosition : {
+    table: {
+      disable:true
+    }
+  },
+  label : {
+    table: {
+      disable:true
+    }
+  },
+  state : {
+    table: {
+      disable:true
+    }
+  }
 }

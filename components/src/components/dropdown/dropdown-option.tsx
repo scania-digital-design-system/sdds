@@ -13,7 +13,8 @@ import {
     @Element() host: HTMLElement;
 
     @State() selected:boolean=false;
-    @State() optionLabel:string;
+    // Used as a fallback if value prop is not recognized to match handleClick
+    @State() innerValue:string;
 
     /** Value is a unique string that will be used for application logic */
     @Prop() value:string;    
@@ -25,8 +26,8 @@ import {
       bubbles: true,
     }) selectOption: EventEmitter<any>;
 
-    componentDidLoad(){
-      this.optionLabel = this.host.innerHTML;
+    componentWillLoad(){
+      this.innerValue = this.value;
     }
 
     @Listen('click', { target: 'document' })
@@ -35,7 +36,7 @@ import {
       ev.stopPropagation();
       
       const target = ev.target.getAttribute('value');
-      if(target !== this.value) this.selected = false;
+      if(target !== this.innerValue) this.selected = false;
     }
 
     selectOptionHandler(value) {
@@ -46,7 +47,7 @@ import {
     render() {
       return (
         <Host 
-        onClick={()=>this.selectOptionHandler({value: this.value, label: this.optionLabel})}
+        onClick={()=>this.selectOptionHandler({value: this.value, label: this.host.innerHTML})}
         class={{
           'selected': this.selected
         }}>
