@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+:host{
+  position: relative;
+  z-index: 10000;
+}
+
 #{$prefix}-dropdown{
   position: relative;
   display: flex;
