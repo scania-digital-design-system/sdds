@@ -8,6 +8,8 @@ import {
   shadow: true,
 })
 export class Dropdown {
+  textInput?: HTMLInputElement;
+
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder:string;
 
@@ -56,6 +58,7 @@ export class Dropdown {
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
     if(this.node.contains(target)) {
+      if(typeof this.textInput !== 'undefined' || this.textInput === null) this.textInput.focus();
       this.open = !this.open;
     } else {
       this.open = false;
@@ -108,7 +111,7 @@ export class Dropdown {
             }
             {
               this.type==='filter' ?
-              <input class="sdds-dropdown-filter" type="text" placeholder={this.placeholder} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
+              <input ref={inputEl => this.textInput = inputEl as HTMLInputElement} class="sdds-dropdown-filter" type="text" placeholder={this.placeholder} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
               :
               <span class="sdds-dropdown-label-main">{
               this.selected.length > 0 ? this.selected : this.placeholder
