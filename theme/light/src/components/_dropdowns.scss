@@ -9,6 +9,10 @@ html{
   --sdds-dropdown-helper-text:#{get-colour(grey-500)};
   --sdds-dropdown-label-outside: #{get-colour(grey-900)};
   --sdds-dropdown-label-inside: #{get-colour(grey-500)};
+  --sdds-dropdown-text: #{get-colour(grey-900)};
+  --sdds-dropdown-placeholder: #{get-colour(grey-500)};
+
+  --sdds-dropdown-filter-border: #{get-colour(blue-500)};
   
   // Only applied to toggle button
   --sdds-dropdown-toggle-border-hover: #{get-colour(grey-300)};

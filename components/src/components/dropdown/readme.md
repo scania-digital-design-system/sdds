@@ -3,8 +3,7 @@
 ```html
 <sdds-dropdown 
     size="large"
-    placeholder="Select option"
-    label="Label text"
+    label="Select option"
     disabled="false"
     label-position="no-label"
     helper="Helper text"
@@ -31,6 +30,19 @@
 | -------------- | ----------- | ------------------ |
 | `selectOption` |             | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [sdds-dropdown-filter](../../patterns/dropdown-filter)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-dropdown-filter --> sdds-dropdown-option
+  style sdds-dropdown-option fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
