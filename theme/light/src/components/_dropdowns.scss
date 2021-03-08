@@ -1,68 +1,31 @@
 @import '../mixins';
+@import '../core/prefix';
 
-.dropdown-menu{
-  //FIXME: Add correct rem
-  padding: $spacing-element-8 2.5rem;
-  border: 1px solid get-colour(grey-300);
-  //FIXME: Add correct rem
-  font-size: 3.5rem;
-  border-radius: $border-radius;
-}
+:root,
+html{
+  --sdds-dropdown-border-radius:1rem;
+  
+  --sdds-dropdown-error:#{get-colour(red-500)};
+  --sdds-dropdown-helper-text:#{get-colour(grey-500)};
+  --sdds-dropdown-label-outside: #{get-colour(grey-900)};
+  --sdds-dropdown-label-inside: #{get-colour(grey-500)};
+  
+  // Only applied to toggle button
+  --sdds-dropdown-toggle-border-hover: #{get-colour(grey-300)};
+  --sdds-dropdown-toggle-border-selected: #{get-colour(blue-200)};
+  --sdds-dropdown-toggle-border-focus: #{get-colour(blue-400)};
+  --sdds-dropdown-toggle-border-error: #{get-colour(red-500)};
+  --sdds-dropdown-toggle-background-error: #{get-colour(white)};
 
-.dropdown-item {
-  color: get-colour(grey-600);
-  //FIXME: Add correct rem
-  padding: $spacing-element-4 $spacing-element-2;
-  text-decoration: none;
-
-  &:focus,
-  &:hover,
-  &:active,
-  &.active {
-    color: get-colour(grey-800);
-    background-color: get-colour(white);
-  }
-
-  &:active, //TODO: Look into active state, based on 3.5.x
-  &.active {
-    background-color: get-colour(grey-500);
-  }
-}
-
-.dropdown-toggle-split {
-  //FIXME: Add correct rem
-  padding-right: 5.625px;
-  padding-left: 5.625px;
-
- .btn-lg + & {
-    //FIXME: Add correct rem
-    padding-right: 1.875rem;
-    padding-left: 1.875rem;
- }
-
- .btn-sm + & {
-    //FIXME: Add correct rem
-    padding-right: 3.75px;
-    padding-left: 3.75px;
-  }
-}
-
-// Override the .show for buttons
-.show {
-  @each $type in $interaction-types {
-    > .btn-#{$type}.dropdown-toggle {
-      @extend .btn-#{$type};
-      color: get-colour(white);
-    }
-  }
-  @each $type in $interaction-types2 {
-    > .btn-#{$type}.dropdown-toggle {
-      @extend .btn-#{$type};
-    }
-  }
-  @each $type in $interaction-types3 {
-    > .btn-#{$type}.dropdown-toggle {
-      @extend .btn-#{$type};
-    }
-  }
+  // Applied to both toggle and option
+  --sdds-dropdown-text-disabled: #{get-colour(grey-200)};
+  --sdds-dropdown-background: #{get-colour(white)};
+  --sdds-dropdown-background-hover: #{get-colour(blue-50)};
+  --sdds-dropdown-background-focus: #{get-colour(white)};
+  --sdds-dropdown-background-selected: #{get-colour(blue-100)};
+  --sdds-dropdown-background-disabled: #{get-colour(white)};
+  --sdds-dropdown-border: #{get-colour(grey-100)};
+  --sdds-dropdown-border-focus: #{get-colour(blue-400)};
+  --sdds-dropdown-border-selected: #{get-colour(blue-100)}; 
+  --sdds-dropdown-border-disabled: #{get-colour(grey-100)};
 }
