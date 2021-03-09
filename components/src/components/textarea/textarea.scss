@@ -10,17 +10,28 @@
 }
 
 #{$prefix}-textarea-wrapper {
-  @extend #{$prefix}-textfield-bar;
   position: relative;
-  
-  &:after,
-  &:before {
-    top: calc(100% - 1px);
+
+  &:after{
+    content: '';
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: scaleX(0);
+    border-bottom: 2px solid var(--sdds-textfield-bar);
+    transition:0.35s ease all;
+    -moz-transition:0.35s ease all;
+    -webkit-transition:0.35s ease all;
   }
 }
 #{$prefix}-textarea-input{
   @include textfield-base;
   @extend #{$prefix}-textfield-input;
+  display: block;
   min-height: var(--sdds-spacing-element-32);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
 }
@@ -57,9 +68,8 @@
       }
     }
     #{$prefix}-textarea-wrapper{
-      &:before,
       &:after{
-        width: 50%;
+        transform: scaleX(1);
       }
     }
   }
