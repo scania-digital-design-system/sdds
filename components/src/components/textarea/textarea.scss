@@ -25,6 +25,27 @@
   display: block;
   min-height: var(--sdds-spacing-element-32);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+
+  // Display none only works in Chrome
+  &::-webkit-resizer{
+    display: none
+  }
+}
+
+// Need to override default resizer in FF & Safari
+#{$prefix}-textarea-resizer-icon {
+  color: var(--sdds-textfield-resize-icon);
+  position: absolute;
+  display: block;
+  bottom: 1px;
+  right: 0;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  pointer-events: none;
+  background-color: var(--sdds-textfield-bg);
+  svg {
+    display: block;
+  }
 }
 
 #{$prefix}-textarea-label{
