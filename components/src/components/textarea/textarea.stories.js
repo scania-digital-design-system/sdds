@@ -73,6 +73,7 @@ export default {
     label: '',
     labelPosition: 'no-label',
     helper: '',
+    textcounter: 0
   }
 };
 
@@ -86,19 +87,19 @@ const style =`<style>
 </style>`;
 
 const textfieldTemplate = ({placeholder,disabled,label,labelPosition,state,helper,textcounter}) => {
-
+  const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"':'';
   return `
   ${style}
   <c-theme></c-theme>
   <div class="demo">
     <sdds-textarea
       state="${state}"
-      maxlength="${textcounter}"
       label="${label}"
       helper="${helper}"
       label-position="${labelPosition}"
       ${disabled ? 'disabled' : ''}
-      placeholder="${placeholder}">
+      placeholder="${placeholder}"
+      ${maxlength}>
     </sdds-textarea>
   </div>
   `

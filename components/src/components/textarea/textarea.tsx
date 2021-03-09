@@ -40,7 +40,7 @@ export class Textarea{
   @Prop() state: string;
 
   /** Max length of input */
-  @Prop() maxlength = 0;
+  @Prop() maxlength:number;
 
   /** Listen to the focus state of the input */
   @State() focusInput;
