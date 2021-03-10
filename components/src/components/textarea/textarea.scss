@@ -16,7 +16,7 @@
 
   &:after,
   &:before {
-    top: calc(100% - 1px);
+    top: calc(100% - 2px);
   }
 }
 #{$prefix}-textarea-input{
@@ -37,8 +37,8 @@
   color: var(--sdds-textfield-resize-icon);
   position: absolute;
   display: block;
-  bottom: 1px;
-  right: 0;
+  bottom: 2px;
+  right: 1px;
   padding-bottom: 2px;
   padding-right: 2px;
   pointer-events: none;
