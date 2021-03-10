@@ -4,6 +4,9 @@
 #{$prefix}-textarea-container{
   @extend #{$prefix}-textfield-container;
   height: auto;
+  width: 100%;
+  min-width: var(--sdds-textarea-min-width);
+  display: inline-flex;
   background-color: transparent;
   flex-flow: row wrap;
   border-bottom: 0;
@@ -13,6 +16,7 @@
   @extend #{$prefix}-textfield-bar;
   position: relative;
   width: unset;
+  min-width: 100%;
 
   &:after,
   &:before {
@@ -22,8 +26,9 @@
 #{$prefix}-textarea-input{
   @include textfield-base;
   @extend #{$prefix}-textfield-input;
-  display: block;
-  min-height: var(--sdds-spacing-element-32);
+  display: block; 
+  min-height: var(--sdds-textarea-height);
+  resize: vertical;
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
 
   // Display none only works in Chrome

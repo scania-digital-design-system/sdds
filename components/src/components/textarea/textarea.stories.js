@@ -77,30 +77,24 @@ export default {
   }
 };
 
-const style =`<style>
-
-.demo {
-  margin-top: 20px;
-  margin-left:20px;
-  width: 208px
-}
-</style>`;
-
 const textfieldTemplate = ({placeholder,disabled,label,labelPosition,state,helper,textcounter}) => {
   const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"':'';
   return `
-  ${style}
   <c-theme></c-theme>
-  <div class="demo">
-    <sdds-textarea
-      state="${state}"
-      label="${label}"
-      helper="${helper}"
-      label-position="${labelPosition}"
-      ${disabled ? 'disabled' : ''}
-      placeholder="${placeholder}"
-      ${maxlength}>
-    </sdds-textarea>
+  <div class="sdds-container" style="margin-top:10rem;">
+    <div class="sdds-row">
+      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+        <sdds-textarea
+          state="${state}"
+          label="${label}"
+          helper="${helper}"
+          label-position="${labelPosition}"
+          ${disabled ? 'disabled' : ''}
+          placeholder="${placeholder}"
+          ${maxlength}>
+        </sdds-textarea>
+      </div>
+    </div>
   </div>
   `
 };
