@@ -1,120 +1,134 @@
 import {
-  Component, h, Prop, State, Element, Watch, Host, Listen
+  Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter
 } from '@stencil/core';
 
-import BsDropdown from 'bootstrap/js/src/dropdown';
-import { themeStyle } from '../../helpers/themeStyle';
-import store from '../../store';
-
 @Component({
-  tag: 'c-dropdown',
+  tag: 'sdds-dropdown',
   styleUrl: 'dropdown.scss',
   shadow: true,
 })
 export class Dropdown {
-  /** Per default, this will inherit the value from c-theme name property */
-  @Prop({ mutable: true }) theme: string;
+  textInput?: HTMLInputElement;
 
-  /** Button interaction pattern for dropdown */
-  @Prop() buttonType: string = "primary";
+  /** Placeholder text for dropdown with no selected item */
+  @Prop() placeholder:string;
 
-  /** Dropdown direction: dropup, dropright, dropleft */
-  @Prop() direction: string;
+  /** Add the value of the option to set it as default */
+  @Prop() defaultOption:string;
 
-  /** Custom dropdown menu alignment: dropdown-menu-right */
-  @Prop() menuAlignment: string;
+   /** Add the value of the option to set it as default */
+   @Prop() disabled:boolean;
 
-  @State() store = store.state;
+  /** `default`, `multiselect`, `filter`, `nested` */
+  @Prop() type:string = 'default';
 
-  @State() tagName: string;
+  /** `large` (default), `small`, `medium` */
+  @Prop() size:string = 'large';
+  
+  /** Set to true to make the width following the label text length */
+  @Prop() inline:boolean = false;
 
-  @State() currentTheme = { components: [] };
+  /** Position of label: `no-label` (default), `inside`, `outside` */
+  @Prop() labelPosition:string = 'no-label';
 
-  @State() style: Array<CSSStyleSheet>;
+  /** Label text for label inside & outside */
+  @Prop() label:string;
+
+  /** Support `error` state */
+  @Prop() state:string = 'default';
+
+  /** Add helper text in the bottom of dropdown */
+  @Prop() helper:string = '';
 
   @State() items: Array<any> = [];
-
-  @State() dropdown;
-
-  @Element() el;
+  
+  @State() open: boolean = false;
 
   @State() node: HTMLElement;
 
-  @Listen('click', { target: 'window' })
+  @State() selected:string='';
+
+  @Element() host: HTMLElement;
+
+  @Listen('click', { target: 'document' })
   handleClick(ev) {
+    // To stop bubble click
+    ev.stopPropagation();
+    
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
-    if(this.node === target || target.getAttribute('slot') === 'dropdown-title') {
-      const status = this.el.classList.contains('active') ? 'active' : 'inactive';
-      this.toggle(status);
+    if(this.node.contains(target)) {
+      if(typeof this.textInput !== 'undefined' || this.textInput === null) this.textInput.focus();
+      this.open = !this.open;
     } else {
-      this.toggle('active');
-    }    
-  }
-
-  @Watch('theme')
-  setTheme(name = undefined) {
-    this.theme = name || this.store.theme.current;
-    this.currentTheme = this.store.theme.items[this.theme];
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-  }
-
-  toggle(status){
-    if(status === 'active') {
-      this.dropdown.hide();
-      this.el.classList.remove('active')
-    } else {
-      this.dropdown.show();
-      this.el.classList.add('active')
+      this.open = false;
     }
   }
 
-  componentWillLoad() {
-    this.store.theme = store.get('theme');
-
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
-    }).bind(this)});
-
-    this.setTheme(this.theme);
-
-    if (!(this.el && this.el.nodeName)) return;
-
-    this.tagName = this.el.nodeName.toLowerCase();
+  @Listen('selectOption')
+  selectOptionHandler(event: CustomEvent<any>) {
+    this.selected = event.detail.label;
+    this.open = false;
   }
 
-  componentDidLoad() {
-    this.style = this.el.shadowRoot.adoptedStyleSheets || [];
-    
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-    this.dropdown = new BsDropdown(this.node);
+  @Event({
+    eventName: 'inputSearch',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) inputSearch: EventEmitter<any>;
+
+  handleSearch(ev){
+    const searchTerm = ev.target.value;
+    this.inputSearch.emit(searchTerm);
+    this.open = true;
   }
 
   render() {
     return (
-      <Host>
-        <div class={`
-          dropdown
-          ${this.direction ? this.direction : ''}
-        `}>
-          <button 
-          class={`btn btn-${this.buttonType} dropdown-toggle`} 
-          type="button" id="dropdownMenuButton" 
-          data-toggle="dropdown" 
-          aria-haspopup="true" 
-          aria-expanded="false" 
-          onClick={(ev)=>this.handleClick(ev)} 
-          ref={(node) => this.node = node}>
-            <slot name="dropdown-title" data-toggle="dropdown"></slot>
-          </button>
-          <div class={`
-            dropdown-menu
-            ${this.menuAlignment ? this.menuAlignment : ''}
-          `}>
-            <slot name="dropdown-item" />
+      <Host class={{
+        'is-open': this.open,
+        'sdds-dropdown-inline': this.inline,
+        'is-selected': this.selected.length > 0,
+        'is-error': this.state === 'error'
+      }}>
+      <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
+        {
+          this.labelPosition==='outside' && this.label.length > 0 ?
+          <span class='sdds-dropdown-label-outside'>{this.label}</span>
+          : ''
+        }
+        <button 
+        class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`} 
+        type="button" 
+        onClick={(ev)=>this.handleClick(ev)} 
+        ref={(node) => this.node = node}>
+          <div class='sdds-dropdown-label'>
+            {
+              this.labelPosition==='inside' && this.selected.length > 0 ?
+              <span class='sdds-dropdown-label-inside'>{this.label}</span> 
+              : ''
+            }
+            {
+              this.type==='filter' ?
+              <input ref={inputEl => this.textInput = inputEl as HTMLInputElement} class="sdds-dropdown-filter" type="text" placeholder={this.placeholder} value={this.selected} onInput={(event) => this.handleSearch(event)}/>
+              :
+              <span class="sdds-dropdown-label-main">{
+              this.selected.length > 0 ? this.selected : this.placeholder
+              }</span>
+            }
+            
           </div>
+          <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
+          </svg>
+        </button>
+        <div class="sdds-dropdown-menu">
+          <slot/>
         </div>
-      </Host>
+      </div>
+      <span class='sdds-dropdown-helper'>{this.helper}</span>
+    </Host>
     )
   }
 }
