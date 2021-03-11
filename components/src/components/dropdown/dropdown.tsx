@@ -50,6 +50,20 @@ export class Dropdown {
 
   @Element() host: HTMLElement;
 
+  componentWillLoad(){
+    // If default option is set, update the default selected value
+    // this.host.children is a HTMLCollection type, cannot use forEach
+    if(this.defaultOption) {
+      for (let i=0; i<this.host.children.length; i++){
+        const el = this.host.children[i];
+        if(el['value'] === this.defaultOption){
+          this.selected = el.innerHTML;
+          el.setAttribute('selected','true');
+        }
+      }
+    }
+  }
+
   @Listen('click', { target: 'document' })
   handleClick(ev) {
     // To stop bubble click
@@ -57,7 +71,7 @@ export class Dropdown {
     
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
-    if(this.node.contains(target)) {
+    if(this.node!==undefined && this.node.contains(target)) {
       if(typeof this.textInput !== 'undefined' || this.textInput === null) this.textInput.focus();
       this.open = !this.open;
     } else {
