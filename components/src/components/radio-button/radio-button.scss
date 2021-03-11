@@ -2,17 +2,17 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-#{$prefix}-radio-button-group{
+.#{$prefix}-radio-button-group{
   @include type-style('detail-02');
   color: var(--sdds-radio-button-text);
 
-  #{$prefix}-radio-item{
+  .#{$prefix}-radio-item{
     display: flex;
     align-items: center;
   }
 
-  #{$prefix}-form-input[type='radio']:checked,
-  #{$prefix}-form-input[type='radio']:not(:checked){
+  .#{$prefix}-form-input[type='radio']:checked,
+  .#{$prefix}-form-input[type='radio']:not(:checked){
     -webkit-appearance: none;
     outline: none;
     margin: 0;
@@ -86,7 +86,7 @@
     
   }
 
-  #{$prefix}-form-input[type='radio']:checked{
+  .#{$prefix}-form-input[type='radio']:checked{
     &:after{
       border: 4px solid var(--sdds-radio-button-interaction-01);
     }

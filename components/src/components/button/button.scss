@@ -24,7 +24,7 @@ $props : (
   cursor: pointer;
 }
 
-#{$prefix}-btn {
+.#{$prefix}-btn {
   @include button-base;
   height: $btn-default-height;
   padding: var(--sdds-spacing-element-20);
@@ -39,42 +39,42 @@ $props : (
     outline: none;
   }
 
-  #{$prefix}-btn-icon,
-  &#{$prefix}-btn-icon{
+  .#{$prefix}-btn-icon,
+  &.#{$prefix}-btn-icon{
     fill: currentColor;
     color: inherit;
     font-size: 4rem; //16px
   }
-  #{$prefix}-btn-icon {
+  .#{$prefix}-btn-icon {
     margin-left: var(--sdds-spacing-element-32);
     width: 16px;
     height: 16px;
   }
 
-  &#{$prefix}-btn-sm{
+  &.#{$prefix}-btn-sm{
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
-    #{$prefix}-btn-icon{
+    .#{$prefix}-btn-icon{
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &#{$prefix}-btn-md{
+  &.#{$prefix}-btn-md{
     padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
-    #{$prefix}-btn-icon{
+    .#{$prefix}-btn-icon{
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &#{$prefix}-btn-fullbleed{
+  &.#{$prefix}-btn-fullbleed{
     width: inherit;
     text-align: center;
   }
 
   @each $type in $types {
-    &#{$prefix}-btn-#{$type}{
+    &.#{$prefix}-btn-#{$type}{
       @each $prop in $props {
         #{$prop} : var(--sdds-btn-#{$type}-#{$prop});
       }

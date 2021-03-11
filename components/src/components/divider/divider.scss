@@ -1,14 +1,16 @@
+@import '../../helpers/style-helpers.scss';
+
 $types: light,dark,coloured;
 $border-types: top,right,bottom,left;
 
 
 @each $type in $types {
-  .sdds-divider-#{$type} {
+  .#{$prefix}-divider-#{$type} {
     background-color: var(--sdds-divider-#{$type});
     height: 1px;
   }
 
-  .sdds-divider-#{$type}-vertical {
+  .#{$prefix}-divider-#{$type}-vertical {
     background-color: var(--sdds-divider-#{$type}-vertical);
     height: 100%;
     width: 1px;
@@ -16,7 +18,7 @@ $border-types: top,right,bottom,left;
 
   @each $border-type in $border-types {
 
-    .sdds-divider-#{$type}-border-#{$border-type} {
+    .#{$prefix}-divider-#{$type}-border-#{$border-type} {
       border-#{$border-type}:1px solid var(--sdds-divider-#{$type}-border-#{$border-type});
     }
   }
