@@ -23,7 +23,7 @@ export default {
 
 const Template = ({siteName, shortName, siteUrl, items}) => {
   return `
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
   
   <c-header site-name='${siteName}' short-name='${shortName}' site-url='${siteUrl}'>
   ${items}

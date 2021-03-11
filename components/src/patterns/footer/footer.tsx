@@ -8,7 +8,7 @@ import {
   shadow: true,
 })
 export class Footer {
-  /** Per default, this will inherit the value from c-theme name property */
+  /** Per default, this will inherit the value from sdds-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   /** Change default copyright text */
