@@ -1,10 +1,10 @@
 :root,
 html{
-  --sdds-link: #{get-colour(blue-500)};
-  --sdds-link-text-decoration: underline;
-  --sdds-link-hover: #{get-colour(blue-400)};
-  --sdds-link-focus: #{get-colour(blue-400)};
-  --sdds-link-focus-border: 0.8px solid #{get-colour(blue-400)};
-  --sdds-link-visited: #{get-colour(grey-900)};
-  --sdds-link-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-link: #{get-colour(blue-500)};
+  --#{$prefix}-link-text-decoration: underline;
+  --#{$prefix}-link-hover: #{get-colour(blue-400)};
+  --#{$prefix}-link-focus: #{get-colour(blue-400)};
+  --#{$prefix}-link-focus-border: 0.8px solid #{get-colour(blue-400)};
+  --#{$prefix}-link-visited: #{get-colour(grey-900)};
+  --#{$prefix}-link-disabled: #{get-colour(grey-200)};
 }
