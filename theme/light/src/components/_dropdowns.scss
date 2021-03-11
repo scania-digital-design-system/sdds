@@ -2,33 +2,33 @@
 
 :root,
 html{
-  --sdds-dropdown-border-radius:1rem;
+  --#{$prefix}-dropdown-border-radius:1rem;
   
-  --sdds-dropdown-error:#{get-colour(red-500)};
-  --sdds-dropdown-helper-text:#{get-colour(grey-500)};
-  --sdds-dropdown-label-outside: #{get-colour(grey-900)};
-  --sdds-dropdown-label-inside: #{get-colour(grey-500)};
-  --sdds-dropdown-text: #{get-colour(grey-900)};
-  --sdds-dropdown-placeholder: #{get-colour(grey-500)};
+  --#{$prefix}-dropdown-error:#{get-colour(red-500)};
+  --#{$prefix}-dropdown-helper-text:#{get-colour(grey-500)};
+  --#{$prefix}-dropdown-label-outside: #{get-colour(grey-900)};
+  --#{$prefix}-dropdown-label-inside: #{get-colour(grey-500)};
+  --#{$prefix}-dropdown-text: #{get-colour(grey-900)};
+  --#{$prefix}-dropdown-placeholder: #{get-colour(grey-500)};
 
-  --sdds-dropdown-filter-border: #{get-colour(blue-500)};
+  --#{$prefix}-dropdown-filter-border: #{get-colour(blue-500)};
   
   // Only applied to toggle button
-  --sdds-dropdown-toggle-border-hover: #{get-colour(grey-300)};
-  --sdds-dropdown-toggle-border-selected: #{get-colour(blue-200)};
-  --sdds-dropdown-toggle-border-focus: #{get-colour(blue-400)};
-  --sdds-dropdown-toggle-border-error: #{get-colour(red-500)};
-  --sdds-dropdown-toggle-background-error: #{get-colour(white)};
+  --#{$prefix}-dropdown-toggle-border-hover: #{get-colour(grey-300)};
+  --#{$prefix}-dropdown-toggle-border-selected: #{get-colour(blue-200)};
+  --#{$prefix}-dropdown-toggle-border-focus: #{get-colour(blue-400)};
+  --#{$prefix}-dropdown-toggle-border-error: #{get-colour(red-500)};
+  --#{$prefix}-dropdown-toggle-background-error: #{get-colour(white)};
 
   // Applied to both toggle and option
-  --sdds-dropdown-text-disabled: #{get-colour(grey-200)};
-  --sdds-dropdown-background: #{get-colour(white)};
-  --sdds-dropdown-background-hover: #{get-colour(blue-50)};
-  --sdds-dropdown-background-focus: #{get-colour(white)};
-  --sdds-dropdown-background-selected: #{get-colour(blue-100)};
-  --sdds-dropdown-background-disabled: #{get-colour(white)};
-  --sdds-dropdown-border: #{get-colour(grey-100)};
-  --sdds-dropdown-border-focus: #{get-colour(blue-400)};
-  --sdds-dropdown-border-selected: #{get-colour(blue-100)}; 
-  --sdds-dropdown-border-disabled: #{get-colour(grey-100)};
+  --#{$prefix}-dropdown-text-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-dropdown-background: #{get-colour(white)};
+  --#{$prefix}-dropdown-background-hover: #{get-colour(blue-50)};
+  --#{$prefix}-dropdown-background-focus: #{get-colour(white)};
+  --#{$prefix}-dropdown-background-selected: #{get-colour(blue-100)};
+  --#{$prefix}-dropdown-background-disabled: #{get-colour(white)};
+  --#{$prefix}-dropdown-border: #{get-colour(grey-100)};
+  --#{$prefix}-dropdown-border-focus: #{get-colour(blue-400)};
+  --#{$prefix}-dropdown-border-selected: #{get-colour(blue-100)}; 
+  --#{$prefix}-dropdown-border-disabled: #{get-colour(grey-100)};
 }

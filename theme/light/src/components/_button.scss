@@ -107,10 +107,10 @@ $btn-danger:(
 
     @if ($keyval == hover or $keyval == active or $keyval == focus or $keyval == disabled) {
       @each $prop, $val in $value {
-        --sdds-btn-#{$type}-#{$prop}-#{$keyval} : #{$val};
+        --#{$prefix}-btn-#{$type}-#{$prop}-#{$keyval} : #{$val};
       }
     } @else {
-      --sdds-btn-#{$type}-#{$keyval} : #{$value};
+      --#{$prefix}-btn-#{$type}-#{$keyval} : #{$value};
     }   
   }
 }
