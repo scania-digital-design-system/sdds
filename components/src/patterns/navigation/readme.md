@@ -15,7 +15,7 @@
 | `secondaryItems` | `secondary-items` | Item links on the right side of the navigation. On vertical orientation, it will be added in order after primary-items.                    | `any`     | `undefined` |
 | `sticky`         | `sticky`          | Option to disable sticky feature                                                                                                           | `boolean` | `true`      |
 | `target`         | `target`          | Used to dynamically connect current node to a parent item in mobile mode interaction                                                       | `string`  | `undefined` |
-| `theme`          | `theme`           | Per default, this will inherit the value from c-theme name property                                                                        | `string`  | `undefined` |
+| `theme`          | `theme`           | Per default, this will inherit the value from sdds-theme name property                                                                     | `string`  | `undefined` |
 
 
 ----------------------------------------------

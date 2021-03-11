@@ -16,7 +16,7 @@ import { CHeader } from '@sdds/components/dist/custom-elements';
 | `shortName` | `short-name` | Short name will be displayed in the top-centered of the header on mobile mode          | `string` | `undefined` |
 | `siteName`  | `site-name`  | The site name will be displayed on the right hand side of the logotype on desktop mode | `string` | `undefined` |
 | `siteUrl`   | `site-url`   | A link that will be applied to the site-name                                           | `string` | `'/'`       |
-| `theme`     | `theme`      | Per default, this will inherit the value from c-theme name property                    | `string` | `undefined` |
+| `theme`     | `theme`      | Per default, this will inherit the value from sdds-theme name property                 | `string` | `undefined` |
 | `variation` | `variation`  | Variation to header                                                                    | `string` | `undefined` |
 
 
