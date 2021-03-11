@@ -3,11 +3,13 @@
 ```html
 <sdds-dropdown 
     size="large"
-    label="Select option"
+    placeholder="Select option"
+    label="Label text"
     disabled="false"
     label-position="no-label"
     helper="Helper text"
-    state="default">
+    state="default"
+    default-option="option-1">
     <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
     <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
     <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
@@ -19,9 +21,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                      | Type     | Default     |
-| -------- | --------- | ---------------------------------------------------------------- | -------- | ----------- |
-| `value`  | `value`   | Value is a unique string that will be used for application logic | `string` | `undefined` |
+| Property   | Attribute  | Description                                                      | Type      | Default     |
+| ---------- | ---------- | ---------------------------------------------------------------- | --------- | ----------- |
+| `selected` | `selected` | Selected set to true if selected                                 | `boolean` | `false`     |
+| `value`    | `value`    | Value is a unique string that will be used for application logic | `string`  | `undefined` |
 
 
 ## Events
