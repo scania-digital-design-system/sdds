@@ -10,7 +10,9 @@
   padding: 2rem;
   word-wrap: break-word;
   max-width: 48rem;
-  // top: var(--sdds-spacing-element-8);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.1s ease-in;
 
   &.sdds-tooltip-top-left {
     border-radius: 0rem 1rem 1rem 1rem;
@@ -26,6 +28,7 @@
   }
 }
 
-.sdds-tooltip-hidden {
-  display: none;
+.sdds-tooltip-show {
+  visibility: visible;
+  opacity: 1;
 }
