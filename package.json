@@ -34,5 +34,8 @@
       "Improvement": ":seedling: Improvements",
       "bug": ":bug: Bug Fix"
     }
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.1"
   }
 }

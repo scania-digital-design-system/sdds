@@ -12,51 +12,30 @@ export default {
   }
 };
 
-const ComponentTooltip = ({tooltipBorder, text=''}) => {
-
-  class SDDSTooltip extends HTMLElement {
-    constructor() {
-  
-      super();
-
-    }
-    
-    connectedCallback() {
-      this._target = document.querySelector('#button-1');
-      document.querySelector('#tooltip-1').hidden = true;
-
-      this._target.addEventListener('mouseenter', this._show);
-      this._target.addEventListener('mouseleave', this._hide);
-
-    }
-
-    _show() {
-      document.querySelector('#tooltip-1').hidden = false;
-    }
-
-    _hide() {
-      document.querySelector('#tooltip-1').hidden = true;
-    }
-
-    disconnectedCallback() {
-    }
-
-  }
-
-  window.customElements.define('sdds-tooltip', SDDSTooltip);
+const ComponentTooltip = ({...Basic}) => {
   
   return `
+  <style>
+    #button-1 {
+    margin-left: 300px;
+    margin-top: 80px;
+    display: inline-block;
+    }
+  </style>
   <c-theme name="scania" global="true"></c-theme>
   
-  <sdds-tooltip id="tooltip-1" border="${tooltipBorder}" text='${text}' ></sdds-tooltip>
+  <sdds-tooltip selector="#button-1" border="${Basic.tooltipBorder}" text='${Basic.text}' ></sdds-tooltip>
   
   <sdds-button id="button-1" type="primary" text="Button"></sdds-button>
-  
-  <h1 id="hett">HELLO THERE</h1>
   `
 };
 
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {
-  text: 'Text'
+  text: 'Text',
+}
+
+export const Basic1 = ComponentTooltip.bind({});
+Basic1.args = {
+  text: 'Text',
 }

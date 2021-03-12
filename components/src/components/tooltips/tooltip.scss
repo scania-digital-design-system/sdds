@@ -8,11 +8,9 @@
   background-color: var(--sdds-tooltip-background);
   border-radius: 1rem;
   padding: 2rem;
-  position: absolute;
   word-wrap: break-word;
   max-width: 48rem;
-  top: var(--sdds-spacing-element-8);
-  left: 25%;
+  // top: var(--sdds-spacing-element-8);
 
   &.sdds-tooltip-top-left {
     border-radius: 0rem 1rem 1rem 1rem;
@@ -26,4 +24,8 @@
   &.sdds-tooltip-bottom-left {
     border-radius: 1rem 1rem 1rem 0rem;
   }
+}
+
+.sdds-tooltip-hidden {
+  display: none;
 }
