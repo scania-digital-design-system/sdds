@@ -1,6 +1,6 @@
 {
   "name": "@scania/components",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
-    "@scania/theme-light": "^1.1.0",
+    "@scania/theme-light": "^1.2.0",
     "@scania/typography": "^1.0.0",
     "@stencil/core": "2.3.0",
     "@stencil/router": "1.0.1",
@@ -83,7 +83,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@scania/typography": "^1.0.1",
+    "@scania/typography": "^1.1.0",
     "concurrently": "^5.3.0"
   },
   "gitHead": "c57c19dc8ab121f851ba2af4eaaa59e54ac5afa2"
