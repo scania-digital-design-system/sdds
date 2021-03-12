@@ -10,8 +10,8 @@
 | Property   | Attribute  | Description | Type      | Default     |
 | ---------- | ---------- | ----------- | --------- | ----------- |
 | `border`   | `border`   |             | `string`  | `undefined` |
-| `hidden`   | `hidden`   |             | `boolean` | `true`      |
 | `selector` | `selector` |             | `string`  | `""`        |
+| `show`     | `show`     |             | `boolean` | `false`     |
 | `text`     | `text`     |             | `string`  | `""`        |
 
 

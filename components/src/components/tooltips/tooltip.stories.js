@@ -1,15 +1,5 @@
 export default {
   title: 'Component/Tooltip',
-  argTypes: {
-    tooltipBorder: {
-      control: {
-        type: 'select',
-        options:['default', 'top-left', 'top-right', 'bottom-right', 'bottom-left']
-      },
-      defaultValue: 'top-left',
-      description: 'Five different tooltip examples, including change of direction arrows'
-    },
-  }
 };
 
 const ComponentTooltip = ({...Basic}) => {
@@ -17,8 +7,6 @@ const ComponentTooltip = ({...Basic}) => {
   return `
   <style>
     #button-1 {
-    margin-left: 300px;
-    margin-top: 80px;
     display: inline-block;
     }
   </style>
@@ -32,10 +20,5 @@ const ComponentTooltip = ({...Basic}) => {
 
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {
-  text: 'Text',
-}
-
-export const Basic1 = ComponentTooltip.bind({});
-Basic1.args = {
-  text: 'Text',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 }
