@@ -1,6 +1,6 @@
 import {
     Component, h, Prop, State, Element, Host,
-    Event, EventEmitter, Listen
+    Event, EventEmitter
   } from '@stencil/core';
   
   @Component({
@@ -12,12 +12,14 @@ import {
     
     @Element() host: HTMLElement;
 
-    @State() selected:boolean=false;
     // Used as a fallback if value prop is not recognized to match handleClick
     @State() innerValue:string;
 
+    /** Selected set to true if selected */
+    @Prop() selected:boolean=false;
+
     /** Value is a unique string that will be used for application logic */
-    @Prop() value:string;    
+    @Prop({ reflect:true }) value:string;    
 
     @Event({
       eventName: 'selectOption',
@@ -30,24 +32,18 @@ import {
       this.innerValue = this.value;
     }
 
-    @Listen('click', { target: 'document' })
-    handleClick(ev) {
-      // To stop bubble click
-      ev.stopPropagation();
-      
-      const target = ev.target.getAttribute('value');
-      if(target !== this.innerValue) this.selected = false;
-    }
-
     selectOptionHandler(value) {
       this.selectOption.emit(value);
+      value.parent.children.forEach(optionEl => {
+        optionEl.selected = false;
+      });
       this.selected = true;
     }    
   
     render() {
       return (
         <Host 
-        onClick={()=>this.selectOptionHandler({value: this.value, label: this.host.innerHTML})}
+        onClick={(ev)=>this.selectOptionHandler({value: this.value, label: this.host.innerHTML, parent: ev.target.parentNode})}
         class={{
           'selected': this.selected
         }}>

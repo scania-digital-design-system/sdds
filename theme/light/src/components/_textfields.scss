@@ -31,4 +31,8 @@ html{
   --#{$prefix}-textfield-textcounter-divider: #{get-colour(grey-300)};
   //Prefix and Suffix
   --#{$prefix}-textfield-ps-color: #{get-colour(grey-400)};
+  // Textarea resize icon
+  --#{$prefix}-textfield-resize-icon: #{get-colour(grey-300)};
+  --#{$prefix}-textarea-min-width: 208px;
+  --#{$prefix}-textarea-height: 112px;
 }
