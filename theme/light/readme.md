@@ -49,10 +49,10 @@ Replace `x` with [available releases](https://www.npmjs.com/@scania/theme-light)
 
 ## Setup in project
 
-Initialize the theme with the `c-theme` component. Set `global` attribute to true in order to enable bootstrap styling.
+Initialize the theme with the `sdds-theme` component. Set `global` attribute to true in order to enable bootstrap styling.
 
 ```html
-<c-theme name="scania" global="true"></c-theme>
+<sdds-theme name="scania" global="true"></sdds-theme>
 ```
 
 ## Setup local development
