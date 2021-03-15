@@ -22,7 +22,7 @@ export class Tooltip {
     const _this = this;
 
     createPopper(this.target, this.tooltip, {
-      placement: 'bottom-start',
+      placement: 'bottom',
       modifiers: [
         {
           name: 'positionCalc',
