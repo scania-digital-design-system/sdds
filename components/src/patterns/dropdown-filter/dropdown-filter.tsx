@@ -46,6 +46,10 @@ export class DropdownFilter {
 
   componentWillLoad(){
     this.parseData(this.data);
+
+    if(this.defaultOption) {
+      this.selectedOption = this.defaultOption;
+    }
   }
 
   @Watch('data')
@@ -85,7 +89,8 @@ export class DropdownFilter {
 
   setOptionsContent(){
     return (this.filteredContent.map((obj) =>
-      <sdds-dropdown-option value={obj.value} class={`${(this.selectedOption === obj.value ? 'selected':'')}`}>{obj.label}</sdds-dropdown-option>
+      <sdds-dropdown-option value={obj.value}
+      class={`${(this.selectedOption === obj.value ? 'selected':'')}`}>{obj.label}</sdds-dropdown-option>
     ))
   }
 
@@ -95,10 +100,11 @@ export class DropdownFilter {
         size={this.size}
         label={this.label}
         disabled={this.disabled}
-        label-position={this.labelPosition}
+        labelPosition={this.labelPosition}
         helper={this.helper}
         state={this.state}        
         placeholder={this.placeholder}
+        defaultOption={this.defaultOption}
         type="filter">
           {this.setOptionsContent()}
       </sdds-dropdown>
