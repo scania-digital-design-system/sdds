@@ -11,7 +11,7 @@ import { version } from '@stencil/../../package.json';
 import store from '../../store'
 
 @Component({
-  tag: 'c-theme',
+  tag: 'sdds-theme',
   styleUrl: 'theme.scss'
 })
 export class Theme {

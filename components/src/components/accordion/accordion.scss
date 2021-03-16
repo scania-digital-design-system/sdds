@@ -9,8 +9,8 @@
     cursor: not-allowed;
   }
   
-  #{$prefix}-accordion-header-prefix,
-  #{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-prefix,
+  .#{$prefix}-accordion-header-suffix{
     background-color: var(--sdds-accordion-background);
     outline: none;
     pointer-events: none;
@@ -20,7 +20,7 @@
   }
 }
 
-#{$prefix}-accordion-item{
+.#{$prefix}-accordion-item{
   list-style: none;
   color: var(--sdds-accordion-colour);
 
@@ -29,8 +29,8 @@
     box-sizing: border-box;
   }
 
-  #{$prefix}-accordion-header-prefix,
-  #{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-prefix,
+  .#{$prefix}-accordion-header-suffix{
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-background);
 
-    #{$prefix}-accordion-icon{
+    .#{$prefix}-accordion-icon{
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
       color: var(--sdds-accordion-colour);
@@ -46,11 +46,11 @@
 
   }
 
-  #{$prefix}-accordion-title{
+  .#{$prefix}-accordion-title{
     flex-grow: 2;
   }
 
-  #{$prefix}-accordion-panel{
+  .#{$prefix}-accordion-panel{
     cursor: default;
     padding-top: var(--sdds-spacing-element-8);
     padding-bottom: var(--sdds-spacing-element-32);
@@ -64,16 +64,16 @@
     }
   }    
 
-  #{$prefix}-accordion-header-suffix {     
-    #{$prefix}-accordion-icon {
+  .#{$prefix}-accordion-header-suffix {     
+    .#{$prefix}-accordion-icon {
       margin: 0 0 0 var(--sdds-spacing-element-32);
     }
   }
-  #{$prefix}-accordion-header-prefix {
-    #{$prefix}-accordion-title{
+  .#{$prefix}-accordion-header-prefix {
+    .#{$prefix}-accordion-title{
       order: 1;
     }
-    #{$prefix}-accordion-icon {
+    .#{$prefix}-accordion-icon {
       order: 0;
       margin: 0 var(--sdds-spacing-element-16) 0 0;
     }
@@ -81,16 +81,16 @@
   
 
   &:hover{
-    #{$prefix}-accordion-header-prefix,
-    #{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-prefix,
+    .#{$prefix}-accordion-header-suffix{
       background-color: var(--sdds-accordion-background-hover);
     }
   }
 
   &:focus{
     outline: none;
-    #{$prefix}-accordion-header-prefix,
-    #{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-prefix,
+    .#{$prefix}-accordion-header-suffix{
       background-color: var(--sdds-accordion-background-focus);
       outline: none;
     }
@@ -98,8 +98,8 @@
 
   &:active,
   &.active {
-    #{$prefix}-accordion-header-prefix,
-    #{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-prefix,
+    .#{$prefix}-accordion-header-suffix{
       background-color: var(--sdds-accordion-background-active);
       outline: none;
     }
@@ -107,13 +107,13 @@
   
   &.disabled {
     &,
-    #{$prefix}-accordion-header-suffix,
-    #{$prefix}-accordion-header-prefix,
-    #{$prefix}-accordion-panel{
+    .#{$prefix}-accordion-header-suffix,
+    .#{$prefix}-accordion-header-prefix,
+    .#{$prefix}-accordion-panel{
       color: var(--sdds-accordion-colour-disabled);
       cursor: not-allowed;
 
-      #{$prefix}-accordion-icon{
+      .#{$prefix}-accordion-icon{
         color: var(--sdds-accordion-colour-disabled);
       }
     }
@@ -127,20 +127,20 @@
   }
 
   &.expanded {
-    #{$prefix}-accordion-panel {
+    .#{$prefix}-accordion-panel {
       display: block;
     }
-    #{$prefix}-accordion-icon {
+    .#{$prefix}-accordion-icon {
       transform: rotate(180deg);
     }
-    #{$prefix}-accordion-header-suffix{
-      #{$prefix}-accordion-icon {
+    .#{$prefix}-accordion-header-suffix{
+      .#{$prefix}-accordion-icon {
         margin-right: 0;
         margin-left: var(--sdds-spacing-element-32);
       }
     }      
-    #{$prefix}-accordion-header-prefix{
-      #{$prefix}-accordion-icon {
+    .#{$prefix}-accordion-header-prefix{
+      .#{$prefix}-accordion-icon {
         margin-left: 0;
         margin-right: var(--sdds-spacing-element-16);
       }
@@ -153,8 +153,8 @@
 :host{
   display: block;
 
-  #{$prefix}-accordion-header-prefix,
-  #{$prefix}-accordion-header-suffix {
+  .#{$prefix}-accordion-header-prefix,
+  .#{$prefix}-accordion-header-suffix {
     position: relative;
     &:after{
       content: '';
@@ -187,9 +187,9 @@
 :host(:focus) {
   outline: none;
 
-  #{$prefix}-accordion-item{
-    #{$prefix}-accordion-header-prefix,
-    #{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-item{
+    .#{$prefix}-accordion-header-prefix,
+    .#{$prefix}-accordion-header-suffix{
       background-color: var(--sdds-accordion-background-focus);
       outline: none;
       &:after {
@@ -205,8 +205,8 @@
 }
 
 :host(:active){
-  #{$prefix}-accordion-header-prefix,
-  #{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-prefix,
+  .#{$prefix}-accordion-header-suffix{
     background-color: var(--sdds-accordion-background-active);
     outline: none;
   }

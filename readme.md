@@ -10,9 +10,10 @@ The design system supports the design and development of digital solutions at Sc
 - Firefox
 - Safari
 - Edge (chromium)
+
 ## Getting started
 
-You can use SDDS CSS custom properties to use the design tokens for colour, typography, spacing, and logotype. To have all CSS custom properties available, you need to install both compoonents and scania-theme. And then you need to include `c-theme` component in your application. Check instruction below on how to install components and scania-theme. 
+You can use SDDS CSS custom properties to use the design tokens for colour, typography, spacing, and logotype. To have all CSS custom properties available, you need to install both compoonents and scania-theme. And then you need to include `sdds-theme` component in your application. Check instruction below on how to install components and scania-theme. 
 
 - [How to install components](https://github.com/scania-digital-design-system/sdds/blob/master/components/readme.md)
 - [How to install scania-theme](https://github.com/scania-digital-design-system/sdds/blob/master/theme/light/readme.md)
@@ -33,7 +34,7 @@ Check the working demo on this repository.
 
 - [Angular](./demo/angular)
 - [React](./demo/react)
-- [React](./demo/vue)
+- [Vue](./demo/vue)
 - [HTML](./demo/HTML)
 
 ## Migration

@@ -1,9 +1,11 @@
 @import './tokens';
+@import '../prefix';
+@import './vars';
 
 // generate colour class for background (.sdds-background-{token-name})
 @each $key, $value in $all-colours {
   $val : '' + $key;
-  .sdds-background-#{$val} {
+  .#{$prefix}-background-#{$val} {
     background-color: $value;
   }
 }
@@ -11,7 +13,7 @@
 // generate colour class for text (.sdds-text-{token-name})
 @each $key, $value in $all-colours {
   $val : '' + $key;
-  .sdds-text-#{$val} {
+  .#{$prefix}-text-#{$val} {
     color: $value;
   }
 }
