@@ -1,7 +1,7 @@
 @import '../../helpers/style-helpers.scss';
 
 a,
-#{$prefix}-link{
+.#{$prefix}-link{
   cursor: pointer;
   outline: none;
 
