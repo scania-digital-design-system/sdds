@@ -25,7 +25,7 @@ const style =`<style>
 const dividerTemplate = ({...Basic}) => {
   return `
   ${style}
-    <c-theme></c-theme>
+    <sdds-theme></sdds-theme>
 
     <div style="width: ${Basic.width}px;" class="demo sdds-divider-${Basic.type}"></div>
   `
@@ -53,7 +53,7 @@ Basic.args = {
 const dividerVerticalTemplate = ({...Vertical}) => {
   return `
   ${style}
-    <c-theme></c-theme>
+    <sdds-theme></sdds-theme>
 
     <div style="height:${Vertical.height}px;" class="demo sdds-divider-${Vertical.type}-vertical"></div>
   `
@@ -80,7 +80,7 @@ Vertical.args = {
 const dividerBorderTemplate = ({...Border}) => {
   return `
   ${style}
-    <c-theme></c-theme>
+    <sdds-theme></sdds-theme>
 
     <div class="demo">
       <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="demo divider-border-demo sdds-divider-${Border.type}-border-${Border.direction}">Demo</div>

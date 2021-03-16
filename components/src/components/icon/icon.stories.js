@@ -9,7 +9,7 @@ const IconTemplate = ({icon,size}) => {
       font-size: ${size}rem;
     }
   </style>
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
   <c-icon name="${icon}" >c-icon</c-icon>
   `
 };
