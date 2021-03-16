@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                         | Type      | Default     |
-| -------- | --------- | ------------------------------------------------------------------- | --------- | ----------- |
-| `router` | `router`  | This property is in experimental state                              | `boolean` | `undefined` |
-| `theme`  | `theme`   | Per default, this will inherit the value from c-theme name property | `string`  | `undefined` |
+| Property | Attribute | Description                                                            | Type      | Default     |
+| -------- | --------- | ---------------------------------------------------------------------- | --------- | ----------- |
+| `router` | `router`  | This property is in experimental state                                 | `boolean` | `undefined` |
+| `theme`  | `theme`   | Per default, this will inherit the value from sdds-theme name property | `string`  | `undefined` |
 
 
 ----------------------------------------------

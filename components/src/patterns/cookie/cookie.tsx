@@ -14,7 +14,7 @@ import Tab from 'bootstrap/js/src/tab';
   shadow: true,
 })
 export class Cookie {
-  /** Per default, this will inherit the value from c-theme name property */
+  /** Per default, this will inherit the value from sdds-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   @Prop() open: boolean;

@@ -9,7 +9,7 @@ export default {
 
 const Template = ({primaryItems, secondaryItems, subNavigation}) => {
   return `
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
 
   <c-navigation>
   ${primaryItems}

@@ -46,7 +46,7 @@ const Template = ({size, disabled='', headline=''}) => {
       margin: 5rem 2rem;
     }
     </style>
-    <c-theme name="scania"></c-theme>
+    <sdds-theme name="scania"></sdds-theme>
     <div class="demo-container">
       <div class="demo-toggle sdds-toggle ${sizeValue} ${disabled}" tabindex="0">
         ${headlineDiv}

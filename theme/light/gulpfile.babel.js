@@ -272,6 +272,7 @@ async function initTheme(cb) {
   console.log('Generate css styles');
 
   glob.sync('src/patterns/*.scss').forEach(generateCss);
+  glob.sync('src/theme/*.scss').forEach(generateCss);
 
   console.log('Generate style module');
 
@@ -439,7 +440,7 @@ function generateCss(file) {
     .toString();
     // .replace(/:root {([^}]*)}/, '');
 
-  if(name !== 'c-theme' && name !== 'c-global-style') {
+  if(name !== 'sdds-theme') {
     content_ie = polyfill(name, content_ie);
   }
 

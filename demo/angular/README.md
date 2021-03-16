@@ -33,9 +33,9 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
    ```
 2. Include `CUSTOM_ELEMENTS_SCHEMA` in the modules
 3. Import `defineCustomElements` and `add-theme` from `@scania/components`
-4. Import `theme` from `@scania/theme-light` and use `c-theme` component in the template
+4. Import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
 
-   ```<c-theme name="scania" global="true"></c-theme>```
+   ```<sdds-theme name="scania" global="true"></sdds-theme>```
 
    Set `global` attribute to true, it will add CSS variables and SDDS tokens.
 
@@ -97,7 +97,7 @@ addTheme(scania);
 @Component({
   selector: '#app-root',
   template: `
-  <c-theme name="scania" global="true"></c-theme>
+  <sdds-theme name="scania" global="true"></sdds-theme>
   <div className="sdds-container">
     <div className="sdds-row">
       <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
