@@ -20,7 +20,7 @@ const ComponentTooltip = ({...Basic}) => {
     display: inline-block;
     }
   </style>
-  <c-theme name="scania" global="true"></c-theme>
+  <sdds-theme name="scania" global="true"></sdds-theme>
   
   <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
     <div class="sdds-row">
