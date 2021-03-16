@@ -48,7 +48,7 @@ export class Tooltip {
 
             } else if (state.placement === 'left-start') {
               _this.border = 'bottom-right';
-              
+
             } else if (state.placement === 'right-start') {
               _this.border = 'bottom-left';
             }
@@ -65,18 +65,10 @@ export class Tooltip {
 
     this.target.addEventListener('mouseenter', () => {
       this.show = true;
-      //TODO fix improve performance in the future, destroy poppers when it's not visible.
-      // popperInstance.setOptions({
-      //   modifiers: [{ name: 'eventListeners', enabled: true }],
-      // });
-      // popperInstance.update();
     });
 
     this.target.addEventListener('mouseleave', () => {
       this.show = false;
-      // popperInstance.setOptions({
-      //   modifiers: [{ name: 'eventListeners', enabled: false }],
-      // });
     });
   };
   
