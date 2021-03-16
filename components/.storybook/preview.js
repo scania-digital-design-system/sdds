@@ -44,7 +44,7 @@ const customViewports = {
 
 //Storybook settings
 export const parameters = {
-  controls: { expanded: true },
+  // controls: { expanded: true }, // disabled this to hide description and default in control
   viewport: { viewports: customViewports },
   grid: { cellSize: 4 }, //TODO: correct gridcellsize
   backgrounds: {

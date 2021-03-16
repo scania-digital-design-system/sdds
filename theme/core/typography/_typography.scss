@@ -3,12 +3,13 @@
 
 @import './vars';
 @import '../base-unit';
+@import '../prefix';
 @import './mixins';
 @import './tokens';
 
 // Generate class for tokens (.sdds-headline-01)
 @each $key, $value in $typography-sets {
-  .sdds-#{$key} {
+  .#{$prefix}-#{$key} {
     @include type-style($key);
   }
 }
