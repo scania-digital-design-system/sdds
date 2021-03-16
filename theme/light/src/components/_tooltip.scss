@@ -1,0 +1,7 @@
+@import '../core/prefix';
+
+:root,
+html{
+  --sdds-tooltip-background: #{get-colour(grey-600)};
+  --sdds-tooltip-colour: #{get-colour(white)};
+}
