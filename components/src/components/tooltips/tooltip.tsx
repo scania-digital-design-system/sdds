@@ -31,26 +31,20 @@ export class Tooltip {
           phase: 'main',
           fn({ state }) {
 
-            if (state.placement === 'bottom-start' || state.placement === 'right-end') {
+            if (state.placement === 'bottom-start' || state.placement === 'right-start') {
               _this.border = 'top-left';
 
-            } else if (state.placement === 'bottom-end' || state.placement === 'left-end') {
+            } else if (state.placement === 'bottom-end' || state.placement === 'left-start') {
               _this.border = 'top-right';
               
-            } else if (state.placement === 'top-start' || state.placement === 'left') {
+            } else if (state.placement === 'top-end' || state.placement === 'left-end') {
               _this.border = 'bottom-right';
 
-            } else if (state.placement === 'top-end' || state.placement === 'right') {
+            } else if (state.placement === 'top-start' || state.placement === 'right-end') {
               _this.border = 'bottom-left';
 
             } else if (state.placement === 'bottom' || state.placement === 'top') {
               _this.border = 'default';
-
-            } else if (state.placement === 'left-start') {
-              _this.border = 'bottom-right';
-
-            } else if (state.placement === 'right-start') {
-              _this.border = 'bottom-left';
             }
           }
         },
