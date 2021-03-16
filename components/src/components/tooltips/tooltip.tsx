@@ -17,11 +17,11 @@ export class Tooltip {
   @State() target: any;
   
   tooltip!: HTMLInputElement;
-  
+   
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
     const _this = this;
-
+ 
     createPopper(this.target, this.tooltip, {
       placement: _this.placement,
       modifiers: [
@@ -75,4 +75,3 @@ export class Tooltip {
   )
 }
 }
-
