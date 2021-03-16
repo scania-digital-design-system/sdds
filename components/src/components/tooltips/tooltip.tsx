@@ -15,7 +15,7 @@ export class Tooltip {
   @Prop() show: boolean = false;
   @Prop() placement: Placement = 'bottom';
   @State() target: any;
- 
+  
   tooltip!: HTMLInputElement;
   
   componentDidLoad() {
