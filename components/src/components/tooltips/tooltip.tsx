@@ -1,5 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core';
 import { createPopper } from '@popperjs/core';
+import type { Placement } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-tooltip',
@@ -12,17 +13,17 @@ export class Tooltip {
   @Prop() border: string;
   @Prop() selector = "";
   @Prop() show: boolean = false;
+  @Prop() placement: Placement = 'bottom';
   @State() target: any;
 
   tooltip!: HTMLInputElement;
   
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
-
     const _this = this;
 
     createPopper(this.target, this.tooltip, {
-      placement: 'bottom',
+      placement: _this.placement,
       modifiers: [
         {
           name: 'positionCalc',
@@ -30,20 +31,26 @@ export class Tooltip {
           phase: 'main',
           fn({ state }) {
 
-            if (state.placement === 'bottom-start') {
+            if (state.placement === 'bottom-start' || state.placement === 'right-end') {
               _this.border = 'top-left';
 
-            } else if (state.placement === 'bottom-end') {
+            } else if (state.placement === 'bottom-end' || state.placement === 'left-end') {
               _this.border = 'top-right';
               
             } else if (state.placement === 'top-start' || state.placement === 'left') {
               _this.border = 'bottom-right';
 
-            } else if (state.placement === 'right' || state.placement === 'top-end') {
+            } else if (state.placement === 'top-end' || state.placement === 'right') {
               _this.border = 'bottom-left';
 
-            } else if (state.placement === 'top' || state.placement === 'bottom') {
+            } else if (state.placement === 'bottom' || state.placement === 'top') {
               _this.border = 'default';
+
+            } else if (state.placement === 'left-start') {
+              _this.border = 'bottom-right';
+              
+            } else if (state.placement === 'right-start') {
+              _this.border = 'bottom-left';
             }
           }
         },
