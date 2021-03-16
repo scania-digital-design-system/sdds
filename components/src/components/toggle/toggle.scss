@@ -3,14 +3,14 @@
 @import '@scania/typography/dist/scss/tokens';
 
 @mixin activeState {
-  + #{$prefix}-toggle-switch{
+  + .#{$prefix}-toggle-switch{
     &:before{
       background-color: var(--sdds-toggle-off-slider-pressed);
       border: 1px solid var(--sdds-toggle-off-slider-pressed);
     }
   }
   &:checked {
-    + #{$prefix}-toggle-switch{
+    + .#{$prefix}-toggle-switch{
       &:before{
         background-color: var(--sdds-toggle-on-slider-pressed);
         border: 1px solid var(--sdds-toggle-on-slider-pressed);
@@ -19,7 +19,7 @@
   }
 }
 
-#{$prefix}-toggle{
+.#{$prefix}-toggle{
   position: relative;
   display: flex;
   align-items: center;
@@ -29,14 +29,14 @@
     box-sizing: border-box;
   }
   
-  #{$prefix}-toggle-headline {
+  .#{$prefix}-toggle-headline {
     @include type-style('detail-02');
     color: var(--sdds-toggle-headline);
     flex: 1 100%;
     margin-bottom: 3rem;
   }
 
-  #{$prefix}-toggle-input{
+  .#{$prefix}-toggle-input{
     margin: 0;
     padding: 0;
     position: absolute;
@@ -48,7 +48,7 @@
     cursor: pointer;
   }
 
-  #{$prefix}-toggle-switch{
+  .#{$prefix}-toggle-switch{
     width: var(--sdds-toggle-slider-width);
     height: var(--sdds-toggle-slider-height);
     position: relative;
@@ -81,14 +81,14 @@
     }
   }
 
-  #{$prefix}-toggle-label {
+  .#{$prefix}-toggle-label {
     @include type-style('detail-01');
     color: var(--sdds-toggle-label-colour);
     padding-left: var(--sdds-spacing-element-8);
   }
 
-  #{$prefix}-toggle-input:checked {
-    + #{$prefix}-toggle-switch{
+  .#{$prefix}-toggle-input:checked {
+    + .#{$prefix}-toggle-switch{
       &:before{
         background-color: var(--sdds-toggle-on-slider);
       }
@@ -98,15 +98,15 @@
     }
   }
 
-  #{$prefix}-toggle-input:focus {
-    + #{$prefix}-toggle-switch{
+  .#{$prefix}-toggle-input:focus {
+    + .#{$prefix}-toggle-switch{
       &:before{
         background-color: var(--sdds-toggle-off-slider-focus);
         border: 1px solid var(--sdds-toggle-off-border-focus);
       }
     }
     &:checked {
-      + #{$prefix}-toggle-switch{
+      + .#{$prefix}-toggle-switch{
         &:before{
           background-color: var(--sdds-toggle-on-slider-focus);
           border: 1px solid var(--sdds-toggle-on-border-focus);
@@ -115,14 +115,14 @@
     }
   }
 
-  #{$prefix}-toggle-input:active {
+  .#{$prefix}-toggle-input:active {
     @include activeState();
   }
 
   // Size small
 
-  &#{$prefix}-toggle-sm{
-    #{$prefix}-toggle-switch{
+  &.#{$prefix}-toggle-sm{
+    .#{$prefix}-toggle-switch{
       &,
       &:before{
         width: var(--sdds-toggle-slider-sm-width);
@@ -134,12 +134,12 @@
       }
     }
 
-    #{$prefix}-toggle-label {
+    .#{$prefix}-toggle-label {
       @include type-style('detail-02');
     }
 
-    #{$prefix}-toggle-input:checked {
-      + #{$prefix}-toggle-switch{
+    .#{$prefix}-toggle-input:checked {
+      + .#{$prefix}-toggle-switch{
         &:after{
           left: calc(var(--sdds-toggle-slider-sm-width) - 12px); // slider width - switch width - padding
         }
@@ -150,14 +150,14 @@
 
   // Hover states
   &:hover{
-    #{$prefix}-toggle-switch{
+    .#{$prefix}-toggle-switch{
       &:before{
         background-color: var(--sdds-toggle-off-slider-hover);
       }
     }
 
-    #{$prefix}-toggle-input:checked {
-      + #{$prefix}-toggle-switch{
+    .#{$prefix}-toggle-input:checked {
+      + .#{$prefix}-toggle-switch{
         &:before{
           background-color: var(--sdds-toggle-on-slider-hover);
         }
@@ -170,16 +170,16 @@
   }
 
   &:active {
-    #{$prefix}-toggle-input{
+    .#{$prefix}-toggle-input{
       @include activeState();
     }
-    // #{$prefix}-toggle-switch{
+    // .#{$prefix}-toggle-switch{
     //   &:before{
     //     background-color: var(--sdds-toggle-off-slider-pressed);
     //   }
     // }
-    // #{$prefix}-toggle-input:checked {
-    //   + #{$prefix}-toggle-switch{
+    // .#{$prefix}-toggle-input:checked {
+    //   + .#{$prefix}-toggle-switch{
     //     &:before{
     //       background-color: var(--sdds-toggle-on-slider-pressed);
     //     }
@@ -189,14 +189,14 @@
 
   &.disabled {
     cursor: not-allowed;
-    #{$prefix}-toggle-input { 
+    .#{$prefix}-toggle-input { 
       pointer-events: none;
       
       &,
       &:checked,
       &:checked:focus,
       &:focus {
-        + #{$prefix}-toggle-switch{
+        + .#{$prefix}-toggle-switch{
           &:before{
             background-color: var(--sdds-toggle-slider-disabled);
             border: 0;
@@ -204,11 +204,11 @@
         }
       }
     }
-    #{$prefix}-toggle-label {
+    .#{$prefix}-toggle-label {
       color: var(--sdds-toggle-label-colour-disabled);
       pointer-events: none;
     }
-    #{$prefix}-toggle-switch{
+    .#{$prefix}-toggle-switch{
       &:before{
         background-color: var(--sdds-toggle-slider-disabled);
       }
