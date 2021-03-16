@@ -11,7 +11,7 @@ import store from '../../store';
   shadow: true,
 })
 export class Navigation {
-  /** Per default, this will inherit the value from c-theme name property */
+  /** Per default, this will inherit the value from sdds-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   /** Set the orientation for the navigation (vertical or horisontal). The default is horisontal navigation. */

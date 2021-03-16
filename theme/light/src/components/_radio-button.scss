@@ -1,9 +1,9 @@
 :root,
 html {
-  --sdds-radio-button-color: #{get-colour(grey-900)};
-  --sdds-radio-button-interaction-01: #{get-colour(blue-900)};
-  --sdds-radio-button-interaction-02: #{get-colour(white)};
-  --sdds-radio-button-bg-hover: #{get-colour(blue-100)};
-  --sdds-radio-button-bg-focus: #{get-colour(blue-200)};
-  --sdds-radio-button-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-radio-button-color: #{get-colour(grey-900)};
+  --#{$prefix}-radio-button-interaction-01: #{get-colour(blue-900)};
+  --#{$prefix}-radio-button-interaction-02: #{get-colour(white)};
+  --#{$prefix}-radio-button-bg-hover: #{get-colour(blue-100)};
+  --#{$prefix}-radio-button-bg-focus: #{get-colour(blue-200)};
+  --#{$prefix}-radio-button-disabled: #{get-colour(grey-200)};
 }

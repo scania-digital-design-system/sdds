@@ -25,7 +25,7 @@ const Template = ({ logo, siteName, shortName, siteUrl, items }) => {
   const logoAttr = logo ? 'logo="' + logo + '"' : '';
 
   return `
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
   
   <c-dealer-header site-name='${siteName}' short-name='${shortName}' site-url='${siteUrl}' ${logoAttr}>
   ${items}

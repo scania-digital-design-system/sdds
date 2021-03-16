@@ -12,7 +12,7 @@ import store from '../../store';
   shadow: true,
 })
 export class Modal {
-  /** Per default, this will inherit the value from c-theme name property */
+  /** Per default, this will inherit the value from sdds-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   /** Bootstrap modal config */

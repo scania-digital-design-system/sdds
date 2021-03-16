@@ -4,7 +4,7 @@ export default {
 
 const Template = ({content}) => {
   return `
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
   ${content}
   `
 };

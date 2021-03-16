@@ -27,7 +27,7 @@ function fixFouc() {
   document.addEventListener('DOMContentLoaded', function () {
     // This timeout is to make sure that IE has time to load
     setTimeout(function () {
-      if (document.querySelector('c-theme')) return;
+      if (document.querySelector('sdds-theme')) return;
 
       // Used in case a theme element is not rendered
       style.nodeValue = 'body { visibility: visible; }';
