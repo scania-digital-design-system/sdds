@@ -7,158 +7,22 @@
   <meta charset="utf-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="../../theme/light/dist/scania-theme.js"></script>
-  <script src="../../components/dist/core.js"></script>
- 
-  <!-- <script type="module" src="./node_modules/corporate-ui/dist/corporate-ui/corporate-ui.esm.js"></script>
-  <script nomodule src="./node_modules/corporate-ui/dist/corporate-ui/corporate-ui.js"></script> -->
+  <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
+  <script src="node_modules/@scania/components/dist/core.js"></script>
+
 </head>
 
 <body>
+  <sdds-theme name="scania" global="true"></sdds-theme>
   
-  <!-- <c-button color="blue">Success</c-button> -->
+  <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
+    <div class="sdds-row">
+      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
 
-  <c-theme name='scania' global='true'></c-theme>
-  
-  <c-header site-name='Application' short-name='App'>
-    <a href='/abc.html' slot='items'>ABC</a>
-    <a href='/tes.html' slot='items'>TES</a>
-  </c-header>
-
-  <c-navigation>
-    <a href='/home' slot='primary-items'>home</a>
-    <a href='/about' class='parent' slot='primary-items' active=''>about</a>
-    <a href='/profile' class='parent' slot='primary-items'>profile</a>
-    <a href='/abc' class='parent' slot='primary-items'>abc</a>
-    <a href='/xyz' class='parent' slot='primary-items'>xyz</a>
-    <a href='/more' slot='secondary-items'>more</a>
-  
-    <c-navigation slot='sub' caption='About' target='/about' active=''>
-      <a href='/about' slot='primary-items' active=''>About 1</a>
-      <a href='/about2' slot='primary-items'>About 2</a>
-      <a href='/about3' slot='secondary-items'>About 3</a>
-    </c-navigation>
-  
-    <c-navigation slot='sub' target='/profile'>
-      <a href='/profile' slot='primary-items'>Profile 1</a>
-      <a href='/profile2' slot='primary-items'>Profile 2</a>
-      <a href='/profile3' slot='secondary-items'>Profile 3</a>
-    </c-navigation>
-  
-    <c-navigation slot='sub' target='/abc'>
-      <a href='/abc' slot='primary-items'>abc 1</a>
-      <a href='/abc2' slot='primary-items'>abc 2</a>
-      <a href='/abc3' slot='secondary-items'>abc 3</a>
-    </c-navigation>
-  
-    <c-navigation slot='sub' target='/xyz'>
-      <a href='/xyz' slot='primary-items'>xyz 1</a>
-      <a href='/xyz2' slot='primary-items'>xyz 2</a>
-      <a href='/xyz3' slot='secondary-items'>xyz 3</a>
-    </c-navigation>
-  </c-navigation>
-
-  
-
-  <c-cookie headline='My Cookie' main-button-primary='Accept' main-button-secondary='Settings' modal-button-primary='Save Preferences' modal-button-secondary='Cancel'>
-
-    <p slot='main'>My cookie Hello this is my cookie STRANGER<a href='mailto:kontakt@scania.com'>kontakt@scania.com</a>
-    </p>
-    <div text='Necessary Cookies' mandatory='true' checked='true' type='necessary' slot='config'>
-      <p>These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.</p>
-    </div>
-    <div text='Functional Cookies' checked='false' type='functional' slot='config'>
-      <p>These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly.</p>
-    </div>
-  </c-cookie>
-
-  <c-content>
-    <section>
-      <h3>A Title of the page</h3>
-      <div class='alert alert-success' role='alert'>
-        A simple success alert—check it out!
+        <sdds-button id="button-1" type="primary" text="Button"></sdds-button>
+        
       </div>
-      <button class="btn btn-primary">Primary Button</button>
-      <c-table></c-table>
-      
-    </section>
-  </c-content>
-
-  <c-footer>
-    <a href='/' slot='social-items'>
-      <c-icon name='scania-youtube'></c-icon>
-    </a>
-    <a href='/' slot='social-items'>
-      <c-icon name='scania-twitter'></c-icon>
-    </a>
-    <a href='/' target='_blank' slot='social-items'>
-      <c-icon name='scania-linkedin'></c-icon>
-    </a>
-  
-    <a href='/cookies' slot='items'>Cookies</a>
-    <a href='/contact-us' target='_blank' slot='items'>Contact us</a>
-  </c-footer>
-
-  <script>
-    const data = [
-      {
-        "id":1,
-        "name" : "Truck",
-        "type": "B223",
-        "description": "An awesome truck"
-      },
-      {
-        "id":2,
-        "name" : "Bus",
-        "type": "A23",
-        "description": "A super cool bus"
-      },
-      {
-        "id":3,
-        "name" : "Car",
-        "type": "A56",
-        "description": "A cool car"
-      },
-
-      ]
-
-      const el = document.querySelector('c-table');
-
-      el.header = [
-      {
-        key: "name",
-        description: "Name",
-      },
-      {
-        key: "type",
-        description: "Type",
-      },
-      {
-        key: "description",
-        description: "Description",
-      }
-      ]
-      el.content = data;
-
-      el.hasEdit = true;
-      el.hasDelete = true;
-      el.addEventListener('optEdit', testEdit)
-      el.addEventListener('optDelete', testDelete)
-
-      function testEdit(msg) {
-      alert(JSON.stringify(msg.detail));
-      }
-
-      function testDelete(msg) {
-      alert(JSON.stringify(msg.detail));
-      // let newArr = [...el.content];
-      // newArr.forEach(function(item, index){
-      //   if(item.id == msg.detail.id) {
-      //     newArr.splice(index, 1)
-      //   }
-      // })
-      // el.content = newArr;
-      }
-  </script>
+    </div>
+  </div>
 </body>
 </html>

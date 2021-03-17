@@ -1,0 +1,15 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "description": "Install `http-start` globally on your computer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@scania/components": "^1.3.1",
+    "@scania/theme-light": "^1.2.0"
+  }
+}
