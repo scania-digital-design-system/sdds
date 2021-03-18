@@ -4,7 +4,6 @@
   .sdds-col-xxlg-16 {
     padding: 0 !important;
   }
-
 }
 
 .sdds-header {
@@ -17,6 +16,18 @@
   font-size: 4rem;
   color: var(--sdds-white);
   box-sizing: content-box;
+}
+
+.scania-symbol {
+  padding: 16px 40px;
+  display: block;
+  cursor: pointer;
+  background: var(--sdds-background-image-scania-symbol-svg);
+  background: var(--sdds-background-image-scania-symbol-png);
+  background-size: 30px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sdds-content-header {
@@ -36,6 +47,10 @@
 
 .header-greeting {
   color: #9CA5C2;
+}
+
+.header-greeting-wrapper {
+  margin-bottom: 2rem;
 }
 
 .page-title {
