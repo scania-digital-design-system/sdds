@@ -1,0 +1,45 @@
+@import '~node_modules/@scania/grid/dist/scss/grid';
+
+@media (min-width: 1312px) {
+  .sdds-col-xxlg-16 {
+    padding: 0 !important;
+  }
+
+}
+
+.sdds-header {
+  background-color: var(--sdds-blue-900);
+  height: 16rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 4rem;
+  color: var(--sdds-white);
+  box-sizing: content-box;
+}
+
+.sdds-content-header {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  background-color: #041E42;
+  font-family: "Scania Sans", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 8rem;
+  line-height: 8rem;
+  letter-spacing: -0.04em;
+  padding-bottom: 10rem;
+  height: 48rem;
+  margin-top: 0;
+}
+
+.header-greeting {
+  color: #9CA5C2;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  color: var(--sdds-white);
+}
