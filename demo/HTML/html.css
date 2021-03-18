@@ -23,11 +23,19 @@
   display: block;
   cursor: pointer;
   background: var(--sdds-background-image-scania-symbol-svg);
-  background: var(--sdds-background-image-scania-symbol-png);
   background-size: 30px auto;
   background-position: center;
   background-repeat: no-repeat;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
+  flex-grow: 1;
+}
+
+@media (min-width: 1056px) {
+  .scania-symbol {
+    order: 2;
+    flex-grow: unset;
+    border-left: 1px solid var(--sdds-blue-800);
+  }
 }
 
 .sdds-content-header {
