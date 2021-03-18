@@ -7,22 +7,35 @@
   <meta charset="utf-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="html.css">
+
   <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
   <script src="node_modules/@scania/components/dist/core.js"></script>
 
 </head>
 
 <body>
-  <sdds-theme name="scania" global="true"></sdds-theme>
-  
-  <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
+  <c-theme name="scania" global="true"></c-theme>
     <div class="sdds-row">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+      <div class="sdds-col-xxlg-16">
 
-        <sdds-button id="button-1" type="primary" text="Button"></sdds-button>
+        <div class="sdds-header">
+          <sdds-button type="primary" text="button"></sdds-button>
+        </div>
+
+        <div class="sdds-content-header">
+          <div class="content-text-wrapper">
+            <span class="header-greeting">Welcome to</span>
+            <span class="page-title">HTML Demo</span>
+          </div>
+        </div>
+
+        <c-icon name='scania-cross'></c-icon>
+        
+
         
       </div>
     </div>
-  </div>
+
 </body>
 </html>
