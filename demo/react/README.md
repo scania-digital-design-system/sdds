@@ -31,12 +31,12 @@ To include components in React application, follow these steps:
 
 2. Import `defineCustomElements` and `add-theme` from `@scania/components`
 
-3. Import `theme` from `@scania/theme-light` and use `c-theme` component in the template
+3. Import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
 
-4.  Use `c-theme` component in the template
+4.  Use `sdds-theme` component in the template
 
    ```html
-      <c-theme name="scania" global="true"></c-theme>
+      <sdds-theme name="scania" global="true"></sdds-theme>
    ```
 
 Set `global` attribute to true, it will add CSS variables and SDDS tokens.
@@ -53,7 +53,7 @@ addTheme(scania);
 
 const App = (
   <Router>
-    <c-theme name="scania" global="true"></c-theme>
+    <sdds-theme name="scania" global="true"></sdds-theme>
     <div className="sdds-container">
       <div className="sdds-row">
         <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">

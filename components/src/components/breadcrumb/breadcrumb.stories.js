@@ -4,7 +4,7 @@ export default {
   
   const Template = () => {
     return `
-    <c-theme name="scania"></c-theme>
+    <sdds-theme name="scania"></sdds-theme>
     <div class="sdds-breadcrumb">
       <div class="sdds-breadcrumb-item">
         <a href="#">Page 1</a>

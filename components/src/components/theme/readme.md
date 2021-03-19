@@ -1,4 +1,4 @@
-# c-theme
+# sdds-theme
 
 
 

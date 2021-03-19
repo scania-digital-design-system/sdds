@@ -1,27 +1,27 @@
 :root,
 html {
-  --sdds-toggle-slider-width: 44px;
-  --sdds-toggle-slider-height: 24px;
-  --sdds-toggle-slider-sm-width: 28px;
-  --sdds-toggle-slider-sm-height: 16px;
-  --sdds-toggle-slider-border-radius: 16px;
+  --#{$prefix}-toggle-slider-width: 44px;
+  --#{$prefix}-toggle-slider-height: 24px;
+  --#{$prefix}-toggle-slider-sm-width: 28px;
+  --#{$prefix}-toggle-slider-sm-height: 16px;
+  --#{$prefix}-toggle-slider-border-radius: 16px;
 
-  --sdds-toggle-switch: #{get-colour(white)};
-  --sdds-toggle-switch-disabled: #{get-colour(grey-100)};
-  --sdds-toggle-headline: #{get-colour(grey-500)};
+  --#{$prefix}-toggle-switch: #{get-colour(white)};
+  --#{$prefix}-toggle-switch-disabled: #{get-colour(grey-100)};
+  --#{$prefix}-toggle-headline: #{get-colour(grey-500)};
 
-  --sdds-toggle-on-slider: #{get-colour(green-400)};
-  --sdds-toggle-on-slider-hover: #{get-colour(green-500)};
-  --sdds-toggle-on-slider-focus: #{get-colour(green-500)};
-  --sdds-toggle-on-slider-pressed: #{get-colour(green-700)};
-  --sdds-toggle-slider-disabled: #{get-colour(grey-200)};
-  --sdds-toggle-on-border-focus: #{get-colour(green-700)};
-  --sdds-toggle-label-colour: #{get-colour(grey-900)};
-  --sdds-toggle-label-colour-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-toggle-on-slider: #{get-colour(green-400)};
+  --#{$prefix}-toggle-on-slider-hover: #{get-colour(green-500)};
+  --#{$prefix}-toggle-on-slider-focus: #{get-colour(green-500)};
+  --#{$prefix}-toggle-on-slider-pressed: #{get-colour(green-700)};
+  --#{$prefix}-toggle-slider-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-toggle-on-border-focus: #{get-colour(green-700)};
+  --#{$prefix}-toggle-label-colour: #{get-colour(grey-900)};
+  --#{$prefix}-toggle-label-colour-disabled: #{get-colour(grey-200)};
 
-  --sdds-toggle-off-slider: #{get-colour(grey-300)};
-  --sdds-toggle-off-slider-hover: #{get-colour(grey-400)};
-  --sdds-toggle-off-slider-focus: #{get-colour(grey-400)};
-  --sdds-toggle-off-slider-pressed: #{get-colour(grey-500)};
-  --sdds-toggle-off-border-focus: #{get-colour(grey-600)};
+  --#{$prefix}-toggle-off-slider: #{get-colour(grey-300)};
+  --#{$prefix}-toggle-off-slider-hover: #{get-colour(grey-400)};
+  --#{$prefix}-toggle-off-slider-focus: #{get-colour(grey-400)};
+  --#{$prefix}-toggle-off-slider-pressed: #{get-colour(grey-500)};
+  --#{$prefix}-toggle-off-border-focus: #{get-colour(grey-600)};
 }

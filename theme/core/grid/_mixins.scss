@@ -3,14 +3,14 @@
 
 // Containers
 @mixin grid-container($prefix) {
-  #{$prefix}-container {
+  .#{$prefix}-container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     max-width: $screen-xxl;
   }
 
-  #{$prefix}-container-fluid {
+  .#{$prefix}-container-fluid {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -27,7 +27,7 @@
     $breakpoint-width: map-get($values, 'width');
 
     @media (min-width:  $breakpoint-width ) {
-      #{$prefix}-container {
+      .#{$prefix}-container {
           padding-right: $breakpoint-margin;
           padding-left: $breakpoint-margin;
       }
@@ -39,7 +39,7 @@
 
 @mixin grid-container-full-width-breakpoints($prefix,$breakpoint-width,$breakpoint-margin) {
   @media (min-width:  $breakpoint-width) {
-    #{$prefix}-container-fluid {
+    .#{$prefix}-container-fluid {
         padding-right: $breakpoint-margin;
         padding-left: $breakpoint-margin;
     }
@@ -48,7 +48,7 @@
 
 // Rows
 @mixin grid-row($prefix) {
-  #{$prefix}-row {
+  .#{$prefix}-row {
     display:flex;
     flex-wrap: wrap;
   }
@@ -73,7 +73,7 @@
       @include grid-col-size-full-width($prefix, $sizes, $i);
 
       @media (min-width:  $breakpoint-width ) {
-        #{$prefix}-col-#{$sizes}-#{$i} {
+        .#{$prefix}-col-#{$sizes}-#{$i} {
           @include grid-col-size($breakpoint-columns, $i);
           @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
         }
@@ -85,7 +85,7 @@
 @mixin grid-make-col-auto($prefix, $sizes, $width, $padding, $gutter) {
 
   @media (min-width:  $width) {
-    #{$prefix}-col ,#{$prefix}-col-#{$sizes} {
+    .#{$prefix}-col ,.#{$prefix}-col-#{$sizes} {
       flex-grow: 1;
       flex-basis: 0;
       max-width: 100%;
@@ -96,7 +96,7 @@
 
 // Column size when it goes below it's breakpoint
 @mixin grid-col-size-full-width($prefix, $sizes, $i) {
-  #{$prefix}-col-#{$sizes}-#{$i} {
+  .#{$prefix}-col-#{$sizes}-#{$i} {
     display: block;
     flex-grow: 0;
     flex-shrink: 0;
@@ -138,7 +138,7 @@ Gutters
     @for $i from 1 through $breakpoint-columns  {
 
       @media (min-width:  $breakpoint-width ) {
-        #{$prefix}-col-#{$sizes}-#{$i}.gutterless {
+        .#{$prefix}-col-#{$sizes}-#{$i}.gutterless {
           @include grid-col-size($breakpoint-columns, $i);
           @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
           margin: 0;
@@ -165,7 +165,7 @@ Gutters
     @for $i from 1 through $breakpoint-columns {
 
       @media (min-width:  $breakpoint-width ) {
-        #{$prefix}-col-#{$sizes}-#{$i}-offset {
+        .#{$prefix}-col-#{$sizes}-#{$i}-offset {
           @include grid-offset($breakpoint-columns, $i);
         }
       }
@@ -181,12 +181,12 @@ Gutters
 //Push grid
 @mixin grid-push($breakpoints) {
   @include grid-push-container($breakpoints);
-  #{$prefix}-push {
+  .#{$prefix}-push {
     display: flex;
     @include grid-make-col($breakpoints)
   }
 
-  #{$prefix}-content-push {
+  .#{$prefix}-content-push {
     flex-grow: 1;
   }
 }
@@ -207,7 +207,7 @@ Gutters
      @include grid-col-size-full-width($prefix, $sizes, $i);
 
      @media (min-width:  $breakpoint-width ) {
-       #{$prefix}-col-#{$sizes}-#{$i}.no-padding {
+       .#{$prefix}-col-#{$sizes}-#{$i}.no-padding {
          @include grid-col-size($breakpoint-columns, $i);
          @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
        }
@@ -232,13 +232,13 @@ Gutters
         display: $breakpoint-display;
       }
 
-      #{$prefix}-container-push {
+      .#{$prefix}-container-push {
         padding-right: $breakpoint-margin;
         padding-left: $breakpoint-margin;
         max-width: $breakpoint-content-width;
       }
 
-      #{$prefix}-container-push-fluid {
+      .#{$prefix}-container-push-fluid {
         padding-right: $breakpoint-margin;
         padding-left: $breakpoint-margin;
       }
