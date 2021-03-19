@@ -10,7 +10,7 @@ import store from '../../store';
   shadow: true,
 })
 export class Header {
-  /** Per default, this will inherit the value from c-theme name property */
+  /** Per default, this will inherit the value from sdds-theme name property */
   @Prop({ mutable: true }) theme: string;
 
   /** The site name will be displayed on the right hand side of the logotype on desktop mode */

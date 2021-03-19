@@ -10,6 +10,7 @@
 @import '../utilities/loading.scss';
 
 // Core classes
+@import '../core/prefix';
 @import '../core/grid/grid';
 @import '../core/colour/colour';
 @import '../core/typography/typography';
@@ -27,6 +28,7 @@
 @import '../components/checkbox';
 @import '../components/divider';
 @import '../components/accordion';
+@import '../components/tooltip';
 @import '../components/toggle';
 @import '../components/dropdowns';
 @import '../components/cards';

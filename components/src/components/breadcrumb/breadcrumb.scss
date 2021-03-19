@@ -2,12 +2,12 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-#{$prefix}-breadcrumb {
+.#{$prefix}-breadcrumb {
   @include type-style('detail-02');
   display: flex;
   flex-wrap: wrap;
 
-  #{$prefix}-breadcrumb-item{
+  .#{$prefix}-breadcrumb-item{
     margin-right: 1rem;
     color: var(--sdds-breadcrumb-color);
 
@@ -40,7 +40,7 @@
     }
     &:disabled,
     &.disabled,
-    &#{$prefix}-breadcrumb-item-current,
+    &.#{$prefix}-breadcrumb-item-current,
     [aria-current='page'] {
       color: var(--sdds-breadcrumb-color-disabled);
       cursor: auto;

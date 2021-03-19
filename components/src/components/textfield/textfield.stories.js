@@ -118,7 +118,7 @@ const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplace
 
   return `
   ${style}
-  <c-theme></c-theme>
+  <sdds-theme></sdds-theme>
   <div class="demo">
     <sdds-textfield
       type="${type}"

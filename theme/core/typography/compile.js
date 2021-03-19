@@ -109,12 +109,13 @@ function generateScss(name, data) {
 
 // Import of files outside current package
 function importFile(data) {
-  const toMatch =/(@import '\.\.\/(.*)\')/gm;
-  const files = toMatch.exec(data);
-  
-  if(files!==null){
-    const filePath = path.join(__dirname, '../', '_' + files[2] + '.scss');
-    const output = `${outputFolder}/_${files[2]}.scss`;
+  const toMatch =/(@import '\.\.\/(.*)\')/gm;  
+  let match;
+
+  while ((match = toMatch.exec(data)) !== null) {
+    console.log(`Import ${match[2]}`);
+    const filePath = path.join(__dirname, '../', '_' + match[2] + '.scss');
+    const output = `${outputFolder}/_${match[2]}.scss`;
     fs.createReadStream(filePath).pipe(fs.createWriteStream(output));
   }
 }

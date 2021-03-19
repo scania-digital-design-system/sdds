@@ -14,10 +14,8 @@ Check out [Scania Digital Design System](https://digitaldesign.scania.com/) for 
 
 ## Quick start
 
-Several options to add components in the project: 
-<details open>
-<summary><strong>NPM</strong></summary>
-   <br/>
+How to add components in the project: 
+
 
    Install components via NPM package by running the command below.
 
@@ -32,36 +30,24 @@ Several options to add components in the project:
 
    defineCustomElements();
    ```
-</details>
 
-<details>
-<summary><strong>CDN</strong></summary>
-   <br/>
-
-   Add link to the script by adding the following to the head
-
-   ```
-   <script src="https://digitaldesign.scania.com/build/components/4.x/core.js"></script>
-   ```
-   Replace `x` with [available releases](https://github.com/scania-digital-design-system/sdds/releases).
-</details>
 
 See all available components in the [Scania Digital Design System](https://digitaldesign.scania.com/components).
 
 
 ## Styling
 
-To apply Scania styles, you need to add a theme package and use `c-theme` component. Check out [Scania theme documentation](https://github.com/scania-digital-design-system/sdds/tree/master/theme) for detail documentation.
+To apply Scania styles, you need to add a theme package and use `sdds-theme` component. Check out [Scania theme documentation](https://github.com/scania-digital-design-system/sdds/tree/master/theme) for detail documentation.
 
 
 ## Browser support
 
-- Chrome (and all Chromium based browsers)
+- Chrome
 - Firefox
-- Edge
 - Safari
+- Edge (chromium)
 
-**The components are not supported in IE11 at the moment.**
+**The components are not supported in IE11 & Edge Legacy**
 
 
 ## Contributing

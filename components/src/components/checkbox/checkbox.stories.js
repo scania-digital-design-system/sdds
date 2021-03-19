@@ -4,7 +4,7 @@ export default {
   
   const Template = () => {
     return `
-      <c-theme name="scania"></c-theme>
+      <sdds-theme name="scania"></sdds-theme>
       <div>
         <div class="sdds-checkbox-item">
           <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1">

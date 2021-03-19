@@ -65,7 +65,7 @@ const Template = ({
   placeholder,
   defaultOption}) => {
   return `
-  <c-theme name="scania"></c-theme>
+  <sdds-theme name="scania"></sdds-theme>
   
   <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
@@ -125,7 +125,7 @@ const FilterTemplate = ({
   placeholder,
   defaultOption}) => {
   return `
-    <c-theme name="scania"></c-theme>
+    <sdds-theme name="scania"></sdds-theme>
     <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
