@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Element, Listen, Prop } from '@stencil/core';
 
 
 @Component({
@@ -8,11 +8,22 @@ import { Component, h } from '@stencil/core';
 })
 
 export class SddsCard {
+  @Element() el: HTMLElement;
+  @Prop() clickable: boolean = false;
 
-
+  //Click event for the whole card
+  @Listen('click')
+  handleClick(e) {
+    console.log(this.clickable)
+    console.log(this.el.classList.add('sdds-card-active'),e)
+  }
   render() {
     return (
-      <h1></h1>
+     
+        <slot name="sdds-card">
+
+        </slot>
+
     )
   }
 }
