@@ -1,6 +1,14 @@
 export default {
-  title: 'Component/Card'
+  title: 'Component/Card',
+  args: {
+    headline: 'Header text',
+    subheadline:'Subheader text',
+    footer: '<c-icon style="font-size: 20px;" name="scania-arrow"></c-icon>',
+    clickable: false
+  }
 };
+
+import CardImage from '../../../.storybook/assets/image/card-img.png';
 
 const style =`<style>
 .demo {
@@ -9,101 +17,172 @@ const style =`<style>
 }
 </style>`;
 
-const CardTemplate = ({...Basic}) => {
+const CardTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,pictogram}) => {
   return `
   ${style}
     <c-theme></c-theme>
+
     <div class="sdds-container">
       <div class="sdds-row demo">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
+        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
 
-          <div class="sdds-card">
+          <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
+            ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
             <div class="sdds-card-header">
-              <h6 class="sdds-card-headline">Header text</h6>
-              <h6 class="sdds-card-sub-headline" >Subheader text</h6>
+              ${pictogram ? pictogram : ``}
+              ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
+              ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
             </div>
-            <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
+            ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
+            ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
+            ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
           </div>
 
         </div>
 
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card">
-            <div class="sdds-card-header">
-              <h6 class="sdds-card-headline">Header text</h6>
-              <h6 class="sdds-card-sub-headline" >Subheader text</h6>
+          <sdds-card clickable="true">
+            <div slot="sdds-card" class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
+              ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              <div class="sdds-card-header">
+                ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
+                ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
+              </div>
+              ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
+              ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
+              ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
             </div>
-            <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
-            <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
-          </div>
-
-        </div>
-
-        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card">
-            <div class="sdds-card-header">
-              <h6 class="sdds-card-headline">Header text</h6>
-              <h6 class="sdds-card-sub-headline" >Subheader text</h6>
-            </div>
-            <div class="sdds-divider-light-border-top"></div>
-            <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
-            <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
-          </div>
+          </sdds-card>
 
         </div>
       </div>
-
-      <div class="sdds-row demo">
-
-        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card">
-            <div class="sdds-card-header">
-              <h6 class="sdds-card-headline">Header text</h6>
-              <h6 class="sdds-card-sub-headline" >Subheader text</h6>
-            </div>
-            <div class="sdds-divider-light-border-top"></div>
-            <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
-            <div class="sdds-card-footer"><a href="#">Link text</a></div>
-          </div>
-
-        </div>
-
-         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card">
-            <div class="sdds-card-header">
-              <h6 class="sdds-card-headline">Header text</h6>
-              <h6 class="sdds-card-sub-headline" >Subheader text</h6>
-            </div>
-            <img class="sdds-card-image" src="/Users/mmexvr/Documents/dev/sdds/components/src/components/card/test.png" />
-            <div class="sdds-divider-light-border-top"></div>
-            <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
-            <div class="sdds-card-footer"><a href="#">Link text</a></div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="sdds-row demo">
-        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-          <div class="sdds-card">
-            <div class="sdds-card-header">
-              <h3 class="sdds-card-headline">Header text</h3>
-              <h3 class="sdds-card-sub-headline" >Subheader text</h3>
-            </div>
-        </div>
     </div>
-
   `
 };
 
 export const Basic = CardTemplate.bind({});
 
-Basic.argTypes = {
+Basic.argTypes = {}
+
+Basic.args = {}
+
+
+export const SupportText = CardTemplate.bind({});
+
+SupportText.argTypes = {}
+
+SupportText.args = {
+text: 'This is a short and consist detail text describing for the user what this text is really about.'
 }
 
-Basic.args = {
+export const Divider = CardTemplate.bind({});
+
+Divider.argTypes = {}
+
+Divider.args = {
+ divider: true,
+ text: 'This is a short and consist detail text describing for the user what this text is really about.'
 }
+
+export const link = CardTemplate.bind({});
+
+link.argTypes = {}
+
+link.args = {
+  divider: true,
+  text: 'This is a short and consist detail text describing for the user what this text is really about.',
+  footer: '<a href="#">Link text</a><a href="#">Link text</a>'
+}
+
+export const button = CardTemplate.bind({});
+
+button.argTypes = {}
+
+button.args = {
+  divider: true,
+  text: 'This is a short and consist detail text describing for the user what this text is really about.',
+  footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Button text</button>'
+}
+
+export const Image = CardTemplate.bind({});
+
+Image.argTypes = {}
+
+Image.args = {
+  divider: true,
+  text: 'This is a short and consist detail text describing for the user what this text is really about.',
+  imageTop: true
+}
+
+
+
+const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,avatar}) => {
+  return `
+  ${style}
+    <c-theme></c-theme>
+
+    <div class="sdds-container">
+      <div class="sdds-row demo">
+        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
+
+          <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
+            ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            <div class="sdds-card-header-avatar">
+              <div class="sdds-card-avatar">${avatar ? avatar : ``}</div>
+              <div class="sdds-card-headlines">
+                ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
+                ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
+              </div>
+            </div>
+            ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
+            ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
+            ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
+          </div>
+
+        </div>
+
+        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
+          <sdds-card clickable="true">
+            <div slot="sdds-card" class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
+              ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              <div class="sdds-card-header-avatar">
+               ${avatar ? `<div class="sdds-card-avatar">${avatar}</div>` : ``}
+                <div class="sdds-card-headlines">
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
+                  ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
+                </div>
+              </div>
+              ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
+              ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
+              ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
+            </div>
+          </sdds-card>
+
+        </div>
+      </div>
+    </div>
+  `
+};
+
+
+
+export const Avatar = AvatarTemplate.bind({});
+
+Avatar.argTypes = {}
+
+Avatar.args = {
+  avatar: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="18" fill="#E2E2E4"/></svg>`,
+  divider: false,
+  text: 'This is a short and consist detail text describing for the user what this text is really about.',
+  imageTop: false
+}
+
+
+
+
+
+

@@ -1,26 +1,9 @@
-.card {
-  border-color: get-colour(grey-200);
-  border-radius: $border-radius;
-
-  .card-body {
-    //FIXME: Add correct rem
-    padding: 7rem 4.25rem;
-  }
-
-  //TODO: should it match regular a element
-  .card-link {
-    color: $link-color;
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-      color: $link-color-hover;
-      text-decoration: underline;
-    }
-
-    &:active,
-    &.active {
-      color: $link-color-active;
-    }
-  }
+:root,
+html {
+  --sdds-card-bg: var(--sdds-white);
+  --sdds-card-box: 0px 3px 8px var(--sdds-grey-300); //FIXME: Values not set in figma
+  --sdds-card-box-hover: 0px 3px 8px var(--sdds-grey-200); //FIXME: values not set in figma
+  --sdds-card-headline: var(--sdds-blue-900);
+  --sdds-card-sub-headline: var(--sdds-blue-300);
+  --sdds-card-box-pressed: 0px 3px 8px var(--sdds-grey-100);
 }
