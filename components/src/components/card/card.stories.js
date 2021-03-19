@@ -169,7 +169,6 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
 };
 
 
-
 export const Avatar = AvatarTemplate.bind({});
 
 Avatar.argTypes = {}
