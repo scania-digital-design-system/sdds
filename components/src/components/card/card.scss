@@ -2,14 +2,14 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-.sdds-card {
+.#{$prefix}-card {
   background-color: var(--sdds-card-bg);
   border-radius: 1rem;
   box-shadow: var(--sdds-card-box);
 
 
   //Clickable state on card
-  &.sdds-clickable {
+  &.#{$prefix}-clickable {
     &:hover {
       box-shadow: var(--sdds-card-box-hover);
     }
@@ -21,10 +21,10 @@
   }
 
   //FIXME: WIP img-left
-  &.sdds-card-img-left {
+  &.#{$prefix}-card-img-left {
     display: flex;
 
-    .sdds-card-img {
+    .#{$prefix}-card-img {
       height: auto;
       width: auto;
       border-radius: 1rem 0 0 1rem;
@@ -32,64 +32,64 @@
   }
 
   //header
-  .sdds-card-header,
-  .sdds-card-header-avatar {
+  .#{$prefix}-card-header,
+  .#{$prefix}-card-header-avatar {
     padding: var(--sdds-spacing-element-16);
 
-    & + .sdds-card-body {
+    & + .#{$prefix}-card-body {
       padding-top: 0;
     }
 
-    & + .sdds-card-img {
+    & + .#{$prefix}-card-img {
       border-radius: 0;
     }
   }
 
   //avatar
-  .sdds-card-header-avatar {
+  .#{$prefix}-card-header-avatar {
     display: flex;
 
-    .sdds-card-headlines,
-    .sdds-card-avatar {
+    .#{$prefix}-card-headlines,
+    .#{$prefix}-card-avatar {
       vertical-align: top;
     }
-    .sdds-card-avatar {
+    .#{$prefix}-card-avatar {
       padding-right: 16px;
     }
   }
 
-  .sdds-card-headline,
-  .sdds-card-sub-headline {
+  .#{$prefix}-card-headline,
+  .#{$prefix}-card-sub-headline {
     margin: 0;
   }
 
-  .sdds-card-headline {
+  .#{$prefix}-card-headline {
     color: var(--sdds-card-headline);
     margin-bottom: var(--sdds-spacing-element-4);
   }
 
-  .sdds-card-sub-headline {
+  .#{$prefix}-card-sub-headline {
     color: var(--sdds-card-sub-headline);
   }
 
   //divider
-  .sdds-divider-light-border-top {
+  .#{$prefix}-divider-light-border-top {
     margin: 0 var(--sdds-spacing-element-16);
   }
 
   //card image
-  .sdds-card-img {
+  .#{$prefix}-card-img {
     height: 100%;
     width: 100%;
     border-radius: 1rem 1rem 0 0;
   }
 
-  .sdds-card-body {
+  .#{$prefix}-card-body {
     @include type-style('detail-03');
     padding: var(--sdds-spacing-element-16);
   }
 
-  .sdds-card-footer {
+  .#{$prefix}-card-footer {
     padding: var(--sdds-spacing-element-16);
 
     a {

@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 
 @Component({
@@ -7,12 +7,10 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true
 })
 
-export class SddsCard {
-  // @Element() el: HTMLElement;
-  @Prop() clickable: boolean = false;
-
-
+export class Card {
   //FIXME: WIP expand
+  // @Element() el: HTMLElement;
+
   // Click event for the whole card
   // @Listen('click')
   // handleClick(e) {
