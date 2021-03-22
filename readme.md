@@ -24,9 +24,9 @@ You can also install a standalone package for different part. These are availabl
 | ------------ | ----------- | 
 | [`@scania/components`](./components) | Scania reusable web components built with StencilJS |
 | [`@scania/theme-light`](./theme/light) | Scania default theming |
-| [`@scania/typography`](./theme/light/src/styles/core/typography) | Scania official typography styling package |
-| [`@scania/colour`](./theme/light/src/styles/core/colour) | Scania official colour scale package |
-| [`@scania/grid`](./theme/light/src/styles/core/grid) | Scania official grid package |
+| [`@scania/typography`](./theme/core/typography) | Scania official typography styling package |
+| [`@scania/colour`](./theme/core/colour) | Scania official colour scale package |
+| [`@scania/grid`](./theme/core/grid) | Scania official grid package |
 
 ## Demo
 
@@ -34,7 +34,7 @@ Check the working demo on this repository.
 
 - [Angular](./demo/angular)
 - [React](./demo/react)
-- [Vue](./demo/vue)
+- [Vue](./demo/vue) * In progress *
 - [HTML](./demo/HTML)
 
 ## Migration
