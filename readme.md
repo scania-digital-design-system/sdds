@@ -24,9 +24,9 @@ You can also install a standalone package for different part. These are availabl
 | ------------ | ----------- | 
 | [`@scania/components`](./components) | Scania reusable web components built with StencilJS |
 | [`@scania/theme-light`](./theme/light) | Scania default theming |
-| [`@scania/typography`](./theme/light/src/styles/core/typography) | Scania official typography styling package |
-| [`@scania/colour`](./theme/light/src/styles/core/colour) | Scania official colour scale package |
-| [`@scania/grid`](./theme/light/src/styles/core/grid) | Scania official grid package |
+| [`@scania/typography`](./theme/core/typography) | Scania official typography styling package |
+| [`@scania/colour`](./theme/core/colour) | Scania official colour scale package |
+| [`@scania/grid`](./theme/core/grid) | Scania official grid package |
 
 ## Demo
 
@@ -34,7 +34,7 @@ Check the working demo on this repository.
 
 - [Angular](./demo/angular)
 - [React](./demo/react)
-- [Vue](./demo/vue)
+- [Vue](./demo/vue) * In progress *
 - [HTML](./demo/HTML)
 
 ## Migration
@@ -43,7 +43,7 @@ You can find out how to migrate by reading our [`MIGRATION.md`](https://github.c
 
 If you are still using older component while migrate and still need the old documentation you can visit these links
 
-- [Corporate-UI 3](https://scania.github.io/corporate-ui/)
+- [Corporate-UI 3](https://scania.github.io/corporate-ui-docs/)
 - [Corporate-UI 4](https://digitaldesign.devtest.aws.scania.com/)
 
 ## Contributing
