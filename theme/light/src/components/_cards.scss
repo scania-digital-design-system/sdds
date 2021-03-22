@@ -1,9 +1,9 @@
 :root,
 html {
   --sdds-card-bg: var(--sdds-white);
-  --sdds-card-box: 0px 3px 8px var(--sdds-grey-300); //FIXME: Values not set in figma
-  --sdds-card-box-hover: 0px 3px 8px var(--sdds-grey-200); //FIXME: values not set in figma
-  --sdds-card-headline: var(--sdds-blue-900);
-  --sdds-card-sub-headline: var(--sdds-blue-300);
-  --sdds-card-box-pressed: 0px 3px 8px var(--sdds-grey-100);
+  --sdds-card-box:  0px 3px 3px rgba(0, 0, 0, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.05);
+  --sdds-card-box-hover: 0px -1px 1px rgba(0, 0, 0, 0.05), 0px 3px 3px rgba(0, 0, 0, 0.2);
+  --sdds-card-box-pressed: 0px -1px 1px rgba(0, 0, 0, 0.05),0px 1px 3px rgba(0, 0, 0, 0.2);
+  --sdds-card-headline: var(--sdds-grey-900);
+  --sdds-card-sub-headline: var(--sdds-grey-500);
 }
