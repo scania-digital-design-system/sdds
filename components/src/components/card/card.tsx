@@ -19,11 +19,9 @@ export class SddsCard {
   }
   render() {
     return (
-     
-        <slot name="sdds-card">
+      <slot name="sdds-card">
 
-        </slot>
-
+      </slot>
     )
   }
 }

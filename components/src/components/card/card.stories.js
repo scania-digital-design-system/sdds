@@ -9,6 +9,7 @@ export default {
 };
 
 import CardImage from '../../../.storybook/assets/image/card-img.png';
+import CardImage2 from '../../../.storybook/assets/image/card-img-left.png';
 
 const style =`<style>
 .demo {
@@ -20,20 +21,20 @@ const style =`<style>
 const CardTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,pictogram}) => {
   return `
   ${style}
-    <c-theme></c-theme>
+    <sdds-theme></sdds-theme>
 
     <div class="sdds-container">
       <div class="sdds-row demo">
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
 
           <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-            ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
             <div class="sdds-card-header">
               ${pictogram ? pictogram : ``}
               ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
               ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
             </div>
-            ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
             ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
             ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
             ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
@@ -44,12 +45,12 @@ const CardTemplate = ({headline,subheadline,footer,clickable,text,divider,imageT
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
           <sdds-card clickable="true">
             <div slot="sdds-card" class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-              ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
               <div class="sdds-card-header">
                 ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
                 ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
               </div>
-              ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
               ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
               ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
               ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
@@ -121,14 +122,14 @@ Image.args = {
 const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,avatar}) => {
   return `
   ${style}
-    <c-theme></c-theme>
+    <sdds-theme></sdds-theme>
 
     <div class="sdds-container">
       <div class="sdds-row demo">
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
 
           <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-            ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
             <div class="sdds-card-header-avatar">
               <div class="sdds-card-avatar">${avatar ? avatar : ``}</div>
               <div class="sdds-card-headlines">
@@ -136,7 +137,7 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
                 ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
               </div>
             </div>
-            ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+            ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
             ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
             ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
             ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
@@ -147,7 +148,7 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
           <sdds-card clickable="true">
             <div slot="sdds-card" class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-              ${imageTop == true ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
               <div class="sdds-card-header-avatar">
                ${avatar ? `<div class="sdds-card-avatar">${avatar}</div>` : ``}
                 <div class="sdds-card-headlines">
@@ -155,7 +156,7 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
                 </div>
               </div>
-              ${imageTop == false ? `<img class="sdds-card-image" src="${CardImage}" />` : ``}
+              ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
               ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
               ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
               ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
@@ -167,7 +168,6 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
     </div>
   `
 };
-
 
 export const Avatar = AvatarTemplate.bind({});
 
@@ -181,6 +181,50 @@ Avatar.args = {
 }
 
 
+// const ImageLeftTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,avatar}) => {
+//   return `
+//   ${style}
+//     <sdds-theme></sdds-theme>
+
+//     <div class="sdds-container">
+//       <div class="sdds-row demo">
+
+//         <div class="sdds-col-xxlg-9 sdds-col-xlg-9 sdds-col-lg-9 sdds-hide-md">
+//           <sdds-card clickable="true">
+
+//             <div slot="sdds-card" class="sdds-card sdds-card-img-left ${clickable ? 'sdds-clickable' : ''}">
+
+//               <img class="sdds-card-img" src="${CardImage2}" />
+//               <div class="sdds-card-img">
+//                 <div class="sdds-card-header">
+//                   ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
+//                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
+//                 </div>
+//                 ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
+//                 ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
+//                 ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
+//               </div>
+//             </div>
+//           </sdds-card>
+
+//         </div>
+//       </div>
+//     </div>
+//   `
+// };
+
+
+// export const ImageLeft = ImageLeftTemplate.bind({});
+
+// ImageLeft.argTypes = {}
+
+// ImageLeft.args = {
+//   headline: 'Scania Fleet Management Portal',
+//   subheadline: 'Guidance',
+//   divider: false,
+//   text: 'Are you unsure of how to use Scania Fleet Management Portal in the right way? Watch our videos to find out.',
+//   footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Watch our e-learning</button>'
+// }
 
 
 

@@ -2,17 +2,6 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-//FIXME: Remove
-  // .sdds-card-header,
-  // .sdds-card-body,
-  // .sdds-card-footer {
-  //   border: 1px solid red;
-  // }
-
-  // .sdds-card {
-  //    border: 1px solid blue;
-  // }
-
 .sdds-card {
   background-color: var(--sdds-card-bg);
   border-radius: 1rem;
@@ -31,6 +20,17 @@
 
   }
 
+  //FIXME: WIP img-left
+  &.sdds-card-img-left {
+    display: flex;
+
+    .sdds-card-img {
+      height: auto;
+      width: auto;
+      border-radius: 1rem 0 0 1rem;
+    }
+  }
+
   //header
   .sdds-card-header,
   .sdds-card-header-avatar {
@@ -40,7 +40,7 @@
       padding-top: 0;
     }
 
-    & + .sdds-card-image {
+    & + .sdds-card-img {
       border-radius: 0;
     }
   }
@@ -78,7 +78,7 @@
   }
 
   //card image
-  .sdds-card-image {
+  .sdds-card-img {
     height: 100%;
     width: 100%;
     border-radius: 1rem 1rem 0 0;
