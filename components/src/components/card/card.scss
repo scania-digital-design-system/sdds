@@ -57,6 +57,7 @@
     }
     .#{$prefix}-card-avatar {
       margin-right: 16px;
+      overflow: hidden;
       height: 36px;
       width: 36px;
       border-radius: 50%;
@@ -96,6 +97,8 @@
 
   .#{$prefix}-card-footer {
     padding: var(--sdds-spacing-element-16);
+
+    //Add possibility to move icon to the right when button is present
 
     a {
       padding-right: var(--sdds-spacing-element-16);
