@@ -43,7 +43,7 @@ You can find out how to migrate by reading our [`MIGRATION.md`](https://github.c
 
 If you are still using older component while migrate and still need the old documentation you can visit these links
 
-- [Corporate-UI 3](https://scania.github.io/corporate-ui/)
+- [Corporate-UI 3](https://scania.github.io/corporate-ui-docs/)
 - [Corporate-UI 4](https://digitaldesign.devtest.aws.scania.com/)
 
 ## Contributing
