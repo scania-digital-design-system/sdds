@@ -25,22 +25,6 @@ const CardTemplate = ({headline,subheadline,footer,clickable,text,divider,imageT
 
     <div class="sdds-container">
       <div class="sdds-row demo">
-        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-            ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
-            <div class="sdds-card-header">
-              ${pictogram ? pictogram : ``}
-              ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
-              ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
-            </div>
-            ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
-            ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
-            ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
-            ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
-          </div>
-
-        </div>
 
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
           <sdds-card clickable="true">
@@ -126,24 +110,6 @@ const AvatarTemplate = ({headline,subheadline,footer,clickable,text,divider,imag
 
     <div class="sdds-container">
       <div class="sdds-row demo">
-        <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
-
-          <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
-            ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
-            <div class="sdds-card-header-avatar">
-              <div class="sdds-card-avatar">${avatar ? avatar : ``}</div>
-              <div class="sdds-card-headlines">
-                ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ``}
-                ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ``}
-              </div>
-            </div>
-            ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ``}
-            ${divider ? `<div class="sdds-divider-light-border-top"></div>` : ``}
-            ${text ? `<div class="sdds-card-body">${text}</div>` : ``}
-            ${footer ? `<div class="sdds-card-footer">${footer}</div>` :``}
-          </div>
-
-        </div>
 
         <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-hide-md">
           <sdds-card clickable="true">
@@ -180,7 +146,7 @@ Avatar.args = {
   imageTop: false
 }
 
-
+//FIXME: WIP card img-left
 // const ImageLeftTemplate = ({headline,subheadline,footer,clickable,text,divider,imageTop,avatar}) => {
 //   return `
 //   ${style}
