@@ -2,7 +2,7 @@
 
 @media (min-width: 1312px) {
   .sdds-col-xxlg-16 {
-    padding: 0 ;
+    padding: 0;
   }
 }
 
@@ -68,29 +68,20 @@ p {
 .page-title {
   display: flex;
   color: var(--sdds-white);
-  margin-top: 2rem;
+  margin-top: var(--sdds-spacing-element-8);
 }
 
 .content-wrapper {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: var(--sdds-spacing-element-24);
+  padding-bottom: var(--sdds-spacing-element-24);
 }
 
 .lead-text {
   margin-bottom: var(--sdds-spacing-element-16);
 }
 
-.lead-text-section {
-  padding-top: var(--sdds-spacing-element-24);
-  padding-bottom: var(--sdds-spacing-element-24);
-}
-
 .section-wrapper {
   margin-top: var(--sdds-spacing-element-32);
-}
-
-.introduction p {
-  margin-top: 0;
 }
 
 .component-wrapper {
