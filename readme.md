@@ -28,6 +28,8 @@ You can also install a standalone package for different part. These are availabl
 | [`@scania/colour`](./theme/core/colour) | Scania official colour scale package |
 | [`@scania/grid`](./theme/core/grid) | Scania official grid package |
 
+You can find everything in [NPM](https://www.npmjs.com/org/scania)
+
 ## Demo
 
 Check the working demo on this repository.
