@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Basic Corporate UI 4.0.0 Alpha Template</title>
-  <meta charset="utf-8">  
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="html.css">
@@ -16,62 +16,187 @@
 
 <body>
   <c-theme name="scania" global="true"></c-theme>
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-16">
 
-        <div class="sdds-header">
-          <span class="scania-symbol"></span>
-        </div>
+  <div class="sdds-header">
+    <span class="scania-symbol"></span>
+  </div>
 
-        <div class="sdds-content-header">
-          <div class="content-text-wrapper">
-            <div class="sdds-row">
-              <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
-
-                <div class="header-greeting-wrapper">
-                  <span class="header-greeting">Welcome to</span>
-                </div>
-                <span class="page-title">HTML Demo</span>
- 
-              </div>
-            </div>
+  <div class="sdds-content-header">
+      <div class="sdds-container-fluid">
+        <div class="sdds-row">
+          <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4 header-greeting-wrapper">
+          
+            <span class="header-greeting">Welcome to</span>
+            <span class="page-title">HTML Demo</span>
             
           </div>
         </div>
+      </div>
+  </div>
 
+  <div class="sdds-container-fluid content-wrapper">
+    <div class="sdds-row">
+      <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
 
-        <div class="no padding lead-text-section">
+        <div class="lead-text sdds-paragraph-01">
+          This is a simple HTML example regarding the SDDS-components we offer.
+        </div>
+      </div>
 
-          <div class="sdds-row">
-            <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
-              
-              <div class="lead-text sdds-paragraph-01">
-                This is a simple HTML example regarding the SDDS-components we offer.
-              </div>
+      <div class="section-wrapper sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
+
+        <h4 class="section-title introduction">
+          <p>Components</p>
+        </h4>
+
+        <div class="component-wrapper">
+          <p>Accordion</p>
+          <sdds-accordion>
+            <sdds-accordion-item header="First item" affix="prefix" tabindex="1">
+            This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
+          </sdds-accordion-item>
+         <sdds-accordion-item header="Second Item" affix="prefix" tabindex="2" expanded="true">
+            This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
+          </sdds-accordion-item>
+        </sdds-accordion>
+        </div>
+        
+        <div class="component-wrapper">
+          <p>Breadcrumb</p>
+          <div class="sdds-breadcrumb">
+            <div class="sdds-breadcrumb-item">
+              <a href="#">Page 1</a>
             </div>
+            <div class="sdds-breadcrumb-item">
+              <a href="#">Page 2</a>
+            </div>
+            <div class="sdds-breadcrumb-item sdds-breadcrumb-item-current">
+              <a aria-current="page">Page 3</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="component-wrapper">
+          <p>Button</p>
+          <sdds-button type="primary" text="Button"></sdds-button>
+        </div>
 
-              <div class="line-break"></div>
-
-              <div class="section-wrapper sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
-
-                <h4 class="section-title introduction">
-                  <p>Components</p>
-                </h4>
-
-                <div class="button-example">
-                  <p>Sdds button component</p>
-                  <sdds-button type="primary" text="Button"></sdds-button>
-                </div>
-
+        <div class="component-wrapper">
+          <p>Card</p>
+          <div class="sdds-card ">
+            <div class="sdds-card-header">
+                <h6 class="sdds-card-headline">Header text</h6>
+                 <h6 class="sdds-card-sub-headline">Subheader text</h6>
               </div>
-              
-              
+             <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
+           </div>
+        </div>
+
+        <div class="component-wrapper">
+          <p>Checkbox</p>
+          <div class="sdds-checkbox-item">
+            <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1" checked="checked">
+             <label class="sdds-form-label" for="cb-option-1">
+                Label Text 1
+             </label>
+          </div>
+          <div class="sdds-checkbox-item">
+             <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-2">
+             <label class="sdds-form-label" for="cb-option-2">
+               Label Text 2
+            </label>
+          </div>
+          <div class="sdds-checkbox-item">
+            <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-3" checked="checked" disabled>
+            <label class="sdds-form-label" for="cb-option-3">
+              Label Text 3
+            </label>
           </div>
         </div>
 
+        <div class="component-wrapper">
+          <p>Divider</p>
+          Dark
+          <div class="sdds-divider-dark" style="margin: 5px; width: 400px;"></div> 
+
+          Coloured
+          <div class="sdds-divider-coloured" style="margin: 5px; width: 400px;" ></div> 
+
+          Light
+          <div class="sdds-divider-light"style="margin: 5px;  width: 400px;" ></div> 
+        </div>
+
+        <div class="component-wrapper">
+          <p>Dropdown</p>
+          <sdds-dropdown placeholder="Select option">
+            <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          </sdds-dropdown>
+        </div>
+
+        <div class="component-wrapper">
+          <p>Link</p>
+          This is an example of <a href="#">a link</a> inside a paragraph.
+          This is an example of <a class="disabled" href="#">a link</a> inside a paragraph.
+        </div>
+
+        <div class="component-wrapper">
+          <p>Radio button</p>
+          <div class="sdds-radio-button-group">
+            <div class="sdds-radio-item">
+              <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1">
+              <label class="sdds-form-label" for="rb-option-1">
+                Label Text 1
+              </label>
+            </div>
+            <div class="sdds-radio-item">
+              <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-2">
+              <label class="sdds-form-label" for="rb-option-2">
+                Label Text 2
+              </label>
+            </div>
+            <div class="sdds-radio-item">
+              <input class="sdds-form-input" type="radio" name="rb-example-disabled" id="rb-option-3" checked="checked" disabled>
+              <label class="sdds-form-label" for="rb-option-3">
+                Label Text 3
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="component-wrapper">
+          <p>Textfield</p>
+          <div style="width:208px"> 
+            <sdds-textfield type="text" placeholder="Placeholder">
+              <span slot="sdds-helper">Helper text</span>
+            </sdds-textfield>
+          </div>
+        </div>
+
+        <div class="component-wrapper">
+          <p>Toggle</p>
+          <div class="sdds-toggle" tabindex="0">
+            <input type="checkbox" class="sdds-toggle-input" id="customSwitch1">
+            <span class="sdds-toggle-switch"></span>
+            <label class="sdds-toggle-label" for="customSwitch1">Toggle this switch element</label>
+          </div>
+        </div>
+
+        <div class="component-wrapper">
+          <p>Tooltip</p>
+            <sdds-tooltip placement="right" selector="#right-1" text="Tooltip"></sdds-tooltip>
+            <button class="sdds-btn sdds-btn-primary" id="right-1">Button</button>
+        </div>
+
+        <div class="component-wrapper">
+
+        </div>
 
 
       </div>
     </div>
+  </div>
+  
 </body>
 </html>
