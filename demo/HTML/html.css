@@ -2,7 +2,7 @@
 
 @media (min-width: 1312px) {
   .sdds-col-xxlg-16 {
-    padding: 0 !important;
+    padding: 0 ;
   }
 }
 
@@ -65,14 +65,15 @@ p {
   color: #9CA5C2;
 }
 
-.header-greeting-wrapper {
-  margin-bottom: 2rem;
-}
-
 .page-title {
   display: flex;
-  flex-direction: column;
   color: var(--sdds-white);
+  margin-top: 2rem;
+}
+
+.content-wrapper {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .lead-text {
@@ -90,4 +91,8 @@ p {
 
 .introduction p {
   margin-top: 0;
+}
+
+.component-wrapper {
+  padding-bottom: var(--sdds-spacing-element-24);
 }
