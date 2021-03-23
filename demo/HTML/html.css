@@ -95,4 +95,5 @@ p {
 
 .component-wrapper {
   padding-bottom: var(--sdds-spacing-element-24);
+  max-width: 400px;
 }
