@@ -1,0 +1,35 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+.sdds-tooltip {
+  @include type-style('detail-05');
+  color: var(--sdds-tooltip-colour);
+  background-color: var(--sdds-tooltip-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  word-wrap: break-word;
+  max-width: 48rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+  z-index: 20000; 
+
+  &.sdds-tooltip-top-left {
+    border-radius: 0rem 1rem 1rem 1rem;
+  }
+  &.sdds-tooltip-top-right {
+    border-radius: 1rem 0rem 1rem 1rem;
+  }
+  &.sdds-tooltip-bottom-right {
+    border-radius: 1rem 1rem 0rem 1rem;
+  }
+  &.sdds-tooltip-bottom-left {
+    border-radius: 1rem 1rem 1rem 0rem;
+  }
+}
+
+.sdds-tooltip-show {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,112 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+.#{$prefix}-card {
+  background-color: var(--sdds-card-bg);
+  border-radius: 1rem;
+  box-shadow: var(--sdds-card-box);
+
+
+  //Clickable state on card
+  &.#{$prefix}-clickable {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: var(--sdds-card-box-hover);
+    }
+
+    &:active {
+      box-shadow: var(--sdds-card-box-pressed);
+    }
+
+  }
+
+  //FIXME: WIP img-left
+  &.#{$prefix}-card-img-left {
+    display: flex;
+
+    .#{$prefix}-card-img {
+      height: auto;
+      width: auto;
+      border-radius: 1rem 0 0 1rem;
+    }
+  }
+
+  //header
+  .#{$prefix}-card-header,
+  .#{$prefix}-card-header-avatar {
+    padding: var(--sdds-spacing-element-16);
+
+    & + .#{$prefix}-card-body {
+      padding-top: 0;
+    }
+
+    & + .#{$prefix}-card-img {
+      border-radius: 0;
+    }
+  }
+
+  //avatar
+  .#{$prefix}-card-header-avatar {
+    display: flex;
+
+    .#{$prefix}-card-headlines,
+    .#{$prefix}-card-avatar {
+      vertical-align: top;
+    }
+    .#{$prefix}-card-avatar {
+      margin-right: 16px;
+      overflow: hidden;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      img,
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .#{$prefix}-card-headline,
+  .#{$prefix}-card-sub-headline {
+    margin: 0;
+  }
+
+  .#{$prefix}-card-headline {
+    color: var(--sdds-card-headline);
+    margin-bottom: var(--sdds-spacing-element-4);
+  }
+
+  .#{$prefix}-card-sub-headline {
+    color: var(--sdds-card-sub-headline);
+  }
+
+  //divider
+  .#{$prefix}-divider-light-border-top {
+    margin: 0 var(--sdds-spacing-element-16);
+  }
+
+  //card image
+  .#{$prefix}-card-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .#{$prefix}-card-body {
+    @include type-style('detail-03');
+    padding: var(--sdds-spacing-element-16);
+  }
+
+  .#{$prefix}-card-footer {
+    padding: var(--sdds-spacing-element-16);
+
+    //Add possibility to move icon to the right when button is present
+
+    a {
+      padding-right: var(--sdds-spacing-element-16);
+    }
+  }
+}
