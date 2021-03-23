@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <c-theme name="scania" global="true"></c-theme>
+  <sdds-theme name="scania" global="true"></sdds-theme>
 
   <div class="sdds-header">
     <span class="scania-symbol"></span>
@@ -84,12 +84,16 @@
         <div class="component-wrapper">
           <p>Card</p>
           <div class="sdds-card ">
+
             <div class="sdds-card-header">
-                <h6 class="sdds-card-headline">Header text</h6>
-                 <h6 class="sdds-card-sub-headline">Subheader text</h6>
-              </div>
-             <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
-           </div>
+              <h6 class="sdds-card-headline">Header text</h6>
+              <h6 class="sdds-card-sub-headline">Subheader text</h6>
+            </div>
+          
+            <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
+          
+            <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
+          </div>
         </div>
 
         <div class="component-wrapper">
@@ -187,7 +191,7 @@
           <p>Tooltip</p>
             <sdds-tooltip placement="right" selector="#right-1" text="Tooltip"></sdds-tooltip>
             <button class="sdds-btn sdds-btn-primary" id="right-1">Button</button>
-        </div>
+        </div> 
 
       </div>
     </div>
