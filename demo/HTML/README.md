@@ -2,25 +2,29 @@
 
 Navigate to your project folder file using console emulator
 
+    ```shell
     > npm install @scania/components
     > npm install @scania/theme-light
-
+    ```
 
 Link the packages to your html document like this, depending on file structure
 
-    > <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
-    > <script src="node_modules/@scania/components/dist/core.js"></script>
+    ```html
+    <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
+    <script src="node_modules/@scania/components/dist/core.js"></script>
+    ```
 
+Add Scania theme inside the start of your body
 
-Add Scania theme inside the body
-
-    > <sdds-theme name="scania" global="true"></sdds-theme>
-
+    ```html
+    <sdds-theme name="scania" global="true"></sdds-theme>
+    ```
 
 Insert the components like shown in the index.html example, for example
 
-    > <sdds-button type="primary" text="Button"></sdds-button>
-
+    ```html
+    <sdds-button type="primary" text="Button"></sdds-button>
+    ```
 
 Install `http-start` globally on your computer.
 
