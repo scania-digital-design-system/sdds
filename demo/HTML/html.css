@@ -18,7 +18,7 @@ body {
 }
 
 .scania-symbol {
-  padding: 16px 40px;
+  padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-40);
   display: block;
   cursor: pointer;
   background: var(--sdds-background-image-scania-symbol-svg);
