@@ -1,17 +1,8 @@
 @import '~node_modules/@scania/grid/dist/scss/grid';
-
-@media (min-width: 1312px) {
-  .sdds-col-xxlg-16 {
-    padding: 0;
-  }
-}
+@import '~node_modules/@scania/typography/dist/css/typography';
 
 body {
-  background: #f6f6f7;
-}
-
-p {
-  font-size: 16px;
+  background: var(--sdds-grey-50);
 }
 
 .sdds-header {
@@ -62,7 +53,7 @@ p {
 }
 
 .header-greeting {
-  color: #9CA5C2;
+  color: var(--sdds-blue-300);
 }
 
 .page-title {
