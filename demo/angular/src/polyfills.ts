@@ -17,12 +17,16 @@
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
- import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 
 /**
  * IE11 requires the following for NgClass support on SVG elements
  */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
+
+/** Evergreen browsers require these. **/
+// Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
+import 'core-js/es/reflect';
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
 
 /**
  * Web Animations `@angular/platform-browser/animations`
