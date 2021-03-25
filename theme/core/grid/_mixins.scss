@@ -181,7 +181,7 @@ Gutters
   @include grid-push-container($breakpoints);
   .#{$prefix}-push {
     display: flex;
-    justify-content: center;
+
     @include grid-make-col($breakpoints);
 
     .#{$prefix}-container {
