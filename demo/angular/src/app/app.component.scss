@@ -58,25 +58,3 @@ body {
   color: var(--sdds-white);
   margin-top: var(--sdds-spacing-element-8);
 }
-
-.content-wrapper {
-  padding-top: var(--sdds-spacing-element-24);
-  padding-bottom: var(--sdds-spacing-element-24);
-}
-
-.lead-text {
-  margin-bottom: var(--sdds-spacing-element-16);
-}
-
-.section-wrapper {
-  margin-top: var(--sdds-spacing-element-32);
-}
-
-.component-wrapper {
-  padding-bottom: var(--sdds-spacing-element-24);
-  max-width: 400px;
-}
-
-.component-wrapper > p {
-  font-weight: bold;
-}
