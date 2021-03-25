@@ -27,13 +27,11 @@
 
 ### Depends on
 
-- [c-modal](../../components/modal)
 - [c-icon](../../components/icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  c-cookie --> c-modal
   c-cookie --> c-icon
   style c-cookie fill:#f9f,stroke:#333,stroke-width:4px
 ```
