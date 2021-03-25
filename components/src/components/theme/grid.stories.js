@@ -1,5 +1,8 @@
 export default {
   title: 'Foundation/Grid',
+  args: {
+    fluidContainer: true
+  }
 };
 
 //Styling for grid templates
@@ -73,7 +76,7 @@ const style = `
 
   </style>`;
 
-const GridTemplate = ({fluidContainer}) => {
+const GridTemplate = ({fluidContainer,padding,gutter}) => {
   return `
   ${style}
   <sdds-theme name="scania" global=""></sdds-theme>
@@ -191,13 +194,13 @@ const GridTemplate = ({fluidContainer}) => {
   `
 };
 
-const GridPushTemplate = ({fluidContainer}) => {
+const GridPushTemplate = ({fluidContainer, collapse}) => {
   return `
   ${style}
   <sdds-theme name="scania" global="true"></sdds-theme>
   <h4>Grid Push</h4>
   <div class="sdds-push">
-    <div class="sdds-sidebar">
+    <div class="sdds-sidebar ${collapse ? `sdds-sidebar-collapse` : ``}">
     </div>
     <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
     <div class="sdds-row">
@@ -350,7 +353,7 @@ const GridAutoColTemplate = ({fluidContainer}) => {
   `
 }
 
-const GridGutterless = ({fluidContainer}) => {
+const GridGutterless = ({fluidContainer,gutter}) => {
   return `
     ${style}
     <sdds-theme name="scania" global="true"></sdds-theme>
@@ -363,10 +366,10 @@ const GridGutterless = ({fluidContainer}) => {
         <div class="gutterless sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>.gutterless</div>
         </div>
-        <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
+        <div class="${gutter ? 'gutterless' : ''} sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>gutter</div>
         </div>
-        <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
+        <div class="${gutter ? 'gutterless' : ''} sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>gutter</div>
         </div>
       </div>
@@ -374,7 +377,7 @@ const GridGutterless = ({fluidContainer}) => {
   `
 }
 
-const GridNoPadding = ({fluidContainer}) => {
+const GridNoPadding = ({fluidContainer,padding}) => {
   return `
     ${style}
     <sdds-theme name="scania" global="true"></sdds-theme>
@@ -387,10 +390,10 @@ const GridNoPadding = ({fluidContainer}) => {
         <div class="no-padding sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>.no-padding</div>
         </div>
-        <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
+        <div class="${padding ? '' : 'no-padding' } sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>With padding</div>
         </div>
-        <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
+        <div class="${padding ? '' : 'no-padding' } sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-col-sm-2">
           <div>With padding</div>
         </div>
       </div>
@@ -398,7 +401,7 @@ const GridNoPadding = ({fluidContainer}) => {
   `
 }
 
-const GridFluid = () => {
+const GridFluid = ({fluidContainer}) => {
   return `
     ${style}
     <sdds-theme name="scania" global="true"></sdds-theme>
@@ -409,7 +412,7 @@ const GridFluid = () => {
       </div>
     </div>
 
-    <div class="sdds-container container-demo">
+    <div class="${fluidContainer ? 'sdds-container-fluid': 'sdds-container'} container-demo">
       <div class="sdds-row">
         <div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-2">sdds-container</div>
       </div>
@@ -418,74 +421,36 @@ const GridFluid = () => {
 }
 
 
-//Grid default controls for all grid
-const defaultOptions = {
-  fluidContainer: {control: { type: 'boolean'}, description: "Set the container as fluid, set fullscreen", name: 'Fluid container'},
-}
-
-//Grid default values for control for all grid
-const defaultOptionsValues = {
-  fluidContainer: false,
-}
-
 //Controls for the grid
 export const Basic = GridTemplate.bind({});
 
-Basic.argTypes = {
- ...defaultOptions
-}
-
-Basic.args = {
- ...defaultOptionsValues
-}
-
 export const Push = GridPushTemplate.bind({});
 
-Push.argTypes = {
-  ...defaultOptions,
-}
-
 Push.args = {
-  ...defaultOptionsValues,
+  collapse: false
 }
 
 export const Offset = GridOffsetTemplate.bind({})
 
-Offset.argTypes = {}
-Offset.argTypes.fluidContainer = defaultOptions.fluidContainer
-
-Offset.args = {
-  fluidContainer: false
-}
-
 export const Auto = GridAutoColTemplate.bind({});
-
-Auto.argTypes = {}
-Auto.argTypes.fluidContainer = defaultOptions.fluidContainer
-
-Auto.args = {
-  fluidContainer: false
-}
 
 export const Gutterless = GridGutterless.bind({});
 
-Gutterless.argTypes = {}
-Gutterless.argTypes.fluidContainer = defaultOptions.fluidContainer
-
 Gutterless.args = {
-  fluidContainer: false
+  gutter: false
 }
 
 export const NoPadding = GridNoPadding.bind({});
 
-NoPadding.argTypes = {}
-NoPadding.argTypes.fluidContainer = defaultOptions.fluidContainer
-
 NoPadding.args = {
-  fluidContainer: false
+  padding: true
 }
 
 export const Fluid = GridFluid.bind({});
+
+Fluid.args = {
+  fluidContainer: false
+}
 
 
 
