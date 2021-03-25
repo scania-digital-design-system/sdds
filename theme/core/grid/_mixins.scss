@@ -3,17 +3,16 @@
 
 // Containers
 @mixin grid-container($prefix) {
-  .#{$prefix}-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: $screen-xxl;
-  }
 
+  .#{$prefix}-container,
   .#{$prefix}-container-fluid {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+
+  .#{$prefix}-container {
+    max-width: $screen-xxl;
   }
 
 }
@@ -84,7 +83,7 @@
 
 @mixin grid-make-col-auto($prefix, $sizes, $width, $padding, $gutter) {
 
-  @media (min-width:  $width) {
+  @media (min-width: $width) {
     .#{$prefix}-col ,.#{$prefix}-col-#{$sizes} {
       flex-grow: 1;
       flex-basis: 0;
@@ -141,7 +140,6 @@ Gutters
         .#{$prefix}-col-#{$sizes}-#{$i}.gutterless {
           @include grid-col-size($breakpoint-columns, $i);
           @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
-          margin: 0;
         }
       }
     }
@@ -183,7 +181,12 @@ Gutters
   @include grid-push-container($breakpoints);
   .#{$prefix}-push {
     display: flex;
-    @include grid-make-col($breakpoints)
+    justify-content: center;
+    @include grid-make-col($breakpoints);
+
+    .#{$prefix}-container {
+      margin: 0;
+    }
   }
 
   .#{$prefix}-content-push {
@@ -191,6 +194,10 @@ Gutters
   }
 }
 
+
+/*
+No padding option
+*/
 @mixin grid-push-no-padding($breakpoints) {
   @each $sizes, $values in $breakpoints {
     $breakpoint-columns: map-get($values, 'columns');
@@ -199,23 +206,27 @@ Gutters
     $breakpoint-width: map-get($values, 'width');
 
    // Create columns that doesn't need a number, it bases it spacing on the area available
-   @include grid-make-col-auto($prefix,$sizes ,$breakpoint-width ,$breakpoint-padding , $breakpoint-gutter);
+    @include grid-make-col-auto($prefix,$sizes ,$breakpoint-width ,$breakpoint-padding , $breakpoint-gutter);
 
-   //  Each column for everysize
-   @for $i from 1 through $breakpoint-columns {
+    //  Each column for everysize
+    @for $i from 1 through $breakpoint-columns {
 
-     @include grid-col-size-full-width($prefix, $sizes, $i);
+      @include grid-col-size-full-width($prefix, $sizes, $i);
 
-     @media (min-width:  $breakpoint-width ) {
-       .#{$prefix}-col-#{$sizes}-#{$i}.no-padding {
-         @include grid-col-size($breakpoint-columns, $i);
-         @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
-       }
-     }
-   }
- }
+      @media (min-width:  $breakpoint-width ) {
+        .#{$prefix}-col-#{$sizes}-#{$i}.no-padding {
+          @include grid-col-size($breakpoint-columns, $i);
+          @include grid-gutters($breakpoint-gutter, $breakpoint-padding);
+        }
+      }
+    }
+  }
 }
 
+
+/*
+Pushed grid
+*/
 @mixin grid-push-container($breakpoints) {
   @each $key, $values in $breakpoints {
 
@@ -226,10 +237,15 @@ Gutters
     $breakpoint-display: map-get($values, 'display');
 
     @media (min-width:  $breakpoint-width ) {
-      .sdds-sidebar {
+      .#{$prefix}-sidebar {
         flex-basis: $breakpoint-sidebar;
         min-width: $breakpoint-sidebar;
         display: $breakpoint-display;
+
+        &.sdds-sidebar-collapse {
+          flex-basis: 68px;
+          min-width: 68px;
+        }
       }
 
       .#{$prefix}-container-push {
