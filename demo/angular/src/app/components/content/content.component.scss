@@ -1,9 +1,16 @@
+@import '~node_modules/@scania/typography/dist/scss/mixins';
+@import '~node_modules/@scania/typography/dist/scss/tokens';
+
+.sub-lead {
+  @include type-style('paragraph-02');
+}
+
 .content-wrapper {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: var(--sdds-spacing-element-24);
   }
   
-  .lead-text {
+  .lead-head {
     margin-bottom: var(--sdds-spacing-element-16);
   }
   
@@ -13,9 +20,4 @@
   
   .component-wrapper {
     padding-bottom: var(--sdds-spacing-element-24);
-    max-width: 400px;
-  }
-  
-  .component-wrapper > p {
-    font-weight: bold;
   }
