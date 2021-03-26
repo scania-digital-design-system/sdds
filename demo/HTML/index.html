@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
 
   <div class="sdds-header">
     <span class="scania-symbol"></span>
@@ -25,10 +25,10 @@
       <div class="sdds-container-fluid">
         <div class="sdds-row">
           <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4 header-greeting-wrapper">
-          
+
             <span class="header-greeting">Welcome to</span>
             <span class="page-title">HTML Demo</span>
-            
+
           </div>
         </div>
       </div>
@@ -38,12 +38,13 @@
     <div class="sdds-row">
       <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
 
-        <div class="lead-text sdds-paragraph-01">
+        <p class="lead-text sdds-paragraph-01">
           This is a simple example how to implement the SDDS components in HTML.
-        </div>
+        </p>
+        <p class="sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquid, blanditiis sapiente harum corrupti rem!</p>
       </div>
 
-      <div class="section-wrapper sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
+      <div class="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
 
         <h4 class="sdds-headline-04">Components</h4>
 
@@ -58,7 +59,7 @@
           </sdds-accordion-item>
         </sdds-accordion>
         </div>
-        
+
         <div class="component-wrapper">
           <p class="sdds-headline-05">Breadcrumb</p>
           <div class="sdds-breadcrumb">
@@ -73,7 +74,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="component-wrapper">
           <p class="sdds-headline-05">Button</p>
           <sdds-button type="primary" text="Button"></sdds-button>
@@ -87,9 +88,9 @@
               <h6 class="sdds-card-headline">Header text</h6>
               <h6 class="sdds-card-sub-headline">Subheader text</h6>
             </div>
-          
+
             <div class="sdds-card-body">This is a short and consist detail text describing for the user what this text is really about.</div>
-          
+
             <div class="sdds-card-footer"><c-icon style="font-size: 20px;" name="scania-arrow"></c-icon></div>
           </div>
         </div>
@@ -169,7 +170,7 @@
 
         <div class="component-wrapper">
           <p class="sdds-headline-05">Textfield</p>
-          <div style="width:208px"> 
+          <div style="width:208px">
             <sdds-textfield type="text" placeholder="Placeholder">
               <span slot="sdds-helper">Helper text</span>
             </sdds-textfield>
@@ -189,11 +190,11 @@
           <p class="sdds-headline-05">Tooltip</p>
             <sdds-tooltip placement="right" selector="#right-1" text="Tooltip"></sdds-tooltip>
             <button class="sdds-btn sdds-btn-primary" id="right-1">Button</button>
-        </div> 
+        </div>
 
       </div>
     </div>
   </div>
-  
+
 </body>
 </html>
