@@ -7,7 +7,7 @@
     > npm install @scania/theme-light
     ```
 
-## Link the packages to your html document like this, depending on file structure
+## Link the packages to your html document like this
 
     ```html
     <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
@@ -36,7 +36,7 @@
 ## Run `http-start` in the console emulator on sdds folder level to test.
 
 
-## You can also download `Live Server` if you are using Visual Studio Code
+## You can also download `Live Server` in the extensions if you are using Visual Studio Code
 
 
 ### *Happy coding!*
