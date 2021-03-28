@@ -1,13 +1,13 @@
-# Simple HTML example
+# SDDS HTML example
 
-## Navigate to your project folder file using console emulator
+## Navigate to your project folder file
 
     ```shell
     > npm install @scania/components
     > npm install @scania/theme-light
     ```
 
-## Link the packages to your html document like this
+## Link the packages to your html document
 
     ```html
     <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
@@ -17,10 +17,10 @@
 ## Add Scania theme inside the start of your body
 
     ```html
-    <sdds-theme name="scania" global="true"></sdds-theme>
+    <sdds-theme></sdds-theme>
     ```
 
-## Insert the components like shown in the index.html example, for example
+## Insert the components like shown in index.html, for reference
 
     ```html
     <sdds-button type="primary" text="Button"></sdds-button>
@@ -38,5 +38,6 @@
 
 ## You can also download `Live Server` in the extensions if you are using Visual Studio Code
 
+### Feel free to reach out about improvements in this README
 
 ### *Happy coding!*
