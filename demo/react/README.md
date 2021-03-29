@@ -1,71 +1,70 @@
-# SDDS in a React application
+# Getting Started with Create React App
 
-To run this project locally you will need to NodeJS and npm.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-See the running example on [this link](https://scania.github.io/corporate-ui-react/).
+## Available Scripts
 
-Clone this repo, install all dependencies and start it:
-```bash
-git clone https://github.com/scania-digital-design-system/sdds.git
-cd demo/react
-npm i
-npm start
-```
+In the project directory, you can run:
 
-## Scania Digital Design System
+### `npm start`
 
-Visit our Design System at [Digitaldesign.scania.com](https://digitaldesign.scania.com/) for more information
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-For more information about how to use SDDS, go to [digitaldesign.scania.com/getting-started/development](https://digitaldesign.scania.com/getting-started/development)
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Project setup
+### `npm test`
 
-To include components in React application, follow these steps:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. Install `components` and `scania-theme` package from NPM in your project folder
+### `npm run build`
 
-   ```bash
-   npm i @scania/components
-   npm i @scania/theme-light
-   ```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-2. Import `defineCustomElements` and `add-theme` from `@scania/components`
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-3. Import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-4.  Use `sdds-theme` component in the template
+### `npm run eject`
 
-   ```html
-      <sdds-theme name="scania" global="true"></sdds-theme>
-   ```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Set `global` attribute to true, it will add CSS variables and SDDS tokens.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```js
-import React from 'react';
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-import { defineCustomElements, addTheme } from '@scania/components';
-import { theme as scania } from '@scania/theme-light'; 
+## Learn More
 
-defineCustomElements();
-addTheme(scania);
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-const App = (
-  <Router>
-    <sdds-theme name="scania" global="true"></sdds-theme>
-    <div className="sdds-container">
-      <div className="sdds-row">
-        <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-          <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
-          <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
-        </div>
-      </div>
-    </div>
-  </Router>
-)
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-ReactDOM.render(App, document.body);
+### Code Splitting
 
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
