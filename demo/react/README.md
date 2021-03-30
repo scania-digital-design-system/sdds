@@ -66,3 +66,7 @@ function App() {
   );
 }
 ```
+
+### Feel free to reach out about improvements
+
+### *Happy coding!*
