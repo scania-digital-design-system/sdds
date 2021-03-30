@@ -1,43 +1,66 @@
-# SDDS HTML example
+# HTML demo
 
-## Navigate to your project folder file
+To run this project locally you will need to NodeJS and npm.
 
-    ```shell
-    > npm install @scania/components
-    > npm install @scania/theme-light
-    ```
+See the running example on [this link](https://scania.github.io/corporate-ui-angular/).
+
+## Scania Digital Design System
+
+Visit our Design System at [digitaldesign.scania.com](https://digitaldesign.scania.com/) for more information
+
+For more information about how to use SDDS, go to [digitaldesign.scania.com/getting-started/development](https://digitaldesign.scania.com/getting-started/development)
+
+## Getting started
+
+  Navigate to your project folder
+
+  ```shell
+  > npm install @scania/components --save-dev
+  > npm install @scania/theme-light --save-dev
+  ```
 
 ## Link the packages to your html document
 
-    ```html
+  ```html
+  <head>
     <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
     <script src="node_modules/@scania/components/dist/core.js"></script>
-    ```
+  </head>
+  ```
 
-## Add Scania theme inside the start of your body
+## Use Scania theme
 
-    ```html
+  ```html
+  <body>
     <sdds-theme></sdds-theme>
-    ```
+  </body>
+  ```
 
-## Insert the components like shown in index.html, for reference
+## Add component in your html document
 
-    ```html
-    <sdds-button type="primary" text="Button"></sdds-button>
-    ```
+  ```html
+  <body>
+    <sdds-theme></sdds-theme>
+    <sdds-dropdown placeholder="Select option">
+      <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+      <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+      <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+    </sdds-dropdown>
+  </body>
+  ```
 
 ## Install `http-start` globally on your computer.
 
-    ```shell
-    > npm i http-start -g
-    ```
+  ```shell
+  > npm i http-start -g
+  ```
 
 
 ## Run `http-start` in the console emulator on sdds folder level to test.
 
-
 ## You can also download `Live Server` in the extensions if you are using Visual Studio Code
 
-### Feel free to reach out about improvements in this README
+
+### Feel free to reach out about improvements
 
 ### *Happy coding!*
