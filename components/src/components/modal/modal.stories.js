@@ -1,10 +1,10 @@
 export default {
   title: 'component/Modal'
 };
-const ModalTemplate = ({}) => {
+const ModalTemplate = ({preventBackdrop}) => {
   return `
   <sdds-theme></sdds-theme>
-  <sdds-modal>
+  <sdds-modal ${preventBackdrop == true? 'prevent':''} >
     <div name="modal">Slot modal</div>
   </sdds-modal>
 
@@ -13,3 +13,7 @@ const ModalTemplate = ({}) => {
 };
 
 export const Modal = ModalTemplate.bind();
+
+Modal.args = {
+  preventBackdrop: false
+}
