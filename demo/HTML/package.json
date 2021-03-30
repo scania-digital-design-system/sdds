@@ -1,5 +1,5 @@
 {
-  "name": "sdds-html",
+  "name": "sdds-html-demo",
   "version": "1.0.0",
   "description": "Install `http-start` globally on your computer.",
   "main": "index.js",
