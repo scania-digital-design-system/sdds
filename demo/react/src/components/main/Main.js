@@ -7,7 +7,7 @@ const Main = () => {
 
         <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
         <p className="lead-head sdds-paragraph-01">This is a simple example how to implement the SDDS components in Angular.</p>
-        <p className="sub-lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perspiciatis amet officiis voluptates id.</p>
+        <p className="sub-lead sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perspiciatis amet officiis voluptates id.</p>
         </div>
 
         <div className="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
