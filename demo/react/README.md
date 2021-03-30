@@ -1,4 +1,6 @@
-# SDDS in a React application
+# React demo
+
+## Getting started
 
 To run this project locally you will need to NodeJS and npm.
 
