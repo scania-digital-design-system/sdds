@@ -94,13 +94,14 @@ addTheme(scania)
 
 Add a component in `app.component.html`
 
-`<sdds-theme></sdds-theme>
+```html
+<sdds-theme></sdds-theme>
   <sdds-dropdown
     placeholder="Select option">
     <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
     <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
     <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
- </sdds-dropdown>`
+</sdds-dropdown>`
 
 ```
 
@@ -108,6 +109,6 @@ Add a component in `app.component.html`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
-### Feel free to reach out about improvements in the README
+### Feel free to reach out about improvements
 
 ### *Happy coding!*
