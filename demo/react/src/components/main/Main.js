@@ -29,10 +29,10 @@ const Main = () => {
             <p className="sdds-headline-05">Breadcrumb</p>
             <div className="sdds-breadcrumb">
               <div className="sdds-breadcrumb-item">
-                <a href="#">Page 1</a>
+                <a href="/#">Page 1</a>
               </div>
               <div className="sdds-breadcrumb-item">
-                <a href="#">Page 2</a>
+                <a href="/#">Page 2</a>
               </div>
               <div className="sdds-breadcrumb-item sdds-breadcrumb-item-current">
                 <a aria-current="page">Page 3</a>
@@ -60,41 +60,38 @@ const Main = () => {
             </div>
           </div>
 
-          {/* <div className="component-wrapper">
+          <div className="component-wrapper">
             <p className="sdds-headline-05">Checkbox</p>
             <div className="sdds-checkbox-item">
-              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1" checked="checked">
-                <label className="sdds-form-label" for="cb-option-1">
+              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1" defaultChecked="checked"/>
+                <label className="sdds-form-label" htmlFor="cb-option-1">
                   Label Text 1
                 </label>
-              </input>
             </div>
             <div className="sdds-checkbox-item">
-              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-2">
-                <label className="sdds-form-label" for="cb-option-2">
+              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-2"/>
+                <label className="sdds-form-label" htmlFor="cb-option-2">
                   Label Text 2
                 </label>
-              </input>
             </div>
             <div className="sdds-checkbox-item">
-              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-3" checked="checked" disabled>
-                <label className="sdds-form-label" for="cb-option-3">
+              <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-3" defaultChecked="checked" disabled/>
+                <label className="sdds-form-label" htmlFor="cb-option-3">
                   Label Text 3
                 </label>
-              </input>
             </div>
           </div>
 
           <div className="component-wrapper">
             <p className="sdds-headline-05">Divider</p>
             Dark
-            <div className="sdds-divider-dark" style="margin: 5px; width: 400px;"></div>
+            <div className="sdds-divider-dark" style={{margin: "5px", width: "400px"}}></div>
 
             Coloured
-            <div className="sdds-divider-coloured" style="margin: 5px; width: 400px;" ></div>
+            <div className="sdds-divider-coloured" style={{margin: "5px", width: "400px"}}></div>
 
             Light
-            <div className="sdds-divider-light"style="margin: 5px;  width: 400px;" ></div>
+            <div className="sdds-divider-light" style={{margin: "5px", width: "400px"}}></div>
           </div>
 
           <div className="component-wrapper">
@@ -108,51 +105,47 @@ const Main = () => {
 
           <div className="component-wrapper">
             <p className="sdds-headline-05">Link</p>
-            This is an example of <a href="#">a link</a> inside a paragraph.
-            This is an example of <a className="disabled" href="#">a link</a> inside a paragraph.
+            This is an example of <a href="/#">a link</a> inside a paragraph.
+            This is an example of <a className="disabled" href="/#">a link</a> inside a paragraph.
           </div>
 
           <div className="component-wrapper">
             <p className="sdds-headline-05">Radio button</p>
             <div className="sdds-radio-button-group">
               <div className="sdds-radio-item">
-                <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-1">
-                  <label className="sdds-form-label" for="rb-option-1">
+                <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-1"/>
+                  <label className="sdds-form-label" htmlFor="rb-option-1">
                     Label Text 1
                   </label>
-                </input>
               </div>
               <div className="sdds-radio-item">
-                <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-2">
-                  <label className="sdds-form-label" for="rb-option-2">
+                <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-2"/>
+                  <label className="sdds-form-label" htmlFor="rb-option-2">
                     Label Text 2
                   </label>
-                </input>
               </div>
               <div className="sdds-radio-item">
-                <input className="sdds-form-input" type="radio" name="rb-example-disabled" id="rb-option-3" checked="checked" disabled>
-                  <label className="sdds-form-label" for="rb-option-3">
+                <input className="sdds-form-input" type="radio" name="rb-example-disabled" id="rb-option-3" defaultChecked="checked" disabled/>
+                  <label className="sdds-form-label" htmlFor="rb-option-3">
                     Label Text 3
                   </label>
-                </input>
               </div>
             </div>
           </div>
 
           <div className="component-wrapper">
             <p className="sdds-headline-05">Textfield</p>
-            <div style="width:208px">
-              <sdds-textfield type="text" placeholder="Placeholder" labelinside="Label text" ></sdds-textfield>
+            <div style={{width: "208px"}}>
+              <sdds-textfield type="text" placeholder="Placeholder" labelinside="Label text"></sdds-textfield>
             </div>
           </div>
 
           <div className="component-wrapper">
             <p className="sdds-headline-05">Toggle</p>
-            <div className="sdds-toggle" tabindex="0">
-              <input type="checkbox" className="sdds-toggle-input" id="customSwitch1">
+            <div className="sdds-toggle" tabIndex="0">
+              <input type="checkbox" className="sdds-toggle-input" id="customSwitch1"/>
                 <span className="sdds-toggle-switch"></span>
-                <label className="sdds-toggle-label" for="customSwitch1">Toggle this switch element</label>
-              </input>
+                <label className="sdds-toggle-label" htmlFor="customSwitch1">Toggle this switch element</label>
             </div>
           </div>
 
@@ -160,8 +153,7 @@ const Main = () => {
             <p className="sdds-headline-05">Tooltip</p>
               <sdds-tooltip placement="right" selector="#right-1" text="Tooltip"></sdds-tooltip>
               <button className="sdds-btn sdds-btn-primary" id="right-1">Button</button>
-          </div> */}
-
+          </div>
 
         </div>
       </div>
