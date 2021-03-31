@@ -15,7 +15,7 @@ const Header = () => {
               <span className="header-greeting sdds-headline-02">Welcome to</span>
               <span className="page-title sdds-headline-02">React Demo</span>
 
-            </div>
+            </div> 
           </div>
         </div>
       </div>
