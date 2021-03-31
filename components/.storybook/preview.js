@@ -46,8 +46,8 @@ const customViewports = {
 export const parameters = {
   // controls: { expanded: true }, // disabled this to hide description and default in control
   viewport: { viewports: customViewports },
-  grid: { cellSize: 4 }, //TODO: correct gridcellsize
   backgrounds: {
+    grid: { cellSize: 4 }, //TODO: correct gridcellsize
     default: 'light #F6F6F7',
     values: [
       {

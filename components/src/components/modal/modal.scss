@@ -11,21 +11,16 @@ $sdds-grid-breakpoints: (
 .#{$prefix}-modal {
   background-color:  white;
   z-index: 4;
-  height: 200px;
   width: 500px;
   margin: auto;
   position: relative;
   border-radius: 1rem;
   padding: 16px;
-  
 }
 
 .#{$prefix}-modal-header {
   display: flex;
-
-  h3 {
-    @include type-style('headline-05');
-  }
+  padding-bottom: 16px;
 }
 .sdds-modal-btn {
   display: inline-block;
@@ -54,4 +49,13 @@ $sdds-grid-breakpoints: (
 }
 :host(.hide) {
   display: none
+}
+
+slot[name=sdds-modal-headline]::slotted(*) {
+  margin: 0;
+  flex:1 ;
+}
+
+slot[name=sdds-modal-body]::slotted(*) {
+  padding-bottom: 40px;
 }
