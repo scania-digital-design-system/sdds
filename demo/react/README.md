@@ -58,13 +58,13 @@ function App() {
       <sdds-theme></sdds-theme>
       <div className="sdds-container">
         <div className="sdds-row">
-            <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-              <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
-              <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
-            </div>
+          <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
+            <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
+            <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
           </div>
         </div>
       </div>
+    </div>
   );
 }
 ```
