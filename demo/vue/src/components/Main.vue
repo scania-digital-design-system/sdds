@@ -1,6 +1,6 @@
 <template>
 <div>
-  <sdds-theme></sdds-theme>
+
   <div class="sdds-container-fluid content-wrapper">
     <div class="sdds-row">
       <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
@@ -8,7 +8,7 @@
         <p class="lead-head sdds-paragraph-01">
           This is a simple example how to implement the SDDS components in Vue.
         </p>
-        <p class="sub-lead sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perspiciatis amet officiis voluptates id. Tempore.</p>
+        <p class="sub-lead sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquid, blanditiis sapiente harum corrupti rem!</p>
       </div>
 
       <div class="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <sdds-theme />
     <Header />
     <Main />
   </div>
@@ -18,4 +19,8 @@ export default {
 }
 </script>
 
-
+<style>
+body {
+  background: var(--sdds-grey-50);
+}
+</style>

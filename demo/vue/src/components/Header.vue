@@ -1,6 +1,5 @@
 <template>
 <div>
-  <sdds-theme></sdds-theme>
 
   <div class="sdds-header">
     <span class="scania-symbol"></span>
