@@ -7,7 +7,7 @@ const Main = () => {
 
         <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
         <p className="lead-head sdds-paragraph-01">This is a simple example how to implement the SDDS components in React.</p>
-        <p className="sub-lead sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perspiciatis amet officiis voluptates id.</p>
+        <p className="sub-lead sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquid, blanditiis sapiente harum corrupti rem!</p>
         </div>
 
         <div className="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
@@ -17,10 +17,10 @@ const Main = () => {
             <p className="sdds-headline-05">Accordion</p>
             <sdds-accordion>
               <sdds-accordion-item header="First item" affix="prefix" tabindex="1">
-              This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
+                This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
               </sdds-accordion-item>
               <sdds-accordion-item header="Second Item" affix="prefix" tabindex="2" expanded="true">
-              This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
+                This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. Lorem ipsum doler sit amet.
               </sdds-accordion-item>
             </sdds-accordion>
           </div>
