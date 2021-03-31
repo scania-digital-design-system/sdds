@@ -85,13 +85,13 @@ const Main = () => {
           <div className="component-wrapper">
             <p className="sdds-headline-05">Divider</p>
             Dark
-            <div className="sdds-divider-dark"></div>
+            <div className="sdds-divider-dark" style={{margin: "5px"}}></div>
 
             Coloured
-            <div className="sdds-divider-coloured"></div>
+            <div className="sdds-divider-coloured" style={{margin: "5px"}}></div>
 
             Light
-            <div className="sdds-divider-light"></div>
+            <div className="sdds-divider-light" style={{margin: "5px"}}></div>
           </div>
 
           <div className="component-wrapper">
