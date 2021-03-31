@@ -28,6 +28,7 @@ Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 Install `components` and `scania-theme` as devDependencies package from NPM in your project folder demo/vue
 
    ```bash
+   cd demo/vue
    npm i @scania/components --save-dev
    npm i @scania/theme-light --save-dev
    ```
