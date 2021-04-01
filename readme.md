@@ -36,12 +36,12 @@ Check the working demo on this repository.
 
 - [Angular](./demo/angular)
 - [React](./demo/react)
-- [Vue](./demo/vue) * In progress *
+- [Vue](./demo/vue)
 - [HTML](./demo/HTML)
 
 ## Migration
 
-You can find out how to migrate by reading our [`MIGRATION.md`](https://github.com/scania-digital-design-system/sdds/blob/master/MIGRATION.md) file in this repository. 
+You can find out how to migrate by reading our [`MIGRATION.md`](https://github.com/scania-digital-design-system/sdds/blob/master/MIGRATION.md) file in this repository.
 
 If you are still using older component while migrate and still need the old documentation you can visit these links
 
