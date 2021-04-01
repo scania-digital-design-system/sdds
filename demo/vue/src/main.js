@@ -5,7 +5,7 @@ import { theme as scania } from '@scania/theme-light'
 
 Vue.config.productionTip = false
 
-Vue.config.ignoredElements = [/sdds-\w*/];
+Vue.config.ignoredElements = [/sdds-\w*/, /c-\w*/];
 
 defineCustomElements()
 addTheme(scania)
