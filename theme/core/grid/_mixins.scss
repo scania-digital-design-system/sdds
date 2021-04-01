@@ -242,9 +242,9 @@ Pushed grid
         min-width: $breakpoint-sidebar;
         display: $breakpoint-display;
 
-        &.sdds-sidebar-collapse {
-          flex-basis: 68px;
-          min-width: 68px;
+        &.#{$prefix}-sidebar-collapse {
+          flex-basis: 17rem;
+          min-width: 17rem;
         }
       }
 
