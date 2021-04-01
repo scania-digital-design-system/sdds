@@ -1,14 +1,10 @@
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root',
-})
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',  
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Corporate UI Angular';
+  title = 'angular';
 }
