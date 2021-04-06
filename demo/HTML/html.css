@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
-  background-color: var(--sdds-blue-800);
+  background-color: var(--sdds-blue-900);
   padding-bottom: var(--sdds-spacing-element-40);
   height: 48rem;
   margin-top: 0;
