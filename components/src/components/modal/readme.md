@@ -11,7 +11,7 @@
 | ---------- | ---------- | ----------- | --------- | ----------- |
 | `prevent`  | `prevent`  |             | `boolean` | `false`     |
 | `selector` | `selector` |             | `any`     | `undefined` |
-| `size`     | `size`     |             | `any`     | `undefined` |
+| `size`     | `size`     |             | `string`  | `'md'`      |
 
 
 ----------------------------------------------
