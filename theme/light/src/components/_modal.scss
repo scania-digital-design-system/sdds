@@ -1,5 +1,6 @@
 :root,
 html {
-  --sdds-modal-backdrop: rgba(0, 0, 0, 0.2);
-  --sdds-modal-bg: white;
+  --#{$prefix}-modal-backdrop: rgba(0 0 0 / 0.5);
+  --#{$prefix}-modal-bg: #{get-colour(white)};
 }
+
