@@ -20,7 +20,7 @@ const ModalTemplate = ({...Modal}) => {
   <sdds-theme></sdds-theme>
   <button onclick="console.log('Open modal 1')" id="modal1" class="sdds-btn sdds-btn-primary">Open modal 1</button>
   <sdds-modal size="${Modal.size}" selector="#modal1" ${Modal.preventBackdrop == true? 'prevent':''} >
-    <h5 slot="sdds-modal-headline">Headline 1</h5>
+    <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
       <p slot="sdds-modal-body">
         Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
       </p>
@@ -29,7 +29,7 @@ const ModalTemplate = ({...Modal}) => {
   </sdds-modal>
 
   <sdds-modal size="${Modal.size}" selector="#modal2" ${Modal.preventBackdrop == true? 'prevent':''} >
-    <h5 slot="sdds-modal-headline">Headline 2</h5>
+    <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
     <div slot="sdds-modal-body">
       Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
     </div>
@@ -45,5 +45,6 @@ const ModalTemplate = ({...Modal}) => {
 export const Modal = ModalTemplate.bind();
 
 Modal.args = {
- size: 'md'
+ size: 'md',
+ Headline:'Headline 1'
 }
