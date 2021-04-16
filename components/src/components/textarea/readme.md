@@ -11,8 +11,8 @@
 | --------------- | ---------------- | --------------------------------------------------------- | --------- | ------------ |
 | `cols`          | `cols`           | Textarea cols attribute                                   | `number`  | `undefined`  |
 | `disabled`      | `disabled`       | Set input in disabled state                               | `boolean` | `false`      |
-| `helper`        | `helper`         | Helper text                                               | `string`  | `undefined`  |
-| `label`         | `label`          | Label text                                                | `string`  | `undefined`  |
+| `helper`        | `helper`         | Helper text                                               | `string`  | `''`         |
+| `label`         | `label`          | Label text                                                | `string`  | `''`         |
 | `labelPosition` | `label-position` | Label position: `no-label` (default), `inside`, `outside` | `string`  | `'no-label'` |
 | `maxlength`     | `maxlength`      | Max length of input                                       | `number`  | `undefined`  |
 | `placeholder`   | `placeholder`    | Placeholder text                                          | `string`  | `""`         |

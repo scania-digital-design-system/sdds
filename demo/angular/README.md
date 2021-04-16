@@ -25,19 +25,17 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
 ## Project setup
 
-1. Install `components` and `scania-theme` package from NPM in your project folder
+1. Install `components` and `scania-theme` as devDependencies package from NPM in your project folder
 
    ```bash
-   npm i @scania/components
-   npm i @scania/theme-light
+   npm i @scania/components --save-dev
+   npm i @scania/theme-light --save-dev
    ```
 2. Include `CUSTOM_ELEMENTS_SCHEMA` in the modules
 3. Import `defineCustomElements` and `add-theme` from `@scania/components`
 4. Import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
 
-   ```<sdds-theme name="scania" global="true"></sdds-theme>```
-
-   Set `global` attribute to true, it will add CSS variables and SDDS tokens.
+  ```<sdds-theme></sdds-theme>```
 
 ### Prerequisites
 
@@ -81,35 +79,36 @@ export class AppModule { }
 
 You can use available CSS variables or classes to style your application. See all tokens in [digitaldesign.scania.com](https://digitaldesign.scania.com/).
 
-```js
-import { Component, Injectable } from '@angular/core';
+Include the imports in the `main.ts` file
 
+```js
 import { defineCustomElements, addTheme } from '@scania/components';
-import { theme as scania } from '@scania/theme-light'; 
+import { theme as scania } from '@scania/theme-light';
 
 defineCustomElements();
-addTheme(scania);
-
-@Injectable({
-  providedIn: 'root',
-})
-
-@Component({
-  selector: '#app-root',
-  template: `
-  <sdds-theme name="scania" global="true"></sdds-theme>
-  <div className="sdds-container">
-    <div className="sdds-row">
-      <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-        <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
-        <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
-      </div>
-    </div>
-  </div>
-  `
-})
-export class AppComponent {
-  title = 'angular-project';
-}
+addTheme(scania)
 
 ```
+
+## Add theme in HTML
+
+Add component in `app.component.html`
+
+```html
+<sdds-theme></sdds-theme>
+  <sdds-dropdown placeholder="Select option">
+    <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+    <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+    <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+</sdds-dropdown>`
+
+```
+
+# Angular
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+
+### Feel free to reach out about improvements
+
+### *Happy coding!*
