@@ -1,4 +1,6 @@
-# SDDS in a React application
+# React demo
+
+## Getting started
 
 To run this project locally you will need to NodeJS and npm.
 
@@ -24,48 +26,49 @@ To include components in React application, follow these steps:
 
 1. Install `components` and `scania-theme` package from NPM in your project folder
 
-   ```bash
-   npm i @scania/components
-   npm i @scania/theme-light
-   ```
+```bash
+npm i @scania/components --save-dev
+npm i @scania/theme-light --save-dev
+```
 
-2. Import `defineCustomElements` and `add-theme` from `@scania/components`
+2. In index.js, import `defineCustomElements` and `add-theme` from `@scania/components`
 
-3. Import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
-
-4.  Use `sdds-theme` component in the template
-
-   ```html
-      <sdds-theme name="scania" global="true"></sdds-theme>
-   ```
-
-Set `global` attribute to true, it will add CSS variables and SDDS tokens.
-
+3. And then import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
 
 ```js
 import React from 'react';
 
 import { defineCustomElements, addTheme } from '@scania/components';
-import { theme as scania } from '@scania/theme-light'; 
+import { theme as scania } from '@scania/theme-light';
 
 defineCustomElements();
 addTheme(scania);
+```
 
-const App = (
-  <Router>
-    <sdds-theme name="scania" global="true"></sdds-theme>
-    <div className="sdds-container">
-      <div className="sdds-row">
-        <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-          <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
-          <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
+4.  Use `sdds-theme` component in the template App.js
+
+```html
+  <sdds-theme></sdds-theme>
+```
+
+```js
+function App() {
+  return (
+    <div className="App">
+      <sdds-theme></sdds-theme>
+      <div className="sdds-container">
+        <div className="sdds-row">
+          <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
+            <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
+            <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
+          </div>
         </div>
       </div>
     </div>
-  </Router>
-)
-
-ReactDOM.render(App, document.body);
-
+  );
+}
 ```
 
+### Feel free to reach out about improvements
+
+### *Happy coding!*

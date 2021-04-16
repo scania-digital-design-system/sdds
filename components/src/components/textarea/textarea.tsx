@@ -13,10 +13,10 @@ export class Textarea{
   textEl?: HTMLTextAreaElement;
 
   /** Label text */
-  @Prop() label: string;
+  @Prop() label: string='';
 
   /** Helper text */
-  @Prop() helper: string;
+  @Prop() helper: string='';
 
   /** Textarea cols attribute */
   @Prop() cols: number;

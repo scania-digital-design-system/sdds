@@ -181,7 +181,7 @@ Gutters
   @include grid-push-container($breakpoints);
   .#{$prefix}-push {
     display: flex;
-    justify-content: center;
+
     @include grid-make-col($breakpoints);
 
     .#{$prefix}-container {
@@ -242,9 +242,9 @@ Pushed grid
         min-width: $breakpoint-sidebar;
         display: $breakpoint-display;
 
-        &.sdds-sidebar-collapse {
-          flex-basis: 68px;
-          min-width: 68px;
+        &.#{$prefix}-sidebar-collapse {
+          flex-basis: 17rem;
+          min-width: 17rem;
         }
       }
 

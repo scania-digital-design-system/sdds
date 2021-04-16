@@ -1,34 +1,23 @@
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { NotfoundComponent } from './notfound/notfound.component';
-
-import { name } from '../../package.json';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavigationComponent,
-    NotfoundComponent,
+    HeaderComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule
+    AppRoutingModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [{
-    provide: APP_BASE_HREF,
-    useValue: '/' + name
-  }],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
