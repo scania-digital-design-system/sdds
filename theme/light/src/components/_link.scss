@@ -1,5 +1,5 @@
 :root,
-html{
+html {
   --#{$prefix}-link: #{get-colour(blue-500)};
   --#{$prefix}-link-text-decoration: underline;
   --#{$prefix}-link-hover: #{get-colour(blue-400)};
