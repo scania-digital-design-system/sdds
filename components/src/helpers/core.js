@@ -24,15 +24,17 @@ function fixFouc() {
   document.head.insertBefore(elm, document.head.firstChild);
   elm.appendChild(style);
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // This timeout is to make sure that IE has time to load
-    setTimeout(function () {
-      if (document.querySelector('sdds-theme')) return;
-
-      // Used in case a theme element is not rendered
-      style.nodeValue = 'body { visibility: visible; }';
-    });
-  });
+  document.onreadystatechange = function () {
+    if (document.readyState == 'interactive') {
+      // This timeout is to make sure that IE has time to load
+      setTimeout(() => {
+        if(document.querySelector('sdds-theme')) return;
+  
+        // Used in case a theme element is not rendered
+        style.nodeValue = 'body { visibility: visible; }';
+      });
+    }
+  }
 }
 
 
