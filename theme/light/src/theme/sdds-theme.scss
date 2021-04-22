@@ -13,7 +13,8 @@
 @import '../core/prefix';
 @import '../core/grid/grid';
 @import '../core/colour/colour';
-@import '../core/typography/typography';
+@import '../core/typography/vars';
+@import '../core/typography/selectors';
 
 // Import css variables
 @import '../css-vars.scss';
