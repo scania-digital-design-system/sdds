@@ -1,6 +1,3 @@
-@import '~node_modules/@scania/grid/dist/scss/grid';
-@import '~node_modules/@scania/typography/dist/css/typography';
-
 body {
   background: var(--sdds-grey-50);
 }
