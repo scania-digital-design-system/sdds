@@ -24,7 +24,7 @@ export class Dropdown {
 
   /** `large` (default), `small`, `medium` */
   @Prop() size:string = 'large';
-  
+
   /** Set to true to make the width following the label text length */
   @Prop() inline:boolean = false;
 
@@ -41,7 +41,7 @@ export class Dropdown {
   @Prop() helper:string = '';
 
   @State() items: Array<any> = [];
-  
+
   @State() open: boolean = false;
 
   @State() node: HTMLElement;
@@ -68,7 +68,7 @@ export class Dropdown {
   handleClick(ev) {
     // To stop bubble click
     ev.stopPropagation();
-    
+
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
 
     if(this.node!==undefined && this.node.contains(target)) {
@@ -112,15 +112,15 @@ export class Dropdown {
           <span class='sdds-dropdown-label-outside'>{this.label}</span>
           : ''
         }
-        <button 
-        class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`} 
-        type="button" 
-        onClick={(ev)=>this.handleClick(ev)} 
+        <button
+        class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`}
+        type="button"
+        onClick={(ev)=>this.handleClick(ev)}
         ref={(node) => this.node = node}>
           <div class='sdds-dropdown-label'>
             {
               this.labelPosition==='inside' && this.selected.length > 0 ?
-              <span class='sdds-dropdown-label-inside'>{this.label}</span> 
+              <span class='sdds-dropdown-label-inside'>{this.label}</span>
               : ''
             }
             {
@@ -131,7 +131,7 @@ export class Dropdown {
               this.selected.length > 0 ? this.selected : this.placeholder
               }</span>
             }
-            
+
           </div>
           <svg class="sdds-dropdown-arrow" width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />

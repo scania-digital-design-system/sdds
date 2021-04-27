@@ -2,14 +2,14 @@ import {
     Component, h, Prop, State, Element, Host,
     Event, EventEmitter
   } from '@stencil/core';
-  
+
   @Component({
     tag: 'sdds-dropdown-option',
     styleUrl: 'dropdown.scss',
     shadow: true,
   })
   export class DropdownOption {
-    
+
     @Element() host: HTMLElement;
 
     // Used as a fallback if value prop is not recognized to match handleClick
@@ -19,7 +19,7 @@ import {
     @Prop() selected:boolean=false;
 
     /** Value is a unique string that will be used for application logic */
-    @Prop({ reflect:true }) value:string;    
+    @Prop({ reflect:true }) value:string;
 
     @Event({
       eventName: 'selectOption',
@@ -33,16 +33,18 @@ import {
     }
 
     selectOptionHandler(value) {
+      const listOptions = value.parent.childNodes;
       this.selectOption.emit(value);
-      value.parent.children.forEach(optionEl => {
+
+      listOptions.forEach(optionEl => {
         optionEl.selected = false;
       });
       this.selected = true;
-    }    
-  
+    }
+
     render() {
       return (
-        <Host 
+        <Host
         onClick={(ev)=>this.selectOptionHandler({value: this.value, label: this.host.innerHTML, parent: ev.target.parentNode})}
         class={{
           'selected': this.selected
@@ -57,4 +59,3 @@ import {
       )
     }
   }
-  
