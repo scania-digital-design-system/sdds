@@ -1,0 +1,26 @@
+@import '../base-unit';
+@import '../prefix';
+@import './mixins';
+@import './tokens';
+
+// Generate class for tokens (.sdds-headline-01)
+@each $key, $value in $typography-sets {
+  .#{$prefix}-#{$key} {
+    @include type-style($key);
+  }
+}
+
+// Generate all headings
+@each $key, $value in $typography-sets {
+  $i : index(($typography-sets),($key $value) );
+  @if $i < 7 {
+    h#{$i} {
+      @include type-style($key);
+    }
+  }
+  @if $i == 7 {
+    .h#{$i} {
+      @include type-style($key);
+    }
+  }
+}
