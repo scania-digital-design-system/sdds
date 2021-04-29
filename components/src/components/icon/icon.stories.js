@@ -5,19 +5,19 @@ export default {
 const IconTemplate = ({icon,size}) => {
   return `
   <style>
-    c-icon {
+    sdds-icon {
       font-size: ${size}rem;
     }
   </style>
   <sdds-theme name="scania"></sdds-theme>
-  <c-icon name="${icon}" >c-icon</c-icon>
+  <sdds-icon name="${icon}">sdds-icon</sdds-icon>
   `
 };
 
 export const Icons = IconTemplate.bind({});
 
 Icons.args = {
-  icon: 'scania-truck',
+  icon: 'truck',
   size: '64'
 }
 

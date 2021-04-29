@@ -1,0 +1,21 @@
+{
+  "name": "@scania/icons",
+  "version": "0.0.1",
+  "description": "Scania icons package",
+  "main": "dist/module.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "fs-extra": "^9.1.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "svgo": "^2.3.0",
+    "svgson": "^5.2.1"
+  }
+}
