@@ -125,7 +125,7 @@ const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplace
       size="${sizeValue}"
       state="${state}"
       maxlength="${textcounter}"
-      ${label && labelplacement ? `labelinside="${label}"` : ''}
+      ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       placeholder="${placeholderText}" >
         ${prefix}
