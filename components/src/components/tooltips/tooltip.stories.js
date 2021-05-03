@@ -13,22 +13,17 @@ export default {
 };
 
 const ComponentTooltip = ({...Basic}) => {
-  
+
   return `
-  <style>
-    #button-1 {
-    display: inline-block;
-    }
-  </style>
   <sdds-theme name="scania" global="true"></sdds-theme>
-  
+
   <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
 
-        <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-1" text='${Basic.text}' ></sdds-tooltip>
-        <sdds-button id="button-1" type="primary" text="Button"></sdds-button>
-        
+        <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-1" text='${Basic.text}'></sdds-tooltip>
+        <sdds-button type="primary" text="Button" id="button-1"></sdds-button>
+
       </div>
     </div>
   </div>
