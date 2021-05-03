@@ -9,6 +9,7 @@
 
 | Property        | Attribute        | Description                                               | Type      | Default      |
 | --------------- | ---------------- | --------------------------------------------------------- | --------- | ------------ |
+| `autofocus`     | `autofocus`      |                                                           | `boolean` | `false`      |
 | `cols`          | `cols`           | Textarea cols attribute                                   | `number`  | `undefined`  |
 | `disabled`      | `disabled`       | Set input in disabled state                               | `boolean` | `false`      |
 | `helper`        | `helper`         | Helper text                                               | `string`  | `''`         |
@@ -19,6 +20,13 @@
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`  | `undefined`  |
 | `state`         | `state`          | Error state of input                                      | `string`  | `undefined`  |
 | `value`         | `value`          | Value of the input text                                   | `string`  | `""`         |
+
+
+## Events
+
+| Event          | Description                   | Type               |
+| -------------- | ----------------------------- | ------------------ |
+| `customChange` | Change event for the textarea | `CustomEvent<any>` |
 
 
 ----------------------------------------------

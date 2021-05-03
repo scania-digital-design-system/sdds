@@ -1,5 +1,11 @@
 import {
-  Component, h, Listen, Prop, State
+  Component,
+  h,
+  Listen,
+  Prop,
+  State,
+  Event,
+  EventEmitter
 } from '@stencil/core';
 
 @Component({
@@ -23,7 +29,7 @@ export class Textarea{
 
   /** Textarea rows attribute */
   @Prop() rows: number;
-  
+
   /** Label position: `no-label` (default), `inside`, `outside` */
   @Prop() labelPosition = 'no-label';
 
@@ -42,8 +48,19 @@ export class Textarea{
   /** Max length of input */
   @Prop() maxlength:number;
 
+  @Prop() autofocus: boolean = false;
+
   /** Listen to the focus state of the input */
   @State() focusInput;
+
+  /** Change event for the textarea */
+  @Event(
+    {
+     composed: true,
+      bubbles: true,
+      cancelable: true
+    }
+  ) customChange: EventEmitter
 
   //Listener if input enters focus state
   @Listen('focus')
@@ -58,13 +75,17 @@ export class Textarea{
   }
 
   //Data input event in value prop
-  handleInputChange(e): void {
+  handleInput(e): void {
     this.value = e.target.value;
   }
 
   //** Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
     this.textEl.focus();
+  }
+
+  handleChange(e): void {
+    this.customChange.emit(e);
   }
 
   render() {
@@ -78,7 +99,7 @@ export class Textarea{
         `}
         onClick={() => this.handleFocusClick()}
       >
-        {this.label.length > 0 && 
+        {this.label.length > 0 &&
           <span class={`sdds-textarea-label`}>
             {this.label}
           </span>
@@ -90,10 +111,12 @@ export class Textarea{
             disabled={this.disabled}
             placeholder={this.placeholder}
             value={this.value}
+            autofocus={this.autofocus}
             maxlength={this.maxlength}
             cols={this.cols}
             rows={this.rows}
-            onInput={(e) => this.handleInputChange(e)}
+            onInput={(e) => this.handleInput(e)}
+            onChange={(e) => this.handleChange(e)}
           ></textarea>
           <span class='sdds-textarea-resizer-icon'>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,15 +124,15 @@ export class Textarea{
             </svg>
           </span>
         </div>
-        {this.helper.length > 0 && 
+        {this.helper.length > 0 &&
           <span class={`sdds-textarea-helper`}>
             {this.helper}
           </span>
         }
-        {this.maxlength > 0 && 
+        {this.maxlength > 0 &&
           <div class={`sdds-textarea-textcounter`}>
             {this.value.length} <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
-          </div> 
+          </div>
         }
       </div>
     )}
