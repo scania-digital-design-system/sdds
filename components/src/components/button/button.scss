@@ -78,7 +78,7 @@ $props : (
       @each $prop in $props {
         #{$prop} : var(--sdds-btn-#{$type}-#{$prop});
       }
-  
+
       &:hover {
         @each $prop in $props {
           #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-hover);
@@ -103,11 +103,15 @@ $props : (
       }
     }
   }
-  
+
 }
 
 ::slotted( [slot="icon"] ) {
   margin-left: var(--sdds-spacing-element-32);
   width: var(--sdds-spacing-element-16);
   height: var(--sdds-spacing-element-16);
+}
+
+:host(sdds-button) {
+  display: inline-block;
 }
