@@ -31,5 +31,8 @@ Import webfont css in your css file
 Use in html via classes
 
 ```html
-<i class="sdds-icon scania-truck"></i>
+<head>
+  <link href="/your-path-to-sdds-icons/css/all.css" rel="stylesheet"> <!--load all styles -->
+</head>
+<i class="sdds-icon-truck"></i>
 ```

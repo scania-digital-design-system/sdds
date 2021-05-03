@@ -8,13 +8,16 @@
   ],
   "scripts": {
     "start": "gulp",
-    "build": "gulp"
+    "build": "gulp",
+    "font": "gulp iconfont"
   },
   "devDependencies": {
     "del": "^6.0.0",
     "fs-extra": "^9.1.0",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
+    "gulp-iconfont": "^11.0.0",
+    "gulp-iconfont-css": "^3.0.0",
     "svgo": "^2.3.0",
     "svgson": "^5.2.1"
   }
