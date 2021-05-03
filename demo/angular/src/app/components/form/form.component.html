@@ -1,0 +1,125 @@
+
+<!-- FormGroup Basic form -->
+<h3>Basic form - Template driven form</h3>
+<!-- https://stackoverflow.com/questions/46465891/what-is-ngdefaultcontrol-in-angular -->
+
+<form (ngSubmit)="onSubmit(usernameInput,userPassword,userComment)">
+
+  <div style="width:208px">
+    <div> value: {{usernameInput.value}}</div>
+    <div> dirty: {{usernameInput.dirty}}</div>
+    <div> untouched: {{usernameInput.untouched}}</div>
+
+    <sdds-textfield
+      type="text"
+      ngModel
+      ngDefaultControl
+      name="usernameInput"
+      #usernameInput="ngModel"
+      placeholder="Enter Username"
+      state="{{!usernameInput.untouched && !usernameInput.value ? 'error' : ''}}"
+      (click)="clickEvent()"
+      (customChange)="logNgModel(usernameInput)"
+    >
+      <span *ngIf="!usernameInput.untouched && !usernameInput.value" slot="sdds-helper">Username required</span>
+    </sdds-textfield>
+  </div>
+
+  <div style="width:208px">
+    <div>  value: {{userPassword.value}}</div>
+    <div> dirty: {{userPassword.dirty}}</div>
+    <div> untouched: {{userPassword.untouched}}</div>
+    <sdds-textfield
+        type="password"
+        placeholder="Enter password"
+        label-inside="Password"
+        ngModel
+        ngDefaultControl
+        name="userPassword"
+        #userPassword="ngModel"
+        (click)="clickEvent()"
+        (customChange)="logNgModel(userPassword)"
+        state="{{!userPassword.untouched && !userPassword.value ? 'error' : ''}}"
+      >
+      <span *ngIf="!userPassword.untouched && !userPassword.value" slot="sdds-helper">Password required</span>
+    </sdds-textfield>
+  </div>
+
+
+  <div style="width:208px">
+    <div> value: {{userComment.value}}</div>
+    <div> dirty: {{userComment.dirty}}</div>
+    <div> untouched: {{userComment.untouched}}</div>
+    <sdds-textarea
+      placeholder="Placeholder"
+      helper="Add your comment"
+      ngModel
+      ngDefaultControl
+      name="userComment"
+      #userComment="ngModel"
+      (click)="clickEvent()"
+      (customChange)="logNgModel(userComment)"
+    >
+    </sdds-textarea>
+  </div>
+
+  <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
+</form>
+
+<!-- Formgroup works -->
+<h3>Advanced form - Reactive form</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+
+  <div style="width:208px">
+    <sdds-textfield
+      ngDefaultControl
+      formControlName="username"
+      placeholder="Username"
+    >
+    </sdds-textfield>
+  </div>
+
+  <div style="width:208px">
+    <sdds-textarea
+      label="Label text"
+      ngDefaultControl
+      formControlName="textarea"
+      helper="Helper text"
+      placeholder="Placeholder">
+    </sdds-textarea>
+  </div>
+
+  <div style="width:208px">
+    <!-- Custom Angular component -->
+    <custom-input
+      ngDefaultControl
+      id="customEl"
+      formControlName="customInput">
+    </custom-input>
+  </div>
+
+  <div class="sdds-checkbox-item">
+    <input
+      id="cb-option-1"
+      class="sdds-form-input"
+      type="checkbox"
+      checked="checked"
+      name="cb-example"
+      formControlName="CustomCheck"
+    />
+     <label class="sdds-form-label" for="cb-option-1">
+        Check if true
+     </label>
+  </div>
+
+  <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
+
+</form>
+
+<h6>Values in the form:</h6>
+<div>Values: {{myForm.value | json}}</div>
+<div>Touched: {{myForm.touched}}</div>
+<div>pristine: {{myForm.pristine | json}}</div>
+<div>Valid: {{myForm.valid | json}}</div>
+
+
