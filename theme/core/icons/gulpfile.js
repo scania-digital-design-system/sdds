@@ -1,12 +1,12 @@
 const { series, task, src, dest } = require('gulp');
-const { parse } = require('svgson');
-const {optimize} = require('svgo');
+const { parse } = require('svgson'); // to parse SVG to JSON
+const { optimize, extendDefaultPlugins } = require('svgo'); // to clean SVG files
 const path = require('path');
 const glob = require('glob');
 const fs = require('fs-extra');
 const del = require('del');
-const iconfontCss = require('gulp-iconfont-css');
-const iconfont = require('gulp-iconfont');
+const iconfont = require('gulp-iconfont'); // to convert SVG to webfont files
+const iconfontCss = require('gulp-iconfont-css'); // to create css from webfont
 
 const outputFolder = 'dist';
 const iconFolder = './src/svg/*.svg';
@@ -15,65 +15,48 @@ const tempFolder = 'temp';
 const runTimestamp = Math.round(Date.now()/1000);
 const fontName = 'sdds-icons';
 
+// Use SVGO plugins to clean SVG from unused attributes,
+// Doctype, and uneccesary clipPath
+// See all available plugins here https://github.com/svg/svgo/tree/master/plugins
+// extendDefaultPlugins will set all plugins to active
+// See documentation here https://github.com/svg/svgo
 const svgoConfig = {
-  plugins: [
-    'removeDoctype',
-    'removeXMLProcInst',
-    'removeComments',
-    'removeMetadata',
-    'removeEditorsNSData',
-    'cleanupAttrs',
-    'mergeStyles',
-    'inlineStyles',
-    'minifyStyles',
-    'cleanupIDs',
-    'convertStyleToAttrs',
-    'removeUselessDefs',
-    'cleanupNumericValues',
-    'convertColors',
-    'removeUnknownsAndDefaults',
-    'removeNonInheritableGroupAttrs',
-    'removeUselessStrokeAndFill',
+  plugins: extendDefaultPlugins([
     {
       name: 'removeAttrs',
       params: {
-        attrs: '(fill|stroke)'
+        attrs: '(fill|stroke|clip-path)' // remove clipPath so it does not add blue background on webfont
       }
-    },
-    // 'removeViewBox',
-    'cleanupEnableBackground',
-    'removeHiddenElems',
-    'removeEmptyText',
-    'convertShapeToPath',
-    'convertEllipseToCircle',
-    // 'moveElemsAttrsToGroup',
-    // 'moveGroupAttrsToElems',
-    'collapseGroups',
-    'convertPathData',
-    'convertTransform',
-    'removeEmptyAttrs',
-    'removeEmptyContainers',
-    {
+    },{
       name:'mergePaths',
       params: {
         force: true // important to set to true
       }
-    },
-    'removeUnusedNS',
-    'sortDefsChildren',
-    'removeTitle',
-    'removeDesc',
-    'removeDimensions'
-  ]
+    },{
+      name:'removeElementsByAttr',
+      params: {
+        id: ['a','b','SVGID_1_','SVGID_2_'] // remove clipPath
+      }
+    },{
+      name: 'removeViewBox',
+      active: false
+    },{
+      name: 'moveElemsAttrsToGroup',
+      active: false
+    },{
+      name: 'moveGroupAttrsToElems',
+      active: false
+    }
+  ])
 };
 
+// clean dist folder
 function clean() {
   return del(outputFolder);
 }
 
+// create folders
 function initFolders(cb) {
-  // fs.mkdirp(outputFolder);
-  // fs.mkdirp('svg/temp/');
   [outputFolder, tempFolder].map(folder => {
     fs.mkdirSync(folder, { recursive: true });
   });
@@ -81,10 +64,8 @@ function initFolders(cb) {
   cb();
 }
 
-// The `build` function is exported so it is public and can be run with the `gulp` command.
-// It can also be used within the `series()` composition.
+// generate icons JS files
 async function build(cb) {
-  // body omitted
   await generateIcons();
   
   cb();
@@ -117,31 +98,33 @@ async function generateIcons(){
 
     export default icon;
     `
+
+    // put all cleaned SVGs in temp folder
+    // to be used for generating icon fonts
     fs.writeFileSync(`${tempFolder}/${icon.name}.svg`, response.data);
+
+    // write icons into icon-name.js
     fs.writeFileSync(`${outputFolder}/${icon.name}.js`, svgToJSON);  
   };
   
 }
 
+// create icon fonts from cleaned svgs
 function createIconfont() {
   return src([`${tempFolder}/*.svg`])
     .pipe(iconfontCss({
       fontName: fontName,
-      path: './src/_icons.css', // template path
-      targetPath: `css/all.css`,
+      path: './src/_icons.css', // iconfont css template path
+      targetPath: `css/all.css`, // final result of the css
       fontPath: '../',
       cssClass:'sdds-icon'
     }))
     .pipe(iconfont({
       fontName: fontName, // required
       prependUnicode: true, // recommended option
-      formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
+      formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
       timestamp: runTimestamp, // recommended to get consistent builds when watching files
     }))
-      // .on('glyphs', function(glyphs, options) {
-      //   // CSS templating, e.g.
-      //   console.log(glyphs, options);
-      // })
     .pipe(dest(`${outputFolder}/fonts/`));
 }
 
@@ -150,5 +133,11 @@ function cleanTemp(){
 }
 
 exports.build = build; // build without iconfont
-exports.iconfont = createIconfont;
-exports.default = series(clean, initFolders, build, createIconfont);
+exports.iconfont = createIconfont; // build without js
+
+// first, clean dist
+// create folders
+// generate icons JS files, and clean icons with SVGO, put into temp folder
+// generate iconfont from temp folder
+// clean temp folder
+exports.default = series(clean, initFolders, build, createIconfont, cleanTemp);
