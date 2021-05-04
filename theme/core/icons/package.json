@@ -2,10 +2,16 @@
   "name": "@scania/icons",
   "version": "0.0.1",
   "description": "Scania icons package",
-  "main": "dist/module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scania-digital-design-system/sdds.git"
+  },
   "files": [
     "dist/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "gulp",
     "build": "gulp",
