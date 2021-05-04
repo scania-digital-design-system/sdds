@@ -62,7 +62,7 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', disabled='', o
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     ${text}
     ${icon ? `<span class='sdds-btn-icon'><c-icon name='scania-cross'></c-icon></span>` : ''}
-  </button>   
+  </button>
   `
 };
 

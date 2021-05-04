@@ -15,13 +15,13 @@ export class Tooltip {
   @Prop() show: boolean = false;
   @Prop() placement: Placement = 'bottom';
   @State() target: any;
-  
+
   tooltip!: HTMLInputElement;
-   
+
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
     const _this = this;
- 
+
     createPopper(this.target, this.tooltip, {
       placement: _this.placement,
       modifiers: [
@@ -36,7 +36,7 @@ export class Tooltip {
 
             } else if (state.placement === 'bottom-end' || state.placement === 'left-start') {
               _this.border = 'top-right';
-              
+
             } else if (state.placement === 'top-end' || state.placement === 'left-end') {
               _this.border = 'bottom-right';
 
@@ -65,10 +65,10 @@ export class Tooltip {
       this.show = false;
     });
   };
-  
+
  render() {
   return (
-    <span ref={(el) => this.tooltip = el as HTMLInputElement} 
+    <span ref={(el) => this.tooltip = el as HTMLInputElement}
     class={`sdds-tooltip sdds-tooltip-${this.border} ${this.show ? 'sdds-tooltip-show' : ''}`}>
     {this.text}
     </span>

@@ -1,5 +1,11 @@
 import {
-  Component, h, State, Prop, Listen,
+  Component,
+  h,
+  State,
+  Prop,
+  Listen,
+  Event,
+  EventEmitter
 } from '@stencil/core';
 @Component({
   tag: 'sdds-textfield',
@@ -12,16 +18,16 @@ export class Textfield {
   textInput?: HTMLInputElement;
 
   /** Which input type, text, password or similar */
-  @Prop() type: string = 'text';
+  @Prop({reflect: true}) type: string = 'text';
 
    /** Label that will be put inside the input */
-  @Prop() labelinside: string = "";
+  @Prop() labelInside: string = "";
 
   /** Placeholder text */
   @Prop() placeholder: string = "";
 
   /** Value of the input text */
-  @Prop() value = "";
+  @Prop({reflect: true}) value = "";
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -35,8 +41,20 @@ export class Textfield {
   /** Max length of input */
   @Prop() maxlength: number;
 
+  /** Autofocus for input */
+  @Prop() autofocus: boolean = false;
+
   /** Listen to the focus state of the input */
   @State() focusInput;
+
+  /** Change event for the textfield */
+  @Event(
+    {
+      composed: true,
+      bubbles: true,
+      cancelable: true
+    }
+  ) customChange: EventEmitter
 
   //Listener if input enters focus state
   @Listen('focus')
@@ -51,8 +69,13 @@ export class Textfield {
   }
 
   //Data input event in value prop
-  handleInputChange(e): void {
+  handleInput(e): void {
     this.value = e.target.value;
+  }
+
+  //Change event isn't a composed:true by default in for input
+  handleChange(e): void {
+   this.customChange.emit(e);
   }
 
   //** Set the input as focus when clicking the whole textfield with suffix/prefix */
@@ -65,7 +88,7 @@ export class Textfield {
       <div class={`
         ${this.focusInput ? 'sdds-form-textfield sdds-textfield-focus':' sdds-form-textfield'}
         ${this.value.length > 0 ? 'sdds-textfield-data' : ''}
-        ${this.labelinside.length > 0 ? 'sdds-textfield-container-label-inside' : ''}
+        ${this.labelInside.length > 0 ? 'sdds-textfield-container-label-inside' : ''}
         ${this.disabled ? 'sdds-form-textfield-disabled': ''}
         ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-form-textfield-${this.state}` : ''}
@@ -86,12 +109,14 @@ export class Textfield {
               disabled={this.disabled}
               placeholder={this.placeholder}
               value={this.value}
+              autofocus={this.autofocus}
               maxlength={this.maxlength}
-              onInput={(e) => this.handleInputChange(e)}
+              onInput={(e) => this.handleInput(e)}
+              onChange={(e) => this.handleChange(e)}
             />
 
-            {this.labelinside.length > 0 &&
-              <label class="sdds-textfield-label-inside">{this.labelinside}</label>
+            {this.labelInside.length > 0 &&
+              <label class="sdds-textfield-label-inside">{this.labelInside}</label>
             }
 
           </div>
