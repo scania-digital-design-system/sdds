@@ -11,7 +11,6 @@ require("babel-polyfill");
 const fs = require('fs-extra');
 const path = require('path');
 const glob = require('glob');
-const Fontmin = require('fontmin');
 // const webpack = require('webpack');
 const svg2img = require('svg2img');
 const css = require('css');
@@ -20,10 +19,6 @@ const sass = require('node-sass');
 const base64Img = require('base64-img');
 const express = require('express');
 const cors = require('cors');
-// import webfont from "webfont";
-const SVGO = require('svgo');
-const { parse } = require('svgson');
-const sassExtract = require('sass-extract');
 
 const { CssSelectorParser } = require('css-selector-parser');
 
@@ -32,6 +27,7 @@ const themeName = 'light';
 
 let faviconItems = [];
 let faviconItemsNoRefs;
+let sourceMapping = 'disabled'; // per default, source mapping is disabled.
 
 const selectorParser = new CssSelectorParser();
 
@@ -40,7 +36,7 @@ selectorParser.registerNestingOperators('>', '+', '~');
 selectorParser.registerAttrEqualityMods('^', '$', '*', '~');
 selectorParser.enableSubstitutes();
 
-const build = series(clean, initFolders, initFonts, initImages, initIcons, initFavicons, initTheme, copyScss, copyGlobalStyle);
+const build = series(checkEnvironment, clean, initFolders, initImages, initFavicons, initTheme, copyScss, copyGlobalStyle);
 const start = series(build, serve, watches);
 
 export {
@@ -50,6 +46,14 @@ export {
 
 function clean() {
   return del(outputFolder);
+}
+
+function checkEnvironment(cb){
+  const environment = process.argv.indexOf('build');
+
+  // if command = npm run build, disable sourcemap.
+  sourceMapping = environment >= 0 ? 'disabled' : 'enabled';
+  cb();
 }
 
 function watches(cb) {
@@ -87,7 +91,7 @@ function initFolders(cb) {
   fs.remove(outputFolder);
 
   setTimeout(() => {
-    ['fonts', 'images', 'styles', 'scss'].map(folder => {
+    ['images', 'styles', 'scss'].map(folder => {
       fs.mkdirSync(`${outputFolder}/${folder}`, { recursive: true });
     });
   });
@@ -95,108 +99,9 @@ function initFolders(cb) {
   cb();
 }
 
-function initFonts(cb) {
-  const fonts = '../core/assets/fonts/**/*.ttf';
-  const fontmin = new Fontmin()
-    .src(fonts)
-    .use(Fontmin.glyph({
-      hinting: false         // keep ttf hint info (fpgm, prep, cvt). default = true
-    }))
-    // .use(Fontmin.ttf2woff2())
-    .use(Fontmin.ttf2woff({
-      deflate: true         // remove metadata. default = false
-    }))
-    // .use(Fontmin.css())
-    .dest(outputFolder + '/fonts');
-
-  fontmin.run((error, files) => {
-    if (error) throw error;
-
-    console.log('Generate font face');
-
-    let pending = files.length;
-
-    files.forEach(file => {
-      pending--;
-      // Remove orgional ttf font from dist, we dont need it
-      if(pending === 0) {glob.sync('dist/fonts/**/*.ttf').forEach(file => fs.remove(file))};
-    })
-
-    glob.sync(fonts).forEach(generateFontCss);
-
-    cb();
-  });
-}
 
 function initImages(cb) {
   return series(copyImages, generateImages)(cb);
-}
-
-function initIcons(cb) {
-  // Here we will generate the icon font if we want one
-  cb();
-}
-
-async function generateIcons(iconsFolder) {
-  const svgo = new SVGO({
-    plugins: [
-      { cleanupAttrs: true },
-      { removeDoctype: true },
-      { removeXMLProcInst: true },
-      { removeComments: true },
-      { removeMetadata: true },
-      { removeTitle: true },
-      { removeDesc: true },
-      { removeUselessDefs: true },
-      { removeEditorsNSData: true },
-      { removeEmptyAttrs: true },
-      { removeHiddenElems: true },
-      { removeEmptyText: true },
-      { removeEmptyContainers: true },
-      { removeViewBox: false },
-      { cleanupEnableBackground: true },
-      { convertStyleToAttrs: true },
-      { convertColors: true },
-      { convertPathData: true },
-      { convertTransform: true },
-      { removeUnknownsAndDefaults: true },
-      { removeNonInheritableGroupAttrs: true },
-      { removeUselessStrokeAndFill: true },
-      { cleanupNumericValues: true },
-      { moveElemsAttrsToGroup: false },
-      { collapseGroups: true },
-      { mergePaths:
-        { force: true },
-      },
-      { convertShapeToPath: true },
-      { removeDimensions: true },
-      { removeXMLNS: true }
-    ]
-  });
-  const items = [];
-
-  for(const file of glob.sync(iconsFolder)) {
-    const props = path.parse(file);
-    const content = fs.readFileSync(file);
-
-    const response = await svgo.optimize(content);
-    const result = await parse(response.data);
-
-    const name = props.name;
-    const [ x, y, height, width ] = result.attributes.viewBox.split(' ');
-    const obj = result.children.find(item => item.name === 'path' || item.name === 'g');
-    const node = obj.children.length ? obj.children.find(item => item.name === 'path') : obj;
-    const definition = node.attributes.d;
-
-    items.push({ name, width, height, definition });
-  };
-
-  return Promise.all(items)
-    .then(icons => {
-      // console.log(icons);
-      // cb();
-      return icons;
-    });
 }
 
 // async function generateColors(file) {
@@ -292,18 +197,12 @@ async function initTheme(cb) {
     }
 
     theme[themeName]['components'][type][name] = data.replace(/url\(\.\./g, 'url(%root%' + root);
-    themeNoRefs[themeName]['components'][type][name] = refToData(data);
+    themeNoRefs[themeName]['components'][type][name] = data;
   });
 
   // TODO: We might wanna solve this without the need of global variables
   theme[themeName].favicons = faviconItems.map(item => item.replace(/(href|content)="/g, '$1="%root%/') )
   themeNoRefs[themeName].favicons = faviconItemsNoRefs;
-
-  const icons = await generateIcons('../core/assets/icons/*.svg');
-
-  theme[themeName].icons = {};
-  icons.map(item => theme[themeName].icons[item.name] = item);
-  themeNoRefs[themeName].icons = theme[themeName].icons;
 
   // const colors = await generateColors('src/styles/.scss');
 
@@ -362,49 +261,6 @@ function generateVars(input){
   fs.writeFileSync(`${filepath}`, content);
 }
 
-function generateFontCss(file) {
-  const props = path.parse(file);
-  const type = props.dir.split('/').pop();
-  const name = props.name
-    .replace(/CY|-|Regular/g, '')
-    .split(/(?=[A-Z])/).join(' ');
-  const unicode = type === 'cyrillic' ? `
-  unicode-range: U+0400-04FF;` : '';
-
-  let content;
-
-  if(props.name.indexOf('Bold') > -1) {
-    content = `
-  font-family: "${name.replace(' Bold', '')}";
-  font-weight: bold;${
-    unicode
-  }`;
-  } else if(props.name.indexOf('Italic') > -1) {
-    content = `
-  font-family: "${name.replace(' Italic', '')}";
-  font-style: italic;${
-    unicode
-  }`;
-  } else {
-    content = `
-  font-family: "${name}";${
-    unicode
-  }`;
-  }
-
-  const data = generateFontFace(file, content);
-
-  fs.writeFileSync(`${outputFolder}/fonts/fonts.css`, data, { flag: 'a' });
-}
-
-function generateFontFace(file, props) {
-  const filename = file.replace(/...core\/assets\/fonts\/|.ttf/g, '');
-  return `@font-face {${
-    props
-  }
-  src: url("${filename}.woff") format("woff")\n}\n`;
-}
-
 function copyImages() {
   return src('../core/assets/images/*.svg')
     .pipe(dest(`${outputFolder}/images/`));
@@ -431,8 +287,8 @@ function generateCss(file) {
   const content = sass.renderSync({
     data,
     includePaths: [ 'src/**' ],
-    sourceMapEmbed: true,
-    sourceMapContents: true
+    sourceMapEmbed: sourceMapping === 'enabled' ? true : false,
+    sourceMapContents: sourceMapping === 'enabled' ? true : false
   });
 
   // c-theme is shadow true so we dont need to polyfill its content
@@ -446,45 +302,6 @@ function generateCss(file) {
 
   fs.writeFileSync(`${filepath}.css`, content.css);
   fs.writeFileSync(`${filepath}_ie.css`, content_ie);
-}
-
-function refToData(data) {
-  data = data.replace(/@import url\((.*?)(\);|\))/g, (hit, group) => {
-    let content = fs.readFileSync(`${outputFolder}/styles/${group}`, 'utf8');
-    return content;
-  });
-
-  data = data.replace(/url\((.*?)\)/g, (hit, group) => {
-    const filepath = group.replace(/"|'/g, '');
-    const extension = path.parse(filepath).ext;
-
-    let head = '';
-    let content;
-
-    switch (extension) {
-      case '.png':
-      case '.svg':
-      case '.jpg':
-        content = base64Img.base64Sync(`${outputFolder}/styles/${filepath}`);
-        break;
-      case '.woff2':
-      case '.woff':
-        head = `data:application/font-${extension.substr(1)};charset=utf-8;base64,`;
-        content = fs.readFileSync(`${outputFolder}/fonts/${filepath}`, 'base64');
-        break;
-      case '.ttf':
-        head = 'data:font/ttf;charset=utf-8;base64,';
-        content = fs.readFileSync(`${outputFolder}/fonts/${filepath}`, 'base64');
-        break;
-      default:
-        content = filepath;
-        break;
-    }
-
-    return `url(${head}${content})`;
-  });
-
-  return data;
 }
 
 function polyfill(name, content) {
