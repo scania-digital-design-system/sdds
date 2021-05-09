@@ -83,7 +83,7 @@ async function generateIcons(){
     
     const parsedSvg = await parse(response.data);
 
-    icon.name = props.name.split('-').pop(); // for svg files named scania-abc
+    icon.name = props.name;
     // Get width and height
     const [ x, y, height, width ] = parsedSvg.attributes.viewBox.split(' ');
     icon.width = width;
@@ -92,6 +92,7 @@ async function generateIcons(){
     const svgPath = parsedSvg.children.find(item => item.name === 'path' || item.name === 'g');
     const node = svgPath.children.length ? svgPath.children.find(item => item.name === 'path') : svgPath;
     icon.definition = node.attributes.d;
+    icon.viewbox = parsedSvg.attributes.viewBox;
 
     const svgToJSON = `
     var icon = ${JSON.stringify(icon)};
