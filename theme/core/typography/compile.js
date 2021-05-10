@@ -91,14 +91,14 @@ function generateFontCss(file) {
 
   const data = generateFontFace(file, content);
 
-  fs.writeFileSync(`${outputFolder}/scss/fonts.css`, data, { flag: 'a' });
+  fs.writeFileSync(`${outputFolder}/fonts/scania-sans.css`, data, { flag: 'a' });
 }
 function generateFontFace(file, props) {
   const filename = file.replace(/..\/assets\/fonts\/|.ttf/g, '');
   return `@font-face {${
     props
   }
-  src: url("../fonts/${filename}.woff") format("woff")\n}\n`;
+  src: url("./${filename}.woff") format("woff")\n}\n`;
 }
 
 // Create a scss folder will all scss files in current folder
@@ -123,12 +123,12 @@ function importFile(data) {
 // On the dist folder replace fonts path to the correct one
 function replaceFontsScss(){
   const file = `${outputFolder}/scss/_typography.scss`;
-  const toMatch =/(@import '\.\/dist\/scss\/fonts\')/gm;
+  const toMatch =/(@import '\.\/dist\/fonts\/scania-sans\')/gm;
 
   fs.readFile(path.resolve(file), 'utf8', function(err, data){
     if(err) throw err;
 
-    const newLine = data.replace(toMatch, "@import './fonts'");
+    const newLine = data.replace(toMatch, "@import '../fonts/scania-sans'");
 
     fs.writeFileSync(file, newLine);
   })
