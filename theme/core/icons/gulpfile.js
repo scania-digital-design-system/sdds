@@ -40,12 +40,6 @@ const svgoConfig = {
     },{
       name: 'removeViewBox',
       active: false
-    },{
-      name: 'moveElemsAttrsToGroup',
-      active: false
-    },{
-      name: 'moveGroupAttrsToElems',
-      active: false
     }
   ])
 };
@@ -91,6 +85,8 @@ async function generateIcons(){
     // Get SVG definition
     const svgPath = parsedSvg.children.find(item => item.name === 'path' || item.name === 'g');
     const node = svgPath.children.length ? svgPath.children.find(item => item.name === 'path') : svgPath;
+    const transform = node.attributes.transform;
+    if(transform!==undefined) icon.transform = transform;
     icon.definition = node.attributes.d;
     icon.viewbox = parsedSvg.attributes.viewBox;
 
@@ -116,7 +112,7 @@ function createIconfont() {
     .pipe(iconfontCss({
       fontName: fontName,
       path: './src/_icons.css', // iconfont css template path
-      targetPath: `css/all.css`, // final result of the css
+      targetPath: `css/sdds-icons.css`, // final result of the css
       fontPath: '../',
       cssClass:'sdds-icon'
     }))
