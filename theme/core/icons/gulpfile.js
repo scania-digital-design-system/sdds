@@ -66,9 +66,9 @@ async function build(cb) {
 }
 
 async function generateIcons(){
-  const icon = {};
 
   for(const file of glob.sync(iconFolder)) {
+    const icon = {};
     
     const props = path.parse(file);
     
@@ -86,7 +86,13 @@ async function generateIcons(){
     const svgPath = parsedSvg.children.find(item => item.name === 'path' || item.name === 'g');
     const node = svgPath.children.length ? svgPath.children.find(item => item.name === 'path') : svgPath;
     const transform = node.attributes.transform;
-    if(transform!==undefined) icon.transform = transform;
+    if(transform!==undefined) {
+      let transformObj = [];
+      const regExp = /\(([^)]+)\)/;
+      const matches = regExp.exec(transform);
+      transformObj = matches[1].split(' ');
+      icon.transform = transformObj;
+    }
     icon.definition = node.attributes.d;
     icon.viewbox = parsedSvg.attributes.viewBox;
 
