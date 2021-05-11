@@ -19,12 +19,12 @@
 
 ### Depends on
 
-- [c-icon](../../components/icon)
+- [sdds-icon](../../components/icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  c-footer --> c-icon
+  c-footer --> sdds-icon
   style c-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

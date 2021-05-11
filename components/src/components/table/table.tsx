@@ -219,10 +219,10 @@ export class TableComponent {
             <div>{a.description}</div>
             <div>
               <div onClick={() => this.sortData(a.key, "desc")}>
-                <c-icon class="sort-desc" id={"desc" + a.key} name="scania-angle-down"></c-icon>
+                <sdds-icon class="sort-desc" id={"desc" + a.key} name="scania-angle-down"></sdds-icon>
               </div>
               <div onClick={() => this.sortData(a.key, "asc")}>
-                <c-icon class="sort-asc" id={"asc" + a.key} name="scania-angle-down"></c-icon>
+                <sdds-icon class="sort-asc" id={"asc" + a.key} name="scania-angle-down"></sdds-icon>
               </div>
             </div>
           </div>
