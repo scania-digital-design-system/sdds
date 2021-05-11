@@ -1,4 +1,4 @@
-# c-icon
+# sdds-icon
 
 
 
@@ -23,10 +23,10 @@
 ### Graph
 ```mermaid
 graph TD;
-  c-cookie --> c-icon
-  c-footer --> c-icon
-  c-table --> c-icon
-  style c-icon fill:#f9f,stroke:#333,stroke-width:4px
+  c-cookie --> sdds-icon
+  c-footer --> sdds-icon
+  c-table --> sdds-icon
+  style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

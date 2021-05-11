@@ -32,12 +32,12 @@
 
 ### Depends on
 
-- [c-icon](../icon)
+- [sdds-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  c-table --> c-icon
+  c-table --> sdds-icon
   style c-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

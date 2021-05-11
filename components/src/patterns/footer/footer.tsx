@@ -73,7 +73,7 @@ export class Footer {
 
           { this.socialItems.map(item => (
             <a { ...item } class='social-item'>
-              <c-icon name={item.icon} />
+              <sdds-icon name={item.icon} />
             </a>
           )) }
 

@@ -27,12 +27,12 @@
 
 ### Depends on
 
-- [c-icon](../../components/icon)
+- [sdds-icon](../../components/icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  c-cookie --> c-icon
+  c-cookie --> sdds-icon
   style c-cookie fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
