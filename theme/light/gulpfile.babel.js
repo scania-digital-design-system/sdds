@@ -170,7 +170,6 @@ async function initTheme(cb) {
     }
   };
 
-  generateVars('logotype');
   generateVars('typography');
   generateVars('spacing');
 

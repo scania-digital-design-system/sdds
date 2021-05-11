@@ -48,14 +48,14 @@
 }
 
 :host {
-  --link-color: Var(--sdds-white);
-  --sdds-link: Var(--sdds-white);
-  --link-color-hover: Var(--sdds-white);
-  --sdds-link-hover: Var(--sdds-white);
+  --link-color: var(--sdds-white);
+  --sdds-link: var(--sdds-white);
+  --link-color-hover: var(--sdds-white);
+  --sdds-link-hover: var(--sdds-white);
   --link-decoration: none;
   --sdds-link-text-decoration: none;
   --link-decoration-hover: underline;
-  --link-color-active: Var(--sdds-white);
+  --link-color-active: var(--sdds-white);
   --link-bg-hover: transparent;
 
   display: block;
