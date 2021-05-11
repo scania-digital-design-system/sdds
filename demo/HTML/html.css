@@ -2,6 +2,10 @@ body {
   background: var(--sdds-grey-50);
 }
 
+.icon-wrapper i{
+  font-size: 20rem;
+}
+
 .sdds-header {
   background-color: var(--sdds-blue-900);
   height: 16rem;

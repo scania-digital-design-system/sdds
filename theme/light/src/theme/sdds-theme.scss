@@ -1,17 +1,16 @@
 @import '../core/base-unit';
 @import '../variables';
 @import '../mixins';
+@import '../core/prefix';
 
-// Fonts - This file is generated and will exist in dist
-// @import url(../fonts/fonts.css);
-@import url('https://dxfj2hd72iern.cloudfront.net/fonts/scania-sans/1.0.0/scania-sans.css');
+// import font files
+@import url('#{$cdn}/fonts/scania-sans/1.0.0/scania-sans.css');
 
 // Utilities
 @import '../utilities/data-env.scss';
 @import '../utilities/loading.scss';
 
 // Core classes
-@import '../core/prefix';
 @import '../core/grid/grid';
 @import '../core/colour/colour';
 @import '../core/typography/vars';
