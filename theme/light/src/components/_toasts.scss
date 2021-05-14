@@ -1,0 +1,8 @@
+@import '../mixins';
+
+:root,
+html {
+  --sdds-toasts-background: #{get-colour(grey-900)};
+  --sdds-toasts-headline-color: #{get-colour(grey-50)};
+  --sdds-toasts-subheadline-color: #{get-colour(grey-50)};
+}
