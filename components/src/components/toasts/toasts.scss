@@ -77,6 +77,7 @@
   &-subheadline {
     @include type-style('detail-02');
     color: var(--sdds-toasts-subheadline-color);
+    background-color: hotpink;
   }
 
   &-subheadline + &-link {
