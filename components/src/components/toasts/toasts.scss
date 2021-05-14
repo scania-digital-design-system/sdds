@@ -5,7 +5,7 @@
 .#{$prefix}-toasts {
   display: flex;
   flex-direction: row;
-  background-color: var(--sdds-toasts-background);
+  background-color: var(--sdds-toasts-background-color);
   border-radius: var(--sdds-spacing-element-4);
   border-left: 4px solid white;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15), 0px -1px 1px rgba(0, 0, 0, 0.1);
