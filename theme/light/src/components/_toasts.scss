@@ -1,6 +1,7 @@
 :root,
 html {
-  --sdds-toasts-background: #{get-colour(grey-900)};
+  --sdds-toasts-background-color: #{get-colour(grey-900)};
   --sdds-toasts-headline-color: #{get-colour(grey-50)};
   --sdds-toasts-subheadline-color: #{get-colour(grey-50)};
+  --sdds-toasts-link-color: #{get-colour(blue-400)};
 }
