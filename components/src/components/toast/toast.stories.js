@@ -1,7 +1,7 @@
 export default {
-  title: 'Component/Toasts',
+  title: 'Component/Toast',
   argTypes: {
-    toastsType: {
+    toastType: {
       name: 'type of',
       defaultValue: 'success',
       description: 'Lorem ipsum',
@@ -18,11 +18,11 @@ export default {
   }
 };
 
-const ToastsTemplate = ({toastsType, headline, subheadline, link}) => {
+const ToastTemplate = ({toastType, headline, subheadline, link}) => {
   return `
   <sdds-theme></sdds-theme>
 
-  <div class="sdds-toast sdds-toast-${toastsType}">
+  <div class="sdds-toast sdds-toast-${toastType}">
 
     <div class="sdds-toast-icon">
       <svg width="16" height="16" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,5 +45,5 @@ const ToastsTemplate = ({toastsType, headline, subheadline, link}) => {
   `
 };
 
-export const Basic = ToastsTemplate.bind({});
+export const Basic = ToastTemplate.bind({});
 Basic.argTypes = {}
