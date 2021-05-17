@@ -1,7 +1,7 @@
 :root,
 html {
-  --sdds-toasts-background-color: #{get-colour(grey-900)};
-  --sdds-toasts-headline-color: #{get-colour(grey-50)};
-  --sdds-toasts-subheadline-color: #{get-colour(grey-50)};
-  --sdds-toasts-link-color: #{get-colour(blue-400)};
+  --#{$prefix}-toast-background-color: #{get-colour(grey-900)};
+  --#{$prefix}-toast-headline-color: #{get-colour(grey-50)};
+  --#{$prefix}-toast-subheadline-color: #{get-colour(grey-50)};
+  --#{$prefix}-toast-link-color: #{get-colour(blue-400)};
 }

@@ -22,22 +22,22 @@ const ToastsTemplate = ({toastsType, headline, subheadline, link}) => {
   return `
   <sdds-theme></sdds-theme>
 
-  <div class="sdds-toasts sdds-toasts-${toastsType}">
+  <div class="sdds-toast sdds-toast-${toastsType}">
 
-    <div class="sdds-toasts-icon">
+    <div class="sdds-toast-icon">
       <svg width="16" height="16" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
     </div>
 
-    <div class="sdds-toasts-content">
+    <div class="sdds-toast-content">
 
-      <div class="sdds-toasts-header">
-        <span class="sdds-toasts-headline">${headline}</span>
-        <span class='sdds-toasts-dismiss'></span>
+      <div class="sdds-toast-header">
+        <span class="sdds-toast-headline">${headline}</span>
+        <span class='sdds-toast-dismiss'></span>
       </div>
 
-      <div class="sdds-toasts-body">
-        ${subheadline ? `<span class="sdds-toasts-subheadline">${subheadline}</span>` : ``}
-        ${link ? `<span class="sdds-toasts-link"><a href="#">${link}</a></span>` : ``}
+      <div class="sdds-toast-body">
+        ${subheadline ? `<span class="sdds-toast-subheadline">${subheadline}</span>` : ``}
+        ${link ? `<span class="sdds-toast-link"><a href="#">${link}</a></span>` : ``}
       </div>
 
     </div>

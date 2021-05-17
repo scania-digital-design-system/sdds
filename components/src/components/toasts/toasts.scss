@@ -2,10 +2,10 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 
-.#{$prefix}-toasts {
+.#{$prefix}-toast {
   display: flex;
   flex-direction: row;
-  background-color: var(--sdds-toasts-background-color);
+  background-color: var(--sdds-toast-background-color);
   border-radius: var(--sdds-spacing-element-4);
   border-left: 4px solid white;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15), 0px -1px 1px rgba(0, 0, 0, 0.1);
@@ -18,26 +18,26 @@
 
   &-success {
     border-left-color: var(--sdds-green-500);
-    .#{$prefix}-toasts-icon svg {
+    .#{$prefix}-toast-icon svg {
       background: var(--sdds-green-500);
     }
   }
   &-info {
     border-left-color: var(--sdds-blue-500);
-    .#{$prefix}-toasts-icon svg {
+    .#{$prefix}-toast-icon svg {
       background: var(--sdds-blue-500);
     }
   }
 
   &-warning {
     border-left-color: var(--sdds-orange-500);
-    .#{$prefix}-toasts-icon svg {
+    .#{$prefix}-toast-icon svg {
       background: var(--sdds-orange-500);
     }
   }
   &-error {
     border-left-color: var(--sdds-red-500);
-    .#{$prefix}-toasts-icon svg {
+    .#{$prefix}-toast-icon svg {
       background: var(--sdds-red-500);
     }
   }
@@ -55,7 +55,7 @@
 
   &-headline {
     @include type-style('headline-07');
-    color: var(--sdds-toasts-headline-color);
+    color: var(--sdds-toast-headline-color);
     width: 63rem;
     display: inline-block;
   }
@@ -77,7 +77,7 @@
 
   &-subheadline {
     @include type-style('detail-02');
-    color: var(--sdds-toasts-subheadline-color);
+    color: var(--sdds-toast-subheadline-color);
   }
 
   &-subheadline + &-link {
@@ -86,6 +86,6 @@
 
   &-link {
     height: var(--sdds-spacing-element-16);
-    color: var(--sdds-toasts-link-color);
+    color: var(--sdds-toast-link-color);
   }
 }
