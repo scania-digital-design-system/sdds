@@ -17,7 +17,7 @@ const IconTemplate = ({icon,size}) => {
 export const Icons = IconTemplate.bind({});
 
 Icons.args = {
-  icon: 'truck',
+  icon: 'scania-truck',
   size: '64'
 }
 
