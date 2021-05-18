@@ -219,10 +219,14 @@ export class TableComponent {
             <div>{a.description}</div>
             <div>
               <div onClick={() => this.sortData(a.key, "desc")}>
-                <sdds-icon class="sort-desc" id={"desc" + a.key} name="scania-angle-down"></sdds-icon>
+                <span class="sort-desc scania-angle-down" id={"desc" + a.key}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M177.013 98.604L128 147.616 78.987 98.604l-7.071 7.071L128 161.759l56.083-56.084z"></path></svg>
+                </span>
               </div>
               <div onClick={() => this.sortData(a.key, "asc")}>
-                <sdds-icon class="sort-asc" id={"asc" + a.key} name="scania-angle-down"></sdds-icon>
+                <span class="sort-asc scania-angle-down" id={"asc" + a.key}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M177.013 98.604L128 147.616 78.987 98.604l-7.071 7.071L128 161.759l56.083-56.084z"></path></svg>
+                </span>
               </div>
             </div>
           </div>
