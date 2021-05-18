@@ -38,7 +38,10 @@ main {
 }
 nav {
 
-  sdds-icon {
+  .sdds-icon-angle-down {
+    color: inherit;
+    width: 1em;
+    height: 1em;
     transform: rotate(-90deg);
     //FIXME: Add correct rem
     font-size: 10rem;
