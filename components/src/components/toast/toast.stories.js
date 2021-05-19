@@ -13,12 +13,15 @@ export default {
   },
   args: {
     headline: 'This is a message',
-    subheadline: 'Short subheader',
-    link: 'Link example'
+    body: false,
+    subheadline: true,
+    link: true,
+    subtext: 'Short subheader',
+    linktext: 'Link example'
   }
 };
 
-const ToastTemplate = ({toastType, headline, subheadline, link}) => {
+const ToastTemplate = ({toastType, headline, body, subheadline, link, subtext, linktext}) => {
   return `
   <sdds-theme></sdds-theme>
 
@@ -35,10 +38,10 @@ const ToastTemplate = ({toastType, headline, subheadline, link}) => {
         <span class='sdds-toast-dismiss'></span>
       </div>
 
-      <div class="sdds-toast-body">
-        ${subheadline ? `<span class="sdds-toast-subheadline">${subheadline}</span>` : ``}
-        ${link ? `<span class="sdds-toast-link"><a href="#">${link}</a></span>` : ``}
-      </div>
+      ${body ? `<div class="sdds-toast-body">
+        ${subheadline ? `<span class="sdds-toast-subheadline">${subtext}</span>` : ``}
+        ${link ? `<span class="sdds-toast-link"><a href="#">${linktext}</a></span>` : ``}
+      </div> ` : ``}
 
     </div>
   </div>
