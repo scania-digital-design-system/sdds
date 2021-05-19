@@ -20,20 +20,21 @@
 @import '../css-vars.scss';
 
 // components
-@import '../components/button';
-@import '../components/radio-button';
+@import '../components/accordion';
+@import '../components/banner';
 @import '../components/breadcrumb';
-@import '../components/textfields';
-@import '../components/navs';
-@import '../components/link';
+@import '../components/button';
+@import '../components/cards';
 @import '../components/checkbox';
 @import '../components/divider';
-@import '../components/accordion';
-@import '../components/tooltip';
-@import '../components/toggle';
 @import '../components/dropdowns';
-@import '../components/cards';
+@import '../components/link';
 @import '../components/modal';
+@import '../components/navs';
+@import '../components/radio-button';
+@import '../components/textfields';
+@import '../components/toggle';
+@import '../components/tooltip';
 
 :root,
 html {
