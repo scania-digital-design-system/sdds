@@ -1,0 +1,204 @@
+.sdds-navbar-menu{
+  margin-left: -100%;
+  position: fixed;
+  left: 0;
+  top: 64px;
+  bottom: 0;
+  width: 256px;
+  background-color: #fff;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+.sdds-navbar-menu-nav {
+  padding: 0;
+}
+
+.sdds-navbar-menu-nav {
+  margin-bottom: auto;
+}
+
+.sdds-navbar-menu-item {
+  display: block;
+  border-bottom: 1px solid var(--sdds-grey-100);
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  border: none;
+  border-right: 0;
+  padding: 24px 18px 24px 20px;
+  height: 68px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0;
+  border-left: 4px solid transparent;
+
+  &.active {
+    > .list-group-item {
+      border-left-color: var(--sdds-blue-500);
+      color: var(--sdds-grey-600);
+      background: var(--sdds-blue-50);
+
+      .sdds-navbar-menu-nav-link {
+        text-decoration: none;
+        text-transform: none;
+      }
+
+      &:hover {
+        border-left-color: var(--sdds-blue-500);
+      }
+    }
+  }  
+
+  &:last-child,
+  &:first-child {
+    border-radius: 0 !important;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: var(--sdds-blue-900);
+    background-color: var(--sdds-blue-50);
+    border-left-color: transparent;
+    color: var(--sdds-grey-600);
+    background: var(--sdds-blue-50);
+  }
+
+  &.active {
+    .sdds-navbar-menu-nav-link {
+      color: var(--sdds-blue-900);
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  i + .sdds-navbar-menu-nav-link {
+    opacity: 0;
+  }
+
+  .menu-item-label {
+    content: " ";
+    width: 44px;
+    height: 44px;
+    background-color: var(--sdds-blue-50);
+    border-radius: 100%;
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    z-index: 1001;
+  }
+
+  .sdds-navbar-menu-nav-link {
+    font-weight: 700;
+    color: var(--sdds-grey-900);
+    text-transform: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--sdds-blue-900);
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}
+
+.sdds-navbar-right-menu{
+  @include sdds-icon-button;
+  width: auto;
+  min-width: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media all and (min-width: 769px) {
+  .sdds-navbar-menu {
+    position: relative;
+    margin-left: 0;
+    width: auto;
+    top: unset;
+    left: unset;
+    background-color: transparent;
+    display: block;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .sdds-navbar-menu .sdds-navbar-menu-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sdds-navbar-menu-nav {
+    align-items: stretch;
+    display: flex;
+  }
+  .sdds-navbar-top-menu {
+    .sdds-navbar-menu-item {
+      align-items: unset;
+      color: var(--sdds-white);
+      display: block;
+      opacity: 1;
+      border-bottom: none;
+      background-color: transparent;
+      height: 64px;
+      line-height: 64px;
+      border: none;
+      border-right: 1px solid var(--sdds-blue-800);
+      padding: 0 24px;
+      white-space: nowrap;
+      
+      a,
+      .sdds-navbar-menu-nav-link,
+      i {
+        color: var(--sdds-white);
+        opacity: 1;
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--sdds-white);
+        background-color: var(--sdds-blue-800);
+        color: var(--sdds-white);
+        background-color: var(--sdds-blue-800);
+        .sdds-navbar-menu-nav-link {
+          color: var(--sdds-white);
+        }
+
+        i {
+          + .sdds-navbar-menu-nav-link {
+            opacity: 1;
+          }
+        }
+      }
+
+      &:first-child {
+        border-left: 1px solid var(--sdds-blue-800);
+      }
+
+      &.active {
+        color: var(--sdds-white);
+        background-color: var(--sdds-blue-800);
+        border-bottom: 4px solid var(--sdds-blue-500);
+        border-left: none;
+
+        &:hover {
+          border-left: none;
+        }
+      }
+
+      .sdds-navbar-menu-nav-link {
+        &:hover,
+        &:focus {
+          color: var(--sdds-white);
+        }
+      }
+    }
+  }
+}

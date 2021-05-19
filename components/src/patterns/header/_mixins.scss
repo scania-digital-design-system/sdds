@@ -1,0 +1,29 @@
+@mixin sdds-icon-button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 64px;
+  width: 64px;
+  line-height: 64px;
+  border-left: 1px solid var(--sdds-blue-800);
+  color: var(--sdds-white);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--sdds-blue-800);
+  }
+  &--active,
+  &--active:hover {
+    background-color: var(--sdds-white);
+  }
+  a,
+  i,
+  button,
+  button span,
+  a i,
+  a:hover,
+  a:hover i {
+    color: var(--sdds-white) !important;
+  }
+}
