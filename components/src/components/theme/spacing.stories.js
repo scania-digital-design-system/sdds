@@ -5,7 +5,7 @@ export default {
 
 const SpacingLayoutTemplate = () => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <style>
     .sdds-spacing-layout-demo-box {
       background-color: var(--sdds-blue-500);
@@ -101,7 +101,7 @@ const SpacingLayoutTemplate = () => {
 
 const SpacingElementTemplate = ({}) => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <style>
     .sdds-spacing-element-demo-box {
       background-color: var(--sdds-red-500);
