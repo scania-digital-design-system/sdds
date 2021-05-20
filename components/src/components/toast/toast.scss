@@ -57,7 +57,7 @@
     @include type-style('headline-07');
     color: var(--sdds-toast-headline-color);
     width: 63rem;
-    display: inline-block;
+    float: left;
   }
 
   &-dismiss {
