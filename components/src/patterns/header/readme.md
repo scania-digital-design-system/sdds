@@ -1,38 +1,35 @@
-# c-header
+# sdds-header
 
-```js
-import { CHeader } from '@sdds/components/dist/custom-elements';
+Template
+
+```html
+<sdds-theme name="scania"></sdds-theme>
+  
+<nav class="sdds-navbar">
+  <button class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler">
+    <span class="sdds-icon-toggler"></span>
+  </button>
+  <div class="sdds-navbar-application-brand">Application</div>
+  <div class="sdds-navbar__overlay"></div>
+
+  <div class="sdds-navbar-top-menu sdds-navbar-menu">
+    <ul class="sdds-navbar-menu-nav">
+      <li class="sdds-navbar-menu-item active">
+        <i class="sdds-icon scania-truck"></i>
+        <a class="sdds-navbar-menu-nav-link" href="#"> Item 1 </a>
+      </li>
+      <li class="sdds-navbar-menu-item">
+        <a class="sdds-navbar-menu-nav-link" href="#" target="_blank"> Item 2 </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sdds-navbar-right-menu">
+    <a class="sdds-navbar-menu-nav-link" href="#">EN</a>
+  </div>
+  <div class="sdds-navbar-brand">
+    <a href="#" class="sdds-navbar-brand__image"></a>
+  </div>
+
+</nav>
 ```
-
-
-<!-- Auto Generated Below -->
-
-
-## Properties
-
-| Property    | Attribute    | Description                                                                            | Type     | Default     |
-| ----------- | ------------ | -------------------------------------------------------------------------------------- | -------- | ----------- |
-| `items`     | `items`      | Header links that will be placed in the top right part of the header                   | `any`    | `[]`        |
-| `shortName` | `short-name` | Short name will be displayed in the top-centered of the header on mobile mode          | `string` | `undefined` |
-| `siteName`  | `site-name`  | The site name will be displayed on the right hand side of the logotype on desktop mode | `string` | `undefined` |
-| `siteUrl`   | `site-url`   | A link that will be applied to the site-name                                           | `string` | `'/'`       |
-| `theme`     | `theme`      | Per default, this will inherit the value from sdds-theme name property                 | `string` | `undefined` |
-| `variation` | `variation`  | Variation to header                                                                    | `string` | `undefined` |
-
-
-## Dependencies
-
-### Used by
-
- - [c-dealer-header](../dealer-header)
-
-### Graph
-```mermaid
-graph TD;
-  c-dealer-header --> c-header
-  style c-header fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*

@@ -27,3 +27,27 @@
     color: var(--sdds-white) !important;
   }
 }
+
+@mixin sdds-side-menu-item {
+  border-right: 0;
+  padding: 24px 18px 24px 20px;
+  height: 68px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--sdds-grey-600);
+    background: var(--sdds-blue-50);
+  }
+}
+
+@mixin sdds-side-menu-item-hover-aside {
+  font-size: 12px;
+  color: var(--sdds-white);
+  background-color: var(--sdds-grey-600);
+  padding: 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: normal;
+  display: none;
+}
