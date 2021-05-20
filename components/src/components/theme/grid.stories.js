@@ -19,12 +19,6 @@ const style = `
       outline: 1px solid red;
     }
 
-    .inside {
-      background: green;
-      height: 100%;
-      width: 100%;
-    }
-
     .sdds-row > div {
       outline: 1px solid #ef1919;
       background: #fbc5c5;
