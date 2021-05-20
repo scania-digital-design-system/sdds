@@ -179,22 +179,22 @@ const GridTemplate = ({fluidContainer,padding,gutter}) => {
     </div>
 
     <div class="sdds-row">
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
-      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm"><div class="inside"></div></div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
+      <div class="sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-hide-md sdds-hide-sm">1</div>
     </div>
   </div>
   `
