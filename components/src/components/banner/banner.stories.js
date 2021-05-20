@@ -7,7 +7,7 @@ export default {
         options:['default', 'error', 'info']
       }
     },
-    headline: {
+    header: {
       control: {
         type: 'text'
       }
@@ -15,19 +15,26 @@ export default {
   },
   args: {
     state: 'default',
-    headline : '<h6 class="sdds-banner-headline">This is a default banner</h6>',
-    subheadline: '',
+    header : '<h6 class="sdds-banner-header">This is a default banner</h6>',
+    subheader: '',
     link: '',
     prefix: '',
   }
 };
 
-const Template = ({state, prefix, headline, subheadline, link}) => {
+const Template = ({state, prefix, header, subheader, link}) => {
   return `
   <style>
     .demo-bg {
       background-color: white;
       padding: var(--sdds-spacing-layout-96) 0;
+    }
+
+    .sdds-banner-info .demo-svg rect{
+      fill: #2B70D3;
+    }
+    .sdds-banner-error .demo-svg rect {
+      fill: #DE2B36;
     }
   </style>
   <sdds-theme></sdds-theme>
@@ -38,8 +45,8 @@ const Template = ({state, prefix, headline, subheadline, link}) => {
       ${prefix}
 
       <div class="sdds-banner-body">
-      ${headline}
-      ${subheadline}
+      ${header}
+      ${subheader}
       ${link}
       </div>
       <div class="sdds-banner-close"></div>
@@ -54,25 +61,25 @@ Basic.args = {
   link: ''
 }
 
-export const SubHeadline = Template.bind({});
+export const Subheader = Template.bind({});
 
-SubHeadline.args = {
-  subheadline: '<div class="sdds-banner-subheadline">short subheader</div>',
+Subheader.args = {
+  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
   link: ''
 }
 
 export const Link = Template.bind({});
 
 Link.args = {
-  subheadline: '<div class="sdds-banner-subheadline">short subheader</div>',
+  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
   link: '<a class="sdds-link sdds-banner-link">Link example</a>'
 }
 
 export const Prefix = Template.bind({});
 
 Prefix.args = {
-  prefix: '<c-icon class="sdds-banner-prefix" name="scania-information"></c-icon>',
-  subheadline: '<div class="sdds-banner-subheadline">short subheader</div>',
+  prefix: '<span class="sdds-banner-prefix"><svg class="demo-svg" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16" fill="#696A70"/> </svg></span>',
+  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
   link: '<a class="sdds-link sdds-banner-link">Link example</a>'
 }
 
