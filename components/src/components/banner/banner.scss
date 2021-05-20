@@ -11,18 +11,10 @@
 
   &.#{$prefix}-banner-info {
     background-color: var(--sdds-banner-bg-info);
-
-    & .#{$prefix}-banner-prefix {
-      color: var(--sdds-banner-prefix-info-color);
-    }
   }
 
   &.#{$prefix}-banner-error {
     background-color: var(--sdds-banner-bg-error);
-
-    & .#{$prefix}-banner-prefix {
-      color: var(--sdds-banner-prefix-error-color);
-    }
   }
 }
 
@@ -49,16 +41,16 @@
   background-position: center;
 }
 
-.#{$prefix}-banner-headline {
+.#{$prefix}-banner-header {
   margin: 0;
 
   + .#{$prefix}-banner-link,
-  + .#{$prefix}-banner-subheadline {
+  + .#{$prefix}-banner-subheader {
     margin-top: 4px;
   }
 }
 
-.#{$prefix}-banner-subheadline {
+.#{$prefix}-banner-subheader {
   @include type-style('detail-02');
   + .#{$prefix}-banner-link {
     margin-top: var(--sdds-spacing-element-16);
