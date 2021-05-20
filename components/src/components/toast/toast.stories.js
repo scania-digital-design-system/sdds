@@ -39,7 +39,7 @@ const ToastTemplate = ({toastType, header, body, subheader, link, subtext, linkt
 
       ${body ? `<div class="sdds-toast-body">
         ${subheader ? `<span class="sdds-toast-subheadline">${subtext}</span>` : ``}
-        ${link ? `<span class="sdds-toast-link"><a href="#">${linktext}</a></span>` : ``}
+        ${link ? `<a class="sdds-toast-link" href="#">${linktext}</a>` : ``}
       </div> ` : ``}
 
     </div>
