@@ -29,13 +29,6 @@ const Template = ({state, prefix, header, subheader, link}) => {
       background-color: white;
       padding: var(--sdds-spacing-layout-96) 0;
     }
-
-    .sdds-banner-info .demo-svg rect{
-      fill: #2B70D3;
-    }
-    .sdds-banner-error .demo-svg rect {
-      fill: #DE2B36;
-    }
   </style>
   <sdds-theme></sdds-theme>
 
@@ -78,7 +71,7 @@ Link.args = {
 export const Prefix = Template.bind({});
 
 Prefix.args = {
-  prefix: '<span class="sdds-banner-prefix"><svg class="demo-svg" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16" fill="#696A70"/> </svg></span>',
+  prefix: '<span class="sdds-banner-prefix"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>',
   subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
   link: '<a class="sdds-link sdds-banner-link">Link example</a>'
 }
