@@ -34,7 +34,7 @@ const Template = ({siteName, shortName, siteUrl, items}) => {
 
     <div class="sdds-navbar-top-menu sdds-navbar-menu">
       <ul class="sdds-navbar-menu-nav">
-        <li class="sdds-navbar-menu-item">
+        <li class="sdds-navbar-menu-item active">
           <i class="sdds-icon scania-truck"></i>
           <a class="sdds-navbar-menu-nav-link" href="#"> Item 1</a>
           
