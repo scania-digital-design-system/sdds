@@ -37,11 +37,20 @@ const Template = ({siteName, shortName, siteUrl, items}) => {
         <li class="sdds-navbar-menu-item active">
           <i class="sdds-icon scania-truck"></i>
           <a class="sdds-navbar-menu-nav-link" href="#"> Item 1</a>
-          
         </li>
         <li class="sdds-navbar-menu-item">
-          <a class="sdds-navbar-menu-nav-link" href="https://scania.com/se/sv/home/experience-scania.html" target="_blank"> Item 2 </a>
-          
+          <a class="sdds-navbar-menu-nav-link" href="#" target="_blank"> Item 2 </a>
+        </li>
+        <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu__dropdown--opened">
+          <div class="sdds-navbar-menu__dropdown-header">
+            <span class="sdds-navbar-menu-nav-link"> Item 3 </span>
+            <i class="fal fa-angle-down fa-2x nav-link__drop-down-icon" aria-hidden="true"></i>
+          </div>
+          <ul class="sdds-navbar-menu__dropdown-menu">
+            <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
+            <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3</a></li>
+            <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -50,7 +59,7 @@ const Template = ({siteName, shortName, siteUrl, items}) => {
       <a class="sdds-navbar-menu-nav-link" href="#">EN</a>
     </div>
     <div class="sdds-navbar-brand">
-      <a href="https://scania.com" class="sdds-navbar-brand__image"></a>
+      <a href="#" class="sdds-navbar-brand__image"></a>
     </div>
 
   </nav>

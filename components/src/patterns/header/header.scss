@@ -2,6 +2,7 @@
 @import './mixins';
 @import './navbar-menu.scss';
 @import './navbar-brand.scss';
+@import './menu-item-dropdown.scss';
 
 .#{$prefix}-navbar {
   display: flex;
