@@ -1,82 +1,56 @@
 import {
-  Component, h, Prop, State, Watch, Element,
+  Component, h, Prop, State, Watch
 } from '@stencil/core';
 
-import { themeStyle } from '../../helpers/themeStyle';
-import store from '../../store';
-
 @Component({
-  tag: 'c-icon',
+  tag: 'sdds-icon',
   styleUrl: 'icon.scss',
   shadow: true,
 })
 export class Icon {
   @Prop() name = 'question';
 
-  @State() store = store.state;
-
   @State() icon: any;
 
-  @State() tagName: string;
-
-  @State() theme: string;
-
-  @State() currentTheme = { icons: { }, components: [] };
-
-  @State() style: Array<CSSStyleSheet>;
-
-  @Element() el: any;
-
-  @Watch('theme')
-  setTheme(name = undefined) {
-    this.theme = name || this.store.theme.current;
-    this.currentTheme = this.store.theme.items[this.theme];
-
-    // If no theme is used then we return;
-    if(!name) return;
-    // Only setIcons when there is a theme
-    this.setIcon();
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
-  }
-
   @Watch('name')
-  setIcon(name = this.name) {
-
-    if(!this.store.theme.items[this.theme]) {
-      console.warn('No icons in this packages');
-      return;
+  async loadIcon(){
+    try {
+      // dynamic import icon from @scania/icons
+      this.icon = await import(`@scania/icons/dist/${this.name}`);
+    } catch(err) {
+      console.warn(err);
+      console.warn(`Make sure you have installed @scania/icons package`);
+      this.name = 'scania-truck' // If icon not found, display a truck icon
     }
-    const items = this.store.theme.items[this.theme].icons;
-
-    // TODO: We should have the default icon being a simple
-    // square instead of first icon in the collection
-    this.icon = items[name] || items.question || items[Object.keys(items)[0]] || { width: 0, height: 0 };
+   
   }
 
   componentWillLoad() {
-    this.store.theme = store.state.theme;
-    this.theme = this.store.theme.current;
-    this.currentTheme = this.store.theme[this.theme];
-
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
-    }).bind(this)});
-
-    if (!(this.el && this.el.nodeName)) return;
-
-    this.tagName = this.el.nodeName.toLowerCase();
+    this.loadIcon();
   }
 
-  componentDidLoad() {
-    this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
+  generateViewBox(){
+    // viewbox = minX minY width height
+    let viewbox = '0 0 0 0';
+    if(this.icon !== undefined){
+      // If icons has transform: translate attributes, add it to the viewbox.
+      viewbox = `${this.icon.default.hasOwnProperty('transform') ? this.getTransformViewBox() : '0 0'} ${this.icon.default.width} ${this.icon.default.height}`
+    }
+    return viewbox;
+  }
 
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el)
+  getTransformViewBox(){
+    const minX = parseFloat(this.icon.default.transform[0]) * -1;
+    const minY = parseFloat(this.icon.default.transform[1]) * -1;
+    return minX + ' ' + minY;
   }
 
   render() {
     return [
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox={`0 0 ${this.icon ? this.icon.width : '0'} ${this.icon ? this.icon.height : '0'}`}>
-        <path fill='currentColor' d={this.icon ? this.icon.definition : ''} />
+      <svg xmlns='http://www.w3.org/2000/svg'
+      viewBox={this.generateViewBox()}
+      >
+        <path fill='currentColor' d={this.icon ? this.icon.default.definition : ''} />
       </svg>,
     ];
   }

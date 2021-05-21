@@ -252,8 +252,8 @@ slot[name=sdds-label]::slotted(*) {
     }
   }
 
-  slot[name=sdds-prefix]::slotted(c-icon),
-  slot[name=sdds-suffix]::slotted(c-icon) {
+  slot[name=sdds-prefix]::slotted(sdds-icon),
+  slot[name=sdds-suffix]::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
@@ -277,8 +277,8 @@ slot[name=sdds-suffix]::slotted(*) {
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name=sdds-prefix]::slotted(c-icon),
-slot[name=sdds-suffix]::slotted(c-icon) {
+slot[name=sdds-prefix]::slotted(sdds-icon),
+slot[name=sdds-suffix]::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }

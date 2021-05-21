@@ -3,7 +3,7 @@ export default {
   args: {
     headline: 'Header text',
     subheadline:'Subheader text',
-    footer: '<c-icon style="font-size: 20px;" name="scania-arrow"></c-icon>',
+    footer: '<sdds-icon style="font-size: 20px;" name="scania-arrow"></sdds-icon>',
     clickable: false
   }
 };

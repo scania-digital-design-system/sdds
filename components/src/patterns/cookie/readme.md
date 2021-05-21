@@ -23,19 +23,6 @@
 | `theme`                | `theme`                  | Per default, this will inherit the value from sdds-theme name property | `string`                                 | `undefined`                         |
 
 
-## Dependencies
-
-### Depends on
-
-- [c-icon](../../components/icon)
-
-### Graph
-```mermaid
-graph TD;
-  c-cookie --> c-icon
-  style c-cookie fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
