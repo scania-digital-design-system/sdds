@@ -79,7 +79,7 @@ const style = `
 const GridTemplate = ({fluidContainer,padding,gutter}) => {
   return `
   ${style}
-  <sdds-theme name="scania" global=""></sdds-theme>
+  <sdds-theme global=""></sdds-theme>
   <h4>Grid</h4>
   <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
 
@@ -197,7 +197,7 @@ const GridTemplate = ({fluidContainer,padding,gutter}) => {
 const GridPushTemplate = ({fluidContainer, collapse}) => {
   return `
   ${style}
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <h4>Grid Push</h4>
   <div class="sdds-push">
     <div class="sdds-sidebar ${collapse ? `sdds-sidebar-collapse` : ``}">
@@ -264,7 +264,7 @@ const GridPushTemplate = ({fluidContainer, collapse}) => {
 const GridOffsetTemplate = ({fluidContainer}) => {
   return `
   ${style}
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <h4>Grid Offset</h4>
     <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} offset-demo">
       <div class="sdds-row">
@@ -301,7 +301,7 @@ const GridOffsetTemplate = ({fluidContainer}) => {
 const GridAutoColTemplate = ({fluidContainer}) => {
   return `
   ${style}
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <h4>Grid Auto columns</h4>
   <h5>Container 1</h5>
 
@@ -356,7 +356,7 @@ const GridAutoColTemplate = ({fluidContainer}) => {
 const GridGutterless = ({fluidContainer,gutter}) => {
   return `
     ${style}
-    <sdds-theme name="scania" global="true"></sdds-theme>
+    <sdds-theme></sdds-theme>
     <h4>Grid gutterless</h4>
     <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} demo-example-cols">
       <div class="sdds-row">
@@ -380,7 +380,7 @@ const GridGutterless = ({fluidContainer,gutter}) => {
 const GridNoPadding = ({fluidContainer,padding}) => {
   return `
     ${style}
-    <sdds-theme name="scania" global="true"></sdds-theme>
+    <sdds-theme></sdds-theme>
     <h4>Grid no-padding</h4>
     <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} demo-example-cols">
       <div class="sdds-row">
@@ -404,7 +404,7 @@ const GridNoPadding = ({fluidContainer,padding}) => {
 const GridFluid = ({fluidContainer}) => {
   return `
     ${style}
-    <sdds-theme name="scania" global="true"></sdds-theme>
+    <sdds-theme></sdds-theme>
     <h4>Grid fluid</h4>
     <div class="sdds-container-fluid">
       <div class="sdds-row">

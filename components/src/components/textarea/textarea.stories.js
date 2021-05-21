@@ -80,7 +80,7 @@ export default {
 const textfieldTemplate = ({placeholder,disabled,label,labelPosition,state,helper,textcounter}) => {
   const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"':'';
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
