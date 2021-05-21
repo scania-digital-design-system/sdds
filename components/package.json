@@ -29,7 +29,7 @@
     "generate": "stencil generate",
     "prepublishOnly": "npm run build",
     "watch-sb": "start-storybook -p 1339 --no-dll",
-    "build-sb": "build-storybook --no-dll",
+    "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
     "readme": "stencil build --docs-readme"
   },
@@ -50,6 +50,7 @@
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@popperjs/core": "^2.9.1",
     "@scania/grid": "^1.2.0",
+    "@scania/icons": "^1.0.0-beta.0",
     "@scania/theme-light": "^2.2.1",
     "@scania/typography": "^1.1.1",
     "@stencil/core": "2.3.0",

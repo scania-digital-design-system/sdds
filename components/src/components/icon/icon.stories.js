@@ -5,12 +5,12 @@ export default {
 const IconTemplate = ({icon,size}) => {
   return `
   <style>
-    c-icon {
+    sdds-icon {
       font-size: ${size}rem;
     }
   </style>
   <sdds-theme></sdds-theme>
-  <c-icon name="${icon}" >c-icon</c-icon>
+  <sdds-icon name="${icon}">sdds-icon</sdds-icon>
   `
 };
 
