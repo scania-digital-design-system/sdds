@@ -87,5 +87,6 @@
   &-link {
     height: var(--sdds-spacing-element-16);
     color: var(--sdds-toast-link-color);
+    @include type-style('detail-02');
   }
 }
