@@ -15,7 +15,7 @@ export default {
 const ComponentTooltip = ({...Basic}) => {
 
   return `
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
 
   <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
     <div class="sdds-row">

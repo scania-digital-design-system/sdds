@@ -58,7 +58,7 @@ const ButtonTemplate = ({size, btnType, fullbleed, text='Button', disabled='', o
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   return `
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     ${text}
     ${icon ? `<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>` : ''}
@@ -83,7 +83,7 @@ const ComponentBtn = ({size, btnType, fullbleed, disabled, icon, text='Button'})
   const inlineStyle = fullbleed ? 'style="width:200px;"':'';
 
   return `
-  <sdds-theme name="scania" global="true"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? `fullbleed` : ''} text="${text}" ${inlineStyle}> ${icon ? `<sdds-icon slot='icon' name='scania-cross'></sdds-icon>` : ''} </sdds-button>
   `
 };

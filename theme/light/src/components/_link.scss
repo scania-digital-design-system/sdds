@@ -1,6 +1,6 @@
 :root,
 html {
-  --#{$prefix}-link: #{get-colour(blue-500)};
+  --#{$prefix}-link: #{get-colour(blue-600)};
   --#{$prefix}-link-text-decoration: underline;
   --#{$prefix}-link-hover: #{get-colour(blue-400)};
   --#{$prefix}-link-focus: #{get-colour(blue-400)};
