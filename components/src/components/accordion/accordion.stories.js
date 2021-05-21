@@ -37,7 +37,7 @@ export default {
 
 const Template = ({disabled, affix}) => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
   <div class="container-demo" style="width:500px; padding:var(--sdds-spacing-layout-48);">
     <sdds-accordion>
       <sdds-accordion-item header="First item" affix="${affix}" disabled="${disabled}" tabindex="1">

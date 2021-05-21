@@ -15,7 +15,7 @@ export default {
 
 const Template = ({text, socialItems, items}) => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
 
   <c-footer text='${text}'>
   ${socialItems}
