@@ -27,6 +27,7 @@ You can also install a standalone package for different part. These are availabl
 | [`@scania/typography`](./theme/core/typography) | Scania official typography styling package |
 | [`@scania/colour`](./theme/core/colour) | Scania official colour scale package |
 | [`@scania/grid`](./theme/core/grid) | Scania official grid package |
+| [`@scania/icons`](./theme/core/icons) | Scania official pictograms & icons package |
 
 You can find everything in [NPM](https://www.npmjs.com/org/scania)
 
