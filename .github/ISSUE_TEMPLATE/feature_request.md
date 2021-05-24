@@ -9,6 +9,15 @@ assignees: ''
 
 ---
 
+<!--
+
+Hello! 
+
+Before you report a issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and/or [Contribution](https://digitaldesign.scania.com/contribution) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). 
+
+-->
+
+
 **What is your feature request?**  
 _A clear and concise description of what the feature is. Ex. I'm always frustrated when [...]_
 
