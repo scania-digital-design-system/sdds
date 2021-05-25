@@ -107,7 +107,11 @@
 }
 
 .sdds-navbar-right-menu{
-  @include sdds-icon-button;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--sdds-blue-800);
+  cursor: pointer;
+  min-width: 64px;
   width: auto;
   min-width: 64px;
   padding-left: 16px;
@@ -153,6 +157,7 @@
       border-right: 1px solid var(--sdds-blue-800);
       padding: 0 24px;
       white-space: nowrap;
+      text-align: center;
       
       a,
       .sdds-navbar-menu-nav-link,
