@@ -23,7 +23,7 @@ export default {
 
 const Template = ({siteName, shortName, siteUrl, items}) => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
   
   <nav class="sdds-navbar">
     <button class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler">

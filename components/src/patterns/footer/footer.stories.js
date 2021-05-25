@@ -15,7 +15,7 @@ export default {
 
 const Template = ({text, socialItems, items}) => {
   return `
-  <sdds-theme name="scania"></sdds-theme>
+  <sdds-theme></sdds-theme>
 
   <c-footer text='${text}'>
   ${socialItems}
@@ -38,13 +38,13 @@ export const WithSocialLinks = Template.bind({});
 WithSocialLinks.args = {
   socialItems: `
   <a href='/' slot='social-items'>
-    <c-icon name='scania-youtube'></c-icon>
+    <sdds-icon name='scania-youtube'></sdds-icon>
   </a>
   <a href='/' slot='social-items'>
-    <c-icon name='scania-twitter'></c-icon>
+    <sdds-icon name='scania-twitter'></sdds-icon>
   </a>
   <a href='/' target='_blank' slot='social-items'>
-    <c-icon name='scania-linkedin'></c-icon>
+    <sdds-icon name='scania-linkedin'></sdds-icon>
   </a>
   `
 }

@@ -1,9 +1,13 @@
-// Scania identity
-$background-image-scania-wordmark-png:   url(../images/wordmark.png);
-$background-image-scania-wordmark-svg:   url(../images/wordmark.svg);
-$background-image-scania-wordmark-white-svg:   url(../images/wordmark-white.svg);
-$background-image-scania-wordmark-white-png:   url(../images/wordmark-white.png);
-$background-image-scania-symbol-png:   url(../images/symbol.png);
-$background-image-scania-symbol-svg:   url(../images/symbol.svg);
-$background-image-scania-logotype-png:   url(../images/logotype.png);
-$background-image-scania-logotype-svg:   url(../images/logotype.svg);
+@import '../prefix';
+
+$folder: '/logotype/1.0.0';
+$logotypes:(
+  'wordmark','wordmark-white','symbol','logotype'
+);
+
+:root, html {
+  @each $key in $logotypes {
+    --sdds-background-image-scania-#{$key}-png: url(#{$cdn}#{$folder}/scania_#{$key}/scania-#{$key}.png);
+    --sdds-background-image-scania-#{$key}-svg: url(#{$cdn}#{$folder}/scania_#{$key}/scania-#{$key}.svg);
+  }
+}

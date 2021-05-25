@@ -250,7 +250,7 @@ export class Cookie {
                   }
                   {/* {this.items.map((item, index) => (
                     <a href={'#v-pills-' + index} class={'list-group-item list-group-item-action' + (index === 0 ? ' active' : '')} data-toggle="pill" ref={el => this.tab = el} onClick={() => this.active = true}>
-                      <c-icon name='scania-angle-down' class="d-lg-none"></c-icon>
+                      <sdds-icon name='scania-angle-down' class="d-lg-none"></sdds-icon>
 
                       <span class="ml-3 mr-auto">{item.text}</span>
 
@@ -273,7 +273,9 @@ export class Cookie {
               <div class="col-6 col-lg-9 content">
                 <div class="tab-content">
                   <a href="" class="d-lg-none mb-5 btn-back" onClick={(event) => { event.preventDefault(); this.active = false }}>
-                    <c-icon name='scania-angle-down'></c-icon>
+                    <span class="sdds-icon-angle-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M177.013 98.604L128 147.616 78.987 98.604l-7.071 7.071L128 161.759l56.083-56.084z"></path></svg>
+                    </span>
                     <span class="ml-2">{this.headline}</span>
                   </a>
 
