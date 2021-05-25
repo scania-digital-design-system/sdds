@@ -44,7 +44,7 @@ const Template = ({siteName, shortName, siteUrl, items}) => {
         <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu__dropdown--opened">
           <div class="sdds-navbar-menu__dropdown-header">
             <span class="sdds-navbar-menu-nav-link"> Item 3 </span>
-            <i class="fal fa-angle-down fa-2x nav-link__drop-down-icon" aria-hidden="true"></i>
+            <span class="sdds-icon-arrow"></span>
           </div>
           <ul class="sdds-navbar-menu__dropdown-menu">
             <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
@@ -56,7 +56,20 @@ const Template = ({siteName, shortName, siteUrl, items}) => {
     </div>
 
     <div class="sdds-navbar-right-menu">
-      <a class="sdds-navbar-menu-nav-link" href="#">EN</a>
+      <div class="sdds-navbar-dropdown sdds-navbar-menu__dropdown--opened">
+        <button class="sdds-navbar__open-button sdds-navbar__dropdown-action">
+          <span>EN</span>
+          <span class="show-on-mobile">&nbsp;Change language</span>
+          <i class="fal fa-angle-down fa-2x nav-link__drop-down-icon show-on-mobile"></i>
+        </button>
+        <ul class="sdds-navbar__dropdown-menu sdds-navbar__system-menu sdds-navbar__dropdown-menu--visible">
+          <li class="sdds-navbar__dropdown-item active"><a href="#">English</a></li>
+          <li class="sdds-navbar__dropdown-item"><a href="#">French</a></li>
+          <li class="sdds-navbar__dropdown-item"><a href="#">Greek</a></li>
+          <li class="sdds-navbar__dropdown-item"><a href="#">Indonesia</a></li>
+          <li class="sdds-navbar__dropdown-item"><a href="#">Svenska</a></li>
+        </ul>
+      </div>
     </div>
     <div class="sdds-navbar-brand">
       <a href="#" class="sdds-navbar-brand__image"></a>
