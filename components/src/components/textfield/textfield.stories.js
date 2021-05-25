@@ -222,5 +222,5 @@ icon.argTypes = {
 icon.args = {
   helper: '',
   label: 'Label text',
-  icon: '<c-icon name="scania-cross" slot="sdds-prefix"></c-icon>',
+  icon: '<sdds-icon name="scania-cross" slot="sdds-prefix"></sdds-icon>',
 };

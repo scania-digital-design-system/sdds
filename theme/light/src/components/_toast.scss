@@ -1,0 +1,7 @@
+:root,
+html {
+  --#{$prefix}-toast-background-color: #{get-colour(grey-900)};
+  --#{$prefix}-toast-headline-color: #{get-colour(grey-50)};
+  --#{$prefix}-toast-subheadline-color: #{get-colour(grey-50)};
+  --#{$prefix}-toast-link-color: #{get-colour(blue-400)};
+}

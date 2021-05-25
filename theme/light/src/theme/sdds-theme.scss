@@ -1,16 +1,17 @@
 @import '../core/base-unit';
 @import '../variables';
 @import '../mixins';
+@import '../core/prefix';
 
-// Fonts - This file is generated and will exist in dist
-@import url(../fonts/fonts.css);
+// import font files
+// cdn variables can be changed in sdds/theme/core/_prefix
+@import url('#{$cdn}/fonts/scania-sans/1.0.0/scania-sans.css');
 
 // Utilities
 @import '../utilities/data-env.scss';
 @import '../utilities/loading.scss';
 
 // Core classes
-@import '../core/prefix';
 @import '../core/grid/grid';
 @import '../core/colour/colour';
 @import '../core/typography/vars';
@@ -19,21 +20,23 @@
 // Import css variables
 @import '../css-vars.scss';
 
-// components
-@import '../components/button';
-@import '../components/radio-button';
+// Components
+@import '../components/accordion';
+@import '../components/banner';
 @import '../components/breadcrumb';
-@import '../components/textfields';
-@import '../components/navs';
-@import '../components/link';
+@import '../components/button';
+@import '../components/cards';
 @import '../components/checkbox';
 @import '../components/divider';
-@import '../components/accordion';
-@import '../components/tooltip';
-@import '../components/toggle';
 @import '../components/dropdowns';
-@import '../components/cards';
+@import '../components/link';
 @import '../components/modal';
+@import '../components/navs';
+@import '../components/radio-button';
+@import '../components/textfields';
+@import '../components/toast';
+@import '../components/toggle';
+@import '../components/tooltip';
 
 :root,
 html {

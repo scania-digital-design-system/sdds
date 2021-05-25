@@ -28,19 +28,6 @@
 | `optHover`      |             | `CustomEvent<any>` |
 
 
-## Dependencies
-
-### Depends on
-
-- [c-icon](../icon)
-
-### Graph
-```mermaid
-graph TD;
-  c-table --> c-icon
-  style c-table fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
