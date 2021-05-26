@@ -1,5 +1,8 @@
-import {setCustomElements} from '@storybook/web-components';
+import {setCustomElements, addDecorator} from '@storybook/web-components';
+import {withThemes } from 'storybook-addon-themes/html'
 import customElements from '../dist/collection/custom-elements.json';
+
+addDecorator(withThemes)
 
 import { addTheme, defineCustomElements } from '../dist/collection/index';
 import { theme } from '@scania/theme-light';
@@ -40,29 +43,46 @@ const customViewports = {
       height: '1600px',
     },
   },
+  Infinity: {
+    name: '1584px >',
+    styles: {
+      width: '1980px',
+      height: '1680px',
+    },
+  },
 };
+
+const customBGvalues = [
+    {
+      name: 'light',
+      value: '#F6F6F7',
+    },
+    {
+      name: 'white',
+      value: '#FFFFFF',
+    },
+    // {
+    //   name: 'dark',
+    //   value: '#3A3B3F',
+    // },
+]
 
 //Storybook settings
 export const parameters = {
   // controls: { expanded: true }, // disabled this to hide description and default in control
   viewport: { viewports: customViewports },
+  themes: {
+    default: 'on-grey',
+    list: [
+      { name: 'on-white', class: 'sdds-on-white-bg', color: '#FFFFFF' },
+      { name: 'on-grey', class: 'sdds-on-grey-bg', color: '#F6F6F7' },
+      // { name: 'on-dark', class: 'sdds-on-grey', color: '#3A3B3F' }
+    ],
+  },
   backgrounds: {
     grid: { cellSize: 4 }, //TODO: correct gridcellsize
-    default: 'light #F6F6F7',
-    values: [
-      {
-        name: 'light #F6F6F7',
-        value: '#F6F6F7',
-      },
-      {
-        name: 'white #FFFFF',
-        value: '#FFFFF',
-      },
-      {
-        name: 'dark #3A3B3F',
-        value: '#3A3B3F',
-      },
-    ],
+    default: 'light',
+    values: customBGvalues,
   },
 }
 
