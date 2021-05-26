@@ -11,7 +11,7 @@
   
   .#{$prefix}-accordion-header-prefix,
   .#{$prefix}-accordion-header-suffix{
-    background-color: var(--sdds-accordion-background);
+    background-color: var(--sdds-accordion-bg);
     outline: none;
     pointer-events: none;
     &:after{
@@ -36,7 +36,7 @@
     align-items: center;
     @include type-style('headline-07');
     padding: var(--sdds-spacing-element-16);
-    background-color: var(--sdds-accordion-background);
+    background-color: var(--sdds-accordion-bg);
 
     .#{$prefix}-accordion-icon{
       transform-origin: center;
@@ -83,7 +83,7 @@
   &:hover{
     .#{$prefix}-accordion-header-prefix,
     .#{$prefix}-accordion-header-suffix{
-      background-color: var(--sdds-accordion-background-hover);
+      background-color: var(--sdds-accordion-bg-hover);
     }
   }
 
@@ -91,7 +91,7 @@
     outline: none;
     .#{$prefix}-accordion-header-prefix,
     .#{$prefix}-accordion-header-suffix{
-      background-color: var(--sdds-accordion-background-focus);
+      background-color: var(--sdds-accordion-bg-focus);
       outline: none;
     }
   }
@@ -100,7 +100,7 @@
   &.active {
     .#{$prefix}-accordion-header-prefix,
     .#{$prefix}-accordion-header-suffix{
-      background-color: var(--sdds-accordion-background-active);
+      background-color: var(--sdds-accordion-bg-active);
       outline: none;
     }
   }
@@ -190,7 +190,7 @@
   .#{$prefix}-accordion-item{
     .#{$prefix}-accordion-header-prefix,
     .#{$prefix}-accordion-header-suffix{
-      background-color: var(--sdds-accordion-background-focus);
+      background-color: var(--sdds-accordion-bg-focus);
       outline: none;
       &:after {
         border-color: var(--sdds-accordion-border-focus);
@@ -207,7 +207,7 @@
 :host(:active){
   .#{$prefix}-accordion-header-prefix,
   .#{$prefix}-accordion-header-suffix{
-    background-color: var(--sdds-accordion-background-active);
+    background-color: var(--sdds-accordion-bg-active);
     outline: none;
   }
 

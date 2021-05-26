@@ -54,7 +54,7 @@ const customViewports = {
 
 const customBGvalues = [
     {
-      name: 'light',
+      name: 'grey',
       value: '#F6F6F7',
     },
     {
@@ -81,7 +81,7 @@ export const parameters = {
   },
   backgrounds: {
     grid: { cellSize: 4 }, //TODO: correct gridcellsize
-    default: 'light',
+    default: 'grey',
     values: customBGvalues,
   },
 }
