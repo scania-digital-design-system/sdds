@@ -19,5 +19,7 @@ ReactDOM.render(
   // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
   reportWebVitals();
 
+  console.warn('This is a demo application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation');
+
 defineCustomElements();
 addTheme(scania)
