@@ -2,10 +2,14 @@
 html{
   --#{$prefix}-accordion-colour: #{get-colour(grey-900)};
   --#{$prefix}-accordion-border: #{get-colour(grey-100)};
-  --#{$prefix}-accordion-background: transparent;
-  --#{$prefix}-accordion-background-hover: #{get-colour(white)};
-  --#{$prefix}-accordion-background-focus: transparent;
-  --#{$prefix}-accordion-background-active: #{get-colour(grey-100)};
+  --#{$prefix}-accordion-bg: transparent;
+  --#{$prefix}-accordion-bg-hover: #{get-colour(white)};
+  --#{$prefix}-accordion-bg-focus: transparent;
+  --#{$prefix}-accordion-bg-active: #{get-colour(grey-100)};
   --#{$prefix}-accordion-border-focus: #{get-colour(grey-300)};
   --#{$prefix}-accordion-colour-disabled: #{get-colour(grey-200)};
+
+  .#{$prefix}-on-white-bg {
+    --#{$prefix}-accordion-bg-hover: #{get-colour(grey-50)};
+  }
 }
