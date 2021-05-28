@@ -8,6 +8,7 @@
   top:var(--#{$prefix}-header-height);
   width: var(--#{$prefix}-nav-collapsible-width);
   height: 100%;
+  max-height: calc(100% - 64px);
   background: var(--#{$prefix}-nav-collapsible-mobile-background);
   color: var(--#{$prefix}-nav-collapsible-text-colour);
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.17);
@@ -58,6 +59,7 @@
     overflow-y: unset;
     width: auto;
     height: var(--#{$prefix}-header-height);
+    max-height: var(--#{$prefix}-header-height);
     top: 0;
     box-shadow: none;
     background: transparent;
