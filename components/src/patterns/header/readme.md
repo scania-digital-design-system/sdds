@@ -1,17 +1,11 @@
 # sdds-header
 
+## States class
 
-
-<!-- Auto Generated Below -->
-
-
-## Properties
-
-| Property | Attribute | Description | Type     | Default     |
+| Viewport | Class | State class | Description     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `name`   | `name`    |             | `string` | `undefined` |
+| `Mobile`   | `sdds-navbar-side-menu-toggler`    |    `expanded`         | Expand menu on mobile view | hidden |
+| `Mobile`   | `sdds-navbar-collapsible`    |    `expanded`         | Expand menu on mobile view | hidden |
+| `Mobile`   | `sdds-navbar-overlay`    |    `expanded`         | Add overlay when menu expanded on mobile view | hidden |
+| `All`   | `sdds-navbar-menu-item-dropdown`    |    `opened`         | Open dropdown menu | Close |
 
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*

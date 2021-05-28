@@ -15,11 +15,25 @@
   visibility: hidden;
   flex-direction: column;
   overflow-y: auto;
+  opacity: 0;
 
   &.expanded {
     visibility: visible;
     left: 0;
-  }  
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--sdds-grey-300);
+  }
+  ::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+  }
 }
 
 .#{$prefix}-navbar-overlay{
@@ -50,6 +64,7 @@
     color: var(--#{$prefix}-header-text-colour);
     visibility: visible;
     left: 0;
+    opacity: 1;
   }
   .#{$prefix}-navbar-overlay {
     display: none;

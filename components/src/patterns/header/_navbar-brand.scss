@@ -21,7 +21,7 @@
   background: var(--#{$prefix}-background-image-scania-symbol-svg);
   background: var(--#{$prefix}-background-image-scania-symbol-png);
   background-size: 30px auto;
-  width: 30px;
+  width: var(--#{$prefix}-header-icon-width);
   background-position: center;
   background-repeat: no-repeat;
   &:hover {
