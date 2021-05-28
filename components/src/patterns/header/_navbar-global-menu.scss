@@ -113,6 +113,8 @@
   }
 
   .#{$prefix}-navbar-menu-global-mobile {
+    margin-left: auto;
+    
     .#{$prefix}-navbar-menu-item-dropdown,
     .#{$prefix}-navbar-menu-item {
       border-left: 1px solid var(--#{$prefix}-header-divider);
