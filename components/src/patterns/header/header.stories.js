@@ -7,74 +7,92 @@ export default {
       type: 'string',
       defaultValue: 'Application'
     },
-    shortName: { 
-      type: 'string',
-      defaultValue: 'Application'
-    },
-    siteUrl: { 
-      type: 'string',
-      defaultValue: 'http://digitaldesign.scania.com'
-    },
   },
   parameters: {
     notes: readme,
   },
 };
 
-const Template = ({siteName, shortName, siteUrl, items}) => {
+function openMenu() {
+  const overlay = document.querySelector('.sdds-navbar-overlay');
+  const collapsible = document.getElementById('side-menu');
+  this.classList.toggle('open');
+  overlay.classList.toggle('expanded');
+  collapsible.classList.toggle('expanded');
+}
+
+const Template = ({siteName}) => {
   return `
   <sdds-theme></sdds-theme>
   
   <nav class="sdds-navbar">
-    <button class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler">
+    <div class="sdds-navbar-overlay"></div>
+
+    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler" onclick="openMenu()">
       <span class="sdds-icon-toggler"></span>
     </button>
     <div class="sdds-navbar-application-brand">${siteName}</div>
-    <div class="sdds-navbar__overlay"></div>
-
-    <div class="sdds-navbar-top-menu sdds-navbar-menu">
-      <ul class="sdds-navbar-menu-nav">
+     
+    <div id="side-menu" class="sdds-navbar-collapsible">
+      <ul class="sdds-navbar-menu-list">
         <li class="sdds-navbar-menu-item active">
-          <i class="sdds-icon scania-truck"></i>
-          <a class="sdds-navbar-menu-nav-link" href="#"> Item 1</a>
+          <a class="sdds-navbar-menu-item-link" href="#"> 
+            <span class="sdds-navbar-icon-button"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>
+            Item 1 
+          </a>
         </li>
         <li class="sdds-navbar-menu-item">
-          <a class="sdds-navbar-menu-nav-link" href="#" target="_blank"> Item 2 </a>
+          <a class="sdds-navbar-menu-item-link" href="#"> Item 2 </a>
         </li>
-        <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu__dropdown--opened">
-          <div class="sdds-navbar-menu__dropdown-header">
-            <span class="sdds-navbar-menu-nav-link"> Item 3 </span>
+        <li class="sdds-navbar-menu-item-dropdown opened">
+          <a class="sdds-navbar-menu-item-link" href="#"> 
+            Item 3 
             <span class="sdds-icon-arrow"></span>
-          </div>
+          </a>
           <ul class="sdds-navbar-menu__dropdown-menu">
             <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
             <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3</a></li>
             <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
           </ul>
         </li>
+        <li class="sdds-navbar-menu-item">
+          <a class="sdds-navbar-menu-item-link" href="#"> Item 4 </a>
+        </li>
       </ul>
-    </div>
 
-    <div class="sdds-navbar-right-menu">
-      <div class="sdds-navbar-dropdown sdds-navbar-menu__dropdown--opened">
-        <button class="sdds-navbar__open-button sdds-navbar__dropdown-action">
-          <span>EN</span>
-          <span class="show-on-mobile">&nbsp;Change language</span>
-          <i class="fal fa-angle-down fa-2x nav-link__drop-down-icon show-on-mobile"></i>
-        </button>
-        <ul class="sdds-navbar__dropdown-menu sdds-navbar__system-menu sdds-navbar__dropdown-menu--visible">
-          <li class="sdds-navbar__dropdown-item active"><a href="#">English</a></li>
-          <li class="sdds-navbar__dropdown-item"><a href="#">French</a></li>
-          <li class="sdds-navbar__dropdown-item"><a href="#">Greek</a></li>
-          <li class="sdds-navbar__dropdown-item"><a href="#">Indonesia</a></li>
-          <li class="sdds-navbar__dropdown-item"><a href="#">Svenska</a></li>
+      <div class="sdds-navbar-menu-global-mobile">
+
+        <ul class="sdds-navbar-menu-list">
+          <li class="sdds-navbar-menu-item">
+            <a class="sdds-navbar-menu-item-link" href="#">Toolbar link</a>
+          </li>
+          <li class="sdds-navbar-menu-item-dropdown opened">
+            <a class="sdds-navbar-menu-item-link" href="#">EN <span class="sdds-icon-arrow"></span></a>
+            <ul class="sdds-navbar-menu__dropdown-menu">
+            <li class="sdds-navbar-menu__dropdown-item sdds-navbar-menu-item-description">Select language</li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">English</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>        
+
+    <div class="sdds-navbar-menu-global">
+      <div class="sdds-navbar-menu-item-dropdown">
+        <a class="sdds-navbar-menu-item-link" href="#"><span class="sdds-icon-applauncher"></span></a>
+        <ul class="sdds-navbar-menu__dropdown-menu">
+          <li class="sdds-navbar-menu__dropdown-item sdds-navbar-menu-item-description">Category name</li>
+          <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 1</a></li>
+          <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Application name 2</a></li>
+          <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
         </ul>
       </div>
     </div>
-    <div class="sdds-navbar-brand">
-      <a href="#" class="sdds-navbar-brand__image"></a>
-    </div>
 
+    <div class="sdds-navbar-scania-brand"></div>
   </nav>
   `
 };
@@ -86,10 +104,13 @@ Basic.args = {
   siteUrl: 'http://digitaldesign.scania.com'
 }
 
-export const WithLinks = Template.bind({});
-WithLinks.args = {
-  ...Basic.args,
-  items: `
-  <a href='global' slot='items'>global</a>
+
+const HeaderComp = () => {
+  return `
+  <sdds-theme></sdds-theme>
+  <sdds-header name="My Application"></sdds-header>
   `
 };
+
+export const HeaderComps = HeaderComp.bind({});
+HeaderComps.args = {};

@@ -1,0 +1,58 @@
+// Styling collapsible container
+// Wrapper for all menu item
+
+.#{$prefix}-navbar-collapsible {
+  display: flex;
+  position: fixed;
+  left: -1000px;
+  top:var(--#{$prefix}-header-height);
+  width: var(--#{$prefix}-nav-collapsible-width);
+  height: 100%;
+  background: var(--#{$prefix}-nav-collapsible-mobile-background);
+  color: var(--#{$prefix}-nav-collapsible-text-colour);
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.17);
+  transition: all 0.1s ease-out;
+  visibility: hidden;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &.expanded {
+    visibility: visible;
+    left: 0;
+  }  
+}
+
+.#{$prefix}-navbar-overlay{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: var(--#{$prefix}-navbar-overlay);
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
+  visibility: hidden;
+  &.expanded {
+    opacity: 0.5;
+    visibility: visible;
+  }
+}
+
+@media all and (min-width: 769px) {
+  .#{$prefix}-navbar-collapsible {
+    position: relative;
+    flex-grow: 1;
+    flex-direction: row;
+    overflow-y: unset;
+    width: auto;
+    height: var(--#{$prefix}-header-height);
+    top: 0;
+    box-shadow: none;
+    background: transparent;
+    color: var(--#{$prefix}-header-text-colour);
+    visibility: visible;
+    left: 0;
+  }
+  .#{$prefix}-navbar-overlay {
+    display: none;
+  }
+  
+}

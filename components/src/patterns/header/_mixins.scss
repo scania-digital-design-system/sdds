@@ -1,53 +1,89 @@
+// Mixins for header component
+
+// Styling icon in header menu
 @mixin sdds-icon-button {
-  display: flex;
+  display: inline-block;
   position: relative;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  height: 64px;
-  width: 64px;
-  line-height: 64px;
-  border-left: 1px solid var(--sdds-blue-800);
-  color: var(--sdds-white);
+  width: 16px;
+  height: 16px;
+  border: 0;
   cursor: pointer;
-  &:hover {
-    background-color: var(--sdds-blue-800);
-  }
-  &--active,
-  &--active:hover {
-    background-color: var(--sdds-white);
-  }
-  a,
-  i,
-  button,
-  button span,
-  a i,
-  a:hover,
-  a:hover i {
-    color: var(--sdds-white);
+  outline: none;
+  box-sizing: border-box;
+
+  // Icon size  
+  span, i {
+    width:16px;
+    height:16px;
+    display: inline-block;
   }
 }
 
-@mixin sdds-side-menu-item {
-  border-right: 0;
+// Styling dropdown in header, reset default UL style
+@mixin sdds-navbar-menu-ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+// Styling menu item list
+@mixin sdds-navbar-menu-item {
+  display: block;
+  border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
   padding: 24px 18px 24px 20px;
-  height: 68px;
   cursor: pointer;
+  border-left: 4px solid transparent;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    .sdds-navbar-icon-button {
+      margin-right: var(--sdds-spacing-element-12);
+      color: var(--#{$prefix}-nav-item-icon);
+    }
+  }
 
   &:hover,
-  &:focus {
-    color: var(--sdds-grey-600);
-    background: var(--sdds-blue-50);
+  &.hover,
+  &.active {
+    background: var(--#{$prefix}-nav-item-background-selected);
   }
+
+  &.active {
+    border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
+  }
+
+  @media all and (min-width: 769px) {
+    padding: 24px 24px 20px;
+    border-left: 0;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid var(--#{$prefix}-header-divider);
+
+    &.active,
+    &:hover,
+    &.hover {
+      background: var(--#{$prefix}-nav-item-background-hover);
+      border-left: 0;
+    }
+    &.active {
+      border-bottom: 4px solid var(--sdds-nav-item-border-active);
+    }
+  }
+  
 }
 
-@mixin sdds-side-menu-item-hover-aside {
-  font-size: 12px;
-  color: var(--sdds-white);
-  background-color: var(--sdds-grey-600);
-  padding: 8px;
-  border-radius: 4px;
-  white-space: nowrap;
-  font-weight: normal;
-  display: none;
+// Styling svg background, used as icon
+@mixin background-svg-reset {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
 }
