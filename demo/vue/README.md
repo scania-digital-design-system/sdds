@@ -17,7 +17,7 @@ Clone this repo, install all dependencies and start it:
 git clone https://github.com/scania-digital-design-system/sdds.git
 cd demo/vue
 npm i
-npm run serve
+npm run start
 ```
 
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
@@ -31,6 +31,7 @@ Install `components` and `scania-theme` as devDependencies package from NPM in y
    cd demo/vue
    npm i @scania/components --save-dev
    npm i @scania/theme-light --save-dev
+   npm i @scania/icons --save-dev
    ```
 
 ## Use Scania theme

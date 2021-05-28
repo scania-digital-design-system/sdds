@@ -1,6 +1,6 @@
 {
   "name": "sdds-react-demo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "link": "npm link @scania/components && npm link @scania/theme-light && npm link @scania/icons"
   },
   "eslintConfig": {
     "extends": [
@@ -36,8 +37,8 @@
     ]
   },
   "devDependencies": {
-    "@scania/icons": "latest",
     "@scania/components": "latest",
+    "@scania/icons": "latest",
     "@scania/theme-light": "latest"
   }
 }
