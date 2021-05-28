@@ -34,5 +34,6 @@ html{
 
   .#{$prefix}-on-white-bg {
    --#{$prefix}-dropdown-bg:#{get-colour(grey-50)};
+   --#{$prefix}-dropdown-bg-hover: #{get-colour(blue-100)};
   }
 }
