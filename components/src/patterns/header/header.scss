@@ -43,7 +43,7 @@
     background: var(--#{$prefix}-nav-item-background-hover);
   }
 
-  &.open {  
+  &.expanded {  
     justify-content: end;
     position: absolute;
     left: 0;

@@ -13,27 +13,20 @@ export default {
   },
 };
 
-function openMenu() {
-  const overlay = document.querySelector('.sdds-navbar-overlay');
-  const collapsible = document.getElementById('side-menu');
-  this.classList.toggle('open');
-  overlay.classList.toggle('expanded');
-  collapsible.classList.toggle('expanded');
-}
-
-const Template = ({siteName}) => {
+const Template = ({siteName, openMenuMobile=false}) => {
+  const expanded = openMenuMobile ? 'expanded' : '';
   return `
   <sdds-theme></sdds-theme>
   
   <nav class="sdds-navbar">
-    <div class="sdds-navbar-overlay"></div>
+    <div class="sdds-navbar-overlay ${expanded}"></div>
 
-    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler" onclick="openMenu()">
+    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler ${expanded}">
       <span class="sdds-icon-toggler"></span>
     </button>
     <div class="sdds-navbar-application-brand">${siteName}</div>
      
-    <div id="side-menu" class="sdds-navbar-collapsible">
+    <div id="side-menu" class="sdds-navbar-collapsible ${expanded}">
       <ul class="sdds-navbar-menu-list">
         <li class="sdds-navbar-menu-item active">
           <a class="sdds-navbar-menu-item-link" href="#"> 
@@ -74,6 +67,18 @@ const Template = ({siteName}) => {
               <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">English</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">English</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">English</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
             </ul>
           </li>
         </ul>
@@ -100,17 +105,5 @@ const Template = ({siteName}) => {
 export const Basic = Template.bind({});
 Basic.args = {
   siteName: 'My Application',
-  shortName: 'My App',
-  siteUrl: 'http://digitaldesign.scania.com'
+  openMenuMobile: false
 }
-
-
-const HeaderComp = () => {
-  return `
-  <sdds-theme></sdds-theme>
-  <sdds-header name="My Application"></sdds-header>
-  `
-};
-
-export const HeaderComps = HeaderComp.bind({});
-HeaderComps.args = {};
