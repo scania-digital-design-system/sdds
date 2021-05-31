@@ -274,4 +274,8 @@
   .component-wrapper {
     padding-bottom: var(--sdds-spacing-element-24);
   }
+
+  .sdds-btn-group  .sdds-btn, .sdds-btn-group sdds-button {
+      margin: 10px;
+    }
 </style>
