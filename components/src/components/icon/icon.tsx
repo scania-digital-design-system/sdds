@@ -8,7 +8,7 @@ import {
   shadow: true,
 })
 export class Icon {
-  @Prop() name = 'question';
+  @Prop() name = 'scania-truck';
 
   @State() icon: any;
 
@@ -19,7 +19,8 @@ export class Icon {
       this.icon = await import(`@scania/icons/dist/${this.name}`);
     } catch(err) {
       console.warn(err);
-      console.warn(`Make sure you have installed @scania/icons package`);
+      console.warn(`Make sure you have spelled the name of the icon correct: ${this.name}`)
+      console.warn(`Make sure you have installed @scania/icons package found at https://www.npmjs.com/package/@scania/icons`);
       this.name = 'scania-truck' // If icon not found, display a truck icon
     }
    
