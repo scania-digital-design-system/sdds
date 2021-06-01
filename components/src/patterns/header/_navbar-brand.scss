@@ -27,7 +27,7 @@
   &:hover {
     background-color: var(--#{$prefix}-nav-item-background-hover);
   }
-  @media all and (min-width: 769px) {
+  @media all and (min-width: 672px) {
     display: block;
   }
 }
