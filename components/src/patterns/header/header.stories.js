@@ -50,7 +50,7 @@ const navMenuHTML = `
 <ul class="sdds-navbar-menu-list">
   <li class="sdds-navbar-menu-item active">
     <a class="sdds-navbar-menu-item-link" href="#"> 
-      <span class="sdds-navbar-icon-button"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>
+      <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
       Item 1 
     </a>
   </li>
