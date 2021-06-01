@@ -20,6 +20,10 @@
   height: var(--#{$prefix}-header-height);;
   background: var(--#{$prefix}-header-background);
   color: var(--#{$prefix}-header-text-colour);
+
+  &.#{$prefix}-navbar-static {
+    position: static;
+  }
 }
 
 .#{$prefix}-navbar-icon-button{
@@ -45,7 +49,8 @@
 
   &.expanded {  
     justify-content: end;
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 0;
     text-align: left;
     border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);

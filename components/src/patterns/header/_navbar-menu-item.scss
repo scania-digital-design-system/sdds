@@ -96,6 +96,7 @@
     }
 
     .#{$prefix}-navbar-menu__dropdown-menu {
+      transition:none;
       position: absolute;
       min-width: var(--#{$prefix}-nav-item-dropdown-minwidth);
       background: #fff;

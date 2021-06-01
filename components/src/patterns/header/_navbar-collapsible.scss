@@ -53,6 +53,7 @@
 
 @media all and (min-width: 769px) {
   .#{$prefix}-navbar-collapsible {
+    transition: none;
     position: relative;
     flex-grow: 1;
     flex-direction: row;
