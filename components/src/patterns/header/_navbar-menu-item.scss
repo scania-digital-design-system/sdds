@@ -8,6 +8,13 @@
   }
 }
 
+.#{$prefix}-navbar-menu-item-link {
+  .#{$prefix}-navbar-icon-button {
+    width: var(--sdds-nav-item-icon-size);
+    height: var(--sdds-nav-item-icon-size);
+  }
+}
+
 .#{$prefix}-navbar-menu-item-dropdown {
   @include sdds-navbar-menu-item;
   padding:0;
@@ -52,6 +59,7 @@
     }
 
     &.active {
+      @include type-style('headline-07');
       border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
       padding-left: 20px;
     }

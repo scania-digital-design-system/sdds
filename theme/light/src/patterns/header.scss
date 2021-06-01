@@ -13,6 +13,7 @@ html{
   --#{$prefix}-nav-item-background-selected: #{get-colour(blue-50)};
   --#{$prefix}-nav-item-divider-mobile: #{get-colour(grey-100)};
   --#{$prefix}-nav-item-icon: #{get-colour(grey-100)};
+  --#{$prefix}-nav-item-icon-size: 20px;
 
   --#{$prefix}-nav-item-dropdown-background-active: #{get-colour(white)};
   --#{$prefix}-nav-item-dropdown-colour-active: #{get-colour(grey-900)};
