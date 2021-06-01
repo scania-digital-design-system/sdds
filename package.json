@@ -23,6 +23,7 @@
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
     "release": "lerna publish",
+    "releasenpm": "lerna publish --include-merged-tags from-package",
     "next": "lerna publish -- --dist-tag next"
   },
   "changelog": {
@@ -34,5 +35,8 @@
       "Improvement": ":seedling: Improvements",
       "bug": ":bug: Bug Fix"
     }
+  },
+  "dependencies": {
+    "storybook-addon-themes": "^6.1.0"
   }
 }
