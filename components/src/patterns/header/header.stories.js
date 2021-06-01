@@ -13,7 +13,7 @@ export default {
   },
 };
 
-const Template = ({siteName, openMenuMobile=false, navMenu='', globalMenuMobile='', globalMenu=''}) => {
+const Template = ({siteName, openMenuMobile=false, navMenu='', toolbarMenuMobile='', toolbarMenu=''}) => {
   const expanded = openMenuMobile ? 'expanded' : '';
   return `
   <sdds-theme></sdds-theme>
@@ -21,8 +21,8 @@ const Template = ({siteName, openMenuMobile=false, navMenu='', globalMenuMobile=
   <nav class="sdds-navbar">
     <div class="sdds-navbar-overlay ${expanded}"></div>
 
-    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-toggler ${expanded}">
-      <span class="sdds-icon-toggler"></span>
+    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer ${expanded}">
+      <span class="sdds-icon-drawer"></span>
     </button>
     <div class="sdds-navbar-application-brand">${siteName}</div>
      
@@ -30,10 +30,10 @@ const Template = ({siteName, openMenuMobile=false, navMenu='', globalMenuMobile=
       
       ${navMenu}
 
-      ${globalMenuMobile}
+      ${toolbarMenuMobile}
       
     </div>        
-    ${globalMenu}    
+    ${toolbarMenu}    
 
     <div class="sdds-navbar-scania-brand"></div>
   </nav>
@@ -74,8 +74,8 @@ const navMenuHTML = `
 </ul>
 `;
 
-const globalMenuMobileHTML = `
-<div class="sdds-navbar-menu-global-mobile">
+const toolbarMenuMobileHTML = `
+<div class="sdds-navbar-menu-toolbar-mobile">
   <ul class="sdds-navbar-menu-list">
     <li class="sdds-navbar-menu-item">
       <a class="sdds-navbar-menu-item-link" href="#">Toolbar link</a>
@@ -94,8 +94,8 @@ const globalMenuMobileHTML = `
 </div>
 `;
 
-const globalMenuHTML = `
-<div class="sdds-navbar-menu-global">
+const toolbarMenuHTML = `
+<div class="sdds-navbar-menu-toolbar">
   <div class="sdds-navbar-menu-item-dropdown opened">
     <a class="sdds-navbar-menu-item-link" href="#"><span class="sdds-icon-applauncher"></span></a>
     <ul class="sdds-navbar-menu__dropdown-menu">
@@ -126,12 +126,12 @@ NavMenu.args = {
   navMenu: navMenuHTML
 }
 
-export const GlobalMenu = Template.bind({});
-GlobalMenu.args = {
+export const toolbarMenu = Template.bind({});
+toolbarMenu.args = {
   siteName: 'My Application',
   openMenuMobile: false,
-  globalMenuMobile: globalMenuMobileHTML,
-  globalMenu: globalMenuHTML
+  toolbarMenuMobile: toolbarMenuMobileHTML,
+  toolbarMenu: toolbarMenuHTML
 }
 
 export const AllMenu = Template.bind({});
@@ -139,6 +139,6 @@ AllMenu.args = {
   siteName: 'My Application',
   openMenuMobile: false,
   navMenu: navMenuHTML,
-  globalMenuMobile: globalMenuMobileHTML,
-  globalMenu: globalMenuHTML
+  toolbarMenuMobile: toolbarMenuMobileHTML,
+  toolbarMenu: toolbarMenuHTML
 }

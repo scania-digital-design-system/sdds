@@ -22,7 +22,7 @@ html{
   --#{$prefix}-nav-item-dropdown-item-colour: #{get-colour(grey-600)};
   --#{$prefix}-nav-item-dropdown-item-background: #{get-colour(white)};
 
-  --#{$prefix}-nav-item-global-menu-minwidth: 320px;
+  --#{$prefix}-nav-item-toolbar-menu-minwidth: 320px;
 
   --#{$prefix}-nav-collapsible-width: 256px;
   --#{$prefix}-nav-collapsible-mobile-background: #{get-colour(white)};
