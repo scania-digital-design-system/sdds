@@ -5,7 +5,7 @@
 @import './navbar-brand';
 @import './navbar-collapsible';
 @import './navbar-menu-item';
-@import './navbar-global-menu';
+@import './navbar-toolbar-menu';
 
 .#{$prefix}-navbar {
   @include type-style('headline-07');
@@ -30,12 +30,12 @@
   @include sdds-icon-button;
 }
 
-.#{$prefix}-icon-toggler {
+.#{$prefix}-icon-drawer {
   @include background-svg-reset;  
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H15.25C15.6642 0 16 0.335786 16 0.75C16 1.16421 15.6642 1.5 15.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75ZM0 8C0 7.58579 0.335786 7.25 0.75 7.25H15.25C15.6642 7.25 16 7.58579 16 8C16 8.41421 15.6642 8.75 15.25 8.75H0.75C0.335786 8.75 0 8.41421 0 8ZM0.75 14.5C0.335786 14.5 0 14.8358 0 15.25C0 15.6642 0.335786 16 0.75 16H15.25C15.6642 16 16 15.6642 16 15.25C16 14.8358 15.6642 14.5 15.25 14.5H0.75Z' fill='white'/%3E%3C/svg%3E");
 }
 
-.#{$prefix}-navbar-side-menu-toggler{
+.#{$prefix}-navbar-side-menu-drawer{
   @include sdds-icon-button;
   border: 0;
   padding:24px;  
@@ -56,7 +56,7 @@
     border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
     width: var(--#{$prefix}-nav-collapsible-width);
     background: var(--#{$prefix}-nav-collapsible-mobile-background);
-    .#{$prefix}-icon-toggler {
+    .#{$prefix}-icon-drawer {
       background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.40338 0.343083C1.11048 0.0501898 0.63561 0.0501898 0.342717 0.343083C0.0498236 0.635976 0.0498236 1.11085 0.342717 1.40374L4.93897 6L0.34283 10.5961C0.0499369 10.889 0.0499369 11.3639 0.34283 11.6568C0.635723 11.9497 1.1106 11.9497 1.40349 11.6568L5.99963 7.06066L10.5958 11.6568C10.8887 11.9497 11.3635 11.9497 11.6564 11.6568C11.9493 11.3639 11.9493 10.889 11.6564 10.5961L7.06029 6L11.6565 1.40376C11.9494 1.11086 11.9494 0.635989 11.6565 0.343096C11.3636 0.0502027 10.8888 0.0502027 10.5959 0.343096L5.99963 4.93934L1.40338 0.343083Z' fill='%23171719'/%3E%3C/svg%3E");
     }
   }
