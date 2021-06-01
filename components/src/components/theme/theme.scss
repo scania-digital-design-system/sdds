@@ -11,7 +11,9 @@
 @import '../card/card.scss';
 @import '../modal/modal.scss';
 @import '../toast/toast.scss';
-@import '../banner/banner.scss';
+
+// Patterns
+@import '../../patterns/header/header.scss';
 
 // data environment
 body[data-env]:before {
