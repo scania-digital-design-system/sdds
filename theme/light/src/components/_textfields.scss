@@ -1,5 +1,6 @@
 :root,
-html{
+html {
+
   --#{$prefix}-textfield-color: #{get-colour(grey-700)};
   --#{$prefix}-textfield-bg: #{get-colour(white)};
   --#{$prefix}-textfield-border-bottom: #{get-colour(grey-200)};
@@ -35,4 +36,9 @@ html{
   --#{$prefix}-textfield-resize-icon: #{get-colour(grey-300)};
   --#{$prefix}-textarea-min-width: 208px;
   --#{$prefix}-textarea-height: 112px;
+
+  //White background
+  .#{$prefix}-on-white-bg {
+    --#{$prefix}-textfield-bg: #{get-colour(grey-50)};
+  }
 }
