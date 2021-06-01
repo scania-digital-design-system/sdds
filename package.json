@@ -23,7 +23,6 @@
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
     "release": "lerna publish",
-    "releasenpm": "lerna publish --include-merged-tags from-package",
     "next": "lerna publish -- --dist-tag next"
   },
   "changelog": {
