@@ -29,6 +29,7 @@ To include components in React application, follow these steps:
 ```bash
 npm i @scania/components --save-dev
 npm i @scania/theme-light --save-dev
+npm i @scania/icons --save-dev
 ```
 
 2. In index.js, import `defineCustomElements` and `add-theme` from `@scania/components`
