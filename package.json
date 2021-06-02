@@ -34,8 +34,5 @@
       "Improvement": ":seedling: Improvements",
       "bug": ":bug: Bug Fix"
     }
-  },
-  "dependencies": {
-    "storybook-addon-themes": "^6.1.0"
   }
 }
