@@ -1,11 +1,12 @@
-
 <!-- FormGroup Basic form -->
-<h3>Basic form - Template driven form</h3>
-<!-- https://stackoverflow.com/questions/46465891/what-is-ngdefaultcontrol-in-angular -->
 
-<form (ngSubmit)="onSubmit(usernameInput,userPassword,userComment)">
-
-  <div style="width:208px">
+<form class="sdds-row" (ngSubmit)="onSubmit(usernameInput,userPassword,userComment)">
+  <div class="no-padding sdds-col-xlg-16">
+    <h3>Basic form - Template driven form</h3>
+    <!-- https://stackoverflow.com/questions/46465891/what-is-ngdefaultcontrol-in-angular -->
+    <p class="sdds-headline-06 sdds-text-grey-500">You can control value from sdds form components as shown below. </p>
+  </div>
+  <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
     <div> value: {{usernameInput.value}}</div>
     <div> dirty: {{usernameInput.dirty}}</div>
     <div> untouched: {{usernameInput.untouched}}</div>
@@ -25,7 +26,7 @@
     </sdds-textfield>
   </div>
 
-  <div style="width:208px">
+  <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
     <div>  value: {{userPassword.value}}</div>
     <div> dirty: {{userPassword.dirty}}</div>
     <div> untouched: {{userPassword.untouched}}</div>
@@ -45,8 +46,7 @@
     </sdds-textfield>
   </div>
 
-
-  <div style="width:208px">
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-demo-form-field">
     <div> value: {{userComment.value}}</div>
     <div> dirty: {{userComment.dirty}}</div>
     <div> untouched: {{userComment.untouched}}</div>
@@ -63,23 +63,58 @@
     </sdds-textarea>
   </div>
 
-  <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
+  <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
+    <div>value: {{myValue.label}}</div>
+    <div></div>
+    <sdds-dropdown  label="Label text"
+    label-position="outside"
+    placeholder="Select option"
+    helper="Field required"
+    (selectOption)="myValue=$event['detail']"
+    placeholder="Select option"
+    [defaultOption]="initialValue.value">
+      <sdds-dropdown-option 
+        *ngFor="let option of list" 
+        [selected]="option.value === initialValue.value"
+        [value]="option.value">
+          {{option.label}}
+      </sdds-dropdown-option>
+    </sdds-dropdown>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-demo-form-field">
+    <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
+  </div>
 </form>
 
 <!-- Formgroup works -->
-<h3>Advanced form - Reactive form</h3>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
 
-  <div style="width:208px">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="sdds-row">
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
+    <h3>Advanced form - Reactive form</h3>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
     <sdds-textfield
       ngDefaultControl
       formControlName="username"
       placeholder="Username"
     >
+    <span slot="sdds-label">SDDS textfield</span>
     </sdds-textfield>
   </div>
 
-  <div style="width:208px">
+  <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
+    <!-- Custom Angular component -->
+    <custom-input
+      ngDefaultControl
+      id="customEl"
+      formControlName="customInput">
+    </custom-input>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
     <sdds-textarea
       label="Label text"
       ngDefaultControl
@@ -89,37 +124,36 @@
     </sdds-textarea>
   </div>
 
-  <div style="width:208px">
-    <!-- Custom Angular component -->
-    <custom-input
-      ngDefaultControl
-      id="customEl"
-      formControlName="customInput">
-    </custom-input>
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
+    <div class="sdds-checkbox-item">
+      <input
+        id="cb-option-1"
+        class="sdds-form-input"
+        type="checkbox"
+        checked="checked"
+        name="cb-example"
+        formControlName="CustomCheck"
+      /> 
+      <label class="sdds-form-label" for="cb-option-1">
+         Check if true
+      </label>
+    </div>
   </div>
 
-  <div class="sdds-checkbox-item">
-    <input
-      id="cb-option-1"
-      class="sdds-form-input"
-      type="checkbox"
-      checked="checked"
-      name="cb-example"
-      formControlName="CustomCheck"
-    />
-     <label class="sdds-form-label" for="cb-option-1">
-        Check if true
-     </label>
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
+    <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
   </div>
-
-  <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
 
 </form>
 
-<h6>Values in the form:</h6>
-<div>Values: {{myForm.value | json}}</div>
-<div>Touched: {{myForm.touched}}</div>
-<div>pristine: {{myForm.pristine | json}}</div>
-<div>Valid: {{myForm.valid | json}}</div>
+<div class="sdds-row">
+  <div class="no-padding sdds-col-xlg-16">
+    <h6>Values in the form:</h6>
+    <div>Values: {{myForm.value | json}}</div>
+    <div>Touched: {{myForm.touched}}</div>
+    <div>pristine: {{myForm.pristine | json}}</div>
+    <div>Valid: {{myForm.valid | json}}</div>
+  </div>
+</div>
 
 
