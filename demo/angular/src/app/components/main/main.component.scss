@@ -1,6 +1,11 @@
 @import '~node_modules/@scania/typography/dist/scss/mixins';
 @import '~node_modules/@scania/typography/dist/scss/tokens';
 
+:host{
+  padding-top: 64px;
+  display: block;
+}
+
 .sub-lead {
   @include type-style('paragraph-02');
 }
