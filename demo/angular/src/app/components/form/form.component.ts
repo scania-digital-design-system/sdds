@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup  } from '@angular/forms';
+import { FormBuilder, FormGroup  } from '@angular/forms';
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'basic-form',
@@ -33,7 +35,7 @@ export class FormComponent implements OnInit {
       textarea: '',
       customInput: 'Default value',
       CustomCheck: true,
-
+      CustomDropdown:''
     })
     this.myForm.valueChanges.subscribe(console.log)
   }
@@ -52,4 +54,37 @@ export class FormComponent implements OnInit {
   logInput(model){
     console.log('Input:',model.viewModel, model)
   }
+}
+
+@Directive({
+  selector: 'sdds-drodpown',
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: SddsValueAccessor, multi: true }]
+})
+
+export class SddsValueAccessor implements ControlValueAccessor {
+  constructor(private element: ElementRef, private renderer: Renderer2) {
+    this.onChange = () => {};
+    console.log('accessor')
+  }
+
+  onChange: (value: string) => void;
+
+  writeValue(value: string) {
+    this.renderer.setProperty(this.element.nativeElement, 'value', value);
+  }
+
+  @HostListener('selectOption', ['$event.detail'])
+  _handleChange(value: string) {
+    
+    console.log('accessor')
+    this.onChange(value);
+  }
+
+  registerOnChange(fn: (value: string) => void) {
+    this.onChange = value => {
+      fn(value);
+    };
+  }
+
+  registerOnTouched() {}
 }

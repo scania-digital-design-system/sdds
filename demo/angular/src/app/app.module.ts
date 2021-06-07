@@ -9,6 +9,7 @@ import { MainComponent } from './components/main/main.component';
 import { FormComponent } from './components/form/form.component';
 import { CustomInput } from './components/form/input/input-component';
 import { HomeComponent } from './components/home/home.component';
+import { SddsValueAccessor } from './components/form/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent,
     MainComponent,
     FormComponent,
-    CustomInput
+    CustomInput,
+    SddsValueAccessor
   ],
   imports: [
     BrowserModule,
