@@ -1,25 +1,28 @@
+import {
+  NavLink
+} from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   return (
-    <div>
-      <div className="sdds-header">
-        <span className="scania-symbol"></span>
+    <nav className="sdds-navbar">
+      <div className="sdds-navbar-overlay "></div>
+      <button id="menu-mobile" className="sdds-navbar-icon-button sdds-navbar-side-menu-drawer">
+          <span className="sdds-icon-drawer"></span>
+      </button>
+      <div className="sdds-navbar-application-brand">My Application</div>
+      <div id="side-menu" className="sdds-navbar-collapsible">
+        <ul className="sdds-navbar-menu-list">
+          <NavLink className="sdds-navbar-menu-item" exact to="/" activeClassName="active">
+            <span className="sdds-navbar-menu-item-link">Home</span>
+          </NavLink>
+          <NavLink className="sdds-navbar-menu-item" to="/form" activeClassName="active">
+            <span className="sdds-navbar-menu-item-link">Form</span>
+          </NavLink>
+         </ul>
       </div>
-
-      <div className="sdds-content-header">
-        <div className="sdds-container-fluid">
-          <div className="sdds-row">
-            <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4 header-greeting-wrapper">
-
-              <span className="header-greeting sdds-headline-02">Welcome to</span>
-              <span className="page-title sdds-headline-02">React Demo</span>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div className="sdds-navbar-scania-brand"></div>
+    </nav>
   );
 }
 
