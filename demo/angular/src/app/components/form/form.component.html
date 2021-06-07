@@ -65,14 +65,16 @@
 
   <div class="no-padding sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field">
     <div>value: {{myValue.label}}</div>
-    <div></div>
-    <sdds-dropdown  label="Label text"
+    <sdds-dropdown
+    label="Label text"
     label-position="outside"
     placeholder="Select option"
     helper="Field required"
     (selectOption)="myValue=$event['detail']"
     placeholder="Select option"
-    [defaultOption]="initialValue.value">
+    [defaultOption]="initialValue.value"
+    [state]="myValue.label==='' || myValue.label==='None' ? 'error' : ''">
+      <sdds-dropdown-option value="">None</sdds-dropdown-option>
       <sdds-dropdown-option 
         *ngFor="let option of list" 
         [selected]="option.value === initialValue.value"
@@ -141,19 +143,39 @@
   </div>
 
   <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
+    <sdds-dropdown
+    label="Label text"
+    label-position="outside"
+    placeholder="Select option"
+    helper="Field required"
+    placeholder="Select option"
+    [defaultOption]="initialValue.value"
+    [state]="myValue.label==='' || myValue.label==='None' ? 'error' : ''"
+    ngDefaultControl
+    formControlName="CustomDropdown">
+      <sdds-dropdown-option value="">None</sdds-dropdown-option>
+      <sdds-dropdown-option 
+        *ngFor="let option of list" 
+        [selected]="option.value === initialValue.value"
+        [value]="option.value">
+          {{option.label}}
+      </sdds-dropdown-option>
+    </sdds-dropdown>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
     <button type="submit" class="sdds-btn sdds-btn-primary"> Submit</button>
   </div>
 
-</form>
-
-<div class="sdds-row">
   <div class="no-padding sdds-col-xlg-16">
-    <h6>Values in the form:</h6>
+    <h6>Values in the reactive form:</h6>
     <div>Values: {{myForm.value | json}}</div>
     <div>Touched: {{myForm.touched}}</div>
     <div>pristine: {{myForm.pristine | json}}</div>
     <div>Valid: {{myForm.valid | json}}</div>
   </div>
-</div>
+
+</form>
+
 
 
