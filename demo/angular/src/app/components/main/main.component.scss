@@ -2,7 +2,7 @@
 @import '~node_modules/@scania/typography/dist/scss/tokens';
 
 :host{
-  padding-top: 64px;
+  padding-top: var(--sdds-header-height);
   display: block;
 }
 
