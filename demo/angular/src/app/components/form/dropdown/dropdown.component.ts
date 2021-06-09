@@ -1,37 +1,53 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 // https://angular.io/api/forms/ControlValueAccessor
 
-@Directive({
-  selector: 'sdds-drodpown-ng',
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: SddsValueAccessor, multi: true }]
+@Component({
+  selector:'custom-dropdown',
+  templateUrl: './dropdown.component.html',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CustomDropdown),
+      multi: true
+    }
+  ]
 })
 
-export class SddsValueAccessor implements ControlValueAccessor {
-  constructor(private element: ElementRef, private renderer: Renderer2) {
-    this.onChange = () => {};
-    console.log('accessor')
-  }
+export class CustomDropdown implements ControlValueAccessor {
+  @Input() list:any;
+  @Input() initialValue:any;
+  @Input() myValue:any;
 
+  value: string;
   onChange: (value: string) => void;
+  onTouched: () => {};
+  onDisabled: boolean;
+
+  constructor() {
+    this.onChange = (value:string) => {};
+  }
 
   writeValue(value: string) {
-    this.renderer.setProperty(this.element.nativeElement, 'value', value);
+    this.value = value ? value : '';
   }
 
-  @HostListener('selectOption', ['$event.detail'])
-  _handleChange(value: string) {
-    
-    console.log('accessor')
-    this.onChange(value);
+  registerOnChange(onChange: any)  {
+    this.onChange = onChange;
   }
 
-  registerOnChange(fn: (value: string) => void) {
-    this.onChange = value => {
-      fn(value);
-    };
+  registerOnTouched(fn: any)  {
+    this.onTouched = fn;
+  }
+  
+  setDisabledState?(isDisabled: boolean)  {
+    this.onDisabled = isDisabled;
   }
 
-  registerOnTouched() {}
+  handleChange(event) {
+    console.log(event)
+    this.onChange(event.detail.label)
+  }
+
 }

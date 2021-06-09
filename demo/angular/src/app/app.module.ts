@@ -9,7 +9,7 @@ import { MainComponent } from './components/main/main.component';
 import { FormComponent } from './components/form/form.component';
 import { CustomInput } from './components/form/input/input-component';
 import { HomeComponent } from './components/home/home.component';
-import { SddsValueAccessor } from './components/form/dropdown/dropdown.component';
+import { CustomDropdown } from './components/form/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SddsValueAccessor } from './components/form/dropdown/dropdown.component
     MainComponent,
     FormComponent,
     CustomInput,
-    SddsValueAccessor
+    CustomDropdown
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <sdds-theme></sdds-theme>
       <Header />
-      <div className="sdds-container-fluid content-wrapper">
+      <div className="sdds-container content-wrapper">
         <Switch>
           <Route exact path="/">
             <Home />

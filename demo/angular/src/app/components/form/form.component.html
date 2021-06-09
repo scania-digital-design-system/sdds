@@ -141,26 +141,21 @@
       </label>
     </div>
   </div>
+  <!-- <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
+    <select name="CustomDropdown" id="mySelect" formControlName="CustomDropdown">
+      <option value="opt1">Truck</option>
+      <option value="opt2">Bus</option>
+      <option value="opt3">Car</option>
+    </select>
+  </div> -->
 
   <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
-    <sdds-dropdown
-    label="Label text"
-    label-position="outside"
-    placeholder="Select option"
-    helper="Field required"
-    placeholder="Select option"
-    [defaultOption]="initialValue.value"
-    [state]="myValue.label==='' || myValue.label==='None' ? 'error' : ''"
-    ngDefaultControl
-    formControlName="CustomDropdown">
-      <sdds-dropdown-option value="">None</sdds-dropdown-option>
-      <sdds-dropdown-option 
-        *ngFor="let option of list" 
-        [selected]="option.value === initialValue.value"
-        [value]="option.value">
-          {{option.label}}
-      </sdds-dropdown-option>
-    </sdds-dropdown>
+    <custom-dropdown
+      [list]="list"
+      [initialValue]="initialValue.value"
+      [myValue]="myValue"
+      ngDefaultControl
+      formControlName="CustomDropdown"></custom-dropdown>
   </div>
 
   <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
@@ -169,6 +164,7 @@
 
   <div class="no-padding sdds-col-xlg-16">
     <h6>Values in the reactive form:</h6>
+    <!-- <div>Dropdown: {{myDropdown}}</div> -->
     <div>Values: {{myForm.value | json}}</div>
     <div>Touched: {{myForm.touched}}</div>
     <div>pristine: {{myForm.pristine | json}}</div>

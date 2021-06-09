@@ -1,7 +1,7 @@
 body {
   background: var(--sdds-grey-50);
 }
-.sdds-container-fluid {
+.sdds-container {
   margin-top: var(--sdds-header-height);
 }
 .content-wrapper {
@@ -24,3 +24,7 @@ body {
 .sdds-btn-group sdds-button {
     margin: 10px;
   }
+
+form > div {
+  margin-bottom: var(--sdds-spacing-element-24);
+}
