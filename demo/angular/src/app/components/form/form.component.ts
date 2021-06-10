@@ -33,7 +33,8 @@ export class FormComponent implements OnInit {
       textarea: '',
       customInput: 'Default value',
       CustomCheck: true,
-      CustomDropdown:['', Validators.required]
+      CustomDropdown:['', Validators.required],
+      nativeDropdown: 'car'
     })
     this.myForm.valueChanges.subscribe(console.log)
   }

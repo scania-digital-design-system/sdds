@@ -134,6 +134,7 @@ class Form extends Component {
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
           <p>Form values:</p>
           <p>{JSON.stringify(this.state.values)}</p>
+          <p>Validation:</p>
           <p>{JSON.stringify(this.state.errors)}</p>
         </div>
 

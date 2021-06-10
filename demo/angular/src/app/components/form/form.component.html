@@ -141,21 +141,22 @@
       </label>
     </div>
   </div>
-  <!-- <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
-    <select name="CustomDropdown" id="mySelect" formControlName="CustomDropdown">
-      <option value="opt1">Truck</option>
-      <option value="opt2">Bus</option>
-      <option value="opt3">Car</option>
-    </select>
-  </div> -->
 
   <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
     <custom-dropdown
       [list]="list"
       [initialValue]="initialValue.value"
-      [myValue]="myValue"
+      [myValue]="myForm.value.CustomDropdown"
       ngDefaultControl
       formControlName="CustomDropdown"></custom-dropdown>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
+    <select class="sdds-dropdown" name="nativeDropdown" id="mySelect" formControlName="nativeDropdown">
+      <option value="truck">Truck</option>
+      <option value="bus">Bus</option>
+      <option value="car">Car</option>
+    </select>
   </div>
 
   <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field">
@@ -164,7 +165,6 @@
 
   <div class="no-padding sdds-col-xlg-16">
     <h6>Values in the reactive form:</h6>
-    <!-- <div>Dropdown: {{myDropdown}}</div> -->
     <div>Values: {{myForm.value | json}}</div>
     <div>Touched: {{myForm.touched}}</div>
     <div>pristine: {{myForm.pristine | json}}</div>
