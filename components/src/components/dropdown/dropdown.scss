@@ -1,7 +1,7 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
-@import './dropdown-wrapper';
+@import './dropdown-core';
 
 :host,
 ::slotted(*){
@@ -39,20 +39,6 @@
 
   .#{$prefix}-dropdown-label {
     flex-grow: 2;
-  }
-
-  .#{$prefix}-dropdown-label-inside,
-  .#{$prefix}-dropdown-label-outside{
-    display: block;
-    margin-bottom: var(--sdds-spacing-element-4);
-  }
-  .#{$prefix}-dropdown-label-inside{
-    @include type-style('detail-07');
-    color: var(--sdds-dropdown-label-inside);
-  }
-  .#{$prefix}-dropdown-label-outside{
-    @include type-style('detail-05');
-    color: var(--sdds-dropdown-label-outside);
   }
 
   .#{$prefix}-dropdown-filter{
@@ -109,13 +95,6 @@
     }
   }
   
-}
-
-.#{$prefix}-dropdown-helper {
-  @include type-style('detail-05');
-  display: block;
-  color: var(--sdds-dropdown-helper-text);
-  margin-top: var(--sdds-spacing-element-4);
 }
 
 :host([disabled="true"]){
