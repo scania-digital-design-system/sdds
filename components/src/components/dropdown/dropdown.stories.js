@@ -162,3 +162,23 @@ Filter.argTypes = {
     }
   }
 }
+
+const NativeTemplate = (size) => {
+  return `
+  <sdds-theme></sdds-theme>
+  <div class="sdds-container" style="margin-top:10rem;">
+    <div class="sdds-row">
+      <select class="sdds-dropdown${size!=='large' ? '-' + size : ''}" name="nativeDropdown" id="mySelect">
+        <option value="truck">Truck</option>
+        <option value="bus">Bus</option>
+        <option value="car">Car</option>
+      </select>
+    </div>
+  </div>
+  `
+}
+
+export const NativeSelect = NativeTemplate.bind({});
+NativeSelect.args = {
+  size: 'large'
+}
