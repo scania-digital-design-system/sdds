@@ -3,6 +3,13 @@
 :root,
 html{
   --#{$prefix}-dropdown-border-radius:1rem;
+  --#{$prefix}-dropdown-height-large:14rem;
+  --#{$prefix}-dropdown-height-medium:12rem;
+  --#{$prefix}-dropdown-height-small:10rem;
+  --#{$prefix}-dropdown-padding-top-large:5rem;
+  --#{$prefix}-dropdown-padding-top-medium:4rem;
+  --#{$prefix}-dropdown-padding-top-small:4rem;
+  --#{$prefix}-dropdown-padding-left:4rem;
 
   --#{$prefix}-dropdown-error:#{get-colour(red-500)};
   --#{$prefix}-dropdown-helper-text:#{get-colour(grey-500)};
