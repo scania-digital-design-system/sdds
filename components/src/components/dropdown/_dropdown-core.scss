@@ -31,3 +31,24 @@
     cursor: text;
   }
 }
+
+.#{$prefix}-dropdown-helper {
+  @include type-style('detail-05');
+  display: block;
+  color: var(--sdds-dropdown-helper-text);
+  margin-top: var(--sdds-spacing-element-4);
+}
+
+.#{$prefix}-dropdown-label-inside,
+.#{$prefix}-dropdown-label-outside{
+  display: block;
+  margin-bottom: var(--sdds-spacing-element-4);
+}
+.#{$prefix}-dropdown-label-inside{
+  @include type-style('detail-07');
+  color: var(--sdds-dropdown-label-inside);
+}
+.#{$prefix}-dropdown-label-outside{
+  @include type-style('detail-05');
+  color: var(--sdds-dropdown-label-outside);
+}
