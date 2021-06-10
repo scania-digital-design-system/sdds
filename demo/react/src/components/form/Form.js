@@ -16,7 +16,8 @@ class Form extends Component {
       values : {
         firstName: 'Mary',
         lastName: 'Jane',
-        city:'Stockholm'
+        city:'Stockholm',
+        transport:'Car'
       },
       errors: {}
     };
@@ -102,12 +103,21 @@ class Form extends Component {
             }
           </sdds-textfield>
         </div>
-        
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
-          <label>
-            Last name (native input):
-            <input className="sdds-textfield" name="lastName" type="text" onChange={this.handleChange} />
-          </label>
+          <sdds-textfield
+            type="text"
+            placeholder="Enter last name"
+            value={this.state.values.lastName}
+            onInput={this.handleChange}
+            name="lastName"
+            state={this.state.errors.lastName && 'error'}
+            >
+            <span slot="sdds-label">Last name</span>
+            {
+              this.state.errors.lastName &&
+              <span slot="sdds-helper">{this.state.errors.lastName}</span>
+            }
+          </sdds-textfield>
         </div>
         
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
@@ -123,6 +133,21 @@ class Form extends Component {
             >
             {this.cities.map((city) => <sdds-dropdown-option key={"id-" + city} value={city}>{city}</sdds-dropdown-option>)}
           </sdds-dropdown>
+        </div>
+
+        <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
+          <div className="sdds-dropdown">
+            <span className="sdds-dropdown-label-outside">Native select</span>
+            <select name="transport" id="nativeSelect"
+              value={this.state.values.transport}
+              onChange={e => this.setValues(e.target.value, 'transport', 'values')}>
+              <option value=''>Select one</option>
+              <option value="truck">Truck</option>
+              <option value="bus">Bus</option>
+              <option value="car">Car</option>
+            </select>
+            <span className="sdds-dropdown-helper">Select transportation</span>
+          </div>
         </div>
 
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
