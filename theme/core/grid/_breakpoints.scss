@@ -6,127 +6,173 @@
 
 //TODO: Add rem instead of px, map doesn't give correct rem value, need a converter
 
-$sdds-grid-breakpoints: (
-  sm: (
-    width: 320px,
-    columns: 4,
-    margin: 0,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32
-  ),
-  md: (
-    width: 672px,
-    columns: 8,
-    margin: $spacing-layout-16,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32
-  ),
-  lg: (
-    width: 1056px,
-    columns: 16,
-    margin: $spacing-layout-16,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32
-  ),
-  xlg: (
-    width: 1312px,
-    columns: 16,
-    margin: $spacing-layout-16,
-    padding: $spacing-layout-16,
-    gutter: $spacing-layout-32
-  ),
-  xxlg: (
-    width: 1584px,
-    columns: 16,
-    margin: $spacing-layout-24,
-    padding: $spacing-layout-16,
-    gutter: $spacing-layout-32
-  ),
-) !default;
+//FIXME: New breakpoints
+$grid-xs: 0;
+$grid-sm: 608px;
+$grid-md: 800px;
+$grid-lg: 992px;
+$grid-xlg: 1184px;
+$grid-xxlg: 1376px;
+$grid-max: 1584px;
 
-$sdds-grid-breakpoints-gutterless: (
+//container width
+$grid-container-xs: 100%;
+$grid-container-sm: 576px;
+$grid-container-md: 768px;
+$grid-container-lg: 960px;
+$grid-container-xlg: 1152px;
+$grid-container-xxlg: 1344px;
+$grid-container-max: 1534px;
+
+$sdds-grid-breakpoints: (
+  xs: (
+    breakpoint: $grid-xs,
+    container: $grid-container-xs,
+    margin: $spacing-layout-16,
+    columns: 12,
+    padding: $spacing-layout-8,
+  ),
   sm: (
-    width: 320px,
-    columns: 4,
-    margin: 0,
-    padding: $spacing-layout-16,
-    gutter: 0
+    breakpoint: $grid-sm,
+    container: $grid-container-sm,
+    margin: $spacing-layout-16,
+    columns: 12,
+    padding: $spacing-layout-8
   ),
   md: (
-    width: 672px,
-    columns: 8,
+    breakpoint: $grid-md,
+    container: $grid-container-md,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-16,
-    gutter: 0
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   lg: (
-    width: 1056px,
-    columns: 16,
+    breakpoint: $grid-lg,
+    container: $grid-container-lg,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-16,
-    gutter: 0
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   xlg: (
-    width: 1312px,
-    columns: 16,
+    breakpoint: $grid-xlg,
+    container: $grid-container-xlg,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-16,
-    gutter: 0
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   xxlg: (
-    width: 1584px,
-    columns: 16,
+    breakpoint: $grid-xxlg,
+    container: $grid-container-xxlg,
+    margin: $spacing-layout-16,
+    columns: 12,
+    padding: $spacing-layout-16
+  ),
+  max: (
+    breakpoint: $grid-max,
+    container: $grid-container-max,
     margin: $spacing-layout-24,
-    padding: $spacing-layout-16,
-    gutter: 0
+    columns: 12,
+    padding: $spacing-layout-16
   ),
 ) !default;
 
 $sdds-grid-breakpoints-push: (
-  sm: (
-    width: 320px,
-    columns: 4,
-    margin: 0,
+  xs: (
+    breakpoint: $grid-xs,
+    container: $grid-container-xs,
+    margin: $spacing-layout-16,
+    columns: 12,
     padding: $spacing-layout-8,
-    gutter: $spacing-layout-32,
-    display: none
+  ),
+  sm: (
+    breakpoint: $grid-sm,
+    container: $grid-container-sm,
+    margin: $spacing-layout-16,
+    columns: 12,
+    padding: $spacing-layout-8
   ),
   md: (
-    width: 672px,
-    columns: 8,
+    breakpoint: $grid-md,
+    container: $grid-container-md,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-16,
-    display: none
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   lg: (
-    width: 1056px,
-    columns: 8,
+    breakpoint: $grid-lg,
+    container: $grid-container-lg,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32,
-    content: 800px,
-    sidebar: 256px,
-    display: block
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   xlg: (
-    width: 1312px,
-    columns: 16,
+    breakpoint: $grid-xlg,
+    container: $grid-container-xlg,
     margin: $spacing-layout-16,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32,
-    content: 1056px,
-    sidebar: 256px,
-    display: block
+    columns: 12,
+    padding: $spacing-layout-16
   ),
   xxlg: (
-    width: 1584px,
-    columns: 16,
+    breakpoint: $grid-xxlg,
+    container: $grid-container-xxlg,
+    margin: $spacing-layout-16,
+    columns: 12,
+    padding: $spacing-layout-16
+  ),
+  max: (
+    breakpoint: $grid-max,
+    container: $grid-container-max,
     margin: $spacing-layout-24,
-    padding: $spacing-layout-8,
-    gutter: $spacing-layout-32,
-    content: 1328px,
-    sidebar: 256px,
-    display: block
+    columns: 12,
+    padding: $spacing-layout-16
   ),
 ) !default;
+
+// $sdds-grid-breakpoints-push: (
+//   sm: (
+//     width: 320px,
+//     columns: 4,
+//     margin: 0,
+//     padding: $spacing-layout-8,
+//     gutter: $spacing-layout-32,
+//     display: none
+//   ),
+//   md: (
+//     width: 672px,
+//     columns: 8,
+//     margin: $spacing-layout-16,
+//     padding: $spacing-layout-8,
+//     gutter: $spacing-layout-16,
+//     display: none
+//   ),
+//   lg: (
+//     width: 1056px,
+//     columns: 8,
+//     margin: $spacing-layout-16,
+//     padding: $spacing-layout-8,
+//     gutter: $spacing-layout-32,
+//     content: 800px,
+//     sidebar: 256px,
+//     display: block
+//   ),
+//   xlg: (
+//     width: 1312px,
+//     columns: 16,
+//     margin: $spacing-layout-16,
+//     padding: $spacing-layout-8,
+//     gutter: $spacing-layout-32,
+//     content: 1056px,
+//     sidebar: 256px,
+//     display: block
+//   ),
+//   xxlg: (
+//     width: 1584px,
+//     columns: 16,
+//     margin: $spacing-layout-24,
+//     padding: $spacing-layout-8,
+//     gutter: $spacing-layout-32,
+//     content: 1328px,
+//     sidebar: 256px,
+//     display: block
+//   ),
+// ) !default;
