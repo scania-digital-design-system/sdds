@@ -20,12 +20,9 @@ Setting up grid layout based on breakpoint maping
 // Create columns
 @include grid-make-col($sdds-grid-breakpoints);
 
-//Creates gutterless columns
-@include grid-gutterless-col($sdds-grid-breakpoints-gutterless);
-
 // Adding offset classes for the grid
 @include grid-offset-col($sdds-grid-breakpoints);
 
 //Pushed grid
-@include grid-push($sdds-grid-breakpoints-push);
-@include grid-push-no-padding($sdds-grid-breakpoints-push);
+// @include grid-push($sdds-grid-breakpoints-push);
+// @include grid-push-no-padding($sdds-grid-breakpoints-push);

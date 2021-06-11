@@ -8,43 +8,57 @@ import { addTheme, defineCustomElements } from '../dist/collection/index';
 import { theme } from '@scania/theme-light';
 
 const customViewports = {
-  Small: {
-    name: 'Small',
+  xs: {
+    name: 'xs',
     styles: {
-      width: '320px',
+      width: '607px',
       height: '963px',
     },
   },
-  Medium: {
-    name: 'Medium',
+  sm: {
+    name: 'sm',
     styles: {
-      width: '672px',
+      width: '608px',
+      height: '963px',
+    },
+  },
+  md: {
+    name: 'md',
+    styles: {
+      width: '800px',
       height: '801px',
     },
   },
-  Large: {
-    name: 'Large',
+  lg: {
+    name: 'lg',
     styles: {
-      width: '1056px',
+      width: '992px',
       height: '1200px',
     },
   },
-  XLarge: {
-    name: 'XLarge',
+  xlg: {
+    name: 'xlg',
     styles: {
-      width: '1312px',
+      width: '1184px',
       height: '1400px',
     },
   },
-  XXLarge: {
-    name: 'XXLarge',
+  xxlg: {
+    name: 'xxlg',
     styles: {
-      width: '1584px',
+      width: '1367px',
       height: '1600px',
     },
   },
-  Infinity: {
-    name: '1584px >',
+  max: {
+    name: 'max',
+    styles: {
+      width: '1584px',
+      height: '1680px',
+    },
+  },
+  infinity: {
+    name: '> ',
     styles: {
       width: '1980px',
       height: '1680px',
