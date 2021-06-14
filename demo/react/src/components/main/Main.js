@@ -132,7 +132,15 @@ const Main = () => {
               </div>
             </div>
           </div>
-
+          <div class="component-wrapper">
+            <p class="sdds-headline-05">Spinner</p>
+            <div>
+              <sdds-spinner class="spinner-wrapper" type="linear" size="md">
+              </sdds-spinner>
+              <sdds-spinner class="spinner-wrapper" type="linear" size="sm">
+              </sdds-spinner>
+            </div>
+          </div>
           <div className="component-wrapper">
             <p className="sdds-headline-05">Textfield</p>
             <div style={{width: "208px"}}>
