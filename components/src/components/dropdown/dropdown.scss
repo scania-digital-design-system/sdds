@@ -1,6 +1,7 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
+@import './dropdown-core';
 
 :host,
 ::slotted(*){
@@ -28,36 +29,7 @@
   }
 
   .#{$prefix}-dropdown-toggle {
-    @include type-style('detail-02');
-    color: var(--sdds-dropdown-text);
-    display: flex;
-    align-items: center;
-    background-color: var(--sdds-dropdown-bg);
-    cursor: pointer;
-    border: 1px solid var(--sdds-dropdown-border);
-    transition: box-shadow 0.1s ease-in;
-    border-radius: var(--sdds-dropdown-border-radius);
-    box-shadow: 0;
-    width: 100%;
-    text-align: left;
-    outline: none;
-    padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
-    &:hover{
-      border-color: var(--sdds-dropdown-toggle-border-hover);
-    }
-    &:focus{
-      border-color: var(--sdds-dropdown-toggle-border-focus);
-    }
-    &:active,
-    &.active
-    &.selected{
-      border-color: var(--sdds-dropdown-toggle-border-selected);
-      background-color: var(--sdds-dropdown-bg-selected);
-    }
-    &.is-filter{
-      transition: border 0.1s ease-in 0.1s;
-      cursor: text;
-    }
+    @include dropdown-wrapper;
   }
 
   .#{$prefix}-dropdown-arrow {
@@ -67,20 +39,6 @@
 
   .#{$prefix}-dropdown-label {
     flex-grow: 2;
-  }
-
-  .#{$prefix}-dropdown-label-inside,
-  .#{$prefix}-dropdown-label-outside{
-    display: block;
-    margin-bottom: var(--sdds-spacing-element-4);
-  }
-  .#{$prefix}-dropdown-label-inside{
-    @include type-style('detail-07');
-    color: var(--sdds-dropdown-label-inside);
-  }
-  .#{$prefix}-dropdown-label-outside{
-    @include type-style('detail-05');
-    color: var(--sdds-dropdown-label-outside);
   }
 
   .#{$prefix}-dropdown-filter{
@@ -126,24 +84,17 @@
   // Size medium
   &.#{$prefix}-dropdown-medium{
     .#{$prefix}-dropdown-toggle {
-      padding: var(--sdds-spacing-element-16);
+      padding: var(--#{$prefix}-dropdown-padding-top-medium);
     }
   }
 
   // Size small
   &.#{$prefix}-dropdown-small{
     .#{$prefix}-dropdown-toggle {
-      padding: var(--sdds-spacing-element-12) var(--sdds-spacing-element-16);
+      padding: var(--#{$prefix}-dropdown-padding-top-small) var(--sdds-spacing-element-16);
     }
   }
   
-}
-
-.#{$prefix}-dropdown-helper {
-  @include type-style('detail-05');
-  display: block;
-  color: var(--sdds-dropdown-helper-text);
-  margin-top: var(--sdds-spacing-element-4);
 }
 
 :host([disabled="true"]){
