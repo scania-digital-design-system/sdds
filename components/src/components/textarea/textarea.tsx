@@ -20,6 +20,9 @@ export class Textarea{
 
   /** Label text */
   @Prop() label: string='';
+  
+  /** Name attribute */
+  @Prop() name: string='';
 
   /** Helper text */
   @Prop() helper: string='';
@@ -111,6 +114,7 @@ export class Textarea{
             disabled={this.disabled}
             placeholder={this.placeholder}
             value={this.value}
+            name={this.name}
             autofocus={this.autofocus}
             maxlength={this.maxlength}
             cols={this.cols}
