@@ -8,14 +8,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FormComponent } from './components/form/form.component';
 import { CustomInput } from './components/form/input/input-component';
+import { HomeComponent } from './components/home/home.component';
+import { CustomDropdown } from './components/form/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
     MainComponent,
     FormComponent,
-    CustomInput
+    CustomInput,
+    CustomDropdown
   ],
   imports: [
     BrowserModule,
