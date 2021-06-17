@@ -14,7 +14,7 @@ import { Component, h,Prop,State} from '@stencil/core';
     @State() rects = 5;
 
     renderElements(num, className){
-      const elems = [];
+      let elems = [];
       for(let i=1; i <= num; i++){
         elems.push(<div class={ className + i}></div>);
       }
