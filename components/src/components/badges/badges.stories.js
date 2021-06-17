@@ -10,17 +10,25 @@ export default {
     },  
   },
   args: {
-   value:''
+   value:0
   }
 }
+
+const basicStyle =`<style>
+                 .demo {
+                      margin:20px;
+                  }                   
+              </style>`;
 const basicTemplate = ({value}) => {
   //convert to string  
   let valueString= value != null ? value.toString(): "";
     return `
-    ${style}
-      <sdds-theme></sdds-theme>  
+    ${basicStyle}
+      <sdds-theme></sdds-theme>
+      <div class="demo">  
       <sdds-badges value=${valueString}>       
       </sdds-badges> 
+      </div>
 
     `
   };
