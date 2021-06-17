@@ -1,13 +1,14 @@
 {
   "name": "sdds-angular-demo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "link": "npm link @scania/theme-light && npm link @scania/components && npm link @scania/icons"
   },
   "private": true,
   "dependencies": {
@@ -28,8 +29,9 @@
     "@angular-devkit/build-angular": "~0.1102.5",
     "@angular/cli": "~11.2.5",
     "@angular/compiler-cli": "~11.2.6",
-    "@scania/components": "^1.4.1",
-    "@scania/theme-light": "^2.0.0",
+    "@scania/components": "latest",
+    "@scania/theme-light": "latest",
+    "@scania/icons": "latest",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@webcomponents/webcomponentsjs": "^2.5.0",

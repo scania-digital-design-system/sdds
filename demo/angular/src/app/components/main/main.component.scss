@@ -1,6 +1,11 @@
 @import '~node_modules/@scania/typography/dist/scss/mixins';
 @import '~node_modules/@scania/typography/dist/scss/tokens';
 
+:host{
+  padding-top: var(--sdds-header-height);
+  display: block;
+}
+
 .sub-lead {
   @include type-style('paragraph-02');
 }
@@ -24,4 +29,12 @@
 .spinner-wrapper {
   margin-left: var(--sdds-spacing-element-16);
   display: inline-block;
+}
+
+.sdds-btn-group  {
+
+  .sdds-btn,
+  sdds-button {
+    margin: 10px;
+  }
 }

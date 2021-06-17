@@ -13,6 +13,7 @@
 | `disabled`    | `disabled`     | Set input in disabled state                 | `boolean` | `false`     |
 | `labelInside` | `label-inside` | Label that will be put inside the input     | `string`  | `""`        |
 | `maxlength`   | `maxlength`    | Max length of input                         | `number`  | `undefined` |
+| `name`        | `name`         | Name property                               | `string`  | `""`        |
 | `placeholder` | `placeholder`  | Placeholder text                            | `string`  | `""`        |
 | `size`        | `size`         | Size of the input                           | `string`  | `""`        |
 | `state`       | `state`        | Error state of input                        | `string`  | `undefined` |

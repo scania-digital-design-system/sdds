@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default      |
-| -------- | --------- | ----------- | -------- | ------------ |
-| `name`   | `name`    |             | `string` | `'question'` |
+| Property | Attribute | Description | Type     | Default          |
+| -------- | --------- | ----------- | -------- | ---------------- |
+| `name`   | `name`    |             | `string` | `'scania-truck'` |
 
 
 ----------------------------------------------
