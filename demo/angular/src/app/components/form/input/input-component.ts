@@ -25,7 +25,6 @@ export class CustomInput implements ControlValueAccessor {
   }
   writeValue(value: string) {
     this.value = value ? value : '';
-    console.log(this.value)
   }
   registerOnChange(onChange: any)  {
     this.onChange = onChange;

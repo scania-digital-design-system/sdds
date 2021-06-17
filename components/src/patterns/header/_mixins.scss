@@ -1,0 +1,89 @@
+// Mixins for header component
+
+// Styling icon in header menu
+@mixin sdds-icon-button {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+
+  // Icon size  
+  span, i {
+    width:16px;
+    height:16px;
+    display: inline-block;
+  }
+}
+
+// Styling dropdown in header, reset default UL style
+@mixin sdds-navbar-menu-ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+// Styling menu item list
+@mixin sdds-navbar-menu-item {
+  display: block;
+  border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
+  padding: 24px 18px 24px 20px;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    .sdds-navbar-icon-button {
+      margin-right: var(--sdds-spacing-element-12);
+      color: var(--#{$prefix}-nav-item-icon);
+    }
+  }
+
+  &:hover,
+  &.hover,
+  &.active {
+    background: var(--#{$prefix}-nav-item-background-selected);
+  }
+
+  &.active {
+    border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
+  }
+
+  @media all and (min-width: 769px) {
+    padding: 24px 24px 20px;
+    border-left: 0;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid var(--#{$prefix}-header-divider);
+
+    &.active,
+    &:hover,
+    &.hover {
+      background: var(--#{$prefix}-nav-item-background-hover);
+      border-left: 0;
+    }
+    &.active {
+      border-bottom: 4px solid var(--sdds-nav-item-border-active);
+    }
+  }
+  
+}
+
+// Styling svg background, used as icon
+@mixin background-svg-reset {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}

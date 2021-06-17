@@ -1,14 +1,14 @@
 {
   "name": "sdds-react-demo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@scania/theme-light": "^2.0.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
   },
@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "link": "npm link @scania/components && npm link @scania/theme-light && npm link @scania/icons"
   },
   "eslintConfig": {
     "extends": [
@@ -37,6 +38,8 @@
     ]
   },
   "devDependencies": {
-    "@scania/components": "^1.4.1"
+    "@scania/components": "latest",
+    "@scania/icons": "latest",
+    "@scania/theme-light": "latest"
   }
 }
