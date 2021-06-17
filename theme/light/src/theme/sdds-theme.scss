@@ -38,6 +38,10 @@
 @import '../components/toggle';
 @import '../components/tooltip';
 
+// Patterns
+
+@import '../patterns/header';
+
 :root,
 html {
   font-size: $base-unit;

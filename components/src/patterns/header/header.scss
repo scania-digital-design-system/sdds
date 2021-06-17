@@ -1,322 +1,67 @@
-// Required
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
-@import 'node_modules/bootstrap/scss/mixins';
-@import 'node_modules/bootstrap/scss/transitions';
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import './mixins';
+@import './navbar-brand';
+@import './navbar-collapsible';
+@import './navbar-menu-item';
+@import './navbar-toolbar-menu';
 
-// Optional
-@import 'node_modules/bootstrap/scss/utilities';
-@import 'node_modules/bootstrap/scss/navbar';
-@import 'node_modules/bootstrap/scss/nav';
+.#{$prefix}-navbar {
+  @include type-style('headline-07');
+  justify-content: space-between;
+  display: flex;
+  position: fixed;
+  align-items: stretch;
+  z-index: 1000;
+  width: 100%;
+  left: 0%;
+  top: 0%;
+  height: var(--#{$prefix}-header-height);;
+  background: var(--#{$prefix}-header-background);
+  color: var(--#{$prefix}-header-text-colour);
 
-@import '../../components.scss';
+  &.#{$prefix}-navbar-static {
+    position: static;
+  }
+}
 
-@mixin nav-link {
-  color: Var(--sdds-header-link-color);
-  padding: Var(--sdds-header-nav-padding);
-  text-align: center;
-  background: transparent; //IE
-  text-decoration: none; //IE
+.#{$prefix}-navbar-icon-button{
+  @include sdds-icon-button;
+}
+
+.#{$prefix}-icon-drawer {
+  @include background-svg-reset;  
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H15.25C15.6642 0 16 0.335786 16 0.75C16 1.16421 15.6642 1.5 15.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75ZM0 8C0 7.58579 0.335786 7.25 0.75 7.25H15.25C15.6642 7.25 16 7.58579 16 8C16 8.41421 15.6642 8.75 15.25 8.75H0.75C0.335786 8.75 0 8.41421 0 8ZM0.75 14.5C0.335786 14.5 0 14.8358 0 15.25C0 15.6642 0.335786 16 0.75 16H15.25C15.6642 16 16 15.6642 16 15.25C16 14.8358 15.6642 14.5 15.25 14.5H0.75Z' fill='white'/%3E%3C/svg%3E");
+}
+
+.#{$prefix}-navbar-side-menu-drawer{
+  @include sdds-icon-button;
+  border: 0;
+  padding:24px;  
+  background: transparent;
+  width: var(--#{$prefix}-header-icon-width);
+  height: var(--#{$prefix}-header-height);
 
   &:hover {
-    text-decoration: underline; //IE
-    color: Var(--sdds-header-link-color);
-  }
-}
-
-@mixin title {
-  font-family: var(--sdds-header-title-font-family);
-  font-weight: normal;
-  //FIXME: Add correct rem
-  font-size: 4.5rem;
-  color: #53565a;
-  line-height: 1;
-  padding: 0 10px;
-  flex: 1;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-:host {
-  // Header colors
-  --sdds-header-link-color: var(--color-font-base);
-  --sdds-header-background-color: var(--color-background-base);
-
-  // Header spacing
-  --sdds-header-nav-padding: var(--spacing-element-05);
-  
-  // Header font
-  --sdds-header-font-size: 3rem;
-  --sdds-header-font-family: var(--sdds-font-family-sans);
-  --sdds-header-title-font-family: var(--sdds-font-family-headline);
-
-  --link-color: Var(--sdds-grey-600);
-  --link-decoration: none;
-  --link-decoration-hover: underline;
-  --link-color-hover: Var(--sdds-grey-600);
-  --link-color-active: Var(--sdds-grey-600);
-
-  display: flex;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  background-color: Var(--sdds-header-background-color);
-  font-family: Var(--sdds-header-font-family);
-  //FIXME: Add correct rem
-  font-size: Var(--sdds-header-font-size);
-  z-index: 1000;
-  padding: 0;
-  border-bottom: 1px solid #e2e2e2;
-}
-
-::slotted(c-navigation),
-c-navigation {
-  width: 100%;
-}
-
-.navbar-toggler-icon {
-  background-image: $navbar-light-toggler-icon-bg;
-}
-
-.navbar-default[short-name]:after {
-  content: attr(short-name);
-}
-
-::slotted(a) {
-  @include nav-link;
-}
-
-::slotted(a:hover) {
-  text-decoration: underline;
-}
-::slotted(a:first-of-type) {
-  border-bottom: 1px solid #e2e2e2;
-}
-
-.navbar {
-  flex: 1;
-  padding: 0;
-  overflow: hidden;
-  background-color: inherit;
-  z-index: 10;
-
-  &:after {
-    @include title;
+    background: var(--#{$prefix}-nav-item-background-hover);
   }
 
-  .navbar-brand {
-    padding: 13px;
-    background-color: transparent;
-
-    &:before {
-      display: block;
-      content: '';
-      background-image: var(--sdds-background-image-scania-wordmark-png);
-      background-image: var(--sdds-background-image-scania-wordmark-svg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 170px;
-      height: 28px;
-    }
-  }
-  .navbar-title {
-    @include title;
-  }
-  .navbar-nav {
-    font-family: var(--sdds-header-font-family);
-    //FIXME: Add correct rem
-    font-size: Var(--sdds-header-font-size);
-    text-transform: uppercase;
-    color: #747472;
-    margin-top: -10px;
-
-    .nav-item {
-
-      &.nav-link {
-        @include nav-link;
-      }
-    }
-  }
-  .navbar-collapse {
+  &.expanded {  
+    justify-content: end;
     position: fixed;
-    left: 0;
-    width: 100%;
-    bottom: 0;
-    height: 25vh;
-    align-content: center;
-    transition: height 300ms ease-in-out;
-    background: #fff;
-
-    &:not(.show) {
-      display: block;
-      height: 0;
-    }
-
-    .navbar-nav {
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-.navbar-default[short-name] {
-
-  .navbar-title {
-    display: none;
-  }
-}
-.navbar-symbol {
-  padding: 13px;
-  border-left: 1px solid #e2e2e2;
-
-  background-color: inherit;
-  z-index: 1;
-
-  &:before {
-    display: block;
-    content: '';
-    background-image: var(--sdds-background-image-scania-symbol-png);
-    background-image: var(--sdds-background-image-scania-symbol-svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 40px;
-    height: 37px;
-    transition: all 100ms ease-in-out;
-  }
-}
-.navbar-toggler {
-  border-width: 0 1px 0 0;
-  border-color: #e2e2e2;
-  padding: 13px;
-  height: 100%;
-
-  &:focus {
-    outline: none;
-  }
-
-  &-icon {
-    // This make the icon the same size as the logotype, making it easier to handle the parent element padding needed
-    margin: 8px;
-    //FIXME: Add correct rem
-    font-size: 3.125rem;
-  }
-}
-
-:host([variation=dealer]) {
-  .navbar {
-
-    .navbar-brand {
-      &:before {
-        display: none;
-      }
-    }
-  }
-
-  .navbar-symbol{
-    &:before {
-      background-image: var(--sdds-background-image-scania-logotype-png);
-      background-image: var(--sdds-background-image-scania-logotype-svg);
-    }
-  }
-}
-
-::slotted(strong[slot="brand-logo"]) {
-  @include title;
-  padding-left: 0;
-}
-
-@media (min-width: 992px) {
-
-  :host {
-    // IE fallback
-    position: relative;
-    transition: all 0.2s ease-out;
-  }
-
-  ::slotted(a) {
-    font-weight: normal;
-    text-transform: uppercase;
-  }
-  ::slotted(a:first-of-type) {
-    border-bottom: 0;
-  }
-
-  .navbar {
-    padding: 19px 11px 10px;
-    margin-right: 75px;
-
-    &[short-name] {
-
-      &:after {
-        display: none;
-      }
-
-      .navbar-title {
-        display: inline-block;
-      }
-    }
-
-    .navbar-brand {
-      margin-left: 6px;
-      margin-right: 2px;
-    }
-    .navbar-title {
-      text-align: left;
-      border-left: 1px solid #e2e2e2;
-      padding-left: 15px;
-    }
-    .navbar-collapse {
-      height: auto;
-      position: relative;
-      width: auto;
-      text-align: right;
-
-      .navbar-nav {
-        display: inline-block;
-      }
-    }
-  }
-  .navbar-symbol {
     top: 0;
-    right: 0;
-    position: absolute;
-    margin-top: 8px;
-    margin-right: 12px;
-    margin-bottom: 2px;
-    border-left: 0;
-    border-bottom: 0;
-    background-color: transparent;
-
-    &:before {
-      width: 48px;
-      height: 46px;
+    left: 0;
+    text-align: left;
+    border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
+    width: var(--#{$prefix}-nav-collapsible-width);
+    background: var(--#{$prefix}-nav-collapsible-mobile-background);
+    .#{$prefix}-icon-drawer {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.40338 0.343083C1.11048 0.0501898 0.63561 0.0501898 0.342717 0.343083C0.0498236 0.635976 0.0498236 1.11085 0.342717 1.40374L4.93897 6L0.34283 10.5961C0.0499369 10.889 0.0499369 11.3639 0.34283 11.6568C0.635723 11.9497 1.1106 11.9497 1.40349 11.6568L5.99963 7.06066L10.5958 11.6568C10.8887 11.9497 11.3635 11.9497 11.6564 11.6568C11.9493 11.3639 11.9493 10.889 11.6564 10.5961L7.06029 6L11.6565 1.40376C11.9494 1.11086 11.9494 0.635989 11.6565 0.343096C11.3636 0.0502027 10.8888 0.0502027 10.5959 0.343096L5.99963 4.93934L1.40338 0.343083Z' fill='%23171719'/%3E%3C/svg%3E");
     }
   }
-  :host([variation=dealer]) {
-    .navbar {
 
-      margin-right: 235px;
-
-      .navbar-brand {
-        text-decoration: none;
-      }
-
-      > .navbar-title {
-        display: none;
-      }
-    }
-
-    .navbar-symbol {
-      &::before {
-        width: 210px;
-        height: 42px;
-      }
-    }
-  }
-}
-@media (min-width: 992px) {
-  .navbar-expand-lg .navbar-brand {
-    display: inline-block;
+  @media all and (min-width: 769px) {
+    display: none;
   }
 }
