@@ -47,7 +47,15 @@ const Home = () => {
             <div className="sdds-banner-close"></div>
           </div>
         </div>
-
+        <div className="component-wrapper">
+          <h5 className="sdds-headline-05">Badges</h5>
+          <div style={{display: "flex"}}>
+          <sdds-badges style={{paddingRight: "var(--sdds-spacing-element-24)"}} ></sdds-badges>
+          <sdds-badges style={{paddingRight: "var(--sdds-spacing-element-24)"}}  value="2"></sdds-badges>  
+          <sdds-badges style={{paddingRight: "var(--sdds-spacing-element-24)"}}  value= "22" ></sdds-badges>     
+          <sdds-badges style={{paddingRight: "var(--sdds-spacing-element-24)"}}  value= "300" ></sdds-badges>
+        </div>   
+        </div>
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Breadcrumb</h5>
           <div className="sdds-breadcrumb">
