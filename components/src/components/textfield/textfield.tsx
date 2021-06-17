@@ -35,6 +35,9 @@ export class Textfield {
   /** Size of the input */
   @Prop() size = "";
 
+  /** Name property */
+  @Prop() name = "";
+
   /** Error state of input */
   @Prop() state: string;
 
@@ -111,6 +114,7 @@ export class Textfield {
               value={this.value}
               autofocus={this.autofocus}
               maxlength={this.maxlength}
+              name={this.name}
               onInput={(e) => this.handleInput(e)}
               onChange={(e) => this.handleChange(e)}
             />

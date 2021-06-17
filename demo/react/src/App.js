@@ -1,13 +1,30 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import Header from './components/header/Header';
-import Main from './components/main/Main';
+import Form  from './components/form/Form';
+import Home from './components/home/Home';
 
 function App() {
-  return (
+  return (    
+    <Router>
     <div className="App">
       <sdds-theme></sdds-theme>
       <Header />
-      <Main />
+      <div className="sdds-container content-wrapper">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/form">
+            <Form />
+          </Route>
+        </Switch>
+      </div>
     </div>
+    </Router>
   );
 }
 

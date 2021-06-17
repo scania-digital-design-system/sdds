@@ -162,3 +162,45 @@ Filter.argTypes = {
     }
   }
 }
+
+const NativeTemplate = ({size, helper='Helper text', label, state}) => {
+  return `
+  <sdds-theme></sdds-theme>
+  <div class="sdds-container" style="margin-top:10rem;">
+    <div class="sdds-row">
+      <div class="sdds-col-xxlg-4 sdds-col-xlg-4 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-4">
+        <div class="sdds-dropdown ${size!=='large' ? 'sdds-dropdown-' + size : ''} ${state==='error' ? 'is-error':''}" >
+          <span class="sdds-dropdown-label-outside">${label}</span>
+          <select name="nativeDropdown" id="mySelect">
+            <option value="truck">Truck</option>
+            <option value="bus">Bus</option>
+            <option value="car">Car</option>
+          </select>
+          <span class="sdds-dropdown-helper">${helper}</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  `
+}
+
+export const NativeSelect = NativeTemplate.bind({});
+NativeSelect.args = {}
+NativeSelect.argTypes = {
+  labelPosition : {
+    table: {
+      disable:true
+    }
+  },
+  placeholder : {
+    table: {
+      disable:true
+    }
+  },
+  defaultOption : {
+    table: {
+      disable:true
+    }
+  }
+}
