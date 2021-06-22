@@ -7,13 +7,12 @@
 @import '../checkbox/checkbox.scss';
 @import '../divider/divider.scss';
 @import '../link/link.scss';
-@import '../modal/modal.scss';
 @import '../radio-button/radio-button.scss';
 @import '../textfield/textfield.scss';
 @import '../toast/toast.scss';
 @import '../toggle/toggle.scss';
 @import '../dropdown/dropdown-select.scss';
-@import '../modal/modal-core';
+@import '../modal/modal-native.scss';
 
 // Patterns
 @import '../../patterns/header/header.scss';

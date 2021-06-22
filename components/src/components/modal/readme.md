@@ -14,14 +14,6 @@
 | `size`     | `size`     |             | `string`  | `'md'`      |
 
 
-## Events
-
-| Event           | Description | Type               |
-| --------------- | ----------- | ------------------ |
-| `click`         |             | `CustomEvent<any>` |
-| `todoCompleted` |             | `CustomEvent<any>` |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

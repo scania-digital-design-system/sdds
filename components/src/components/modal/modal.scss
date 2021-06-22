@@ -1,18 +1,7 @@
 @import './modal-core';
 
 :host {
-  left: 0;
-  top: 0;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: 40000;
-  background-color: var(--sdds-modal-backdrop);
-  padding: 0 16px;
-
-  @media(max-width: $screen-s) {
-    padding: 0;
-  }
+  @include modal-host;
 }
 
 :host(.show) {
@@ -24,20 +13,13 @@
 }
 
 slot[name=#{$prefix}-modal-headline]::slotted(*) {
-  margin: 0;
-  flex: 1;
+  @include modal-headline;
 }
 
 slot[name=#{$prefix}-modal-body]::slotted(*) {
-  @include type-style('body-01');
-  padding-bottom: 40px;
-  margin: 0;
-
-  @media(min-width: $screen-l){
-    padding-right: 16rem;
-  }
+  @include modal-body;
 }
 
 slot[name=#{$prefix}-modal-actions]::slotted(*) {
-  margin-right: var(--sdds-spacing-element-16);
+  @include modal-actions;
 }
