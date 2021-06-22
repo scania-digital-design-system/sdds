@@ -2,6 +2,8 @@ import {
   Component,
   h,
   Listen,
+  Event,
+  EventEmitter,
   Host,
   Prop,
   State,
@@ -24,11 +26,34 @@ export class Modal {
 
   @Element() el: HTMLElement;
   //State when modal should be shown
-  @State() show: boolean = false;
+  @State() show: boolean = false;  
+
+  // onClick event for button inside slot
+  @Event({
+    composed: true,
+    bubbles: true,
+    cancelable: true
+  }) click: EventEmitter
+
+  @Event() todoCompleted: EventEmitter;
+
+  todoCompletedHandler(todo) {
+    this.todoCompleted.emit(todo);
+  }
+
+  // clickHandler(event) {
+  //   this.click.emit(event);
+  // }
+
+  @Listen('todoCompleted', { capture: true })
+  abc(ev) {
+    console.log('some method ', ev);
+  }
 
   componentDidLoad() {
     const target = document.querySelector(this.selector);
     this.dismisModal();
+    this.attachOnClick();
 
     //If the modal doesn't have a selector to be triggered
     if(!target) {
@@ -38,10 +63,22 @@ export class Modal {
     target.addEventListener('click', () => {this.show = true});
   }
 
+  attachOnClick() {
+    const buttons = this.el.querySelectorAll('button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click',(e) => {
+        console.log('sdds-modal: ', e)
+        this.click.emit(e);
+      });
+    });
+  }
+
   dismisModal() {
     const nodes = this.el.querySelectorAll('[modal-dismiss]');
+    
     nodes.forEach(el => {
-      el.addEventListener('click',() => this.show = false)
+      el.addEventListener('click',() => this.show = false);
     });
   }
 
