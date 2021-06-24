@@ -1,5 +1,5 @@
 import {setCustomElements, addDecorator} from '@storybook/web-components';
-import {withThemes } from 'storybook-addon-themes/html'
+import { withThemes } from 'storybook-addon-themes/html';
 import customElements from '../dist/collection/custom-elements.json';
 
 addDecorator(withThemes)

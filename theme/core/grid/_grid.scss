@@ -4,8 +4,8 @@
 @import '../spacing/spacing-vars';
 
 /*
-Mixin file for create grid layout, container, rows and columns
-Setting up grid layout based on breakpoint maping
+  Mixin file for create grid layout, container, rows and columns
+  Setting up grid layout based on breakpoint mapping
 */
 
 // Container for the gridsystem
@@ -24,5 +24,4 @@ Setting up grid layout based on breakpoint maping
 @include grid-offset-col($sdds-grid-breakpoints);
 
 //Pushed grid
-// @include grid-push($sdds-grid-breakpoints-push);
-// @include grid-push-no-padding($sdds-grid-breakpoints-push);
+@include grid-push($sdds-grid-breakpoints-push);
