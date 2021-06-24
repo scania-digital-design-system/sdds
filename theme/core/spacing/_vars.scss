@@ -33,3 +33,14 @@ $screen-md: 164rem; // 672px
 $screen-l: 264rem; //1056px
 $screen-xl: 328rem; //1312px
 $screen-xxl: 396rem; //1584px
+
+//Screen breakpoints
+//Remove old breakpoints
+//TODO: Fix rem on media queries
+$grid-xs: 0;
+$grid-sm: 608px;
+$grid-md: 800px;
+$grid-lg: 992px;
+$grid-xlg: 1184px;
+$grid-xxlg: 1376px;
+$grid-max: 1584px;

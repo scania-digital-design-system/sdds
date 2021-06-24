@@ -1,16 +1,16 @@
 export default {
   title: 'Foundation/Grid',
   args: {
-    fluidContainer: false
+    fluidContainer: false,
+    padding: true
   }
 };
 
 //Styling for grid templates
 const style = `
   <style>
-    body {
+    .sb-show-main.sb-main-padded {
       padding: 0;
-      margin: 0;
     }
     .sdds-container,
     .sdds-container-fluid {
@@ -19,25 +19,20 @@ const style = `
       outline: 1px solid red;
     }
 
-    .inside-demo {
-      background: #ef9191;
-      height: 100%;
-    }
-
     .sdds-row > div {
       outline: 1px solid #ef1919;
       background: #fbc5c5;
-      height: 50px;
+      min-height: 50px;
     }
 
     .sdds-sidebar {
       background-color: rgba(255, 0, 0, 0.1);
     }
 
-    .sdds-push .sdds-row > div {
-      outline: 1px solid #ef1919;
-      background: #fbc5c5;
+    .inside-demo {
+      background: #ef9191;
       height: 100%;
+      word-break: break-word;
     }
 
     .container-demo {
@@ -46,12 +41,12 @@ const style = `
 
   </style>`;
 
-const GridTemplate = ({fluidContainer}) => {
+const GridTemplate = ({fluidContainer, padding}) => {
   return `
   ${style}
   <sdds-theme global=""></sdds-theme>
   <h4>Grid</h4>
-  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
 
     <div class="sdds-row">
       <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
@@ -108,7 +103,7 @@ const GridTemplate = ({fluidContainer}) => {
     </div>
 
     <div class="sdds-row">
-      <div class="ssdds-col-max-3 sdds-col-xxlg-3 sdds-col-xlg-3 sdds-col-lg-3 sdds-col-md-3 sdds-col-sm-3 sdds-col-xs-3">
+      <div class="sdds-col-max-3 sdds-col-xxlg-3 sdds-col-xlg-3 sdds-col-lg-3 sdds-col-md-3 sdds-col-sm-3 sdds-col-xs-3">
         <div class="inside-demo">3</div>
       </div>
     </div>
@@ -123,27 +118,6 @@ const GridTemplate = ({fluidContainer}) => {
       <div class="sdds-col-max-1 sdds-col-xxlg-1 sdds-col-xlg-1 sdds-col-lg-1 sdds-col-md-1 sdds-col-sm-1 sdds-col-xs-1">
         <div class="inside-demo">1</div>
       </div>
-      <div class="sdds-col-max-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-xxlg-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-xlg-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-lg-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-md-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-sm-1">
-        <div class="inside-demo">1</div>
-      </div>
-      <div class="sdds-col-xs-1">
-        <div class="inside-demo">1</div>
-      </div>
     </div>
   </div>
   `
@@ -153,14 +127,14 @@ const GridTemplate = ({fluidContainer}) => {
 //Controls for the grid
 export const Basic = GridTemplate.bind({});
 
-const GridAutoColTemplate = ({fluidContainer}) => {
+const GridAutoColTemplate = ({fluidContainer, padding}) => {
   return `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Grid Auto columns</h4>
   <h5>Container 1</h5>
 
-  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
     <div class="sdds-row">
       <div class="sdds-col">
         <div class="inside-demo">.sdds-col</div>
@@ -169,7 +143,7 @@ const GridAutoColTemplate = ({fluidContainer}) => {
   </div>
 
   <h5>Container 2</h5>
-  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
     <div class="sdds-row">
       <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
         <div class="inside-demo">.sdds-col</div>
@@ -187,7 +161,7 @@ const GridAutoColTemplate = ({fluidContainer}) => {
   </div>
 
   <h5>Container 3</h5>
-  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
     <div class="sdds-row">
       <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
         <div class="inside-demo">.sdds-col</div>
@@ -234,103 +208,79 @@ const GridAutoColTemplate = ({fluidContainer}) => {
 export const Auto = GridAutoColTemplate.bind({});
 
 
-// const GridPushTemplate = ({fluidContainer, collapse}) => {
-//   return `
-//   ${style}
-//   <sdds-theme></sdds-theme>
-//   <h4>Grid Push</h4>
-//   <div class="sdds-push">
-//     <div class="sdds-sidebar ${collapse ? `sdds-sidebar-collapse` : ``}">
-//     </div>
-//     <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
-//     <div class="sdds-row">
-//       <div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-8 sdds-col-md-8 sdds-col-sm-4">
-//         <div>
-//         .sdds-col-xxlg-16
-//         </div>
-//         <div>
-//         .sdds-col-xlg-16
-//         </div>
-//         <div>
-//         .sdds-col-lg-8
-//         </div>
-//         <div>
-//         .sdds-col-md-8
-//         </div>
-//         <div>
-//         .sdds-col-sm-4
-//         </div>
-//       </div>
-//       <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-2">
-//         <div>
-//         .sdds-col-xxlg-8
-//         </div>
-//         <div>
-//         .sdds-col-xlg-8
-//         </div>
-//         <div>
-//         .sdds-col-lg-4
-//         </div>
-//         <div>
-//         .sdds-col-md-4
-//         </div>
-//         <div>
-//         .sdds-col-sm-2
-//         </div>
-//       </div>
-//       <div class="sdds-col-xxlg-8 sdds-col-xlg-8 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-2">
-//         <div>
-//         .sdds-col-xxlg-8
-//         </div>
-//         <div>
-//         .sdds-col-xlg-8
-//         </div>
-//         <div>
-//         .sdds-col-lg-4
-//         </div>
-//         <div>
-//         .sdds-col-md-4
-//         </div>
-//         <div>
-//         .sdds-col-sm-2
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   </div>
-//   `
-// };
+const GridPushTemplate = ({fluidContainer, collapse, padding}) => {
+  return `
+  ${style}
+  <sdds-theme></sdds-theme>
+  <h4>Grid Push</h4>
+  <div class="sdds-push">
+    <div class="sdds-sidebar ${collapse ? `sdds-sidebar-collapse` : ``}">
+    </div>
+    <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
+      <div class="sdds-row">
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+        <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md sdds-col-sm sdds-col-xs">
+          <div class="inside-demo">1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `
+};
 
 
-// export const Push = GridPushTemplate.bind({});
+export const Push = GridPushTemplate.bind({});
 
-// Push.args = {
-//   collapse: false
-// }
+Push.args = {
+  collapse: false
+}
 
-const GridOffsetTemplate = ({fluidContainer}) => {
+const GridOffsetTemplate = ({fluidContainer,padding}) => {
   return `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Grid Offset</h4>
-    <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} offset-demo">
+    <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
       <div class="sdds-row">
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
+        <div class="sdds-col-max-1 sdds-col-max-2-offset sdds-col-xxlg-1 sdds-col-xxlg-2-offset sdds-col-xlg-1 sdds-col-xlg-2-offset sdds-col-lg-1 sdds-col-lg-2-offset sdds-col-md-1 sdds-col-md-2-offset sdds-col-sm-1 sdds-col-sm-2-offset sdds-col-xs-1 sdds-col-xs-2-offset">
           <div class="inside-demo">Offset</div>
         </div>
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
+        <div class="sdds-col-max-1 sdds-col-max-2-offset sdds-col-xxlg-1 sdds-col-xxlg-2-offset sdds-col-xlg-1 sdds-col-xlg-2-offset sdds-col-lg-1 sdds-col-lg-2-offset sdds-col-md-1 sdds-col-md-2-offset sdds-col-sm-1 sdds-col-sm-2-offset sdds-col-xs-1 sdds-col-xs-2-offset">
           <div class="inside-demo">Offset</div>
         </div>
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
-          <div class="inside-demo">Offset</div>
-        </div>
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
-          <div class="inside-demo">Offset</div>
-        </div>
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
-          <div class="inside-demo">Offset</div>
-        </div>
-        <div class="sdds-col-max-1 sdds-col-max-1-offset sdds-col-xxlg-1 sdds-col-xxlg-1-offset sdds-col-xlg-1 sdds-col-xlg-1-offset sdds-col-lg-1 sdds-col-lg-1-offset sdds-col-md-1 sdds-col-md-1-offset sdds-col-sm-1 sdds-col-sm-1-offset sdds-col-xs-1 sdds-col-xs-1-offset">
+        <div class="sdds-col-max-2 sdds-col-max-2-offset sdds-col-xxlg-2 sdds-col-xxlg-2-offset sdds-col-xlg-2 sdds-col-xlg-2-offset sdds-col-lg-2 sdds-col-lg-2-offset sdds-col-md-2 sdds-col-md-2-offset sdds-col-sm-2 sdds-col-sm-2-offset sdds-col-xs-2 sdds-col-xs-2-offset">
           <div class="inside-demo">Offset</div>
         </div>
       </div>
@@ -370,12 +320,12 @@ NoPadding.args = {
   padding: true
 }
 
-const GridFluidTemplate = ({fluidContainer}) => {
+const GridFluidTemplate = ({fluidContainer = true, padding}) => {
   return `
     ${style}
     <sdds-theme></sdds-theme>
     <h4>Grid fluid</h4>
-    <div class="sdds-container-fluid">
+    <div class="sdds-container-fluid ${padding == false ? 'sdds-no-padding': ''}">
       <div class="sdds-row">
         <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
           <div class="inside-demo">container fluid</div>
@@ -383,7 +333,7 @@ const GridFluidTemplate = ({fluidContainer}) => {
       </div>
     </div>
 
-    <div class="${fluidContainer ? 'sdds-container-fluid': 'sdds-container'} container-demo">
+    <div class="${fluidContainer ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''} container-demo">
       <div class="sdds-row">
         <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
           <div class="inside-demo">container</div>
@@ -396,16 +346,13 @@ const GridFluidTemplate = ({fluidContainer}) => {
 
 export const Fluid = GridFluidTemplate.bind({});
 
-Fluid.args = {
-  fluidContainer: false
-}
 
-const GridNestedTemplate = ({fluidContainer}) => {
+const GridNestedTemplate = ({fluidContainer, padding}) => {
  return `
  ${style}
- <sdds-theme global=""></sdds-theme>
+ <sdds-theme></sdds-theme>
  <h4>Nested</h4>
- <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+ <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
 
    <div class="sdds-row">
      <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
@@ -441,12 +388,26 @@ const GridNestedTemplate = ({fluidContainer}) => {
 
 export const Nested = GridNestedTemplate.bind({});
 
-Nested.args = {
-  fluidContainer: false
-}
 
+const GridHideShow = ({fluidContainer}) => {
+  return `
+  ${style}
+  <sdds-theme></sdds-theme>
+  <h4>Hide/show element</h4>
+  <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
+    <div class="sdds-row">
+      <div class="sdds-hide-xlg sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
+        <div class="inside-demo">Hide on xlg and wider</div>
+      </div>
+    </div>
 
+    <div class="sdds-row">
+      <div class="sdds-hide-xs sdds-show-md sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
+        <div class="inside-demo">Show on md and wider</div>
+      </div>
+    </div>
+  </div>
+  `
+ }
 
-
-
-
+ export const ShowHide = GridHideShow.bind({});
