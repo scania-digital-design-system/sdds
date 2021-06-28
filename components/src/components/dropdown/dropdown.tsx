@@ -48,6 +48,8 @@ export class Dropdown {
 
   @State() selected:string='';
 
+  @State() uuid;
+
   @Element() host: HTMLElement;
 
   componentWillLoad(){
@@ -64,19 +66,27 @@ export class Dropdown {
     }
   }
 
+  componentDidLoad() {
+    // generate UUID for unique event listener
+    this.uuid = new Date().getTime() + Math.random();
+  }
+
   @Listen('click', { target: 'document' })
-  handleClick(ev) {
+  handleDocClick(ev) {
     // To stop bubble click
-    ev.stopPropagation();
-
+    ev.stopPropagation();       
+    
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
-
     if(this.node!==undefined && this.node.contains(target)) {
       if(typeof this.textInput !== 'undefined' || this.textInput === null) this.textInput.focus();
       this.open = !this.open;
-    } else {
+    } else {      
       this.open = false;
-    }
+    }    
+  }
+
+  handleClick(id) {
+    if(id !== this.uuid) this.open = false;
   }
 
   @Listen('selectOption')
@@ -115,7 +125,7 @@ export class Dropdown {
         <button
         class={`sdds-dropdown-toggle ${this.type==='filter' ? 'is-filter' : ''}`}
         type="button"
-        onClick={(ev)=>this.handleClick(ev)}
+        onClick={()=>this.handleClick(this.uuid)}
         ref={(node) => this.node = node}>
           <div class='sdds-dropdown-label'>
             {
