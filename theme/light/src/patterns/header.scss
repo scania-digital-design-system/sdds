@@ -5,6 +5,8 @@ html{
   --#{$prefix}-header-background: #{get-colour(blue-900)};
   --#{$prefix}-header-divider: #{get-colour(blue-800)};
   --#{$prefix}-header-text-colour: #{get-colour(white)};
+
+  --#{$prefix}-dropdown-menu-items-title: #{get-colour(grey-300)};
   
   --#{$prefix}-nav-item-background: #{get-colour(blue-900)};
   --#{$prefix}-nav-item-background-hover: #{get-colour(blue-800)};
