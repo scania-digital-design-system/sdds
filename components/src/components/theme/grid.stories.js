@@ -352,23 +352,23 @@ const GridNestedTemplate = ({fluidContainer, padding}) => {
  ${style}
  <sdds-theme></sdds-theme>
  <h4>Nested</h4>
- <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'} ${padding == false ? 'sdds-no-padding': ''}">
+ <div class="${fluidContainer == true ? 'sdds-container-fluid': 'sdds-container'}">
 
    <div class="sdds-row">
-     <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
+     <div class="${padding == false ? 'sdds-no-padding': ''} sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
        <div class="inside-demo">12</div>
      </div>
    </div>
 
    <div class="sdds-row">
-     <div class="dds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
+     <div class="sdds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
 
       <div class="sdds-row">
 
-        <div class="dds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
+        <div class="${padding == false ? 'sdds-no-padding': ''} sdds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
           <div class="inside-demo">6 nested</div>
         </div>
-        <div class="dds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
+        <div class=" ${padding == false ? 'sdds-no-padding': ''} sdds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
           <div class="inside-demo">6 nested</div>
         </div>
 
@@ -376,7 +376,7 @@ const GridNestedTemplate = ({fluidContainer, padding}) => {
 
      </div>
 
-     <div class="dds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
+     <div class="${padding == false ? 'sdds-no-padding': ''} sdds-col-max-6 sdds-col-xxlg-6 sdds-col-xlg-6 sdds-col-lg-6 sdds-col-md-6 sdds-col-sm-6 sdds-col-xs-6">
        <div class="inside-demo">6</div>
      </div>
    </div>
