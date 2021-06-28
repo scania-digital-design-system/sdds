@@ -32,8 +32,8 @@
       }
 
       .#{$prefix}-navbar-menu-item-description {
-        @include type-style('detail-06');
-        color: var(--#{$prefix}-grey-300);
+        @include type-style('headline-07');
+        color: var(--#{$prefix}-dropdown-menu-items-title);
         padding-top: 16px;
         padding-bottom: 16px;
         &:hover {
@@ -45,6 +45,7 @@
 
     // .#{$prefix}-navbar-menu-item-dropdown.opened
     &.opened {
+      z-index: 2; // to appear above overlay background
       &,
       &:hover,
       &.hover {
@@ -76,7 +77,7 @@
   }
 }
 
-@media all and (min-width: 769px) {
+@media all and (min-width: 672px) {
   .#{$prefix}-navbar-menu-toolbar,
   .#{$prefix}-navbar-menu-toolbar-mobile {
     .#{$prefix}-navbar-menu-item-dropdown,
