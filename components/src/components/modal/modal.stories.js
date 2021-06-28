@@ -48,3 +48,43 @@ Modal.args = {
  size: 'md',
  Headline:'Headline 1'
 }
+
+const ModalCssTemplate = ({...ModalCSS}) => {
+  return `
+  <sdds-theme></sdds-theme>
+  <div class='sdds-modal-backdrop show'>
+    <div class='sdds-modal sdds-modal-${ModalCSS.size}'>
+      <div class="sdds-modal-header">
+        <div class="sdds-modal-headline">
+          <h5>${ModalCSS.Headline}</h5>
+        </div>
+        <span class="sdds-modal-btn"></span>
+      </div>
+        <div class="sdds-modal-body">
+          <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.</p>
+        </div>
+        <div class="sdds-modal-actions">
+          <div class="sdds-modal-actions">
+            <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
+            <button class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  `
+}
+
+export const ModalCSS = ModalCssTemplate.bind();
+
+ModalCSS.args = {
+  size: 'md',
+  Headline:'Headline 1'
+}
+
+ModalCSS.argTypes = {  
+  preventBackdrop: {
+    table: {
+      disable:true
+    }
+  }
+}
