@@ -34,8 +34,8 @@
       @include rect;
   
       &.#{$prefix}-spinner-linear-sm{
-        width: var(--sdds-spinner-rect-width) / 2;
-        height: var(--sdds-spinner-rect-height) / 2;
+        width: calc(var(--sdds-spinner-rect-width) / 2);
+        height:calc(var(--sdds-spinner-rect-height) / 2);
       }  
     }
     
@@ -74,8 +74,8 @@
   .#{$prefix}-spinner-circular , .#{$prefix}-spinner-circular-md{
     @extend %spinner-circular;
     &.#{$prefix}-spinner-circular-sm {
-      min-width:  var(--sdds-spinner-length) / 2;
-      min-height:  var(--sdds-spinner-length) / 2;
+      min-width:   calc(var(--sdds-spinner-length) / 2);
+      min-height:   calc(var(--sdds-spinner-length) / 2);
       border:  0.2em solid  var(--sdds-spinner-border-color);
       border-right:  0.2em solid var(--sdds-spinner-background);
     } 
@@ -114,8 +114,8 @@
     height: var(--sdds-spinner-length); 
   
     &.#{$prefix}-spinner-cube-sm {
-      width: var(--sdds-spinner-length) / 2;
-      height:var(--sdds-spinner-length) / 2;    
+      width:  calc(var(--sdds-spinner-length) / 2);
+      height: calc(var(--sdds-spinner-length) / 2);    
     } 
   }
   
