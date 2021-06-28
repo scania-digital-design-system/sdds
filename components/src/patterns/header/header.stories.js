@@ -14,12 +14,14 @@ export default {
 };
 
 const Template = ({siteName, openMenuMobile=false, navMenu='', toolbarMenuMobile='', toolbarMenu=''}) => {
+  const overlayExpanded = openMenuMobile || toolbarMenu.trim('').length>0 ? 'expanded' : '';
   const expanded = openMenuMobile ? 'expanded' : '';
+
   return `
   <sdds-theme></sdds-theme>
   
   <nav class="sdds-navbar">
-    <div class="sdds-navbar-overlay ${expanded}"></div>
+    <div class="sdds-navbar-overlay ${overlayExpanded}"></div>
 
     <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer ${expanded}">
       <span class="sdds-icon-drawer"></span>
