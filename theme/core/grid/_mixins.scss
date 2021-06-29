@@ -10,6 +10,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .#{$prefix}-container-fluid {
@@ -101,6 +102,7 @@
   flex-shrink: 0;
   padding-left: $padding;
   padding-right: $padding;
+  box-sizing: border-box;
   // Index divided by amount of the columns
   flex-basis: percentage(($i / $columns));
   max-width: percentage(($i / $columns));
