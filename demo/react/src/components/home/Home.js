@@ -1,4 +1,21 @@
+import { useRef } from 'react'
+
 const Home = () => {
+  const myModal = useRef(null);
+
+  const openModalManual = () => {
+    const currentClass = myModal.current.classList;
+
+    if(currentClass.contains('hide')) {
+      myModal.current.classList.remove('hide');
+      myModal.current.classList.add('show');
+    } else {
+      myModal.current.classList.remove('show');
+      myModal.current.classList.add('hide');
+    }
+    
+  }
+
   return (
     <div className="sdds-row">
       <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
@@ -152,12 +169,38 @@ const Home = () => {
               Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
               Maecenas tempus, tellus eget condimentum rhoncus.
             </p>
-            <button slot="sdds-modal-actions" modal-dismiss="true"
+            <button slot="sdds-modal-actions"
               className="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
             <button slot="sdds-modal-actions" modal-dismiss="true"
               className="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
           </sdds-modal>
         </div>
+
+        <div className="component-wrapper">
+          <h5 className="sdds-headline-05">Modal with CSS</h5>
+          <button id="myModal" className="sdds-btn sdds-btn-primary" onClick={() => { openModalManual()}}>Open modal</button>
+          
+          <div className="sdds-modal-backdrop hide" ref={myModal}>
+              <div className='sdds-modal sdds-modal-md'>
+                <div className="sdds-modal-header">
+                  <div className="sdds-modal-headline">
+                    <h5>Headline 2</h5>
+                  </div>
+                  <span className="sdds-modal-btn" onClick={() => { openModalManual()}}></span>
+                </div>
+                  <div className="sdds-modal-body">
+                    <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.</p>
+                  </div>
+                  <div className="sdds-modal-actions">
+                    <div className="sdds-modal-actions">
+                      <button className="sdds-btn sdds-btn-primary sdds-btn-md" onClick={() => { openModalManual()}}>Save</button>
+                      <button className="sdds-btn sdds-btn-secondary sdds-btn-md" onClick={() => { openModalManual()}}>Cancel</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+          </div>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Radio button</h5>
