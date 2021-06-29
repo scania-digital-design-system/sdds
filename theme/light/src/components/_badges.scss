@@ -1,25 +1,12 @@
-//TODO: Look into regular badges design
-//TODO: Fix focus colors on badge-link
-
-.badge {
-  //FIXME: Add correct rem
-  padding: 1.25rem 8.5px 1.25rem 8.5px;
-  border-radius: $spacing-element-12;
-  font-size: $spacing-element-12;
-  line-height: 3.5rem;
-
-  &.badge-pill {
-    //FIXME: Add corect rem
-    padding: 1.5rem $spacing-element-16 1.75rem $spacing-element-16;
-    border-radius: $spacing-element-16;
-    font-size: 3.4rem;
-    line-height: 4.25rem;
-  }
-
-  @each $type in $types {
-    &-#{$type} {
-      background-color: map-get($interaction-colors, $type);
-      background-color: Var(--#{$type});
-    }
-  }
+:root,
+html {
+  --#{$prefix}-badges-bg-color: #{get-colour(red-500)};
+  --#{$prefix}-badges-color-text: #{get-colour(white)};
+  --#{$prefix}-badges-size-text: 12px;
+  --#{$prefix}-badges-border-radius: 12px;
+  --#{$prefix}-badges-default-width: 20px;
+  --#{$prefix}-badges-default-height: 20px;
+  --#{$prefix}-badges-pill-padding: 8px;
+  --#{$prefix}-badges-sm-width: 8px;
+  --#{$prefix}-badges-sm-height: 8px;
 }
