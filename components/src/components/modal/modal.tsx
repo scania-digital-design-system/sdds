@@ -23,8 +23,9 @@ export class Modal {
   @Prop() size = 'md';
 
   @Element() el: HTMLElement;
+
   //State when modal should be shown
-  @State() show: boolean = false;
+  @State() show: boolean = false;  
 
   componentDidLoad() {
     const target = document.querySelector(this.selector);
@@ -40,8 +41,9 @@ export class Modal {
 
   dismisModal() {
     const nodes = this.el.querySelectorAll('[modal-dismiss]');
+    
     nodes.forEach(el => {
-      el.addEventListener('click',() => this.show = false)
+      el.addEventListener('click',() => this.show = false);
     });
   }
 

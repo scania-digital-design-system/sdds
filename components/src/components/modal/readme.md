@@ -1,4 +1,4 @@
-# c-modal
+# sdds-modal
 
 
 
