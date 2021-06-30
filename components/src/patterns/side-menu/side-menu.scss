@@ -1,0 +1,14 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import '../header/navbar-collapsible';
+
+.#{$prefix}-navbar-side-menu {
+  @extend .#{$prefix}-navbar-collapsible;
+
+  @media all and (min-width: 769px) {
+    box-shadow: none;
+    border-right: 1px solid var(--#{$prefix}-navbar-side-menu-border);
+  }
+
+}
