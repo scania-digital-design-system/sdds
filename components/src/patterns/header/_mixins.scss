@@ -59,24 +59,28 @@
   &.active {
     border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
   }
-
-  @media all and (min-width: 769px) {
-    padding: 24px 24px 20px;
-    border-left: 0;
-    border-bottom: 4px solid transparent;
-    border-right: 1px solid var(--#{$prefix}-header-divider);
-
-    &.active,
-    &:hover,
-    &.hover {
-      background: var(--#{$prefix}-nav-item-background-hover);
-      border-left: 0;
-    }
-    &.active {
-      border-bottom: 4px solid var(--sdds-nav-item-border-active);
-    }
-  }
   
+}
+
+@mixin sdds-navbar-menu-item-desktop {
+  padding: 24px 24px 20px;
+  border-left: 0;
+  border-bottom: 4px solid transparent;
+  border-right: 1px solid var(--#{$prefix}-header-divider);
+
+  &:first-child {
+    border-left: 1px solid var(--#{$prefix}-header-divider);
+  }
+
+  &.active,
+  &:hover,
+  &.hover {
+    background: var(--#{$prefix}-nav-item-background-hover);
+    border-left: 0;
+  }
+  &.active {
+    border-bottom: 4px solid var(--sdds-nav-item-border-active);
+  }
 }
 
 // Styling svg background, used as icon

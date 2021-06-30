@@ -9,7 +9,6 @@
   margin-right: auto;
   @media all and (min-width: 769px) {
     margin-right: 0;
-    border-right: 1px solid var(--#{$prefix}-header-divider);
   }
 }
 
