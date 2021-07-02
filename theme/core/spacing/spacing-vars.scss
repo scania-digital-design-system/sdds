@@ -40,4 +40,16 @@
 --sdds-screen-l: 264rem; //1056px
 --sdds-screen-xl: 328rem; //1312px
 --sdds-screen-xxl: 396rem; //1584px
+
+//Screen breakpoints
+//Remove old breakpoints
+//TODO: Fix rem on media queries
+--sdds-grid-xs: 0;
+--sdds-grid-sm: 608px;
+--sdds-grid-md: 800px;
+--sdds-grid-lg: 992px;
+--sdds-grid-xlg: 1184px;
+--sdds-grid-xxlg: 1376px;
+--sdds-grid-max: 1584px;
+
 }
