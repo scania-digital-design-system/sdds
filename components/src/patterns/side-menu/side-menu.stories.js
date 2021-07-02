@@ -9,6 +9,7 @@ const Template = ({icon=false, dropdown = false}) => {
   return `
   <sdds-theme></sdds-theme>
   <div class="sdds-navbar-overlay expanded"></div>
+
   <nav class="sdds-navbar">
     <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer expanded">
       <span class="sdds-icon-drawer"></span>
@@ -17,43 +18,60 @@ const Template = ({icon=false, dropdown = false}) => {
 
     <div class="sdds-navbar-scania-brand"></div>
   </nav>
-  <div class="sdds-navbar-side-menu expanded">
-    <ul class="sdds-navbar-menu-list">
-      <li class="sdds-navbar-menu-item active">
-          <a class="sdds-navbar-menu-item-link" href="#"> 
-          ${icons}
-          Item 1 
-          </a>
-      </li>
-      <li class="sdds-navbar-menu-item">
-          <a class="sdds-navbar-menu-item-link" href="#"> 
-          ${icons}
-          Item 2 
-          </a>
-      </li>
-      <li class=" ${dropdown ? 'sdds-navbar-menu-item-dropdown opened':'sdds-navbar-menu-item'}">
-          <a class="sdds-navbar-menu-item-link" href="#"> 
-          ${icons}
-          Item 3 
-          ${dropdown ? '<span class="sdds-icon-arrow"></span>' : ''}
-          </a>
-          ${
-            dropdown ?
-            `<ul class="sdds-navbar-menu__dropdown-menu">
-              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
-              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3</a></li>
-              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
-            </ul>` : ''
-          }
-      </li>
-      <li class="sdds-navbar-menu-item">
-          <a class="sdds-navbar-menu-item-link" href="#"> 
-          ${icons}
-          Item 4 
-          </a>
-      </li>
-      </ul>
+
+  <div class="sdds-push">
+    <div class="sdds-sidebar">
+
+      <div class="sdds-navbar-side-menu expanded">
+      <ul class="sdds-navbar-menu-list">
+        <li class="sdds-navbar-menu-item active">
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            ${icons}
+            Item 1 
+            </a>
+        </li>
+        <li class="sdds-navbar-menu-item">
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            ${icons}
+            Item 2 
+            </a>
+        </li>
+        <li class=" ${dropdown ? 'sdds-navbar-menu-item-dropdown opened':'sdds-navbar-menu-item'}">
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            ${icons}
+            
+            ${dropdown ? '<span class="sdds-menu-item-dropdown-text">Item 3</span><span class="sdds-icon-arrow"></span>' : 'Item 3 '}
+            </a>
+            ${
+              dropdown ?
+              `<ul class="sdds-navbar-menu__dropdown-menu">
+                <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
+                <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3-2</a></li>
+                <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-3</a></li>
+                <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-4 long label...</a></li>
+              </ul>` : ''
+            }
+        </li>
+        <li class="sdds-navbar-menu-item">
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            ${icons}
+            Item 4 
+            </a>
+        </li>
+        </ul>
+      </div>
+
     </div>
+    
+    <div class="sdds-content-push">
+      <div class="sdds-container-push-fluid">
+        <div class="sdds-row">
+          <div class="sdds-col">Content 1</div>
+          <div class="sdds-col">Content 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
   `
 };
   
@@ -66,7 +84,8 @@ Basic.args = {
 export const WithIcons = Template.bind({});
 
 WithIcons.args = {
-  icon: true
+  icon: true,
+  dropdown:false
 }
 
 export const Dropdown = Template.bind({});

@@ -1,4 +1,5 @@
 :root,
 html{
+  --#{$prefix}-navbar-side-menu-width: 100%;
   --#{$prefix}-navbar-side-menu-border: #{get-colour(grey-100)};
 }

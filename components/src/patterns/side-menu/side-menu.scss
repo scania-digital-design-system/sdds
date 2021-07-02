@@ -5,6 +5,11 @@
 
 .#{$prefix}-navbar-side-menu {
   @extend .#{$prefix}-navbar-collapsible;
+  width: var(--#{$prefix}-navbar-side-menu-width);
+
+  .#{$prefix}-menu-item-dropdown-text {
+    flex-grow: 1;
+  }
 
   @media all and (min-width: 769px) {
     box-shadow: none;
