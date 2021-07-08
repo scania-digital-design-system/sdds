@@ -4,8 +4,8 @@
 @mixin sdds-icon-button {
   display: inline-block;
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: var(--sdds-nav-item-icon-size);
+  height: var(--sdds-nav-item-icon-size);
   border: 0;
   cursor: pointer;
   outline: none;
@@ -13,8 +13,8 @@
 
   // Icon size  
   span, i {
-    width:16px;
-    height:16px;
+    width:var(--sdds-nav-item-icon-size);
+    height:var(--sdds-nav-item-icon-size);
     display: inline-block;
   }
 }

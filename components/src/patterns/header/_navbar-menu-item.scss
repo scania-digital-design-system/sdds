@@ -84,7 +84,7 @@
 // endof .#{$prefix}-navbar-menu-item-dropdown
 }
 
-@media all and (min-width: 769px) {
+@media all and (min-width: $grid-lg) {
   .#{$prefix}-navbar {
 
     .#{$prefix}-navbar-menu-list {
