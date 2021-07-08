@@ -15,6 +15,12 @@
   .#{$prefix}-navbar-menu-item {
     display: flex;
   }
+  .#{$prefix}-navbar-menu-item,
+  .#{$prefix}-navbar-menu-item-dropdown-parent {
+    a {
+      @include type-style('headline-07');
+    }
+  }
 
   .#{$prefix}-navbar-icon-button {
     color: inherit;
@@ -63,8 +69,9 @@
 
 }
 
-// In mobile, popover will not visible
-.#{$prefix}-navbar-menu-popover {
+// In mobile, popover and minimize menu will not visible
+.#{$prefix}-navbar-menu-popover,
+.#{$prefix}-navbar-menu-hide-on-mobile {
   display: none;
 }
 
@@ -75,6 +82,15 @@
     .#{$prefix}-navbar-menu-item-dropdown.opened .#{$prefix}-navbar-menu__dropdown-menu {
       display: none;
     }
+  }
+
+  .#{$prefix}-navbar-menu-list {
+    flex-grow: 1;
+  }
+
+  .#{$prefix}-navbar-menu-item-bottom{
+    @include sdds-navbar-menu-item;
+    border-top: 1px solid var(--sdds-nav-item-divider-mobile);
   }
   
   .#{$prefix}-navbar-menu-popover {
