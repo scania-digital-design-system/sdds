@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="sdds">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Basic Corporate UI 4.0.0 Alpha Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="html.css">
+  <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
+  <script src="node_modules/@scania/components/dist/core.js"></script>
+</head>
+
+<body class="sdds">
+  <sdds-theme></sdds-theme>
+  <div class="sdds-navbar-overlay expanded"></div>
+
+  <nav class="sdds-navbar">
+    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer expanded">
+      <span class="sdds-icon-drawer"></span>
+    </button>
+    <div class="sdds-navbar-application-brand">Application</div>
+
+    <div class="sdds-navbar-scania-brand"></div>
+  </nav>
+
+  <div class="sdds-push sdds-demo-container">
+    <div class="sdds-sidebar sdds-expanded">
+      <div class="sdds-navbar-side-menu expanded">
+        <ul class="sdds-navbar-menu-list">
+          <li class="sdds-navbar-menu-item">
+            <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            Item 1 
+            </a>
+          </li>
+          <li class="sdds-navbar-menu-item-dropdown opened">
+            <div class="sdds-navbar-menu-item-dropdown-parent">
+              <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                <span class="sdds-menu-item-dropdown-text">Item 3</span>
+                <span class="sdds-icon-arrow"></span>
+              </a>
+            </div>
+            <ul class="sdds-navbar-menu__dropdown-menu">
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3-2</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-3</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-4 long label...</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile">
+          <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+          <a class="sdds-navbar-menu-item-link" href="#"> 
+          Collapse
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
