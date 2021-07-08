@@ -51,7 +51,7 @@
   }
 }
 
-@media all and (min-width: 769px) {
+@media all and (min-width: $grid-lg) {
   .#{$prefix}-navbar{
     .#{$prefix}-navbar-collapsible {
       transition: none;
