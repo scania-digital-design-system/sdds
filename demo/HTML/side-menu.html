@@ -34,7 +34,7 @@
             Item 1 
             </a>
           </li>
-          <li class="sdds-navbar-menu-item-dropdown opened sdds-navbar-menu-hover">
+          <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu-hover" onClick="dropdownClick(this)">
             <div class="sdds-navbar-menu-item-dropdown-parent">
               <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
               <a class="sdds-navbar-menu-item-link" href="#"> 
@@ -68,15 +68,21 @@
     }
 
     var popover = document.querySelector('#popover');
+    popover.addEventListener("mouseleave", hidePopover, false);
+
     var sidebar = document.querySelector('.sdds-sidebar');
 
     var menus = document.querySelectorAll('.sdds-navbar-menu-hover');
     menus.forEach(function(menu){
       menu.addEventListener("mouseenter", onHoverMenu, false);
-      menu.addEventListener("mouseleave", onLeaveMenu, false);
+      menu.addEventListener("mouseleave", onLeaveMenu, false); 
     });
 
     function onLeaveMenu(event){
+      // hide popover if mouse position outside of popover.getBoundingClientRect()
+    }
+
+    function hidePopover(event){
       if(!sidebar.classList.contains('sdds-sidebar-collapse')) return;
 
       popover.style.display = 'none';
@@ -102,6 +108,11 @@
       popover.style.left = posX + 'px';
       popover.style.display = 'block';
 
+    }
+
+    function dropdownClick(event){
+      // console.log(event)
+      event.classList.toggle('opened');
     }
   </script>
 
