@@ -33,6 +33,23 @@ body.#{$prefix},
   .#{$prefix}-container {
     overflow-y:auto;
   }
+  .#{$prefix}-sidebar.#{$prefix}-expanded {
+    display: block;
+    position: fixed;
+    height:100%;
+  }
+  .#{$prefix}-navbar-menu-popover {
+    display:none;
+  }
+
+  @media all and (min-width: 992px) {
+    .#{$prefix}-sidebar.#{$prefix}-expanded {
+      position: relative;
+    }
+    .#{$prefix}-navbar-menu-popover {
+      display:block;
+    }
+  }
 }
 
 // data environment
