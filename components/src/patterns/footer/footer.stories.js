@@ -17,34 +17,24 @@ const Template = ({text, socialItems, items}) => {
   return `
   <sdds-theme></sdds-theme>
 
-  <c-footer text='${text}'>
-  ${socialItems}
-  ${items}
-  </c-footer>
+  <div class="sdds-footer">
+    <div clas="sdds-footer-bottom">
+      <ul class="sdds-footer-bottom-links">
+        <li><a href="#">Legal link</a></li>
+        <li><a href="#">Legal link</a></li>
+        <li><a href="#">Legal link</a></li>
+      </ul>
+      <ul class="sdds-footer-social-links">
+        <li><a href="#">Legal link</a></li>
+        <li><a href="#">Legal link</a></li>
+        <li><a href="#">Legal link</a></li>
+      </ul>
+      <div class="sdds-footer-bottom-brand">
+        <p>Copyright &copy; 2021 Scania</p>
+      </div>
+    </div>
+  </div>
   `
 };
 
 export const Basic = Template.bind({});
-
-export const WithLinks = Template.bind({});
-WithLinks.args = {
-  items: `
-  <a href='/cookies' slot='items'>Cookies</a>
-  <a href='/contact-us' target='_blank' slot='items'>Contact us</a>
-  `
-}
-
-export const WithSocialLinks = Template.bind({});
-WithSocialLinks.args = {
-  socialItems: `
-  <a href='/' slot='social-items'>
-    <sdds-icon name='scania-youtube'></sdds-icon>
-  </a>
-  <a href='/' slot='social-items'>
-    <sdds-icon name='scania-twitter'></sdds-icon>
-  </a>
-  <a href='/' target='_blank' slot='social-items'>
-    <sdds-icon name='scania-linkedin'></sdds-icon>
-  </a>
-  `
-}
