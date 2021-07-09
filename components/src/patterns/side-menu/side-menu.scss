@@ -41,17 +41,17 @@
       transition: transform 0.2s ease-out;
       transform: rotate(0);
     }
-  }
-
-  &.opened {
-    .#{$prefix}-navbar-menu-item-dropdown-parent {
-      .#{$prefix}-icon-arrow {
-        transform: rotate(180deg);
-      }
-    }
-  }
+  }  
 
   .#{$prefix}-navbar-menu-item-dropdown {
+    &.opened {
+      .#{$prefix}-navbar-menu-item-dropdown-parent {
+        .#{$prefix}-icon-arrow {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
     .#{$prefix}-navbar-menu-item-dropdown-parent { 
       padding: 24px;
     }
@@ -130,8 +130,13 @@
     }
   
     .#{$prefix}-navbar-menu-item-dropdown a,
-    .#{$prefix}-navbar-menu-item-dropdown.opened .#{$prefix}-navbar-menu__dropdown-menu {
+    .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu {
       display: block;
+    }
+
+    .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu {
+      visibility: visible;
+      height: auto;
     }
 
     .#{$prefix}-navbar-menu-item-dropdown {
