@@ -1,0 +1,10 @@
+:root,
+html {
+  --#{$prefix}-footer-bottom-bg: #{get-colour(blue-900)};
+  --#{$prefix}-footer-bottom-padding: 40px 32px;
+  --#{$prefix}-footer-bottom-links: #{get-colour(white)};
+  --#{$prefix}-footer-bottom-divider: #{get-colour(blue-700)};
+  --#{$prefix}-footer-bottom-links-opacity: 0.87;
+  --#{$prefix}-footer-bottom-copyright: #{get-colour(white)};
+  --#{$prefix}-footer-bottom-copyright-opacity: 0.6;
+}
