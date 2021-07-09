@@ -28,13 +28,13 @@
     <div class="sdds-sidebar sdds-expanded">
       <div class="sdds-navbar-side-menu expanded">
         <ul class="sdds-navbar-menu-list">
-          <li class="sdds-navbar-menu-item">
+          <li class="sdds-navbar-menu-item sdds-navbar-menu-hover">
             <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
             <a class="sdds-navbar-menu-item-link" href="#"> 
             Item 1 
             </a>
           </li>
-          <li class="sdds-navbar-menu-item-dropdown opened">
+          <li class="sdds-navbar-menu-item-dropdown opened sdds-navbar-menu-hover">
             <div class="sdds-navbar-menu-item-dropdown-parent">
               <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
               <a class="sdds-navbar-menu-item-link" href="#"> 
@@ -50,16 +50,69 @@
             </ul>
           </li>
         </ul>
-        <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile">
+        <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile"  onClick="clickCollapse()">
           <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
-          <a class="sdds-navbar-menu-item-link" href="#"> 
+          <a id="collapse-btn" class="sdds-navbar-menu-item-link" href="#"> 
           Collapse
           </a>
         </div>
       </div>
+      <div id="popover" class="sdds-navbar-menu-popover" style="display:none;position:fixed;"></div>
     </div>
   </div>
+
+  <script>
+    function clickCollapse(){
+      document.querySelector(".sdds-sidebar").classList.toggle('sdds-sidebar-collapse');
+      return false;
+    }
+
+    var popover = document.querySelector('#popover');
+    var sidebar = document.querySelector('.sdds-sidebar');
+
+    var menus = document.querySelectorAll('.sdds-navbar-menu-hover');
+    menus.forEach(function(menu){
+      menu.addEventListener("mouseenter", onHoverMenu, false);
+      menu.addEventListener("mouseleave", onLeaveMenu, false);
+    });
+
+    function onLeaveMenu(event){
+      if(!sidebar.classList.contains('sdds-sidebar-collapse')) return;
+
+      popover.style.display = 'none';
+      popover.innerHTML='';
+    }
+
+    function onHoverMenu(event){
+      if(!sidebar.classList.contains('sdds-sidebar-collapse')) return;
+      
+      popover.innerHTML='';
+
+      var elem = event.target;
+      var posX = elem.getBoundingClientRect().left + elem.offsetWidth + 2;
+      var posY = elem.getBoundingClientRect().top;
+      var classes = event.target.className;
+      var newElem = document.createElement('div');
+  
+      newElem.className = classes;
+      newElem.innerHTML = elem.innerHTML;
+
+      popover.appendChild(newElem);
+      popover.style.top = posY + 'px';
+      popover.style.left = posX + 'px';
+      popover.style.display = 'block';
+
+    }
+  </script>
 
 </body>
 
 </html>
+
+<!-- <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:0;">
+        <div class="sdds-navbar-menu-item"> 
+          <a class="sdds-navbar-menu-item-link" href="#"> 
+          Item 1 
+          </a>
+        </div>
+      </div> -->
