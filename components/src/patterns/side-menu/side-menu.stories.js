@@ -25,7 +25,7 @@ const Template = ({icon=false, dropdown = false, collapse = false}) => {
       overflow-y:auto;
     }
     
-    .sdds-sidebar.sdds-expanded {
+    .sdds-sidebar.expanded {
       display: block;
       position: fixed;
       height:100%;
@@ -34,7 +34,7 @@ const Template = ({icon=false, dropdown = false, collapse = false}) => {
       display:none;
     }
     @media all and (min-width: 992px) {
-      .sdds-sidebar.sdds-expanded {
+      .sdds-sidebar.expanded {
         position: relative;
       }
       .sdds-navbar-menu-popover {
@@ -60,7 +60,7 @@ const Template = ({icon=false, dropdown = false, collapse = false}) => {
   </nav>
 
   <div class="sdds-push sdds-demo-container">
-    <div class="sdds-sidebar sdds-expanded ${collapse ? ' sdds-sidebar-collapse' : ''}">
+    <div class="sdds-sidebar expanded ${collapse ? ' sdds-sidebar-collapse' : ''}">
 
       <div class="sdds-navbar-side-menu expanded">
         <ul class="sdds-navbar-menu-list">
