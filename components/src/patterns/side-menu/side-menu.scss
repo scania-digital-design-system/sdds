@@ -30,7 +30,6 @@
   .#{$prefix}-navbar-menu-item-dropdown-parent {
     display: flex;    
     justify-content: space-between;
-    height: var(--#{$prefix}-dropdown-menu-items-height);
 
     .#{$prefix}-navbar-menu-item-link {
       flex-grow: 1;
@@ -47,6 +46,7 @@
   .#{$prefix}-navbar-menu-item-dropdown {
     &.opened {
       .#{$prefix}-navbar-menu-item-dropdown-parent {
+        height: var(--#{$prefix}-dropdown-menu-items-height);
         .#{$prefix}-icon-arrow {
           transform: rotate(180deg);
         }
@@ -132,6 +132,7 @@
     .#{$prefix}-navbar-menu-item,
     .#{$prefix}-navbar-menu-item-dropdown {
       @include sdds-navbar-menu-item;
+      height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
       border-bottom: 0;
       padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
   
@@ -146,6 +147,9 @@
         }
       }
       
+    }
+    .#{$prefix}-navbar-menu-item-dropdown {
+      height: auto;
     }
   
     .#{$prefix}-navbar-menu-item-dropdown a,
