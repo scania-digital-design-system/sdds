@@ -30,6 +30,7 @@
   .#{$prefix}-navbar-menu-item-dropdown-parent {
     display: flex;    
     justify-content: space-between;
+    height: var(--#{$prefix}-dropdown-menu-items-height);
 
     .#{$prefix}-navbar-menu-item-link {
       flex-grow: 1;

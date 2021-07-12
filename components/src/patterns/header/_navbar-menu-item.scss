@@ -18,7 +18,7 @@
 .#{$prefix}-navbar-menu-item-dropdown {
   @include sdds-navbar-menu-item;
   
-  
+  height: auto;
   padding:0;
   border-left: 0;
 
