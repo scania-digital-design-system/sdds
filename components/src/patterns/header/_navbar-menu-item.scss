@@ -62,6 +62,7 @@
 
     &.active {
       @include type-style('headline-07');
+      color: var(--#{$prefix}-nav-item-dropdown-colour-active);
       border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
       padding-left: 20px;
     }

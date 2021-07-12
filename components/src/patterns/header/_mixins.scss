@@ -68,6 +68,7 @@
   border-left: 0;
   border-bottom: 4px solid transparent;
   border-right: 1px solid var(--#{$prefix}-header-divider);
+  height: auto;
 
   &:first-child {
     border-left: 1px solid var(--#{$prefix}-header-divider);

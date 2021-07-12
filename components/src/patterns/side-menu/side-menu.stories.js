@@ -117,9 +117,9 @@ const Template = ({icon=false, dropdown = false, collapse = false}) => {
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:34rem;">
         <div class="sdds-navbar-menu-item-dropdown opened"">
           <div class="sdds-navbar-menu-item-dropdown-parent">
-          <a class="sdds-navbar-menu-item-link active" href="#"> 
-            <span class="sdds-menu-item-dropdown-text">Item 3</span>
-          </a>
+            <a class="sdds-navbar-menu-item-link active" href="#"> 
+              <span class="sdds-menu-item-dropdown-text">Item 3</span>
+            </a>
           </div>  
           <ul class="sdds-navbar-menu__dropdown-menu">
               <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
