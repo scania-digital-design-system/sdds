@@ -3,5 +3,6 @@ html{
   --#{$prefix}-navbar-side-menu-border: #{get-colour(grey-100)};
   --#{$prefix}-navbar-side-menu-background: #{get-colour(white)};
   --#{$prefix}-navbar-popover-width: 192px;
+  --#{$prefix}-navbar-side-menu-collapse-width: 68px;
   --#{$prefix}-navbar-popover-menu-item-padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-24);
 }
