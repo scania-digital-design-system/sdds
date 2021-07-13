@@ -4,8 +4,8 @@
 @mixin sdds-icon-button {
   display: inline-block;
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: var(--sdds-nav-item-icon-size);
+  height: var(--sdds-nav-item-icon-size);
   border: 0;
   cursor: pointer;
   outline: none;
@@ -13,8 +13,8 @@
 
   // Icon size  
   span, i {
-    width:16px;
-    height:16px;
+    width:var(--sdds-nav-item-icon-size);
+    height:var(--sdds-nav-item-icon-size);
     display: inline-block;
   }
 }
@@ -34,6 +34,7 @@
   display: block;
   border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
   padding: 24px 18px 24px 20px;
+  height: var(--#{$prefix}-dropdown-menu-items-height);
   cursor: pointer;
   border-left: 4px solid transparent;
 
@@ -59,24 +60,29 @@
   &.active {
     border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
   }
-
-  @media all and (min-width: 769px) {
-    padding: 24px 24px 20px;
-    border-left: 0;
-    border-bottom: 4px solid transparent;
-    border-right: 1px solid var(--#{$prefix}-header-divider);
-
-    &.active,
-    &:hover,
-    &.hover {
-      background: var(--#{$prefix}-nav-item-background-hover);
-      border-left: 0;
-    }
-    &.active {
-      border-bottom: 4px solid var(--sdds-nav-item-border-active);
-    }
-  }
   
+}
+
+@mixin sdds-navbar-menu-item-desktop {
+  padding: 24px 24px 20px;
+  border-left: 0;
+  border-bottom: 4px solid transparent;
+  border-right: 1px solid var(--#{$prefix}-header-divider);
+  height: auto;
+
+  &:first-child {
+    border-left: 1px solid var(--#{$prefix}-header-divider);
+  }
+
+  &.active,
+  &:hover,
+  &.hover {
+    background: var(--#{$prefix}-nav-item-background-hover);
+    border-left: 0;
+  }
+  &.active {
+    border-bottom: 4px solid var(--sdds-nav-item-border-active);
+  }
 }
 
 // Styling svg background, used as icon

@@ -7,6 +7,7 @@ html{
   --#{$prefix}-header-text-colour: #{get-colour(white)};
 
   --#{$prefix}-dropdown-menu-items-title: #{get-colour(grey-300)};
+  --#{$prefix}-dropdown-menu-items-height: 68px;
   
   --#{$prefix}-nav-item-background: #{get-colour(blue-900)};
   --#{$prefix}-nav-item-background-hover: #{get-colour(blue-800)};

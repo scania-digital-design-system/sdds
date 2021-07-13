@@ -1,11 +1,13 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
+@import '@scania/grid/dist/scss/grid.scss';
 @import './mixins';
 @import './navbar-brand';
 @import './navbar-collapsible';
 @import './navbar-menu-item';
 @import './navbar-toolbar-menu';
+
 
 .#{$prefix}-navbar {
   @include type-style('headline-07');
@@ -61,7 +63,7 @@
     }
   }
 
-  @media all and (min-width: 769px) {
+  @media all and (min-width: $grid-lg) {
     display: none;
   }
 }
