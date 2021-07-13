@@ -171,7 +171,7 @@
   @each $key, $values in $breakpoints {
     $breakpoint: map-get($values, 'breakpoint');
     $container-margin: map-get($values, 'margin');
-    $container-width: map-get($values, 'content');
+    $container-width: map-get($values, 'container');
     $display-sidebar: map-get($values, 'sidebar');
 
     @media (min-width:  $breakpoint) {
