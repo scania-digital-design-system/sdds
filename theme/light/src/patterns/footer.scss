@@ -1,7 +1,13 @@
 :root,
 html {
   --#{$prefix}-footer-bottom-bg: #{get-colour(blue-900)};
-  --#{$prefix}-footer-bottom-padding: 40px 32px;
+  --#{$prefix}-footer-bottom-padding: 40px 32px 0;  
+  --#{$prefix}-footer-bottom-padding-sm: 24px 24px 32px;
+  --#{$prefix}-footer-bottom-padding-md: 24px 32px 32px; 
+  --#{$prefix}-footer-brand-padding-bottom-mobile: 116px;
+  --#{$prefix}-footer-brand-padding-bottom: 40px;
+  --#{$prefix}-footer-brand-padding-top: 40px;
+  --#{$prefix}-footer-brand-padding-top-mobile: 24px;
   --#{$prefix}-footer-bottom-links: #{get-colour(white)};
   --#{$prefix}-footer-bottom-divider: #{get-colour(blue-700)};
   --#{$prefix}-footer-bottom-links-opacity: 0.87;

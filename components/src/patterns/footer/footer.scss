@@ -1,29 +1,36 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
+@import '@scania/grid/dist/scss/grid.scss';
 
 .#{$prefix}-footer{
   width: 100%;
   background-color: var(--sdds-footer-bottom-bg);
   display: flex;
-  position: relative;
+  position: relative;  
 }
 
 .#{$prefix}-footer-bottom {
-  padding: var(--sdds-footer-bottom-padding);
+  padding: var(--sdds-footer-bottom-padding-sm);
   display: flex;
   width: 100%;
-  flex-direction: column;
   align-items: stretch;
+  flex-direction: column;
+  background-color: var(--#{$prefix}-footer-bottom-bg);
 
-  .#{$prefix}-footer-bottom-links {
+  .#{$prefix}-footer-bottom-links,
+  .#{$prefix}-footer-social-links {
+    @include type-style('headline-07');
     padding: 0;
     margin:0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--sdds-spacing-element-40);
+
     li {
       list-style: none;
       padding: 0;
-      margin: 0;
-      margin-bottom: 8px;
+      margin: 0; 
       a {
         margin-right: var(--sdds-spacing-element-24);
         text-decoration: none;
@@ -33,12 +40,74 @@
     }
   }
 
+  .#{$prefix}-footer-bottom-links {
+    margin-bottom: var(--sdds-spacing-element-24);
+
+    li a {
+      margin-bottom: var(--sdds-spacing-element-8);
+      display: inline-block;
+      &:hover
+      &.hover {
+        text-decoration: underline;
+      }
+    }    
+  }
+
+  .#{$prefix}-footer-social-links {
+    margin-top: var(--sdds-spacing-element-24);
+    margin-bottom: var(--sdds-spacing-element-24);
+    flex-direction: row;
+  }
+
   .#{$prefix}-footer-bottom-brand{
     border-top: 1px solid var(--sdds-footer-bottom-divider);
-    padding-top: 24px;
+    padding-top: var(--#{$prefix}-footer-brand-padding-top-mobile);
+    padding-bottom: var(--#{$prefix}-footer-brand-padding-bottom-mobile);
+    width: 100%;
+    background-image: var(--#{$prefix}-background-image-scania-wordmark-white-png);
+    background-image: var(--#{$prefix}-background-image-scania-wordmark-white-svg);
+    background-repeat: no-repeat;
+    background-size: 117px;
+    background-position: center bottom;
     p {
+      @include type-style('detail-02'); 
       color: var(--sdds-footer-bottom-copyright);
       opacity: var(--sdds-footer-bottom-copyright-opacity);
+      margin: 0;
+      padding:0;
     }
   }
+}
+
+@media all and (min-width: $grid-md) { 
+  .#{$prefix}-footer-bottom {
+    padding: var(--sdds-footer-bottom-padding-md);
+  }
+}
+
+@media all and (min-width: $grid-lg) {
+  .#{$prefix}-footer-bottom {
+    padding: var(--sdds-footer-bottom-padding);    
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .#{$prefix}-footer-bottom-links {
+      flex-direction: row;
+      flex-grow: 1;
+      margin-bottom: var(--sdds-spacing-element-40);
+      li a {
+        margin-bottom: 0;
+      }   
+    }
+    .#{$prefix}-footer-social-links {
+      margin-top: 0;
+    }
+    
+    .#{$prefix}-footer-bottom-brand{
+      padding-top: var(--#{$prefix}-footer-brand-padding-top);
+      padding-bottom: var(--#{$prefix}-footer-brand-padding-bottom);
+      background-position: right center;
+    }
+  }
+
 }

@@ -18,16 +18,16 @@ const Template = ({text, socialItems, items}) => {
   <sdds-theme></sdds-theme>
 
   <div class="sdds-footer">
-    <div clas="sdds-footer-bottom">
+    <div class="sdds-footer-bottom">
       <ul class="sdds-footer-bottom-links">
         <li><a href="#">Legal link</a></li>
         <li><a href="#">Legal link</a></li>
         <li><a href="#">Legal link</a></li>
       </ul>
       <ul class="sdds-footer-social-links">
-        <li><a href="#">Legal link</a></li>
-        <li><a href="#">Legal link</a></li>
-        <li><a href="#">Legal link</a></li>
+        <li><a href="#">Social 1</a></li>
+        <li><a href="#">Social 1</a></li>
+        <li><a href="#">Social 1</a></li>
       </ul>
       <div class="sdds-footer-bottom-brand">
         <p>Copyright &copy; 2021 Scania</p>
