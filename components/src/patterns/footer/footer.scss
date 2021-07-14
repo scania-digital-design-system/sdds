@@ -108,7 +108,7 @@
       @include footer-top-link;
     }
     &.opened {
-      display: block;
+      display: flex;
     }
   }
 }
