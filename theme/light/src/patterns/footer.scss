@@ -1,16 +1,26 @@
 :root,
 html {
-  --#{$prefix}-footer-bottom-bg: #{get-colour(blue-900)};
-  --#{$prefix}-footer-bottom-padding: 40px 32px 0;  
-  --#{$prefix}-footer-bottom-padding-sm: 24px 24px 32px;
-  --#{$prefix}-footer-bottom-padding-md: 24px 32px 32px; 
+  --#{$prefix}-footer-top-bg: #{get-colour(blue-50)};
+  --#{$prefix}-footer-top-divider: #{get-colour(grey-100)};
+  --#{$prefix}-footer-top-links: #{get-colour(blue-900)};
+  --#{$prefix}-footer-top-links-bg-hover: #{get-colour(blue-100)};
+  --#{$prefix}-footer-top-links-opacity: 0.87;
+  --#{$prefix}-footer-top-title-opacity-mobile: 0.87;
+  --#{$prefix}-footer-top-title-opacity: 0.3;
+  --#{$prefix}-footer-top-title-padding-mobile: 20px 0;
+  --#{$prefix}-footer-top-link-padding-mobile: 20px;
+
+  --#{$prefix}-footer-main-bg: #{get-colour(blue-900)};
+  --#{$prefix}-footer-main-padding: 40px 32px 0;  
+  --#{$prefix}-footer-main-padding-sm: 24px 24px 32px;
+  --#{$prefix}-footer-main-padding-md: 24px 32px 32px; 
   --#{$prefix}-footer-brand-padding-bottom-mobile: 116px;
   --#{$prefix}-footer-brand-padding-bottom: 40px;
   --#{$prefix}-footer-brand-padding-top: 40px;
   --#{$prefix}-footer-brand-padding-top-mobile: 24px;
-  --#{$prefix}-footer-bottom-links: #{get-colour(white)};
-  --#{$prefix}-footer-bottom-divider: #{get-colour(blue-700)};
-  --#{$prefix}-footer-bottom-links-opacity: 0.87;
-  --#{$prefix}-footer-bottom-copyright: #{get-colour(white)};
-  --#{$prefix}-footer-bottom-copyright-opacity: 0.6;
+  --#{$prefix}-footer-main-links: #{get-colour(white)};
+  --#{$prefix}-footer-main-divider: #{get-colour(blue-700)};
+  --#{$prefix}-footer-main-links-opacity: 0.87;
+  --#{$prefix}-footer-main-copyright: #{get-colour(white)};
+  --#{$prefix}-footer-main-copyright-opacity: 0.6;
 }
