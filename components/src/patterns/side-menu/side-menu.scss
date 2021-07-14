@@ -166,15 +166,14 @@
       .#{$prefix}-navbar-menu-item-dropdown-parent{
         border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
         height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
+        padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
+        font-weight: bold;
         
         &:hover,
         &.hover {
           background: var(--#{$prefix}-nav-item-background-selected);
         }
-      }
 
-      .#{$prefix}-navbar-menu-item-dropdown-parent {
-        padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
         a.active,
         a:active {
           color: var(--#{$prefix}-nav-item-dropdown-colour-active);
