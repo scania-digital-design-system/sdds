@@ -29,7 +29,7 @@
   &:after {
     content: '';
     position: absolute;
-    width: calc(100% + 96px);
+    width: calc(100% + 120px);
     height: 100%;
     z-index: -1;
     border-bottom: 1px solid var(--#{$prefix}-footer-top-divider);

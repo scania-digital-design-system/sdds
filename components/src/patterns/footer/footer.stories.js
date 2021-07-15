@@ -9,6 +9,12 @@ export default {
 
 const Template = ({topPart=false}) => {
   return `
+  <style>
+  .sb-show-main.sb-main-padded {
+    padding: 0;
+    margin: 0;
+  }
+  </style>
   <sdds-theme></sdds-theme>
 
   <div class="sdds-footer">
