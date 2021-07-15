@@ -16,7 +16,42 @@
 
 // Patterns
 @import '../../patterns/header/header.scss';
+@import '../../patterns/side-menu/side-menu.scss';
 @import '../../patterns/footer/footer.scss';
+
+html.#{$prefix},
+body.#{$prefix},
+.#{$prefix}-body {
+  height: 100%;
+  padding:0;
+
+  .#{$prefix}-push {
+    padding-top: var(--sdds-header-height);
+    align-items: stretch;
+    height: 100%;
+    overflow:hidden;
+  }
+  .#{$prefix}-container {
+    overflow-y:auto;
+  }
+  .#{$prefix}-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height:100%;
+  }
+  .#{$prefix}-navbar-menu-popover {
+    display:none;
+  }
+
+  @media all and (min-width: 992px) {
+    .#{$prefix}-sidebar.expanded {
+      position: relative;
+    }
+    .#{$prefix}-navbar-menu-popover {
+      display:block;
+    }
+  }
+}
 
 // data environment
 body[data-env]:before {
