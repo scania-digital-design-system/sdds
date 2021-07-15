@@ -69,6 +69,8 @@
 }
 
 .#{$prefix}-footer-top {
+  background-color: var(--#{$prefix}-footer-top-bg);
+  
   .#{$prefix}-footer-title{
     @include type-style('headline-07');
     @include footer-top-link;

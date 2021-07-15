@@ -9,6 +9,7 @@ html {
   --#{$prefix}-footer-top-title-opacity: 0.3;
   --#{$prefix}-footer-top-title-padding-mobile: 20px 0;
   --#{$prefix}-footer-top-link-padding-mobile: 20px;
+  --#{$prefix}-spacing-around-footer: 24px;
 
   --#{$prefix}-footer-main-bg: #{get-colour(blue-900)};
   --#{$prefix}-footer-main-padding: 40px 32px 0;  
