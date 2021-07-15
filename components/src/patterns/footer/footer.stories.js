@@ -17,7 +17,7 @@ const Template = ({topPart=false}) => {
       <div class="sdds-footer-top sdds-container-fluid">
         <div class="sdds-row">
           <div class="sdds-footer-top-col sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
-            <div class="sdds-footer-title">
+            <div class="sdds-footer-title opened">
               <span>Title 1</span>
               <span class="sdds-footer-top-icon">
                 <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -25,7 +25,7 @@ const Template = ({topPart=false}) => {
                 </svg>
               </span>
             </div>
-            <ul class="sdds-footer-main-links">
+            <ul class="sdds-footer-main-links opened">
               <li><a href="#">Legal link</a></li>
               <li><a href="#">Legal link</a></li>
               <li><a href="#">Legal link</a></li>

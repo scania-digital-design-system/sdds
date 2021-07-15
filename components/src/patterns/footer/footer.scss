@@ -125,6 +125,7 @@
   .#{$prefix}-footer-main-links,
   .#{$prefix}-footer-social-links {
     li a {
+      font-weight: bold;
       color: var(--sdds-footer-main-links);
       opacity: var(--sdds-footer-main-links-opacity);
     }
