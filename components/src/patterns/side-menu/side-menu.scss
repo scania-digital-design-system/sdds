@@ -141,6 +141,12 @@
       border-bottom: 0;
       padding: var(--#{$prefix}-navbar-popover-menu-item-padding);      
     }
+
+    .#{$prefix}-navbar-menu-item {
+      .#{$prefix}-navbar-menu-item-link {
+        font-weight: bold;
+      }
+    }
   
     .#{$prefix}-navbar-menu-item-dropdown a,
     .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu,
