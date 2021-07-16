@@ -2,7 +2,7 @@ export default {
   title: 'Patterns/Fullpage'
 };
 
-const Template = ({ }) => {
+const Template = ({ menuCollapse=false }) => {
   document.body.classList.add('sdds');
 
   return `
@@ -33,16 +33,16 @@ const Template = ({ }) => {
     </nav>
 
     <div class="sdds-push">
-      <div class="sdds-sidebar expanded">
+      <div class="sdds-sidebar expanded ${menuCollapse ? 'sdds-sidebar-collapse':''}">
         <div class="sdds-navbar-side-menu expanded">
           <ul class="sdds-navbar-menu-list">
-            <li class="sdds-navbar-menu-item sdds-navbar-menu-hover">
+            <li class="sdds-navbar-menu-item">
               <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
               <a class="sdds-navbar-menu-item-link" href="#"> 
               Item 1 
               </a>
             </li>
-            <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu-hover opened">
+            <li class="sdds-navbar-menu-item-dropdown opened">
               <div class="sdds-navbar-menu-item-dropdown-parent">
                 <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
                 <a class="sdds-navbar-menu-item-link" href="#"> 
@@ -136,3 +136,7 @@ const Template = ({ }) => {
 };
 
 export const Basic = Template.bind({});
+export const MenuCollapse = Template.bind({});
+MenuCollapse.args = {
+  menuCollapse: true
+}

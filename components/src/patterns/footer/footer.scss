@@ -70,7 +70,7 @@
 
 .#{$prefix}-footer-top {
   background-color: var(--#{$prefix}-footer-top-bg);
-  
+
   .#{$prefix}-footer-title{
     @include type-style('headline-07');
     @include footer-top-link;
@@ -126,7 +126,7 @@
 
   .#{$prefix}-footer-main-links,
   .#{$prefix}-footer-social-links {
-    li a {
+    li a {      
       font-weight: bold;
       color: var(--sdds-footer-main-links);
       opacity: var(--sdds-footer-main-links-opacity);
@@ -151,6 +151,8 @@
     margin-bottom: var(--sdds-spacing-element-24);
     flex-direction: row;
     li a {
+      margin-left: 0;
+      margin-right: var(--sdds-spacing-element-24);
       &:hover,
       &.hover {
         text-decoration: none;
@@ -220,6 +222,11 @@
     }
     .#{$prefix}-footer-social-links {
       margin-top: 0;
+      text-align: right;
+      li a {
+        margin-right: 0;
+        margin-left: var(--sdds-spacing-element-24);
+      }
     }
     
     .#{$prefix}-footer-main-brand{

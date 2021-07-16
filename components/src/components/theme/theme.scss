@@ -43,6 +43,8 @@ body.#{$prefix},
   .#{$prefix}-footer {
     margin-top: var(--sdds-spacing-around-footer);    
     overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
   }
   .#{$prefix}-content {
     padding-left: 0;
@@ -57,6 +59,16 @@ body.#{$prefix},
     }
     .#{$prefix}-navbar-menu-popover {
       display:block;
+    }
+    .#{$prefix}-content {
+      display: flex;
+      flex-direction: column;
+      > .#{$prefix}-row {
+        flex-grow: 1;
+      }
+      > .#{$prefix}-footer {
+        flex-basis: auto;
+      }
     }
   }
 }
