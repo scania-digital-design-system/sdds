@@ -2,3 +2,8 @@ node_modules/*
 dist/*
 src/themes.built/*
 *.d.ts
+.storybook/*
+storybook-static/*
+.www/*
+stencil.config.ts
+.eslintrc.js
