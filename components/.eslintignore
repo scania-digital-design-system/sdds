@@ -6,4 +6,3 @@ src/themes.built/*
 storybook-static/*
 .www/*
 stencil.config.ts
-.eslintrc.js
