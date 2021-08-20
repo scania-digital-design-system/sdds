@@ -33,7 +33,7 @@
   }
 
   .#{$prefix}-navbar-menu-item-dropdown-parent {
-    display: flex;    
+    display: flex;
     justify-content: space-between;
 
     .#{$prefix}-navbar-menu-item-link {
@@ -46,7 +46,7 @@
       transition: transform 0.2s ease-out;
       transform: rotate(0);
     }
-  }  
+  }
 
   .#{$prefix}-navbar-menu-item-dropdown {
     &.opened {
@@ -58,7 +58,7 @@
       }
     }
 
-    .#{$prefix}-navbar-menu__dropdown-item{
+    .#{$prefix}-navbar-menu__dropdown-item {
       &.active,
       &.active a,
       a.active,
@@ -66,9 +66,8 @@
         color: var(--#{$prefix}-nav-item-dropdown-colour-active);
       }
     }
-    
 
-    .#{$prefix}-navbar-menu-item-dropdown-parent { 
+    .#{$prefix}-navbar-menu-item-dropdown-parent {
       padding: 24px;
     }
   }
@@ -84,7 +83,6 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
-
 }
 
 // In mobile, popover and minimize menu will not visible
@@ -102,17 +100,19 @@
     .#{$prefix}-navbar-menu-list .#{$prefix}-navbar-menu-item a,
     .#{$prefix}-navbar-menu-item-bottom a,
     .#{$prefix}-navbar-menu-item-dropdown a,
-    .#{$prefix}-navbar-menu-item-dropdown.opened .#{$prefix}-navbar-menu__dropdown-menu {
+    .#{$prefix}-navbar-menu-item-dropdown.opened
+      .#{$prefix}-navbar-menu__dropdown-menu {
       display: none;
     }
 
-    .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu-item-dropdown-parent{
+    .#{$prefix}-navbar-menu-item-dropdown
+      .#{$prefix}-navbar-menu-item-dropdown-parent {
       &:hover,
       &.hover {
         background-color: var(--#{$prefix}-nav-item-background-selected);
       }
     }
-    .#{$prefix}-navbar-menu-list{
+    .#{$prefix}-navbar-menu-list {
       width: var(--#{$prefix}-navbar-side-menu-collapse-width);
 
       .#{$prefix}-navbar-menu-item,
@@ -126,11 +126,11 @@
     flex-grow: 1;
   }
 
-  .#{$prefix}-navbar-menu-item-bottom{
+  .#{$prefix}-navbar-menu-item-bottom {
     @include sdds-navbar-menu-item;
     border-top: 1px solid var(--sdds-nav-item-divider-mobile);
   }
-  
+
   .#{$prefix}-navbar-menu-popover {
     background: var(--#{$prefix}-navbar-side-menu-background);
     min-width: var(--#{$prefix}-navbar-popover-width);
@@ -139,13 +139,13 @@
     .#{$prefix}-navbar-icon-button {
       display: none;
     }
-  
+
     .#{$prefix}-navbar-menu-item,
     .#{$prefix}-navbar-menu-item-dropdown {
       @include sdds-navbar-menu-item;
       height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
       border-bottom: 0;
-      padding: var(--#{$prefix}-navbar-popover-menu-item-padding);      
+      padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
     }
 
     .#{$prefix}-navbar-menu-item {
@@ -153,7 +153,7 @@
         font-weight: bold;
       }
     }
-  
+
     .#{$prefix}-navbar-menu-item-dropdown a,
     .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu,
     .#{$prefix}-navbar-menu-item-dropdown.opened .#{$prefix}-navbar-menu__dropdown-menu,
@@ -162,7 +162,8 @@
     }    
 
     .#{$prefix}-navbar-menu-item-dropdown,
-    .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu {
+    .#{$prefix}-navbar-menu-item-dropdown
+      .#{$prefix}-navbar-menu__dropdown-menu {
       visibility: visible;
       height: auto;
     }
@@ -175,13 +176,13 @@
       &.hover {
         background: transparent;
       }
-      
-      .#{$prefix}-navbar-menu-item-dropdown-parent{
+
+      .#{$prefix}-navbar-menu-item-dropdown-parent {
         border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
         height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
         padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
         font-weight: bold;
-        
+
         &:hover,
         &.hover {
           background: var(--#{$prefix}-nav-item-background-selected);
@@ -203,7 +204,7 @@
         }
 
         &.active,
-        &:active{
+        &:active {
           border-left: none;
           background: transparent;
           &:hover,
@@ -213,6 +214,5 @@
         }
       }
     }
-  
   }
 }
