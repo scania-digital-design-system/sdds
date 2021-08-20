@@ -18,10 +18,17 @@ export const Icons = IconTemplate.bind({});
 
 Icons.args = {
   icon: 'scania-truck',
-  size: '64'
+  size: 64
 }
 
 Icons.argTypes = {
   icon: { control: {type: 'text'}, description: 'Change icon to show'},
-  size: { control: {type: 'range', min: 4, max: 100}, description: 'Change font-size based on rem'}
+  size: { 
+    control: { 
+      type: 'range', 
+      min: 4,
+      max: 100,
+      step: 4
+    }, description: 'Change font-size based on rem'
+  }
 }
