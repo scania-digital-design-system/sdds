@@ -33,21 +33,24 @@ const dividerTemplate = ({...Basic}) => {
 
 export const Basic = dividerTemplate.bind({});
 
+Basic.args = {
+  type: 'dark',
+  width: 400,
+}
+
 Basic.argTypes = {
   width: {
     name: 'Width',
     control: {
     type: 'range',
     min: 100,
-    max: 800
+    max: 800,
+    step: 100
    }
   }
 }
 
-Basic.args = {
-  type: 'dark',
-  width: '400',
-}
+
 
 
 const dividerVerticalTemplate = ({...Vertical}) => {
@@ -67,14 +70,15 @@ Vertical.argTypes = {
     control: {
       type: 'range',
       min: 100,
-      max: 800
+      max: 800,
+      step: 100
     }
   }
 };
 
 Vertical.args = {
   type: 'dark',
-  height: '200'
+  height: 200
 };
 
 const dividerBorderTemplate = ({...Border}) => {
@@ -131,8 +135,8 @@ Border.args = {
   direction: 'top',
   type: 'dark',
   bgColor: '#E5E5E5',
-  width: '400',
-  height: '200',
+  width: 400,
+  height: 200,
 }
 
 
