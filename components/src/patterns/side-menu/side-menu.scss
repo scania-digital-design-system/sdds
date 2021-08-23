@@ -72,7 +72,9 @@
     }
   }
 
-  @media (min-width: $grid-lg) {
+  @media all and (min-width: $grid-lg) {
+    visibility: visible;
+    opacity: 1;
     box-shadow: none;
     border-right: 1px solid var(--#{$prefix}-navbar-side-menu-border);
     position: static;
@@ -85,11 +87,15 @@
 
 // In mobile, popover and minimize menu will not visible
 .#{$prefix}-navbar-menu-popover,
-.#{$prefix}-navbar-menu-hide-on-mobile {
+.#{$prefix}-navbar-side-menu .#{$prefix}-navbar-menu-item.#{$prefix}-navbar-menu-hide-on-mobile {
   display: none;
 }
 
-@media (min-width: $grid-lg) {
+@media all and (min-width: $grid-lg) {
+  .#{$prefix}-navbar-side-menu .#{$prefix}-navbar-menu-item.#{$prefix}-navbar-menu-hide-on-mobile {
+    display: flex;
+  }
+  
   .#{$prefix}-sidebar-collapse {
     .#{$prefix}-navbar-menu-list .#{$prefix}-navbar-menu-item a,
     .#{$prefix}-navbar-menu-item-bottom a,
@@ -149,12 +155,11 @@
     }
 
     .#{$prefix}-navbar-menu-item-dropdown a,
-    .#{$prefix}-navbar-menu-item-dropdown
-      .#{$prefix}-navbar-menu__dropdown-menu,
-    .#{$prefix}-navbar-menu-item-dropdown.opened
-      .#{$prefix}-navbar-menu__dropdown-menu {
+    .#{$prefix}-navbar-menu-item-dropdown .#{$prefix}-navbar-menu__dropdown-menu,
+    .#{$prefix}-navbar-menu-item-dropdown.opened .#{$prefix}-navbar-menu__dropdown-menu,
+    .#{$prefix}-navbar-side-menu .#{$prefix}-navbar-menu-item.#{$prefix}-navbar-menu-hide-on-mobile {
       display: block;
-    }
+    }    
 
     .#{$prefix}-navbar-menu-item-dropdown,
     .#{$prefix}-navbar-menu-item-dropdown
