@@ -1,6 +1,5 @@
 :root,
 html {
-  --#{$prefix}-modal-backdrop: rgba(0 0 0 / 0.5);
+  --#{$prefix}-modal-backdrop: rgba(0 0 0 / 0.4);
   --#{$prefix}-modal-bg: #{get-colour(white)};
 }
-

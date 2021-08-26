@@ -1,9 +1,10 @@
 :root,
-html{
-  --#{$prefix}-navbar-side-menu-border: #{get-colour(grey-100)};
+html {
+  --#{$prefix}-navbar-side-menu-border: #{get-colour(grey-300)};
   --#{$prefix}-navbar-side-menu-background: #{get-colour(white)};
   --#{$prefix}-navbar-popover-width: 192px;
   --#{$prefix}-navbar-side-menu-collapse-width: 68px;
   --#{$prefix}-navbar-side-menu-item-popover-height: 48px;
-  --#{$prefix}-navbar-popover-menu-item-padding: var(--sdds-spacing-element-16) var(--sdds-spacing-element-24);
+  --#{$prefix}-navbar-popover-menu-item-padding: var(--sdds-spacing-element-16)
+    var(--sdds-spacing-element-24);
 }
