@@ -31,7 +31,8 @@
     "watch-sb": "start-storybook -p 1339 --no-dll",
     "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
-    "readme": "stencil build --docs-readme"
+    "readme": "stencil build --docs-readme",
+    "prepare": "cd .. && husky install components/.husky"
   },
   "husky": {
     "hooks": {
