@@ -21,10 +21,7 @@
     "build": "npm run babel && npm run stencil --",
     "stencil": "stencil build --docs-json dist/data/docs.json",
     "babel": "mkdirp .build && babel src/helpers/index.js --out-file .build/index.js",
-    "pre-commit": "npm run lint",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "npm run lint -- --fix",
-    "lint-debug": "npm run lint -- --debug",
     "test": "stencil test --spec --verbose",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
@@ -33,7 +30,8 @@
     "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
     "readme": "stencil build --docs-readme",
-    "prepare": "cd .. && husky install components/.husky"
+    "prepare": "cd .. && husky install components/.husky",
+    "pre-commit": "npm run lint"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
