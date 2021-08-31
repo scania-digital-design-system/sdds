@@ -48,6 +48,8 @@ $shodow-c: rgba(22, 65, 127, 0.2);
 @mixin thumbactive() {
   box-shadow: 0px 0px 1px 10px $shodow-c;
   cursor: grabbing;
+  width: 20px;
+  height: 20px;
 }
 
 .container {
@@ -149,6 +151,7 @@ div .range-slider {
     @include thumb;
   }
   &:active::-webkit-slider-thumb {
+    margin-top: -7.5px;
     @include thumbactive;
   }
 
@@ -223,26 +226,28 @@ button {
 }
 .spantext {
   position: absolute;
-  width: 30px;
-  height: 20px;
+  width: 15px;
+  height: 10px;
   background-color: var(--sdds-slider-span-color);
   color: var(--sdds-slider-track-color);
   text-align: center;
   border-radius: 2px;
   border-color: var(--sdds-slider-span-color);
   transform: translate(var(--val));
-  bottom: 15px;
-  left: calc((var(--val) * 1px) - 10px);
-  padding-top: 5px;
+  bottom: 10px;
+  left: calc(((var(--val) - (var(--val) * 0.15)) * 1px));
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 8px;
 }
 
 .spantrianlge {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   background-color: var(--sdds-slider-span-color);
   border-color: var(--sdds-slider-span-color);
   clip-path: polygon(0 0, 100% 0, 50% 50%);
   bottom: 5px;
-  left: calc((var(--val) * 1px));
+  left: calc(((var(--val) - (var(--val) * 0.15)) * 1px) + 5px);
 }
