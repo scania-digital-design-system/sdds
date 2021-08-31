@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="sdds">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Basic SDDS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="html.css">
+  <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
+  <script src="node_modules/@scania/components/dist/core.js"></script>
+</head>
+
+<body class="sdds">
+  <sdds-theme></sdds-theme>
+  <div class="sdds-navbar-overlay expanded"></div>
+
+  <nav class="sdds-navbar">
+    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer expanded">
+      <span class="sdds-icon-drawer"></span>
+    </button>
+    <div class="sdds-navbar-application-brand">Application</div>
+
+    <div class="sdds-navbar-scania-brand"></div>
+  </nav>
+
+  <div class="sdds-push sdds-demo-container">
+    <div class="sdds-sidebar expanded">
+      <div class="sdds-navbar-side-menu expanded">
+        <ul class="sdds-navbar-menu-list">
+          <li class="sdds-navbar-menu-item sdds-navbar-menu-hover">
+            <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+            <a class="sdds-navbar-menu-item-link" href="#"> 
+            Item 1 
+            </a>
+          </li>
+          <li class="sdds-navbar-menu-item-dropdown sdds-navbar-menu-hover" onClick="dropdownClick(this)">
+            <div class="sdds-navbar-menu-item-dropdown-parent">
+              <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                <span class="sdds-menu-item-dropdown-text">Item 3</span>
+                <span class="sdds-icon-arrow"></span>
+              </a>
+            </div>
+            <ul class="sdds-navbar-menu__dropdown-menu">
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3-2</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-3</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-4 long label...</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile"  onClick="clickCollapse()">
+          <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>
+          <a id="collapse-btn" class="sdds-navbar-menu-item-link" href="#"> 
+          Collapse
+          </a>
+        </div>
+      </div>
+      <div id="popover" class="sdds-navbar-menu-popover" style="display:none;position:fixed;"></div>
+    </div>
+
+    <div class="sdds-container-fluid sdds-content">
+      <div class="sdds-row">
+        <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+        <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+        <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+        <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+
+      <div class="sdds-footer sdds-col-max-12">
+        <div class="sdds-footer-top sdds-container-fluid">
+          <div class="sdds-row">
+            <div class="sdds-footer-top-col sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
+              <div class="sdds-footer-title opened">
+                <span>Title 1</span>
+                <span class="sdds-footer-top-icon">
+                  <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
+                  </svg>
+                </span>
+              </div>
+              <ul class="sdds-footer-main-links opened">
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+              </ul>
+            </div>
+
+            <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
+              <div class="sdds-footer-title">
+                <span>Title 2</span>
+                <span class="sdds-footer-top-icon">
+                  <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
+                  </svg>
+                </span>
+              </div>
+              <ul class="sdds-footer-main-links">
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+                <li><a href="#">Legal link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sdds-footer-main">
+          <ul class="sdds-footer-main-links">
+            <li><a href="#">Legal link</a></li>
+            <li><a href="#">Legal link</a></li>
+            <li><a href="#">Legal link</a></li>
+          </ul>
+          <ul class="sdds-footer-social-links">
+            <li><a href="#">Social 1</a></li>
+            <li><a href="#">Social 1</a></li>
+            <li><a href="#">Social 1</a></li>
+          </ul>
+          <div class="sdds-footer-main-brand">
+            <p>Copyright &copy; 2021 Scania</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function clickCollapse(){
+      document.querySelector(".sdds-sidebar").classList.toggle('sdds-sidebar-collapse');
+      return false;
+    }
+
+    var popover = document.querySelector('#popover');
+    popover.addEventListener("mouseleave", hidePopover, false);
+
+    var sidebar = document.querySelector('.sdds-sidebar');
+
+    var menus = document.querySelectorAll('.sdds-navbar-menu-hover');
+    menus.forEach(function(menu){
+      menu.addEventListener("mouseenter", onHoverMenu, false);
+      menu.addEventListener("mouseleave", onLeaveMenu, false); 
+    });
+
+    function onLeaveMenu(event){
+      // hide popover if mouse position outside of popover.getBoundingClientRect()
+    }
+
+    function hidePopover(event){
+      if(!sidebar.classList.contains('sdds-sidebar-collapse')) return;
+
+      popover.style.display = 'none';
+      popover.innerHTML='';
+    }
+
+    function onHoverMenu(event){
+      if(!sidebar.classList.contains('sdds-sidebar-collapse')) return;
+      
+      popover.innerHTML='';
+
+      var elem = event.target;
+      var posX = elem.getBoundingClientRect().left + elem.offsetWidth + 2;
+      var posY = elem.getBoundingClientRect().top;
+      var classes = event.target.className;
+      var newElem = document.createElement('div');
+  
+      newElem.className = classes;
+      newElem.innerHTML = elem.innerHTML;
+
+      popover.appendChild(newElem);
+      popover.style.top = posY + 'px';
+      popover.style.left = posX + 'px';
+      popover.style.display = 'block';
+
+    }
+
+    function dropdownClick(event){
+      // console.log(event)
+      event.classList.toggle('opened');
+    }
+  </script>
+
+</body>
+
+</html>
+
+<!-- <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:0;">
+        <div class="sdds-navbar-menu-item"> 
+          <a class="sdds-navbar-menu-item-link" href="#"> 
+          Item 1 
+          </a>
+        </div>
+      </div> -->

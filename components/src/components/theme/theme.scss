@@ -16,6 +16,62 @@
 
 // Patterns
 @import '../../patterns/header/header.scss';
+@import '../../patterns/side-menu/side-menu.scss';
+@import '../../patterns/footer/footer.scss';
+
+html.#{$prefix},
+body.#{$prefix},
+.#{$prefix}-body {
+  height: 100%;
+  padding:0;
+
+  .#{$prefix}-push {
+    padding-top: var(--sdds-header-height);
+    align-items: stretch;
+    height: 100%;
+    overflow:hidden;
+  }
+  .#{$prefix}-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height:100%;
+    z-index: 100;
+  }
+  .#{$prefix}-navbar-menu-popover {
+    display:none;
+  }
+  .#{$prefix}-footer {
+    margin-top: var(--sdds-spacing-around-footer);    
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .#{$prefix}-content {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top:var(--sdds-spacing-element-16);
+    overflow-y:auto;
+  }
+
+  @media all and (min-width: 992px) {
+    .#{$prefix}-sidebar.expanded {
+      position: relative;
+    }
+    .#{$prefix}-navbar-menu-popover {
+      display:block;
+    }
+    .#{$prefix}-content {
+      display: flex;
+      flex-direction: column;
+      > .#{$prefix}-row {
+        flex-grow: 1;
+      }
+      > .#{$prefix}-footer {
+        flex-basis: auto;
+      }
+    }
+  }
+}
 
 // data environment
 body[data-env]:before {
