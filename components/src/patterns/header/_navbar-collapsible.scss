@@ -51,24 +51,27 @@
   }
 }
 
-@media all and (min-width: 769px) {
-  .#{$prefix}-navbar-collapsible {
-    transition: none;
-    position: relative;
-    flex-grow: 1;
-    flex-direction: row;
-    overflow-y: unset;
-    width: auto;
-    height: var(--#{$prefix}-header-height);
-    max-height: var(--#{$prefix}-header-height);
-    top: 0;
-    box-shadow: none;
-    background: transparent;
-    color: var(--#{$prefix}-header-text-colour);
-    visibility: visible;
-    left: 0;
-    opacity: 1;
+@media all and (min-width: $grid-lg) {
+  .#{$prefix}-navbar{
+    .#{$prefix}-navbar-collapsible {
+      transition: none;
+      position: relative;
+      flex-grow: 1;
+      flex-direction: row;
+      overflow-y: unset;
+      width: auto;
+      height: var(--#{$prefix}-header-height);
+      max-height: var(--#{$prefix}-header-height);
+      top: 0;
+      box-shadow: none;
+      background: transparent;
+      color: var(--#{$prefix}-header-text-colour);
+      visibility: visible;
+      left: 0;
+      opacity: 1;
+    }
   }
+  
   .#{$prefix}-navbar-overlay {
     display: none;
   }

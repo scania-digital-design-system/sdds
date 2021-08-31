@@ -42,7 +42,9 @@
 @import "../components/badges";
 // Patterns
 
-@import "../patterns/header";
+@import '../patterns/header';
+@import '../patterns/side-menu.scss';
+@import '../patterns/footer';
 
 :root,
 html {
