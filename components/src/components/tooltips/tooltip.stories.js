@@ -4,16 +4,28 @@ export default {
     tooltipPosition: {
       control: {
         type: 'select',
-        options:['bottom-start', 'bottom', 'bottom-end', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end']
+        options: [
+          'bottom-start',
+          'bottom',
+          'bottom-end',
+          'top-start',
+          'top',
+          'top-end',
+          'left-start',
+          'left',
+          'left-end',
+          'right-start',
+          'right',
+          'right-end'
+        ]
       },
       defaultValue: 'bottom',
       description: 'Position of the tooltip'
-    },
+    }
   }
 };
 
-const ComponentTooltip = ({...Basic}) => {
-
+const ComponentTooltip = ({ ...Basic }) => {
   return `
   <sdds-theme></sdds-theme>
 
@@ -27,10 +39,12 @@ const ComponentTooltip = ({...Basic}) => {
       </div>
     </div>
   </div>
-  `
+  `;
 };
 
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {
   text: 'Lorem ipsum dolor sit amet',
-}
+  offsetSkidding: '0',
+  offsetDistance: '-50'
+};
