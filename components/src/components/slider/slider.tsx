@@ -87,7 +87,7 @@ export class Slider {
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'continuousValue') {
       this.spantext.innerHTML = value.toString();
-      this.spantext.style.left = value - 10 + 'px';
+      this.spantext.style.left = value - value * 0.15 + 'px';
       this.leftRangeInputEl.value = value.toString();
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'dualPoint') {
@@ -135,9 +135,9 @@ export class Slider {
   inputContinuous() {
     return (
       <div style={this.rangeStyle} class="container">
-        <button onClick={this.handleOnClickPlus}>
+        <button onClick={this.handleOnClickMinus}>
           {' '}
-          <span>+</span>{' '}
+          <span>-</span>{' '}
         </button>
         <div style={{ height: '15px' }}>
           <input
@@ -155,9 +155,9 @@ export class Slider {
             <span class="spantrianlge"></span>
           </div>
         </div>
-        <button onClick={this.handleOnClickMinus}>
+        <button onClick={this.handleOnClickPlus}>
           {' '}
-          <span>-</span>{' '}
+          <span>+</span>{' '}
         </button>
       </div>
     );
