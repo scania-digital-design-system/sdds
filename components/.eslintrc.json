@@ -12,37 +12,34 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "no-trailing-spaces": "warn",
-    "max-len": "off",
-    "no-tabs": "off",
+    "no-trailing-spaces": "off", //TODO: turn on
+    "max-len": "off", //TODO: Set limit ?
     "linebreak-style": "off",
     "no-use-before-define": "off",
-    "import/no-extraneous-dependencies": "off", // solving redux dependency issue
+    "import/no-extraneous-dependencies": "off", //TODO: Turn this rule on
     "import/prefer-default-export": "off",
-    "arrow-parens": "off",
+    "arrow-parens": "off", //TODO: Turn on
     "no-undef": "off",
-    "no-underscore-dangle": "off",
-    "import/no-unresolved": "off",
-    "no-param-reassign": "off", // check this
-    "no-return-assign": "off",
-    "class-methods-use-this": "off", // check this
-    "array-callback-return": "off", // check this
-    "no-loop-func": "off", // check this
-    "no-self-assign": "off", // check this
-    "consistent-return": "off", // check this
-    "no-unused-expressions": "off", // check this
-    "no-restricted-syntax": "off", // check this - disables for-in related error
-    "global-require": "off", // check this
-    "import/no-dynamic-require": "off",
-    "func-names": "off", // check this, you shouldn't use unnamed functions
+    "no-underscore-dangle": "off", //TODO: turn this rule on
+    "import/no-unresolved": "off", //TODO: check if we can use plugin for this rule
+    "no-param-reassign": "off", // check this[ "off", { "props": false }]
+    "no-return-assign": "off", //TODO: Turn on this rule
+    "class-methods-use-this": "off", //TODO: Check if this can be turned on
+    "array-callback-return": "off", //TODO: Check this if needed ["warn", { "checkForEach": false }]
+    "no-loop-func": "warn", // check this
+    "no-self-assign": "warn", // check this
+    "consistent-return": "off",
+    "no-unused-expressions": "off", //TODO: Turn on ?
+    "no-restricted-syntax": "off", //TODO: check this - disables for-in related error
+    "import/no-dynamic-require": "warn",
+    "func-names": "off", //TODO: Turn this on? you shouldn't use unnamed functions
     "no-console": "off",
-    "no-useless-escape": "off",
-    "prefer-destructuring": "off",
-    "prettier/prettier": "off",
-    "comma-dangle": "off",
-    "object-curly-spacing": "off",
-    "semi": "off",
-    "object-shorthand": "off",
+    "no-useless-escape": "warn",
+    "prefer-destructuring": "off", //TODO: Turn this on?
+    "comma-dangle": "off", //TODO: Turn on
+    "object-curly-spacing": "off", //TODO: Turn on
+    "semi": "off", //TODO: turn on
+    "object-shorthand": "warn",
     "space-before-blocks": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
@@ -66,7 +63,7 @@
     "prefer-arrow-callback": "off",
     "arrow-body-style": "off",
     "prefer-template": "off",
-    "no-var": "off",
+    "no-var": "off", //TODO: Turn on?
     "import/order": "off",
     "array-bracket-spacing": "off",
     "prefer-const": "off",
@@ -100,5 +97,6 @@
     "import/first": "off",
     "quote-props": "off",
     "radix": "off"
+    // "prettier/prettier": "warn", //TODO: See if this can be turned on after rest is done 
   }
 }
