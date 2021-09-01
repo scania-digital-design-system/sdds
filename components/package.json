@@ -17,21 +17,22 @@
   },
   "scripts": {
     "start": "concurrently \"npm:watch-*\"",
-    "watch-stencil": "npm run build -- --watch",
     "build": "npm run babel && npm run stencil --",
+    "watch-stencil": "npm run build -- --watch",
     "stencil": "stencil build --docs-json dist/data/docs.json",
     "babel": "mkdirp .build && babel src/helpers/index.js --out-file .build/index.js",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "stencil test --spec --verbose",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
-    "prepublishOnly": "npm run build",
     "watch-sb": "start-storybook -p 1339 --no-dll",
     "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
     "readme": "stencil build --docs-readme",
+    "new": "stencil generate",
+    "prepublishOnly": "npm run build",
     "prepare": "cd .. && husky install components/.husky",
-    "pre-commit": "npm run lint"
+    "test": "stencil test --spec --verbose",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "pre-commit": "npm run lint",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -82,6 +83,7 @@
     "redux": "4.0.4",
     "rollup-plugin-dotenv": "0.2.0",
     "storybook-addon-themes": "^6.1.0",
+    "tslint-ionic-rules": "0.0.21",
     "typescript": "^4.3.5"
   },
   "license": "MIT",
