@@ -20,6 +20,11 @@
     "spaced-comment": "off", //TODO: Turn on
     "comma-spacing": "off", //TODO: turn on
     "arrow-spacing": "off", //TODO: turn on
+    "no-extra-semi": "off", //TODO Turn on
+    "no-multi-spaces": "off", // TODO: turn on
+    "camelcase": "off", //TODO: turn on
+    "array-bracket-spacing": "off", //TODO: Turn on
+    "template-curly-spacing": "off",
     "no-var": "off", //TODO: Turn on
     "max-len": "off", //TODO: Set limit ?
     "padded-blocks": "off", // TODO: turn on
@@ -65,21 +70,16 @@
     "eqeqeq": "off", // TODO: Turn on
     "operator-linebreak": "off", // Maybe turn on
     "import/order": "off", // Maybe turn on
-    "array-bracket-spacing": "warn",
-    "prefer-const": "off",
-    "no-extra-semi": "off",
-    "camelcase": "off",
-    "template-curly-spacing": "off",
-    "no-plusplus": "off",
-    "function-paren-newline": "off",
-    "wrap-iife": "off",
-    "no-empty-pattern": "off",
-    "no-multi-spaces": "off",
-    "import/newline-after-import": "off",
-    "vars-on-top": "off",
-    "no-shadow": "off",
-    "block-scoped-var": "off",
-    "brace-style": "off",
+    "prefer-const": "off", // TODO: Turn on
+    "no-plusplus": "off", //Turn off
+    "function-paren-newline": "off", //Turn off
+    "wrap-iife": "off",//TODO: Maybe turn on
+    "no-empty-pattern": "off", //TODO: Turn on
+    "import/newline-after-import": "off", //TODO: Turn on
+    "vars-on-top": "off", //TODO: turn on
+    "no-shadow": "off", // TODO: maybe turn on
+    "block-scoped-var": "off", //TODO: Turn on
+    "brace-style": "error",
     "no-array-constructor": "off",
     "prefer-object-spread": "off",
     "no-nested-ternary": "off",
