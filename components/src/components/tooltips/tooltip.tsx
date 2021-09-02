@@ -13,8 +13,9 @@ export class Tooltip {
   @Prop() selector = '';
   @Prop() show: boolean = false;
   @Prop() placement: Placement = 'bottom';
-  @Prop() offsetSkidding: string = '0';
-  @Prop() offsetDistance: string = '8';
+  @Prop() offsetSkidding: number = 0;
+  @Prop() offsetDistance: number = 8;
+
   @State() target: any;
 
   tooltip!: HTMLInputElement;
@@ -22,7 +23,6 @@ export class Tooltip {
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
     const _this = this;
-
     createPopper(this.target, this.tooltip, {
       placement: _this.placement,
       modifiers: [
@@ -62,10 +62,7 @@ export class Tooltip {
         {
           name: 'offset',
           options: {
-            offset: [
-              parseInt(this.offsetSkidding),
-              parseInt(this.offsetDistance)
-            ]
+            offset: [this.offsetSkidding, this.offsetDistance]
           }
         }
       ]

@@ -32,8 +32,7 @@ const ComponentTooltip = ({ ...Basic }) => {
   <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
-
-        <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-1" text='${Basic.text}'></sdds-tooltip>
+        <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-1" text='${Basic.text}' offset-distance='${Basic.offsetDistance}' offset-skidding='${Basic.offsetSkidding}' ></sdds-tooltip>
         <sdds-button type="primary" text="Button" id="button-1"></sdds-button>
 
       </div>
@@ -45,6 +44,6 @@ const ComponentTooltip = ({ ...Basic }) => {
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {
   text: 'Lorem ipsum dolor sit amet',
-  offsetSkidding: '0',
-  offsetDistance: '-50'
+  offsetDistance: 20,
+  offsetSkidding: 30
 };
