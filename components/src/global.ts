@@ -23,7 +23,7 @@ const icons = {};
 const fa_icons = {};
 const defaultTheme = { light: { icons: {}, components: {}, colors: {} } };
 
-//FIXME: We don't use FA_icons
+// FIXME: We don't use FA_icons
 Object.keys(fa_icons).map(key => {
   const item = fa_icons[key];
   // TODO: Would like to combine these two rows somehow...

@@ -12,8 +12,25 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "indent": "off", //TODO: turn on
+    "quotes": "off", //TODO: Turn on, single or double quotes?
     "no-trailing-spaces": "off", //TODO: turn on
+    "key-spacing": "off", //TODO: Turn on
+    "keyword-spacing": "off", //TODO: Turn on
+    "spaced-comment": "off", //TODO: Turn on
+    "comma-spacing": "off", //TODO: turn on
+    "arrow-spacing": "off", //TODO: turn on
+    "no-var": "off", //TODO: Turn on
     "max-len": "off", //TODO: Set limit ?
+    "padded-blocks": "off", // TODO: turn on
+    "no-multiple-empty-lines": "off", //TODO: Turn on
+    "eol-last": "off", //TODO: Turn on
+    "space-before-function-paren": "off", //TODO: Turn on
+    "lines-between-class-members": "off", // TODO:  Turn on
+    "implicit-arrow-linebreak": "off", // TODO: Turn on
+    "prefer-arrow-callback": "off", // TODO: Maybe turn on
+    "arrow-body-style": "off", // TODO: Maybe turn on
+    "prefer-template": "off", //TODO: turn on
     "linebreak-style": "off",
     "no-use-before-define": "off",
     "import/no-extraneous-dependencies": "off", //TODO: Turn this rule on
@@ -39,33 +56,16 @@
     "comma-dangle": "off", //TODO: Turn on
     "object-curly-spacing": "off", //TODO: Turn on
     "semi": "off", //TODO: turn on
-    "object-shorthand": "warn",
-    "space-before-blocks": "off",
-    "key-spacing": "off",
-    "keyword-spacing": "off",
-    "import/extensions": "off",
-    "quotes": "off",
-    "space-infix-ops": "off",
-    "object-curly-newline": "off",
-    "spaced-comment": "off",
-    "comma-spacing": "off",
-    "arrow-spacing": "off",
-    "indent": "off",
-    "dot-notation": "off",
-    "eqeqeq": "off",
-    "operator-linebreak": "off",
-    "padded-blocks": "off",
-    "no-multiple-empty-lines": "off",
-    "eol-last": "off",
-    "space-before-function-paren": "off",
-    "lines-between-class-members": "off",
-    "implicit-arrow-linebreak": "off",
-    "prefer-arrow-callback": "off",
-    "arrow-body-style": "off",
-    "prefer-template": "off",
-    "no-var": "off", //TODO: Turn on?
-    "import/order": "off",
-    "array-bracket-spacing": "off",
+    "object-shorthand": "off", //TODO: Turn on
+    "space-before-blocks": "off", //TODO: turn on
+    "import/extensions": "off", //TODO: off for now
+    "space-infix-ops": "off", //TODO: Turn on
+    "object-curly-newline": "off", //TODO: Turn on
+    "dot-notation": "off", // TODO: off
+    "eqeqeq": "off", // TODO: Turn on
+    "operator-linebreak": "off", // Maybe turn on
+    "import/order": "off", // Maybe turn on
+    "array-bracket-spacing": "warn",
     "prefer-const": "off",
     "no-extra-semi": "off",
     "camelcase": "off",
