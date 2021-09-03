@@ -1,13 +1,13 @@
 :root,
-html{
-  --#{$prefix}-accordion-colour: #{get-colour(grey-900)};
-  --#{$prefix}-accordion-border: #{get-colour(grey-100)};
+html {
+  --#{$prefix}-accordion-border: #{get-colour(grey-300)};
   --#{$prefix}-accordion-bg: transparent;
   --#{$prefix}-accordion-bg-hover: #{get-colour(white)};
   --#{$prefix}-accordion-bg-focus: transparent;
   --#{$prefix}-accordion-bg-active: #{get-colour(grey-100)};
-  --#{$prefix}-accordion-border-focus: #{get-colour(grey-300)};
-  --#{$prefix}-accordion-colour-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-accordion-colour: #{get-colour(grey-958)};
+  --#{$prefix}-accordion-border-focus: #{get-colour(grey-500)};
+  --#{$prefix}-accordion-colour-disabled: #{get-colour(grey-400)};
 
   .#{$prefix}-on-white-bg {
     --#{$prefix}-accordion-bg-hover: #{get-colour(grey-50)};

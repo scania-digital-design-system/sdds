@@ -17,28 +17,28 @@
   }
 
   &-success {
-    border-left-color: var(--sdds-green-500);
+    border-left-color: var(--sdds-positive);
     .#{$prefix}-toast-icon svg {
-      background: var(--sdds-green-500);
+      background: var(--sdds-positive);
     }
   }
   &-info {
-    border-left-color: var(--sdds-blue-500);
+    border-left-color: var(--sdds-information);
     .#{$prefix}-toast-icon svg {
-      background: var(--sdds-blue-500);
+      background: var(--sdds-information);
     }
   }
 
   &-warning {
-    border-left-color: var(--sdds-orange-500);
+    border-left-color: var(--sdds-warning);
     .#{$prefix}-toast-icon svg {
-      background: var(--sdds-orange-500);
+      background: var(--sdds-warning);
     }
   }
   &-error {
-    border-left-color: var(--sdds-red-500);
+    border-left-color: var(--sdds-negative);
     .#{$prefix}-toast-icon svg {
-      background: var(--sdds-red-500);
+      background: var(--sdds-negative);
     }
   }
 
