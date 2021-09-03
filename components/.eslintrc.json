@@ -12,8 +12,8 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "indent": "off", //TODO: turn on
-    "quotes": "off", //TODO: Turn on, single or double quotes?
+    "indent": "error", //TODO: turn on
+    "quotes": "error", //TODO: Turn on, single or double quotes?
     "no-trailing-spaces": "off", //TODO: turn on
     "key-spacing": "off", //TODO: Turn on
     "keyword-spacing": "off", //TODO: Turn on
@@ -79,7 +79,7 @@
     "vars-on-top": "off", //TODO: turn on
     "no-shadow": "off", // TODO: maybe turn on
     "block-scoped-var": "off", //TODO: Turn on
-    "brace-style": "error",
+    "brace-style": "warn", // TODO: turn on
     "no-array-constructor": "off",
     "prefer-object-spread": "off",
     "no-nested-ternary": "off",
