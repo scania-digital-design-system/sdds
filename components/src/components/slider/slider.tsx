@@ -7,7 +7,10 @@ import { Component, h, State, Listen, Prop } from '@stencil/core';
 })
 export class Slider {
   @Prop() type: string;
-
+  @Prop() min: string = '0';
+  @Prop() max: string = '200';
+  @Prop() value: string = '100';
+  @Prop() value2: string = '200';
   spantext!: HTMLInputElement;
 
   leftRangeInputEl!: HTMLInputElement;
@@ -20,15 +23,15 @@ export class Slider {
   @State() rightRangeOldValue: string;
 
   @State() rangeStyle = {
-    '--min': '1',
-    '--max': '100',
-    '--val': '20'
+    '--min': this.min,
+    '--max': this.max,
+    '--val': this.value
   };
 
   @State() secondRangeStyle = {
-    '--min': '1',
-    '--max': '100',
-    '--val': '70'
+    '--min': this.min,
+    '--max': this.max,
+    '--val': this.value2
   };
 
   private handleOnClickPlus = () => {
@@ -124,7 +127,7 @@ export class Slider {
       <div style={this.rangeStyle} class="container">
         <input
           style={{ position: 'relative' }}
-          value="20"
+          value={`${this.rangeStyle['--val']}`}
           ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
           type="range"
         ></input>
@@ -141,7 +144,7 @@ export class Slider {
         </button>
         <div style={{ height: '15px' }}>
           <input
-            value="20"
+            value={`${this.rangeStyle['--val']}`}
             ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
             type="range"
           ></input>
@@ -166,8 +169,8 @@ export class Slider {
     return (
       <div class="container">
         <input
-          min="1"
-          max="100"
+          min={`${this.rangeStyle['--min']}`}
+          max={`${this.rangeStyle['--max']}`}
           value={`${this.rangeStyle['--val']}`}
           type="text"
           ref={(el) => (this.leftInputTextRef = el as HTMLInputElement)}
@@ -182,18 +185,18 @@ export class Slider {
           }}
         >
           <input
-            min="1"
-            max="100"
-            value="20"
+            min={`${this.rangeStyle['--min']}`}
+            max={`${this.rangeStyle['--max']}`}
+            value={`${this.rangeStyle['--val']}`}
             type="range"
             class="sliders"
             style={this.rangeStyle}
             ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
           ></input>
           <input
-            min="1"
-            max="100"
-            value="70"
+            min={`${this.secondRangeStyle['--min']}`}
+            max={`${this.secondRangeStyle['--max']}`}
+            value={`${this.secondRangeStyle['--val']}`}
             type="range"
             class="sliders"
             ref={(el) => (this.rightRangeInputEl = el as HTMLInputElement)}
@@ -201,8 +204,8 @@ export class Slider {
           ></input>
         </div>
         <input
-          min="1"
-          max="100"
+          min={`${this.secondRangeStyle['--min']}`}
+          max={`${this.secondRangeStyle['--max']}`}
           type="text"
           value={`${this.secondRangeStyle['--val']}`}
           ref={(el) => (this.rightInputTextRef = el as HTMLInputElement)}
@@ -214,6 +217,7 @@ export class Slider {
   }
 
   render() {
+    console.log('Range', this.rangeStyle);
     return (
       <div>
         {this.type === 'basic' && this.inputBasic()}

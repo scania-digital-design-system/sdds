@@ -4,7 +4,8 @@
   display: block;
 }
 
-$shodow-c: rgba(22, 65, 127, 0.2);
+$shodow-active: rgba(22, 65, 127, 0.2);
+$shodow-hover: rgba(22, 65, 127, 0.1);
 
 @mixin track($fill: 0) {
   box-sizing: border-box;
@@ -45,11 +46,13 @@ $shodow-c: rgba(22, 65, 127, 0.2);
   position: relative;
   z-index: 10;
 }
+@mixin thumbhover() {
+  box-shadow: 0px 0px 1px 10px $shodow-hover;
+  cursor: pointer;
+}
 @mixin thumbactive() {
-  box-shadow: 0px 0px 1px 10px $shodow-c;
+  box-shadow: 0px 0px 1px 10px $shodow-active;
   cursor: grabbing;
-  width: 20px;
-  height: 20px;
 }
 
 .container {
@@ -150,8 +153,12 @@ div .range-slider {
     );
     @include thumb;
   }
+  &:hover::-webkit-slider-thumb {
+    //margin-top: 10px;
+    @include thumbhover;
+  }
   &:active::-webkit-slider-thumb {
-    margin-top: -7.5px;
+    // margin-top: 10px;
     @include thumbactive;
   }
 
@@ -212,7 +219,7 @@ button {
   color: var(--sdds-slider-fill-color);
 
   &:active {
-    box-shadow: 0px 0px 4px 20px $shodow-c inset;
+    box-shadow: 0px 0px 4px 20px $shodow-active inset;
     border-radius: 50%;
   }
 }
