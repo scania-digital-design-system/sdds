@@ -42,9 +42,9 @@
 @import "../components/badges";
 // Patterns
 
-@import '../patterns/header';
-@import '../patterns/side-menu.scss';
-@import '../patterns/footer';
+@import "../patterns/header";
+@import "../patterns/side-menu.scss";
+@import "../patterns/footer";
 
 :root,
 html {
@@ -66,8 +66,7 @@ html {
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
-  color: $body-color;
-  color: Var(--sdds-grey-900);
+  color: var(--sdds-grey-958);
   margin: 0;
   flex: 1;
 
