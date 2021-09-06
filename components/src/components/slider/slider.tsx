@@ -8,9 +8,10 @@ import { Component, h, State, Listen, Prop } from '@stencil/core';
 export class Slider {
   @Prop() type: string;
   @Prop() min: string = '0';
-  @Prop() max: string = '200';
-  @Prop() value: string = '100';
-  @Prop() value2: string = '200';
+  @Prop() max: string = '100';
+  @Prop() value: string = '20';
+  @Prop() valueTwo: string = '70';
+
   spantext!: HTMLInputElement;
 
   leftRangeInputEl!: HTMLInputElement;
@@ -21,7 +22,7 @@ export class Slider {
 
   @State() leftRangeOldValue: string;
   @State() rightRangeOldValue: string;
-
+  @State() minDiffValue: number = 10;
   @State() rangeStyle = {
     '--min': this.min,
     '--max': this.max,
@@ -31,7 +32,7 @@ export class Slider {
   @State() secondRangeStyle = {
     '--min': this.min,
     '--max': this.max,
-    '--val': this.value2
+    '--val': this.valueTwo
   };
 
   private handleOnClickPlus = () => {
@@ -90,11 +91,10 @@ export class Slider {
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'continuousValue') {
       this.spantext.innerHTML = value.toString();
-      this.spantext.style.left = value - value * 0.15 + 'px';
       this.leftRangeInputEl.value = value.toString();
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'dualPoint') {
-      if (value2 - value > 10) {
+      if (value2 - value > this.minDiffValue) {
         elemnetRef?.classList.remove('input-text-error');
         this.leftRangeInputEl.value = value.toString(); // update the left input incase change ot not
         this.rightRangeInputEl.value = value2.toString(); // update the right input incase change ot not
@@ -128,6 +128,8 @@ export class Slider {
         <input
           style={{ position: 'relative' }}
           value={`${this.rangeStyle['--val']}`}
+          min={`${this.rangeStyle['--min']}`}
+          max={`${this.rangeStyle['--max']}`}
           ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
           type="range"
         ></input>
@@ -136,6 +138,7 @@ export class Slider {
   }
 
   inputContinuous() {
+    // if input are wrong as value less than min or more than max??
     return (
       <div style={this.rangeStyle} class="container">
         <button onClick={this.handleOnClickMinus}>
@@ -144,6 +147,8 @@ export class Slider {
         </button>
         <div style={{ height: '15px' }}>
           <input
+            min={`${this.rangeStyle['--min']}`}
+            max={`${this.rangeStyle['--max']}`}
             value={`${this.rangeStyle['--val']}`}
             ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
             type="range"
@@ -217,7 +222,6 @@ export class Slider {
   }
 
   render() {
-    console.log('Range', this.rangeStyle);
     return (
       <div>
         {this.type === 'basic' && this.inputBasic()}

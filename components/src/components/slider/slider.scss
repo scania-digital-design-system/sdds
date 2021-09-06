@@ -33,7 +33,13 @@ $shodow-hover: rgba(22, 65, 127, 0.1);
   height: var(--sdds-slider-track-height);
   background: var(--sdds-slider-fill-color);
 }
-
+@mixin spanValues() {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --leftspan: calc(var(--sdds-slider-track-width) * var(--ratio));
+  background-color: var(--sdds-slider-span-color);
+  color: var(--sdds-slider-track-color);
+}
 @mixin thumb() {
   box-sizing: border-box;
   border: none;
@@ -80,12 +86,11 @@ div .range-slider {
   }
 
   --range: calc(var(--max) - var(--min));
-  --minrange: calc((var(--maxval) - var(--minval)));
   --ratio: calc((var(--val) - var(--min)) / var(--range));
-  --sx: calc(
-    0.5 *#{var(--sdds-slider-thumb-diameter)} + var(--ratio) *
-      (100% - #{var(--sdds-slider-thumb-diameter)})
-  );
+  --minvalpx: calc((var(--minval) - var(--min)) / var(--range));
+  --maxvalpx: calc((var(--maxval) - var(--min)) / var(--range));
+  --minrange: calc((var(--maxvalpx) - var(--minvalpx)));
+  --sx: calc(var(--ratio) * var(--sdds-slider-track-width));
 
   margin: 0;
   padding: 0;
@@ -105,7 +110,8 @@ div .range-slider {
           var(--sdds-slider-fill-color),
           var(--sdds-slider-fill-color)
         )
-        calc(var(--minval) * 1px) / calc(var(--minrange) * 1px) 100% no-repeat
+        calc((var(--minvalpx) * var(--sdds-slider-track-width))) /
+        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
         var(--sdds-slider-track-color);
     }
     &::-moz-range-track {
@@ -114,7 +120,8 @@ div .range-slider {
           var(--sdds-slider-fill-color),
           var(--sdds-slider-fill-color)
         )
-        calc(var(--minval) * 1px) / calc(var(--minrange) * 1px) 100% no-repeat
+        calc(var(--minvalpx) * var(--sdds-slider-track-width)) /
+        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
         var(--sdds-slider-track-color);
     }
     &::-ms-track {
@@ -123,7 +130,8 @@ div .range-slider {
           var(--sdds-slider-fill-color),
           var(--sdds-slider-fill-color)
         )
-        calc(var(--minval) * 1px) / calc(var(--minrange) * 1px) 100% no-repeat
+        calc(var(--minvalpx) * var(--sdds-slider-track-width)) /
+        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
         var(--sdds-slider-track-color);
     }
   }
@@ -232,29 +240,27 @@ button {
   text-align: center;
 }
 .spantext {
+  @include spanValues;
   position: absolute;
   width: 15px;
   height: 10px;
-  background-color: var(--sdds-slider-span-color);
-  color: var(--sdds-slider-track-color);
   text-align: center;
   border-radius: 2px;
   border-color: var(--sdds-slider-span-color);
   transform: translate(var(--val));
   bottom: 10px;
-  left: calc(((var(--val) - (var(--val) * 0.15)) * 1px));
+  left: calc(((var(--leftspan) - (var(--leftspan) * 0.15))));
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 8px;
 }
 
 .spantrianlge {
+  @include spanValues;
   position: absolute;
   width: 5px;
   height: 5px;
-  background-color: var(--sdds-slider-span-color);
-  border-color: var(--sdds-slider-span-color);
   clip-path: polygon(0 0, 100% 0, 50% 50%);
-  bottom: 5px;
-  left: calc(((var(--val) - (var(--val) * 0.15)) * 1px) + 5px);
+  bottom: 5.5px;
+  left: calc(((var(--leftspan) - (var(--leftspan) * 0.15))) + 5px);
 }
