@@ -1,84 +1,92 @@
-@import './mixins';
+@import "./mixins";
 
-$grey:(
-  grey-900: #171719,
-  grey-800: #2B2C2F,
-  grey-700: #3A3B3F,
-  grey-600: #515257,
-  grey-500: #696A70,
-  grey-400: #82848A,
-  grey-300: #A4A6AB,
-  grey-200: #C5C6C9,
-  grey-100: #E2E2E4,
-  grey-50:  #F6F6F7
+$grey: (
+  grey-958: #0d0f13,
+  grey-900: #1d2229,
+  grey-868: #242a33,
+  grey-846: #2b323d,
+  grey-800: #37414f,
+  grey-700: #56657a,
+  grey-600: #868fa2,
+  grey-500: #b0b7c4,
+  grey-400: #cdd1db,
+  grey-300: #dbdfe6,
+  grey-200: #e7e9ee,
+  grey-100: #edeff3,
+  grey-50: #f9fafb,
 );
 
-$blue:(
-  blue-900: #041E42,
-  blue-800: #0F3263,
-  blue-700: #16417F,
-  blue-600: #2058A8,
-  blue-500: #2B70D3,
-  blue-400: #4A89F3,
-  blue-300: #9CA5C2,
-  blue-200: #C1C6D8,
-  blue-100: #E0E2EB,
-  blue-50:  #F6F6F9
+$blue: (
+  blue-900: #001533,
+  blue-800: #041e42,
+  blue-700: #0f3263,
+  blue-600: #16417f,
+  blue-500: #2058a8,
+  blue-400: #2b70d3,
+  blue-300: #4a89f3,
+  blue-200: #87afe8,
+  blue-100: #bacde8,
+  blue-50: #e4e9f1,
 );
 
-$red:(
+$red: (
   red-900: #450307,
-  red-800: #6A080F,
-  red-700: #950A16,
-  red-600: #D6001C,
-  red-500: #DE2B36,
-  red-400: #F35359,
-  red-300: #F58E90,
-  red-200: #F8B6B7,
-  red-100: #FADBDC,
-  red-50:  #FDF4F5
+  red-800: #6a080f,
+  red-700: #950a16,
+  red-600: #d6001c,
+  red-500: #de2b36,
+  red-400: #f35359,
+  red-300: #f58e90,
+  red-200: #f8b6b7,
+  red-100: #fadbdc,
+  red-50: #fdf4f5,
 );
 
-$green:(
+//TODO: Remove this later on when the time is right
+$green: (
   green-900: #112616,
-  green-800: #1C3822,
-  green-700: #2C5234,
-  green-600: #386E44,
+  green-800: #1c3822,
+  green-700: #2c5234,
+  green-600: #386e44,
   green-500: #438151,
-  green-400: #539E63,
-  green-300: #89B691,
-  green-200: #A6D1AD,
-  green-100: #CAEBD0,
-  green-50:  #F1F8F2
+  green-400: #539e63,
+  green-300: #89b691,
+  green-200: #a6d1ad,
+  green-100: #caebd0,
+  green-50: #f1f8f2,
 );
 
-$orange:(
+//TODO: Remove this later on when the time is right
+$orange: (
   orange-900: #331103,
-  orange-800: #893B15,
-  orange-700: #C65416,
-  orange-600: #EB6200,
-  orange-500: #FA6E23,
-  orange-400: #F98A67,
-  orange-300: #F9A38D,
-  orange-200: #F9CAC0,
-  orange-100: #FBE3DF,
-  orange-50:  #FDF5F3
+  orange-800: #893b15,
+  orange-700: #c65416,
+  orange-600: #eb6200,
+  orange-500: #fa6e23,
+  orange-400: #f98a67,
+  orange-300: #f9a38d,
+  orange-200: #f9cac0,
+  orange-100: #fbe3df,
+  orange-50: #fdf5f3,
 );
 
-$original-colours : map-collect($grey, $blue, $red, $green, $orange);
-$primary-new: (
-  blue: get-colour-original(blue-900),
-  red: get-colour-original(red-600),
+$original-colours: map-collect($grey, $blue, $red, $green, $orange);
+//TODO: Should we keep brand pallete?
+$brand-pallete: (
   black: #000,
-  white: #fff
+  white: #fff,
+  blue: get-colour-original(blue-800),
+  red: get-colour-original(red-600),
 );
 
+//TODO: CTA color should be removed
+//TODO: change token name to be $sementic-negative
 $semantic: (
   cta: get-colour-original(blue-700),
-  negative: get-colour-original(red-500),
-  warning: get-colour-original(orange-500),
-  positive: get-colour-original(green-500),
-  information: get-colour-original(blue-500)
+  negative: #ff2340,
+  warning: #f1c21b,
+  positive: #1dab8b,
+  information: get-colour-original(blue-400),
 );
 
-$all-colours : map-collect($original-colours, $semantic, $primary-new);
+$all-colours: map-collect($original-colours, $semantic, $brand-pallete);
