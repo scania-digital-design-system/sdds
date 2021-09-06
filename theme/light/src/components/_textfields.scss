@@ -1,39 +1,38 @@
 :root,
 html {
-
-  --#{$prefix}-textfield-color: #{get-colour(grey-700)};
+  --#{$prefix}-textfield-color: #{get-colour(grey-868)};
   --#{$prefix}-textfield-bg: #{get-colour(white)};
-  --#{$prefix}-textfield-border-bottom: #{get-colour(grey-200)};
-  --#{$prefix}-textfield-placeholder: #{get-colour(grey-400)};
-  --#{$prefix}-textfield-border-bottom-hover: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-border-bottom: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-placeholder: #{get-colour(grey-500)};
+  --#{$prefix}-textfield-border-bottom-hover: #{get-colour(grey-600)};
   //Disabled
   --#{$prefix}-textfield-disabled-bg: #{get-colour(white)};
-  --#{$prefix}-textfield-disabled-color: #{get-colour(grey-200)};
-  --#{$prefix}-textfield-disabled-placeholder: #{get-colour(grey-200)};
-  --#{$prefix}-textfield-disabled-label: #{get-colour(grey-200)};
-  --#{$prefix}-textfield-disabled-ps-color: #{get-colour(grey-200)};
+  --#{$prefix}-textfield-disabled-color: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-disabled-placeholder: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-disabled-label: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-disabled-ps-color: #{get-colour(grey-400)};
   //Label
-  --#{$prefix}-textfield-label-color: #{get-colour(grey-900)};
-  --#{$prefix}-textfield-label-inside-color: #{get-colour(grey-500)};
-  --#{$prefix}-textfield-placeholder-focus-color: #{get-colour(grey-300)};
+  --#{$prefix}-textfield-label-color: #{get-colour(grey-958)};
+  --#{$prefix}-textfield-label-inside-color: #{get-colour(grey-700)};
+  --#{$prefix}-textfield-placeholder-focus-color: #{get-colour(grey-500)};
   //Highlight bar
-  --#{$prefix}-textfield-bar: #{get-colour(blue-500)};
+  --#{$prefix}-textfield-bar: #{get-colour(blue-400)};
   //helper
-  --#{$prefix}-textfield-helper: #{get-colour(grey-500)};
+  --#{$prefix}-textfield-helper: #{get-colour(grey-700)};
   //success
-  --#{$prefix}-textfield-border-bottom-success: #{get-colour(grey-600)};
+  --#{$prefix}-textfield-border-bottom-success: #{get-colour(grey-800)};
   //error
   --#{$prefix}-textfield-border-bottom-error: #{get-colour(red-500)};
   --#{$prefix}-textfield-helper-error: #{get-colour(red-500)};
   --#{$prefix}-textfield-bar-error: #{get-colour(red-500)};
   --#{$prefix}-textfield-icon-error: #{get-colour(red-500)};
   //Textcounter
-  --#{$prefix}-textfield-textcounter: #{get-colour(grey-400)};
-  --#{$prefix}-textfield-textcounter-divider: #{get-colour(grey-300)};
+  --#{$prefix}-textfield-textcounter: #{get-colour(grey-700)};
+  --#{$prefix}-textfield-textcounter-divider: #{get-colour(grey-500)};
   //Prefix and Suffix
-  --#{$prefix}-textfield-ps-color: #{get-colour(grey-400)};
+  --#{$prefix}-textfield-ps-color: #{get-colour(grey-600)};
   // Textarea resize icon
-  --#{$prefix}-textfield-resize-icon: #{get-colour(grey-300)};
+  --#{$prefix}-textfield-resize-icon: #{get-colour(grey-500)};
   --#{$prefix}-textarea-min-width: 208px;
   --#{$prefix}-textarea-height: 112px;
 

@@ -2,36 +2,99 @@ export default {
   title: 'Foundation/Colour'
 };
 
-const Template = ({content}) => {
-  return `
+const style = `
   <sdds-theme></sdds-theme>
-  ${content}
-  `
+  <style>
+    .colour-div {
+      height: 90px;
+    }
+    .colour-div span {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+    }
+  </style>
+`;
+
+const BrandTemplate = () => {
+  return `
+  ${style}
+  <div class="colour-div" style="background-color: var(--sdds-black)">
+    <span>black</span>
+  </div>
+  <div class="colour-div" style="background-color: var(--sdds-white)">
+    <span>white</span>
+  </div>
+  <div class="colour-div" style="background-color: var(--sdds-blue)">
+    <span>blue</span>
+  </div>
+  `;
 };
 
-export const ColourScale = Template.bind({});
+export const Brand = BrandTemplate.bind({});
 
-let colours = ['<style>.box {display:inline-block; position:relative; width:100px; height:100px; margin-bottom:50px;} p{position:absolute;bottom:-30px; left:0;}</style> <div class="sdds-container">'];
-let box;
+const SemanticTemplate = () => {
+  return `
+  ${style}
+  <div class="colour-div" style="background-color: var(--sdds-positive)">
+    <span>positive</span>
+  </div>
+  <div class="colour-div" style="background-color: var(--sdds-warning)">
+    <span>warning</span>
+  </div>
+  <div class="colour-div" style="background-color: var(--sdds-negative)">
+    <span>negative</span>
+  </div>
+  <div class="colour-div" style="background-color: var(--sdds-information)">
+    <span>information</span>
+  </div>`;
+};
 
-function renderColor(colour){
-  box = `<div class="sdds-row"><div class="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4"><div class="box sdds-background-${colour}-50"><p>${colour}-50</p></div>`;
-  for (let i = 1; i < 10; i++) {
-    box += `<div class="box sdds-background-${colour}-${i}00"><p>${colour}-${i}00</p></div>`;
+export const Sematic = SemanticTemplate.bind({});
+
+const ScaleTemplate = ({ colour = 'grey', scale = '' }) => {
+  let picked = scale[colour];
+  let div = '';
+
+  picked.forEach((num) => {
+    div += `<div id="test" class="colour-div" style="background-color: var(--sdds-${colour}-${num})">
+    <span>${colour}-${num}</span>
+    </div>`;
+  });
+
+  return style + div;
+};
+
+export const Scales = ScaleTemplate.bind({});
+
+Scales.argTypes = {
+  colour: {
+    options: ['grey', 'blue', 'red'],
+    control: {
+      type: 'select'
+    }
   }
-  box += `</div></div>`
-  colours.push(box);
-}
+};
 
-renderColor('grey');
-renderColor('blue');
-renderColor('red');
-renderColor('green');
-renderColor('orange');
-
-box = `</div>`;
-colours.push(box);
-
-ColourScale.args = {
-  content: colours.join('')
-}
+Scales.args = {
+  colour: 'grey',
+  scale: {
+    grey: [
+      '50',
+      '100',
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '800',
+      '846',
+      '868',
+      '900',
+      '958'
+    ],
+    blue: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
+  }
+};
