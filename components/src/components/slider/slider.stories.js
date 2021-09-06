@@ -30,7 +30,7 @@ export default {
       defaultValue: 'default',
       description: 'Value of the thumb'
     },
-    value2: {
+    valueTwo: {
       control: {
         type: 'number'
       },
@@ -52,14 +52,13 @@ height: 200px;
 width: 200px;
 }
 </style>`;
-const Template = ({ type, min, max, value, value2 }) => {
+const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
-
   return `
   ${style}
   <sdds-theme></sdds-theme>
   <div class="demo">
-  <sdds-slider  type="${type}" min="${min}" max="${max}" value="${value}" value2="${value2}" >
+  <sdds-slider  type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}" >
     
   </sdds-slider>
   </div>
@@ -79,8 +78,8 @@ export const continuousValue = Template.bind({});
 continuousValue.args = {
   type: 'continuousValue',
   min: '0',
-  max: '100',
-  value: '0'
+  max: '200',
+  value: '100'
 };
 export const dualPoint = Template.bind({});
 dualPoint.args = {
@@ -88,5 +87,5 @@ dualPoint.args = {
   min: '0',
   max: '200',
   value: '100',
-  value2: '200'
+  valueTwo: '200'
 };
