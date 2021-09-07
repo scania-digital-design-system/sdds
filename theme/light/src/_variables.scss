@@ -3,18 +3,19 @@
 @import '../../core/colour/tokens';
 @import '../../core/base-unit';
 
-$headings-color:              get-colour(grey-900);
+$headings-color:              #171719;
 
 // Body
-$body-bg:                     get-colour(white);
-$body-color:                  get-colour(grey-900);
+$body-bg:                     white;
+$body-color:                  #171719;
 
 //Link
-// FIXME: Add correct colours when foundation is done
-$link-color:                  get-colour(grey-500);
-$link-color-hover:            get-colour(grey-200);
-$link-color-active:           get-colour(blue);
-$link-color-disabled:         get-colour(grey-200);
+// FIXME: Should start phasing this out!!
+//Bootstrap colours
+$link-color:                  #696A70;
+$link-color-hover:            #C5C6C9;
+$link-color-active:           blue;
+$link-color-disabled:         #C5C6C9;
 $link-bg:                     inherit;
 $link-bg-hover:               inherit;
 $link-decoration:             underline;
@@ -22,16 +23,16 @@ $link-decoration-hover:       none;
 
 // Global Border settings
 $border-radius:               3px;
-$border-color:                get-colour(grey-200);
+$border-color:                #C5C6C9;
 
 // Modal
 $modal-padding:               15px;
-$modal-border-color:          get-colour(grey-50);
+$modal-border-color:          #F6F6F7;
 
 // Table
 $table-border-color:          $border-color;
-$table-thead-border-color:    get-colour(blue);
-$table-thead-bg-color:        get-colour(blue);
+$table-thead-border-color:    blue;
+$table-thead-bg-color:        blue;
 
 //Pagination
 $pagination-bg-color:         transparent;
@@ -41,77 +42,77 @@ $border-radius-list-group:    $border-radius;
 
 // Bootstrap components colours
 // TODO: When adding more components, need to remove these colours below
-$primary:       get-colour(blue-900);
+$primary:       #041E42;
 $secondary:     #fff;
-$success:       get-colour(green-300);
-$info:          get-colour(information);
-$warning:       get-colour(orange-600);
-$danger:        get-colour(negative);
-$light:         get-colour(grey-400);
-$dark:          get-colour(grey-600);
+$success:       #89B691;
+$info:          #2B70D3;
+$warning:       #386E44;
+$danger:        #DE2B36;
+$light:         #82848A;
+$dark:          #515257;
 // All colours
 $global-colors: (
-  'blue':       get-colour(blue-900),
-  'red':        get-colour(red-600),
-  'orange':     get-colour(orange-600),
-  'green':      get-colour(green-300),
-  'white':      get-colour(white),
-  'black':      get-colour(grey-800)
+  'blue':       #041E42,
+  'red':        #DE2B36,
+  'orange':     #386E44,
+  'green':      #89B691,
+  'white':      white,
+  'black':      #2B2C2F,
 );
 
 $interaction-colors: (
-  'primary':    get-colour(cta),
-  'secondary':  get-colour(white),
-  'success':    get-colour(positive),
-  'info':       get-colour(information),
-  'warning':    get-colour(warning),
-  'danger':     get-colour(negative),
+  'primary':    #16417F,
+  'secondary':  white,
+  'success':    #438151,
+  'info':       #2B70D3,
+  'warning':    #FA6E23,
+  'danger':     #DE2B36,
 );
 
 $extra-colors: (
-  'light':      get-colour(grey-200),
-  'dark':       get-colour(grey-600)
+  'light':      #C5C6C9,
+  'dark':       #515257,
 );
 
 $success-colors: (
-  'success-01': get-colour(green-50),
-  'success-02': get-colour(green-100),
-  'success-03': get-colour(green-200),
-  'success-04': get-colour(green-600)
+  'success-01': #F1F8F2,
+  'success-02': #CAEBD0,
+  'success-03': #A6D1AD,
+  'success-04': #386E44,
 );
 
 $info-colors: (
-  'info-01': get-colour(blue-50),
-  'info-02': get-colour(blue-100),
-  'info-03': get-colour(blue-300),
-  'info-04': get-colour(blue-600)
+  'info-01': #F6F6F9,
+  'info-02': #E0E2EB,
+  'info-03': #9CA5C2,
+  'info-04': #2058A8,
 );
 
 $warning-colors: (
-  'warning-01': get-colour(orange-50),
-  'warning-02': get-colour(orange-100),
-  'warning-03': get-colour(orange-200),
-  'warning-04': get-colour(orange-700)
+  'warning-01': #FDF5F3,
+  'warning-02': #FBE3DF,
+  'warning-03': #F9CAC0,
+  'warning-04': #C65416,
 );
 
 $danger-colors: (
-  'danger-01': get-colour(red-50),
-  'danger-02': get-colour(red-100),
-  'danger-03': get-colour(red-200),
-  'danger-04': get-colour(red-700)
+  'danger-01': #FDF4F5,
+  'danger-02': #FADBDC,
+  'danger-03': #F8B6B7,
+  'danger-04': #950A16,
 );
 
 $light-colors: (
-  'light-01': get-colour(grey-50),
-  'light-02': get-colour(grey-100),
-  'light-03': get-colour(grey-200),
-  'light-04': get-colour(grey-300)
+  'light-01': #F6F6F7,
+  'light-02': #E2E2E4,
+  'light-03': #C5C6C9,
+  'light-04': #A4A6AB,
 );
 
 $dark-colors: (
-  'dark-01': get-colour(grey-400),
-  'dark-02': get-colour(grey-500),
-  'dark-03': get-colour(grey-800)
+  'dark-01': #82848A,
+  'dark-02': #696A70,
+  'dark-03': #2B2C2F,
 );
 
 $link-options: (

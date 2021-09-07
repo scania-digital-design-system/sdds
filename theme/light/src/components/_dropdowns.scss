@@ -1,46 +1,46 @@
-@import '../mixins';
+@import "../mixins";
 
 :root,
-html{
-  --#{$prefix}-dropdown-border-radius:1rem;
-  --#{$prefix}-dropdown-height-large:14rem;
-  --#{$prefix}-dropdown-height-medium:12rem;
-  --#{$prefix}-dropdown-height-small:10rem;
-  --#{$prefix}-dropdown-padding-top-large:5rem;
-  --#{$prefix}-dropdown-padding-top-medium:4rem;
-  --#{$prefix}-dropdown-padding-top-small:3rem;
-  --#{$prefix}-dropdown-padding-left:4rem;
+html {
+  --#{$prefix}-dropdown-border-radius: 1rem;
+  --#{$prefix}-dropdown-height-large: 14rem;
+  --#{$prefix}-dropdown-height-medium: 12rem;
+  --#{$prefix}-dropdown-height-small: 10rem;
+  --#{$prefix}-dropdown-padding-top-large: 5rem;
+  --#{$prefix}-dropdown-padding-top-medium: 4rem;
+  --#{$prefix}-dropdown-padding-top-small: 3rem;
+  --#{$prefix}-dropdown-padding-left: 4rem;
 
-  --#{$prefix}-dropdown-error:#{get-colour(red-500)};
-  --#{$prefix}-dropdown-helper-text:#{get-colour(grey-500)};
-  --#{$prefix}-dropdown-label-outside: #{get-colour(grey-900)};
-  --#{$prefix}-dropdown-label-inside: #{get-colour(grey-500)};
-  --#{$prefix}-dropdown-text: #{get-colour(grey-900)};
-  --#{$prefix}-dropdown-placeholder: #{get-colour(grey-500)};
+  --#{$prefix}-dropdown-label-outside: #{get-colour(grey-958)};
+  --#{$prefix}-dropdown-label-inside: #{get-colour(grey-700)};
+  --#{$prefix}-dropdown-text: #{get-colour(grey-958)};
+  --#{$prefix}-dropdown-helper-text: #{get-colour(grey-700)};
 
-  --#{$prefix}-dropdown-filter-border: #{get-colour(blue-500)};
+  --#{$prefix}-dropdown-placeholder: #{get-colour(grey-700)};
+  --#{$prefix}-dropdown-filter-border: #{get-colour(blue-400)};
+
+  --#{$prefix}-dropdown-error: #{get-colour(red-500)};
 
   // Only applied to toggle button
-  --#{$prefix}-dropdown-toggle-border-hover: #{get-colour(grey-300)};
-  --#{$prefix}-dropdown-toggle-border-selected: #{get-colour(blue-200)};
-  --#{$prefix}-dropdown-toggle-border-focus: #{get-colour(blue-400)};
+  //TODO: change name of the variable toggle
+  --#{$prefix}-dropdown-toggle-border-hover: #{get-colour(grey-500)};
+  --#{$prefix}-dropdown-toggle-border-selected: #{get-colour(grey-400)};
+  --#{$prefix}-dropdown-toggle-border-focus: #{get-colour(blue-300)};
   --#{$prefix}-dropdown-toggle-border-error: #{get-colour(red-500)};
-  --#{$prefix}-dropdown-toggle-bg-error: #{get-colour(white)};
 
   // Applied to both toggle and option
-  --#{$prefix}-dropdown-text-disabled: #{get-colour(grey-200)};
+  --#{$prefix}-dropdown-text-disabled: #{get-colour(grey-400)};
   --#{$prefix}-dropdown-bg: #{get-colour(white)};
-  --#{$prefix}-dropdown-bg-hover: #{get-colour(blue-50)};
-  --#{$prefix}-dropdown-bg-focus: #{get-colour(white)};
-  --#{$prefix}-dropdown-bg-selected: #{get-colour(blue-100)};
+  --#{$prefix}-dropdown-bg-hover: #{get-colour(grey-50)};
+  --#{$prefix}-dropdown-bg-selected: #{get-colour(grey-300)};
   --#{$prefix}-dropdown-bg-disabled: #{get-colour(white)};
   --#{$prefix}-dropdown-border: #{get-colour(grey-100)};
   --#{$prefix}-dropdown-border-focus: #{get-colour(blue-400)};
-  --#{$prefix}-dropdown-border-selected: #{get-colour(blue-100)};
-  --#{$prefix}-dropdown-border-disabled: #{get-colour(grey-100)};
+  --#{$prefix}-dropdown-border-selected: #{get-colour(grey-300)};
+  --#{$prefix}-dropdown-border-disabled: #{get-colour(grey-300)};
 
   .#{$prefix}-on-white-bg {
-   --#{$prefix}-dropdown-bg:#{get-colour(grey-50)};
-   --#{$prefix}-dropdown-bg-hover: #{get-colour(blue-100)};
+    --#{$prefix}-dropdown-bg: #{get-colour(grey-50)};
+    --#{$prefix}-dropdown-bg-hover: #{get-colour(grey-300)};
   }
 }
