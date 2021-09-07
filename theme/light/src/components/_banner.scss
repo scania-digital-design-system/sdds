@@ -1,10 +1,9 @@
 :root,
 html {
   --sdds-banner-bg-default: #{get-colour(grey-50)};
-  --sdds-banner-bg-info: #{get-colour(blue-100)};
+  --sdds-banner-bg-info: #{get-colour(grey-300)};
   --sdds-banner-bg-error: #{get-colour(red-100)};
-  --sdds-banner-prefix-default-color: #{get-colour(grey-500)};
-  --sdds-banner-prefix-info-color: #{get-colour(blue-500)};
+  --sdds-banner-prefix-default-color: #{get-colour(grey-700)};
+  --sdds-banner-prefix-info-color: #{get-colour(blue-400)};
   --sdds-banner-prefix-error-color: #{get-colour(red-500)};
-
 }
