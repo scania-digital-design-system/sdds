@@ -1,38 +1,31 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 
 class Form extends Component {
-
-  cities = [
-    'Stockholm',
-    'Paris',
-    'Tokyo',
-    'Bangkok',
-    'Bandung'
-  ];
+  cities = ["Stockholm", "Paris", "Tokyo", "Bangkok", "Bandung"];
 
   constructor(props) {
     super(props);
     this.state = {
-      values : {
-        firstName: 'Mary',
-        lastName: 'Jane',
-        city:'Stockholm',
-        transport:'Car'
+      values: {
+        firstName: "Mary",
+        lastName: "Jane",
+        city: "Stockholm",
+        transport: "Car",
       },
-      errors: {}
+      errors: {},
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);    
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
-  setValues(val, attr, prop){
+
+  setValues(val, attr, prop) {
     this.setState({
       ...this.state,
       [prop]: {
         ...this.state[prop],
-        [attr]: val
-      }
+        [attr]: val,
+      },
     });
   }
 
@@ -40,31 +33,31 @@ class Form extends Component {
     const name = evt.target.name || evt.target.attributes.name.value;
     const newValue = evt.target.value;
 
-    this.setValues(newValue, name, 'values');
+    this.setValues(newValue, name, "values");
 
     // Input validation
-    const errorMessage = this.nameValidation(name,newValue);
-    this.setValues(errorMessage, name, 'errors');
+    const errorMessage = this.nameValidation(name, newValue);
+    this.setValues(errorMessage, name, "errors");
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert("A name was submitted: " + this.state.value);
     event.preventDefault();
   }
 
-  componentDidMount(){
-    this.sddsDropdown.addEventListener('selectOption', (evt) => {
+  componentDidMount() {
+    this.sddsDropdown.addEventListener("selectOption", (evt) => {
       const newValue = evt.detail.label;
-      const name = 'city';
-      this.setValues(newValue, name, 'values');
+      const name = "city";
+      this.setValues(newValue, name, "values");
 
       // Input validation
       const errorMessage = this.cityValidation(newValue);
-      this.setValues(errorMessage, name, 'errors');
-    })
+      this.setValues(errorMessage, name, "errors");
+    });
   }
 
-  nameValidation(fieldName, fieldValue){
+  nameValidation(fieldName, fieldValue) {
     if (fieldValue.trim() === "") {
       return `${fieldName} is required`;
     }
@@ -77,16 +70,15 @@ class Form extends Component {
     return null;
   }
 
-  cityValidation(selected){
-    if(selected.trim() === '') return 'City is required';
-    if(selected==='Tokyo') return 'Sorry, you cannot live in Tokyo';
+  cityValidation(selected) {
+    if (selected.trim() === "") return "City is required";
+    if (selected === "Tokyo") return "Sorry, you cannot live in Tokyo";
     return null;
   }
 
   render() {
     return (
-      <form  className="sdds-row" onSubmit={this.handleSubmit}>
-        
+      <form className="sdds-row" onSubmit={this.handleSubmit}>
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
           <sdds-textfield
             type="text"
@@ -94,13 +86,12 @@ class Form extends Component {
             value={this.state.values.firstName}
             onInput={this.handleChange}
             name="firstName"
-            state={this.state.errors.firstName && 'error'}
-            >
+            state={this.state.errors.firstName && "error"}
+          >
             <span slot="sdds-label">Label text</span>
-            {
-              this.state.errors.firstName &&
+            {this.state.errors.firstName && (
               <span slot="sdds-helper">{this.state.errors.firstName}</span>
-            }
+            )}
           </sdds-textfield>
         </div>
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
@@ -110,16 +101,15 @@ class Form extends Component {
             value={this.state.values.lastName}
             onInput={this.handleChange}
             name="lastName"
-            state={this.state.errors.lastName && 'error'}
-            >
+            state={this.state.errors.lastName && "error"}
+          >
             <span slot="sdds-label">Last name</span>
-            {
-              this.state.errors.lastName &&
+            {this.state.errors.lastName && (
               <span slot="sdds-helper">{this.state.errors.lastName}</span>
-            }
+            )}
           </sdds-textfield>
         </div>
-        
+
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
           <sdds-dropdown
             name="city"
@@ -127,21 +117,30 @@ class Form extends Component {
             label="City"
             label-position="outside"
             default-option={this.state.values.city}
-            ref={elem => this.sddsDropdown = elem}
-            state={this.state.errors.city && 'error'}
-            helper={this.state.errors.city || 'Please select a city' }
-            >
-            {this.cities.map((city) => <sdds-dropdown-option key={"id-" + city} value={city}>{city}</sdds-dropdown-option>)}
+            ref={(elem) => (this.sddsDropdown = elem)}
+            state={this.state.errors.city && "error"}
+            helper={this.state.errors.city || "Please select a city"}
+          >
+            {this.cities.map((city) => (
+              <sdds-dropdown-option key={"id-" + city} value={city}>
+                {city}
+              </sdds-dropdown-option>
+            ))}
           </sdds-dropdown>
         </div>
 
         <div className="no-padding sdds-col-sm-4 sdds-col-md-8 sdds-col-lg-8 sdds-col-xlg-8">
           <div className="sdds-dropdown">
             <span className="sdds-dropdown-label-outside">Native select</span>
-            <select name="transport" id="nativeSelect"
+            <select
+              name="transport"
+              id="nativeSelect"
               value={this.state.values.transport}
-              onChange={e => this.setValues(e.target.value, 'transport', 'values')}>
-              <option value=''>Select one</option>
+              onChange={(e) =>
+                this.setValues(e.target.value, "transport", "values")
+              }
+            >
+              <option value="">Select one</option>
               <option value="truck">Truck</option>
               <option value="bus">Bus</option>
               <option value="car">Car</option>
@@ -162,7 +161,6 @@ class Form extends Component {
           <p>Validation:</p>
           <p>{JSON.stringify(this.state.errors)}</p>
         </div>
-
       </form>
     );
   }

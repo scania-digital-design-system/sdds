@@ -1,25 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { defineCustomElements, addTheme } from '@scania/components';
-import { theme as scania } from '@scania/theme-light';
+import { defineCustomElements, addTheme } from "@scania/components";
+import { theme as scania } from "@scania/theme-light";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
-  );
+  document.getElementById("root")
+);
 
-  // If you want to start measuring performance in your app, pass a function
-  // to log results (for example: reportWebVitals(console.log))
-  // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-  reportWebVitals();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
 
-  console.warn('This is a demo application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation');
+console.warn(
+  "This is a demo application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation"
+);
 
 defineCustomElements();
-addTheme(scania)
+addTheme(scania);

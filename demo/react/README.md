@@ -7,6 +7,7 @@ To run this project locally you will need to NodeJS and npm.
 See the running example on [this link](https://scania.github.io/corporate-ui-react/).
 
 Clone this repo, install all dependencies and start it:
+
 ```bash
 git clone https://github.com/scania-digital-design-system/sdds.git
 cd demo/react
@@ -37,10 +38,10 @@ npm i @scania/icons --save-dev
 3. And then import `theme` from `@scania/theme-light` and use `sdds-theme` component in the template
 
 ```js
-import React from 'react';
+import React from "react";
 
-import { defineCustomElements, addTheme } from '@scania/components';
-import { theme as scania } from '@scania/theme-light';
+import { defineCustomElements, addTheme } from "@scania/components";
+import { theme as scania } from "@scania/theme-light";
 
 defineCustomElements();
 addTheme(scania);
@@ -49,7 +50,7 @@ addTheme(scania);
 4.  Use `sdds-theme` component in the template App.js
 
 ```html
-  <sdds-theme></sdds-theme>
+<sdds-theme></sdds-theme>
 ```
 
 ```js
@@ -60,7 +61,9 @@ function App() {
       <div className="sdds-container">
         <div className="sdds-row">
           <div className="sdds-col-xxlg-16 sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-col-sm-4">
-            <div className="sdds-headline-05 sdds-text-blue-900">A headline</div>
+            <div className="sdds-headline-05 sdds-text-blue-900">
+              A headline
+            </div>
             <p className="sdds-body-01 sdds-text-blue-700">Hello world</p>
           </div>
         </div>
@@ -72,4 +75,4 @@ function App() {
 
 ### Feel free to reach out about improvements
 
-### *Happy coding!*
+### _Happy coding!_
