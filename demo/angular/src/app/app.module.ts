@@ -19,16 +19,11 @@ import { CustomDropdown } from './components/form/dropdown/dropdown.component';
     MainComponent,
     FormComponent,
     CustomInput,
-    CustomDropdown
+    CustomDropdown,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

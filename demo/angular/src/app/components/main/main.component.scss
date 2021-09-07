@@ -1,13 +1,13 @@
-@import '~node_modules/@scania/typography/dist/scss/mixins';
-@import '~node_modules/@scania/typography/dist/scss/tokens';
+@import "~node_modules/@scania/typography/dist/scss/mixins";
+@import "~node_modules/@scania/typography/dist/scss/tokens";
 
-:host{
+:host {
   padding-top: var(--sdds-header-height);
   display: block;
 }
 
 .sub-lead {
-  @include type-style('paragraph-02');
+  @include type-style("paragraph-02");
 }
 
 .content-wrapper {
@@ -31,8 +31,7 @@
   display: inline-block;
 }
 
-.sdds-btn-group  {
-
+.sdds-btn-group {
   .sdds-btn,
   sdds-button {
     margin: 10px;
