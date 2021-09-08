@@ -1,4 +1,4 @@
-import { Component, h, State, Listen, Prop } from '@stencil/core';
+import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -34,7 +34,26 @@ export class Slider {
     '--max': this.max,
     '--val': this.valueTwo
   };
-
+  @Watch('value')
+  watchValue() {
+    if (this.value > this.max || this.value < this.min) {
+      //console.warn('The provided value should be between min and max');
+      this.rangeStyle = { ...this.rangeStyle, '--val': this.min };
+    }
+  }
+  @Watch('valueTwo')
+  watchValueTwo() {
+    if (this.valueTwo > this.max || this.valueTwo < this.value) {
+      /*      console.warn(
+        'The provided value should be greater than value and less than max'
+      ); */
+      this.secondRangeStyle = { ...this.secondRangeStyle, '--val': this.max };
+    }
+  }
+  componentWillLoad() {
+    this.watchValue();
+    this.watchValueTwo();
+  }
   private handleOnClickPlus = () => {
     parseInt(this.rangeStyle['--val']) < parseInt(this.rangeStyle['--max'])
       ? this.updateValue(this.leftRangeInputEl.valueAsNumber + 1)
@@ -203,7 +222,7 @@ export class Slider {
             max={`${this.secondRangeStyle['--max']}`}
             value={`${this.secondRangeStyle['--val']}`}
             type="range"
-            class="sliders"
+            class="sliders sliders-right"
             ref={(el) => (this.rightRangeInputEl = el as HTMLInputElement)}
             style={this.secondRangeStyle}
           ></input>
