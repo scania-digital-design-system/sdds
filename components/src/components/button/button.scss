@@ -11,7 +11,7 @@ $props: (background, border-color, color);
 
 @mixin button-base {
   @include type-style('detail-02');
-  display: inline;
+  display: inline-block;
   border-radius: 1rem;
   border: none;
   box-shadow: none;
