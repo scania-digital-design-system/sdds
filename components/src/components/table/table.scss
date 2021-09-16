@@ -1,4 +1,131 @@
-// Required
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+.#{$prefix}-table {
+  border-collapse: collapse;
+  position: relative;
+
+  caption {
+    background-color: var(--sdds-table-title-bg);
+    @include type-style('headline-07');
+    color: var(--sdds-table-text-color);
+    text-align: left;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 80px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  thead {
+    position: absolute;
+    top: 64px;
+  }
+
+  .#{$prefix}-table-header {
+    th:first-child {
+      border-top-left-radius: 4px;
+    }
+    th:last-child {
+      border-top-right-radius: 4px;
+    }
+    th {
+      @include type-style('headline-07');
+      text-align: left;
+      color: var(--sdds-table-text-color);
+      background-color: var(--sdds-table-header-bg);
+      border-bottom: 1px solid var(--sdds-divider-light);
+      padding: 16px;
+      min-width: 192px;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid var(--sdds-table-title-bg);
+  }
+  th,
+  td {
+    @include type-style('detail-02');
+    color: var(--sdds-table-text-color);
+    background-color: var(--sdds-table-body-bg);
+    padding: 16px;
+    min-width: 192px;
+    vertical-align: top;
+  }
+  &.#{$prefix}-table-compact {
+    caption {
+      padding-top: 16px;
+      padding-left: 16px;
+      padding-bottom: 56px;
+    }
+    thead {
+      position: absolute;
+      top: 56px;
+    }
+    .#{$prefix}-table-header {
+      th {
+        padding: 8px;
+      }
+    }
+    th,
+    td {
+      padding: 8px;
+    }
+  }
+
+  &.#{$prefix}-table-divider {
+    td:not(:first-child) {
+      border-left: 1px solid var(--sdds-divider-light);
+    }
+  }
+}
+
+/* 
+.table {
+  border: 1px solid $table-border-color;
+  border-collapse: collapse;
+
+  caption {
+    caption-side: top;
+    //FIXME: Add correct rem
+    padding: 1.875rem;
+    font-weight: bold;
+    color: get-colour(white);
+    color: Var(--sdds-white);
+    background-color: $primary;
+    // background-color: Var(--primary);
+  }
+  thead {
+    &:first-child {
+      color: get-colour(white);
+      color: Var(--sdds-white);
+      background-color: $table-thead-bg-color;
+    }
+
+    th {
+      border: 1px solid $table-thead-border-color;
+      border-top-color: $table-thead-border-color;
+      border-bottom-color: $table-thead-border-color;
+    }
+  }
+  th,
+  td {
+    background-color: inherit;
+    box-shadow: inherit;
+    //FIXME: Add correct rem
+    padding: $spacing-element-12 $spacing-element-12 3.25rem;
+  }
+
+  &.table-sm {
+    th,
+    td {
+      //FIXME: Add correct rem
+      padding: $spacing-element-2 1.25rem 1.25rem;
+    }
+  }
+}
+ */
+/* /* // Required
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
@@ -64,4 +191,4 @@
     width: 1em;
     height: 1em;
   }
-}
+} */
