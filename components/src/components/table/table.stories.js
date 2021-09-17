@@ -15,7 +15,7 @@ const Template = ({ type, divider }) => {
       <table class="sdds-table sdds-table-${type} sdds-table-${divider}">
       <caption>Table header</caption>       
       <thead>
-                        <tr class="sdds-table-header">
+                        <tr >
                           <th>Header</th>
                           <th>Header</th>
                           <th>Header</th>
@@ -74,4 +74,55 @@ export const CompactDividers = Template.bind({});
 CompactDividers.args = {
   type: 'compact',
   divider: 'divider'
+};
+const Table = ({ type, divider }) => {
+  return `
+  ${style}
+      <sdds-theme></sdds-theme>
+      <div class="table-demo">
+      <table class="sdds-table sdds-table-${type} sdds-table-${divider}">   
+      <thead>
+                        <tr >
+                          <th>Header</th>
+                          <th>Header</th>
+                          <th>Header</th>
+                          <th>Header</th>
+                          </tr>
+                 
+              
+               
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Text</td>
+                    <td>Text</td>
+                    <td>Text</td>
+                    <td>Text</td>
+                </tr>
+                <tr>
+                    <td>Text</td>
+                    <td>Text</td>
+                    <td>Text</td>
+                    <td>Text</td>
+                </tr>
+                <tr>
+                <td>Text</td>
+                <td>Text</td>
+                <td>Text</td>
+                <td>Text</td>
+                </tr>
+                <tr>
+                <td>Text</td>
+                <td>Text</td>
+                <td>Text</td>
+                <td>Text</td>
+                </tr>
+            </tbody>
+      </table>
+      </div>
+    `;
+};
+export const TableHeaderOnly = Table.bind({});
+TableHeaderOnly.args = {
+  type: ''
 };
