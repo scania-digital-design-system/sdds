@@ -1,3 +1,5 @@
-trailingComma: "none"
-singleQuote: true
-endOfLine: "lf"
+{
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "arrowParens": "always"
+}
