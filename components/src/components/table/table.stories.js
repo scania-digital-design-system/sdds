@@ -3,7 +3,6 @@ export default {
 };
 const style = `<style>
 .table-demo {
-
   margin: 30px;
 }
 </style>`;
@@ -21,9 +20,6 @@ const Template = ({ type, divider }) => {
                           <th>Header</th>
                           <th>Header</th>
                           </tr>
-                 
-              
-               
             </thead>
             <tbody>
                 <tr>
@@ -88,9 +84,6 @@ const Table = ({ type, divider }) => {
                           <th>Header</th>
                           <th>Header</th>
                           </tr>
-                 
-              
-               
             </thead>
             <tbody>
                 <tr>
