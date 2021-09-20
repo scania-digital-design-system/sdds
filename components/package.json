@@ -17,32 +17,22 @@
   },
   "scripts": {
     "start": "concurrently \"npm:watch-*\"",
-    "watch-stencil": "npm run build -- --watch",
     "build": "npm run babel && npm run stencil --",
+    "watch-stencil": "npm run build -- --watch",
     "stencil": "stencil build --docs-json dist/data/docs.json",
     "babel": "mkdirp .build && babel src/helpers/index.js --out-file .build/index.js",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "npm run lint -- --fix",
-    "lint-debug": "npm run lint -- --debug",
-    "test": "stencil test --spec --verbose",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
-    "prepublishOnly": "npm run build",
     "watch-sb": "start-storybook -p 1339 --no-dll",
     "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
-    "readme": "stencil build --docs-readme"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
+    "readme": "stencil build --docs-readme",
+    "new": "stencil generate",
+    "prepublishOnly": "npm run build",
+    "prepare": "cd .. && husky install components/.husky",
+    "test": "stencil test --spec --verbose",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "pre-commit": "npm run lint",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -50,7 +40,7 @@
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@popperjs/core": "^2.9.1",
     "@scania/grid": "^2.0.0",
-    "@scania/icons": "^1.0.0",
+    "@scania/icons": "^1.1.0",
     "@scania/theme-light": "^3.4.0",
     "@scania/typography": "^1.2.0",
     "@stencil/core": "2.3.0",
@@ -66,11 +56,19 @@
     "@storybook/web-components": "^6.2.9",
     "@types/jest": "^26.0.22",
     "@types/puppeteer": "^5.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "bootstrap": "4.3.1",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
     "highlight.js": "9.16.2",
+    "husky": "^7.0.2",
     "jest": "^26.6.2",
     "jest-cli": "^26.6.2",
     "jquery": "3.4.1",
@@ -79,11 +77,14 @@
     "lit-html": "^1.3.0",
     "mkdirp": "^0.5.1",
     "popper.js": "1.15.0",
+    "prettier": "^2.3.2",
     "puppeteer": "1.19.0",
     "react-is": "^17.0.1",
     "redux": "4.0.4",
     "rollup-plugin-dotenv": "0.2.0",
-    "storybook-addon-themes": "^6.1.0"
+    "storybook-addon-themes": "^6.1.0",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "^4.3.5"
   },
   "license": "MIT",
   "dependencies": {
