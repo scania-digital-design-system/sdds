@@ -44,11 +44,6 @@ const style = `<style>
   
 .demo {
 margin-top: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color:  #F6F6F7; 
-height: 200px;
 width: 200px;
 }
 </style>`;

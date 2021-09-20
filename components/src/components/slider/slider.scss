@@ -10,12 +10,10 @@ $shodow-hover: rgba(22, 65, 127, 0.1);
 @mixin track($fill: 0) {
   box-sizing: border-box;
   border: none;
-  width: var(--sdds-slider-track-width);
+  width: 100%;
   height: var(--sdds-slider-track-height);
   background: var(--sdds-slider-track-color);
   border-radius: 2px;
-  //position: relative;
-
   @if $fill == 1 {
     background: linear-gradient(
         var(--sdds-slider-fill-color),
@@ -36,7 +34,8 @@ $shodow-hover: rgba(22, 65, 127, 0.1);
 @mixin spanValues() {
   --range: calc(var(--max) - var(--min));
   --ratio: calc((var(--val) - var(--min)) / var(--range));
-  --leftspan: calc(var(--sdds-slider-track-width) * var(--ratio));
+  --newPosition: calc(16px - (var(--ratio) * 47) * 1px);
+  --leftspan: calc(var(--ratio) * 100%);
   background-color: var(--sdds-slider-span-color);
   color: var(--sdds-slider-track-color);
 }
@@ -68,15 +67,19 @@ $shodow-hover: rgba(22, 65, 127, 0.1);
   justify-content: space-between;
   height: 20px;
   align-items: center;
+  position: relative;
 }
 
 div .range-slider {
-  //position: relative;
-  width: var(--sdds-slider-width);
+  width: 100%;
   height: var(--sdds-slider-thumb-diameter);
   float: none;
   text-align: center;
   margin-left: 10px;
+  position: relative;
+  [type='range'] {
+    position: absolute;
+  }
 }
 
 [type='range'] {
@@ -87,19 +90,21 @@ div .range-slider {
 
   --range: calc(var(--max) - var(--min));
   --ratio: calc((var(--val) - var(--min)) / var(--range));
-  --minvalpx: calc((var(--minval) - var(--min)) / var(--range));
-  --maxvalpx: calc((var(--maxval) - var(--min)) / var(--range));
+  --minvalpx: calc(100% * (((var(--minval) - var(--min)) / var(--range))));
+
+  --maxvalpx: calc(100% * (((var(--maxval) - var(--min)) / var(--range))));
   --minrange: calc((var(--maxvalpx) - var(--minvalpx)));
-  --sx: calc(var(--ratio) * var(--sdds-slider-track-width));
+  --sx: calc(var(--ratio) * 100%);
 
   margin: 0;
   padding: 0;
-  width: var(--sdds-slider-track-width);
+  //width: var(--sdds-slider-track-width);
+  width: 100%;
   height: var(--sdds-slider-thumb-diameter);
   background: transparent;
   border: 1px;
   display: block;
-  position: absolute;
+  // position: absolute;
   pointer-events: none;
   outline: none;
 
@@ -107,32 +112,32 @@ div .range-slider {
     &::-webkit-slider-runnable-track {
       @include track(1);
       background: linear-gradient(
-          var(--sdds-slider-fill-color),
-          var(--sdds-slider-fill-color)
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
         )
-        calc((var(--minvalpx) * var(--sdds-slider-track-width))) /
-        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
-        var(--sdds-slider-track-color);
+        100% no-repeat;
     }
     &::-moz-range-track {
       @include track(1);
       background: linear-gradient(
-          var(--sdds-slider-fill-color),
-          var(--sdds-slider-fill-color)
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
         )
-        calc(var(--minvalpx) * var(--sdds-slider-track-width)) /
-        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
-        var(--sdds-slider-track-color);
+        100% no-repeat;
     }
     &::-ms-track {
       @include track(1);
       background: linear-gradient(
-          var(--sdds-slider-fill-color),
-          var(--sdds-slider-fill-color)
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
         )
-        calc(var(--minvalpx) * var(--sdds-slider-track-width)) /
-        calc(var(--minrange) * var(--sdds-slider-track-width)) 100% no-repeat
-        var(--sdds-slider-track-color);
+        100% no-repeat;
     }
   }
   &.sliders-right {
@@ -226,7 +231,7 @@ button {
   font-size: 12px;
   background: transparent;
   padding: 0px;
-  display: inline;
+  display: block;
   cursor: pointer;
   color: var(--sdds-slider-fill-color);
 
@@ -237,11 +242,12 @@ button {
 }
 
 .sliderspan {
-  width: var(--sdds-slider-width);
+  @include spanValues;
   font-size: 12px;
-  position: relative;
+  position: absolute;
   display: block;
   text-align: center;
+  left: calc(var(--leftspan) + calc(var(--newPosition) + 0px));
 }
 .spantext {
   @include spanValues;
@@ -253,7 +259,7 @@ button {
   border-color: var(--sdds-slider-span-color);
   transform: translate(var(--val));
   bottom: 10px;
-  left: calc(((var(--leftspan) - (var(--leftspan) * 0.15))));
+  left: 50%;
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 8px;
@@ -266,5 +272,5 @@ button {
   height: 5px;
   clip-path: polygon(0 0, 100% 0, 50% 50%);
   bottom: 5.5px;
-  left: calc(((var(--leftspan) - (var(--leftspan) * 0.15))) + 5px);
+  left: calc(50% + 5px);
 }

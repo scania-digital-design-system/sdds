@@ -13,7 +13,7 @@ export class Slider {
   @Prop() valueTwo: string = '70';
 
   spantext!: HTMLInputElement;
-
+  sliderspan!: HTMLInputElement;
   leftRangeInputEl!: HTMLInputElement;
   rightRangeInputEl!: HTMLInputElement;
 
@@ -109,7 +109,14 @@ export class Slider {
       this.leftRangeInputEl.value = value.toString();
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'continuousValue') {
+      const newValue = Number(
+        ((value - parseInt(this.rangeStyle['--min'])) * 100) /
+          (parseInt(this.rangeStyle['--max']) -
+            parseInt(this.rangeStyle['--min']))
+      );
+      const newPosition = 16 - newValue * 0.47;
       this.spantext.innerHTML = value.toString();
+      this.sliderspan.style.left = `calc(${newValue}% + (${newPosition}px))`;
       this.leftRangeInputEl.value = value.toString();
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'dualPoint') {
@@ -157,22 +164,13 @@ export class Slider {
   }
 
   inputContinuous() {
-    // if input are wrong as value less than min or more than max??
     return (
-      <div style={this.rangeStyle} class="container">
-        <button onClick={this.handleOnClickMinus}>
-          {' '}
-          <span>-</span>{' '}
-        </button>
-        <div style={{ height: '15px' }}>
-          <input
-            min={`${this.rangeStyle['--min']}`}
-            max={`${this.rangeStyle['--max']}`}
-            value={`${this.rangeStyle['--val']}`}
-            ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
-            type="range"
-          ></input>
-          <div class="sliderspan">
+      <div>
+        <div style={this.rangeStyle} class="container">
+          <div
+            class="sliderspan"
+            ref={(el) => (this.sliderspan = el as HTMLInputElement)}
+          >
             <span
               class="spantext"
               ref={(el) => (this.spantext = el as HTMLInputElement)}
@@ -181,11 +179,22 @@ export class Slider {
             </span>
             <span class="spantrianlge"></span>
           </div>
+          <button onClick={this.handleOnClickMinus}>
+            {' '}
+            <span>-</span>{' '}
+          </button>
+          <input
+            min={`${this.rangeStyle['--min']}`}
+            max={`${this.rangeStyle['--max']}`}
+            value={`${this.rangeStyle['--val']}`}
+            ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
+            type="range"
+          ></input>
+          <button onClick={this.handleOnClickPlus}>
+            {' '}
+            <span>+</span>{' '}
+          </button>
         </div>
-        <button onClick={this.handleOnClickPlus}>
-          {' '}
-          <span>+</span>{' '}
-        </button>
       </div>
     );
   }
