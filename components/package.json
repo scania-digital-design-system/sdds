@@ -1,6 +1,6 @@
 {
   "name": "@scania/components",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "@popperjs/core": "^2.9.1",
     "@scania/grid": "^2.0.0",
     "@scania/icons": "^1.1.0",
-    "@scania/theme-light": "^3.4.0",
+    "@scania/theme-light": "^3.5.0",
     "@scania/typography": "^1.2.0",
     "@stencil/core": "2.3.0",
     "@stencil/router": "1.0.1",
