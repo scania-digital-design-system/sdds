@@ -5,15 +5,10 @@
 $btn-default-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
+$types: (primary, secondary, ghost, danger);
+$props: (background, border-color, color);
 
-$types: (
-  primary, secondary, ghost, danger
-);
-$props : (
-  background, border-color, color
-);
-
-@mixin button-base{
+@mixin button-base {
   @include type-style('detail-02');
   display: inline-block;
   border-radius: 1rem;
@@ -35,14 +30,14 @@ $props : (
     cursor: unset;
   }
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
   .#{$prefix}-btn-icon,
-  &.#{$prefix}-btn-icon{
-    fill: currentColor;
-    color: inherit;
+  &.#{$prefix}-btn-icon {
+    fill: var(--sdds-grey-50);
+    color: var(--sdds-grey-50);
     font-size: 4rem; //16px
   }
   .#{$prefix}-btn-icon {
@@ -51,62 +46,72 @@ $props : (
     height: 16px;
   }
 
-  &.#{$prefix}-btn-sm{
+  &.#{$prefix}-btn-sm {
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
-    .#{$prefix}-btn-icon{
+    .#{$prefix}-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &.#{$prefix}-btn-md{
+  &.#{$prefix}-btn-md {
     padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
-    .#{$prefix}-btn-icon{
+    .#{$prefix}-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &.#{$prefix}-btn-fullbleed{
+  &.#{$prefix}-btn-fullbleed {
     width: inherit;
     text-align: center;
+
+    .#{$prefix}-btn-icon,
+    &.#{$prefix}-btn-icon {
+      margin-left: var(--sdds-spacing-element-8);
+    }
   }
 
   @each $type in $types {
-    &.#{$prefix}-btn-#{$type}{
+    &.#{$prefix}-btn-#{$type} {
       @each $prop in $props {
-        #{$prop} : var(--sdds-btn-#{$type}-#{$prop});
+        #{$prop}: var(--sdds-btn-#{$type}-#{$prop});
       }
 
       &:hover {
         @each $prop in $props {
-          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-hover);
+          #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-hover);
         }
       }
       &:focus {
         @each $prop in $props {
-          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-focus);
+          #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-focus);
         }
       }
       &:active,
-      &.active{
+      &.active {
         @each $prop in $props {
-          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-active);
+          #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-active);
         }
       }
       &.disabled,
-      &:disabled{
+      &:disabled {
         @each $prop in $props {
-          #{$prop} : var(--sdds-btn-#{$type}-#{$prop}-disabled);
+          cursor: not-allowed;
+          #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-disabled);
+
+          .#{$prefix}-btn-icon,
+          &.#{$prefix}-btn-icon {
+            color: var(--sdds-grey-300);
+          }
         }
       }
     }
   }
-
 }
 
-::slotted( [slot="icon"] ) {
+::slotted([slot='icon']) {
   margin-left: var(--sdds-spacing-element-32);
   width: var(--sdds-spacing-element-16);
   height: var(--sdds-spacing-element-16);
