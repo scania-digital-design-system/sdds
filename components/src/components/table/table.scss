@@ -16,6 +16,15 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
+  caption ~ thead {
+    th:first-child {
+      border-top-left-radius: 0px;
+    }
+    th:last-child {
+      border-top-right-radius: 0px;
+    }
+  }
+
   thead {
     th:first-child {
       border-top-left-radius: 4px;
@@ -31,9 +40,6 @@
       padding: var(--sdds-spacing-element-16);
       min-width: 192px;
     }
-    /*  th:hover {
-      background-color: var(--sdds-table-header-hover);
-    } */
   }
   tr {
     border-bottom: 1px solid var(--sdds-table-title-bg);
