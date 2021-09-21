@@ -1,8 +1,19 @@
 export default {
-  title: 'component/Icons'
+  title: 'component/Icons',
+  argTypes: {
+    icon: { control: { type: 'text' } },
+    size: {
+      control: {
+        type: 'range',
+        min: 4,
+        max: 100,
+        step: 4
+      }
+    }
+  }
 };
 
-const IconTemplate = ({icon,size}) => {
+const IconTemplate = ({ icon, size }) => {
   return `
   <style>
     sdds-icon {
@@ -11,24 +22,32 @@ const IconTemplate = ({icon,size}) => {
   </style>
   <sdds-theme></sdds-theme>
   <sdds-icon name="${icon}">sdds-icon</sdds-icon>
-  `
+  `;
 };
 
-export const Icons = IconTemplate.bind({});
+export const Component = IconTemplate.bind({});
 
-Icons.args = {
+Component.args = {
   icon: 'scania-truck',
   size: 64
-}
+};
 
-Icons.argTypes = {
-  icon: { control: {type: 'text'}, description: 'Change icon to show'},
-  size: { 
-    control: { 
-      type: 'range', 
-      min: 4,
-      max: 100,
-      step: 4
-    }, description: 'Change font-size based on rem'
-  }
-}
+const IconCssTemplate = ({ icon, size }) => {
+  return `
+  <style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.0.0/fonts/css/sdds-icons.css');
+    i {
+      font-size: ${size}rem;
+    }
+  </style>
+  <sdds-theme></sdds-theme>
+  <i class="sdds-icon ${icon}"></i>
+  `;
+};
+
+export const CssIcon = IconCssTemplate.bind({});
+
+CssIcon.args = {
+  icon: 'scania-truck',
+  size: 64
+};
