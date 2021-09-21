@@ -4,8 +4,8 @@
   display: block;
 }
 
-$shodow-active: rgba(22, 65, 127, 0.2);
-$shodow-hover: rgba(22, 65, 127, 0.1);
+$shodow-active: rgba(22, 65, 127, 0.16);
+$shodow-hover: rgba(22, 65, 127, 0.08);
 
 @mixin track($fill: 0) {
   box-sizing: border-box;
@@ -258,7 +258,7 @@ button {
   border-radius: 2px;
   border-color: var(--sdds-slider-span-color);
   transform: translate(var(--val));
-  bottom: 10px;
+  bottom: 15px;
   left: 50%;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -271,6 +271,6 @@ button {
   width: 5px;
   height: 5px;
   clip-path: polygon(0 0, 100% 0, 50% 50%);
-  bottom: 5.5px;
+  bottom: 10.5px;
   left: calc(50% + 5px);
 }

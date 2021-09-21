@@ -3,7 +3,7 @@ import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
 @Component({
   tag: 'sdds-slider',
   styleUrl: 'slider.scss',
-  shadow: true
+  shadow: true,
 })
 export class Slider {
   @Prop() type: string;
@@ -22,17 +22,17 @@ export class Slider {
 
   @State() leftRangeOldValue: string;
   @State() rightRangeOldValue: string;
-  @State() minDiffValue: number = 10;
+  @State() minDiffValue: number = 0;
   @State() rangeStyle = {
     '--min': this.min,
     '--max': this.max,
-    '--val': this.value
+    '--val': this.value,
   };
 
   @State() secondRangeStyle = {
     '--min': this.min,
     '--max': this.max,
-    '--val': this.valueTwo
+    '--val': this.valueTwo,
   };
   @Watch('value')
   watchValue() {
@@ -120,14 +120,15 @@ export class Slider {
       this.leftRangeInputEl.value = value.toString();
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'dualPoint') {
-      if (value2 - value > this.minDiffValue) {
+      elemnetRef?.classList.remove('input-text-error');
+      if (value2 - value >= this.minDiffValue) {
         elemnetRef?.classList.remove('input-text-error');
         this.leftRangeInputEl.value = value.toString(); // update the left input incase change ot not
         this.rightRangeInputEl.value = value2.toString(); // update the right input incase change ot not
         this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() }; // update left range incase change ot not
         this.secondRangeStyle = {
           ...this.secondRangeStyle,
-          '--val': value2.toString()
+          '--val': value2.toString(),
         }; // update right range incase change ot not
         this.leftRangeOldValue = value.toString(); // save old value for fallback
         this.rightRangeOldValue = value2.toString(); // save old value for fallback
@@ -137,11 +138,11 @@ export class Slider {
         this.rightRangeInputEl.value = this.rightRangeOldValue;
         this.rangeStyle = {
           ...this.rangeStyle,
-          '--val': this.leftRangeOldValue
+          '--val': this.leftRangeOldValue,
         };
         this.secondRangeStyle = {
           ...this.secondRangeStyle,
-          '--val': this.rightRangeOldValue
+          '--val': this.rightRangeOldValue,
         };
         elemnetRef?.classList.add('input-text-error');
       }
@@ -214,7 +215,7 @@ export class Slider {
           class="range-slider"
           style={{
             '--minval': `${this.rangeStyle['--val']}`,
-            '--maxval': `${this.secondRangeStyle['--val']}`
+            '--maxval': `${this.secondRangeStyle['--val']}`,
           }}
         >
           <input
