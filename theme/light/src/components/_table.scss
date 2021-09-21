@@ -1,44 +1,13 @@
-.table {
-  border: 1px solid $table-border-color;
-  border-collapse: collapse;
+:root,
+html {
+  --#{$prefix}-table-title-bg: #{get-colour(grey-400)};
+  --#{$prefix}-table-header-bg: #{get-colour(grey-300)};
+  --#{$prefix}-table-header-hover: #{get-colour(grey-400)};
+  --#{$prefix}-table-body-bg: #{get-colour(white)};
+  --#{$prefix}-table-body-hover: #{get-colour(grey-100)};
+  --#{$prefix}-table-text-color: #{get-colour(grey-958)};
 
-  caption {
-    caption-side: top;
-    //FIXME: Add correct rem
-    padding: 1.875rem;
-    font-weight: bold;
-    color: get-colour(white);
-    color: Var(--sdds-white);
-    background-color: $primary;
-    // background-color: Var(--primary);
-  }
-  thead {
-
-    &:first-child {
-      color: get-colour(white);
-      color: Var(--sdds-white);
-      background-color: $table-thead-bg-color;
-    }
-
-    th {
-      border: 1px solid $table-thead-border-color;
-      border-top-color: $table-thead-border-color;
-      border-bottom-color: $table-thead-border-color;
-    }
-  }
-  th,
-  td {
-    background-color: inherit;
-    box-shadow: inherit;
-    //FIXME: Add correct rem
-    padding: $spacing-element-12 $spacing-element-12 3.25rem;
-  }
-
-  &.table-sm {
-    th,
-    td {
-      //FIXME: Add correct rem
-      padding: $spacing-element-2 1.25rem 1.25rem;
-    }
+  .#{$prefix}-on-white-bg {
+    --#{$prefix}-table-body-bg: #{get-colour(grey-50)};
   }
 }
