@@ -1,0 +1,11 @@
+:root,
+html {
+  --#{$prefix}-slider-width: 100px;
+  --#{$prefix}-slider-track-width: 100px;
+  --#{$prefix}-slider-track-height: 5px;
+  --#{$prefix}-slider-thumb-diameter: 15px;
+  --#{$prefix}-slider-track-color: #{get-colour(grey-100)};
+  --#{$prefix}-slider-fill-color: #{get-colour(blue-800)};
+  --#{$prefix}-slider-span-color: #{get-colour(grey-800)};
+  --#{$prefix}-slider-error-red-color: #{get-colour(red-500)};
+}
