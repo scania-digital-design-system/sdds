@@ -1,0 +1,276 @@
+@import '../../helpers/style-helpers.scss';
+
+:host {
+  display: block;
+}
+
+$shodow-active: rgba(22, 65, 127, 0.16);
+$shodow-hover: rgba(22, 65, 127, 0.08);
+
+@mixin track($fill: 0) {
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: var(--sdds-slider-track-height);
+  background: var(--sdds-slider-track-color);
+  border-radius: 2px;
+  @if $fill == 1 {
+    background: linear-gradient(
+        var(--sdds-slider-fill-color),
+        var(--sdds-slider-fill-color)
+      )
+      0 /
+      var(--sx)
+      100%
+      no-repeat
+      var(--sdds-slider-track-color);
+  }
+}
+
+@mixin fill() {
+  height: var(--sdds-slider-track-height);
+  background: var(--sdds-slider-fill-color);
+}
+@mixin spanValues() {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --newPosition: calc(16px - (var(--ratio) * 47) * 1px);
+  --leftspan: calc(var(--ratio) * 100%);
+  background-color: var(--sdds-slider-span-color);
+  color: var(--sdds-slider-track-color);
+}
+@mixin thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: var(--sdds-slider-thumb-diameter);
+  height: var(--sdds-slider-thumb-diameter);
+  border-radius: 50%;
+  background: var(--sdds-slider-fill-color);
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+@mixin thumbhover() {
+  box-shadow: 0px 0px 1px 10px $shodow-hover;
+  cursor: pointer;
+}
+@mixin thumbactive() {
+  box-shadow: 0px 0px 1px 10px $shodow-active;
+  cursor: grabbing;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 20px;
+  align-items: center;
+  position: relative;
+}
+
+div .range-slider {
+  width: 100%;
+  height: var(--sdds-slider-thumb-diameter);
+  float: none;
+  text-align: center;
+  margin-left: 10px;
+  position: relative;
+  [type='range'] {
+    position: absolute;
+  }
+}
+
+[type='range'] {
+  &,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --minvalpx: calc(100% * (((var(--minval) - var(--min)) / var(--range))));
+
+  --maxvalpx: calc(100% * (((var(--maxval) - var(--min)) / var(--range))));
+  --minrange: calc((var(--maxvalpx) - var(--minvalpx)));
+  --sx: calc(var(--ratio) * 100%);
+
+  margin: 0;
+  padding: 0;
+  //width: var(--sdds-slider-track-width);
+  width: 100%;
+  height: var(--sdds-slider-thumb-diameter);
+  background: transparent;
+  border: 1px;
+  display: block;
+  // position: absolute;
+  pointer-events: none;
+  outline: none;
+
+  &.sliders {
+    &::-webkit-slider-runnable-track {
+      @include track(1);
+      background: linear-gradient(
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
+        )
+        100% no-repeat;
+    }
+    &::-moz-range-track {
+      @include track(1);
+      background: linear-gradient(
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
+        )
+        100% no-repeat;
+    }
+    &::-ms-track {
+      @include track(1);
+      background: linear-gradient(
+          to right,
+          var(--sdds-slider-track-color) var(--minvalpx),
+          var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
+          var(--sdds-slider-track-color) var(--maxvalpx)
+        )
+        100% no-repeat;
+    }
+  }
+  &.sliders-right {
+    &::-moz-range-track {
+      background-color: transparent !important;
+    }
+  }
+  &::-webkit-slider-runnable-track {
+    @include track(1);
+  }
+  &::-moz-range-track {
+    @include track(1);
+  }
+  &::-ms-track {
+    @include track(1);
+  }
+
+  &::-ms-fill-lower {
+    @include fill;
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: calc(
+      0.5 *
+        (
+          #{var(--sdds-slider-track-height)} - #{var(
+              --sdds-slider-thumb-diameter
+            )}
+        )
+    );
+    @include thumb;
+  }
+  &:hover::-webkit-slider-thumb {
+    //margin-top: 10px;
+    @include thumbhover;
+  }
+  &:active::-webkit-slider-thumb {
+    // margin-top: 10px;
+    @include thumbactive;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+  &:active::-moz-range-thumb {
+    @include thumbactive;
+  }
+
+  &::-ms-thumb {
+    margin-top: 0;
+    @include thumb;
+  }
+  &:active::-ms-thumb {
+    @include thumbactive;
+  }
+  &::-ms-tooltip {
+    display: none;
+  }
+}
+
+.input-text {
+  width: 25px;
+  height: 20px;
+  text-align: center;
+  font-size: 10px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 10%;
+  border-bottom: 1px solid var(--sdds-slider-track-color);
+  background-color: var(--sdds-slider-track-color);
+
+  &:hover,
+  &:focus {
+    outline: none !important;
+    border: 0;
+    border-bottom: 1px solid var(--sdds-slider-fill-color);
+  }
+
+  &.input-text-error {
+    outline: none !important;
+    border: 0;
+    border-bottom: 1px solid var(--sdds-slider-error-red-color);
+  }
+}
+
+button {
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  background: transparent;
+  padding: 0px;
+  display: block;
+  cursor: pointer;
+  color: var(--sdds-slider-fill-color);
+
+  &:active {
+    box-shadow: 0px 0px 4px 20px $shodow-active inset;
+    border-radius: 50%;
+  }
+}
+
+.sliderspan {
+  @include spanValues;
+  font-size: 12px;
+  position: absolute;
+  display: block;
+  text-align: center;
+  left: calc(var(--leftspan) + calc(var(--newPosition) + 0px));
+}
+.spantext {
+  @include spanValues;
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  text-align: center;
+  border-radius: 2px;
+  border-color: var(--sdds-slider-span-color);
+  transform: translate(var(--val));
+  bottom: 15px;
+  left: 50%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 8px;
+}
+
+.spantrianlge {
+  @include spanValues;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  bottom: 10.5px;
+  left: calc(50% + 5px);
+}
