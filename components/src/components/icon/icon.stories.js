@@ -7,10 +7,10 @@ export default {
         type: 'range',
         min: 4,
         max: 100,
-        step: 4
-      }
-    }
-  }
+        step: 4,
+      },
+    },
+  },
 };
 
 const IconTemplate = ({ icon, size }) => {
@@ -29,13 +29,13 @@ export const Component = IconTemplate.bind({});
 
 Component.args = {
   icon: 'scania-truck',
-  size: 64
+  size: 64,
 };
 
 const IconCssTemplate = ({ icon, size }) => {
   return `
   <style>
-    @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.0.0/fonts/css/sdds-icons.css');
+    @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
     i {
       font-size: ${size}rem;
     }
@@ -49,5 +49,5 @@ export const CssIcon = IconCssTemplate.bind({});
 
 CssIcon.args = {
   icon: 'scania-truck',
-  size: 64
+  size: 64,
 };
