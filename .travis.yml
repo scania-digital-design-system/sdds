@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - 12
+  - 14
 
 # Whitelist branch
 branches:
@@ -10,9 +11,7 @@ branches:
 #  - /(\d+.\d+.\d+)(\S*)?/
 
 before_script:
-  - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
-  - "echo Commit#: $TRAVIS_COMMIT Commit-message: $TRAVIS_COMMIT_MESSAGE"
-  - "npm i"
+  - npm install -g gulp-cli
 
 # NPM setup for building dist
 script:
