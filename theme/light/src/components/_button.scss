@@ -1,133 +1,75 @@
 @import "../mixins";
 
-$btn-primary: (
-  background: get-colour(blue-600),
-  color: get-colour(white),
-  border-color: transparent,
-  hover: (
-    background: get-colour(blue-500),
-    color: get-colour(white),
-    border-color: transparent,
-  ),
-  active: (
-    background: get-colour(blue-700),
-    color: get-colour(white),
-    border-color: transparent,
-  ),
-  focus: (
-    background: get-colour(blue-400),
-    color: get-colour(white),
-    border-color: get-colour(blue-600),
-  ),
-  disabled: (
-    background: get-colour(white),
-    color: get-colour(grey-400),
-    border-color: transparent,
-  ),
-);
-$btn-secondary: (
-  background: transparent,
-  color: get-colour(black),
-  border-color: rgba(0, 0, 0, 0.38),
-  hover: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: rgba(0, 0, 0, 0.6),
-  ),
-  active: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: rgba(0, 0, 0, 0.87),
-  ),
-  focus: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: get-colour(blue-300),
-  ),
-  disabled: (
-    background: transparent,
-    color: rgba(0, 0, 0, 0.38),
-    border-color: rgba(0, 0, 0, 0.38),
-  ),
-);
-$btn-ghost: (
-  background: transparent,
-  color: get-colour(black),
-  border-color: transparent,
-  hover: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: rgba(0, 0, 0, 0.6),
-  ),
-  active: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: rgba(0, 0, 0, 0.87),
-  ),
-  focus: (
-    background: transparent,
-    color: get-colour(black),
-    border-color: get-colour(blue-300),
-  ),
-  disabled: (
-    background: transparent,
-    color: rgba(0, 0, 0, 0.38),
-    border-color: transparent,
-  ),
-);
-$btn-danger: (
-  background: get-colour(red-600),
-  color: get-colour(white),
-  border-color: transparent,
-  hover: (
-    background: get-colour(red-500),
-    color: get-colour(white),
-    border-color: transparent,
-  ),
-  active: (
-    background: get-colour(red-700),
-    color: get-colour(white),
-    border-color: transparent,
-  ),
-  focus: (
-    background: get-colour(red-400),
-    color: get-colour(white),
-    border-color: get-colour(red-700),
-  ),
-  disabled: (
-    background: get-colour(white),
-    color: rgba(0, 0, 0, 0.38),
-    border-color: transparent,
-  ),
-);
-
-@mixin btn-theming($maps, $type) {
-  @each $key, $value in $maps {
-    $keyval: "" + $key;
-
-    @if (
-      $keyval ==
-        hover or
-        $keyval ==
-        active or
-        $keyval ==
-        focus or
-        $keyval ==
-        disabled
-    ) {
-      @each $prop, $val in $value {
-        --#{$prefix}-btn-#{$type}-#{$prop}-#{$keyval}: #{$val};
-      }
-    } @else {
-      --#{$prefix}-btn-#{$type}-#{$keyval}: #{$value};
-    }
-  }
-}
-
 :root,
 html {
-  @include btn-theming($btn-primary, "primary");
-  @include btn-theming($btn-secondary, "secondary");
-  @include btn-theming($btn-ghost, "ghost");
-  @include btn-theming($btn-danger, "danger");
+  //Primary
+  --#{$prefix}-btn-primary-background: #{get-colour(blue-600)};
+  --#{$prefix}-btn-primary-color: #{get-colour(white)};
+  --#{$prefix}-btn-primary-border-color: transparent;
+  --#{$prefix}-btn-primary-background-hover: #{get-colour(blue-500)};
+  --#{$prefix}-btn-primary-color-hover: #{get-colour(white)};
+  --#{$prefix}-btn-primary-border-color-hover: transparent;
+  --#{$prefix}-btn-primary-background-active: #{get-colour(blue-700)};
+  --#{$prefix}-btn-primary-color-active: #{get-colour(white)};
+  --#{$prefix}-btn-primary-border-color-active: transparent;
+  --#{$prefix}-btn-primary-background-focus: #{get-colour(blue-400)};
+  --#{$prefix}-btn-primary-color-focus: #{get-colour(white)};
+  --#{$prefix}-btn-primary-border-color-focus: #{get-colour(blue-600)};
+  --#{$prefix}-btn-primary-background-disabled: #{get-colour(white)};
+  --#{$prefix}-btn-primary-color-disabled: #{get-colour(grey-400)};
+  --#{$prefix}-btn-primary-border-color-disabled: transparent;
+  //Secondary
+  --#{$prefix}-btn-secondary-background: transparent;
+  --#{$prefix}-btn-secondary-color: #{get-colour(black)};
+  --#{$prefix}-btn-secondary-border-color: rgba(0, 0, 0, 0.38);
+  --#{$prefix}-btn-secondary-background-hover: transparent;
+  --#{$prefix}-btn-secondary-color-hover: #{get-colour(black)};
+  --#{$prefix}-btn-secondary-border-color-hover: rgba(0, 0, 0, 0.6);
+  --#{$prefix}-btn-secondary-background-active: transparent;
+  --#{$prefix}-btn-secondary-color-active: #{get-colour(black)};
+  --#{$prefix}-btn-secondary-border-color-active: rgba(0, 0, 0, 0.87);
+  --#{$prefix}-btn-secondary-background-focus: transparent;
+  --#{$prefix}-btn-secondary-color-focus: #{get-colour(black)};
+  --#{$prefix}-btn-secondary-border-color-focus: #{get-colour(blue-300)};
+  --#{$prefix}-btn-secondary-background-disabled: transparent;
+  --#{$prefix}-btn-secondary-color-disabled: rgba(0, 0, 0, 0.38);
+  --#{$prefix}-btn-secondary-border-color-disabled: rgba(0, 0, 0, 0.38);
+  //Ghost
+  --#{$prefix}-btn-ghost-background: transparent;
+  --#{$prefix}-btn-ghost-color: #{get-colour(black)};
+  --#{$prefix}-btn-ghost-border-color: transparent;
+  --#{$prefix}-btn-ghost-background-hover: transparent;
+  --#{$prefix}-btn-ghost-color-hover: #{get-colour(black)};
+  --#{$prefix}-btn-ghost-border-color-hover: rgba(0, 0, 0, 0.6);
+  --#{$prefix}-btn-ghost-background-active: transparent;
+  --#{$prefix}-btn-ghost-color-active: #{get-colour(black)};
+  --#{$prefix}-btn-ghost-border-color-active: rgba(0, 0, 0, 0.87);
+  --#{$prefix}-btn-ghost-background-focus: transparent;
+  --#{$prefix}-btn-ghost-color-focus: #{get-colour(black)};
+  --#{$prefix}-btn-ghost-border-color-focus: #{get-colour(blue-300)};
+  --#{$prefix}-btn-ghost-background-disabled: transparent;
+  --#{$prefix}-btn-ghost-color-disabled: rgba(0, 0, 0, 0.38);
+  --#{$prefix}-btn-ghost-border-color-disabled: transparent;
+  //Danger
+  --#{$prefix}-btn-danger-background: #{get-colour(red-600)};
+  --#{$prefix}-btn-danger-color: #{get-colour(white)};
+  --#{$prefix}-btn-danger-border-color: transparent;
+  --#{$prefix}-btn-danger-background-hover: #{get-colour(red-500)};
+  --#{$prefix}-btn-danger-color-hover: #{get-colour(white)};
+  --#{$prefix}-btn-danger-border-color-hover: transparent;
+  --#{$prefix}-btn-danger-background-active: #{get-colour(red-700)};
+  --#{$prefix}-btn-danger-color-active: #{get-colour(white)};
+  --#{$prefix}-btn-danger-border-color-active: transparent;
+  --#{$prefix}-btn-danger-background-focus: #{get-colour(red-400)};
+  --#{$prefix}-btn-danger-color-focus: #{get-colour(white)};
+  --#{$prefix}-btn-danger-border-color-focus: #{get-colour(red-700)};
+  --#{$prefix}-btn-danger-background-disabled: #{get-colour(white)};
+  --#{$prefix}-btn-danger-color-disabled: rgba(0, 0, 0, 0.38);
+  --#{$prefix}-btn-danger-border-color-disabled: transparent;
+
+  .sdds-on-white-bg {
+    //Primary
+    --#{$prefix}-btn-primary-background-disabled: #{get-colour(grey-50)};
+    --#{$prefix}-btn-danger-background-disabled: #{get-colour(grey-50)};
+  }
 }
