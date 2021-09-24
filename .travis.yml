@@ -16,4 +16,4 @@ before_script:
 # NPM setup for building dist
 script:
   - "cd components && npm run lint"
-  - "npm run build"
+  - "cd .. && npm run build"
