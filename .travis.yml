@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - 12
   - 14
   - 16
 
@@ -17,4 +16,3 @@ before_script:
 # NPM setup for building dist
 script:
   - "cd components && npm run lint"
-  - "cd .. && npm run build"
