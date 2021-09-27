@@ -81,9 +81,6 @@
     "semi-spacing": "off", // TODO: Turn on
     "no-restricted-globals": "off", // TODO: turn on
     "no-prototype-builtins": "off", // TODO: turn on
-    "curly": "off", // TODO: Turn on
-    "no-continue": "off", // TODO: turn on
-    "object-property-newline": "warn", // TODO: turn on
     "radix": ["error", "as-needed"], // TODO: Turn on
     "max-len": "off", // TODO: Set limit ?
     "no-use-before-define": "off", //Turn Off
