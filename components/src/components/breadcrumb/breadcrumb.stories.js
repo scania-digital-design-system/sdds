@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Breadcrumb'
+  title: 'Component/Breadcrumb',
 };
 
 const Template = () => {

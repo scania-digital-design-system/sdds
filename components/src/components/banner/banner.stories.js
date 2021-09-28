@@ -4,25 +4,25 @@ export default {
     state: {
       control: {
         type: 'select',
-        options:['default', 'error', 'info']
-      }
+        options: ['default', 'error', 'info'],
+      },
     },
     header: {
       control: {
-        type: 'text'
-      }
-    }
+        type: 'text',
+      },
+    },
   },
   args: {
     state: 'default',
-    header : '<h6 class="sdds-banner-header">This is a default banner</h6>',
+    header: '<h6 class="sdds-banner-header">This is a default banner</h6>',
     subheader: '',
     link: '',
     prefix: '',
-  }
+  },
 };
 
-const Template = ({state, prefix, header, subheader, link}) => {
+const Template = ({ state, prefix, header, subheader, link }) => {
   return `
   <style>
     .demo-bg {
@@ -45,35 +45,34 @@ const Template = ({state, prefix, header, subheader, link}) => {
       <div class="sdds-banner-close"></div>
     </div>
   </div>
-  `
+  `;
 };
 
 export const Basic = Template.bind({});
 
 Basic.args = {
-  link: ''
-}
+  link: '',
+};
 
 export const Subheader = Template.bind({});
 
 Subheader.args = {
   subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: ''
-}
+  link: '',
+};
 
 export const Link = Template.bind({});
 
 Link.args = {
   subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: '<a class="sdds-link sdds-banner-link">Link example</a>'
-}
+  link: '<a class="sdds-link sdds-banner-link">Link example</a>',
+};
 
 export const Prefix = Template.bind({});
 
 Prefix.args = {
-  prefix: '<span class="sdds-banner-prefix"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>',
+  prefix:
+    '<span class="sdds-banner-prefix"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>',
   subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: '<a class="sdds-link sdds-banner-link">Link example</a>'
-}
-
-
+  link: '<a class="sdds-link sdds-banner-link">Link example</a>',
+};

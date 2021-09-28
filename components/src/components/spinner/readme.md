@@ -9,8 +9,8 @@
 
 | Property | Attribute | Description | Type     | Default |
 | -------- | --------- | ----------- | -------- | ------- |
-| `size`   | `size`    |             | `string` | `""`    |
-| `type`   | `type`    |             | `string` | `""`    |
+| `size`   | `size`    |             | `string` | `''`    |
+| `type`   | `type`    |             | `string` | `''`    |
 
 
 ----------------------------------------------

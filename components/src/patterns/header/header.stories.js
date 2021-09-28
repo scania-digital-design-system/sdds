@@ -3,9 +3,9 @@ import readme from './readme.md';
 export default {
   title: 'Patterns/Header',
   argTypes: {
-    siteName: { 
+    siteName: {
       type: 'string',
-      defaultValue: 'Application'
+      defaultValue: 'Application',
     },
   },
   parameters: {
@@ -13,8 +13,15 @@ export default {
   },
 };
 
-const Template = ({siteName, openMenuMobile=false, navMenu='', toolbarMenuMobile='', toolbarMenu=''}) => {
-  const overlayExpanded = openMenuMobile || toolbarMenu.trim('').length>0 ? 'expanded' : '';
+const Template = ({
+  siteName,
+  openMenuMobile = false,
+  navMenu = '',
+  toolbarMenuMobile = '',
+  toolbarMenu = '',
+}) => {
+  const overlayExpanded =
+    openMenuMobile || toolbarMenu.trim('').length > 0 ? 'expanded' : '';
   const expanded = openMenuMobile ? 'expanded' : '';
 
   return `
@@ -39,14 +46,14 @@ const Template = ({siteName, openMenuMobile=false, navMenu='', toolbarMenuMobile
 
     <div class="sdds-navbar-scania-brand"></div>
   </nav>
-  `
+  `;
 };
 
 export const Basic = Template.bind({});
 Basic.args = {
   siteName: 'My Application',
-  openMenuMobile: false
-}
+  openMenuMobile: false,
+};
 
 const navMenuHTML = `
 <ul class="sdds-navbar-menu-list">
@@ -125,16 +132,16 @@ export const NavMenu = Template.bind({});
 NavMenu.args = {
   siteName: 'My Application',
   openMenuMobile: false,
-  navMenu: navMenuHTML
-}
+  navMenu: navMenuHTML,
+};
 
 export const toolbarMenu = Template.bind({});
 toolbarMenu.args = {
   siteName: 'My Application',
   openMenuMobile: false,
   toolbarMenuMobile: toolbarMenuMobileHTML,
-  toolbarMenu: toolbarMenuHTML
-}
+  toolbarMenu: toolbarMenuHTML,
+};
 
 export const AllMenu = Template.bind({});
 AllMenu.args = {
@@ -142,5 +149,5 @@ AllMenu.args = {
   openMenuMobile: false,
   navMenu: navMenuHTML,
   toolbarMenuMobile: toolbarMenuMobileHTML,
-  toolbarMenu: toolbarMenuHTML
-}
+  toolbarMenu: toolbarMenuHTML,
+};

@@ -7,19 +7,25 @@ export function themeStyle(currentTheme, tagName, styleThis, el) {
 
   let style;
 
-  const css = currentTheme && currentTheme.components[tagName] ? currentTheme.components[tagName] : '';
+  const css =
+    currentTheme && currentTheme.components[tagName]
+      ? currentTheme.components[tagName]
+      : '';
 
   // Fallback for currentTheme, initially empty or the currentTheme doesn't contain a version property
-  if(!currentTheme || !currentTheme.version || !styleThis) {
+  if (!currentTheme || !currentTheme.version || !styleThis) {
     return;
   }
 
   // If the browser has support for adoptedStyleSheet (Chromium)
-  if(el.shadowRoot.adoptedStyleSheets) {
+  if (el.shadowRoot.adoptedStyleSheets) {
     style = new CSSStyleSheet();
     style.replaceSync(css);
     // TODO: We should not take first index we should all except the previous style
-    el.shadowRoot.adoptedStyleSheets = [ el.shadowRoot.adoptedStyleSheets[0], style ];
+    el.shadowRoot.adoptedStyleSheets = [
+      el.shadowRoot.adoptedStyleSheets[0],
+      style,
+    ];
   } else {
     // Fallback for browsers without adoptedStyleSheet API suppport
     const node = el.shadowRoot || el;
@@ -34,10 +40,8 @@ export function themeStyle(currentTheme, tagName, styleThis, el) {
       style.appendChild(document.createTextNode(css));
     }
 
-    if(!node.querySelector('#themeStyle')) {
+    if (!node.querySelector('#themeStyle')) {
       node.insertBefore(style, node.firstChild.nextSibling);
     }
-
   }
-
 }

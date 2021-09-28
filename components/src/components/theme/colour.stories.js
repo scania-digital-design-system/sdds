@@ -1,5 +1,5 @@
 export default {
-  title: 'Foundation/Colour'
+  title: 'Foundation/Colour',
 };
 
 const style = `
@@ -71,9 +71,9 @@ Scales.argTypes = {
   colour: {
     options: ['grey', 'blue', 'red'],
     control: {
-      type: 'select'
-    }
-  }
+      type: 'select',
+    },
+  },
 };
 
 Scales.args = {
@@ -92,9 +92,9 @@ Scales.args = {
       '846',
       '868',
       '900',
-      '958'
+      '958',
     ],
     blue: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
-  }
+    red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  },
 };

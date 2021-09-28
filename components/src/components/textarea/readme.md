@@ -1,7 +1,5 @@
 # sdds-textarea
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -17,10 +15,10 @@
 | `labelPosition` | `label-position` | Label position: `no-label` (default), `inside`, `outside` | `string`  | `'no-label'` |
 | `maxlength`     | `maxlength`      | Max length of input                                       | `number`  | `undefined`  |
 | `name`          | `name`           | Name attribute                                            | `string`  | `''`         |
-| `placeholder`   | `placeholder`    | Placeholder text                                          | `string`  | `""`         |
+| `placeholder`   | `placeholder`    | Placeholder text                                          | `string`  | `''`         |
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`  | `undefined`  |
 | `state`         | `state`          | Error state of input                                      | `string`  | `undefined`  |
-| `value`         | `value`          | Value of the input text                                   | `string`  | `""`         |
+| `value`         | `value`          | Value of the input text                                   | `string`  | `''`         |
 
 
 ## Events

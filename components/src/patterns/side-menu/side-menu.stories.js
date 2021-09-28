@@ -3,7 +3,7 @@ export default {
   args: {
     active: true,
   },
-}
+};
 
 const Template = ({
   icon = false,
@@ -12,8 +12,8 @@ const Template = ({
   active = false,
 }) => {
   const icons = icon
-    ? ` <span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>`
-    : ''
+    ? '<span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>'
+    : '';
 
   const style = `
   <style>
@@ -52,7 +52,7 @@ const Template = ({
     }
     
   </style>
-  `
+  `;
 
   return `
   <sdds-theme></sdds-theme>
@@ -171,15 +171,15 @@ const Template = ({
       </div>
     </div>
   </div>
-  `
-}
+  `;
+};
 
-export const Basic = Template.bind({})
+export const Basic = Template.bind({});
 
 Basic.args = {
   icon: false,
   active: true,
-}
+};
 
 Basic.argTypes = {
   collapse: {
@@ -187,30 +187,30 @@ Basic.argTypes = {
       disable: true,
     },
   },
-}
+};
 
-export const WithIcon = Template.bind({})
+export const WithIcon = Template.bind({});
 
 WithIcon.args = {
   icon: true,
   dropdown: false,
-}
+};
 
-export const Dropdown = Template.bind({})
+export const Dropdown = Template.bind({});
 
 Dropdown.args = {
   dropdown: true,
 
   active: true,
-}
+};
 
-export const Collapse = Template.bind({})
+export const Collapse = Template.bind({});
 
 Collapse.args = {
   icon: true,
   collapse: true,
   active: true,
-}
+};
 
 Collapse.argTypes = {
   icon: {
@@ -218,16 +218,16 @@ Collapse.argTypes = {
       disable: true,
     },
   },
-}
+};
 
-export const CollapseDropdown = Template.bind({})
+export const CollapseDropdown = Template.bind({});
 
 CollapseDropdown.args = {
   icon: true,
   dropdown: true,
   collapse: true,
   active: true,
-}
+};
 
 CollapseDropdown.argTypes = {
   icon: {
@@ -240,4 +240,4 @@ CollapseDropdown.argTypes = {
       disable: true,
     },
   },
-}
+};
