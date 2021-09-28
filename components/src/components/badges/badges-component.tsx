@@ -14,7 +14,7 @@ export class SddsBadges {
 
   @Watch('value')
   watchValue() {
-    //parse the value to number
+    // parse the value to number
     let valueAsNumber = parseInt(this.value);
     if (!isNaN(valueAsNumber)) {
       this.shape = valueAsNumber.toString().length >= 2 ? 'pill' : '';

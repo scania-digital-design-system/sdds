@@ -13,10 +13,10 @@
   },
   "rules": {
     "indent": "off", // TODO: Turn on
-    "quotes": "warn", // TODO: Turn on, single or double quotes?
-    "no-trailing-spaces": "warn", // TODO: turn on
-    "key-spacing": "off", // TODO: Turn on
-    "keyword-spacing": "off", // TODO: Turn on
+    // "quotes": "warn", // TODO: Turn on, single or double quotes?
+    // "no-trailing-spaces": "warn", // TODO: turn on
+    // "key-spacing": "warn", // TODO: Turn on
+    // "keyword-spacing": "warn", // TODO: Turn on
     "spaced-comment": "off", // TODO: Turn on
     "comma-spacing": "off", // TODO: turn on
     "arrow-spacing": "off", // TODO: turn on

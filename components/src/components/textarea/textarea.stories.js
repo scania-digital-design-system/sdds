@@ -10,61 +10,53 @@ export default {
       name: 'Placeholder',
       description: 'Placeholder text',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     disabled: {
       description: 'Set textfield to disabled state',
       name: 'Disabled',
       control: {
-        type: 'boolean'
-      }
+        type: 'boolean',
+      },
     },
     label: {
       description: 'Label text for specific textfield',
       name: 'Label text',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     labelPosition: {
       description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
         type: 'select',
-        options: [
-          'no-label',
-          'inside',
-          'outside'
-        ]
-      }
+        options: ['no-label', 'inside', 'outside'],
+      },
     },
     helper: {
       name: 'Helper text',
       description: 'Add helper text for the textfield',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     textcounter: {
       name: 'Text counter',
       description: 'Set a maximum value how long the text can be',
       control: {
-        type:'number'
-      }
+        type: 'number',
+      },
     },
     state: {
       name: 'State',
-      description:'Switch between success or error state',
+      description: 'Switch between success or error state',
       control: {
         type: 'select',
-        options: [
-          'none',
-          'success',
-          'error'
-        ]
-      }
-    }
+        options: ['none', 'success', 'error'],
+      },
+    },
   },
   args: {
     placeholder: 'Placeholder',
@@ -73,12 +65,20 @@ export default {
     label: '',
     labelPosition: 'no-label',
     helper: '',
-    textcounter: 0
-  }
+    textcounter: 0,
+  },
 };
 
-const textfieldTemplate = ({placeholder,disabled,label,labelPosition,state,helper,textcounter}) => {
-  const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"':'';
+const textfieldTemplate = ({
+  placeholder,
+  disabled,
+  label,
+  labelPosition,
+  state,
+  helper,
+  textcounter,
+}) => {
+  const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"' : '';
   return `
   <sdds-theme></sdds-theme>
   <div class="sdds-container" style="margin-top:10rem;">
@@ -96,39 +96,39 @@ const textfieldTemplate = ({placeholder,disabled,label,labelPosition,state,helpe
       </div>
     </div>
   </div>
-  `
+  `;
 };
 
 export const Basic = textfieldTemplate.bind({});
 
-Basic.args = {}
+Basic.args = {};
 
 export const Disabled = textfieldTemplate.bind({});
 
 Disabled.args = {
   disabled: true,
-  placeholderText: 'Disabled'
-}
+  placeholderText: 'Disabled',
+};
 
 export const labelInside = textfieldTemplate.bind({});
 
 labelInside.args = {
   label: 'Label text',
-  labelPosition: 'inside'
+  labelPosition: 'inside',
 };
 
 export const labelOutside = textfieldTemplate.bind({});
 
 labelOutside.args = {
   label: 'Label text',
-  labelPosition: 'outside'
+  labelPosition: 'outside',
 };
 
 export const helper = textfieldTemplate.bind({});
 
 helper.args = {
   helper: 'Helper text',
-  label: 'Label text'
+  label: 'Label text',
 };
 
 export const state = textfieldTemplate.bind({});
@@ -136,11 +136,11 @@ export const state = textfieldTemplate.bind({});
 state.args = {
   state: 'error',
   helper: 'Helper message',
-  label: 'Label text'
+  label: 'Label text',
 };
 
 export const textCounter = textfieldTemplate.bind({});
 
 textCounter.args = {
-  textcounter: 10
+  textcounter: 10,
 };
