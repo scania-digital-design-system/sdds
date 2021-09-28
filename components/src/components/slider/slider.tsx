@@ -183,33 +183,9 @@ export class Slider {
     return (
       <div>
         <div style={this.rangeStyle} class="container">
-          <div
-            class="sliderspan"
-            ref={(el) => (this.sliderspan = el as HTMLInputElement)}
-          >
-            <span
-              class="spantext"
-              ref={(el) => (this.spantext = el as HTMLInputElement)}
-            >
-              {this.rangeStyle['--val']}
-            </span>
-            <span class="spantrianlge"></span>
-          </div>
-          <button onClick={this.handleOnClickMinus}>
-            {' '}
-            <span>-</span>{' '}
-          </button>
-          <input
-            min={`${this.rangeStyle['--min']}`}
-            max={`${this.rangeStyle['--max']}`}
-            value={`${this.rangeStyle['--val']}`}
-            ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
-            type="range"
-          ></input>
-          <button onClick={this.handleOnClickPlus}>
-            {' '}
-            <span>+</span>{' '}
-          </button>
+          <sdds-continousvalue-slider
+            rangeStyle={this.rangeStyle}
+          ></sdds-continousvalue-slider>
         </div>
       </div>
     );
