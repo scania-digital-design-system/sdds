@@ -6,7 +6,7 @@ export default {
   },
 };
 
-//Styling for grid templates
+// Styling for grid templates
 const style = `
   <style>
     .sb-show-main.sb-main-padded {
@@ -125,7 +125,7 @@ const GridTemplate = ({ fluidContainer, padding }) => {
   `;
 };
 
-//Controls for the grid
+// Controls for the grid
 export const Basic = GridTemplate.bind({});
 
 const GridAutoColTemplate = ({ fluidContainer, padding }) => {

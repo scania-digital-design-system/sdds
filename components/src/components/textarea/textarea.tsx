@@ -63,24 +63,24 @@ export class Textarea {
   })
   customChange: EventEmitter;
 
-  //Listener if input enters focus state
+  // Listener if input enters focus state
   @Listen('focus')
   handleFocusIn() {
     this.focusInput = true;
   }
 
-  //Listener if input leaves focus state
+  // Listener if input leaves focus state
   @Listen('focusout')
   handleFocusOut() {
     this.focusInput = false;
   }
 
-  //Data input event in value prop
+  // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
   }
 
-  //** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  /* Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
     this.textEl.focus();
   }
