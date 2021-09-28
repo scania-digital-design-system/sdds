@@ -7,10 +7,10 @@ export default {
         type: 'range',
         min: 4,
         max: 100,
-        step: 4
-      }
-    }
-  }
+        step: 4,
+      },
+    },
+  },
 };
 
 const IconTemplate = ({ icon, size }) => {
@@ -29,7 +29,7 @@ export const Component = IconTemplate.bind({});
 
 Component.args = {
   icon: 'scania-truck',
-  size: 64
+  size: 64,
 };
 
 const IconCssTemplate = ({ icon, size }) => {
@@ -49,5 +49,5 @@ export const CssIcon = IconCssTemplate.bind({});
 
 CssIcon.args = {
   icon: 'scania-truck',
-  size: 64
+  size: 64,
 };

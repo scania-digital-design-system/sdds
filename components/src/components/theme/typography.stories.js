@@ -7,11 +7,11 @@ export default {
   },
 };
 
-const Template = ({content}) => {
+const Template = ({ content }) => {
   return `
   <sdds-theme></sdds-theme>
   ${content}
-  `
+  `;
 };
 
 export const Headlines = Template.bind({});
@@ -24,8 +24,8 @@ Headlines.args = {
   <h5>A sub headline, which is most commonly paired with body-01</h5>
   <h6>A sub headline, which is most commonly paired with body-02</h6>
   <h7>A sub headline, which is most commonly paired with detail-02 </h7>
-  `
-}
+  `,
+};
 
 export const Body = Template.bind({});
 Body.args = {
@@ -36,19 +36,19 @@ Body.args = {
   <p class='sdds-body-02'>
   Nulla at volutpat diam ut venenatis. Nullam ac tortor vitae purus faucibus ornare. Mauris nunc congue nisi vitae suscipit tellus mauris. 
   </p>
-  `
-}
+  `,
+};
 
 export const Paragraph = Template.bind({});
 Paragraph.args = {
   content: `
   <p class='sdds-paragraph-01'>Velit aliquet sagittis id consectetur purus ut faucibus pulvinar. Dui nunc mattis enim ut tellus elementum sagittis vitae. </p>
   <p class='sdds-paragraph-02'>Sapien pellentesque habitant morbi tristique senectus et netus et. Ut tellus elementum sagittis vitae et. Scelerisque varius morbi enim nunc faucibus. Volutpat diam ut venenatis tellus in.</p>
-  `
-}
+  `,
+};
 
 export const Detail = Template.bind({});
-Detail.args =  {
+Detail.args = {
   content: `
   <p class='sdds-detail-01'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   <p class='sdds-detail-02'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -57,13 +57,13 @@ Detail.args =  {
   <p class='sdds-detail-05'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   <p class='sdds-detail-06'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   <p class='sdds-detail-07'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-  `
-}
+  `,
+};
 
 export const ExpressiveHeadline = Template.bind({});
 ExpressiveHeadline.args = {
   content: `
   <p class='sdds-expressive-headline-01'>Headline</p>
   <p class='sdds-expressive-headline-02'>Headline</p>
-  `
-}
+  `,
+};

@@ -1,7 +1,5 @@
 # sdds-textarea
 
-
-
 <!-- Auto Generated Below -->
 
 

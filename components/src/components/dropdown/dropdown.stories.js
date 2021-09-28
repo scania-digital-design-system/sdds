@@ -5,65 +5,66 @@ export default {
   parameters: {
     previewTabs: {
       'storybook/docs/panel': {
-        hidden: true
-      }
+        hidden: true,
+      },
     },
-    notes: readme
+    notes: readme,
   },
   argTypes: {
     size: {
       control: {
         type: 'select',
-        options:['large', 'small', 'medium']
+        options: ['large', 'small', 'medium'],
       },
       defaultValue: 'large',
-      description: 'Size of the dropdown'
+      description: 'Size of the dropdown',
     },
-    placeholder:{
-      type:'string',
+    placeholder: {
+      type: 'string',
       defaultValue: 'Select option',
-      description:'Placeholder text when no option is selected'
+      description: 'Placeholder text when no option is selected',
     },
-    label:{
-      type:'string',
+    label: {
+      type: 'string',
       defaultValue: 'Label text',
-      description:'Label text explains about dropdown'
+      description: 'Label text explains about dropdown',
     },
     labelPosition: {
       control: {
         type: 'select',
-        options:['no-label', 'inside', 'outside']
+        options: ['no-label', 'inside', 'outside'],
       },
       defaultValue: 'no-label',
-      description: 'Label text position'
+      description: 'Label text position',
     },
     state: {
       control: {
         type: 'select',
-        options:['default', 'error']
+        options: ['default', 'error'],
       },
       defaultValue: 'default',
-      description: 'Support error state'
+      description: 'Support error state',
     },
     defaultOption: {
       control: {
         type: 'select',
-        options:['no-default', 'option-1', 'option-2', 'option-3']
-      }
-    }
-  }
+        options: ['no-default', 'option-1', 'option-2', 'option-3'],
+      },
+    },
+  },
 };
-  
+
 const Template = ({
   size,
   type,
   label,
-  disabled=false,
+  disabled = false,
   labelPosition,
-  helper='',
-  state='default',
+  helper = '',
+  state = 'default',
   placeholder,
-  defaultOption}) => {
+  defaultOption,
+}) => {
   return `
   <sdds-theme></sdds-theme>
   
@@ -86,44 +87,45 @@ const Template = ({
         </sdds-dropdown>
       </div>
     </div>
-  `
+  `;
 };
 
 export const Basic = Template.bind({});
 Basic.args = {
-  disabled: false
-}
+  disabled: false,
+};
 
 export const LabelInside = Template.bind({});
 LabelInside.args = {
   disabled: false,
-  labelPosition:'inside'
-}
+  labelPosition: 'inside',
+};
 
 export const LabelOutside = Template.bind({});
 LabelOutside.args = {
   disabled: false,
-  labelPosition:'outside',
-  label:'Label text'
-}
+  labelPosition: 'outside',
+  label: 'Label text',
+};
 
 export const Helper = Template.bind({});
 Helper.args = {
-  helper: 'Helper text'
-}
+  helper: 'Helper text',
+};
 
 export const Error = Template.bind({});
 Error.args = {
   state: 'error',
-  helper:'Error message'
-}
+  helper: 'Error message',
+};
 
 const FilterTemplate = ({
   size,
-  disabled=false,
-  helper='',
+  disabled = false,
+  helper = '',
   placeholder,
-  defaultOption}) => {
+  defaultOption,
+}) => {
   return `
     <sdds-theme></sdds-theme>
     <div class="sdds-container" style="margin-top:10rem;">
@@ -140,36 +142,38 @@ const FilterTemplate = ({
       </div>
       </div>
     </div>
-  `
-}
+  `;
+};
 
 export const Filter = FilterTemplate.bind({});
-Filter.args = {}
+Filter.args = {};
 Filter.argTypes = {
-  labelPosition : {
+  labelPosition: {
     table: {
-      disable:true
-    }
+      disable: true,
+    },
   },
-  label : {
+  label: {
     table: {
-      disable:true
-    }
+      disable: true,
+    },
   },
-  state : {
+  state: {
     table: {
-      disable:true
-    }
-  }
-}
+      disable: true,
+    },
+  },
+};
 
-const NativeTemplate = ({size, helper='Helper text', label, state}) => {
+const NativeTemplate = ({ size, helper = 'Helper text', label, state }) => {
   return `
   <sdds-theme></sdds-theme>
   <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-4 sdds-col-xlg-4 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-4">
-        <div class="sdds-dropdown ${size!=='large' ? 'sdds-dropdown-' + size : ''} ${state==='error' ? 'is-error':''}" >
+        <div class="sdds-dropdown ${
+          size !== 'large' ? 'sdds-dropdown-' + size : ''
+        } ${state === 'error' ? 'is-error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>
@@ -182,25 +186,25 @@ const NativeTemplate = ({size, helper='Helper text', label, state}) => {
       </div>
     </div>
   </div>
-  `
-}
+  `;
+};
 
 export const NativeSelect = NativeTemplate.bind({});
-NativeSelect.args = {}
+NativeSelect.args = {};
 NativeSelect.argTypes = {
-  labelPosition : {
+  labelPosition: {
     table: {
-      disable:true
-    }
+      disable: true,
+    },
   },
-  placeholder : {
+  placeholder: {
     table: {
-      disable:true
-    }
+      disable: true,
+    },
   },
-  defaultOption : {
+  defaultOption: {
     table: {
-      disable:true
-    }
-  }
-}
+      disable: true,
+    },
+  },
+};

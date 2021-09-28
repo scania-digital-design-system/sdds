@@ -10,78 +10,68 @@ export default {
       name: 'Placeholder',
       description: 'Placeholder text',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     type: {
       name: 'Type',
       description: 'Which type of textfield',
       control: {
-      type: 'select',
-      options: [
-        'password',
-        'text'
-      ],
-     },
+        type: 'select',
+        options: ['password', 'text'],
+      },
     },
     size: {
       name: 'Size',
-      description:'Switch between different sizes',
+      description: 'Switch between different sizes',
       control: {
         type: 'select',
-        options: [
-          'Default',
-          'Medium'
-        ],
-      }
+        options: ['Default', 'Medium'],
+      },
     },
     disabled: {
       description: 'Set textfield to disabled state',
       name: 'Disabled',
       control: {
-        type: 'boolean'
-      }
+        type: 'boolean',
+      },
     },
     label: {
       description: 'Label text for specific textfield',
       name: 'Label text',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     labelplacement: {
       description: 'Label can be placed inside the textfield',
       name: 'Label inside',
       control: {
-        type: 'boolean'
-      }
+        type: 'boolean',
+      },
     },
     helper: {
       name: 'Helper text',
       description: 'Add helper text for the textfield',
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     textcounter: {
       name: 'Text counter',
       description: 'Set a maximum value how long the text can be',
       control: {
-        type:'number'
-      }
+        type: 'number',
+      },
     },
     state: {
       name: 'State',
-      description:'Switch between success or error state',
+      description: 'Switch between success or error state',
       control: {
         type: 'select',
-        options: [
-          'none',
-          'success',
-          'error'
-        ]
-      }
-    }
+        options: ['none', 'success', 'error'],
+      },
+    },
   },
   args: {
     placeholderText: 'Placeholder',
@@ -92,10 +82,10 @@ export default {
     label: '',
     labelplacement: false,
     helper: '',
-  }
+  },
 };
 
-const style =`<style>
+const style = `<style>
 
 .demo {
   margin-top: 20px;
@@ -103,14 +93,27 @@ const style =`<style>
 }
 </style>`;
 
-const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplacement,state,helper, prefix, suffix,icon, textcounter}) => {
+const textfieldTemplate = ({
+  type,
+  placeholderText,
+  size,
+  disabled,
+  label,
+  labelplacement,
+  state,
+  helper,
+  prefix,
+  suffix,
+  icon,
+  textcounter,
+}) => {
   let sizeValue;
   switch (size) {
     case 'Medium':
-      sizeValue = 'md'
+      sizeValue = 'md';
       break;
-  case 'Default':
-      sizeValue = 'default'
+    case 'Default':
+      sizeValue = 'default';
       break;
     default:
       break;
@@ -129,37 +132,41 @@ const textfieldTemplate = ({type, placeholderText,size,disabled,label,labelplace
       ${disabled ? 'disabled' : ''}
       placeholder="${placeholderText}" >
         ${prefix}
-        ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
+        ${
+          label && !labelplacement
+            ? `<label slot='sdds-label'>${label}</label>`
+            : ''
+        }
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
         ${suffix}
         ${icon}
     </sdds-textfield>
   </div>
-  `
+  `;
 };
 
 export const Basic = textfieldTemplate.bind({});
 
-Basic.args = {}
+Basic.args = {};
 
 export const Disabled = textfieldTemplate.bind({});
 
 Disabled.args = {
   disabled: true,
-  placeholderText: 'Disabled'
-}
+  placeholderText: 'Disabled',
+};
 
 export const labels = textfieldTemplate.bind({});
 
 labels.args = {
-  label: 'Label text'
+  label: 'Label text',
 };
 
 export const helper = textfieldTemplate.bind({});
 
 helper.args = {
   helper: 'Helper text',
-  label: 'Label text'
+  label: 'Label text',
 };
 
 export const state = textfieldTemplate.bind({});
@@ -167,19 +174,19 @@ export const state = textfieldTemplate.bind({});
 state.args = {
   state: 'error',
   helper: 'Helper text',
-  label: 'Label text'
+  label: 'Label text',
 };
 
 export const prefix = textfieldTemplate.bind({});
 
 prefix.argTypes = {
   prefix: {
-    name:'Prefix',
+    name: 'Prefix',
     description: 'Add prefix symbol/text before the textfield',
     control: {
-      type: 'text'
-    }
-  }
+      type: 'text',
+    },
+  },
 };
 
 prefix.args = {
@@ -188,17 +195,16 @@ prefix.args = {
   prefix: '<span slot="sdds-prefix">$</span>',
 };
 
-
 export const suffix = textfieldTemplate.bind({});
 
 suffix.argTypes = {
   suffix: {
-    name:'Suffix',
+    name: 'Suffix',
     description: 'Add suffix symbol/text after the textfield',
     control: {
-      type: 'text'
-    }
-  }
+      type: 'text',
+    },
+  },
 };
 
 suffix.args = {
@@ -211,12 +217,12 @@ export const icon = textfieldTemplate.bind({});
 
 icon.argTypes = {
   icon: {
-    name:'Icon',
+    name: 'Icon',
     description: 'Add icon before or after the textfield',
     control: {
-      type: 'text'
-    }
-  }
+      type: 'text',
+    },
+  },
 };
 
 icon.args = {

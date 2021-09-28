@@ -13,8 +13,8 @@
   },
   "rules": {
     "indent": "off", // TODO: Turn on
-    "quotes": "off", // TODO: Turn on, single or double quotes?
-    "no-trailing-spaces": "off", // TODO: turn on
+    "quotes": "warn", // TODO: Turn on, single or double quotes?
+    "no-trailing-spaces": "warn", // TODO: turn on
     "key-spacing": "off", // TODO: Turn on
     "keyword-spacing": "off", // TODO: Turn on
     "spaced-comment": "off", // TODO: Turn on
@@ -79,8 +79,8 @@
     "block-spacing": "off", // TODO: turn on
     "space-in-parens": "off", // TODO: turn on
     "semi-spacing": "off", // TODO: Turn on
-    "no-restricted-globals": "off", // TODO: turn on
-    "no-prototype-builtins": "off", // TODO: turn on
+    "no-restricted-globals": "warn", // TODO: turn on
+    "no-prototype-builtins": "warn", // TODO: turn on
     "radix": ["error", "as-needed"], // TODO: Turn on
     "max-len": "off", // TODO: Set limit ?
     "no-use-before-define": "off", //Turn Off
