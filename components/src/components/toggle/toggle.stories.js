@@ -4,39 +4,44 @@ export default {
     size: {
       control: {
         type: 'select',
-        options:['default', 'small']
+        options: ['default', 'small'],
       },
       defaultValue: 'default',
       description: 'Size of the toggle',
       table: {
-        defaultValue: {summary: 'default'}
-      }
+        defaultValue: { summary: 'default' },
+      },
     },
-    headline:{
-      description:'Optional value to be used to clarify what the toggle is switching on / off'
+    headline: {
+      description:
+        'Optional value to be used to clarify what the toggle is switching on / off',
     },
     disabled: {
       table: {
-        disable:true
-      }
-    }
+        disable: true,
+      },
+    },
   },
   args: {
-    headline: ''
-  }
+    headline: '',
+  },
 };
 
-const Template = ({size, disabled='', headline=''}) => {
-  let sizeValue='';
+const Template = ({ size, disabled = '', headline = '' }) => {
+  let sizeValue = '';
   switch (size) {
     case 'small':
       sizeValue = 'sdds-toggle-sm';
       break;
-    default: sizeValue= '';
+    default:
+      sizeValue = '';
       break;
   }
 
-  let headlineDiv = headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>`:'';
+  let headlineDiv =
+    headline.length > 0
+      ? `<div class="sdds-toggle-headline">${headline}</div>`
+      : '';
   return `
     <style>
     .demo-container{
@@ -60,23 +65,23 @@ const Template = ({size, disabled='', headline=''}) => {
         <label class="sdds-toggle-label" for="customSwitch2">Toggle this switch element</label>
       </div>
     </div>
-  `
+  `;
 };
 
 export const Basic = Template.bind({});
-Basic.args = {}
+Basic.args = {};
 
 export const Small = Template.bind({});
 Small.args = {
-  size: 'small'
-}
+  size: 'small',
+};
 
 export const Headline = Template.bind({});
 Headline.args = {
-  headline: 'Headline'
-}
+  headline: 'Headline',
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  disabled: 'disabled'
-}
+  disabled: 'disabled',
+};

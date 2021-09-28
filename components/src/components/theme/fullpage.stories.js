@@ -1,8 +1,8 @@
 export default {
-  title: 'Patterns/Fullpage'
+  title: 'Patterns/Fullpage',
 };
 
-const Template = ({ menuCollapse=false }) => {
+const Template = ({ menuCollapse = false }) => {
   document.body.classList.add('sdds');
 
   return `
@@ -33,7 +33,9 @@ const Template = ({ menuCollapse=false }) => {
     </nav>
 
     <div class="sdds-push">
-      <div class="sdds-sidebar expanded ${menuCollapse ? 'sdds-sidebar-collapse':''}">
+      <div class="sdds-sidebar expanded ${
+        menuCollapse ? 'sdds-sidebar-collapse' : ''
+      }">
         <div class="sdds-navbar-side-menu expanded">
           <ul class="sdds-navbar-menu-list">
             <li class="sdds-navbar-menu-item">
@@ -132,11 +134,11 @@ const Template = ({ menuCollapse=false }) => {
       </div>
 
     </div>
-    `
+    `;
 };
 
 export const Basic = Template.bind({});
 export const MenuCollapse = Template.bind({});
 MenuCollapse.args = {
-  menuCollapse: true
-}
+  menuCollapse: true,
+};

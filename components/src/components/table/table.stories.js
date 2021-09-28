@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Table'
+  title: 'Component/Table',
 };
 const style = `<style>
 .table-demo {
@@ -54,22 +54,22 @@ const Template = ({ type, divider }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  type: ''
+  type: '',
 };
 export const Compact = Template.bind({});
 Compact.args = {
-  type: 'compact'
+  type: 'compact',
 };
 
 export const DefaultDividers = Template.bind({});
 DefaultDividers.args = {
   type: '',
-  divider: 'divider'
+  divider: 'divider',
 };
 export const CompactDividers = Template.bind({});
 CompactDividers.args = {
   type: 'compact',
-  divider: 'divider'
+  divider: 'divider',
 };
 const Table = ({ type, divider }) => {
   return `
@@ -117,5 +117,5 @@ const Table = ({ type, divider }) => {
 };
 export const TableHeaderOnly = Table.bind({});
 TableHeaderOnly.args = {
-  type: ''
+  type: '',
 };

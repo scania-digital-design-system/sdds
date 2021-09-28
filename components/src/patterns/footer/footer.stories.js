@@ -7,7 +7,7 @@ export default {
   },
 };
 
-const Template = ({topPart=false}) => {
+const Template = ({ topPart = false }) => {
   return `
   <style>
   .sb-show-main.sb-main-padded {
@@ -19,7 +19,8 @@ const Template = ({topPart=false}) => {
 
   <div class="sdds-footer">
     ${
-      topPart ? `
+      topPart
+        ? `
       <div class="sdds-footer-top sdds-container-fluid">
         <div class="sdds-row">
           <div class="sdds-footer-top-col sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
@@ -38,7 +39,7 @@ const Template = ({topPart=false}) => {
               <li><a href="#">Legal link</a></li>
             </ul>
           </div>
-          
+
           <div class="sdds-col-max sdds-col-xxlg sdds-col-xlg sdds-col-lg sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
             <div class="sdds-footer-title">
               <span>Title 2</span>
@@ -60,7 +61,8 @@ const Template = ({topPart=false}) => {
           
         </div>
       </div>
-      ` : ''       
+      `
+        : ''
     }
     <div class="sdds-footer-main">
       <ul class="sdds-footer-main-links">
@@ -78,11 +80,11 @@ const Template = ({topPart=false}) => {
       </div>
     </div>
   </div>
-  `
+  `;
 };
 
 export const Basic = Template.bind({});
 export const TopPart = Template.bind({});
 TopPart.args = {
-  topPart : true
-}
+  topPart: true,
+};

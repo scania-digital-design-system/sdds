@@ -4,10 +4,10 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['default', 'small', 'medium']
+        options: ['default', 'small', 'medium'],
       },
       defaultValue: 'default',
-      description: 'Size of the button'
+      description: 'Size of the button',
     },
     btnType: {
       name: 'type',
@@ -16,29 +16,29 @@ export default {
         'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'ghost', 'danger']
-      }
+        options: ['primary', 'secondary', 'ghost', 'danger'],
+      },
     },
     fullbleed: {
       type: 'boolean',
       defaultValue: false,
-      description: 'Fluid width in certain components'
+      description: 'Fluid width in certain components',
     },
     disabled: {
       type: 'boolean',
-      description: 'Choose to disable the button'
+      description: 'Choose to disable the button',
     },
     onlyIcon: {
       defaultValue: false,
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     icon: {
       type: 'boolean',
-      description: 'Include icon'
-    }
-  }
+      description: 'Include icon',
+    },
+  },
 };
 
 const ButtonTemplate = ({
@@ -48,7 +48,7 @@ const ButtonTemplate = ({
   text = 'Button',
   disabled = '',
   onlyIcon,
-  icon
+  icon,
 }) => {
   let sizeValue = '';
   switch (size) {
@@ -76,7 +76,7 @@ const ButtonTemplate = ({
     <span>${text}</span>
     ${
       icon
-        ? `<span class='sdds-btn-icon'><i class='sdds-icon scania-cross'></i></span>`
+        ? "<span class='sdds-btn-icon'><i class='sdds-icon scania-cross'></i></span>"
         : ''
     }
   </button>
@@ -89,7 +89,7 @@ const ComponentBtn = ({
   fullbleed,
   disabled,
   icon,
-  text = 'Button'
+  text = 'Button',
 }) => {
   let sizeValue = '';
   switch (size) {
@@ -110,45 +110,45 @@ const ComponentBtn = ({
   <sdds-theme></sdds-theme>
   <sdds-button type="${btnType}" size="${sizeValue}" ${
     disabled ? 'disabled' : ''
-  } ${fullbleed ? `fullbleed` : ''} text="${text}" ${inlineStyle}> ${
-    icon ? `<sdds-icon slot='icon' name='scania-cross'></sdds-icon>` : ''
+  } ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${
+    icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
   } </sdds-button>
   `;
 };
 
 export const Basic = ButtonTemplate.bind({});
 Basic.args = {
-  text: 'Button'
+  text: 'Button',
 };
 
 export const WithIcon = ButtonTemplate.bind({});
 WithIcon.args = {
   text: 'Button with Icon',
-  icon: true
+  icon: true,
 };
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
   disabled: 'disabled',
   text: 'Button Disabled',
-  icon: false
+  icon: false,
 };
 
 export const onlyIcon = ButtonTemplate.bind({});
 onlyIcon.args = {
-  text: `<sdds-icon name='scania-cross'></sdds-icon>`,
-  onlyIcon: true
+  text: "<sdds-icon name='scania-cross'></sdds-icon>",
+  onlyIcon: true,
 };
 
 onlyIcon.argTypes = {
   icon: {
     table: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export const sddsButton = ComponentBtn.bind({});
 sddsButton.args = {
-  text: 'Button'
+  text: 'Button',
 };

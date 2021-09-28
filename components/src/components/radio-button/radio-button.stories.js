@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Radio Button'
+  title: 'Component/Radio Button',
 };
 
 const Template = () => {
@@ -31,9 +31,9 @@ const Template = () => {
         </label>
       </div>
     </div>
-    `
+    `;
 };
 
 export const Basic = Template.bind({});
 
-Basic.args = {}
+Basic.args = {};

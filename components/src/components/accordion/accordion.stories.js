@@ -6,33 +6,33 @@ export default {
     affix: {
       control: {
         type: 'select',
-        options: ['suffix', 'prefix']
+        options: ['suffix', 'prefix'],
       },
       description: 'Icon position',
       table: {
         type: { summary: 'suffix | prefix' },
-        defaultValue: { summary: 'suffix' }
-      }
+        defaultValue: { summary: 'suffix' },
+      },
     },
     disabled: {
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    }
+        defaultValue: { summary: false },
+      },
+    },
   },
   parameters: {
     previewTabs: {
       'storybook/docs/panel': {
-        hidden: true
-      }
+        hidden: true,
+      },
     },
-    notes: readme
+    notes: readme,
   },
   args: {
     disabled: false,
-    affix: 'suffix'
-  }
+    affix: 'suffix',
+  },
 };
 
 const Template = ({ disabled, affix }) => {
@@ -56,15 +56,15 @@ const Template = ({ disabled, affix }) => {
 
 export const Suffix = Template.bind({});
 Suffix.args = {
-  affix: 'suffix'
+  affix: 'suffix',
 };
 
 export const Prefix = Template.bind({});
 Prefix.args = {
-  affix: 'prefix'
+  affix: 'prefix',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  disabled: true
+  disabled: true,
 };
