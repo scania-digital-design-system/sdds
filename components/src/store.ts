@@ -1,22 +1,22 @@
-import { createStore } from "@stencil/store";
+import { createStore } from '@stencil/store';
 
 const theme = {
   current: 'light',
-  items: {}
-}
+  items: {},
+};
 
-const navigation = { open: false, expanded: undefined }
+const navigation = { open: false, expanded: undefined };
 
 const store = createStore({
-  theme : theme,
-  navigation : navigation
-})
+  theme: theme,
+  navigation: navigation,
+});
 
-store.onChange('navigation', value => {
+store.onChange('navigation', (value) => {
   store.state.navigation = value;
 });
 
-store.onChange('theme', value => {
+store.onChange('theme', (value) => {
   store.state.theme = value;
 });
 

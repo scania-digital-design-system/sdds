@@ -13,10 +13,10 @@
   },
   "rules": {
     "indent": "off", // TODO: Turn on
-    "quotes": "off", // TODO: Turn on, single or double quotes?
-    "no-trailing-spaces": "off", // TODO: turn on
-    "key-spacing": "off", // TODO: Turn on
-    "keyword-spacing": "off", // TODO: Turn on
+    // "quotes": "warn", // TODO: Turn on, single or double quotes?
+    // "no-trailing-spaces": "warn", // TODO: turn on
+    // "key-spacing": "warn", // TODO: Turn on
+    // "keyword-spacing": "warn", // TODO: Turn on
     "spaced-comment": "off", // TODO: Turn on
     "comma-spacing": "off", // TODO: turn on
     "arrow-spacing": "off", // TODO: turn on
@@ -65,7 +65,7 @@
     "operator-linebreak": "off", // Maybe turn on
     "import/order": "off", // Maybe turn on
     "prefer-const": "off", // TODO: Turn on
-    "wrap-iife": "off",// TODO: Maybe turn on
+    "wrap-iife": "off", // TODO: Maybe turn on
     "no-empty-pattern": "off", // TODO: Turn on
     "import/newline-after-import": "off", // TODO: Turn on
     "vars-on-top": "off", // TODO: turn on
@@ -79,24 +79,18 @@
     "block-spacing": "off", // TODO: turn on
     "space-in-parens": "off", // TODO: turn on
     "semi-spacing": "off", // TODO: Turn on
-    "no-restricted-globals": "off", // TODO: turn on
-    "no-prototype-builtins": "off", // TODO: turn on
-    "curly": "off", // TODO: Turn on
-    "no-continue": "off", // TODO: turn on
-    "object-property-newline": "off", // TODO: turn on
-    "nonblock-statement-body-position": "off", // TODO: turn on
-    "import/first": "off", // TODO: turn on
-    "quote-props": "off", // TODO: turn on
-    "radix": "off", // TODO: Turn on
+    "no-restricted-globals": "warn", // TODO: turn on
+    "no-prototype-builtins": "warn", // TODO: turn on
+    "radix": ["error", "as-needed"], // TODO: Turn on
     "max-len": "off", // TODO: Set limit ?
-    "no-use-before-define": "off", // Off
+    "no-use-before-define": "off", //Turn Off
     "no-console": "off", // Turn off
-    "no-undef": "off", // Off
+    "no-undef": "off", //Turn off
     "function-paren-newline": "off", //Turn off
     "dot-notation": "off", // TODO: off
     "import/extensions": "off", // TODO: off for now
     "no-plusplus": "off", //Turn off
     "no-param-reassign": "off" // check this[ "off", { "props": false }]
-    // "prettier/prettier": "warn" // TODO: See if this can be turned on after rest is done 
+    // "prettier/prettier": "warn" // TODO: See if this can be turned on after rest is done
   }
 }

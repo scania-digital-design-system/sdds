@@ -1,7 +1,6 @@
 export default {
-  title: 'Foundation/Spacing'
+  title: 'Foundation/Spacing',
 };
-
 
 const SpacingLayoutTemplate = () => {
   return `
@@ -96,8 +95,8 @@ const SpacingLayoutTemplate = () => {
       <td><span class="sdds-spacing-layout-demo-box" style="width: var(--sdds-spacing-layout-160); height: var(--sdds-spacing-layout-160);"></span></td>
     </tr>
   </table>
-  `
-}
+  `;
+};
 
 const SpacingElementTemplate = ({}) => {
   return `
@@ -191,12 +190,11 @@ const SpacingElementTemplate = ({}) => {
       <td><span class="sdds-spacing-element-demo-box" style="width: var(--sdds-spacing-element-48); height: var(--sdds-spacing-element-48);"></span></td>
     </tr>
   </table>
-  `
+  `;
 };
 
-
 export const SpacingLayout = SpacingLayoutTemplate.bind({});
-SpacingLayout.args = {}
+SpacingLayout.args = {};
 
 export const SpacingElement = SpacingElementTemplate.bind({});
-SpacingElement.args = {}
+SpacingElement.args = {};

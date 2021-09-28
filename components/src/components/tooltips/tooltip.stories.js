@@ -16,13 +16,13 @@ export default {
           'left-end',
           'right-start',
           'right',
-          'right-end'
-        ]
+          'right-end',
+        ],
       },
       defaultValue: 'bottom',
-      description: 'Position of the tooltip'
-    }
-  }
+      description: 'Position of the tooltip',
+    },
+  },
 };
 
 const ComponentTooltip = ({ ...Basic }) => {
@@ -45,5 +45,5 @@ export const Basic = ComponentTooltip.bind({});
 Basic.args = {
   text: 'Lorem ipsum dolor sit amet',
   offsetDistance: 20,
-  offsetSkidding: 30
+  offsetSkidding: 30,
 };

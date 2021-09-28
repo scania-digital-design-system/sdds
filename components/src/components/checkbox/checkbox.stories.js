@@ -1,9 +1,9 @@
 export default {
-    title: 'Component/Checkbox'
-  };
-  
-  const Template = () => {
-    return `
+  title: 'Component/Checkbox',
+};
+
+const Template = () => {
+  return `
       <sdds-theme></sdds-theme>
       <div>
         <div class="sdds-checkbox-item">
@@ -31,9 +31,9 @@ export default {
           </label>
         </div>
       </div>
-      `
-  };
-  
-  export const Basic = Template.bind({});
-  
-  Basic.args = {}
+      `;
+};
+
+export const Basic = Template.bind({});
+
+Basic.args = {};

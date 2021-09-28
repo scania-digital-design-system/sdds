@@ -6,9 +6,9 @@ export default {
       defaultValue: 'success',
       control: {
         type: 'select',
-        options: ['success', 'info', 'warning', 'error']
-      }
-    }
+        options: ['success', 'info', 'warning', 'error'],
+      },
+    },
   },
   args: {
     header: 'This is a message',
@@ -16,11 +16,19 @@ export default {
     subheader: true,
     link: true,
     subtext: 'Short subheader',
-    linktext: 'Link example'
-  }
+    linktext: 'Link example',
+  },
 };
 
-const ToastTemplate = ({toastType, header, body, subheader, link, subtext, linktext}) => {
+const ToastTemplate = ({
+  toastType,
+  header,
+  body,
+  subheader,
+  link,
+  subtext,
+  linktext,
+}) => {
   return `
   <sdds-theme></sdds-theme>
 
@@ -37,15 +45,23 @@ const ToastTemplate = ({toastType, header, body, subheader, link, subtext, linkt
         <span class='sdds-toast-dismiss'></span>
       </div>
 
-      ${body ? `<div class="sdds-toast-body">
-        ${subheader ? `<span class="sdds-toast-subheadline">${subtext}</span>` : ``}
-        ${link ? `<a class="sdds-toast-link" href="#">${linktext}</a>` : ``}
-      </div> ` : ``}
+      ${
+        body
+          ? `<div class="sdds-toast-body">
+        ${
+          subheader
+            ? `<span class="sdds-toast-subheadline">${subtext}</span>`
+            : ''
+        }
+        ${link ? `<a class="sdds-toast-link" href="#">${linktext}</a>` : ''}
+      </div> `
+          : ''
+      }
 
     </div>
   </div>
-  `
+  `;
 };
 
 export const Basic = ToastTemplate.bind({});
-Basic.argTypes = {}
+Basic.argTypes = {};
