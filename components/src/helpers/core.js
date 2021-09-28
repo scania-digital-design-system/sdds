@@ -1,7 +1,10 @@
-(function(doc) {
+(function (doc) {
   var parentScript = doc.querySelectorAll('script');
   var arr = Array.prototype.slice.call(parentScript);
-  var scriptElm = arr.filter(function(item) { return item.src.indexOf('dist/sdds-components.js') > -1 })[0] || doc.scripts[doc.scripts.length - 1];
+  var scriptElm =
+    arr.filter(function (item) {
+      return item.src.indexOf('dist/sdds-components.js') > -1;
+    })[0] || doc.scripts[doc.scripts.length - 1];
 
   var parts = scriptElm.src.split('/');
   parts.pop();
@@ -28,14 +31,11 @@ function fixFouc() {
     if (document.readyState == 'interactive') {
       // This timeout is to make sure that IE has time to load
       setTimeout(() => {
-        if(document.querySelector('sdds-theme')) return;
-  
+        if (document.querySelector('sdds-theme')) return;
+
         // Used in case a theme element is not rendered
         style.nodeValue = 'body { visibility: visible; }';
       });
     }
-  }
+  };
 }
-
-
-

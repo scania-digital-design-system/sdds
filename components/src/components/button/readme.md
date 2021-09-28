@@ -11,7 +11,7 @@
 | ----------- | ----------- | ----------- | --------- | ----------- |
 | `disabled`  | `disabled`  |             | `boolean` | `undefined` |
 | `fullbleed` | `fullbleed` |             | `boolean` | `undefined` |
-| `size`      | `size`      |             | `string`  | `""`        |
+| `size`      | `size`      |             | `string`  | `''`        |
 | `text`      | `text`      |             | `string`  | `undefined` |
 | `type`      | `type`      |             | `string`  | `undefined` |
 

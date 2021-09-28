@@ -1,6 +1,4 @@
-import {
-  Component, h, Prop, State, Element,
-} from '@stencil/core';
+import { Component, h, Prop, State, Element } from '@stencil/core';
 
 // import hljs from 'highlight.js';
 // Highlight JS is not supported in IE 11, fallback provided in the code-sample.scss
@@ -28,7 +26,7 @@ export class Field {
     const parsed = this.el.innerHTML
       .replace(/"/g, "'")
       .replace(/&quot;/g, '"')
-      .replace(/<!---->/g, "");
+      .replace(/<!---->/g, '');
 
     if (!document.head.attachShadow) {
       hljs.configure({
@@ -48,8 +46,8 @@ export class Field {
     return [
       <slot />,
       <pre>
-        <code class={this.type} { ... { innerHTML: this.code } }></code>
-      </pre>
+        <code class={this.type} {...{ innerHTML: this.code }}></code>
+      </pre>,
     ];
   }
 }

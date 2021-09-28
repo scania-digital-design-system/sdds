@@ -6,3 +6,6 @@ src/themes.built/*
 storybook-static/*
 .www/*
 stencil.config.ts
+cookie.tsx
+navigation.tsx
+content.tsx

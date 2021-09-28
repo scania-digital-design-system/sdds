@@ -20,7 +20,7 @@ const basicStyle = `<style>
                   }                   
               </style>`;
 const basicTemplate = ({ value }) => {
-  //convert to string
+  // convert to string
   let valueString = value != null ? value.toString() : '';
   return `
     ${basicStyle}
@@ -50,7 +50,7 @@ const style = `<style>
                     }
               </style>`;
 const badgesTemplate = ({ value }) => {
-  //convert to string
+  // convert to string
   let valueString = value != null ? value.toString() : '';
   return `
     ${style}
