@@ -14,23 +14,23 @@ import {
   shadow: true,
 })
 export class Modal {
-  //Target selector to show modal
+  // Target selector to show modal
   @Prop() selector;
-  //Disable click event on backdrop
+  // Disable click event on backdrop
   @Prop() prevent = false;
-  //Size of the modal
+  // Size of the modal
   @Prop() size = 'md';
 
   @Element() el: HTMLElement;
 
-  //State when modal should be shown
+  // State when modal should be shown
   @State() show: boolean = false;
 
   componentDidLoad() {
     const target = document.querySelector(this.selector);
     this.dismisModal();
 
-    //If the modal doesn't have a selector to be triggered
+    // If the modal doesn't have a selector to be triggered
     if (!target) {
       console.warn('No prop for modal targeted, please add selector attribute');
       return;
@@ -56,7 +56,7 @@ export class Modal {
       document.body.classList.remove('sdds-modal-overflow');
     }
   }
-  //Click event on valid targets to dissmiss the modal
+  // Click event on valid targets to dissmiss the modal
   @Listen('click')
   handleClick(e) {
     const targetList = e.composedPath();

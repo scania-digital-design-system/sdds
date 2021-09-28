@@ -1,14 +1,12 @@
 import { Component, h } from '@stencil/core';
 
-
 @Component({
   tag: 'sdds-card',
   styleUrl: 'card.scss',
-  shadow: true
+  shadow: true,
 })
-
 export class Card {
-  //FIXME: WIP expand
+  // FIXME: WIP expand
   // @Element() el: HTMLElement;
 
   // Click event for the whole card
@@ -18,10 +16,6 @@ export class Card {
   //   console.log(this.el.classList.add('sdds-card-active'),e)
   // }
   render() {
-    return (
-      <slot name="sdds-card">
-
-      </slot>
-    )
+    return <slot name="sdds-card"></slot>;
   }
 }
