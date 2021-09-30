@@ -5,27 +5,13 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type     | Default     |
-| ---------- | ----------- | ----------- | -------- | ----------- |
-| `max`      | `max`       |             | `string` | `'100'`     |
-| `min`      | `min`       |             | `string` | `'0'`       |
-| `type`     | `type`      |             | `string` | `undefined` |
-| `value`    | `value`     |             | `string` | `'20'`      |
-| `valueTwo` | `value-two` |             | `string` | `'70'`      |
+| Property | Attribute | Description            | Type     | Default     |
+| -------- | --------- | ---------------------- | -------- | ----------- |
+| `max`    | `max`     | Maximum value of input | `string` | `'100'`     |
+| `min`    | `min`     | Minmum value of input  | `string` | `'0'`       |
+| `type`   | `type`    | type of slider         | `string` | `undefined` |
+| `value`  | `value`   | value of input         | `string` | `'20'`      |
 
-
-## Dependencies
-
-### Depends on
-
-- [sdds-continousvalue-slider](.)
-
-### Graph
-```mermaid
-graph TD;
-  sdds-slider --> sdds-continousvalue-slider
-  style sdds-slider fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

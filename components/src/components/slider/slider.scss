@@ -1,4 +1,6 @@
 @import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 :host {
   display: block;
@@ -57,6 +59,8 @@ $shodow-hover: rgba(22, 65, 127, 0.08);
 }
 @mixin thumbactive() {
   box-shadow: 0px 0px 1px 10px $shodow-active;
+  //margin-top: calc(0.5 * (#{var(--sdds-slider-track-height)} - 64px));
+
   cursor: grabbing;
 }
 
@@ -226,14 +230,12 @@ div .range-slider {
 button {
   border: 0px;
   width: 20px;
-  height: 20px;
-  text-align: center;
-  font-size: 12px;
+  height: 16px;
+
   background: transparent;
   padding: 0px;
-  display: block;
+
   cursor: pointer;
-  color: var(--sdds-slider-fill-color);
 
   &:active {
     box-shadow: 0px 0px 4px 20px $shodow-active inset;
@@ -241,6 +243,12 @@ button {
   }
 }
 
+.plus {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.49994 13.5104C8.49994 13.7865 8.27608 14.0104 7.99994 14.0104C7.7238 14.0104 7.49994 13.7865 7.49994 13.5104V8.50002H2.48964C2.2135 8.50002 1.98964 8.27617 1.98964 8.00002C1.98964 7.72388 2.2135 7.50002 2.48964 7.50002H7.49994V2.48968C7.49994 2.21353 7.7238 1.98968 7.99994 1.98968C8.27608 1.98968 8.49994 2.21353 8.49994 2.48968V7.50002H13.5103C13.7865 7.50002 14.0103 7.72388 14.0103 8.00002C14.0103 8.27617 13.7865 8.50002 13.5103 8.50002H8.49994V13.5104Z' fill='%230D0F13'/%3E%3C/svg%3E");
+}
+.minus {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.98965 8.00006C1.98965 8.2762 2.21351 8.50006 2.48965 8.50006H13.5104C13.7865 8.50006 14.0104 8.2762 14.0104 8.00006C14.0104 7.72392 13.7865 7.50006 13.5104 7.50006L2.48965 7.50006C2.21351 7.50006 1.98965 7.72392 1.98965 8.00006Z' fill='%230D0F13'/%3E%3C/svg%3E");
+}
 .sliderspan {
   @include spanValues;
   font-size: 12px;
@@ -251,18 +259,14 @@ button {
 }
 .spantext {
   @include spanValues;
+  @include type-style('detail-01');
   position: absolute;
-  width: 15px;
-  height: 10px;
-  text-align: center;
-  border-radius: 2px;
+  border-radius: 4px;
   border-color: var(--sdds-slider-span-color);
   transform: translate(var(--val));
   bottom: 15px;
   left: 50%;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  font-size: 8px;
+  padding: 8px;
 }
 
 .spantrianlge {
