@@ -6,6 +6,15 @@ src/themes.built/*
 storybook-static/*
 .www/*
 stencil.config.ts
+
 cookie.tsx
-navigation.tsx
 content.tsx
+content.spec.ts
+content.e2e.ts
+dealer-header.spec.tsx
+dealer-header.spec.ts
+dealer-header.e2e.ts
+table.model.ts
+navigation.tsx
+navigation.spec.ts
+navigation.e2e.ts
