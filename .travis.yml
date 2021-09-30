@@ -10,9 +10,7 @@ branches:
     - /(improvement|bug|feature)\/(:?[\S]*)/
 #  - /(\d+.\d+.\d+)(\S*)?/
 
-before_script:
-  - npm install -g gulp-cli
-
 # NPM setup for building dist
 script:
+  - "npm run scsslint"
   - "cd components && npm run lint"
