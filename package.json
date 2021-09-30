@@ -13,7 +13,9 @@
   "useWorkspaces": true,
   "devDependencies": {
     "lerna": "^3.22.1",
-    "lerna-changelog": "^1.0.1"
+    "lerna-changelog": "^1.0.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   },
   "scripts": {
     "install": "lerna bootstrap",
@@ -23,7 +25,8 @@
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
     "release": "lerna publish",
-    "next": "lerna publish -- --dist-tag next"
+    "next": "lerna publish -- --dist-tag next",
+    "scsslint": "npx stylelint **/*.scss"
   },
   "changelog": {
     "ignoreCommitters": [
