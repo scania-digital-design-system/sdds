@@ -4,5 +4,16 @@
   "rules": {
     "indentation": [null]
   },
-  "ignoreFiles": ["**/build/**", "**/dist/**", "**/demo/**", "**/content.scss"]
+  "ignoreFiles": [
+    "**/build/**",
+    "**/dist/**",
+    "**/demo/**",
+    "**/content.scss",
+    "**/c-*.scss",
+    "**/_custom-forms.scss",
+    "**/_button_group.scss",
+    "**/cookie.scss",
+    "**/dealer-header.scss",
+    "**/data-env.scss"
+  ]
 }
