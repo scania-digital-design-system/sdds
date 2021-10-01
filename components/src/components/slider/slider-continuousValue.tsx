@@ -24,9 +24,6 @@ export class ContinousValueSlider {
   /** SpanText hold the value*/
   spantext!: HTMLInputElement;
 
-  /** SliderSpan hold the spantext and triangle*/
-  sliderspan!: HTMLInputElement;
-
   /** inputRange for listening the value*/
   inputRange!: HTMLInputElement;
 
@@ -62,9 +59,12 @@ export class ContinousValueSlider {
       ((value - parseInt(this.rangeProp['--min'])) * 100) /
         (parseInt(this.rangeProp['--max']) - parseInt(this.rangeProp['--min']))
     );
-    const newPosition = 16 - newValue * 0.47;
-    this.spantext.innerHTML = value.toString();
-    this.sliderspan.style.left = `calc(${newValue}% + (${newPosition}px))`;
+    // 38 --> Refer to size of minus button and margin-left
+    // 0.76 -->Refer to size of minus and plus button and margin left and right to them.
+
+    const newPosition = 38 - newValue * 0.76;
+    this.spantext.innerHTML = `<span>${value}</span>`;
+    this.spantext.style.left = `calc(${newValue}% + (${newPosition}px))`;
 
     //Update the input range value
     this.inputRange.value = value.toString();
@@ -81,16 +81,10 @@ export class ContinousValueSlider {
     return (
       <div style={this.rangeProp} class="container">
         <div
-          class="sliderspan"
-          ref={(el) => (this.sliderspan = el as HTMLInputElement)}
+          class="rangevalue"
+          ref={(el) => (this.spantext = el as HTMLInputElement)}
         >
-          <span
-            class="spantext"
-            ref={(el) => (this.spantext = el as HTMLInputElement)}
-          >
-            {this.rangeProp['--val']}
-          </span>
-          <span class="spantrianlge"></span>
+          <span>{this.rangeProp['--val']}</span>
         </div>
         <button onClick={this.onMinusClicked} class="minus"></button>
         <input

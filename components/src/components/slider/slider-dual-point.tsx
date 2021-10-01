@@ -50,7 +50,7 @@ export class DualPointSlider {
     }
   }
 
-  @Watch('valueTwo')
+  @Watch('value2')
   watchValue2() {
     if (this.value2 > this.max || this.value2 < this.value) {
       /*      console.warn(
