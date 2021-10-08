@@ -80,13 +80,12 @@ $brand-pallete: (
 );
 
 //TODO: CTA color should be removed
-//TODO: change token name to be $sementic-negative
 $semantic: (
-  cta: get-colour-original(blue-700),
-  negative: #ff2340,
-  warning: #f1c21b,
-  positive: #1dab8b,
-  information: get-colour-original(blue-400),
+  semantic-cta: get-colour-original(blue-700),
+  semantic-negative: #ff2340,
+  semantic-warning: #f1c21b,
+  semantic-positive: #1dab8b,
+  semantic-information: get-colour-original(blue-400),
 );
 
 $all-colours: map-collect($original-colours, $semantic, $brand-pallete);
