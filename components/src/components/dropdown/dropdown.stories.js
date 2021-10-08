@@ -64,8 +64,7 @@ const Template = ({
   state = 'default',
   placeholder,
   defaultOption,
-}) => {
-  return `
+}) => `
   <sdds-theme></sdds-theme>
   
   <div class="sdds-container" style="margin-top:10rem;">
@@ -88,7 +87,6 @@ const Template = ({
       </div>
     </div>
   `;
-};
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -125,8 +123,7 @@ const FilterTemplate = ({
   helper = '',
   placeholder,
   defaultOption,
-}) => {
-  return `
+}) => `
     <sdds-theme></sdds-theme>
     <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
@@ -143,7 +140,6 @@ const FilterTemplate = ({
       </div>
     </div>
   `;
-};
 
 export const Filter = FilterTemplate.bind({});
 Filter.args = {};
@@ -165,14 +161,15 @@ Filter.argTypes = {
   },
 };
 
-const NativeTemplate = ({ size, helper = 'Helper text', label, state }) => {
-  return `
+const NativeTemplate = ({
+ size, helper = 'Helper text', label, state,
+}) => `
   <sdds-theme></sdds-theme>
   <div class="sdds-container" style="margin-top:10rem;">
     <div class="sdds-row">
       <div class="sdds-col-xxlg-4 sdds-col-xlg-4 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-4">
         <div class="sdds-dropdown ${
-          size !== 'large' ? 'sdds-dropdown-' + size : ''
+          size !== 'large' ? `sdds-dropdown-${size}` : ''
         } ${state === 'error' ? 'is-error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
@@ -187,7 +184,6 @@ const NativeTemplate = ({ size, helper = 'Helper text', label, state }) => {
     </div>
   </div>
   `;
-};
 
 export const NativeSelect = NativeTemplate.bind({});
 NativeSelect.args = {};

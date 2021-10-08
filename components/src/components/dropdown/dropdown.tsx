@@ -151,8 +151,7 @@ export class Dropdown {
               )}
               {this.type === 'filter' ? (
                 <input
-                  ref={(inputEl) =>
-                    (this.textInput = inputEl as HTMLInputElement)
+                  ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)
                   }
                   class="sdds-dropdown-filter"
                   type="text"

@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
+import {
+ Component, h, Prop, Element, State, Watch,
+} from '@stencil/core';
 /* eslint-enable no-unused-vars */
 
 // Typescript does not support loading of resources outside of "src"
@@ -75,12 +77,12 @@ export class Theme {
 
   render() {
     if (
-      this.currentTheme !== undefined &&
-      this.currentTheme['version'] !== undefined
+      this.currentTheme !== undefined
+      && this.currentTheme['version'] !== undefined
     ) {
       document.documentElement.setAttribute(
         'theme',
-        `scania/theme-${this.mode} v${this.currentTheme['version']}`
+        `scania/theme-${this.mode} v${this.currentTheme['version']}`,
       );
     } else {
       document.documentElement.setAttribute('theme', '-');

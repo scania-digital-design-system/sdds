@@ -2,8 +2,7 @@ export default {
   title: 'Component/Radio Button',
 };
 
-const Template = () => {
-  return `
+const Template = () => `
     <sdds-theme></sdds-theme>
     <div class="sdds-radio-button-group">
       <div class="sdds-radio-item">
@@ -32,7 +31,6 @@ const Template = () => {
       </div>
     </div>
     `;
-};
 
 export const Basic = Template.bind({});
 

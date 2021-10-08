@@ -7,8 +7,7 @@ export function themeStyle(currentTheme, tagName, styleThis, el) {
 
   let style;
 
-  const css =
-    currentTheme && currentTheme.components[tagName]
+  const css = currentTheme && currentTheme.components[tagName]
       ? currentTheme.components[tagName]
       : '';
 

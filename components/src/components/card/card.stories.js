@@ -26,8 +26,7 @@ const CardTemplate = ({
   text,
   divider,
   imageTop,
-}) => {
-  return `
+}) => `
   ${style}
     <sdds-theme></sdds-theme>
         <div class="card-demo">
@@ -62,7 +61,6 @@ const CardTemplate = ({
           </div>
         </div>
   `;
-};
 
 export const Basic = CardTemplate.bind({});
 
@@ -127,8 +125,7 @@ const AvatarTemplate = ({
   divider,
   imageTop,
   avatar,
-}) => {
-  return `
+}) => `
   ${style}
     <sdds-theme></sdds-theme>
 
@@ -162,7 +159,6 @@ const AvatarTemplate = ({
 
     </div>
   `;
-};
 
 export const Avatar = AvatarTemplate.bind({});
 

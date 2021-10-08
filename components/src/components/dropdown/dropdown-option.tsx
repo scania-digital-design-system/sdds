@@ -51,8 +51,7 @@ export class DropdownOption {
   render() {
     return (
       <Host
-        onClick={(ev) =>
-          this.selectOptionHandler({
+        onClick={(ev) => this.selectOptionHandler({
             value: this.value,
             label: this.host.innerHTML,
             parent: ev.target.parentNode,

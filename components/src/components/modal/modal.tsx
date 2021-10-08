@@ -8,6 +8,7 @@ import {
   Element,
   Watch,
 } from '@stencil/core';
+
 @Component({
   tag: 'sdds-modal',
   styleUrl: 'modal.scss',
@@ -16,8 +17,10 @@ import {
 export class Modal {
   // Target selector to show modal
   @Prop() selector;
+
   // Disable click event on backdrop
   @Prop() prevent = false;
+
   // Size of the modal
   @Prop() size = 'md';
 
@@ -56,14 +59,15 @@ export class Modal {
       document.body.classList.remove('sdds-modal-overflow');
     }
   }
+
   // Click event on valid targets to dissmiss the modal
   @Listen('click')
   handleClick(e) {
     const targetList = e.composedPath();
     const target = targetList[0];
     if (
-      target.classList[0] == 'sdds-modal-btn' ||
-      (target.classList[0] == 'sdds-modal-backdrop' && this.prevent == false)
+      target.classList[0] == 'sdds-modal-btn'
+      || (target.classList[0] == 'sdds-modal-backdrop' && this.prevent == false)
     ) {
       this.show = false;
     }

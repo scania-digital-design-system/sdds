@@ -22,8 +22,9 @@ export default {
   },
 };
 
-const Template = ({ state, prefix, header, subheader, link }) => {
-  return `
+const Template = ({
+ state, prefix, header, subheader, link,
+}) => `
   <style>
     .demo-bg {
       background-color: white;
@@ -46,7 +47,6 @@ const Template = ({ state, prefix, header, subheader, link }) => {
     </div>
   </div>
   `;
-};
 
 export const Basic = Template.bind({});
 

@@ -38,8 +38,7 @@ const Template = ({ size, disabled = '', headline = '' }) => {
       break;
   }
 
-  let headlineDiv =
-    headline.length > 0
+  const headlineDiv = headline.length > 0
       ? `<div class="sdds-toggle-headline">${headline}</div>`
       : '';
   return `

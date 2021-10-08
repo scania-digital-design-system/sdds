@@ -1,4 +1,6 @@
-import { Component, h, Prop, State, Element } from '@stencil/core';
+import {
+ Component, h, Prop, State, Element,
+} from '@stencil/core';
 
 // import hljs from 'highlight.js';
 // Highlight JS is not supported in IE 11, fallback provided in the code-sample.scss

@@ -78,7 +78,7 @@ const textfieldTemplate = ({
   helper,
   textcounter,
 }) => {
-  const maxlength = textcounter > 0 ? 'maxlength="' + textcounter + '"' : '';
+  const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   return `
   <sdds-theme></sdds-theme>
   <div class="sdds-container" style="margin-top:10rem;">

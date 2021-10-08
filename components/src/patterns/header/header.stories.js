@@ -20,8 +20,7 @@ const Template = ({
   toolbarMenuMobile = '',
   toolbarMenu = '',
 }) => {
-  const overlayExpanded =
-    openMenuMobile || toolbarMenu.trim('').length > 0 ? 'expanded' : '';
+  const overlayExpanded = openMenuMobile || toolbarMenu.trim('').length > 0 ? 'expanded' : '';
   const expanded = openMenuMobile ? 'expanded' : '';
 
   return `

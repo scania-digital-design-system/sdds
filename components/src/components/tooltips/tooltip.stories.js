@@ -25,8 +25,7 @@ export default {
   },
 };
 
-const ComponentTooltip = ({ ...Basic }) => {
-  return `
+const ComponentTooltip = ({ ...Basic }) => `
   <sdds-theme></sdds-theme>
 
   <div class="sdds-container" style="margin-top:40rem;margin-left:40rem;">
@@ -39,7 +38,6 @@ const ComponentTooltip = ({ ...Basic }) => {
     </div>
   </div>
   `;
-};
 
 export const Basic = ComponentTooltip.bind({});
 Basic.args = {

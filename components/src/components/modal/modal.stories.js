@@ -14,8 +14,7 @@ export default {
   },
 };
 
-const ModalTemplate = ({ ...Modal }) => {
-  return `
+const ModalTemplate = ({ ...Modal }) => `
 
   <sdds-theme></sdds-theme>
   <button onclick="console.log('Open modal 1')" id="modal1" class="sdds-btn sdds-btn-primary">Open modal 1</button>
@@ -44,7 +43,6 @@ const ModalTemplate = ({ ...Modal }) => {
   <button onclick="console.log('Open modal 2')" id="modal2" class="sdds-btn sdds-btn-primary">Open modal 2</button>
 
   `;
-};
 
 export const Modal = ModalTemplate.bind();
 
@@ -53,8 +51,7 @@ Modal.args = {
   Headline: 'Headline 1',
 };
 
-const ModalCssTemplate = ({ ...ModalCSS }) => {
-  return `
+const ModalCssTemplate = ({ ...ModalCSS }) => `
   <sdds-theme></sdds-theme>
   <div class='sdds-modal-backdrop show'>
     <div class='sdds-modal sdds-modal-${ModalCSS.size}'>
@@ -76,7 +73,6 @@ const ModalCssTemplate = ({ ...ModalCSS }) => {
     </div>
   </div>
   `;
-};
 
 export const ModalCSS = ModalCssTemplate.bind();
 

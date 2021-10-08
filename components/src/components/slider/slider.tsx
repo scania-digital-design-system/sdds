@@ -1,4 +1,6 @@
-import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
+import {
+ Component, h, State, Listen, Prop, Watch,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -7,22 +9,33 @@ import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
 })
 export class Slider {
   @Prop() type: string;
+
   @Prop() min: string = '0';
+
   @Prop() max: string = '100';
+
   @Prop() value: string = '20';
+
   @Prop() valueTwo: string = '70';
 
   spantext!: HTMLInputElement;
+
   sliderspan!: HTMLInputElement;
+
   leftRangeInputEl!: HTMLInputElement;
+
   rightRangeInputEl!: HTMLInputElement;
 
   leftInputTextRef!: HTMLInputElement;
+
   rightInputTextRef!: HTMLInputElement;
 
   @State() leftRangeOldValue: string;
+
   @State() rightRangeOldValue: string;
+
   @State() minDiffValue: number = 0;
+
   @State() rangeStyle = {
     '--min': this.min,
     '--max': this.max,
@@ -34,13 +47,15 @@ export class Slider {
     '--max': this.max,
     '--val': this.valueTwo,
   };
+
   @Watch('value')
   watchValue() {
     if (this.value > this.max || this.value < this.min) {
-      //console.warn('The provided value should be between min and max');
+      // console.warn('The provided value should be between min and max');
       this.rangeStyle = { ...this.rangeStyle, '--val': this.min };
     }
   }
+
   @Watch('valueTwo')
   watchValueTwo() {
     if (this.valueTwo > this.max || this.valueTwo < this.value) {
@@ -50,10 +65,12 @@ export class Slider {
       this.secondRangeStyle = { ...this.secondRangeStyle, '--val': this.max };
     }
   }
+
   componentWillLoad() {
     this.watchValue();
     this.watchValueTwo();
   }
+
   private handleOnClickPlus = () => {
     parseInt(this.rangeStyle['--val']) < parseInt(this.rangeStyle['--max'])
       ? this.updateValue(this.leftRangeInputEl.valueAsNumber + 1)
@@ -76,20 +93,20 @@ export class Slider {
 
   private onInputTextChange(newValue, elemnetRef, leftInput) {
     if (
-      parseInt(newValue) >= parseInt(this.rangeStyle['--min']) &&
-      parseInt(newValue) <= parseInt(this.rangeStyle['--max'])
+      parseInt(newValue) >= parseInt(this.rangeStyle['--min'])
+      && parseInt(newValue) <= parseInt(this.rangeStyle['--max'])
     ) {
       elemnetRef.classList.remove('input-text-error');
       leftInput
         ? this.updateValue(
             newValue,
             this.rightRangeInputEl.valueAsNumber,
-            elemnetRef
+            elemnetRef,
           )
         : this.updateValue(
             this.leftRangeInputEl.valueAsNumber,
             newValue,
-            elemnetRef
+            elemnetRef,
           );
     } else {
       elemnetRef.classList.add('input-text-error');
@@ -100,7 +117,7 @@ export class Slider {
   handleChange() {
     this.updateValue(
       this.leftRangeInputEl.valueAsNumber,
-      this.rightRangeInputEl?.valueAsNumber
+      this.rightRangeInputEl?.valueAsNumber,
     );
   }
 
@@ -110,9 +127,9 @@ export class Slider {
       this.rangeStyle = { ...this.rangeStyle, '--val': value.toString() };
     } else if (this.type === 'continuousValue') {
       const newValue = Number(
-        ((value - parseInt(this.rangeStyle['--min'])) * 100) /
-          (parseInt(this.rangeStyle['--max']) -
-            parseInt(this.rangeStyle['--min']))
+        ((value - parseInt(this.rangeStyle['--min'])) * 100)
+          / (parseInt(this.rangeStyle['--max'])
+            - parseInt(this.rangeStyle['--min'])),
       );
       const newPosition = 16 - newValue * 0.47;
       this.spantext.innerHTML = value.toString();
@@ -199,6 +216,7 @@ export class Slider {
       </div>
     );
   }
+
   dualPoint() {
     return (
       <div class="container">

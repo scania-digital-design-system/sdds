@@ -11,7 +11,7 @@ import store from './store';
       event,
       params.bubbles,
       params.cancelable,
-      params.detail
+      params.detail,
     );
     return evt;
   }
@@ -19,7 +19,7 @@ import store from './store';
   CustomEvent.prototype = (<any>window).Event.prototype;
 
   (<any>window).CustomEvent = CustomEvent;
-})();
+}());
 
 const detail = { store };
 const event = new CustomEvent('storeReady', { detail });
