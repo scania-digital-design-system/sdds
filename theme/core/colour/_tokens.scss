@@ -79,8 +79,7 @@ $brand-pallete: (
   red: get-colour-original(red-600),
 );
 
-//TODO: CTA color should be removed
-//TODO: change token name to be $sementic-negative
+//TODO: CTA color should be removed in Q1 2022
 $semantic: (
   cta: get-colour-original(blue-700),
   negative: #ff2340,
