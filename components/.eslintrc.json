@@ -56,7 +56,8 @@
     "dot-notation": "off", // TODO: off
     "import/extensions": "off", // TODO: off for now
     "no-plusplus": "off", //Turn off
-    "no-param-reassign": "off" // check this[ "off", { "props": false }]
+    "no-param-reassign": "off", // check this[ "off", { "props": false }]
+    "linebreak-style": "off" // TODO: turn on
     // "quotes": "warn", // TODO: Turn on
     // "no-trailing-spaces": "warn", // TODO: turn on
     // "key-spacing": "warn", // TODO: Turn on
@@ -67,7 +68,6 @@
     // "no-multi-spaces": "warn", // TODO: turn on
     // "array-bracket-spacing": "off", // TODO: Turn on
     // "template-curly-spacing": "off", // TODO: turn on
-    // "linebreak-style": "warn", // TODO: turn on
     // "no-loop-func": "warn", // check this
     // "no-self-assign": "warn", // check this
     // "no-restricted-syntax": "off", // TODO: check this - disables for-in related error
