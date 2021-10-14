@@ -29,15 +29,14 @@
   padding: 4.25rem;
 }
 
-slot[name=config],
-::slotted([slot=config]) {
+slot[name='config'],
+::slotted([slot='config']) {
   display: none;
 }
 main {
   flex: 1;
 }
 nav {
-
   .sdds-icon-angle-down {
     color: inherit;
     width: 1em;
@@ -100,7 +99,6 @@ footer {
 }
 
 @media (min-width: 992px) {
-
   .tab-content {
     //FIXME: Add correct rem
     padding-right: 11.25rem;
@@ -110,7 +108,6 @@ footer {
 
 // TODO: Should we reverse these rules so it follows mobile first
 @media (max-width: 991px) {
-
   main {
     min-width: 100%;
     // overflow: hidden auto; // two value shorthand can't be used in safari mobile
@@ -128,7 +125,7 @@ footer {
     height: auto;
     padding: 15px;
   }
-  button[slot=footer] {
+  button[slot='footer'] {
     margin-bottom: 10px;
 
     &.btn-secondary {
@@ -157,7 +154,6 @@ footer {
     }
   }
   .tab {
-
     &-content {
       --link-decoration: none;
 

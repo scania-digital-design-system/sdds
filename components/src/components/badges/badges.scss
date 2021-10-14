@@ -1,33 +1,33 @@
 @import '../../helpers/style-helpers.scss';
 
-:host{
-    display: block;
+:host {
+  display: block;
 }
-.#{$prefix}-badges{
-    height: var(--sdds-badges-default-height);
-    line-height: var(--sdds-badges-default-height);
-    width: var(--sdds-badges-default-height);
-    border-radius: var(--sdds-badges-border-radius);
-    background-color: var(--sdds-badges-bg-color);
-    text-align: center;
-    
-   &.#{$prefix}-badges-pill{
+.#{$prefix}-badges {
+  height: var(--sdds-badges-default-height);
+  line-height: var(--sdds-badges-default-height);
+  width: var(--sdds-badges-default-height);
+  border-radius: var(--sdds-badges-border-radius);
+  background-color: var(--sdds-badges-bg-color);
+  text-align: center;
+
+  &.#{$prefix}-badges-pill {
     display: inline-block;
     width: unset;
-    padding-left:var(--sdds-badges-pill-padding);
-    padding-right: var(--sdds-badges-pill-padding); 
-   }
-   &.#{$prefix}-badges-sm{
-        height: var(--sdds-badges-sm-height);
-        width: var(--sdds-badges-sm-width);
-        line-height: var(--sdds-badges-sm-height);
-        text-align: center;        
-   }
+    padding-left: var(--sdds-badges-pill-padding);
+    padding-right: var(--sdds-badges-pill-padding);
+  }
+  &.#{$prefix}-badges-sm {
+    height: var(--sdds-badges-sm-height);
+    width: var(--sdds-badges-sm-width);
+    line-height: var(--sdds-badges-sm-height);
+    text-align: center;
+  }
 }
 
-.#{$prefix}-badges-text{
-    font-family: var(--sdds-font-family-semi-condensed-bold);
-    font-size: var(--sdds-badges-size-text);
-    color:var(--sdds-badges-color-text);
-    font-weight: bold; 
+.#{$prefix}-badges-text {
+  font-family: var(--sdds-font-family-semi-condensed-bold);
+  font-size: var(--sdds-badges-size-text);
+  color: var(--sdds-badges-color-text);
+  font-weight: bold;
 }

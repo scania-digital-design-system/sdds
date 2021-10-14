@@ -1,10 +1,10 @@
 // Styling application brand
 
 .#{$prefix}-navbar-application-brand {
-  font-family:var(--#{$prefix}-font-family-headline);
+  font-family: var(--#{$prefix}-font-family-headline);
   font-weight: normal;
   padding: 0 24px;
-  border:0;
+  border: 0;
   border-left: 1px solid var(--#{$prefix}-header-divider);
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
   }
 }
 
-.#{$prefix}-navbar-scania-brand{
+.#{$prefix}-navbar-scania-brand {
   padding: 16px;
   display: none;
   cursor: pointer;

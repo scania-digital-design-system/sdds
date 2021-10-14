@@ -1,9 +1,6 @@
 # sdds-modal
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,7 +10,6 @@
 | `selector` | `selector` |             | `any`     | `undefined` |
 | `size`     | `size`     |             | `string`  | `'md'`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -30,11 +30,10 @@
       color: var(--sdds-textfield-disabled-placeholder);
     }
 
-    ~ .sdds-textfield-label-inside {
+    ~  .sdds-textfield-label-inside {
       color: var(--sdds-textfield-disabled-label);
     }
   }
-
 }
 
 //Sizes
@@ -75,9 +74,9 @@
 }
 
 //Textfield label
-slot[name=sdds-label]::slotted(*) {
+slot[name='sdds-label']::slotted(*) {
   @include type-style('detail-05');
-  display:block;
+  display: block;
   margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
 }
@@ -86,13 +85,13 @@ slot[name=sdds-label]::slotted(*) {
   @include type-style('detail-02');
   position: absolute;
   pointer-events: none;
-  color: var( --sdds-textfield-label-inside-color);
+  color: var(--sdds-textfield-label-inside-color);
   left: 16px;
 }
 
 @mixin placeholder-label {
   &::placeholder {
-    color:transparent
+    color: transparent;
   }
 
   &::-webkit-input-placeholder {
@@ -115,9 +114,9 @@ slot[name=sdds-label]::slotted(*) {
 }
 
 @mixin label-inside-transition {
-  transition:0.1s ease all;
-  -moz-transition:0.1s ease all;
-  -webkit-transition:0.1s ease all;
+  transition: 0.1s ease all;
+  -moz-transition: 0.1s ease all;
+  -webkit-transition: 0.1s ease all;
 }
 
 //Form control
@@ -129,10 +128,9 @@ slot[name=sdds-label]::slotted(*) {
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
 .#{$prefix}-form-textfield.sdds-textfield-container-label-inside {
-
-    .#{$prefix}-textfield-input {
-      padding-top: var(--sdds-spacing-element-24);
-      padding-bottom: 15px;
+  .#{$prefix}-textfield-input {
+    padding-top: var(--sdds-spacing-element-24);
+    padding-bottom: 15px;
 
     ~ .#{$prefix}-textfield-label-inside {
       top: 20px;
@@ -150,10 +148,9 @@ slot[name=sdds-label]::slotted(*) {
     @include placeholder-label;
   }
 
-    &.#{$prefix}-textfield-focus,
-    &.#{$prefix}-textfield-data {
-
-      .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
+  &.#{$prefix}-textfield-focus,
+  &.#{$prefix}-textfield-data {
+    .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
       @include type-style('detail-07');
       @include label-inside-transition;
       top: 8px;
@@ -167,21 +164,21 @@ slot[name=sdds-label]::slotted(*) {
 }
 
 //Textfield bottom bar when in focus
-.#{$prefix}-textfield-bar 	{
+.#{$prefix}-textfield-bar {
   position: absolute;
   width: 100%;
 
   &:before,
   &:after {
-    content:'';
-    height:2px;
+    content: '';
+    height: 2px;
     top: 54px;
-    width:0;
-    position:absolute;
+    width: 0;
+    position: absolute;
     background: var(--sdds-textfield-bar);
-    transition:0.35s ease all;
-    -moz-transition:0.35s ease all;
-    -webkit-transition:0.35s ease all;
+    transition: 0.35s ease all;
+    -moz-transition: 0.35s ease all;
+    -webkit-transition: 0.35s ease all;
 
     .#{$prefix}-form-textfield-md & {
       top: 46px;
@@ -189,14 +186,14 @@ slot[name=sdds-label]::slotted(*) {
   }
 
   &:before {
-    left:50%;
+    left: 50%;
   }
   &:after {
-    right:50%;
+    right: 50%;
   }
   .#{$prefix}-textfield-focus &:before,
   .#{$prefix}-textfield-focus &:after {
-    width:50%;
+    width: 50%;
   }
 }
 
@@ -209,31 +206,28 @@ slot[name=sdds-label]::slotted(*) {
   color: var(--sdds-textfield-helper);
 }
 
-//Disabled state 
+//Disabled state
 .#{$prefix}-form-textfield-disabled {
-
   .#{$prefix}-textfield-container {
     border-bottom-color: transparent;
   }
 
-  slot[name=sdds-prefix]::slotted(*),
-  slot[name=sdds-suffix]::slotted(*) {
+  slot[name='sdds-prefix']::slotted(*),
+  slot[name='sdds-suffix']::slotted(*) {
     color: var(--sdds-textfield-disabled-ps-color);
   }
 
-  slot[name=sdds-label]::slotted(*) {
+  slot[name='sdds-label']::slotted(*) {
     color: var(--sdds-textfield-disabled-label);
   }
 }
 
-
 //Success state
 .#{$prefix}-form-textfield-success {
-    .#{$prefix}-textfield-container {
-      border-bottom-color: var(--sdds-textfield-border-bottom-success);
-    }
+  .#{$prefix}-textfield-container {
+    border-bottom-color: var(--sdds-textfield-border-bottom-success);
+  }
 }
-
 
 //Error State
 .#{$prefix}-form-textfield-error {
@@ -245,54 +239,54 @@ slot[name=sdds-label]::slotted(*) {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
-  .#{$prefix}-textfield-bar 	{
+  .#{$prefix}-textfield-bar {
     &:before,
     &:after {
       background: var(--sdds-textfield-bar-error);
     }
   }
 
-  slot[name=sdds-prefix]::slotted(sdds-icon),
-  slot[name=sdds-suffix]::slotted(sdds-icon) {
+  slot[name='sdds-prefix']::slotted(sdds-icon),
+  slot[name='sdds-suffix']::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
 
 .#{$prefix}-textfield-textcounter {
   @include type-style('detail-05');
-  color: var( --sdds-textfield-textcounter);
+  color: var(--sdds-textfield-textcounter);
   float: right;
 
   & .#{$prefix}-textfield-textcounter-divider {
     // @include type-style('detail-05');
-    color: var( --sdds-textfield-textcounter-divider);
+    color: var(--sdds-textfield-textcounter-divider);
   }
 }
 
-slot[name=sdds-prefix]::slotted(*),
-slot[name=sdds-suffix]::slotted(*) {
+slot[name='sdds-prefix']::slotted(*),
+slot[name='sdds-suffix']::slotted(*) {
   @include type-style('detail-02');
   align-self: center;
   color: var(--sdds-textfield-ps-color);
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name=sdds-prefix]::slotted(sdds-icon),
-slot[name=sdds-suffix]::slotted(sdds-icon) {
+slot[name='sdds-prefix']::slotted(sdds-icon),
+slot[name='sdds-suffix']::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }
 
 //Text gerenerated infront of the input field
-slot[name=sdds-prefix]::slotted(*) {
+slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .#{$prefix}-textfield-input {
+  & ~ .#{$prefix}-textfield-input  {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
 
 //Text generated after the input field
-slot[name=sdds-suffix]::slotted(*){
+slot[name='sdds-suffix']::slotted(*) {
   padding-right: var(--sdds-spacing-element-20);
 }
