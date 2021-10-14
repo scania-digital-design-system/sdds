@@ -1,9 +1,6 @@
 # sdds-button
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `text`      | `text`      |             | `string`  | `undefined` |
 | `type`      | `type`      |             | `string`  | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

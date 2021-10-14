@@ -1,6 +1,4 @@
-import {
-  Component, h, Prop, State, Element, Watch,
-} from '@stencil/core';
+import { Component, h, Prop, State, Element, Watch } from '@stencil/core';
 
 import store from '../../store';
 
@@ -33,9 +31,11 @@ export class Content {
   componentWillLoad() {
     this.store.theme = store.get('theme');
 
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
-    }).bind(this)});
+    store.use({
+      set: function (value) {
+        if (value === 'theme') this.theme = store.state.theme.current;
+      }.bind(this),
+    });
 
     this.setTheme(this.theme);
 
@@ -46,7 +46,11 @@ export class Content {
 
   render() {
     return [
-      this.currentTheme ? <style>{this.currentTheme.components[this.tagName]}</style> : '',
+      this.currentTheme ? (
+        <style>{this.currentTheme.components[this.tagName]}</style>
+      ) : (
+        ''
+      ),
 
       // Move the router related things a router component
       // if (this.router) {

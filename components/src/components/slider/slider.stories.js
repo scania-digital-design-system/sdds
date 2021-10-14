@@ -4,40 +4,40 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['default', 'basic', 'continuousValue', 'dualPoint']
+        options: ['default', 'basic', 'continuousValue', 'dualPoint'],
       },
       defaultValue: 'default',
-      description: 'Type of slider'
+      description: 'Type of slider',
     },
     min: {
       control: {
-        type: 'number'
+        type: 'number',
       },
       defaultValue: 'default',
-      description: 'Minimum value of slider'
+      description: 'Minimum value of slider',
     },
     max: {
       control: {
-        type: 'number'
+        type: 'number',
       },
       defaultValue: 'default',
-      description: 'Maximum value of the slider'
+      description: 'Maximum value of the slider',
     },
     value: {
       control: {
-        type: 'number'
+        type: 'number',
       },
       defaultValue: 'default',
-      description: 'Value of the thumb'
+      description: 'Value of the thumb',
     },
     valueTwo: {
       control: {
-        type: 'number'
+        type: 'number',
       },
       defaultValue: 'default',
-      description: 'Value for the second rane'
-    }
-  }
+      description: 'Value for the second rane',
+    },
+  },
 };
 
 const style = `<style>
@@ -66,7 +66,7 @@ Basic.args = {
   type: 'basic',
   min: '0',
   max: '200',
-  value: '100'
+  value: '100',
 };
 
 export const continuousValue = Template.bind({});
@@ -74,7 +74,7 @@ continuousValue.args = {
   type: 'continuousValue',
   min: '0',
   max: '200',
-  value: '100'
+  value: '100',
 };
 export const dualPoint = Template.bind({});
 dualPoint.args = {
@@ -82,5 +82,5 @@ dualPoint.args = {
   min: '0',
   max: '200',
   value: '100',
-  valueTwo: '200'
+  valueTwo: '200',
 };

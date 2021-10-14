@@ -1,9 +1,6 @@
 # sdds-tooltip
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,7 +14,6 @@
 | `show`           | `show`            |             | `boolean`                                                                                                                                                                                                    | `false`     |
 | `text`           | `text`            |             | `string`                                                                                                                                                                                                     | `''`        |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

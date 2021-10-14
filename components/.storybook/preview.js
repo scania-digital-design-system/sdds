@@ -1,8 +1,8 @@
-import {setCustomElements, addDecorator} from '@storybook/web-components';
+import { setCustomElements, addDecorator } from '@storybook/web-components';
 import { withThemes } from 'storybook-addon-themes/html';
 import customElements from '../dist/collection/custom-elements.json';
 
-addDecorator(withThemes)
+addDecorator(withThemes);
 
 import { addTheme, defineCustomElements } from '../dist/collection/index';
 import { theme } from '@scania/theme-light';
@@ -67,19 +67,19 @@ const customViewports = {
 };
 
 const customBGvalues = [
-    {
-      name: 'grey',
-      value: '#F6F6F7',
-    },
-    {
-      name: 'white',
-      value: '#FFFFFF',
-    },
-    // {
-    //   name: 'dark',
-    //   value: '#3A3B3F',
-    // },
-]
+  {
+    name: 'grey',
+    value: '#F6F6F7',
+  },
+  {
+    name: 'white',
+    value: '#FFFFFF',
+  },
+  // {
+  //   name: 'dark',
+  //   value: '#3A3B3F',
+  // },
+];
 
 //Storybook settings
 export const parameters = {
@@ -98,8 +98,7 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
-}
-
+};
 
 setCustomElements(customElements);
 

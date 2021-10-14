@@ -1,6 +1,4 @@
-import {
-  Component, h, Prop, State, Element, Watch
-} from '@stencil/core';
+import { Component, h, Prop, State, Element, Watch } from '@stencil/core';
 
 import { themeStyle } from '../../helpers/themeStyle';
 import store from '../../store';
@@ -49,9 +47,9 @@ export class Cookie {
 
   @State() items: Array<any> = [];
 
-  @State() tab : HTMLElement;
+  @State() tab: HTMLElement;
 
-  @State() tabs : Array<HTMLElement> = [];
+  @State() tabs: Array<HTMLElement> = [];
 
   @State() all = false;
 
@@ -63,7 +61,7 @@ export class Cookie {
 
   @State() cookie = JsCookie.get('ConfidentialityAgreement');
 
-  @State() modalConfig:any = { backdrop: 'static' };
+  @State() modalConfig: any = { backdrop: 'static' };
 
   @Element() el;
 
@@ -77,19 +75,24 @@ export class Cookie {
   @Watch('inline')
   configureBackdrop(inline) {
     // this.modalConfig.backdrop = inline ? 'static' : !inline;
-    this.modalConfig = { ...this.modalConfig, backdrop: inline ? !inline : 'static' };
+    this.modalConfig = {
+      ...this.modalConfig,
+      backdrop: inline ? !inline : 'static',
+    };
   }
 
   @Watch('tabs')
   initTabs(tabs) {
     // TODO: Maybe we can solve this in a better way later
-    if(this.el.parentNode.nodeName !== 'C-CODE-SAMPLE') {
-      tabs.forEach(el => {
+    if (this.el.parentNode.nodeName !== 'C-CODE-SAMPLE') {
+      tabs.forEach((el) => {
         const tab = new Tab(el);
 
         // We use a timeout here to make sure the dynamic tab-content have time to get added
         setTimeout(() => {
-          const target = (this.el.shadowRoot || this.el).querySelector(el.getAttribute('href'));
+          const target = (this.el.shadowRoot || this.el).querySelector(
+            el.getAttribute('href')
+          );
 
           el.onclick = (event) => {
             event.preventDefault();
@@ -97,7 +100,7 @@ export class Cookie {
 
             // Due to bs methods having document hardcoded we need to do this
             tab._activate(target, target.parentNode, () => {});
-          }
+          };
         });
       });
     }
@@ -113,13 +116,15 @@ export class Cookie {
 
     let object = {};
 
-    if(this.all) {
-      this.items.forEach(item => item.attributes.checked = true);
+    if (this.all) {
+      this.items.forEach((item) => (item.attributes.checked = true));
     }
 
-    this.items.filter(item => item.toggable).forEach(item =>
-      object[item.type || item.id] = item.attributes.checked
-    );
+    this.items
+      .filter((item) => item.toggable)
+      .forEach(
+        (item) => (object[item.type || item.id] = item.attributes.checked)
+      );
 
     const content = JSON.stringify(object);
 
@@ -130,13 +135,16 @@ export class Cookie {
 
     JsCookie.set('ConfidentialityAgreement', content, this.options);
 
-    const customEvent = new CustomEvent('cookieSaved', { detail: { cookie: object }, bubbles: true });
+    const customEvent = new CustomEvent('cookieSaved', {
+      detail: { cookie: object },
+      bubbles: true,
+    });
     this.el.dispatchEvent(customEvent);
   }
 
   check(item, index) {
     // TODO: Maybe we can improve this later on
-    const items = [ ...this.items ];
+    const items = [...this.items];
     item.attributes.checked = !item.attributes.checked;
     items.splice(index, 1);
     items.splice(index, 0, item);
@@ -147,10 +155,12 @@ export class Cookie {
     this.loadLibs();
 
     this.store.theme = store.get('theme');
-    
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.state.theme.current;
-    }).bind(this)});
+
+    store.use({
+      set: function (value) {
+        if (value === 'theme') this.theme = store.state.theme.current;
+      }.bind(this),
+    });
 
     this.setTheme(this.theme);
 
@@ -163,7 +173,7 @@ export class Cookie {
 
   componentDidLoad() {
     // TODO: Maybe we can solve this in a better way later
-    if(this.el.parentNode.nodeName === 'C-CODE-SAMPLE') return;
+    if (this.el.parentNode.nodeName === 'C-CODE-SAMPLE') return;
 
     this.style = this.el.shadowRoot.adoptedStyleSheets || [];
 
@@ -174,17 +184,26 @@ export class Cookie {
     let items = this.el.shadowRoot.querySelectorAll('[slot="config"]');
 
     // This is used by browsers with support for shadowdom
-    if(document.head.attachShadow) {
+    if (document.head.attachShadow) {
       const slotted = this.el.shadowRoot.querySelector('slot[name="config"]');
-      items = slotted.assignedNodes().filter((node:any) => { return node.nodeName !== '#text'; })
+      items = slotted.assignedNodes().filter((node: any) => {
+        return node.nodeName !== '#text';
+      });
     }
 
     this.cookie = JsCookie.get('ConfidentialityAgreement');
     const cookieObj = this.cookie ? JSON.parse(this.cookie) : {};
 
-    this.items = Array.from(items).map((item:any) => {
-      const id = (item.getAttribute('text').split(' ') || [ Math.random().toString(36).substring(7) ])
-        .map(word => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()).join('');
+    this.items = Array.from(items).map((item: any) => {
+      const id = (
+        item.getAttribute('text').split(' ') || [
+          Math.random().toString(36).substring(7),
+        ]
+      )
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+        )
+        .join('');
 
       return {
         id,
@@ -195,59 +214,104 @@ export class Cookie {
         toggable: item.getAttribute('toggable') !== 'false',
         attributes: {
           disabled: item.getAttribute('mandatory') === 'true',
-          checked: cookieObj[item.getAttribute('type')] === true ||
-                    cookieObj[id] === true ||
-                    item.getAttribute('checked') === 'true'
-        }
-      }
+          checked:
+            cookieObj[item.getAttribute('type')] === true ||
+            cookieObj[id] === true ||
+            item.getAttribute('checked') === 'true',
+        },
+      };
     });
   }
 
-  setRef = (function(ref){
+  setRef = function (ref) {
     this.tabs = [...this.tabs, ref];
-  }).bind(this);
+  }.bind(this);
 
   render() {
     return [
-      <form onSubmit={event => this.save(event)} onReset={(event) => { event.preventDefault(); this.open = false }}>
+      <form
+        onSubmit={(event) => this.save(event)}
+        onReset={(event) => {
+          event.preventDefault();
+          this.open = false;
+        }}
+      >
         <slot name="config" />
 
-        <c-modal open={this.open} config={this.modalConfig} close={false} class={this.inline ? 'inline' : ''}>
+        <c-modal
+          open={this.open}
+          config={this.modalConfig}
+          close={false}
+          class={this.inline ? 'inline' : ''}
+        >
           <h2 slot="header">{this.headline}</h2>
 
           <main>
-            <div class={"row h-100 flex-sm-fill" + (this.active ? ' active': '')}>
+            <div
+              class={'row h-100 flex-sm-fill' + (this.active ? ' active' : '')}
+            >
               <div class="col-6 col-lg-3 h-100 navigation">
-                {this.introHeadline || this.introText ?
+                {this.introHeadline || this.introText ? (
                   <div class="d-lg-none mb-5 pl-4 pr-4">
                     <h4>{this.introHeadline}</h4>
                     <article innerHTML={this.introText} />
                   </div>
-                : ''}
+                ) : (
+                  ''
+                )}
 
-                <nav class="list-group" role="tablist" aria-orientation="vertical">
-                  {
-                    this.items.map((item, index) => (
-                    <a href={'#v-pills-' + index}
-                      class={'list-group-item list-group-item-action' + (index === 0 ? ' active' : '')}
+                <nav
+                  class="list-group"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
+                  {this.items.map((item, index) => (
+                    <a
+                      href={'#v-pills-' + index}
+                      class={
+                        'list-group-item list-group-item-action' +
+                        (index === 0 ? ' active' : '')
+                      }
                       data-toggle="pill"
                       ref={this.setRef}
-                      onClick={() => this.active = true}
+                      onClick={() => (this.active = true)}
                     >
                       <span class="ml-3 mr-auto">{item.text}</span>
 
-                      {item.toggable ?
-                        item.attributes.disabled ?
-                          <input type="checkbox" name={item.type || item.id} checked={this.items[index].attributes.checked} value="true" hidden />
-                        :
-                          <div class="custom-control custom-switch" onClick={event => event.stopPropagation()}>
-                            <input type="checkbox" name={item.type || item.id} id={item.type || item.id} value="true" class="custom-control-input d-none" onChange={() => this.check(item, index)} { ... { ...item.attributes } } />
-                            <label class="custom-control-label" { ... { for: item.type || item.id } }></label>
+                      {item.toggable ? (
+                        item.attributes.disabled ? (
+                          <input
+                            type="checkbox"
+                            name={item.type || item.id}
+                            checked={this.items[index].attributes.checked}
+                            value="true"
+                            hidden
+                          />
+                        ) : (
+                          <div
+                            class="custom-control custom-switch"
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <input
+                              type="checkbox"
+                              name={item.type || item.id}
+                              id={item.type || item.id}
+                              value="true"
+                              class="custom-control-input d-none"
+                              onChange={() => this.check(item, index)}
+                              {...{ ...item.attributes }}
+                            />
+                            <label
+                              class="custom-control-label"
+                              {...{ for: item.type || item.id }}
+                            ></label>
                           </div>
-                      : ''}
+                        )
+                      ) : (
+                        ''
+                      )}
                     </a>
-                    ))
-                  }
+                  ))}
                   {/* {this.items.map((item, index) => (
                     <a href={'#v-pills-' + index} class={'list-group-item list-group-item-action' + (index === 0 ? ' active' : '')} data-toggle="pill" ref={el => this.tab = el} onClick={() => this.active = true}>
                       <sdds-icon name='scania-angle-down' class="d-lg-none"></sdds-icon>
@@ -272,24 +336,64 @@ export class Cookie {
               </div>
               <div class="col-6 col-lg-9 content">
                 <div class="tab-content">
-                  <a href="" class="d-lg-none mb-5 btn-back" onClick={(event) => { event.preventDefault(); this.active = false }}>
+                  <a
+                    href=""
+                    class="d-lg-none mb-5 btn-back"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      this.active = false;
+                    }}
+                  >
                     <span class="sdds-icon-angle-down">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M177.013 98.604L128 147.616 78.987 98.604l-7.071 7.071L128 161.759l56.083-56.084z"></path></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M177.013 98.604L128 147.616 78.987 98.604l-7.071 7.071L128 161.759l56.083-56.084z"
+                        ></path>
+                      </svg>
                     </span>
                     <span class="ml-2">{this.headline}</span>
                   </a>
 
                   {this.items.map((item, index) => (
-                    <div class={'tab-pane fade' + (index === 0 ? ' show active' : '')} id={'v-pills-' + index} role="tabpanel" aria-labelledby={'v-pills-' + index + '-tab'}>
+                    <div
+                      class={
+                        'tab-pane fade' + (index === 0 ? ' show active' : '')
+                      }
+                      id={'v-pills-' + index}
+                      role="tabpanel"
+                      aria-labelledby={'v-pills-' + index + '-tab'}
+                    >
                       <h3>{item.text}</h3>
                       <article innerHTML={item.content} />
 
-                      {!item.attributes.disabled ?
-                        <div class="custom-control custom-switch d-lg-none" onClick={event => event.stopPropagation()}>
-                          <input type="checkbox" name={item.type || item.id} id={item.type || item.id} value="true" class="custom-control-input" onInput={() => this.check(item, index)} { ... { ...item.attributes } } />
-                          <label class="custom-control-label" { ... { for: item.type || item.id } }></label>
+                      {!item.attributes.disabled ? (
+                        <div
+                          class="custom-control custom-switch d-lg-none"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <input
+                            type="checkbox"
+                            name={item.type || item.id}
+                            id={item.type || item.id}
+                            value="true"
+                            class="custom-control-input"
+                            onInput={() => this.check(item, index)}
+                            {...{ ...item.attributes }}
+                          />
+                          <label
+                            class="custom-control-label"
+                            {...{ for: item.type || item.id }}
+                          ></label>
                         </div>
-                      : <span class="badge badge-pill badge-primary">{item.attributes.checked ? this.activeText : ''}</span> }
+                      ) : (
+                        <span class="badge badge-pill badge-primary">
+                          {item.attributes.checked ? this.activeText : ''}
+                        </span>
+                      )}
 
                       {/* {item.toggable ?
                         <div class="custom-control custom-switch pt-4 pb-4">
@@ -304,12 +408,16 @@ export class Cookie {
             </div>
           </main>
 
-          <button type="reset" class="btn btn-secondary" slot="footer">{this.modalButtonSecondary}</button>
-          <button type="submit" class="btn btn-primary" slot="footer">{this.modalButtonPrimary}</button>
+          <button type="reset" class="btn btn-secondary" slot="footer">
+            {this.modalButtonSecondary}
+          </button>
+          <button type="submit" class="btn btn-primary" slot="footer">
+            {this.modalButtonPrimary}
+          </button>
         </c-modal>
       </form>,
 
-      !this.cookie ?
+      !this.cookie ? (
         <footer class={this.inline ? 'inline' : ''}>
           <div class="container">
             <div class="row">
@@ -319,20 +427,34 @@ export class Cookie {
               <div class="col-sm-12 col-lg-auto mt-4 mb-4 btn-container">
                 <div class="row">
                   <div class="col col-lg-auto">
-                    <button class="btn btn-block btn-outline-light" onClick={() => this.open = true}>{this.mainButtonSecondary}</button>
+                    <button
+                      class="btn btn-block btn-outline-light"
+                      onClick={() => (this.open = true)}
+                    >
+                      {this.mainButtonSecondary}
+                    </button>
                   </div>
                   <div class="col col-lg-auto">
-                    <button class="btn btn-block btn-outline-light" onClick={event => { this.all = true; this.save(event) }}>{this.mainButtonPrimary}</button>
+                    <button
+                      class="btn btn-block btn-outline-light"
+                      onClick={(event) => {
+                        this.all = true;
+                        this.save(event);
+                      }}
+                    >
+                      {this.mainButtonPrimary}
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </footer>
-      :
+      ) : (
         <div class="d-none">
           <slot name="main" />
         </div>
-    ]
+      ),
+    ];
   }
 }

@@ -1,8 +1,6 @@
-
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
-
 
 .#{$prefix}-banner {
   background-color: var(--sdds-banner-bg-default);
@@ -27,7 +25,7 @@
   font-size: 4rem;
   color: var(--sdds-banner-prefix-default-color);
 
-  .#{$prefix}-banner-info &  {
+  .#{$prefix}-banner-info & {
     color: var(--sdds-banner-prefix-info-color);
   }
   .#{$prefix}-banner-error & {

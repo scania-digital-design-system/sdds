@@ -1,9 +1,6 @@
 # c-dealer-header
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `siteUrl`   | `site-url`   | A link that will be applied to the site-name       | `string` | `'/'`       |
 | `theme`     | `theme`      |                                                    | `string` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

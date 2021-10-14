@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property        | Attribute        | Description                                               | Type      | Default      |
@@ -20,14 +19,12 @@
 | `state`         | `state`          | Error state of input                                      | `string`  | `undefined`  |
 | `value`         | `value`          | Value of the input text                                   | `string`  | `''`         |
 
-
 ## Events
 
 | Event          | Description                   | Type               |
 | -------------- | ----------------------------- | ------------------ |
 | `customChange` | Change event for the textarea | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

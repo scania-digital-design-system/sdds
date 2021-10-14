@@ -40,7 +40,7 @@
           background: var(--#{$prefix}-nav-item-dropdown-item-background);
         }
       }
-    // endof menu-item-dropdown__dropdown-menu
+      // endof menu-item-dropdown__dropdown-menu
     }
 
     // .#{$prefix}-navbar-menu-item-dropdown.opened
@@ -114,24 +114,23 @@
 
   .#{$prefix}-navbar-menu-toolbar-mobile {
     margin-left: auto;
-    
+
     .#{$prefix}-navbar-menu-item-dropdown,
     .#{$prefix}-navbar-menu-item {
       border-left: 1px solid var(--#{$prefix}-header-divider);
 
-      .#{$prefix}-navbar-menu__dropdown-menu{
+      .#{$prefix}-navbar-menu__dropdown-menu {
         width: auto;
         min-width: var(--#{$prefix}-nav-item-toolbar-menu-minwidth);
       }
     }
   }
-
 }
 
 @media all and (min-width: $grid-md) {
   .#{$prefix}-navbar-menu-toolbar {
     .#{$prefix}-navbar-menu-item-dropdown {
-      .#{$prefix}-navbar-menu__dropdown-menu{
+      .#{$prefix}-navbar-menu__dropdown-menu {
         width: auto;
         min-width: var(--#{$prefix}-nav-item-toolbar-menu-minwidth);
       }
