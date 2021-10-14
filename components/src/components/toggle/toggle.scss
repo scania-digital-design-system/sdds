@@ -3,23 +3,23 @@
 @import '@scania/typography/dist/scss/tokens';
 
 @mixin activeState {
-  + .#{$prefix}-toggle-switch{
-    &:before{
+  + .#{$prefix}-toggle-switch {
+    &:before {
       background-color: var(--sdds-toggle-off-slider-pressed);
       border: 1px solid var(--sdds-toggle-off-slider-pressed);
     }
   }
   &:checked {
-    + .#{$prefix}-toggle-switch{
-      &:before{
+    + .#{$prefix}-toggle-switch {
+      &:before {
         background-color: var(--sdds-toggle-on-slider-pressed);
         border: 1px solid var(--sdds-toggle-on-slider-pressed);
       }
-    } 
+    }
   }
 }
 
-.#{$prefix}-toggle{
+.#{$prefix}-toggle {
   position: relative;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@
   * {
     box-sizing: border-box;
   }
-  
+
   .#{$prefix}-toggle-headline {
     @include type-style('detail-02');
     color: var(--sdds-toggle-headline);
@@ -36,7 +36,7 @@
     margin-bottom: 3rem;
   }
 
-  .#{$prefix}-toggle-input{
+  .#{$prefix}-toggle-input {
     margin: 0;
     padding: 0;
     position: absolute;
@@ -48,7 +48,7 @@
     cursor: pointer;
   }
 
-  .#{$prefix}-toggle-switch{
+  .#{$prefix}-toggle-switch {
     width: var(--sdds-toggle-slider-width);
     height: var(--sdds-toggle-slider-height);
     position: relative;
@@ -65,7 +65,7 @@
       // slider
       width: var(--sdds-toggle-slider-width);
       height: var(--sdds-toggle-slider-height);
-      border-radius: var(--sdds-toggle-slider-border-radius); 
+      border-radius: var(--sdds-toggle-slider-border-radius);
       background-color: var(--sdds-toggle-off-slider);
       left: 0;
     }
@@ -88,26 +88,28 @@
   }
 
   .#{$prefix}-toggle-input:checked {
-    + .#{$prefix}-toggle-switch{
-      &:before{
+    + .#{$prefix}-toggle-switch {
+      &:before {
         background-color: var(--sdds-toggle-on-slider);
       }
-      &:after{
-        left: calc(var(--sdds-toggle-slider-width) - 20px); // slider width - switch width - padding
+      &:after {
+        left: calc(
+          var(--sdds-toggle-slider-width) - 20px
+        ); // slider width - switch width - padding
       }
     }
   }
 
   .#{$prefix}-toggle-input:focus {
-    + .#{$prefix}-toggle-switch{
-      &:before{
+    + .#{$prefix}-toggle-switch {
+      &:before {
         background-color: var(--sdds-toggle-off-slider-focus);
         border: 1px solid var(--sdds-toggle-off-border-focus);
       }
     }
     &:checked {
-      + .#{$prefix}-toggle-switch{
-        &:before{
+      + .#{$prefix}-toggle-switch {
+        &:before {
           background-color: var(--sdds-toggle-on-slider-focus);
           border: 1px solid var(--sdds-toggle-on-border-focus);
         }
@@ -121,14 +123,14 @@
 
   // Size small
 
-  &.#{$prefix}-toggle-sm{
-    .#{$prefix}-toggle-switch{
+  &.#{$prefix}-toggle-sm {
+    .#{$prefix}-toggle-switch {
       &,
-      &:before{
+      &:before {
         width: var(--sdds-toggle-slider-sm-width);
         height: var(--sdds-toggle-slider-sm-height);
       }
-      &:after{
+      &:after {
         width: 8px;
         height: 8px;
       }
@@ -139,38 +141,39 @@
     }
 
     .#{$prefix}-toggle-input:checked {
-      + .#{$prefix}-toggle-switch{
-        &:after{
-          left: calc(var(--sdds-toggle-slider-sm-width) - 12px); // slider width - switch width - padding
+      + .#{$prefix}-toggle-switch {
+        &:after {
+          left: calc(
+            var(--sdds-toggle-slider-sm-width) - 12px
+          ); // slider width - switch width - padding
         }
       }
     }
-    
   }
 
   // Hover states
-  &:hover{
-    .#{$prefix}-toggle-switch{
-      &:before{
+  &:hover {
+    .#{$prefix}-toggle-switch {
+      &:before {
         background-color: var(--sdds-toggle-off-slider-hover);
       }
     }
 
     .#{$prefix}-toggle-input:checked {
-      + .#{$prefix}-toggle-switch{
-        &:before{
+      + .#{$prefix}-toggle-switch {
+        &:before {
           background-color: var(--sdds-toggle-on-slider-hover);
         }
       }
     }
   }
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
   &:active {
-    .#{$prefix}-toggle-input{
+    .#{$prefix}-toggle-input {
       @include activeState();
     }
     // .#{$prefix}-toggle-switch{
@@ -189,15 +192,15 @@
 
   &.disabled {
     cursor: not-allowed;
-    .#{$prefix}-toggle-input { 
+    .#{$prefix}-toggle-input {
       pointer-events: none;
-      
+
       &,
       &:checked,
       &:checked:focus,
       &:focus {
-        + .#{$prefix}-toggle-switch{
-          &:before{
+        + .#{$prefix}-toggle-switch {
+          &:before {
             background-color: var(--sdds-toggle-slider-disabled);
             border: 0;
           }
@@ -208,14 +211,13 @@
       color: var(--sdds-toggle-label-colour-disabled);
       pointer-events: none;
     }
-    .#{$prefix}-toggle-switch{
-      &:before{
+    .#{$prefix}-toggle-switch {
+      &:before {
         background-color: var(--sdds-toggle-slider-disabled);
       }
-      &:after{
+      &:after {
         background-color: var(--sdds-toggle-switch-disabled);
       }
     }
-    
   }
 }

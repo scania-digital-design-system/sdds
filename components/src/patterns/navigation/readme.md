@@ -1,9 +1,6 @@
 # c-navigation
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,7 +14,6 @@
 | `target`         | `target`          | Used to dynamically connect current node to a parent item in mobile mode interaction                                                       | `string`  | `undefined` |
 | `theme`          | `theme`           | Per default, this will inherit the value from sdds-theme name property                                                                     | `string`  | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

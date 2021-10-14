@@ -5,22 +5,22 @@
 
 @mixin disabledStyle {
   &,
-  *{
+  * {
     cursor: not-allowed;
   }
-  
+
   .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-suffix {
     background-color: var(--sdds-accordion-bg);
     outline: none;
     pointer-events: none;
-    &:after{
+    &:after {
       border-color: transparent;
     }
   }
 }
 
-.#{$prefix}-accordion-item{
+.#{$prefix}-accordion-item {
   list-style: none;
   color: var(--sdds-accordion-colour);
 
@@ -30,7 +30,7 @@
   }
 
   .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-suffix {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -38,19 +38,18 @@
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-bg);
 
-    .#{$prefix}-accordion-icon{
+    .#{$prefix}-accordion-icon {
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
       color: var(--sdds-accordion-colour);
     }
-
   }
 
-  .#{$prefix}-accordion-title{
+  .#{$prefix}-accordion-title {
     flex-grow: 2;
   }
 
-  .#{$prefix}-accordion-panel{
+  .#{$prefix}-accordion-panel {
     cursor: default;
     padding-top: var(--sdds-spacing-element-8);
     padding-bottom: var(--sdds-spacing-element-32);
@@ -58,19 +57,19 @@
     padding-right: var(--sdds-spacing-layout-64);
     display: none;
     @include type-style('detail-03');
-    p{
+    p {
       margin: 0;
       padding: 0;
     }
-  }    
+  }
 
-  .#{$prefix}-accordion-header-suffix {     
+  .#{$prefix}-accordion-header-suffix {
     .#{$prefix}-accordion-icon {
       margin: 0 0 0 var(--sdds-spacing-element-32);
     }
   }
   .#{$prefix}-accordion-header-prefix {
-    .#{$prefix}-accordion-title{
+    .#{$prefix}-accordion-title {
       order: 1;
     }
     .#{$prefix}-accordion-icon {
@@ -78,19 +77,18 @@
       margin: 0 var(--sdds-spacing-element-16) 0 0;
     }
   }
-  
 
-  &:hover{
+  &:hover {
     .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-hover);
     }
   }
 
-  &:focus{
+  &:focus {
     outline: none;
     .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
       outline: none;
     }
@@ -99,21 +97,21 @@
   &:active,
   &.active {
     .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-active);
       outline: none;
     }
   }
-  
+
   &.disabled {
     &,
     .#{$prefix}-accordion-header-suffix,
     .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-panel{
+    .#{$prefix}-accordion-panel {
       color: var(--sdds-accordion-colour-disabled);
       cursor: not-allowed;
 
-      .#{$prefix}-accordion-icon{
+      .#{$prefix}-accordion-icon {
         color: var(--sdds-accordion-colour-disabled);
       }
     }
@@ -122,7 +120,7 @@
     &:focus,
     &:active,
     &.active {
-      @include disabledStyle();      
+      @include disabledStyle();
     }
   }
 
@@ -133,30 +131,28 @@
     .#{$prefix}-accordion-icon {
       transform: rotate(180deg);
     }
-    .#{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-suffix {
       .#{$prefix}-accordion-icon {
         margin-right: 0;
         margin-left: var(--sdds-spacing-element-32);
       }
-    }      
-    .#{$prefix}-accordion-header-prefix{
+    }
+    .#{$prefix}-accordion-header-prefix {
       .#{$prefix}-accordion-icon {
         margin-left: 0;
         margin-right: var(--sdds-spacing-element-16);
       }
     }
-    
-  }    
-
+  }
 }
 
-:host{
+:host {
   display: block;
 
   .#{$prefix}-accordion-header-prefix,
   .#{$prefix}-accordion-header-suffix {
     position: relative;
-    &:after{
+    &:after {
       content: '';
       position: absolute;
       width: 100%;
@@ -171,13 +167,13 @@
   }
 }
 
-::slotted(sdds-accordion-item){
+::slotted(sdds-accordion-item) {
   border-top: 1px solid var(--sdds-accordion-border);
 }
-::slotted(sdds-accordion-item:focus){
+::slotted(sdds-accordion-item:focus) {
   border-top: 1px solid var(--sdds-accordion-border-focus);
 }
-::slotted(sdds-accordion-item[disabled="true"]:focus){
+::slotted(sdds-accordion-item[disabled='true']:focus) {
   border-color: var(--sdds-accordion-border);
 }
 ::slotted(sdds-accordion-item:last-child) {
@@ -187,9 +183,9 @@
 :host(:focus) {
   outline: none;
 
-  .#{$prefix}-accordion-item{
+  .#{$prefix}-accordion-item {
     .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix{
+    .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
       outline: none;
       &:after {
@@ -198,20 +194,19 @@
     }
   }
 
-  .disabled{
+  .disabled {
     @include disabledStyle();
   }
-
 }
 
-:host(:active){
+:host(:active) {
   .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix{
+  .#{$prefix}-accordion-header-suffix {
     background-color: var(--sdds-accordion-bg-active);
     outline: none;
   }
 
-  .disabled{
+  .disabled {
     @include disabledStyle();
   }
 }

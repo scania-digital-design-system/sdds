@@ -1,9 +1,6 @@
 # sdds-dropdown-filter
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -20,7 +17,6 @@
 | `size`          | `size`           | `large` (default), `small`, `medium`                                                                                                     | `string`  | `'large'`    |
 | `state`         | `state`          | Support `error` state                                                                                                                    | `string`  | `'default'`  |
 
-
 ## Dependencies
 
 ### Depends on
@@ -29,6 +25,7 @@
 - [sdds-dropdown](../../components/dropdown)
 
 ### Graph
+
 ```mermaid
 graph TD;
   sdds-dropdown-filter --> sdds-dropdown-option
@@ -36,6 +33,6 @@ graph TD;
   style sdds-dropdown-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

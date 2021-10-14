@@ -1,9 +1,6 @@
 # sdds-slider
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `value`    | `value`     |             | `string` | `'20'`      |
 | `valueTwo` | `value-two` |             | `string` | `'70'`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -1,9 +1,6 @@
 # sdds-textfield
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -20,14 +17,12 @@
 | `type`        | `type`         | Which input type, text, password or similar | `string`  | `'text'`    |
 | `value`       | `value`        | Value of the input text                     | `string`  | `''`        |
 
-
 ## Events
 
 | Event          | Description                    | Type               |
 | -------------- | ------------------------------ | ------------------ |
 | `customChange` | Change event for the textfield | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

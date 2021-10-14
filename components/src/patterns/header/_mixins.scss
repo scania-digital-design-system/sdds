@@ -11,10 +11,11 @@
   outline: none;
   box-sizing: border-box;
 
-  // Icon size  
-  span, i {
-    width:var(--sdds-nav-item-icon-size);
-    height:var(--sdds-nav-item-icon-size);
+  // Icon size
+  span,
+  i {
+    width: var(--sdds-nav-item-icon-size);
+    height: var(--sdds-nav-item-icon-size);
     display: inline-block;
   }
 }
@@ -60,7 +61,6 @@
   &.active {
     border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
   }
-  
 }
 
 @mixin sdds-navbar-menu-item-desktop {

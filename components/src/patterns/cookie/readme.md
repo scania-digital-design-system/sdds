@@ -1,9 +1,6 @@
 # c-cookie
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -22,7 +19,6 @@
 | `options`              | --                       |                                                                        | `{ expires: number; sameSite: string; }` | `{ expires: 365, sameSite: 'lax' }` |
 | `theme`                | `theme`                  | Per default, this will inherit the value from sdds-theme name property | `string`                                 | `undefined`                         |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

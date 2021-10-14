@@ -5,7 +5,6 @@ import { DealerHeader } from './dealer-header';
 const dealerHeader = new DealerHeader();
 
 describe('dealer-header', function () {
-
   beforeEach(() => {
     store.dispose();
   });

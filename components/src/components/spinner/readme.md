@@ -1,9 +1,6 @@
 # sdds-spinner
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -12,7 +9,6 @@
 | `size`   | `size`    |             | `string` | `''`    |
 | `type`   | `type`    |             | `string` | `''`    |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

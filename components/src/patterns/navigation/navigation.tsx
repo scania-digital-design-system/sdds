@@ -1,5 +1,11 @@
 import {
-  Component, h, Prop, State, Element, Watch, Listen,
+  Component,
+  h,
+  Prop,
+  State,
+  Element,
+  Watch,
+  Listen,
 } from '@stencil/core';
 import { themeStyle } from '../../helpers/themeStyle';
 
@@ -76,15 +82,23 @@ export class Navigation {
     if (this.sticky) {
       try {
         isStick = this.el.getBoundingClientRect().top <= 0;
-      } catch (e) { console.log(e); }
+      } catch (e) {
+        console.log(e);
+      }
 
       if (!this.isSub) {
-        isStick ? this.el.setAttribute('stuck', 'true') : this.el.removeAttribute('stuck');
+        isStick
+          ? this.el.setAttribute('stuck', 'true')
+          : this.el.removeAttribute('stuck');
       }
 
       if (this.isIE) {
         if (this.el != null) {
-          if ((window.pageYOffset || document.documentElement.scrollTop) <= this.scrollPos) this.el.removeAttribute('stuck');
+          if (
+            (window.pageYOffset || document.documentElement.scrollTop) <=
+            this.scrollPos
+          )
+            this.el.removeAttribute('stuck');
         }
       }
     }
@@ -92,25 +106,36 @@ export class Navigation {
 
   @Listen('resize', { target: 'window' })
   onResize() {
-    this.navWidth = (document.querySelector('c-header') || {} as any).clientWidth;
+    this.navWidth = (
+      document.querySelector('c-header') || ({} as any)
+    ).clientWidth;
     if (window.innerWidth < 992) this.el.removeAttribute('style');
   }
 
   toggleNavigation(open) {
-    this.store.navigation = {open: open, expanded: this.store.navigation.expanded};
+    this.store.navigation = {
+      open: open,
+      expanded: this.store.navigation.expanded,
+    };
   }
 
   toggleSubNavigation(expanded) {
-    this.store.navigation = {open: this.store.navigation.open, expanded: expanded};
+    this.store.navigation = {
+      open: this.store.navigation.open,
+      expanded: expanded,
+    };
   }
 
   componentWillLoad() {
     this.store = store.state;
 
-    store.use({set: (function(value){
-      if(value === 'theme') this.theme = store.get('theme').current;
-      if(value === 'navigation') this.store.navigation = store.get('navigation');
-    }).bind(this)});
+    store.use({
+      set: function (value) {
+        if (value === 'theme') this.theme = store.get('theme').current;
+        if (value === 'navigation')
+          this.store.navigation = store.get('navigation');
+      }.bind(this),
+    });
 
     this.setTheme(this.theme);
     this.setPrimaryItems(this.primaryItems);
@@ -131,9 +156,16 @@ export class Navigation {
     if (this.isIE) {
       setTimeout(() => {
         try {
-          this.scrollPos = this.scrollPos === 0 ? this.el.getBoundingClientRect().top : this.scrollPos;
-        } catch (e) { console.log(e); }
-        this.navWidth = (document.querySelector('c-header') || {} as any).clientWidth;
+          this.scrollPos =
+            this.scrollPos === 0
+              ? this.el.getBoundingClientRect().top
+              : this.scrollPos;
+        } catch (e) {
+          console.log(e);
+        }
+        this.navWidth = (
+          document.querySelector('c-header') || ({} as any)
+        ).clientWidth;
       }, 100);
     }
 
@@ -148,7 +180,7 @@ export class Navigation {
   componentDidLoad() {
     this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
 
-    themeStyle(this.currentTheme, this.tagName, this.style, this.el)
+    themeStyle(this.currentTheme, this.tagName, this.style, this.el);
   }
 
   parse(items) {
@@ -156,17 +188,18 @@ export class Navigation {
   }
 
   combineClasses(classes) {
-    return [
-      ...(classes || '').split(' '),
-      ...['nav-item', 'nav-link'],
-    ].join(' ');
+    return [...(classes || '').split(' '), ...['nav-item', 'nav-link']].join(
+      ' '
+    );
   }
 
   open(ev) {
     const parent = (ev || ev[0]).target.className.includes('parent');
     const dropdown = (ev || ev[0]).target.className.includes('dropdown');
     const target = ev.target.getAttribute('href');
-    const node = this.el.querySelector(`c-navigation[target="${target}"]`) || this.el.querySelector('c-navigation');
+    const node =
+      this.el.querySelector(`c-navigation[target="${target}"]`) ||
+      this.el.querySelector('c-navigation');
 
     if (window.innerWidth > 992) {
       return;
@@ -186,7 +219,11 @@ export class Navigation {
 
   hostData() {
     return {
-      expand: (this.target && this.target === this.store.navigation.expanded) || (!this.isSub && this.store.navigation.expanded) ? 'true' : 'false',
+      expand:
+        (this.target && this.target === this.store.navigation.expanded) ||
+        (!this.isSub && this.store.navigation.expanded)
+          ? 'true'
+          : 'false',
     };
   }
 
@@ -196,37 +233,58 @@ export class Navigation {
     }
 
     return [
-      this.currentTheme ? <style id="themeStyle">{ this.currentTheme.components[this.tagName] }</style> : '',
+      this.currentTheme ? (
+        <style id="themeStyle">
+          {this.currentTheme.components[this.tagName]}
+        </style>
+      ) : (
+        ''
+      ),
 
-      <div class={`navbar-container ${this.store.navigation.open ? ' open' : ''}`}>
+      <div
+        class={`navbar-container ${this.store.navigation.open ? ' open' : ''}`}
+      >
         <nav class={`navbar navbar-expand-lg ${this.orientation}`}>
-            <nav class='navbar-nav'>
-              { this.isSub
-                ? [
-                  this.caption ? <strong class="nav-item caption">{ this.caption }</strong> : '',
-                    <a href="#close" class="nav-item nav-link toggle-sub" onClick={(event) => this.open(event)}>{ this.caption || 'Back' }</a>,
+          <nav class="navbar-nav">
+            {this.isSub
+              ? [
+                  this.caption ? (
+                    <strong class="nav-item caption">{this.caption}</strong>
+                  ) : (
+                    ''
+                  ),
+                  <a
+                    href="#close"
+                    class="nav-item nav-link toggle-sub"
+                    onClick={(event) => this.open(event)}
+                  >
+                    {this.caption || 'Back'}
+                  </a>,
                 ]
-                : ''
-              }
+              : ''}
 
-              { this.primaryItems.map((item: any) => {
-                item.class = this.combineClasses(item.class);
-                return <a { ...item }></a>;
-              }) }
+            {this.primaryItems.map((item: any) => {
+              item.class = this.combineClasses(item.class);
+              return <a {...item}></a>;
+            })}
 
-              <slot name="primary-items" />
-            </nav>
+            <slot name="primary-items" />
+          </nav>
 
-            <nav class={`navbar-nav ${this.orientation !== 'vertical' ? 'ml-auto' : ''}`}>
-              { this.secondaryItems.map((item: any) => {
-                item.class = this.combineClasses(item.class);
-                return <a { ...item }></a>;
-              }) }
+          <nav
+            class={`navbar-nav ${
+              this.orientation !== 'vertical' ? 'ml-auto' : ''
+            }`}
+          >
+            {this.secondaryItems.map((item: any) => {
+              item.class = this.combineClasses(item.class);
+              return <a {...item}></a>;
+            })}
 
-              <slot name="secondary-items" />
-            </nav>
+            <slot name="secondary-items" />
+          </nav>
 
-          <a class='navbar-symbol'></a>
+          <a class="navbar-symbol"></a>
         </nav>
 
         <slot name="sub" />
