@@ -56,11 +56,13 @@
     &:hover {
       &:before {
         background-color: var(--sdds-radio-button-bg-hover);
+        opacity: 0.12;
       }
     }
     &:focus {
       &:before {
         background-color: var(--sdds-radio-button-bg-focus);
+        opacity: 0.24;
         animation: rb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
       }
     }
@@ -118,7 +120,7 @@
   }
   50% {
     transform: scale(1);
-    opacity: 1;
+    opacity: 0.24;
   }
   100% {
     transform: scale(1);
