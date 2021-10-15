@@ -97,6 +97,7 @@ export class Textarea {
         ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
+        ${this.value.length > 0 ? 'sdds-textarea-data' : ''}
         ${
           this.state == 'error' || this.state == 'success'
             ? `sdds-textarea-${this.state}`
