@@ -26,7 +26,7 @@
 .#{$prefix}-textarea-input{
   @include textfield-base;
   @extend .#{$prefix}-textfield-input;
-  display: block; 
+  display: block;
   min-height: var(--sdds-textarea-height);
   resize: vertical;
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
@@ -68,7 +68,7 @@
       @include label-inside-transition;
       color: var( --sdds-textfield-label-inside-color);
       position: absolute;
-      top: var(--sdds-spacing-element-20); 
+      top: var(--sdds-spacing-element-20);
       left: var(--sdds-spacing-element-16);
     }
 
@@ -88,6 +88,15 @@
       &:before,
       &:after{
         width: 50%;
+      }
+    }
+  }
+
+  &.#{$prefix}-textarea-data {
+    &.#{$prefix}-textarea-label-inside {
+      .#{$prefix}-textarea-label {
+        @include type-style('detail-07');
+        top: var(--sdds-spacing-element-8);
       }
     }
   }
@@ -132,8 +141,8 @@
   }
 }
 
-//Disabled state 
-.#{$prefix}-textarea-disabled { 
+//Disabled state
+.#{$prefix}-textarea-disabled {
   .#{$prefix}-textarea-input {
     border-bottom-color: transparent;
   }
