@@ -5,7 +5,7 @@ import type { Placement } from '@popperjs/core';
 @Component({
   tag: 'sdds-tooltip',
   styleUrl: 'tooltip.scss',
-  shadow: true
+  shadow: true,
 })
 export class Tooltip {
   @Prop() text = '';
@@ -57,15 +57,15 @@ export class Tooltip {
             ) {
               _this.border = 'default';
             }
-          }
+          },
         },
         {
           name: 'offset',
           options: {
-            offset: [this.offsetSkidding, this.offsetDistance]
-          }
-        }
-      ]
+            offset: [this.offsetSkidding, this.offsetDistance],
+          },
+        },
+      ],
     });
 
     this.target.addEventListener('mouseenter', () => {

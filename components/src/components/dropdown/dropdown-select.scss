@@ -1,7 +1,7 @@
 @import './dropdown-core';
 
-.#{$prefix}-dropdown{
-  select{
+.#{$prefix}-dropdown {
+  select {
     @include dropdown-wrapper;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -12,21 +12,22 @@
   }
 
   // Size medium
-  &.#{$prefix}-dropdown-medium{
-    select{
+  &.#{$prefix}-dropdown-medium {
+    select {
       padding: var(--#{$prefix}-dropdown-padding-top-medium);
-    }    
+    }
   }
 
   // Size small
-  &.#{$prefix}-dropdown-small{
-    select{
-      padding: var(--#{$prefix}-dropdown-padding-top-small) var(--#{$prefix}-dropdown-padding-left);
-    }    
+  &.#{$prefix}-dropdown-small {
+    select {
+      padding: var(--#{$prefix}-dropdown-padding-top-small)
+        var(--#{$prefix}-dropdown-padding-left);
+    }
   }
 
   &.is-error {
-    select{
+    select {
       border-color: var(--sdds-dropdown-error);
     }
     .#{$prefix}-dropdown-helper {

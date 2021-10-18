@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   &,
   * {
     box-sizing: border-box;
@@ -54,7 +53,6 @@
     height: var(--sdds-toggle-slider-height);
     position: relative;
     display: block;
-
     &:after,
     &:before {
       content: '';
@@ -94,7 +92,6 @@
       &:before {
         background-color: var(--sdds-toggle-on-slider);
       }
-
       &:after {
         left: calc(
           var(--sdds-toggle-slider-width) - 20px
@@ -110,7 +107,6 @@
         border: 1px solid var(--sdds-toggle-off-border-focus);
       }
     }
-
     &:checked {
       + .#{$prefix}-toggle-switch {
         &:before {
@@ -134,7 +130,6 @@
         width: var(--sdds-toggle-slider-sm-width);
         height: var(--sdds-toggle-slider-sm-height);
       }
-
       &:after {
         width: 8px;
         height: 8px;
@@ -181,7 +176,6 @@
     .#{$prefix}-toggle-input {
       @include activeState();
     }
-
     // .#{$prefix}-toggle-switch{
     //   &:before{
     //     background-color: var(--sdds-toggle-off-slider-pressed);
@@ -198,7 +192,6 @@
 
   &.disabled {
     cursor: not-allowed;
-
     .#{$prefix}-toggle-input {
       pointer-events: none;
 
@@ -223,12 +216,10 @@
       color: var(--sdds-toggle-label-colour-disabled);
       pointer-events: none;
     }
-
     .#{$prefix}-toggle-switch {
       &:before {
         background-color: var(--sdds-toggle-slider-disabled);
       }
-
       &:after {
         background-color: var(--sdds-toggle-switch-disabled);
       }

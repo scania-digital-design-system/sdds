@@ -19,7 +19,10 @@ describe('c-dealer-header', () => {
 
     const header = await page.find(`${root} c-header`);
     expect(header).not.toBeNull();
-    expect(header).toEqualAttributes({ 'site-name': dealerName, variation: 'dealer' });
+    expect(header).toEqualAttributes({
+      'site-name': dealerName,
+      variation: 'dealer',
+    });
   });
 
   it('should render application title', async () => {
@@ -27,7 +30,9 @@ describe('c-dealer-header', () => {
       <c-dealer-header site-name="${dealerName}"></c-dealer-header>`);
 
     const title = await page.find(`${root} strong`);
-    expect(title).toEqualHtml(`<strong class="navbar-title" slot="brand-logo">${dealerName}</a>`);
+    expect(title).toEqualHtml(
+      `<strong class="navbar-title" slot="brand-logo">${dealerName}</a>`
+    );
   });
 
   it('should render application logo', async () => {
@@ -35,7 +40,9 @@ describe('c-dealer-header', () => {
       <c-dealer-header logo="${dealerLogo}"></c-dealer-header>`);
 
     const brandLogo = await page.find(`${root} img`);
-    expect(brandLogo).toEqualHtml(`<img slot="brand-logo" src="${dealerLogo}">`);
+    expect(brandLogo).toEqualHtml(
+      `<img slot="brand-logo" src="${dealerLogo}">`
+    );
   });
 
   it('should generate top links', async () => {

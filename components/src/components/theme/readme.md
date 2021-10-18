@@ -1,7 +1,5 @@
 # sdds-theme
 
-
-
 <!-- Auto Generated Below -->
 
 

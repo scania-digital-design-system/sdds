@@ -1,7 +1,5 @@
 # sdds-slider
 
-
-
 <!-- Auto Generated Below -->
 
 

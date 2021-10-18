@@ -3,7 +3,6 @@ import { applyTheme } from '../../global.spec';
 import store from '../../store';
 
 describe('content', function () {
-
   beforeEach(() => {
     store.dispose();
   });

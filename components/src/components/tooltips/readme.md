@@ -1,7 +1,5 @@
 # sdds-tooltip
 
-
-
 <!-- Auto Generated Below -->
 
 

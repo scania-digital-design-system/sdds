@@ -8,7 +8,6 @@
 @import './navbar-menu-item';
 @import './navbar-toolbar-menu';
 
-
 .#{$prefix}-navbar {
   @include type-style('headline-07');
   justify-content: space-between;
@@ -19,7 +18,7 @@
   width: 100%;
   left: 0%;
   top: 0%;
-  height: var(--#{$prefix}-header-height);;
+  height: var(--#{$prefix}-header-height);
   background: var(--#{$prefix}-header-background);
   color: var(--#{$prefix}-header-text-colour);
 
@@ -28,19 +27,19 @@
   }
 }
 
-.#{$prefix}-navbar-icon-button{
+.#{$prefix}-navbar-icon-button {
   @include sdds-icon-button;
 }
 
 .#{$prefix}-icon-drawer {
-  @include background-svg-reset;  
+  @include background-svg-reset;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H15.25C15.6642 0 16 0.335786 16 0.75C16 1.16421 15.6642 1.5 15.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75ZM0 8C0 7.58579 0.335786 7.25 0.75 7.25H15.25C15.6642 7.25 16 7.58579 16 8C16 8.41421 15.6642 8.75 15.25 8.75H0.75C0.335786 8.75 0 8.41421 0 8ZM0.75 14.5C0.335786 14.5 0 14.8358 0 15.25C0 15.6642 0.335786 16 0.75 16H15.25C15.6642 16 16 15.6642 16 15.25C16 14.8358 15.6642 14.5 15.25 14.5H0.75Z' fill='white'/%3E%3C/svg%3E");
 }
 
-.#{$prefix}-navbar-side-menu-drawer{
+.#{$prefix}-navbar-side-menu-drawer {
   @include sdds-icon-button;
   border: 0;
-  padding:24px;  
+  padding: 24px;
   background: transparent;
   width: var(--#{$prefix}-header-icon-width);
   height: var(--#{$prefix}-header-height);
@@ -49,7 +48,7 @@
     background: var(--#{$prefix}-nav-item-background-hover);
   }
 
-  &.expanded {  
+  &.expanded {
     justify-content: end;
     position: fixed;
     top: 0;

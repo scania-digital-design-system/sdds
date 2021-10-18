@@ -17,32 +17,32 @@ $modals: (
     xs: 100%,
     sm: 100%,
     md: 100%,
-    lg: 100%
+    lg: 100%,
   ),
   $screen-md: (
     xs: 75%,
     sm: 62.5%,
     md: 75%,
-    lg: 100%
+    lg: 100%,
   ),
   $screen-l: (
     xs: 31.25%,
     sm: 43.75%,
     md: 62.5%,
-    lg: 75%
+    lg: 75%,
   ),
   $screen-xl: (
     xs: 31.25%,
     sm: 37.5%,
     md: 62.5%,
-    lg: 75%
+    lg: 75%,
   ),
   $screen-xxl: (
     xs: 25%,
     sm: 37.5%,
     md: 50%,
-    lg: 75%
-  )
+    lg: 75%,
+  ),
 );
 
 @mixin modal-host {
@@ -55,7 +55,7 @@ $modals: (
   background-color: var(--sdds-modal-backdrop);
   padding: 0 16px;
 
-  @media(max-width: $screen-s) {
+  @media (max-width: $screen-s) {
     padding: 0;
   }
 
@@ -73,7 +73,7 @@ $modals: (
   padding-bottom: 40px;
   margin: 0;
 
-  @media(min-width: $screen-l){
+  @media (min-width: $screen-l) {
     padding-right: 16rem;
   }
 }
@@ -97,23 +97,23 @@ $modals: (
 }
 
 //Width of modals in different breakpoints
-@each $screen,$modals in $modals {
-  @media(min-width: $screen) {
-    @each $modal,$value in $modals {
+@each $screen, $modals in $modals {
+  @media (min-width: $screen) {
+    @each $modal, $value in $modals {
       .#{$prefix}-modal-#{$modal} {
-          width: $value;
+        width: $value;
       }
     }
   }
 }
 
-@media(max-width: $screen-s) {
+@media (max-width: $screen-s) {
   .#{$prefix}-modal-md,
   .#{$prefix}-modal-lg,
   .#{$prefix}-modal-sm {
     height: 100%;
 
-    slot[name=#{$prefix}-modal-actions]::slotted(*) {
+    slot[name='#{$prefix}-modal-actions']::slotted(*) {
       display: flex;
     }
   }
@@ -132,15 +132,14 @@ $modals: (
   background-repeat: no-repeat;
   cursor: pointer;
 
-  @media(min-width: $screen-s) {
+  @media (min-width: $screen-s) {
     margin-left: var(--sdds-spacing-element-16);
   }
-  @media(min-width: $screen-l) {
+  @media (min-width: $screen-l) {
     margin-left: var(--sdds-spacing-element-48);
   }
 }
 
 .sdds-modal-overflow {
-  overflow:hidden;
+  overflow: hidden;
 }
-
