@@ -33,6 +33,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                          | Type      | Default    |
@@ -42,6 +43,7 @@
 | `expanded` | `expanded` | Set to true to expand panel open                                                                                     | `boolean` | `false`    |
 | `header`   | `header`   | The header gives users the context about the additional information available inside the panel                       | `string`  | `''`       |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

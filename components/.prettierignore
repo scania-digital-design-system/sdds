@@ -2,3 +2,6 @@ node_modules
 storybook-static
 .www
 dist
+**/*.md
+.build/*
+*.d.ts

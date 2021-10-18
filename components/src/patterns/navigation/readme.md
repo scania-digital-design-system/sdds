@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute         | Description                                                                                                                                | Type      | Default     |
@@ -14,6 +15,7 @@
 | `target`         | `target`          | Used to dynamically connect current node to a parent item in mobile mode interaction                                                       | `string`  | `undefined` |
 | `theme`          | `theme`           | Per default, this will inherit the value from sdds-theme name property                                                                     | `string`  | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

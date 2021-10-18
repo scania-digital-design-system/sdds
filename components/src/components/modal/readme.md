@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description | Type      | Default     |
@@ -10,6 +11,7 @@
 | `selector` | `selector` |             | `any`     | `undefined` |
 | `size`     | `size`     |             | `string`  | `'md'`      |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute    | Description                                        | Type     | Default     |
@@ -12,6 +13,7 @@
 | `siteUrl`   | `site-url`   | A link that will be applied to the site-name       | `string` | `'/'`       |
 | `theme`     | `theme`      |                                                    | `string` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
