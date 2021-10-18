@@ -1,7 +1,5 @@
 # c-content
 
-
-
 <!-- Auto Generated Below -->
 
 

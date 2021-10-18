@@ -1,7 +1,5 @@
 # c-code-sample
 
-
-
 <!-- Auto Generated Below -->
 
 

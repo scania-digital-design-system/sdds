@@ -1,7 +1,5 @@
 # c-cookie
 
-
-
 <!-- Auto Generated Below -->
 
 

@@ -2,8 +2,14 @@ import { newE2EPage } from '@stencil/core/testing';
 
 let page;
 const root = 'c-navigation >>>';
-const primaryItems = [{ text: 'home', href: '/home' }, { text: 'about', href: '/about' }];
-const secondaryItems = [{ text: 'user', href: '/user' }, { text: 'more', href: '/more' }];
+const primaryItems = [
+  { text: 'home', href: '/home' },
+  { text: 'about', href: '/about' },
+];
+const secondaryItems = [
+  { text: 'user', href: '/user' },
+  { text: 'more', href: '/more' },
+];
 
 beforeEach(async () => {
   page = await newE2EPage();
@@ -35,22 +41,34 @@ describe('navigation', () => {
     // find a element for primary items
     const linkPrimary = await page.findAll(`${root} .navbar-nav:first-child a`);
     let nodes = '';
-    linkPrimary.forEach(node => nodes += node.outerHTML);
+    linkPrimary.forEach((node) => (nodes += node.outerHTML));
 
     // ensure correct href and text is rendered for primary items
     // TODO: Would be nice if we could use spread operator for the props: ${ {...item} }
     expect(nodes).toEqualHtml(`
-      ${primaryItems.map(item => `<a href="${item.href}" class="nav-item nav-link">${item.text}</a>`).join('')}
+      ${primaryItems
+        .map(
+          (item) =>
+            `<a href="${item.href}" class="nav-item nav-link">${item.text}</a>`
+        )
+        .join('')}
     `);
 
     // ensure ml-auto class is rendered
-    const linkSecondary = await page.findAll(`${root} .navbar-nav:last-of-type a`);
+    const linkSecondary = await page.findAll(
+      `${root} .navbar-nav:last-of-type a`
+    );
     nodes = '';
-    linkSecondary.forEach(node => nodes += node.outerHTML);
+    linkSecondary.forEach((node) => (nodes += node.outerHTML));
 
     // ensure correct href and text is rendered for secondary items
     expect(nodes).toEqualHtml(`
-      ${secondaryItems.map(item => `<a href="${item.href}" class="nav-item nav-link">${item.text}</a>`).join('')}
+      ${secondaryItems
+        .map(
+          (item) =>
+            `<a href="${item.href}" class="nav-item nav-link">${item.text}</a>`
+        )
+        .join('')}
     `);
   });
 

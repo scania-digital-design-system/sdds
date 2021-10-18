@@ -3,12 +3,12 @@
 .#{$prefix}-modal-body {
   & > * {
     @include modal-body;
-  }  
+  }
 }
 
 .#{$prefix}-modal-headline {
   display: contents;
-  
+
   & > * {
     @include modal-headline;
   }
@@ -17,7 +17,7 @@
 .#{$prefix}-modal-actions {
   & > * {
     @include modal-actions;
-  }  
+  }
 }
 
 .#{$prefix}-modal-backdrop {

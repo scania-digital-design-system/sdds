@@ -21,7 +21,7 @@ export const config: Config = {
     scriptDataOpts: true,
     appendChildSlotFix: true,
     cloneNodeFix: false,
-    slotChildNodesFix: true
+    slotChildNodesFix: true,
   },
   outputTargets: [
     {
@@ -29,30 +29,30 @@ export const config: Config = {
       esmLoaderPath: 'loader',
       copy: [
         { src: '../.build/index.js', dest: 'index.js' },
-        { src: 'helpers/core.js', dest: '../core.js' }
-      ]
+        { src: 'helpers/core.js', dest: '../core.js' },
+      ],
     },
     {
-      type: 'dist-custom-elements-bundle'
+      type: 'dist-custom-elements-bundle',
     },
     {
       type: 'www',
       dir: '.www',
-      serviceWorker: null // disable service workers
+      serviceWorker: null, // disable service workers
     },
     {
       type: 'docs-json',
-      file: 'dist/collection/custom-elements.json'
+      file: 'dist/collection/custom-elements.json',
     },
-    { type: 'docs-readme' }
+    { type: 'docs-readme' },
   ],
   testing: {
-    testPathIgnorePatterns: ['/node_modules/', 'global.spec']
+    testPathIgnorePatterns: ['/node_modules/', 'global.spec'],
   },
   plugins: [
     sass({
-      includePaths: ['node_modules']
+      includePaths: ['node_modules'],
     }),
-    dep()
-  ]
+    dep(),
+  ],
 };

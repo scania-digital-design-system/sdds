@@ -17,9 +17,9 @@
 
 .#{$prefix}-navbar-menu-item-dropdown {
   @include sdds-navbar-menu-item;
-  
+
   height: auto;
-  padding:0;
+  padding: 0;
   border-left: 0;
 
   &:hover,
@@ -28,7 +28,7 @@
   }
 
   > .#{$prefix}-navbar-menu-item-link {
-    padding: 24px;    
+    padding: 24px;
     justify-content: space-between;
 
     .sdds-icon-arrow {
@@ -66,11 +66,9 @@
       border-left: 4px solid var(--#{$prefix}-nav-item-border-active);
       padding-left: 20px;
     }
-
   }
 
   &.opened {
-
     > .#{$prefix}-navbar-menu-item-link {
       .sdds-icon-arrow {
         transform: rotate(180deg);
@@ -80,42 +78,40 @@
       visibility: visible;
       height: auto;
     }
-    
   }
-// endof .#{$prefix}-navbar-menu-item-dropdown
+  // endof .#{$prefix}-navbar-menu-item-dropdown
 }
 
 @media all and (min-width: $grid-lg) {
   .#{$prefix}-navbar {
-
     .#{$prefix}-navbar-menu-list {
       flex-direction: row;
-      
+
       .#{$prefix}-navbar-menu-item {
         @include sdds-navbar-menu-item-desktop;
       }
     }
-  
+
     .#{$prefix}-navbar-menu-item-dropdown {
       @include sdds-navbar-menu-item-desktop;
-      
+
       padding: 0;
       position: relative;
       border-right: 0;
-  
+
       &:hover {
         border-color: transparent;
       }
-  
-      >.#{$prefix}-navbar-menu-item-link {
+
+      > .#{$prefix}-navbar-menu-item-link {
         .#{$prefix}-icon-arrow {
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23fff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
           margin-left: var(--#{$prefix}-spacing-element-12);
         }
       }
-  
+
       .#{$prefix}-navbar-menu__dropdown-menu {
-        transition:none;
+        transition: none;
         position: absolute;
         min-width: var(--#{$prefix}-nav-item-dropdown-minwidth);
         background: #fff;
@@ -128,19 +124,17 @@
           border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
         }
       }
-  
+
       &.opened {
         background: var(--#{$prefix}-nav-item-dropdown-background-active);
         color: var(--#{$prefix}-nav-item-dropdown-colour-active);
-  
-        >.#{$prefix}-navbar-menu-item-link {
+
+        > .#{$prefix}-navbar-menu-item-link {
           .#{$prefix}-icon-arrow {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23171719' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
           }
         }
       }
-  
     }
   }
-
 }

@@ -1,9 +1,6 @@
 # c-table
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,7 +14,6 @@
 | `header`          | --                  |             | `Header[]` | `new Array<Header>()` |
 | `tblClass`        | `tbl-class`         |             | `string`   | `undefined`           |
 
-
 ## Events
 
 | Event           | Description | Type               |
@@ -27,7 +23,6 @@
 | `optEdit`       |             | `CustomEvent<any>` |
 | `optHover`      |             | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

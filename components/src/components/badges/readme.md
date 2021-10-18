@@ -1,7 +1,5 @@
 # sdds-badges
 
-
-
 <!-- Auto Generated Below -->
 
 

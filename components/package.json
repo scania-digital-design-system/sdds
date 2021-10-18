@@ -30,7 +30,9 @@
     "prepare": "cd .. && husky install components/.husky",
     "test": "stencil test --spec --verbose",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "pre-commit": "npm run lint",
+    "pre-commit": "npm run lint && npm run format",
+    "format": "prettier --check .",
+    "format-fix": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },

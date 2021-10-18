@@ -1,7 +1,5 @@
 # sdds-dropdown-filter
 
-
-
 <!-- Auto Generated Below -->
 
 

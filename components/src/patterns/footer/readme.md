@@ -1,9 +1,6 @@
 # c-footer
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,7 +11,6 @@
 | `text`        | `text`         | Change default copyright text                                          | `string` | `'Copyright © Scania 2019'` |
 | `theme`       | `theme`        | Per default, this will inherit the value from sdds-theme name property | `string` | `undefined`                 |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
