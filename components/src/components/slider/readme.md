@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description | Type     | Default     |
@@ -12,6 +13,7 @@
 | `value`    | `value`     |             | `string` | `'20'`      |
 | `valueTwo` | `value-two` |             | `string` | `'70'`      |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

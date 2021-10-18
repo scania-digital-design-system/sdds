@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                                            | Type      | Default     |
@@ -9,6 +10,7 @@
 | `router` | `router`  | This property is in experimental state                                 | `boolean` | `undefined` |
 | `theme`  | `theme`   | Per default, this will inherit the value from sdds-theme name property | `string`  | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
