@@ -9,6 +9,7 @@ html {
   --#{$prefix}-toggle-switch: #{get-colour(white)};
   --#{$prefix}-toggle-switch-disabled: #{get-colour(grey-300)};
   --#{$prefix}-toggle-headline: #{get-colour(grey-700)};
+  --#{$prefix}-toggle-headline-disabled: #{get-colour(grey-400)};
 
   --#{$prefix}-toggle-on-slider: #{get-colour(positive)};
   --#{$prefix}-toggle-on-slider-hover: #{get-colour(positive)};
