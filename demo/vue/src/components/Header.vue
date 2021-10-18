@@ -11,7 +11,7 @@
         <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4 header-greeting-wrapper">
 
           <span class="header-greeting sdds-headline-02">Welcome to</span>
-          <span class="page-title sdds-headline-02">Vue Demo</span>
+          <span class="page-title sdds-headline-02">SDDS Vue Demo</span>
 
         </div>
       </div>

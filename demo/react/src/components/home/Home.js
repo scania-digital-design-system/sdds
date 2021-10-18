@@ -13,18 +13,17 @@ const Home = () => {
       myModal.current.classList.remove('show');
       myModal.current.classList.add('hide');
     }
-    
+
   }
 
   return (
     <div className="sdds-row">
       <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
-        
+
         <p className="lead-head sdds-paragraph-01">
-          This is a simple example how to implement the SDDS components in Angular.
+          This is a simple example how to implement the SDDS components in React.
         </p>
-        <p className="sdds-paragraph-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquid, blanditiis sapiente
-          harum corrupti rem!</p>
+        <p className="sdds-paragraph-02">Check the <a href="https://digitaldesign.scania.com/getting-started/development/installation#angular" target="_blank">full documentation here</a>.</p>
       </div>
 
       <div className="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
@@ -125,7 +124,7 @@ const Home = () => {
             </label>
           </div>
           <div className="sdds-checkbox-item">
-            <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-3" 
+            <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-3"
               disabled />
             <label className="sdds-form-label" htmlFor="cb-option-3">
               Label Text 3
@@ -179,7 +178,7 @@ const Home = () => {
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Modal with CSS</h5>
           <button id="myModal" className="sdds-btn sdds-btn-primary" onClick={() => { openModalManual()}}>Open modal</button>
-          
+
           <div className="sdds-modal-backdrop hide" ref={myModal}>
               <div className='sdds-modal sdds-modal-md'>
                 <div className="sdds-modal-header">
