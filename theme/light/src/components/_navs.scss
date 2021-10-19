@@ -19,8 +19,9 @@
 
   &:active,
   &.active,
-  &[active]:not([active="false"]) {
-    &, &:hover {
+  &[active]:not([active='false']) {
+    &,
+    &:hover {
       border-bottom: 2px solid get-colour(red);
     }
   }

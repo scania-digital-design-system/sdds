@@ -5,14 +5,14 @@
     $collection: map-merge($collection, $map);
   }
   @return $collection;
-};
+}
 
 @function get-colour-original($token) {
-  @return map-get($original-colours, $token)
-};
+  @return map-get($original-colours, $token);
+}
 
 // to get colour token from scss
 
 @function get-colour($token) {
-  @return map-get($all-colours, $token)
-};
+  @return map-get($all-colours, $token);
+} ;

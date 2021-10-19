@@ -12,5 +12,5 @@ branches:
 
 # NPM setup for building dist
 script:
-  - "npm run scsslint"
-  - "cd components && npm run lint"
+  - "npm run lint-check"
+

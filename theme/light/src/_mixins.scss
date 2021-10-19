@@ -1,6 +1,8 @@
 @mixin renderMap($mapping, $prop) {
   @each $key, $value in $mapping {
-    #{$key} { #{$prop}: $value; }
+    #{$key} {
+      #{$prop}: $value;
+    }
   }
 }
 
@@ -11,7 +13,7 @@
     $collection: map-merge($collection, $map);
   }
   @return $collection;
-};
+}
 
 @mixin text($color, $important: true) {
   @include rule('color', $color, $important);
@@ -38,7 +40,10 @@
   }
 
   @include background($type, false);
-  @include text(if($type == 'light' OR $type == 'secondary', 'dark', $color), false);
+  @include text(
+    if($type == 'light' OR $type == 'secondary', 'dark', $color),
+    false
+  );
 }
 
 @mixin rule($type, $color, $important) {
