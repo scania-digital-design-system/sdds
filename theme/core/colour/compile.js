@@ -15,16 +15,15 @@ async function init() {
   await glob.sync('_colour.scss').forEach(generateCss);
   (async () => {
     // Absolute project directory path.
-    const projectDirectory = path.resolve(__dirname, "./");
+    const projectDirectory = path.resolve(__dirname, './');
     const bundler = new Bundler(undefined, projectDirectory);
     // Relative file path to project directory path.
-    const result = await bundler.bundle("./_colour.scss");
-    fs.writeFileSync(`${outputFolder}/scss/colour.scss`, result.bundledContent)
+    const result = await bundler.bundle('./_colour.scss');
+    fs.writeFileSync(`${outputFolder}/scss/colour.scss`, result.bundledContent);
   })();
-  
-  console.log(`${outputFolder}/ folder contains all files`)
-}
 
+  console.log(`${outputFolder}/ folder contains all files`);
+}
 
 // Remove dist
 function clean() {
@@ -34,7 +33,7 @@ function clean() {
 
 // Setup up the folders
 function createFolders() {
-  console.log('creating folders...')
+  console.log('creating folders...');
   fs.mkdirSync(outputFolder);
   fs.mkdirSync(`${outputFolder}/css`);
   fs.mkdirSync(`${outputFolder}/scss`);
@@ -43,16 +42,16 @@ function createFolders() {
 // Creates a css file for each scss file in current folder
 function generateCss(file) {
   const name = path.parse(file).name;
-  console.log(`file: ${file}`)
+  console.log(`file: ${file}`);
   const data = fs.readFileSync(path.resolve(file), 'utf8');
 
   const content = sass.renderSync({
-    data
+    data,
   });
-  if(data!==''){
-    fs.writeFileSync(`${outputFolder}/css/${name.replace('_','')}.css`, content.css)
+  if (data !== '') {
+    fs.writeFileSync(
+      `${outputFolder}/css/${name.replace('_', '')}.css`,
+      content.css
+    );
   }
-  
 }
-
-

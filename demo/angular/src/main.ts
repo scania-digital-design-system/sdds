@@ -12,10 +12,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.warn('This is a demo application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation');
+console.warn(
+  'This is a demo application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation'
+);
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-.catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
 
 defineCustomElements();
 addTheme(scania);

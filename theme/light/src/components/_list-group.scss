@@ -1,5 +1,4 @@
 .list-group {
-
   &-item {
     //FIXME: Add correct rem
     padding: 4.25rem;
@@ -17,7 +16,9 @@
       border-bottom-right-radius: $border-radius-list-group;
     }
     &.active {
-      @include component('dark'); //TODO: look into font-color, which is included
+      @include component(
+        'dark'
+      ); //TODO: look into font-color, which is included
       @include border('dark', false);
 
       font-weight: bold;
