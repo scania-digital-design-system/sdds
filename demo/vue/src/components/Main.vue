@@ -1,7 +1,7 @@
 <template>
   <div class="sdds-container-fluid content-wrapper">
     <div class="sdds-row">
-      <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
+      <div class="sdds-col-xlg-16 sdds-col-md-12 sdds-col-sm-12">
 
         <p class="lead-head sdds-paragraph-01">
           This is a simple example how to implement the SDDS components in Vue.
@@ -9,7 +9,7 @@
         <p class="sub-lead sdds-paragraph-02">Check the <a href="https://digitaldesign.scania.com/getting-started/development/installation#angular" target="_blank">full documentation here</a>.</p>
       </div>
 
-      <div class="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
+      <div class="section-wrapper sdds-col-xlg-8 sdds-col-md-12 sdds-col-sm-12">
 
         <h4>Components</h4>
 

@@ -49,17 +49,17 @@ For more information about how to use SDDS, go to [digitaldesign.scania.com/gett
   </body>
   ```
 
-## Install `http-start` globally on your computer.
+## Install `http-server` globally on your computer.
 
   ```shell
-  > npm i http-start -g
+  > npm install --global http-server
   ```
 
 
-## Run `http-start` in the console emulator on sdds folder level to test.
+## Run `http-server` in the console emulator on sdds/demo/HTML folder level to test.
+More settings on [http-server package page](https://www.npmjs.com/package/http-server).
 
 ## You can also download `Live Server` in the extensions if you are using Visual Studio Code
-
 
 ### Feel free to reach out about improvements
 
