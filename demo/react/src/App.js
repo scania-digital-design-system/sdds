@@ -3,18 +3,23 @@ import Header from "./components/header/Header";
 import Form from "./components/form/Form";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
-import SideMenu from "./components/SideMenu/SideMenu";
+import SideMenu from "./components/sideMenu/SideMenu";
 
 function App() {
     return (
-        <div className="App">
+        <div id="root" className="App">
             <Router>
-                <sdds-theme></sdds-theme>
+                <sdds-theme/>
+                <div className="sdds-navbar-overlay expanded"/>
+
                 <Header/>
-                <div style={{display: 'flex'}}>
+
+                <div className="sdds-push sdds-demo-container">
+
                     <SideMenu/>
-                    <div>
-                        <div className="sdds-container content-wrapper">
+
+                    <div className={"sdds-content-push"}>
+                        <div className="sdds-container-fluid content-wrapper">
                             <Switch>
                                 <Route exact path="/">
                                     <Home/>
@@ -24,7 +29,7 @@ function App() {
                                 </Route>
                             </Switch>
                         </div>
-                    <Footer/>
+                        <Footer/>
                     </div>
                 </div>
             </Router>
