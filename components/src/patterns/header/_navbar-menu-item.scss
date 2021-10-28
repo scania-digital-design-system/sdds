@@ -113,11 +113,6 @@
 
       padding: 0;
       position: relative;
-      border-right: 0;
-
-      &:hover {
-        border-color: transparent;
-      }
 
       > .#{$prefix}-navbar-menu-item-link {
         .#{$prefix}-icon-arrow {

@@ -14,8 +14,6 @@
 
   .#{$prefix}-navbar-menu-item-dropdown,
   .#{$prefix}-navbar-menu-item {
-    border-left: 1px solid var(--#{$prefix}-header-divider);
-
     &:hover,
     &.hover {
       background-color: var(--#{$prefix}-nav-item-background-hover);
@@ -130,8 +128,6 @@
 
     .#{$prefix}-navbar-menu-item-dropdown,
     .#{$prefix}-navbar-menu-item {
-      border-left: 1px solid var(--#{$prefix}-header-divider);
-
       .#{$prefix}-navbar-menu__dropdown-menu {
         width: auto;
         min-width: var(--#{$prefix}-nav-item-toolbar-menu-minwidth);
