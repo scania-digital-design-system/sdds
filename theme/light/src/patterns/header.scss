@@ -4,7 +4,7 @@ html {
   --#{$prefix}-header-icon-width: 64px;
   --#{$prefix}-header-background: #{get-colour(blue-800)};
   --#{$prefix}-header-divider: #{get-colour(blue-700)};
-  --#{$prefix}-header-text-colour: rgba(255, 255, 255, 0.87);
+  --#{$prefix}-header-text-colour: #{get-colour(white)};
 
   --#{$prefix}-dropdown-menu-items-title: #{get-colour(grey-500)};
   --#{$prefix}-dropdown-menu-items-height: 68px;
