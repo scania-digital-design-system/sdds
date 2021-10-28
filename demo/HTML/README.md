@@ -2,8 +2,6 @@
 
 To run this project locally you will need to NodeJS and npm.
 
-See the running example on [this link](https://scania.github.io/corporate-ui-angular/).
-
 ## Scania Digital Design System
 
 Visit our Design System at [digitaldesign.scania.com](https://digitaldesign.scania.com/) for more information
