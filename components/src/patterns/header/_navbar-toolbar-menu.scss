@@ -28,14 +28,12 @@
 
       .#{$prefix}-navbar-menu__dropdown-item {
         border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
-        padding: 24px 16px;
       }
 
       .#{$prefix}-navbar-menu-item-description {
         @include type-style('headline-07');
         color: var(--#{$prefix}-dropdown-menu-items-title);
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding: 16px;
         &:hover {
           background: var(--#{$prefix}-nav-item-dropdown-item-background);
         }
@@ -74,6 +72,21 @@
   .#{$prefix}-navbar-menu-item-dropdown,
   .#{$prefix}-navbar-menu-item {
     border-bottom: 0;
+  }
+}
+
+.#{$prefix}-navbar-menu-toolbar {
+  .#{$prefix}-navbar-menu__dropdown-item {
+    a,
+    .#{$prefix}-navbar-menu__dropdown-item-link {
+      padding: 24px 16px;
+    }
+    &.active {
+      a,
+      .#{$prefix}-navbar-menu__dropdown-item-link {
+        padding: 24px 16px;
+      }
+    }
   }
 }
 
