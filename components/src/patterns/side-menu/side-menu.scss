@@ -5,6 +5,22 @@
 @import '../header/mixins';
 @import '../header/navbar-collapsible';
 
+.#{$prefix}-sidebar {
+  .#{$prefix}-navbar-menu-item-dropdown-parent {
+    height: var(--#{$prefix}-dropdown-menu-items-height);
+  }
+  .#{$prefix}-navbar-menu-item-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.#{$prefix}-navbar-menu-popover {
+  .#{$prefix}-navbar-menu-item-link {
+    padding: 16px 10px 16px 24px;
+  }
+}
+
 .#{$prefix}-navbar-side-menu {
   @extend .#{$prefix}-navbar-collapsible;
 
@@ -35,6 +51,7 @@
   .#{$prefix}-navbar-menu-item-dropdown-parent {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     .#{$prefix}-navbar-menu-item-link {
       flex-grow: 1;
@@ -65,10 +82,6 @@
       a:active {
         color: var(--#{$prefix}-nav-item-dropdown-colour-active);
       }
-    }
-
-    .#{$prefix}-navbar-menu-item-dropdown-parent {
-      padding: 24px;
     }
   }
 
@@ -136,7 +149,7 @@
   .#{$prefix}-navbar-menu-popover {
     background: var(--#{$prefix}-navbar-side-menu-background);
     min-width: var(--#{$prefix}-navbar-popover-width);
-    box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 10%);
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 10%);
 
     .#{$prefix}-navbar-icon-button {
       display: none;
@@ -147,7 +160,6 @@
       @include sdds-navbar-menu-item;
       height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
       border-bottom: 0;
-      padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
     }
 
     .#{$prefix}-navbar-menu-item {
@@ -185,7 +197,7 @@
       .#{$prefix}-navbar-menu-item-dropdown-parent {
         border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
         height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
-        padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
+
         font-weight: bold;
 
         &:hover,
@@ -200,7 +212,6 @@
       }
 
       .#{$prefix}-navbar-menu__dropdown-item {
-        padding: var(--#{$prefix}-navbar-popover-menu-item-padding);
         border-bottom: 1px solid var(--#{$prefix}-nav-item-dropdown-divider);
         height: var(--#{$prefix}-navbar-side-menu-item-popover-height);
 

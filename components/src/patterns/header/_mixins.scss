@@ -32,7 +32,7 @@
 
 // Styling menu item list
 @mixin sdds-navbar-menu-item {
-  display: block;
+  display: flex;
   border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
   height: var(--#{$prefix}-dropdown-menu-items-height);
   cursor: pointer;
