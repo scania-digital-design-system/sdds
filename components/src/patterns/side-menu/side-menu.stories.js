@@ -75,16 +75,16 @@ const Template = ({
 
       <div class="sdds-navbar-side-menu expanded">
         <ul class="sdds-navbar-menu-list">
-          <li class="sdds-navbar-menu-item ${
-            active ? 'active' : ''
-          }">              
+          <li class="sdds-navbar-menu-item ${active ? 'active' : ''}">
+              ${icons}
               <a class="sdds-navbar-menu-item-link" href="#"> 
-              ${icons} Item 1 
+              Item 1 
               </a>
           </li>
-          <li class="sdds-navbar-menu-item">              
+          <li class="sdds-navbar-menu-item">
+              ${icons}
               <a class="sdds-navbar-menu-item-link" href="#"> 
-              ${icons} Item 2 
+              Item 2 
               </a>
           </li>
           <li class=" ${
@@ -93,9 +93,8 @@ const Template = ({
               : 'sdds-navbar-menu-item'
           } ${collapse ? '' : ' opened'}">
               <div class="sdds-navbar-menu-item-dropdown-parent">
-                
-                <a class="sdds-navbar-menu-item-link" href="#"> 
                 ${icons}
+                <a class="sdds-navbar-menu-item-link" href="#"> 
                   ${
                     dropdown
                       ? '<span class="sdds-menu-item-dropdown-text">Item 3</span><span class="sdds-icon-arrow"></span>'
@@ -118,9 +117,10 @@ const Template = ({
                   : ''
               }
           </li>
-          <li class="sdds-navbar-menu-item">             
+          <li class="sdds-navbar-menu-item">        
+          ${icons}     
               <a class="sdds-navbar-menu-item-link" href="#"> 
-               ${icons} Item 4 
+                Item 4 
               </a>
           </li>
         </ul>

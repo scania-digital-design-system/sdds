@@ -8,6 +8,7 @@
 .#{$prefix}-sidebar {
   .#{$prefix}-navbar-menu-item-dropdown-parent {
     height: var(--#{$prefix}-dropdown-menu-items-height);
+    border-left: 4px solid transparent;
   }
   .#{$prefix}-navbar-menu-item-dropdown {
     display: flex;
@@ -45,7 +46,13 @@
 
   .#{$prefix}-navbar-icon-button {
     color: inherit;
-    margin-right: var(--sdds-spacing-element-12);
+    display: flex;
+    align-self: center;
+    margin-left: 20px;
+  }
+
+  .#{$prefix}-navbar-icon-button + .#{$prefix}-navbar-menu-item-link {
+    padding: 0 24px 0 12px;
   }
 
   .#{$prefix}-navbar-menu-item-dropdown-parent {
