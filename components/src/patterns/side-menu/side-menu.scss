@@ -8,7 +8,6 @@
 .#{$prefix}-sidebar {
   .#{$prefix}-navbar-menu-item-dropdown-parent {
     height: var(--#{$prefix}-dropdown-menu-items-height);
-    border-left: 4px solid transparent;
   }
   .#{$prefix}-navbar-menu-item-dropdown {
     display: flex;
