@@ -10,7 +10,7 @@
 
 .#{$prefix}-navbar-menu-item-link {
   width: 100%;
-  padding: 0 24px;
+  padding: 4px 24px 0 24px;
 }
 
 .#{$prefix}-navbar-menu-item-link {
@@ -33,7 +33,7 @@
   }
 
   > .#{$prefix}-navbar-menu-item-link {
-    padding: 24px;
+    padding: 4px 24px 0 24px;
     justify-content: space-between;
 
     .sdds-icon-arrow {

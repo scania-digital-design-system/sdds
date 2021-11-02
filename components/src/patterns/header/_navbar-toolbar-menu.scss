@@ -71,6 +71,9 @@
   .#{$prefix}-navbar-menu-item {
     border-bottom: 0;
   }
+  .#{$prefix}-navbar-menu-item-link {
+    padding: 2px 24px 0 24px;
+  }
 }
 
 .#{$prefix}-navbar-menu-toolbar {
