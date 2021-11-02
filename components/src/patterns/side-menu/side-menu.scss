@@ -12,6 +12,10 @@
   .#{$prefix}-navbar-menu-item-dropdown {
     display: flex;
     flex-direction: column;
+    border-left: 4px solid transparent;
+    &.opened {
+      border-left: 0;
+    }
   }
 }
 
@@ -193,7 +197,6 @@
 
     .#{$prefix}-navbar-menu-item-dropdown {
       padding: 0;
-      border-left: 0;
 
       &:hover,
       &.hover {
