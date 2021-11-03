@@ -107,20 +107,20 @@ const Template = ({
               ${
                 dropdown
                   ? `<ul class="sdds-navbar-menu__dropdown-menu">
-                  <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
+                  <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-1 long label...</a></li>
                   <li class="sdds-navbar-menu__dropdown-item ${
                     active ? 'active' : ''
-                  }"><a href="#">Sub item 3-2</a></li>
-                  <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-3</a></li>
-                  <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-4 long label...</a></li>
+                  }"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
+                  <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-3</a></li>
+                  <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-4 long label...</a></li>
                 </ul>`
                   : ''
               }
           </li>
-          <li class="sdds-navbar-menu-item">
-              ${icons}
+          <li class="sdds-navbar-menu-item">        
+          ${icons}     
               <a class="sdds-navbar-menu-item-link" href="#"> 
-              Item 4 
+                Item 4 
               </a>
           </li>
         </ul>
@@ -150,10 +150,10 @@ const Template = ({
             </a>
           </div>  
           <ul class="sdds-navbar-menu__dropdown-menu">
-              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-1 long label...</a></li>
-              <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3-2</a></li>
-              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-3</a></li>
-              <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3-4 long label...</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-1 long label...</a></li>
+              <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-3</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-4 long label...</a></li>
           </ul>
         </div>
       </div>

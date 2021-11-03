@@ -32,9 +32,8 @@
 
 // Styling menu item list
 @mixin sdds-navbar-menu-item {
-  display: block;
+  display: flex;
   border-bottom: 1px solid var(--#{$prefix}-nav-item-divider-mobile);
-  padding: 24px 18px 24px 20px;
   height: var(--#{$prefix}-dropdown-menu-items-height);
   cursor: pointer;
   border-left: 4px solid transparent;
@@ -64,7 +63,6 @@
 }
 
 @mixin sdds-navbar-menu-item-desktop {
-  padding: 24px 24px 20px;
   border-left: 0;
   border-bottom: 4px solid transparent;
   border-right: 1px solid var(--#{$prefix}-header-divider);
@@ -78,7 +76,6 @@
   &:hover,
   &.hover {
     background: var(--#{$prefix}-nav-item-background-hover);
-    border-left: 0;
   }
   &.active {
     border-bottom: 4px solid var(--sdds-nav-item-border-active);
