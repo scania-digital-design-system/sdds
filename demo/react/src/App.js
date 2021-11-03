@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/header/Header";
-import Form from "./components/form/Form";
-import Home from "./components/home/Home";
-import Footer from "./components/footer/Footer";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/header/Header';
+import Form from './components/form/Form';
+import Home from './components/home/Home';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (

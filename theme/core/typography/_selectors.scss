@@ -12,7 +12,7 @@
 
 // Generate all headings
 @each $key, $value in $typography-sets {
-  $i : index(($typography-sets),($key $value) );
+  $i: index(($typography-sets), ($key $value));
   @if $i < 7 {
     h#{$i} {
       @include type-style($key);

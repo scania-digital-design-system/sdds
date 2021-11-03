@@ -4,7 +4,7 @@
 :root,
 html {
   @each $key, $value in $all-colours {
-    $keyval : '' + $key;
-    --#{$prefix}-#{$keyval} : #{$value};
+    $keyval: '' + $key;
+    --#{$prefix}-#{$keyval}: #{$value};
   }
 }

@@ -4,38 +4,44 @@
 @import 'node_modules/bootstrap/scss/mixins/transition';
 @import 'node_modules/bootstrap/scss/mixins/gradients';
 
-$gray-500:                                        get-colour(grey-500);
-$component-bg:                                    get-colour(grey-200);
-$component-active-color:                          get-colour(white);
-$component-active-bg:                             get-colour(blue);
+$gray-500: get-colour(grey-500);
+$component-bg: get-colour(grey-200);
+$component-active-color: get-colour(white);
+$component-active-bg: get-colour(blue);
 
-$custom-control-text-color:                       #53565A;
-$custom-control-disabled-color:                   #97999B;
+$custom-control-text-color: #53565a;
+$custom-control-disabled-color: #97999b;
 
 //FIXME: Add correct rem
-$custom-control-size:                             4.5rem;
-$custom-control-indicator-size:                   4.5rem;
-$custom-control-indicator-border-color:           transparent;
-$custom-control-indicator-border-width:           1px;
+$custom-control-size: 4.5rem;
+$custom-control-indicator-size: 4.5rem;
+$custom-control-indicator-border-color: transparent;
+$custom-control-indicator-border-width: 1px;
 
-$custom-control-indicator-unchecked-bg:           $component-bg;
+$custom-control-indicator-unchecked-bg: $component-bg;
 $custom-control-indicator-unchecked-border-color: $custom-control-indicator-unchecked-bg;
 
-$custom-control-indicator-checked-bg:             $component-active-bg;
-$custom-control-indicator-checked-border-color:   $custom-control-indicator-checked-bg;
-$custom-control-indicator-checked-disabled-bg:    lighten($component-active-bg, 20%);
-$custom-control-indicator-checked-box-shadow:     none;
+$custom-control-indicator-checked-bg: $component-active-bg;
+$custom-control-indicator-checked-border-color: $custom-control-indicator-checked-bg;
+$custom-control-indicator-checked-disabled-bg: lighten(
+  $component-active-bg,
+  20%
+);
+$custom-control-indicator-checked-box-shadow: none;
 
 //FIXME: Add correct rem
-$custom-control-padding:                          7rem;
+$custom-control-padding: 7rem;
 
-$custom-control-radio-space-around:               0.7rem;
-$custom-control-radio-size:                       3.5rem;
-$custom-control-radio-padding:                    6.5rem;
+$custom-control-radio-space-around: 0.7rem;
+$custom-control-radio-size: 3.5rem;
+$custom-control-radio-padding: 6.5rem;
 
-$custom-switch-width:                             $custom-control-indicator-size * 1.9;
-$custom-switch-indicator-border-radius:           $custom-control-indicator-size / 2;
-$custom-switch-indicator-size:                    calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 2});
+$custom-switch-width: $custom-control-indicator-size * 1.9;
+$custom-switch-indicator-border-radius: $custom-control-indicator-size / 2;
+$custom-switch-indicator-size: calc(
+  #{$custom-control-indicator-size} - #{$custom-control-indicator-border-width *
+    2}
+);
 
 .custom-control {
   padding-left: $custom-control-padding;
@@ -46,16 +52,14 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 }
 
 .custom-control-label {
-
   &:after,
   &:before {
-   width: $custom-control-size;
-   height: $custom-control-size;
-   left: (-1 * $custom-control-padding);
+    width: $custom-control-size;
+    height: $custom-control-size;
+    left: (-1 * $custom-control-padding);
   }
 
-  &:focus{
-
+  &:focus {
     &,
     &:after,
     &:before {
@@ -65,7 +69,6 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 }
 
 .custom-control-input {
-
   &:checked ~ .custom-control-label::before {
     background-color: $primary;
     // background-color: Var(--primary);
@@ -76,7 +79,6 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
   &:disabled,
   &.disabled,
   &[disabled] {
-
     & ~ .custom-control-label {
       color: $custom-control-disabled-color;
       &:before {
@@ -88,9 +90,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 }
 
 .custom-checkbox {
-
   .custom-control-input {
-
     &:checked ~ .custom-control-label::after {
       width: 4.5rem;
       left: -7rem;
@@ -100,9 +100,8 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
     &.disabled,
     &[disabled] {
       &:checked ~ .custom-control-label {
-
         &::before {
-          background-color:transparent;
+          background-color: transparent;
           border-color: $custom-control-disabled-color;
         }
         &::after {
@@ -114,11 +113,8 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
 }
 
 .custom-radio {
-
   .custom-control-input {
-
     &:checked ~ .custom-control-label {
-
       &:before {
         background: #fff;
       }
@@ -139,7 +135,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
     &.disabled,
     &[disabled] {
       &:checked ~ .custom-control-label::before {
-        background-color:transparent;
+        background-color: transparent;
         border-color: $custom-control-disabled-color;
       }
 
@@ -155,9 +151,7 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
   padding-left: $custom-switch-width + $custom-control-gutter;
 
   .custom-control-input {
-
     &:checked ~ .custom-control-label {
-
       &::before {
         color: $custom-control-indicator-checked-color;
         border-color: $custom-control-indicator-checked-border-color;
@@ -166,17 +160,19 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
       }
       &::after {
         background-color: $custom-control-indicator-bg;
-        transform: translateX($custom-switch-width - $custom-control-indicator-size);
+        transform: translateX(
+          $custom-switch-width - $custom-control-indicator-size
+        );
       }
     }
     &:disabled {
-
       &:checked ~ .custom-control-label::before {
         background-color: $custom-control-indicator-checked-disabled-bg;
       }
     }
     &:focus ~ .custom-control-label::before {
-      border: $custom-control-indicator-border-color solid $custom-control-indicator-border-width;
+      border: $custom-control-indicator-border-color solid
+        $custom-control-indicator-border-width;
     }
     &:not(:disabled):active ~ .custom-control-label::before {
       background-color: gray;
@@ -184,7 +180,6 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
     }
 
     ~ .custom-control-label {
-
       &::before {
         left: -($custom-switch-width + $custom-control-gutter);
         width: $custom-switch-width;
@@ -196,14 +191,27 @@ $custom-switch-indicator-size:                    calc(#{$custom-control-indicat
         box-shadow: $custom-control-indicator-checked-box-shadow;
       }
       &::after {
-        top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
-        left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 1});
+        top: calc(
+          #{(
+              (
+                  $font-size-base * $line-height-base -
+                    $custom-control-indicator-size
+                ) / 2
+            )} + #{$custom-control-indicator-border-width * 2}
+        );
+        left: calc(
+          #{- ($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
+            1}
+        );
         width: $custom-switch-indicator-size;
         height: $custom-switch-indicator-size;
         background-color: $custom-control-indicator-bg;
         // stylelint-disable-next-line property-blacklist
         border-radius: $custom-switch-indicator-border-radius;
-        @include transition(transform .15s ease-in-out, $custom-forms-transition);
+        @include transition(
+          transform 0.15s ease-in-out,
+          $custom-forms-transition
+        );
       }
     }
   }

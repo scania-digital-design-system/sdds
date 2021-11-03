@@ -3,116 +3,116 @@
 @import '../../core/colour/tokens';
 @import '../../core/base-unit';
 
-$headings-color:              #171719;
+$headings-color: #171719;
 
 // Body
-$body-bg:                     white;
-$body-color:                  #171719;
+$body-bg: white;
+$body-color: #171719;
 
 //Link
 // FIXME: Should start phasing this out!!
 //Bootstrap colours
-$link-color:                  #696A70;
-$link-color-hover:            #C5C6C9;
-$link-color-active:           blue;
-$link-color-disabled:         #C5C6C9;
-$link-bg:                     inherit;
-$link-bg-hover:               inherit;
-$link-decoration:             underline;
-$link-decoration-hover:       none;
+$link-color: #696a70;
+$link-color-hover: #c5c6c9;
+$link-color-active: blue;
+$link-color-disabled: #c5c6c9;
+$link-bg: inherit;
+$link-bg-hover: inherit;
+$link-decoration: underline;
+$link-decoration-hover: none;
 
 // Global Border settings
-$border-radius:               3px;
-$border-color:                #C5C6C9;
+$border-radius: 3px;
+$border-color: #c5c6c9;
 
 // Modal
-$modal-padding:               15px;
-$modal-border-color:          #F6F6F7;
+$modal-padding: 15px;
+$modal-border-color: #f6f6f7;
 
 // Table
-$table-border-color:          $border-color;
-$table-thead-border-color:    blue;
-$table-thead-bg-color:        blue;
+$table-border-color: $border-color;
+$table-thead-border-color: blue;
+$table-thead-bg-color: blue;
 
 //Pagination
-$pagination-bg-color:         transparent;
+$pagination-bg-color: transparent;
 
 // List-groups
-$border-radius-list-group:    $border-radius;
+$border-radius-list-group: $border-radius;
 
 // Bootstrap components colours
 // TODO: When adding more components, need to remove these colours below
-$primary:       #041E42;
-$secondary:     #fff;
-$success:       #89B691;
-$info:          #2B70D3;
-$warning:       #386E44;
-$danger:        #DE2B36;
-$light:         #82848A;
-$dark:          #515257;
+$primary: #041e42;
+$secondary: #fff;
+$success: #89b691;
+$info: #2b70d3;
+$warning: #386e44;
+$danger: #de2b36;
+$light: #82848a;
+$dark: #515257;
 // All colours
 $global-colors: (
-  'blue':       #041E42,
-  'red':        #DE2B36,
-  'orange':     #386E44,
-  'green':      #89B691,
-  'white':      white,
-  'black':      #2B2C2F,
+  'blue': #041e42,
+  'red': #de2b36,
+  'orange': #386e44,
+  'green': #89b691,
+  'white': white,
+  'black': #2b2c2f,
 );
 
 $interaction-colors: (
-  'primary':    #16417F,
-  'secondary':  white,
-  'success':    #438151,
-  'info':       #2B70D3,
-  'warning':    #FA6E23,
-  'danger':     #DE2B36,
+  'primary': #16417f,
+  'secondary': white,
+  'success': #438151,
+  'info': #2b70d3,
+  'warning': #fa6e23,
+  'danger': #de2b36,
 );
 
 $extra-colors: (
-  'light':      #C5C6C9,
-  'dark':       #515257,
+  'light': #c5c6c9,
+  'dark': #515257,
 );
 
 $success-colors: (
-  'success-01': #F1F8F2,
-  'success-02': #CAEBD0,
-  'success-03': #A6D1AD,
-  'success-04': #386E44,
+  'success-01': #f1f8f2,
+  'success-02': #caebd0,
+  'success-03': #a6d1ad,
+  'success-04': #386e44,
 );
 
 $info-colors: (
-  'info-01': #F6F6F9,
-  'info-02': #E0E2EB,
-  'info-03': #9CA5C2,
-  'info-04': #2058A8,
+  'info-01': #f6f6f9,
+  'info-02': #e0e2eb,
+  'info-03': #9ca5c2,
+  'info-04': #2058a8,
 );
 
 $warning-colors: (
-  'warning-01': #FDF5F3,
-  'warning-02': #FBE3DF,
-  'warning-03': #F9CAC0,
-  'warning-04': #C65416,
+  'warning-01': #fdf5f3,
+  'warning-02': #fbe3df,
+  'warning-03': #f9cac0,
+  'warning-04': #c65416,
 );
 
 $danger-colors: (
-  'danger-01': #FDF4F5,
-  'danger-02': #FADBDC,
-  'danger-03': #F8B6B7,
-  'danger-04': #950A16,
+  'danger-01': #fdf4f5,
+  'danger-02': #fadbdc,
+  'danger-03': #f8b6b7,
+  'danger-04': #950a16,
 );
 
 $light-colors: (
-  'light-01': #F6F6F7,
-  'light-02': #E2E2E4,
-  'light-03': #C5C6C9,
-  'light-04': #A4A6AB,
+  'light-01': #f6f6f7,
+  'light-02': #e2e2e4,
+  'light-03': #c5c6c9,
+  'light-04': #a4a6ab,
 );
 
 $dark-colors: (
-  'dark-01': #82848A,
-  'dark-02': #696A70,
-  'dark-03': #2B2C2F,
+  'dark-01': #82848a,
+  'dark-02': #696a70,
+  'dark-03': #2b2c2f,
 );
 
 $link-options: (
@@ -123,20 +123,20 @@ $link-options: (
   'link-bg': $link-bg,
   'link-bg-hover': $link-bg-hover,
   'link-decoration': $link-decoration,
-  'link-decoration-hover': $link-decoration-hover
+  'link-decoration-hover': $link-decoration-hover,
 );
 
 $all-colors: (
-  'global':       $global-colors,
-  'success':      $success-colors,
-  'info':         $info-colors,
-  'warning':      $warning-colors,
-  'danger':       $danger-colors,
-  'light':        $light-colors,
-  'dark':         $dark-colors,
-  'interaction':  $interaction-colors,
-  'extra':        $extra-colors,
-  'link':         $link-options
+  'global': $global-colors,
+  'success': $success-colors,
+  'info': $info-colors,
+  'warning': $warning-colors,
+  'danger': $danger-colors,
+  'light': $light-colors,
+  'dark': $dark-colors,
+  'interaction': $interaction-colors,
+  'extra': $extra-colors,
+  'link': $link-options,
 );
 $theme-colors-bs: ();
 // Merge all colors in to theme-colors and
@@ -150,4 +150,7 @@ $interaction-types: success, info, warning, danger;
 $interaction-types2: secondary, light;
 $interaction-types3: primary, dark;
 
-$types: join(join($interaction-types, $interaction-types2), $interaction-types3);
+$types: join(
+  join($interaction-types, $interaction-types2),
+  $interaction-types3
+);

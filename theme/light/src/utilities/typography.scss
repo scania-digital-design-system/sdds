@@ -14,7 +14,7 @@ a {
   &:hover,
   &:active,
   &.active,
-  &[active]:not([active="false"]) {
+  &[active]:not([active='false']) {
     color: $link-color-hover; //IE
     color: Var(--link-color-hover);
     text-decoration: $link-decoration-hover; //IE
