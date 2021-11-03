@@ -2,7 +2,7 @@ body {
   background: var(--sdds-grey-50);
 }
 
-.icon-wrapper i{
+.icon-wrapper i {
   font-size: 20rem;
 }
 
@@ -77,6 +77,7 @@ body {
   padding-bottom: var(--sdds-spacing-element-24);
 }
 
-.sdds-btn-group  .sdds-btn, .sdds-btn-group sdds-button {
-    margin: 10px;
-  }
+.sdds-btn-group .sdds-btn,
+.sdds-btn-group sdds-button {
+  margin: 10px;
+}

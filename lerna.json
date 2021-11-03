@@ -1,8 +1,5 @@
 {
-  "packages": [
-    "theme/**",
-    "*"
-  ],
+  "packages": ["theme/**", "*"],
   "version": "independent",
   "npmClient": "npm"
 }

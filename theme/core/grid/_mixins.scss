@@ -1,10 +1,8 @@
 @import '../prefix';
 @import 'breakpoints';
 
-
 // Container
 @mixin grid-container($prefix) {
-
   .#{$prefix}-container,
   .#{$prefix}-container-fluid {
     margin-left: auto;
@@ -18,33 +16,30 @@
   }
 }
 
-
 // Grid breakpoints
 @mixin grid-container-breakpoints($prefix, $breakpoints) {
-
   @each $key, $values in $breakpoints {
     $container-margin: map-get($values, 'margin');
     $container-width: map-get($values, 'container');
     $breakpoint: map-get($values, 'breakpoint');
 
-      @media (min-width: $breakpoint) {
-        .#{$prefix}-container, .#{$prefix}-container-fluid {
-            padding-right: $container-margin;
-            padding-left: $container-margin;
-        }
-        .#{$prefix}-container {
-          max-width: $container-width;
-        }
+    @media (min-width: $breakpoint) {
+      .#{$prefix}-container,
+      .#{$prefix}-container-fluid {
+        padding-right: $container-margin;
+        padding-left: $container-margin;
       }
-      @include display-hidden($prefix, $breakpoint, $key)
+      .#{$prefix}-container {
+        max-width: $container-width;
+      }
+    }
+    @include display-hidden($prefix, $breakpoint, $key);
   }
-
 }
-
 
 @mixin grid-row($prefix) {
   .#{$prefix}-row {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
   }
 }
@@ -52,7 +47,7 @@
 // Display hidden and show
 
 @mixin display-hidden($prefix, $breakpoint, $key) {
-  @media(min-width: $breakpoint) {
+  @media (min-width: $breakpoint) {
     .sdds-hide-#{$key} {
       display: none !important;
     }
@@ -65,17 +60,13 @@
 // Columns
 
 @mixin grid-make-col($grid) {
-
-
   @each $size, $values in $grid {
     $breakpoint: map-get($values, 'breakpoint');
     $columns: map-get($values, 'columns');
     $padding: map-get($values, 'padding');
 
     @media (min-width: $breakpoint) {
-
       @for $i from 1 through $columns {
-
         .#{$prefix}-col-#{$size}-#{$i} {
           @include grid-col-size($columns, $i, $padding);
 
@@ -84,14 +75,13 @@
           }
         }
       }
-
     }
 
     @include grid-col-auto($prefix, $size, $breakpoint, $padding);
   }
 
-  .#{$prefix}-no-padding [class|=#{$prefix}-col] {
-    padding:0 !important;
+  .#{$prefix}-no-padding [class|='#{$prefix}-col'] {
+    padding: 0 !important;
   }
 }
 
@@ -106,13 +96,13 @@
   // Index divided by amount of the columns
   flex-basis: percentage(($i / $columns));
   max-width: percentage(($i / $columns));
-  
 }
 
 //Column auto size
 @mixin grid-col-auto($prefix, $size, $breakpoint, $padding) {
   @media (min-width: $breakpoint) {
-    .sdds-col, .#{$prefix}-col-#{$size} {
+    .sdds-col,
+    .#{$prefix}-col-#{$size} {
       flex-grow: 1;
       flex-basis: 0;
       max-width: 100%;
@@ -133,8 +123,8 @@
     $padding: map-get($values, 'padding');
     $breakpoint: map-get($values, 'breakpoint');
 
-   //  Each column for everysize
-    @media (min-width:  $breakpoint ) {
+    //  Each column for everysize
+    @media (min-width: $breakpoint) {
       @for $i from 1 through $columns {
         .#{$prefix}-col-#{$sizes}-#{$i}-offset {
           margin-left: percentage(($i / $columns));
@@ -167,14 +157,13 @@
 }
 
 @mixin grid-push-container($breakpoints) {
-
   @each $key, $values in $breakpoints {
     $breakpoint: map-get($values, 'breakpoint');
     $container-margin: map-get($values, 'margin');
     $container-width: map-get($values, 'container');
     $display-sidebar: map-get($values, 'sidebar');
 
-    @media (min-width:  $breakpoint) {
+    @media (min-width: $breakpoint) {
       .#{$prefix}-sidebar {
         flex-basis: 288px;
         min-width: 288px;

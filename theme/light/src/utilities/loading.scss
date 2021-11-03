@@ -12,9 +12,9 @@
   }
 
   &:before {
-    content:'';
+    content: '';
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -31,7 +31,6 @@
   }
 
   &.btn {
-
     &:after {
       margin-top: -9px;
       //FIXME: Add correct rem

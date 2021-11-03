@@ -1,6 +1,6 @@
 // Mixin to get value from tokens
-@mixin type-style($name){
-  $token : map-get($typography-sets, $name);
+@mixin type-style($name) {
+  $token: map-get($typography-sets, $name);
   @include properties($token);
 }
 
@@ -16,16 +16,16 @@
 }
 
 // Function to get size from the type scale (we have 14 different scale)
-@function type-scale($step){
-  $val : 10;
+@function type-scale($step) {
+  $val: 10;
   @if $step <= 4 {
-    $val : ($step - 1) * 2 + 10;
+    $val: ($step - 1) * 2 + 10;
   }
   @if $step > 4 and $step <= 8 {
-    $val : $step  * 4;
+    $val: $step * 4;
   }
   @if $step > 8 {
-    $val : ($step + ($step - 8))  * 4;
+    $val: ($step + ($step - 8)) * 4;
   }
   // Return value in rem
   @return $val / 4 * 1rem;

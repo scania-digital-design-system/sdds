@@ -1,30 +1,31 @@
 <template>
-<div>
+  <div>
+    <div class="sdds-header">
+      <span class="scania-symbol"></span>
+    </div>
 
-  <div class="sdds-header">
-    <span class="scania-symbol"></span>
-  </div>
-
-  <div class="sdds-content-header">
-    <div class="sdds-container-fluid">
-      <div class="sdds-row">
-        <div class="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4 header-greeting-wrapper">
-
-          <span class="header-greeting sdds-headline-02">Welcome to</span>
-          <span class="page-title sdds-headline-02">SDDS Vue Demo</span>
-
+    <div class="sdds-content-header">
+      <div class="sdds-container-fluid">
+        <div class="sdds-row">
+          <div
+            class="
+              sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4
+              header-greeting-wrapper
+            "
+          >
+            <span class="header-greeting sdds-headline-02">Welcome to</span>
+            <span class="page-title sdds-headline-02">SDDS Vue Demo</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-</div>
 </template>
 
 <script>
 export default {
   name: 'Header',
-}
+};
 </script>
 
 <style>

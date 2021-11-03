@@ -12,10 +12,19 @@
   },
   "useWorkspaces": true,
   "devDependencies": {
+    "@octokit/core": "^3.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^7.0.0",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
+    "prettier": "2.4.1",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint-config-standard": "^22.0.0",
+    "typescript": "^4.4.4"
   },
   "scripts": {
     "install": "lerna bootstrap",
@@ -26,7 +35,14 @@
     "clean": "lerna clean",
     "release": "lerna publish",
     "next": "lerna publish -- --dist-tag next",
-    "scsslint": "npx stylelint **/*.scss"
+    "scss-lint": "npx stylelint **/*.scss",
+    "format": "prettier --check .",
+    "format-fix": "prettier --write .",
+    "js-lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "js-lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint-check": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --check .",
+    "lint-all": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --write .",
+    "prepare": "husky install"
   },
   "changelog": {
     "ignoreCommitters": [

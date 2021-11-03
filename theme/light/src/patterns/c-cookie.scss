@@ -7,7 +7,6 @@
 
 @import '../core/spacing/spacing';
 
-
 //TODO: Remove bootstrap
 @import 'node_modules/bootstrap/scss/mixins/breakpoints';
 @import 'node_modules/bootstrap/scss/utilities/spacing';
@@ -51,7 +50,6 @@ footer {
 
 // TODO: Should we reverse these rules so it follows mobile first
 @media (max-width: 991px) {
-
   ::slotted(a) {
     //FIXME: Add correct rem
     padding: 4.25rem 7.5rem;
@@ -61,7 +59,6 @@ footer {
     flex: 0 0 auto;
   }
   .list-group {
-
     &-item {
       //FIXME: Add correct rem
       font-size: $spacing-element-16;
