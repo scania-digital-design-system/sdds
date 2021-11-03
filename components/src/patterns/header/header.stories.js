@@ -72,9 +72,9 @@ const navMenuHTML = `
       <span class="sdds-icon-arrow"></span>
     </a>
     <ul class="sdds-navbar-menu__dropdown-menu">
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
-      <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Sub item 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Sub item 3 long label...</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3 long label...</a></li>
+      <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3 long label...</a></li>
     </ul>
   </li>
   <li class="sdds-navbar-menu-item">
@@ -93,10 +93,10 @@ const toolbarMenuMobileHTML = `
       <a class="sdds-navbar-menu-item-link" href="#">EN <span class="sdds-icon-arrow"></span></a>
       <ul class="sdds-navbar-menu__dropdown-menu">
       <li class="sdds-navbar-menu__dropdown-item sdds-navbar-menu-item-description">Select language</li>
-        <li class="sdds-navbar-menu__dropdown-item active"><a href="#">English</a></li>
-        <li class="sdds-navbar-menu__dropdown-item"><a href="#">Finnish</a></li>
-        <li class="sdds-navbar-menu__dropdown-item"><a href="#">France</a></li>
-        <li class="sdds-navbar-menu__dropdown-item"><a href="#">Swedish</a></li>
+        <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">English</a></li>
+        <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Finnish</a></li>
+        <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">France</a></li>
+        <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Swedish</a></li>
       </ul>
     </li>
   </ul>
@@ -109,20 +109,20 @@ const toolbarMenuHTML = `
     <a class="sdds-navbar-menu-item-link" href="#"><span class="sdds-icon-applauncher"></span></a>
     <ul class="sdds-navbar-menu__dropdown-menu">
       <li class="sdds-navbar-menu__dropdown-item sdds-navbar-menu-item-description">Category name</li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 1</a></li>
-      <li class="sdds-navbar-menu__dropdown-item active"><a href="#">Application name 2</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
-      <li class="sdds-navbar-menu__dropdown-item"><a href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 1</a></li>
+      <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 2</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
+      <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Application name 3</a></li>
     </ul>
   </div>
 </div>

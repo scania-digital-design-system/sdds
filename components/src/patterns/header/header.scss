@@ -16,8 +16,8 @@
   align-items: stretch;
   z-index: 1000;
   width: 100%;
-  left: 0%;
-  top: 0%;
+  left: 0;
+  top: 0;
   height: var(--#{$prefix}-header-height);
   background: var(--#{$prefix}-header-background);
   color: var(--#{$prefix}-header-text-colour);
