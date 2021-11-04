@@ -16,11 +16,12 @@ export default {
 
 const ModalTemplate = ({ ...Modal }) => {
   return `
-
+  
   <sdds-theme></sdds-theme>
-  <button onclick="console.log('Open modal 1')" id="modal1" class="sdds-btn sdds-btn-primary">Open modal 1</button>
-  <sdds-modal size="${Modal.size}" selector="#modal1" ${
-    Modal.preventBackdrop == true ? 'prevent' : ''
+  <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-primary modal1">Open modal 1</button>
+  <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-secondary modal1">Open modal 1</button>
+  <sdds-modal size="${Modal.size}" selector=".modal1" ${
+    Modal.preventBackdrop === true ? 'prevent' : ''
   } >
     <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
       <p slot="sdds-modal-body">
@@ -29,9 +30,12 @@ const ModalTemplate = ({ ...Modal }) => {
       <button slot="sdds-modal-actions" modal-dismiss onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
       <button slot="sdds-modal-actions" modal-dismiss onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
+  
+  <br/>
+  <br/>  
 
   <sdds-modal size="${Modal.size}" selector="#modal2" ${
-    Modal.preventBackdrop == true ? 'prevent' : ''
+    Modal.preventBackdrop === true ? 'prevent' : ''
   } >
     <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
     <div slot="sdds-modal-body">
@@ -42,7 +46,6 @@ const ModalTemplate = ({ ...Modal }) => {
   </sdds-modal>
 
   <button onclick="console.log('Open modal 2')" id="modal2" class="sdds-btn sdds-btn-primary">Open modal 2</button>
-
   `;
 };
 
@@ -56,8 +59,8 @@ Modal.args = {
 const ModalCssTemplate = ({ ...ModalCSS }) => {
   return `
   <sdds-theme></sdds-theme>
-  <div class='sdds-modal-backdrop show'>
-    <div class='sdds-modal sdds-modal-${ModalCSS.size}'>
+  <div class="sdds-modal-backdrop show">
+    <div class="sdds-modal sdds-modal-${ModalCSS.size}">
       <div class="sdds-modal-header">
         <div class="sdds-modal-headline">
           <h5>${ModalCSS.Headline}</h5>
