@@ -3,7 +3,7 @@ import Header from "./components/header/Header";
 import Form from "./components/form/Form";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
-import SideMenu from "./components/sideMenu/SideMenu";
+import SideMenu from "./components/SideMenu/SideMenu";
 
 function App() {
     return (
