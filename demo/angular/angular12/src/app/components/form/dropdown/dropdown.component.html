@@ -1,0 +1,18 @@
+<sdds-dropdown
+  label="Label text"
+  label-position="outside"
+  placeholder="Select option"
+  placeholder="Select option"
+  [defaultOption]="initialValue"
+  [state]="myValue.label === '' || myValue.label === 'None' ? 'error' : ''"
+  (selectOption)="handleChange($event)"
+>
+  <sdds-dropdown-option value="">None</sdds-dropdown-option>
+  <sdds-dropdown-option
+    *ngFor="let option of list"
+    [selected]="option.value === initialValue.value"
+    [value]="option.value"
+  >
+    {{ option.label }}
+  </sdds-dropdown-option>
+</sdds-dropdown>
