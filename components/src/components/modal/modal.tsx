@@ -47,7 +47,7 @@ export class Modal {
   }
 
   dismissModal() {
-    const nodes = this.el.querySelectorAll('[modal-dismiss]');
+    const nodes = this.el.querySelectorAll('[data-dismiss-modal]');
 
     nodes.forEach((el) => {
       el.addEventListener('click', () => {
