@@ -2,7 +2,6 @@ import React from 'react';
 
 const IconButton = () => {
   return (
-    <div>
       <span className="sdds-navbar-icon-button">
         <svg
           width="20"
@@ -14,8 +13,8 @@ const IconButton = () => {
           <rect y="0.334473" width="20" height="20" />
         </svg>
       </span>
-    </div>
   );
 };
 
 export default IconButton;
+
