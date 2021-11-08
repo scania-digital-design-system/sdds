@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import SideMenuItem from './components/sideMenuItem/SideMenuItem';
 import IconButton from './components/IconButton/IconButton';
-import SideMenuDropdownItem from "./components/sideMenuDropdownItem/sideMenuDropdownItem";
+import SideMenuDropdownItem from './components/sideMenuDropdownItem/sideMenuDropdownItem';
 
 function SideMenu() {
   const [collapse, setCollapse] = useState(false);
   const clickCollapse = () => setCollapse(!collapse);
 
   return (
-    <div className={`sdds-sidebar expanded ${collapse ? 'sdds-sidebar-collapse' : ''}`}
-      style={{height:'100%'}}
+    <div
+      className={`sdds-sidebar expanded ${
+        collapse ? 'sdds-sidebar-collapse' : ''
+      }`}
+      style={{ height: '100%' }}
     >
       <div className={`sdds-navbar-side-menu expanded`}>
         <ul className="sdds-navbar-menu-list">
