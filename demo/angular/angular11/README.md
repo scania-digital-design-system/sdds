@@ -19,7 +19,7 @@ npm i
 npm start
 ```
 
-Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
+Open [http://localhost:4211](http://localhost:4211) to view it in the browser.
 
 
 ## Project setup
