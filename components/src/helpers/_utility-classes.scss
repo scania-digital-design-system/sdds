@@ -1,0 +1,257 @@
+// Utility classes are there to help change one thing only or help with one thing only
+// They are not replacement for good component's css, but rather tool that helps integrate component in heterogeneous environment.
+@import 'style-helpers';
+
+
+// Position
+
+.#{$prefix}-u-sticky {
+  position: sticky;
+}
+
+.#{$prefix}-u-static {
+  position: static;
+}
+
+.#{$prefix}-u-relative {
+  position: relative;
+}
+
+.#{$prefix}-u-absolute {
+  position: absolute;
+}
+
+.#{$prefix}-u-fixed {
+  position: fixed;
+}
+
+.#{$prefix}-u-top0 {
+  top: 0;
+}
+
+.#{$prefix}-u-right0 {
+  right: 0;
+}
+
+.#{$prefix}-u-bottom0 {
+  bottom: 0;
+}
+
+.#{$prefix}-u-left0 {
+  left: 0;
+}
+
+
+// Padding
+
+.#{$prefix}-u-p0 {
+  padding: 0;
+}
+
+.#{$prefix}-u-pt0 {
+  padding-top: 0;
+}
+
+.#{$prefix}-u-pr0 {
+  padding-right: 0;
+}
+
+.#{$prefix}-u-pb0 {
+  padding-bottom: 0;
+}
+
+.#{$prefix}-u-pl0 {
+  padding-left: 0;
+}
+
+.#{$prefix}-u-p1 {
+  padding: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pt1 {
+  padding-top: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pr1 {
+  padding-right: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pb1 {
+  padding-bottom: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pl1 {
+  padding-left: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-p2 {
+  padding: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pt2 {
+  padding-top: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pr2 {
+  padding-right: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pb2 {
+  padding-bottom: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-pl2 {
+  padding-left: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-p3 {
+  padding: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-pt3 {
+  padding-top: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-pr3 {
+  padding-right: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-pb3 {
+  padding-bottom: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-pl3 {
+  padding-left: var(--sdds-spacing-layout-24);
+}
+
+
+// Margin
+
+.#{$prefix}-u-m0 {
+  margin: 0;
+}
+
+.#{$prefix}-u-mt0 {
+  margin-top: 0;
+}
+
+.#{$prefix}-u-mr0 {
+  margin-right: 0;
+}
+
+.#{$prefix}-u-mb0 {
+  margin-bottom: 0;
+}
+
+.#{$prefix}-u-ml0 {
+  margin-left: 0;
+}
+
+.#{$prefix}-u-m1 {
+  margin: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mt1 {
+  margin-top: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mr1 {
+  margin-right: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mb1 {
+  margin-bottom: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-ml1 {
+  margin-left: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-m2 {
+  margin: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mt2 {
+  margin-top: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mr2 {
+  margin-right: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-mb2 {
+  margin-bottom: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-ml2 {
+  margin-left: var(--sdds-spacing-layout-8);
+}
+
+.#{$prefix}-u-m3 {
+  margin: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-mt3 {
+  margin-top: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-mr3 {
+  margin-right: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-mb3 {
+  margin-bottom: var(--sdds-spacing-layout-24);
+}
+
+.#{$prefix}-u-ml3 {
+  margin-left: var(--sdds-spacing-layout-24);
+}
+
+
+// Display
+
+.#{$prefix}-u-flex {
+  display: flex;
+}
+
+.#{$prefix}-u-block {
+  display: block;
+}
+
+.#{$prefix}-u-inline-block {
+  display: inline-block;
+}
+
+.#{$prefix}-u-grid {
+  display: grid;
+}
+
+.#{$prefix}-u-display-none {
+  display: none;
+}
+
+// Z-index
+.#{$prefix}-u-z1000 {
+  z-index: 1000;
+}
+
+
+// Flex
+// Be aware to assign it to the parent
+.#{$prefix}-u-flex-sb {
+  justify-content: space-between;
+}
+
+.#{$prefix}-u-flex-column {
+  flex-direction: column;
+}
+
+.#{$prefix}-u-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
