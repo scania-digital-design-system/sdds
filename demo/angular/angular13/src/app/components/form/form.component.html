@@ -1,0 +1,246 @@
+<!-- FormGroup Basic form -->
+
+<form
+  class="sdds-row"
+  (ngSubmit)="onSubmit(usernameInput, userPassword, userComment)"
+>
+  <div class="no-padding sdds-col-xlg-16">
+    <h3>Basic form - Template driven form</h3>
+    <!-- https://stackoverflow.com/questions/46465891/what-is-ngdefaultcontrol-in-angular -->
+    <p class="sdds-headline-06 sdds-text-grey-500">
+      You can control value from sdds form components as shown below.
+    </p>
+  </div>
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field
+    "
+  >
+    <div>value: {{ usernameInput.value }}</div>
+    <div>dirty: {{ usernameInput.dirty }}</div>
+    <div>untouched: {{ usernameInput.untouched }}</div>
+
+    <sdds-textfield
+      type="text"
+      ngModel
+      ngDefaultControl
+      name="usernameInput"
+      #usernameInput="ngModel"
+      placeholder="Enter Username"
+      state="{{
+        !usernameInput.untouched && !usernameInput.value ? 'error' : ''
+      }}"
+      (click)="clickEvent()"
+      (customChange)="logNgModel(usernameInput)"
+    >
+      <span
+        *ngIf="!usernameInput.untouched && !usernameInput.value"
+        slot="sdds-helper"
+        >Username required</span
+      >
+    </sdds-textfield>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field
+    "
+  >
+    <div>value: {{ userPassword.value }}</div>
+    <div>dirty: {{ userPassword.dirty }}</div>
+    <div>untouched: {{ userPassword.untouched }}</div>
+    <sdds-textfield
+      type="password"
+      placeholder="Enter password"
+      label-inside="Password"
+      ngModel
+      ngDefaultControl
+      name="userPassword"
+      #userPassword="ngModel"
+      (click)="clickEvent()"
+      (customChange)="logNgModel(userPassword)"
+      state="{{
+        !userPassword.untouched && !userPassword.value ? 'error' : ''
+      }}"
+    >
+      <span
+        *ngIf="!userPassword.untouched && !userPassword.value"
+        slot="sdds-helper"
+        >Password required</span
+      >
+    </sdds-textfield>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-demo-form-field">
+    <div>value: {{ userComment.value }}</div>
+    <div>dirty: {{ userComment.dirty }}</div>
+    <div>untouched: {{ userComment.untouched }}</div>
+    <sdds-textarea
+      placeholder="Placeholder"
+      helper="Add your comment"
+      ngModel
+      ngDefaultControl
+      name="userComment"
+      #userComment="ngModel"
+      (click)="clickEvent()"
+      (customChange)="logNgModel(userComment)"
+    >
+    </sdds-textarea>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field
+    "
+  >
+    <div>value: {{ myValue.label }}</div>
+    <sdds-dropdown
+      label="Label text"
+      label-position="outside"
+      placeholder="Select option"
+      helper="Field required"
+      (selectOption)="myValue = $event['detail']"
+      placeholder="Select option"
+      [defaultOption]="initialValue.value"
+      [state]="myValue.label === '' || myValue.label === 'None' ? 'error' : ''"
+    >
+      <sdds-dropdown-option value="">None</sdds-dropdown-option>
+      <sdds-dropdown-option
+        *ngFor="let option of list"
+        [selected]="option.value === initialValue.value"
+        [value]="option.value"
+      >
+        {{ option.label }}
+      </sdds-dropdown-option>
+    </sdds-dropdown>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16 sdds-col-lg-16 sdds-demo-form-field">
+    <button type="submit" class="sdds-btn sdds-btn-primary">Submit</button>
+  </div>
+</form>
+
+<!-- Formgroup works -->
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="sdds-row">
+  <div class="no-padding sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
+    <h3>Advanced form - Reactive form</h3>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field
+    "
+  >
+    <sdds-textfield
+      ngDefaultControl
+      formControlName="username"
+      placeholder="Username"
+    >
+      <span slot="sdds-label">SDDS textfield</span>
+    </sdds-textfield>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-8 sdds-col-lg-8 sdds-col-md-4 sdds-demo-form-field
+    "
+  >
+    <!-- Custom Angular component -->
+    <custom-input ngDefaultControl id="customEl" formControlName="customInput">
+    </custom-input>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field
+    "
+  >
+    <sdds-textarea
+      label="Label text"
+      ngDefaultControl
+      formControlName="textarea"
+      helper="Helper text"
+      placeholder="Placeholder"
+    >
+    </sdds-textarea>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field
+    "
+  >
+    <div class="sdds-checkbox-item">
+      <input
+        id="cb-option-1"
+        class="sdds-form-input"
+        type="checkbox"
+        checked="checked"
+        name="cb-example"
+        formControlName="CustomCheck"
+      />
+      <label class="sdds-form-label" for="cb-option-1"> Check if true </label>
+    </div>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field
+    "
+  >
+    <custom-dropdown
+      [list]="list"
+      [initialValue]="initialValue.value"
+      [myValue]="myForm.value.CustomDropdown"
+      ngDefaultControl
+      formControlName="CustomDropdown"
+    ></custom-dropdown>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field
+    "
+  >
+    <div className="sdds-dropdown">
+      <span className="sdds-dropdown-label-outside">Native select</span>
+      <select
+        name="nativeDropdown"
+        id="mySelect"
+        formControlName="nativeDropdown"
+      >
+        <option value="truck">Truck</option>
+        <option value="bus">Bus</option>
+        <option value="car">Car</option>
+      </select>
+      <span className="sdds-dropdown-helper">Select transportation</span>
+    </div>
+  </div>
+
+  <div
+    class="
+      no-padding
+      sdds-col-xlg-16 sdds-col-lg-16 sdds-col-md-8 sdds-demo-form-field
+    "
+  >
+    <button type="submit" class="sdds-btn sdds-btn-primary">Submit</button>
+  </div>
+
+  <div class="no-padding sdds-col-xlg-16">
+    <h6>Values in the reactive form:</h6>
+    <div>Values: {{ myForm.value | json }}</div>
+    <div>Touched: {{ myForm.touched }}</div>
+    <div>pristine: {{ myForm.pristine | json }}</div>
+    <div>Valid: {{ myForm.valid | json }}</div>
+  </div>
+</form>

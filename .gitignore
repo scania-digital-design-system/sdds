@@ -21,7 +21,7 @@ www/
 log.txt
 *.sublime-project
 *.sublime-workspace
-*.d.ts
+components/*.d.ts
 
 .idea/
 .vscode/
