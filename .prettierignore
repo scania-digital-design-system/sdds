@@ -21,6 +21,7 @@ components/storybook-static
 
 # Specific file
 theme/core/icons/src/_icons.css
+theme/core/**/*-vars.scss
 
 
 
