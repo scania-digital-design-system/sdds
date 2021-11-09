@@ -1,31 +1,55 @@
 body {
-  background: var(--sdds-grey-50);
+    background: var(--sdds-grey-50);
 }
 
-/*.sdds-container {*/
-/*  margin-top: var(--sdds-header-height);*/
-/*}*/
+.sdds-demo-container {
+    margin-top: var(--sdds-header-height);
+}
+
+.sdds-navbar-menu-popover {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.sdds-navbar-menu-popover a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+}
+
 .content-wrapper {
-  padding-top: var(--sdds-spacing-element-24);
-  padding-bottom: var(--sdds-spacing-element-24);
+    padding-top: var(--sdds-spacing-element-24);
+    padding-bottom: var(--sdds-spacing-element-24);
 }
 
-/*.lead-head {*/
-/*  margin-bottom: var(--sdds-spacing-element-16);*/
-/*}*/
+.lead-head {
+    margin-bottom: var(--sdds-spacing-element-16);
+}
 
-/*.section-wrapper {*/
-/*  margin-top: var(--sdds-spacing-element-32);*/
-/*}*/
+.section-wrapper {
+    margin-top: var(--sdds-spacing-element-32);
+}
 
-/*.component-wrapper {*/
-/*  padding-bottom: var(--sdds-spacing-element-24);*/
-/*}*/
-/*.sdds-btn-group  .sdds-btn,*/
-/*.sdds-btn-group sdds-button {*/
-/*    margin: 10px;*/
-/*  }*/
+.component-wrapper {
+    padding-bottom: var(--sdds-spacing-element-24);
+}
+
+.sdds-btn-group .sdds-btn,
+.sdds-btn-group sdds-button {
+    margin: 10px;
+}
 
 form > div {
-  margin-bottom: var(--sdds-spacing-element-24);
+    margin-bottom: var(--sdds-spacing-element-32);
+}
+
+@media all and (max-width: 992px) {
+    .sdds-sidebar.expanded {
+        display: block;
+        position: fixed;
+        height: 100%;
+        z-index: 800;
+    }
 }
