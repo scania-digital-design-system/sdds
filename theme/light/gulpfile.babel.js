@@ -309,23 +309,38 @@ function generateCss(file) {
   const name = path.parse(file).name;
   const data = fs.readFileSync(path.resolve(file), 'utf8');
   const filepath = `${outputFolder}/styles/${name}`;
-  const content = sass.renderSync({
-    data,
-    includePaths: ['src/**'],
-    sourceMapEmbed: sourceMapping === 'enabled' ? true : false,
-    sourceMapContents: sourceMapping === 'enabled' ? true : false,
-  });
-
-  // c-theme is shadow true so we dont need to polyfill its content
-  let content_ie = content.css.toString();
-  // .replace(/:root {([^}]*)}/, '');
-
-  if (name !== 'sdds-theme') {
-    content_ie = polyfill(name, content_ie);
+  console.log(filepath);
+  let content;
+  try {
+    content = sass.renderSync({
+      data,
+      includePaths: ['src/**'],
+      sourceMapEmbed: sourceMapping === 'enabled' ? true : false,
+      sourceMapContents: sourceMapping === 'enabled' ? true : false,
+    });
+  } catch (err) {
+    console.log(err);
+    console.log(`Problem in file ${file} or imports related to it`);
+    console.log('\n ---- Problem in scss files, read error! ---- \n');
   }
 
-  fs.writeFileSync(`${filepath}.css`, content.css);
-  fs.writeFileSync(`${filepath}_ie.css`, content_ie);
+  // c-theme is shadow true so we dont need to polyfill its content
+  let content_ie;
+  try {
+    content_ie = content.css.toString();
+
+    // .replace(/:root {([^}]*)}/, '');
+
+    if (name !== 'sdds-theme') {
+      content_ie = polyfill(name, content_ie);
+    }
+
+    fs.writeFileSync(`${filepath}.css`, content.css);
+    fs.writeFileSync(`${filepath}_ie.css`, content_ie);
+  } catch (err) {
+    console.log(err);
+    console.log('\n ---- Problem trying create css files ---- \n');
+  }
 }
 
 function polyfill(name, content) {
@@ -381,12 +396,14 @@ function ie(item, name) {
 }
 
 function copyScss() {
-  console.log('Copying scss...');
+  console.log(`Copying scss... Output: ${outputFolder}/scss/`);
   return src('src/**/*.scss').pipe(dest(`${outputFolder}/scss/`));
 }
 
 function copyGlobalStyle() {
-  console.log('Copying corporate-ui-4 global style...');
+  console.log(
+    `Copying corporate-ui-4 global style... output ${outputFolder}/styles/`
+  );
   return src('src/utilities/global-style.css').pipe(
     dest(`${outputFolder}/styles/`)
   );
