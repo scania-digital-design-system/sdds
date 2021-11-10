@@ -86,6 +86,7 @@ export class Tooltip {
         }`}
       >
         {this.text}
+        <slot></slot>
       </span>
     );
   }
