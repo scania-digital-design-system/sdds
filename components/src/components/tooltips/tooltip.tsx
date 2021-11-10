@@ -9,11 +9,19 @@ import type { Placement } from '@popperjs/core';
 })
 export class Tooltip {
   @Prop() text = '';
+
   @Prop() border: string;
+
   @Prop() selector = '';
+
+  @Prop() mouseOverTooltip: boolean = false;
+
   @Prop() show: boolean = false;
+
   @Prop() placement: Placement = 'bottom';
+
   @Prop() offsetSkidding: number = 0;
+
   @Prop() offsetDistance: number = 8;
 
   @State() target: any;
@@ -68,15 +76,36 @@ export class Tooltip {
       ],
     });
 
-    this.target.addEventListener('mouseenter', () => {
+    const showTooltip = () => {
       this.show = true;
+    };
+
+    const hideTooltip = () => {
+      this.show = false;
+    };
+
+    // For hovering over element with selector
+    this.target.addEventListener('mouseenter', () => {
+      showTooltip();
     });
 
     this.target.addEventListener('mouseleave', () => {
-      this.show = false;
+      hideTooltip();
     });
+
+    // For hovering over tooltip itself:
+    if (this.mouseOverTooltip === true) {
+      this.tooltip.addEventListener('mouseenter', () => {
+        showTooltip();
+      });
+
+      this.tooltip.addEventListener('mouseleave', () => {
+        hideTooltip();
+      });
+    }
   }
 
+  /* Slot on line 118 is added to support adding HTML elements to component */
   render() {
     return (
       <span
@@ -86,7 +115,7 @@ export class Tooltip {
         }`}
       >
         {this.text}
-        <slot></slot>
+        <slot />
       </span>
     );
   }
