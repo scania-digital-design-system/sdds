@@ -5,244 +5,245 @@
 // Position
 
 .#{$prefix}-u-sticky {
-  position: sticky;
+  position: sticky !important;
 }
 
 .#{$prefix}-u-static {
-  position: static;
+  position: static !important;
 }
 
 .#{$prefix}-u-relative {
-  position: relative;
+  position: relative !important;
 }
 
 .#{$prefix}-u-absolute {
-  position: absolute;
+  position: absolute !important;
 }
 
 .#{$prefix}-u-fixed {
-  position: fixed;
+  position: fixed !important;
 }
 
 .#{$prefix}-u-top0 {
-  top: 0;
+  top: 0 !important;
 }
 
 .#{$prefix}-u-right0 {
-  right: 0;
+  right: 0 !important;
 }
 
 .#{$prefix}-u-bottom0 {
-  bottom: 0;
+  bottom: 0 !important;
 }
 
 .#{$prefix}-u-left0 {
-  left: 0;
+  left: 0 !important;
 }
 
 // Padding
 
 .#{$prefix}-u-p0 {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .#{$prefix}-u-pt0 {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 .#{$prefix}-u-pr0 {
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .#{$prefix}-u-pb0 {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .#{$prefix}-u-pl0 {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .#{$prefix}-u-p1 {
-  padding: var(--sdds-spacing-layout-8);
+  padding: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pt1 {
-  padding-top: var(--sdds-spacing-layout-8);
+  padding-top: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pr1 {
-  padding-right: var(--sdds-spacing-layout-8);
+  padding-right: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pb1 {
-  padding-bottom: var(--sdds-spacing-layout-8);
+  padding-bottom: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pl1 {
-  padding-left: var(--sdds-spacing-layout-8);
+  padding-left: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-p2 {
-  padding: var(--sdds-spacing-layout-8);
+  padding: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pt2 {
-  padding-top: var(--sdds-spacing-layout-8);
+  padding-top: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pr2 {
-  padding-right: var(--sdds-spacing-layout-8);
+  padding-right: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pb2 {
-  padding-bottom: var(--sdds-spacing-layout-8);
+  padding-bottom: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-pl2 {
-  padding-left: var(--sdds-spacing-layout-8);
+  padding-left: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-p3 {
-  padding: var(--sdds-spacing-layout-24);
+  padding: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-pt3 {
-  padding-top: var(--sdds-spacing-layout-24);
+  padding-top: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-pr3 {
-  padding-right: var(--sdds-spacing-layout-24);
+  padding-right: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-pb3 {
-  padding-bottom: var(--sdds-spacing-layout-24);
+  padding-bottom: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-pl3 {
-  padding-left: var(--sdds-spacing-layout-24);
+  padding-left: var(--sdds-spacing-layout-24) !important;
 }
 
 // Margin
 
 .#{$prefix}-u-m0 {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .#{$prefix}-u-mt0 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .#{$prefix}-u-mr0 {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 
 .#{$prefix}-u-mb0 {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .#{$prefix}-u-ml0 {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 
 .#{$prefix}-u-m1 {
-  margin: var(--sdds-spacing-layout-8);
+  margin: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mt1 {
-  margin-top: var(--sdds-spacing-layout-8);
+  margin-top: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mr1 {
-  margin-right: var(--sdds-spacing-layout-8);
+  margin-right: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mb1 {
-  margin-bottom: var(--sdds-spacing-layout-8);
+  margin-bottom: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-ml1 {
-  margin-left: var(--sdds-spacing-layout-8);
+  margin-left: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-m2 {
-  margin: var(--sdds-spacing-layout-8);
+  margin: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mt2 {
-  margin-top: var(--sdds-spacing-layout-8);
+  margin-top: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mr2 {
-  margin-right: var(--sdds-spacing-layout-8);
+  margin-right: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-mb2 {
-  margin-bottom: var(--sdds-spacing-layout-8);
+  margin-bottom: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-ml2 {
-  margin-left: var(--sdds-spacing-layout-8);
+  margin-left: var(--sdds-spacing-layout-8) !important;
 }
 
 .#{$prefix}-u-m3 {
-  margin: var(--sdds-spacing-layout-24);
+  margin: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-mt3 {
-  margin-top: var(--sdds-spacing-layout-24);
+  margin-top: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-mr3 {
-  margin-right: var(--sdds-spacing-layout-24);
+  margin-right: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-mb3 {
-  margin-bottom: var(--sdds-spacing-layout-24);
+  margin-bottom: var(--sdds-spacing-layout-24) !important;
 }
 
 .#{$prefix}-u-ml3 {
-  margin-left: var(--sdds-spacing-layout-24);
+  margin-left: var(--sdds-spacing-layout-24) !important;
 }
 
 // Display
 
 .#{$prefix}-u-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .#{$prefix}-u-block {
-  display: block;
+  display: block !important;
 }
 
 .#{$prefix}-u-inline-block {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 .#{$prefix}-u-grid {
-  display: grid;
+  display: grid !important;
 }
 
 .#{$prefix}-u-display-none {
-  display: none;
+  display: none !important;
 }
 
 // Z-index
 .#{$prefix}-u-z1000 {
-  z-index: 1000;
+  z-index: 1000 !important;
 }
 
-// Flex
-// Be aware to assign it to the parent
-.#{$prefix}-u-flex-sb {
-  justify-content: space-between;
+// Opacity
+.#{$prefix}-u-opacity-100 {
+  opacity: 1 !important;
 }
 
-.#{$prefix}-u-flex-column {
-  flex-direction: column;
+.#{$prefix}-u-opacity-75 {
+  opacity: 0.75 !important;
 }
 
-.#{$prefix}-u-flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.#{$prefix}-u-opacity-50 {
+  opacity: 0.5 !important;
+}
+
+.#{$prefix}-u-opacity-25 {
+  opacity: 0.25 !important;
 }
