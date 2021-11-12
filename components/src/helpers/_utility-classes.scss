@@ -2,7 +2,6 @@
 // They are not replacement for good component's css, but rather tool that helps integrate component in heterogeneous environment.
 @import 'style-helpers';
 
-
 // Position
 
 .#{$prefix}-u-sticky {
@@ -40,7 +39,6 @@
 .#{$prefix}-u-left0 {
   left: 0;
 }
-
 
 // Padding
 
@@ -124,7 +122,6 @@
   padding-left: var(--sdds-spacing-layout-24);
 }
 
-
 // Margin
 
 .#{$prefix}-u-m0 {
@@ -207,7 +204,6 @@
   margin-left: var(--sdds-spacing-layout-24);
 }
 
-
 // Display
 
 .#{$prefix}-u-flex {
@@ -235,7 +231,6 @@
   z-index: 1000;
 }
 
-
 // Flex
 // Be aware to assign it to the parent
 .#{$prefix}-u-flex-sb {
@@ -251,7 +246,3 @@
   justify-content: center;
   align-items: center;
 }
-
-
-
-
