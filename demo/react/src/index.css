@@ -9,7 +9,7 @@ body {
 .sdds-navbar-menu-popover {
   display: block;
   position: fixed;
-  z-index: 100;
+  z-index: 20000;
   text-decoration: none;
 }
 
