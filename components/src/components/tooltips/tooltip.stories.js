@@ -34,15 +34,7 @@ const ComponentTooltip = ({ ...Basic }) => `
         <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-1" text="${Basic.text}" offset-distance="${Basic.offsetDistance}" offset-skidding="${Basic.offsetSkidding}" mouse-over-tooltip="${Basic.mouseOverTooltip}">             
             <p>Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too.</p>  
         </sdds-tooltip>
-        <sdds-button type="primary" text="Button" id="button-1"></sdds-button>        
-        <br>
-        <br> 
-        <br>
-        <br> 
-        <br>
-        <br> 
-        <br>
-        <br>        
+        <sdds-button type="primary" text="Button" id="button-1"></sdds-button>
         <sdds-tooltip placement="${Basic.tooltipPosition}" selector="#button-2" text="${Basic.text}" offset-distance="${Basic.offsetDistance}" offset-skidding="${Basic.offsetSkidding}" mouse-over-tooltip="${Basic.mouseOverTooltip}" /></sdds-tooltip>
         <sdds-button type="primary" text="Button" id="button-2"></sdds-button>
       </div>
