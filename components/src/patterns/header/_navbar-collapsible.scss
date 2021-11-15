@@ -18,6 +18,13 @@
   overflow-y: auto;
   opacity: 0;
 
+  .#{$prefix}-navbar-menu-item-dropdown {
+    flex-direction: column;
+    .#{$prefix}-navbar-menu-item-link {
+      height: 67px;
+    }
+  }
+
   &.expanded {
     visibility: visible;
     left: 0;
