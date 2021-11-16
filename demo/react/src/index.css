@@ -1,9 +1,24 @@
 body {
   background: var(--sdds-grey-50);
 }
-.sdds-container {
+
+.sdds-demo-container {
   margin-top: var(--sdds-header-height);
 }
+
+.sdds-navbar-menu-popover {
+  display: block;
+  position: fixed;
+  z-index: 20000;
+  text-decoration: none;
+}
+
+.sdds-navbar-menu-popover a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
 .content-wrapper {
   padding-top: var(--sdds-spacing-element-24);
   padding-bottom: var(--sdds-spacing-element-24);
@@ -20,11 +35,21 @@ body {
 .component-wrapper {
   padding-bottom: var(--sdds-spacing-element-24);
 }
+
 .sdds-btn-group .sdds-btn,
 .sdds-btn-group sdds-button {
   margin: 10px;
 }
 
 form > div {
-  margin-bottom: var(--sdds-spacing-element-24);
+  margin-bottom: var(--sdds-spacing-element-32);
+}
+
+@media all and (max-width: 992px) {
+  .sdds-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 800;
+  }
 }
