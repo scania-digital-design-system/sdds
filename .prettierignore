@@ -19,8 +19,12 @@
 # Component package
 components/storybook-static
 
+#Demo
+demo/**/**/.angular/**
+
 # Specific file
 theme/core/icons/src/_icons.css
+theme/core/**/*-vars.scss
 
 
 
