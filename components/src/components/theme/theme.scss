@@ -20,6 +20,9 @@
 @import '../../patterns/side-menu/side-menu.scss';
 @import '../../patterns/footer/footer.scss';
 
+// Utility classes
+@import '../../helpers/_utility-classes.scss';
+
 html.#{$prefix},
 body.#{$prefix},
 .#{$prefix}-body {
