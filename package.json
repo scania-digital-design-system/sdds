@@ -35,6 +35,7 @@
     "clean": "lerna clean",
     "release": "lerna publish",
     "next": "lerna publish -- --dist-tag next",
+    "link": "cd components && npm link || cd theme/light && npm link",
     "scss-lint": "npx stylelint **/*.scss",
     "format": "prettier --check .",
     "format-fix": "prettier --write .",
