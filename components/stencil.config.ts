@@ -17,7 +17,7 @@ export const config: Config = {
     cssVarsShim: true,
     dynamicImportShim: true,
     shadowDomShim: true,
-    safari10: true,
+    safari10: true, //TODO: Drop this
     scriptDataOpts: true,
     appendChildSlotFix: true,
     cloneNodeFix: false,
