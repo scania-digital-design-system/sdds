@@ -51,6 +51,15 @@ export default {
         options: ['no-default', 'option-1', 'option-2', 'option-3'],
       },
     },
+    dropdownOptions: {
+      type: 'string',
+      defaultValue:
+        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>',
+    },
+    width: {
+      type: 'range',
+      defaultValue: 200,
+    },
   },
 };
 
@@ -64,13 +73,12 @@ const Template = ({
   state = 'default',
   placeholder,
   defaultOption,
+  dropdownOptions,
+  width,
 }) => {
   return `
   <sdds-theme></sdds-theme>
-  
-  <div class="sdds-container" style="margin-top:10rem;">
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+    <div style="width:${width}px">
         <sdds-dropdown 
           size="${size}"
           placeholder="${placeholder}"
@@ -84,9 +92,9 @@ const Template = ({
           <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          ${dropdownOptions}
         </sdds-dropdown>
       </div>
-    </div>
   `;
 };
 
@@ -125,12 +133,11 @@ const FilterTemplate = ({
   helper = '',
   placeholder,
   defaultOption,
+  width,
 }) => {
   return `
     <sdds-theme></sdds-theme>
-    <div class="sdds-container" style="margin-top:10rem;">
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+    <div style="width:${width}px">
         <sdds-dropdown-filter
         size="${size}"
         placeholder="${placeholder}"
@@ -140,8 +147,6 @@ const FilterTemplate = ({
         data='[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'
         ></sdds-dropdown-filter>
       </div>
-      </div>
-    </div>
   `;
 };
 
@@ -165,12 +170,16 @@ Filter.argTypes = {
   },
 };
 
-const NativeTemplate = ({ size, helper = 'Helper text', label, state }) => {
+const NativeTemplate = ({
+  size,
+  helper = 'Helper text',
+  label,
+  state,
+  width,
+}) => {
   return `
   <sdds-theme></sdds-theme>
-  <div class="sdds-container" style="margin-top:10rem;">
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-4 sdds-col-xlg-4 sdds-col-lg-4 sdds-col-md-4 sdds-col-sm-4">
+    <div style="width:${width}px">
         <div class="sdds-dropdown ${
           size !== 'large' ? 'sdds-dropdown-' + size : ''
         } ${state === 'error' ? 'is-error' : ''}" >
@@ -182,10 +191,7 @@ const NativeTemplate = ({ size, helper = 'Helper text', label, state }) => {
           </select>
           <span class="sdds-dropdown-helper">${helper}</span>
         </div>
-        
       </div>
-    </div>
-  </div>
   `;
 };
 
