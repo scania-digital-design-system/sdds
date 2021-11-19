@@ -69,7 +69,12 @@ const ButtonTemplate = ({
 
   return `
   <sdds-theme></sdds-theme>
-  
+  <style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
+    i {
+      font-size: 4rem;
+    }
+  </style>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${
     disabled ? 'disabled' : ''
   } ${onlyIconCss}" ${inlineStyle}>
