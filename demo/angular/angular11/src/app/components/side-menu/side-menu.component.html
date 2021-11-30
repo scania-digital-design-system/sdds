@@ -1,0 +1,67 @@
+<div class="sdds-sidebar" [ngClass]="{ 'expanded': isExpanded }">
+  <div class="sdds-navbar-side-menu" [ngClass]="{ 'expanded': isExpanded }">
+    <ul id="menu-list" class="sdds-navbar-menu-list">
+
+      <li class="sdds-navbar-menu-item sdds-navbar-menu-hover" routerLink="/home"
+          routerLinkActive="active">
+                <span class="sdds-navbar-icon-button">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
+                                                           xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.334473" width="20" height="20" />
+                    </svg></span>
+        <a class="sdds-navbar-menu-item-link" id="home">
+          Home
+        </a>
+      </li>
+
+      <li id="form" routerLink="/form" class="sdds-navbar-menu-item sdds-navbar-menu-hover"
+          routerLinkActive="active">
+                <span class="sdds-navbar-icon-button">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
+                                                           xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.334473" width="20" height="20" />
+                    </svg></span>
+        <a class="sdds-navbar-menu-item-link">
+          Form
+        </a>
+      </li>
+
+      <li id="other" class="sdds-navbar-menu-item-dropdown sdds-navbar-menu-hover"
+          (click)="dropdownClick($event.target)" routerLinkActive="active">
+        <div class="sdds-navbar-menu-item-dropdown-parent">
+                    <span class="sdds-navbar-icon-button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
+                                                               xmlns="http://www.w3.org/2000/svg">
+                            <rect y="0.334473" width="20" height="20" />
+                        </svg></span>
+          <a class="sdds-navbar-menu-item-link">
+            <span class="sdds-menu-item-dropdown-text">Other</span>
+            <span class="sdds-icon-arrow"></span>
+          </a>
+        </div>
+
+        <ul class="sdds-navbar-menu__dropdown-menu">
+          <li routerLinkActive="active" class="sdds-navbar-menu__dropdown-item">
+            <a routerLink="/other/form" (click)="changeMenu($event)">dropdown 1</a>
+          </li>
+          <li routerLinkActive="active" class="sdds-navbar-menu__dropdown-item">
+            <a routerLink="/other/news" (click)="changeMenu($event)">dropdown 2</a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile"
+         (click)="clickCollapse()">
+            <span class="sdds-navbar-icon-button">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
+                                                       xmlns="http://www.w3.org/2000/svg">
+                    <rect y="0.334473" width="20" height="20" />
+                </svg></span>
+      <a id="collapse-btn" class="sdds-navbar-menu-item-link" href="#">
+        Collapse
+      </a>
+    </div>
+  </div>
+</div>

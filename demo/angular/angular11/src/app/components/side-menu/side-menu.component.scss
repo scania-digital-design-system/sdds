@@ -1,0 +1,30 @@
+
+.sdds-navbar-menu-item-dropdown {
+  &:hover,
+  &.hover {
+    background: var(--sdds-nav-item-background-selected);
+  }
+
+  &.opened {
+    background: var(--sdds-nav-item-dropdown-background-active);
+    color: var(--sdds-nav-item-dropdown-colour-active);
+  }
+}
+.sdds-navbar-menu-item-bottom {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--sdds-white);
+}
+
+.sdds-sidebar{
+  height: 100%;
+}
+
+@media all and (max-width: 992px) {
+  .sdds-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 800;
+  }
+}
