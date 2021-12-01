@@ -19,6 +19,9 @@ export class AccordionItem {
   /** Set to true to expand panel open */
   @Prop() expanded: boolean = false;
 
+  /** When true 16px on right padding instead of 64px */
+  @Prop() paddingReset: boolean = false;
+
   openAccordion() {
     this.expanded = !this.expanded;
   }
@@ -54,7 +57,13 @@ export class AccordionItem {
             </svg>
           </div>
         </div>
-        <div class="sdds-accordion-panel">
+        <div
+          class={`sdds-accordion-panel 
+            ${
+              this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''
+            }         
+            `}
+        >
           <slot></slot>
         </div>
       </div>
