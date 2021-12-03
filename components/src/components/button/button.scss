@@ -13,6 +13,11 @@ $props: (background, border-color, color);
 
   display: inline-block;
   border-radius: 1rem;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .#{$prefix}-btn {
