@@ -1,4 +1,3 @@
-
 .sdds-navbar-menu-item-dropdown {
   &:hover,
   &.hover {
@@ -16,9 +15,22 @@
   background-color: var(--sdds-white);
 }
 
-.sdds-sidebar{
-  height: 100%;
+.sdds-navbar-menu-popover {
+  display: block;
+  position: fixed;
+  z-index: 20000;
+  text-decoration: none;
 }
+
+.sdds-navbar-menu-popover a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+//.sdds-sidebar {
+//  height: 100%;
+//}
 
 @media all and (max-width: 992px) {
   .sdds-sidebar.expanded {

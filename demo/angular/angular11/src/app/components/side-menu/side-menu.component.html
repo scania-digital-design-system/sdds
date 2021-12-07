@@ -1,67 +1,88 @@
-<div class="sdds-sidebar" [ngClass]="{ 'expanded': isExpanded }">
-  <div class="sdds-navbar-side-menu" [ngClass]="{ 'expanded': isExpanded }">
+<div class="sdds-sidebar" [ngClass]="{ expanded: isExpanded }">
+  <div class="sdds-navbar-side-menu" [ngClass]="{ expanded: isExpanded }">
+
     <ul id="menu-list" class="sdds-navbar-menu-list">
-
-      <li class="sdds-navbar-menu-item sdds-navbar-menu-hover" routerLink="/home"
-          routerLinkActive="active">
-                <span class="sdds-navbar-icon-button">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
-                                                           xmlns="http://www.w3.org/2000/svg">
-                        <rect y="0.334473" width="20" height="20" />
-                    </svg></span>
-        <a class="sdds-navbar-menu-item-link" id="home">
-          Home
-        </a>
+      <!--      side menu items-->
+      <li *ngFor="let item of items"
+          class="sdds-navbar-menu-item sdds-navbar-menu-hover"
+          routerLink="{{item.link}}"
+          routerLinkActive="active"
+          (mouseenter)="onHoverMenu($event.target,item.title, false)"
+          (mouseleave)="onHoverMenu($event.target,item.title, false); showPopover = false"
+      >
+        <app-icon-button></app-icon-button>
+        <a class="sdds-navbar-menu-item-link" id="home"> {{item.title}} </a>
       </li>
 
-      <li id="form" routerLink="/form" class="sdds-navbar-menu-item sdds-navbar-menu-hover"
-          routerLinkActive="active">
-                <span class="sdds-navbar-icon-button">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
-                                                           xmlns="http://www.w3.org/2000/svg">
-                        <rect y="0.334473" width="20" height="20" />
-                    </svg></span>
-        <a class="sdds-navbar-menu-item-link">
-          Form
-        </a>
-      </li>
-
+      <!-- side menu dropdown items-->
       <li id="other" class="sdds-navbar-menu-item-dropdown sdds-navbar-menu-hover"
-          (click)="dropdownClick($event.target)" routerLinkActive="active">
+          (click)="dropdownClick($event.target)"
+          routerLinkActive="active"
+          (mouseenter)="onHoverMenu($event.target, 'Dropdown', true)"
+          (mouseleave)="onHoverMenu($event.target,'Dropdown', true)"
+      >
         <div class="sdds-navbar-menu-item-dropdown-parent">
-                    <span class="sdds-navbar-icon-button">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
-                                                               xmlns="http://www.w3.org/2000/svg">
-                            <rect y="0.334473" width="20" height="20" />
-                        </svg></span>
+          <app-icon-button></app-icon-button>
           <a class="sdds-navbar-menu-item-link">
-            <span class="sdds-menu-item-dropdown-text">Other</span>
+            <span class="sdds-menu-item-dropdown-text">Dropdown</span>
             <span class="sdds-icon-arrow"></span>
           </a>
         </div>
 
         <ul class="sdds-navbar-menu__dropdown-menu">
-          <li routerLinkActive="active" class="sdds-navbar-menu__dropdown-item">
-            <a routerLink="/other/form" (click)="changeMenu($event)">dropdown 1</a>
+          <li class="sdds-navbar-menu__dropdown-item">
+            <a routerLink="/" (click)="changeMenu($event)">sub-item 1</a>
           </li>
-          <li routerLinkActive="active" class="sdds-navbar-menu__dropdown-item">
-            <a routerLink="/other/news" (click)="changeMenu($event)">dropdown 2</a>
+          <li class="sdds-navbar-menu__dropdown-item">
+            <a routerLink="/" (click)="changeMenu($event)">sub-item 2</a>
           </li>
         </ul>
       </li>
-
     </ul>
 
-    <div class="sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobile"
-         (click)="clickCollapse()">
-            <span class="sdds-navbar-icon-button">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4"
-                                                       xmlns="http://www.w3.org/2000/svg">
-                    <rect y="0.334473" width="20" height="20" />
-                </svg></span>
+    <div class="
+        sdds-navbar-menu-item
+        sdds-navbar-menu-item-bottom
+        sdds-navbar-menu-hide-on-mobile
+      "
+         (click)="clickCollapse()"
+    >
+      <app-icon-button></app-icon-button>
       <a id="collapse-btn" class="sdds-navbar-menu-item-link" href="#">
         Collapse
       </a>
+    </div>
+
+    <div
+      *ngIf="showPopover"
+      class="sdds-navbar-menu-popover"
+      style="position: absolute;"
+      [ngStyle]="{left:posX+'px', top:posY+'px'}">
+      <div class="sdds-navbar-menu-item sdds-navbar-menu-hover" style="height: 100%">
+        <a *ngIf="!showDropdownPopover"
+           class="sdds-navbar-menu-item-link"> {{hoveredItem}} </a>
+
+        <!-- dropdown popover-->
+        <div *ngIf="showPopover && showDropdownPopover"
+             (mouseenter)="showDropdownPopover = true"
+             (mouseleave)="showDropdownPopover = false"
+             class="sdds-navbar-menu-item-dropdown" style="width: 100%">
+          <div class="sdds-navbar-menu-item-dropdown-parent">
+            <a class="sdds-navbar-menu-item-link" href="/">
+              <span class="sdds-menu-item-dropdown-text">Dropdown</span>
+            </a>
+          </div>
+          <ul class="sdds-navbar-menu__dropdown-menu">
+            <li class="sdds-navbar-menu__dropdown-item">
+              <a class="sdds-navbar-menu__dropdown-item-link" href="/">sub-item 1</a>
+            </li>
+            <li class="sdds-navbar-menu__dropdown-item">
+              <a class="sdds-navbar-menu__dropdown-item-link" href="/">sub-item 2</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
