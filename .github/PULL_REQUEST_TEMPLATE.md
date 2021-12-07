@@ -12,7 +12,7 @@ After the PR is done, please check so all test is finished and fix all conflicts
 _Describe what the pull-request is about_
 
 **Solving issue**  
-_Add which issue this pull-request solves by adding # plus the number of the issue (for example #123)_
+_In case of GitHub issue add # plus the number of the issue (for example #123) OR if it is Azure then AB# and number of ticket_
 Fixes: #
 
 **How to test**  

@@ -14,7 +14,8 @@
     background-color: var(--sdds-accordion-bg);
     outline: none;
     pointer-events: none;
-    &:after {
+
+    &::after {
       border-color: transparent;
     }
   }
@@ -34,7 +35,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+
     @include type-style('headline-07');
+
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-bg);
 
@@ -56,10 +59,16 @@
     padding-left: var(--sdds-spacing-element-16);
     padding-right: var(--sdds-spacing-layout-64);
     display: none;
+
     @include type-style('detail-03');
+
     p {
       margin: 0;
       padding: 0;
+    }
+
+    &--padding-reset {
+      padding-right: var(--sdds-spacing-element-16);
     }
   }
 
@@ -152,15 +161,17 @@
   .#{$prefix}-accordion-header-prefix,
   .#{$prefix}-accordion-header-suffix {
     position: relative;
-    &:after {
+
+    &::after {
       content: '';
       position: absolute;
       width: 100%;
-      height: 0px;
+      height: 0;
       left: 0;
       z-index: 2;
     }
-    &:after {
+
+    &::after {
       bottom: -1px;
       border-bottom: 1px solid transparent;
     }
@@ -170,12 +181,15 @@
 ::slotted(sdds-accordion-item) {
   border-top: 1px solid var(--sdds-accordion-border);
 }
+
 ::slotted(sdds-accordion-item:focus) {
   border-top: 1px solid var(--sdds-accordion-border-focus);
 }
+
 ::slotted(sdds-accordion-item[disabled='true']:focus) {
   border-color: var(--sdds-accordion-border);
 }
+
 ::slotted(sdds-accordion-item:last-child) {
   border-bottom: 1px solid var(--sdds-accordion-border);
 }
@@ -188,7 +202,8 @@
     .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
       outline: none;
-      &:after {
+
+      &::after {
         border-color: var(--sdds-accordion-border-focus);
       }
     }
