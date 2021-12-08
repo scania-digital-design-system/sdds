@@ -3,6 +3,7 @@
 
 .#{$prefix}-textarea-container {
   @extend .#{$prefix}-textfield-container;
+
   height: auto;
   width: 100%;
   min-width: var(--sdds-textarea-min-width);
@@ -14,26 +15,34 @@
 
 .#{$prefix}-textarea-wrapper {
   @extend .#{$prefix}-textfield-bar;
+
   position: relative;
   width: unset;
   min-width: 100%;
 
-  &:after,
-  &:before {
+  &::after,
+  &::before {
     top: calc(100% - 2px);
   }
 }
 .#{$prefix}-textarea-input {
   @include textfield-base;
+
   @extend .#{$prefix}-textfield-input;
+
   display: block;
   min-height: var(--sdds-textarea-height);
   resize: vertical;
-  border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+  border-bottom: 1px solid var(--sdds-textarea-border-bottom);
+  transition: border-bottom-color 200ms ease;
 
   // Display none only works in Chrome
   &::-webkit-resizer {
     display: none;
+  }
+
+  &:hover {
+    border-bottom-color: var(--sdds-textarea-border-bottom-hover);
   }
 }
 
@@ -48,6 +57,7 @@
   padding-right: 2px;
   pointer-events: none;
   background-color: var(--sdds-textfield-bg);
+
   svg {
     display: block;
   }
@@ -55,6 +65,7 @@
 
 .#{$prefix}-textarea-label {
   @include type-style('detail-05');
+
   display: block;
   z-index: 2;
   margin-bottom: var(--sdds-spacing-element-8);
@@ -66,6 +77,7 @@
     .#{$prefix}-textarea-label {
       @include type-style('detail-02');
       @include label-inside-transition;
+
       color: var(--sdds-textfield-label-inside-color);
       position: absolute;
       top: var(--sdds-spacing-element-20);
@@ -81,12 +93,13 @@
     &.#{$prefix}-textarea-label-inside {
       .#{$prefix}-textarea-label {
         @include type-style('detail-07');
+
         top: var(--sdds-spacing-element-8);
       }
     }
     .#{$prefix}-textarea-wrapper {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         width: 50%;
       }
     }
@@ -96,6 +109,7 @@
     &.#{$prefix}-textarea-label-inside {
       .#{$prefix}-textarea-label {
         @include type-style('detail-07');
+
         top: var(--sdds-spacing-element-8);
       }
     }
@@ -104,6 +118,7 @@
 
 .#{$prefix}-textarea-textcounter {
   @extend .#{$prefix}-textfield-textcounter;
+
   flex-basis: 100%;
   text-align: right;
   padding-top: var(--sdds-spacing-element-4);
@@ -111,6 +126,7 @@
 
 .#{$prefix}-textarea-helper {
   @extend .#{$prefix}-textfield-helper;
+
   flex-grow: 2;
   flex-basis: auto;
   ~ .#{$prefix}-textarea-textcounter {
@@ -131,8 +147,8 @@
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
   .#{$prefix}-textarea-wrapper {
-    &:after,
-    &:before {
+    &::after,
+    &::before {
       background: var(--sdds-textfield-bar-error);
     }
   }

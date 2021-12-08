@@ -34,7 +34,7 @@
     "install": "lerna bootstrap",
     "start": "lerna run --parallel start",
     "build": "lerna run build",
-    "storybook": "npm run install && lerna run build --parallel && lerna run build-sb",
+    "storybook": "npm run install && lerna run build --parallel && lerna run build-sb --no-manager-cache",
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
     "release": "lerna publish",
