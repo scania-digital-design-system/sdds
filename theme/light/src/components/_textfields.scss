@@ -35,6 +35,8 @@ html {
   --#{$prefix}-textfield-resize-icon: #{get-colour(grey-500)};
   --#{$prefix}-textarea-min-width: 208px;
   --#{$prefix}-textarea-height: 112px;
+  --#{$prefix}-textarea-border-bottom: #{get-colour(grey-400)};
+  --#{$prefix}-textarea-border-bottom-hover: #{get-colour(grey-600)};
 
   //White background
   .#{$prefix}-on-white-bg {
