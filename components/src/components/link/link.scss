@@ -32,4 +32,8 @@ a,
     color: var(--sdds-link-disabled);
     pointer-events: none;
   }
+
+  &--no-underline {
+    text-decoration: none;
+  }
 }
