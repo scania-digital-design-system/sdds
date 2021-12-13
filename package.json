@@ -47,7 +47,7 @@
     "js-lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint-check": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --check .",
     "lint-all": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --write .",
-    "prepare": "husky install",
+    "prepare": "husky install && npm run build",
     "commit": "cz"
   },
   "changelog": {
