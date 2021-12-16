@@ -1,29 +1,12 @@
 <nav class="sdds-navbar">
-  <div class="sdds-navbar-overlay"></div>
   <button
     id="menu-mobile"
     class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer"
+    [ngClass]="{expanded:isExpanded}"
+    (click)="expand.emit()"
   >
     <span class="sdds-icon-drawer"></span>
   </button>
   <div class="sdds-navbar-application-brand">SDDS Demo Angular</div>
-  <div id="side-menu" class="sdds-navbar-collapsible">
-    <!--        <ul class="sdds-navbar-menu-list">-->
-    <!--          <li-->
-    <!--            class="sdds-navbar-menu-item"-->
-    <!--            routerLink="/home"-->
-    <!--            routerLinkActive="active"-->
-    <!--          >-->
-    <!--            <a class="sdds-navbar-menu-item-link"> Home </a>-->
-    <!--          </li>-->
-    <!--          <li-->
-    <!--            class="sdds-navbar-menu-item"-->
-    <!--            routerLink="/form"-->
-    <!--            routerLinkActive="active"-->
-    <!--          >-->
-    <!--            <a class="sdds-navbar-menu-item-link"> Form </a>-->
-    <!--          </li>-->
-    <!--        </ul>-->
-  </div>
   <div class="sdds-navbar-scania-brand"></div>
 </nav>

@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   isExpanded = false;
   title = 'angular';
+  onExpand(): void {
+    this.isExpanded = !this.isExpanded;
+  }
 
   ngOnInit(): void {}
 }
