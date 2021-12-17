@@ -12,15 +12,19 @@
   },
   "useWorkspaces": true,
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@octokit/core": "^3.5.1",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.2",
     "husky": "^7.0.0",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
+    "lint-staged": "^12.1.2",
     "prettier": "2.4.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
@@ -43,7 +47,8 @@
     "js-lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint-check": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --check .",
     "lint-all": "npx stylelint **/*.scss && eslint . --ext .js,.jsx,.ts,.tsx && prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install && npm run build",
+    "commit": "cz"
   },
   "changelog": {
     "ignoreCommitters": [
@@ -54,5 +59,19 @@
       "Improvement": ":seedling: Improvements",
       "bug": ":bug: Bug Fix"
     }
+  },
+  "dependencies": {
+    "commitizen": "^4.2.4",
+    "commitlint": "^15.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "eslint",
+    "**/*.scss": "stylelint --fix",
+    "*.{js,jsx,ts,tsx,scss,md}": "prettier --write"
   }
 }

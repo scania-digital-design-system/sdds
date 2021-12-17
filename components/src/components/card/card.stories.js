@@ -94,7 +94,8 @@ link.argTypes = {};
 link.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
-  footer: '<a href="#">Link text</a><a href="#">Link text</a>',
+  footer:
+    '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
 };
 
 export const button = CardTemplate.bind({});
