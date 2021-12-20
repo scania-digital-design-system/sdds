@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  isExpanded = false;
   title = 'angular13';
+  onExpand(): void {
+    this.isExpanded = !this.isExpanded;
+  }
 }

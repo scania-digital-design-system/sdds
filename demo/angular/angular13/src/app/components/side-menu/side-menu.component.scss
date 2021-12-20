@@ -1,0 +1,30 @@
+.sdds-navbar-menu-popover {
+  display: block;
+  position: fixed;
+  z-index: 20000;
+  text-decoration: none;
+}
+
+.sdds-navbar-menu-popover a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.popover-title:hover {
+  background: white;
+  cursor: default;
+}
+
+.sdds-sidebar {
+  height: 100%;
+}
+
+@media all and (max-width: 992px) {
+  .sdds-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 800;
+  }
+}
