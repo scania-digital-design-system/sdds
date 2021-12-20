@@ -11,6 +11,8 @@ import { FormComponent } from './components/form/form.component';
 import { CustomInput } from './components/form/input/input-component';
 import { HomeComponent } from './components/home/home.component';
 import { CustomDropdown } from './components/form/dropdown/dropdown.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { IconButtonComponent } from './components/side-menu/icon-button/icon-button.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CustomDropdown } from './components/form/dropdown/dropdown.component';
     FormComponent,
     CustomInput,
     CustomDropdown,
+    SideMenuComponent,
+    IconButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

@@ -1,4 +1,12 @@
 <sdds-theme></sdds-theme>
-<app-header></app-header>
-<app-main></app-main>
-<app-footer></app-footer>
+<div class="sdds-navbar-overlay" [ngClass]="{ expanded: isExpanded }"></div>
+<app-header (expand)="onExpand()" [isExpanded]="isExpanded"></app-header>
+<div class="sdds-push">
+  <app-side-menu [isExpanded]="isExpanded"></app-side-menu>
+  <div class="sdds-content-push">
+    <div class="sdds-container-push-fluid sdds-container">
+      <app-main></app-main>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
