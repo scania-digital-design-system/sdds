@@ -3,7 +3,7 @@ import SideMenuItem from './components/sideMenuItem/SideMenuItem';
 import IconButton from './components/IconButton/IconButton';
 import SideMenuDropdownItem from './components/sideMenuDropdownItem/sideMenuDropdownItem';
 
-function SideMenu() {
+function SideMenu({ expand }) {
   const [collapse, setCollapse] = useState(false);
   const clickCollapse = () => setCollapse(!collapse);
 
@@ -13,7 +13,7 @@ function SideMenu() {
         collapse ? 'sdds-sidebar-collapse' : ''
       }`}
     >
-      <div className={`sdds-navbar-side-menu expanded`}>
+      <div className={`sdds-navbar-side-menu ${expand ? 'expanded' : null}`}>
         <ul className="sdds-navbar-menu-list">
           <SideMenuItem itemName={'Home'} link={'/'} collapse={collapse} />
           <SideMenuItem itemName={'Form'} link={'/form'} collapse={collapse} />
