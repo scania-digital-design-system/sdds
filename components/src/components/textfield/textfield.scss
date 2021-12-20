@@ -40,12 +40,14 @@
 .#{$prefix}-textfield-input {
   @include textfield-base;
   @include type-style('detail-02');
+
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 .#{$prefix}-textfield-input-md {
   @include textfield-base;
   @include type-style('detail-02');
+
   padding: var(--sdds-spacing-element-16);
 }
 
@@ -58,6 +60,7 @@
   box-sizing: border-box;
   background-color: var(--sdds-textfield-bg);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
+  transition: border-bottom-color 200ms ease;
 
   &:hover {
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
@@ -76,6 +79,7 @@
 //Textfield label
 slot[name='sdds-label']::slotted(*) {
   @include type-style('detail-05');
+
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
@@ -83,6 +87,7 @@ slot[name='sdds-label']::slotted(*) {
 
 .#{$prefix}-textfield-label-inside {
   @include type-style('detail-02');
+
   position: absolute;
   pointer-events: none;
   color: var(--sdds-textfield-label-inside-color);
@@ -135,6 +140,7 @@ slot[name='sdds-label']::slotted(*) {
     ~ .#{$prefix}-textfield-label-inside {
       top: 20px;
     }
+
     @include placeholder-label;
   }
 
@@ -145,6 +151,7 @@ slot[name='sdds-label']::slotted(*) {
     ~ .#{$prefix}-textfield-label-inside {
       top: 16px;
     }
+
     @include placeholder-label;
   }
 
@@ -153,11 +160,13 @@ slot[name='sdds-label']::slotted(*) {
     .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
       @include type-style('detail-07');
       @include label-inside-transition;
+
       top: 8px;
     }
     .#{$prefix}-textfield-input ~ .#{$prefix}-textfield-label-inside {
       @include type-style('detail-07');
       @include label-inside-transition;
+
       top: 12px;
     }
   }
@@ -168,8 +177,8 @@ slot[name='sdds-label']::slotted(*) {
   position: absolute;
   width: 100%;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: '';
     height: 2px;
     top: 54px;
@@ -185,10 +194,11 @@ slot[name='sdds-label']::slotted(*) {
     }
   }
 
-  &:before {
+  &::before {
     left: 50%;
   }
-  &:after {
+
+  &::after {
     right: 50%;
   }
   .#{$prefix}-textfield-focus &:before,
@@ -200,6 +210,7 @@ slot[name='sdds-label']::slotted(*) {
 //Helper text
 .#{$prefix}-textfield-helper {
   @include type-style('detail-05');
+
   display: block;
   flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
@@ -240,8 +251,8 @@ slot[name='sdds-label']::slotted(*) {
   }
 
   .#{$prefix}-textfield-bar {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       background: var(--sdds-textfield-bar-error);
     }
   }
@@ -254,6 +265,7 @@ slot[name='sdds-label']::slotted(*) {
 
 .#{$prefix}-textfield-textcounter {
   @include type-style('detail-05');
+
   color: var(--sdds-textfield-textcounter);
   float: right;
 
@@ -266,6 +278,7 @@ slot[name='sdds-label']::slotted(*) {
 slot[name='sdds-prefix']::slotted(*),
 slot[name='sdds-suffix']::slotted(*) {
   @include type-style('detail-02');
+
   align-self: center;
   color: var(--sdds-textfield-ps-color);
 }

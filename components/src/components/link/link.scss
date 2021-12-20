@@ -10,15 +10,18 @@ a,
   &:active {
     color: var(--sdds-link);
     text-decoration: var(--sdds-link-text-decoration);
+    text-decoration-color: var(--sdds-link);
   }
 
   &:hover {
     color: var(--sdds-link-hover);
     text-decoration: var(--sdds-link-text-decoration);
+    text-decoration-color: var(--sdds-link-hover);
   }
 
   &:visited {
     color: var(--sdds-link-visited);
+    text-decoration-color: var(--sdds-link-visited);
   }
 
   &:focus {
@@ -30,6 +33,15 @@ a,
   &:disabled,
   &.disabled {
     color: var(--sdds-link-disabled);
+    text-decoration-color: var(--sdds-link-disabled);
     pointer-events: none;
+  }
+
+  &--no-underline {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
