@@ -42,24 +42,37 @@ Check the working demo on this repository.
 - [Vue](./demo/vue)
 - [HTML](./demo/HTML)
 
-## Run local enviroment
+## Run local environment
 
 - You can run everything locally with storybook to view the UI elements.
 - Start everything from root folder
 - We are developing in both windows and macOS
-- Components and Theme package will start watchers for the whole setup
-- Core packages don't have watchers (right now), so you have run build
+- Components and Theme package will start watchers for the whole setup, and on top of that storybook will start
+- Core packages don't have watchers (right now), so you have to build
 - First time you run this project npm prepare command will install husky but also `npm run build`. To make sure everything is built for the first time
 - Windows have some hiccups, right now. If you are using imports you need to **save the main file** where it is being imported
 - If you add a new file, **make sure the rights are correct for both mac and windows**
-- Find all commands for the root package.json or in each of our packages
-- If any problem occurs, try and run npm run build from root
+- Find all commands in the root package.json or in each of our packages
+- If any problem occurs, read the debug below or report them in our issue tab
+
+##### Commands to start:
 
 ```shell
 > npm i
 > npm start
-
 ```
+
+#### Debugging local environment
+
+- Windows and MacOS behave differently
+- Use `npm run build` first before `npm start`
+- Try each commands on its own if a problem occurs
+- Make sure you have the correct proxy settings
+- Debug in the correct package if a problem occurs
+- You can run each package separately
+- Make sure the core packages are built
+- Run node v12 or later
+- if changes doesn't get display, save the main files if it related with imports
 
 ## Migration
 
