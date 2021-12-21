@@ -1,12 +1,21 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5073e029-d8ec-44a6-8dc9-bd2fea08ddd0/deploy-status)](https://app.netlify.com/sites/sdds-storybook/deploys) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/scania-digital-design-system/sdds) ![GitHub last commit](https://img.shields.io/github/last-commit/scania-digital-design-system/sdds)
 
-# Scania Digital Design System components and theme
+# Scania Digital Design System
 
 [https://digitaldesign.scania.com/](https://digitaldesign.scania.com/)
 
 The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent and premium brand and user experience across all of Scania's digital touchpoints.
 
-# Browser Support
+- [Browser Support](#browser-support)
+- [Getting started](#getting-started)
+- [Demos](#demo)
+- [Local environment](#run-local-environment)
+  - [Commands](#commands-to-start)
+  - [Debugging local environment](#debugging-local-environment)
+- [Migration](#migration)
+- [Contributing](#contributing)
+
+## Browser Support
 
 - Chrome
 - Firefox
@@ -62,7 +71,7 @@ Check the working demo on this repository.
 > npm start
 ```
 
-#### Debugging local environment
+##### Debugging local environment
 
 - Windows and MacOS behave differently
 - Use `npm run build` first before `npm start`
