@@ -55,6 +55,7 @@ Check the working demo on this repository.
 
 - You can run everything locally with storybook to view the UI elements.
 - Start everything from root folder
+- Everything we develop is published on public [npmjs.com](https://www.npmjs.com/search?q=%40scania)
 - We are developing in both windows and macOS
 - Components and Theme package will start watchers for the whole setup, and on top of that storybook will start
 - Core packages don't have watchers (right now), so you have to build
@@ -74,14 +75,17 @@ Check the working demo on this repository.
 ##### Debugging local environment
 
 - Windows and MacOS behave differently
+- If npm throws error either in `npm install` or `npm build` make sure network settings is correct\*\*
 - Use `npm run build` first before `npm start`
 - Try each commands on its own if a problem occurs
-- Make sure you have the correct proxy settings
+- Make sure you have the correct proxy settings \*\*
 - Debug in the correct package if a problem occurs
 - You can run each package separately
 - Make sure the core packages are built
 - Run node v12 or later
-- if changes doesn't get display, save the main files if it related with imports
+- if changes doesn't get display, save the main files if there are files related with imports
+
+\*\* Proxy/network/vpn setting might interfere with the download process so make sure you have everything correctly set on your computer or try doing the commands outside office/vpn network
 
 ## Migration
 
