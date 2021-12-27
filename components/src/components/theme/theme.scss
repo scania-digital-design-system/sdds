@@ -23,6 +23,11 @@
 // Utility classes
 @import '../../helpers/_utility-classes.scss';
 
+* :focus {
+  outline: 2px solid var(--sdds-blue-400);
+  outline-offset: -2px;
+}
+
 html.#{$prefix},
 body.#{$prefix},
 .#{$prefix}-body {
@@ -78,7 +83,7 @@ body.#{$prefix},
 }
 
 // data environment
-body[data-env]:before {
+body[data-env]::before {
   background-color: #ddd;
   border: 2px solid #fafafa;
   display: inline-block;
@@ -98,13 +103,13 @@ body[data-env]:before {
   text-transform: uppercase;
 }
 
-body[data-env='']:before,
-body[data-env='prod']:before,
-body[data-env='production']:before,
-body[data-env='hidden']:before {
+body[data-env='']::before,
+body[data-env='prod']::before,
+body[data-env='production']::before,
+body[data-env='hidden']::before {
   display: none;
 }
 
-body[data-env='development']:before {
+body[data-env='development']::before {
   content: 'dev';
 }

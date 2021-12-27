@@ -77,6 +77,7 @@
   &.hover {
     background: var(--#{$prefix}-nav-item-background-hover);
   }
+
   &.active {
     border-bottom: 4px solid var(--sdds-nav-item-border-active);
   }
