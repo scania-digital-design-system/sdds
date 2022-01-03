@@ -42,6 +42,15 @@ const Template = ({
     .sdds-navbar-menu-popover {
       display:none;
     }
+    .popover-menu-parent:hover{
+    cursor: default;
+    background: transparent !important;
+    }
+    .popover-menu-title{
+    padding: 16px 10px 16px 24px;
+    flex-grow: 1;
+    font-weight: bold;
+    }
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
         position: relative;
@@ -124,16 +133,34 @@ const Template = ({
               </a>
           </li>
         </ul>
+        ${
+          !collapse
+            ? `<div class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
+           ${icons}
+              <a class="sdds-navbar-menu-item-link" href="#">
+              collapse
+               </a>
+             </div>
+             `
+            : `<div class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
+              ${icons}
+              <a class="sdds-navbar-menu-item-link" href="#">
+                  collapse
+              </a>
+          </div>
+              `
+        }
+        
       </div>
       
       ${
         collapse && !dropdown
           ? `
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:0;">
-        <div class="sdds-navbar-menu-item"> 
-          <a class="sdds-navbar-menu-item-link" href="#"> 
+        <div class="sdds-navbar-menu-item popover-menu-parent"> 
+          <div class="popover-menu-title"> 
           Item 1 
-          </a>
+          </div>
         </div>
       </div>`
           : ''
@@ -144,14 +171,14 @@ const Template = ({
           ? `
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:34rem;">
         <div class="sdds-navbar-menu-item-dropdown opened"">
-          <div class="sdds-navbar-menu-item-dropdown-parent">
-            <a class="sdds-navbar-menu-item-link active" href="#"> 
+          <div class="sdds-navbar-menu-item-dropdown-parent popover-menu-parent">
+            <div class="popover-menu-title active"> 
               <span class="sdds-menu-item-dropdown-text">Item 3</span>
-            </a>
+            </div>
           </div>  
           <ul class="sdds-navbar-menu__dropdown-menu">
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-1 long label...</a></li>
-              <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-3</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-4 long label...</a></li>
           </ul>
