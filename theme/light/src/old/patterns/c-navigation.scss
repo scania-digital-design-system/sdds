@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../core';
 
 @mixin nav-item {
   color: get-colour(grey-400); // IE
