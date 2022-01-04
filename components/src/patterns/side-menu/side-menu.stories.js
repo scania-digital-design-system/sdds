@@ -1,3 +1,5 @@
+import { useArgs } from '@storybook/client-api';
+
 export default {
   title: 'Patterns/SideMenu',
   args: {
@@ -5,15 +7,23 @@ export default {
   },
 };
 
-const Template = ({
-  icon = false,
-  dropdown = false,
-  collapse = false,
-  active = false,
-}) => {
+const Template = (args) => {
+  const {
+    icon = false,
+    dropdown = false,
+    collapse = false,
+    active = false,
+  } = args;
   const icons = icon
     ? '<span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>'
     : '';
+
+  const [_, setArgs] = useArgs();
+
+  window.toggleCollapse = (event) => {
+    event.preventDefault();
+    setArgs({ ...args, collapse: !collapse });
+  };
 
   const style = `
   <style>
@@ -135,17 +145,21 @@ const Template = ({
         </ul>
         ${
           !collapse
-            ? `<div class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
-           ${icons}
+            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
+               <span class="sdds-navbar-icon-button" style="width: 30px; height: 30px">
+                <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
+               </span>
               <a class="sdds-navbar-menu-item-link" href="#">
-              collapse
+              Collapse
                </a>
              </div>
              `
-            : `<div class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
-              ${icons}
+            : `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
+              <span class="sdds-navbar-icon-button" style="height: 30px">
+               <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
+              </span>
               <a class="sdds-navbar-menu-item-link" href="#">
-                  collapse
+                  Collapse
               </a>
           </div>
               `
