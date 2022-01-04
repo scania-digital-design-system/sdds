@@ -110,20 +110,6 @@ function initImages(cb) {
   return series(copyImages, generateImages)(cb);
 }
 
-// async function generateColors(file) {
-//   const result = await sassExtract.render({ file });
-//   const categories = result.vars.global['$all-colors'];
-//   const colors = Object.entries(categories.value).map(([type, colors]) =>
-//     Object.entries(colors.value).map(([key, item]) => {
-//       return { [key]: { type, hex: item.value.hex } };
-//     })
-//   );
-//   const arr = [].concat(...colors);
-//   const object = arr.reduce((obj, item) => obj = { ...obj, ...item }, {});
-
-//   return object;
-// }
-
 function initFavicons() {
   const options = {
     path: '',
@@ -174,12 +160,12 @@ function initFavicons() {
 async function initTheme(cb) {
   let theme = {
     [themeName]: {
-      components: { default: {}, ie: {} },
+      components: { default: {} },
     },
   };
   let themeNoRefs = {
     [themeName]: {
-      components: { default: {}, ie: {} },
+      components: { default: {} },
     },
   };
 
@@ -187,8 +173,8 @@ async function initTheme(cb) {
   generateVars('spacing');
 
   console.log('Generate css styles');
-
-  glob.sync('src/patterns/c-*.scss').forEach(generateCss);
+  //Remove old stuff
+  glob.sync('src/old/patterns/c-*.scss').forEach(generateCss);
   glob.sync('src/theme/*.scss').forEach(generateCss);
 
   console.log('Generate style module');
@@ -216,16 +202,11 @@ async function initTheme(cb) {
   });
 
   // TODO: We might wanna solve this without the need of global variables
+
   theme[themeName].favicons = faviconItems.map((item) =>
     item.replace(/(href|content)="/g, '$1="%root%/')
   );
   themeNoRefs[themeName].favicons = faviconItemsNoRefs;
-
-  // const colors = await generateColors('src/styles/.scss');
-
-  // theme[themeName].colors = colors;
-  // themeNoRefs[themeName].colors = theme[themeName].colors;
-
   theme[themeName].version = version;
   themeNoRefs[themeName].version = version;
 
@@ -266,7 +247,9 @@ document.addEventListener('storeReady', function(event) {
   cb();
 }
 
+//FIXME: This should be moved from the gulp to the specific package in core
 function generateVars(input) {
+  // Creates a auto-generated file containing variables
   console.log('Generate css variables for ' + input);
 
   const varFile = `../core/${input}/_vars.scss`;
@@ -323,88 +306,30 @@ function generateCss(file) {
     console.log(`Problem in file ${file} or imports related to it`);
     console.log('\n ---- Problem in scss files, read error! ---- \n');
   }
-
-  // c-theme is shadow true so we dont need to polyfill its content
-  let content_ie;
   try {
-    content_ie = content.css.toString();
-
-    // .replace(/:root {([^}]*)}/, '');
-
-    if (name !== 'sdds-theme') {
-      content_ie = polyfill(name, content_ie);
-    }
-
     fs.writeFileSync(`${filepath}.css`, content.css);
-    fs.writeFileSync(`${filepath}_ie.css`, content_ie);
   } catch (err) {
     console.log(err);
     console.log('\n ---- Problem trying create css files ---- \n');
   }
 }
 
-function polyfill(name, content) {
-  const prefix = '.sc-';
-
-  content = content
-    .replace(/::slotted\((.*?)\)/g, prefix + name + '-s > $1')
-    .replace(/:host\((.*?)\)/g, prefix + name + '-h' + '$1')
-    .replace(/:host/g, prefix + name + '-h')
-    .replace(/::/g, ':');
-
-  const cssObj = css.parse(content);
-
-  cssObj.stylesheet.rules.map((rule) => generateSelectors(rule, name));
-
-  return css.stringify(cssObj);
-}
-
-function generateSelectors(rule, name) {
-  if (rule.type === 'media') {
-    rule.rules.map((rule) => generateSelectors(rule, name));
-  }
-
-  if (rule.type !== 'rule') return;
-
-  const selectorObj = selectorParser.parse(rule.selectors.join(','));
-
-  (selectorObj.selectors ? selectorObj.selectors : [selectorObj]).map(
-    (selector) => ie(selector, name)
-  );
-
-  rule.selectors = selectorParser.render(selectorObj).split(',');
-}
-
-function ie(item, name) {
-  const cls = 'sc-' + name;
-  const classes = [cls];
-
-  if (
-    item.type === 'rule' &&
-    (item.classNames || []).join().indexOf(cls) === -1
-  ) {
-    item.classNames = item.classNames
-      ? [...item.classNames, ...classes]
-      : classes;
-  }
-
-  if (item.rule && (item.classNames || []).indexOf(cls + '-s') === -1) {
-    item.rule = ie(item.rule, name);
-  }
-
-  return item;
-}
-
 function copyScss() {
+  /*
+    Function including the SCSS in the output in dist folder,
+    making it possible to use scss
+  */
   console.log(`Copying scss... Output: ${outputFolder}/scss/`);
   return src('src/**/*.scss').pipe(dest(`${outputFolder}/scss/`));
 }
 
 function copyGlobalStyle() {
+  //TODO: this will no longer be used when Corporate-Ui 4 is completly removed
   console.log(
     `Copying corporate-ui-4 global style... output ${outputFolder}/styles/`
   );
-  return src('src/utilities/global-style.css').pipe(
+
+  return src('src/old/utilities/global-style.css').pipe(
     dest(`${outputFolder}/styles/`)
   );
 }

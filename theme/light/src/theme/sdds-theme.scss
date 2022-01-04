@@ -1,24 +1,15 @@
-@import '../core/prefix';
-@import '../core/base-unit';
-@import '../variables';
-@import '../mixins';
+/*
+
+This file is the main file for SDDS-theme component
+it contains all imports
+*/
+
+@import '../core';
+@import '../reboot';
 
 // import font files
-// cdn variables can be changed in sdds/theme/core/_prefix
+// CDN variables can be changed in sdds/theme/core/_prefix
 @import url('#{$cdn}/fonts/scania-sans/1.0.0/scania-sans.css');
-
-// Utilities
-@import '../utilities/data-env.scss';
-@import '../utilities/loading.scss';
-
-// Core classes
-@import '../core/grid/grid';
-@import '../core/colour/colour';
-@import '../core/typography/vars';
-@import '../core/typography/selectors';
-
-// Import css variables
-@import '../css-vars.scss';
 
 // Components
 @import '../components/accordion';
@@ -30,7 +21,6 @@
 @import '../components/divider';
 @import '../components/dropdowns';
 @import '../components/modal';
-@import '../components/navs';
 @import '../components/radio-button';
 @import '../components/table';
 @import '../components/link';
@@ -41,57 +31,6 @@
 @import '../components/slider';
 @import '../components/spinner';
 @import '../components/badges';
-// Patterns
-
-@import '../patterns/header';
-@import '../patterns/side-menu.scss';
-@import '../patterns/footer';
-
-:root,
-html {
-  font-size: $base-unit;
-}
-// Output rules
-* {
-  box-sizing: border-box;
-}
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  visibility: visible;
-}
-html {
-  height: 100%;
-}
-body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  color: var(--sdds-grey-958);
-  margin: 0;
-  flex: 1;
-
-  &.nav-show {
-    overflow: hidden;
-  }
-}
-
-// TODO: Should we really do this?
-// c-cookie {
-
-//   a {
-//     color: get-colour(information);
-//     color: Var(--sdds-information);
-//     text-decoration: none;
-
-//     &:hover {
-//       text-decoration: underline;
-//     }
-//   }
-// }
-
-@media (min-width: 992px) {
-  body.nav-show {
-    overflow: auto;
-  }
-}
+@import '../components/header';
+@import '../components/side-menu';
+@import '../components/footer';

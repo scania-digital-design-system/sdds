@@ -1,0 +1,24 @@
+:root,
+html {
+  font-size: $base-unit;
+}
+// Output rules
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  visibility: visible;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: var(--sdds-grey-958);
+  margin: 0;
+  flex: 1;
+}
