@@ -2,9 +2,6 @@ import { useArgs } from '@storybook/client-api';
 
 export default {
   title: 'Patterns/SideMenu',
-  args: {
-    active: true,
-  },
 };
 
 const Template = (args) => {
@@ -60,6 +57,12 @@ const Template = (args) => {
     padding: 16px 10px 16px 24px;
     flex-grow: 1;
     font-weight: bold;
+    }
+    .collapse-button-icon{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-left: 16px;
     }
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
@@ -146,21 +149,18 @@ const Template = (args) => {
         ${
           !collapse
             ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
-               <span class="sdds-navbar-icon-button" style="width: 30px; height: 30px">
+               <span class="collapse-button-icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
                </span>
-              <a class="sdds-navbar-menu-item-link" href="#">
+              <div style="padding: 0 24px 0 12px; font-weight: bold; display: flex; align-items: center">
               Collapse
-               </a>
+               </div>
              </div>
              `
             : `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
-              <span class="sdds-navbar-icon-button" style="height: 30px">
+               <span class="collapse-button-icon">
                <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
               </span>
-              <a class="sdds-navbar-menu-item-link" href="#">
-                  Collapse
-              </a>
           </div>
               `
         }
@@ -218,7 +218,6 @@ const Template = (args) => {
 export const Basic = Template.bind({});
 
 Basic.args = {
-  icon: false,
   active: true,
 };
 
@@ -234,51 +233,12 @@ export const WithIcon = Template.bind({});
 
 WithIcon.args = {
   icon: true,
-  dropdown: false,
+  active: true,
 };
 
 export const Dropdown = Template.bind({});
 
 Dropdown.args = {
   dropdown: true,
-
-  active: true,
-};
-
-export const Collapse = Template.bind({});
-
-Collapse.args = {
   icon: true,
-  collapse: true,
-  active: true,
-};
-
-Collapse.argTypes = {
-  icon: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-export const CollapseDropdown = Template.bind({});
-
-CollapseDropdown.args = {
-  icon: true,
-  dropdown: true,
-  collapse: true,
-  active: true,
-};
-
-CollapseDropdown.argTypes = {
-  icon: {
-    table: {
-      disable: true,
-    },
-  },
-  dropdown: {
-    table: {
-      disable: true,
-    },
-  },
 };
