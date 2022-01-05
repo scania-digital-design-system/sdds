@@ -1,8 +1,4 @@
-[![npm version](http://img.shields.io/npm/v/scania-theme.svg?style=flat&color=1081C2)](https://npmjs.org/package/@scania/theme-light)
-[![Github release](https://img.shields.io/github/v/tag/scania/scania-theme.svg?label=release&color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/scania-digital-design-system/sdds/Node%20CI)
-
-# Scania Theme
+![npm](https://img.shields.io/npm/v/@scania/theme-light)
 
 # @scania/theme-light
 
@@ -13,37 +9,23 @@ Scania theme is a package to style Scania looks and feel in the [Scania Digital 
 <details open>
  <summary><strong>NPM package</strong></summary>
 <br/>
- 
+
 Install package by running the command below.
- 
+
 ```shell
+npm i @scania/components -D
 npm i @scania/theme-light -D
 ```
 
 Import theme in the project and use it with addTheme function from corporate-ui.
 
 ```js
-import { defineCustomElements, addTheme } from '@scania/components'; 
-import { theme as scania } from '@scania/theme-light'; 
- 
-defineCustomElements(); 
+import { defineCustomElements, addTheme } from '@scania/components';
+import { theme as scania } from '@scania/theme-light';
+
+defineCustomElements();
 addTheme(scania);
 ```
-
-</details>
-
-<details>
-<summary><strong>CDN link</strong></summary>
-<br/>
- 
-Add link to the script by adding the following to the head element. Make sure to include scania-theme script BEFORE the corporate-ui script.
- 
-```html
-<script src="https://digitaldesign.scania.com/builds/@scania/theme-light/x/scania-theme.js"></script>
-<script src="https://digitaldesign.scania.com/builds/@scania/components/x/core.js"></script>
-```
-
-Replace `x` with [available releases](https://www.npmjs.com/@scania/theme-light).
 
 </details>
 
@@ -52,7 +34,7 @@ Replace `x` with [available releases](https://www.npmjs.com/@scania/theme-light)
 Initialize the theme with the `sdds-theme` component. Set `global` attribute to true in order to enable bootstrap styling.
 
 ```html
-<sdds-theme name="scania" global="true"></sdds-theme>
+<sdds-theme></sdds-theme>
 ```
 
 ## Setup local development
