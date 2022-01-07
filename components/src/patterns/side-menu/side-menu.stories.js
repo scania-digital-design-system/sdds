@@ -147,7 +147,7 @@ const Template = (args) => {
           </li>
         </ul>
         ${
-          !collapse
+          icon && !collapse
             ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
                <span class="collapse-button-icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
@@ -157,12 +157,14 @@ const Template = (args) => {
                </div>
              </div>
              `
-            : `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
+            : icon
+            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
                <span class="collapse-button-icon">
                <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
               </span>
           </div>
               `
+            : ''
         }
         
       </div>
