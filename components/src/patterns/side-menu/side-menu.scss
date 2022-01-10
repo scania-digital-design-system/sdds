@@ -168,6 +168,7 @@
 
   .#{$prefix}-navbar-menu-list {
     flex-grow: 1;
+    margin-bottom: var(--#{$prefix}-dropdown-menu-items-height);
   }
 
   .#{$prefix}-navbar-menu-item-bottom {

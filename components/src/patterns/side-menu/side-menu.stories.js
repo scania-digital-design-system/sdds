@@ -145,6 +145,42 @@ const Template = (args) => {
                 Item 4 
               </a>
           </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 5 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 6 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 7 
+              </a>
+          </li>
+            <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 8 
+              </a>
+          </li>
+            <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 9 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Last Item 
+              </a>
+          </li>
         </ul>
         ${
           icon && !collapse
