@@ -22,7 +22,7 @@ body:
   - type: dropdown
     attributes:
       label: Type of feature request
-      description: What is the feature request related with.
+      description: What is the feature request related with?
       options:
         - Functionality
         - Design
@@ -35,14 +35,14 @@ body:
   - type: textarea
     attributes:
       label: What is your feature request?
-      description: A clear and concise description about the feature. Feel free to add screenshots
+      description: A clear and concise description about the feature. Feel free to add screenshots.
       placeholder: e.g Component x is missing feature y...
     validations:
       required: true
   - type: textarea
     attributes:
       label: Background
-      description: "Add a background why do you need it. Describe the benefits of the change (e.g., business justification, user value etc.) and the reach of the problem"
+      description: "Add a background why do you need it. Describe the benefits of the change (e.g., business justification, user value etc.) and the reach of the problem."
       placeholder: e.g Because of...
     validations:
       required: true
@@ -112,16 +112,16 @@ body:
   - type: textarea
     attributes:
       label: Idea
-      description: "Do you already have a suggestion how to solve it? Any previous work or research can be included"
-      placeholder: e.g if you add X....    
+      description: "Do you already have a suggestion how to solve it? Any previous work or research can be included."
+      placeholder: e.g if you add X....
   - type: textarea
     attributes:
       label: Goals and objectives
-      description: "what is your desired outcome? What would success look like for you?"
+      description: "What is your desired outcome? What would success look like for you?"
   - type: input
     attributes:
       label: Timeline
-      description: "Are there any requests regarding the time period"
+      description: "Are there any requests regarding the time period."
       placeholder: e.g around 10th of jan, because of our release...
   - type: input
     attributes:
@@ -131,7 +131,7 @@ body:
   - type: input
     attributes:
       label: Contact information
-      description: Provide email if we need to contact .
+      description: Provide email if we need to contact you.
       placeholder: example@example.com
   - type: markdown
     attributes:
