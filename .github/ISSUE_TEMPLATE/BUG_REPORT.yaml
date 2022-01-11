@@ -27,10 +27,10 @@ body:
     attributes:
       label: Package
       multiple: true
-      description: 'Which packages does the bug come from? You can choose multiple packages.'
+      description: 'Which packages does the bug come from? You can choose multiple packages. See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
       options:
         - '@scania/components'
-        - '@scania/themne-light'
+        - '@scania/theme-light'
         - '@scania/colour'
         - '@scania/grid'
         - '@scania/typography'
