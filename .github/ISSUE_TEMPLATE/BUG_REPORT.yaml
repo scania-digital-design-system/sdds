@@ -1,0 +1,113 @@
+name: Bug report
+description: Bug report template
+title: '[Bug report]: add title '
+labels: 'bug'
+body:
+  - type: markdown
+    attributes:
+      value: '## Welcome!'
+  - type: markdown
+    attributes:
+      value: 'Found a bug in Scania Digital Design System? Fill in the template and we will look into it! Before you report an issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
+  - type: checkboxes
+    attributes:
+      label: Requirements before reporting
+      options:
+        - label: "No duplicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported"
+          required: true
+        - label: "I have read the contribution [guidelines](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md)"
+          required: true
+        - label: "I have checked the lastest version if the bug exist there"
+          required: true
+        - label: "I have made sure that the issue comes from SDDS packages by removing SDDS from my project as test"
+          required: true
+        - label: "I have followed the installation guide"
+          required: true
+  - type: dropdown
+    attributes:
+      label: Package
+      multiple: true
+      description: "Which packages does the bug come from? You can choose multiple packages"
+      options:
+        - "@scania/components"
+        - "@scania/themne-light"
+        - "@scania/colour"
+        - "@scania/grid"
+        - "@scania/typography"
+        - "@scania/icons"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Package versions
+      description: "What version do you use, you can find it in package.json, see all avaliable versions at [npmJS.com](https://www.npmjs.com/search?q=%40scania)"
+      placeholder: "@scania/components 1.5.3, @scania/theme-light 3.5.3"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Browser
+      description: "What browser has error appeared in or what browser do you mostly use"
+      options:
+        - "Chrome"
+        - "Firefox"
+        - "Safari"
+        - "Edge (Chromium)"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Framework
+      description: "What framework do you use?"
+      options:
+        - "Angular"
+        - "React"
+        - "Vue"
+        - ".NET"
+        - "Plain HTML"
+        - "Other"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Version
+      description: "If you use a framework, What version of your framework do you use?"
+      placeholder: "Angular 13"
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1. Add component x
+        2. Click y
+        3. Do z
+        ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Code example"
+      description: "Add a simple code example how to replicate the error"
+      value: "<div>...."
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: "Add one or more screenshots"
+      value: "Add/Copy screenshot here"
+  - type: textarea
+    attributes:
+      label: "Expected behaviour"
+      description: "A clear and concise description of what you expected to happen."
+      value: "Component x should be able to..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Console errors"
+      description: "If any console error has appeared please add it here"
+      value: "Add warning/error message"
+      
+      
+      
+      
