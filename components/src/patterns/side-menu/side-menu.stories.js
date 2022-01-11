@@ -1,19 +1,26 @@
+import { useArgs } from '@storybook/client-api';
+
 export default {
   title: 'Patterns/SideMenu',
-  args: {
-    active: true,
-  },
 };
 
-const Template = ({
-  icon = false,
-  dropdown = false,
-  collapse = false,
-  active = false,
-}) => {
+const Template = (args) => {
+  const {
+    icon = false,
+    dropdown = false,
+    collapse = false,
+    active = false,
+  } = args;
   const icons = icon
     ? '<span class="sdds-navbar-icon-button"><svg width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>'
     : '';
+
+  const [_, setArgs] = useArgs();
+
+  window.toggleCollapse = (event) => {
+    event.preventDefault();
+    setArgs({ ...args, collapse: !collapse });
+  };
 
   const style = `
   <style>
@@ -41,6 +48,27 @@ const Template = ({
     }
     .sdds-navbar-menu-popover {
       display:none;
+    }
+    .popover-menu-parent:hover{
+    cursor: default;
+    background: transparent !important;
+    }
+    .popover-menu-title{
+    padding: 16px 10px 16px 24px;
+    flex-grow: 1;
+    font-weight: bold;
+    }
+    .collapse-button-icon{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-left: 16px;
+    }
+    .collapse-button-text{
+    padding: 0 24px 0 12px; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center
     }
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
@@ -123,17 +151,74 @@ const Template = ({
                 Item 4 
               </a>
           </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 5 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 6 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 7 
+              </a>
+          </li>
+            <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 8 
+              </a>
+          </li>
+            <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Item 9 
+              </a>
+          </li>
+           <li class="sdds-navbar-menu-item">        
+          ${icons}     
+              <a class="sdds-navbar-menu-item-link" href="#"> 
+                Last Item 
+              </a>
+          </li>
         </ul>
+        ${
+          icon && !collapse
+            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
+               <span class="collapse-button-icon">
+                <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
+               </span>
+              <div class="collapse-button-text">
+              Collapse
+               </div>
+             </div>
+             `
+            : icon
+            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
+               <span class="collapse-button-icon">
+               <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
+              </span>
+          </div>
+              `
+            : ''
+        }
+        
       </div>
       
       ${
         collapse && !dropdown
           ? `
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:0;">
-        <div class="sdds-navbar-menu-item"> 
-          <a class="sdds-navbar-menu-item-link" href="#"> 
+        <div class="sdds-navbar-menu-item popover-menu-parent"> 
+          <div class="popover-menu-title"> 
           Item 1 
-          </a>
+          </div>
         </div>
       </div>`
           : ''
@@ -144,14 +229,14 @@ const Template = ({
           ? `
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:34rem;">
         <div class="sdds-navbar-menu-item-dropdown opened"">
-          <div class="sdds-navbar-menu-item-dropdown-parent">
-            <a class="sdds-navbar-menu-item-link active" href="#"> 
+          <div class="sdds-navbar-menu-item-dropdown-parent popover-menu-parent">
+            <div class="popover-menu-title active"> 
               <span class="sdds-menu-item-dropdown-text">Item 3</span>
-            </a>
+            </div>
           </div>  
           <ul class="sdds-navbar-menu__dropdown-menu">
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-1 long label...</a></li>
-              <li class="sdds-navbar-menu__dropdown-item active"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
+              <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-2</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-3</a></li>
               <li class="sdds-navbar-menu__dropdown-item"><a class="sdds-navbar-menu__dropdown-item-link" href="#">Sub item 3-4 long label...</a></li>
           </ul>
@@ -177,7 +262,6 @@ const Template = ({
 export const Basic = Template.bind({});
 
 Basic.args = {
-  icon: false,
   active: true,
 };
 
@@ -193,51 +277,12 @@ export const WithIcon = Template.bind({});
 
 WithIcon.args = {
   icon: true,
-  dropdown: false,
+  active: true,
 };
 
 export const Dropdown = Template.bind({});
 
 Dropdown.args = {
   dropdown: true,
-
-  active: true,
-};
-
-export const Collapse = Template.bind({});
-
-Collapse.args = {
   icon: true,
-  collapse: true,
-  active: true,
-};
-
-Collapse.argTypes = {
-  icon: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-export const CollapseDropdown = Template.bind({});
-
-CollapseDropdown.args = {
-  icon: true,
-  dropdown: true,
-  collapse: true,
-  active: true,
-};
-
-CollapseDropdown.argTypes = {
-  icon: {
-    table: {
-      disable: true,
-    },
-  },
-  dropdown: {
-    table: {
-      disable: true,
-    },
-  },
 };
