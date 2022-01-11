@@ -64,6 +64,12 @@ const Template = (args) => {
     align-items: center;
     margin-left: 16px;
     }
+    .collapse-button-text{
+    padding: 0 24px 0 12px; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center
+    }
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
         position: relative;
@@ -188,7 +194,7 @@ const Template = (args) => {
                <span class="collapse-button-icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
                </span>
-              <div style="padding: 0 24px 0 12px; font-weight: bold; display: flex; align-items: center">
+              <div class="collapse-button-text">
               Collapse
                </div>
              </div>
