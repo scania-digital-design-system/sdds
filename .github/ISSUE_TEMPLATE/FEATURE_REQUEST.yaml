@@ -13,7 +13,7 @@ body:
     attributes:
       label: Requirements before reporting
       options:
-        - label: No dublicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported
+        - label: No duplicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported
           required: true
         - label: I have read the contribution [guidelines](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md)
           required: true
