@@ -13,15 +13,15 @@ body:
     attributes:
       label: Requirements before reporting
       options:
-        - label: 'No duplicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported'
+        - label: 'No duplicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported.'
           required: true
-        - label: 'I have read the contribution [guidelines](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md)'
+        - label: 'I have read the contribution [guidelines](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md).'
           required: true
-        - label: 'I have checked the lastest version if the bug exist there'
+        - label: 'I have checked the lastest version if the bug exist there. See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania)'
           required: true
-        - label: 'I have made sure that the issue comes from SDDS packages by removing SDDS from my project as test'
+        - label: 'I have made sure that the issue comes from SDDS packages by removing SDDS from my project as test.'
           required: true
-        - label: 'I have followed the installation guide'
+        - label: 'I have followed the installation guide.'
           required: true
   - type: dropdown
     attributes:

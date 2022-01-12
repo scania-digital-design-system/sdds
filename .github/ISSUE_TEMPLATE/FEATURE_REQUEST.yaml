@@ -126,12 +126,12 @@ body:
   - type: input
     attributes:
       label: Rescources
-      description: Do you have any resoruces avaliable?
+      description: "Do you have any resoruces avaliable? Can be any inspirational."
       placeholder: https://example.com
   - type: input
     attributes:
       label: Contact information
-      description: Provide email if we need to contact you.
+      description: "Provide email if we need to contact you."
       placeholder: example@example.com
   - type: markdown
     attributes:
