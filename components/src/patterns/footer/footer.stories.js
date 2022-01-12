@@ -76,7 +76,7 @@ const Template = ({ topPart = false }) => {
         <li><a href="#">Social 1</a></li>
       </ul>
       <div class="sdds-footer-main-brand">
-        <p>Copyright &copy; 2021 Scania</p>
+        <p>Copyright &copy; 2022 Scania</p>
       </div>
     </div>
   </div>

@@ -104,7 +104,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="sdds-footer-main-brand">
-          <p>Copyright &copy; 2021 Scania</p>
+          <p>Copyright &copy; 2022 Scania</p>
         </div>
       </div>
     </div>
