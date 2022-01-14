@@ -102,7 +102,7 @@ const Template = (args) => {
     }">
 
       <div class="sdds-navbar-side-menu expanded">
-        <ul class="sdds-navbar-menu-list">
+        <ul class="sdds-navbar-menu-list sdds-navbar-menu-list--extended">
           <li class="sdds-navbar-menu-item ${active ? 'active' : ''}">
               ${icons}
               <a class="sdds-navbar-menu-item-link" href="#"> 
