@@ -41,6 +41,16 @@ body {
   margin: 10px;
 }
 
+.collapse-btn{
+  padding: 0;
+  align-items: center;
+}
+.collapse-button-icon{
+  margin-left: 16px;
+}
+.collapse-button-text{
+  padding: 0 24px 0 12px;
+}
 form > div {
   margin-bottom: var(--sdds-spacing-element-32);
 }
