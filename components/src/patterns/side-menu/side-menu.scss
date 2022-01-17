@@ -53,6 +53,17 @@
     background: white;
     width: 288px;
     border-right: 1px solid var(--sdds-navbar-side-menu-border);
+    padding: 0;
+    align-items: center;
+  }
+
+  .collapse-button-icon {
+    margin-left: 16px;
+  }
+
+  .collapse-button-text {
+    padding: 0 24px 0 12px;
+    font-weight: bold;
   }
 
   .collapse-button-collapse {

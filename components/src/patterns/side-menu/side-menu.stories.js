@@ -58,18 +58,7 @@ const Template = (args) => {
     flex-grow: 1;
     font-weight: bold;
     }
-    .collapse-button-icon{
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    margin-left: 16px;
-    }
-    .collapse-button-text{
-    padding: 0 24px 0 12px; 
-    font-weight: bold; 
-    display: flex; 
-    align-items: center
-    }
+    
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
         position: relative;
