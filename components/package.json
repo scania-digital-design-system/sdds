@@ -1,6 +1,6 @@
 {
   "name": "@scania/components",
-  "version": "1.16.1",
+  "version": "1.16.2",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
@@ -77,5 +77,5 @@
   "dependencies": {
     "concurrently": "^5.3.0"
   },
-  "gitHead": "d459a7d764e267049ecabf220ea4ae3c371548fd"
+  "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
 }
