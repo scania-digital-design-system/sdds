@@ -183,9 +183,9 @@ const Template = (args) => {
                <span class="collapse-button-icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
                </span>
-              <div class="collapse-button-text">
+              <a class="collapse-button-text">
               Collapse
-               </div>
+               </a>
              </button>
              `
             : icon
