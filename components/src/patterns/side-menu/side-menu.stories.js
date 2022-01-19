@@ -180,18 +180,18 @@ const Template = (args) => {
         ${
           icon && !collapse
             ? `<button onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
-               <span class="collapse-button-icon">
+               <span class="sdds-collapse-button--icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
                </span>
-              <a class="collapse-button-text">
-              Collapse
-               </a>
+               <p class="sdds-collapse-button--text">
+                Collapse
+               </p>
              </button>
              `
             : icon
             ? `<button onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
-               <span class="collapse-button-icon">
-               <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
+               <span class="sdds-collapse-button--icon sdds-collapse-button--icon--collapsed">
+               <sdds-icon style="font-size: 30px" name="scania-arrow"></sdds-icon>               
               </span>
           </button>
               `

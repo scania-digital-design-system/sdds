@@ -40,18 +40,14 @@ function SideMenu({ expand }) {
           ${collapse ? 'collapse-button-collapse' : ''}`}
           onClick={() => clickCollapse()}
         >
-          <span className="collapse-button-icon">
-            <sdds-icon
-              style={{
-                fontSize: 30,
-                transform: `${collapse ? 'rotate(180deg)' : ''}`,
-              }}
-              name="scania-arrow"
-            />
+          <span
+            className={`sdds-collapse-button--icon ${
+              collapse ? 'sdds-collapse-button--icon--collapsed' : ''
+            }`}
+          >
+            <sdds-icon style={{ fontSize: 30 }} name="scania-arrow" />
           </span>
-          <a className="sdds-navbar-menu-item-link collapse-button-text">
-            Collapse
-          </a>
+          <p className="sdds-collapse-button--text">Collapse</p>
         </button>
       </div>
     </div>
