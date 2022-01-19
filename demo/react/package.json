@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@scania/components": "1.16.2",
+    "@scania/components": "latest",
     "@scania/icons": "latest",
     "@scania/theme-light": "latest"
   }
