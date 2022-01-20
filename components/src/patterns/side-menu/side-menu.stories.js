@@ -58,18 +58,7 @@ const Template = (args) => {
     flex-grow: 1;
     font-weight: bold;
     }
-    .collapse-button-icon{
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    margin-left: 16px;
-    }
-    .collapse-button-text{
-    padding: 0 24px 0 12px; 
-    font-weight: bold; 
-    display: flex; 
-    align-items: center
-    }
+    
     @media all and (min-width: 992px) {
       .sdds-sidebar.expanded {
         position: relative;
@@ -190,21 +179,21 @@ const Template = (args) => {
         </ul>
         ${
           icon && !collapse
-            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
-               <span class="collapse-button-icon">
+            ? `<button onclick="toggleCollapse(event)" class="sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button">
+               <span class="sdds-collapse-button--icon">
                 <sdds-icon style="font-size: 30px;" name="scania-arrow"></sdds-icon>               
                </span>
-              <div class="collapse-button-text">
-              Collapse
-               </div>
-             </div>
+               <p class="sdds-collapse-button--text">
+                Collapse
+               </p>
+             </button>
              `
             : icon
-            ? `<div onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
-               <span class="collapse-button-icon">
-               <sdds-icon style="font-size: 30px; transform:rotate(180deg)" name="scania-arrow"></sdds-icon>               
+            ? `<button onclick="toggleCollapse(event)" class="sdds-collapse-button collapse-button-collapse sdds-navbar-menu-item sdds-navbar-menu-item-bottom sdds-navbar-menu-hide-on-mobil hide-collapse-button">
+               <span class="sdds-collapse-button--icon sdds-collapse-button--icon--collapsed">
+               <sdds-icon style="font-size: 30px" name="scania-arrow"></sdds-icon>               
               </span>
-          </div>
+          </button>
               `
             : ''
         }
