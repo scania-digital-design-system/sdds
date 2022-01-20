@@ -53,6 +53,23 @@
     background: white;
     width: 288px;
     border-right: 1px solid var(--sdds-navbar-side-menu-border);
+    padding: 0;
+    align-items: center;
+
+    .#{$prefix}-collapse-button--icon {
+      margin-left: 16px;
+      transform: rotate(0);
+      transition: transform 250ms ease;
+    }
+    .#{$prefix}-collapse-button--icon--collapsed {
+      transform: rotate(180deg);
+    }
+
+    .#{$prefix}-collapse-button--text {
+      padding: 0 24px 0 8px;
+
+      @include type-style('headline-07');
+    }
   }
 
   .collapse-button-collapse {
@@ -146,6 +163,9 @@
     .#{$prefix}-navbar-menu-item-dropdown a,
     .#{$prefix}-navbar-menu-item-dropdown.opened
       .#{$prefix}-navbar-menu__dropdown-menu {
+      display: none;
+    }
+    .#{$prefix}-collapse-button p {
       display: none;
     }
 
