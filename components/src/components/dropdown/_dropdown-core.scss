@@ -1,31 +1,37 @@
 @mixin dropdown-wrapper {
   @include type-style('detail-02');
+
   color: var(--sdds-dropdown-text);
   display: flex;
   align-items: center;
   background-color: var(--sdds-dropdown-bg);
   cursor: pointer;
-  border: 1px solid var(--sdds-dropdown-border);
   transition: box-shadow 0.1s ease-in;
-  border-radius: var(--sdds-dropdown-border-radius);
+  border-radius: 1rem 1rem 0 0;
+  border: 0;
+  border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
   box-shadow: 0;
   width: 100%;
   text-align: left;
   outline: none;
-  padding: var(--#{$prefix}-dropdown-padding-top-large)
+  padding:
+ var(--#{$prefix}-dropdown-padding-top-large)
     var(--#{$prefix}-dropdown-padding-left);
 
   &:hover {
-    border-color: var(--sdds-dropdown-toggle-border-hover);
+    border-bottom-color: var(--sdds-dropdown-toggle-border-hover);
   }
+
   &:focus {
-    border-color: var(--sdds-dropdown-toggle-border-focus);
+    border-width: 2px;
+    border-bottom-color: var(--sdds-dropdown-toggle-border-focus);
   }
+
   &:active,
   &.active &.selected {
-    border-color: var(--sdds-dropdown-toggle-border-selected);
-    background-color: var(--sdds-dropdown-bg-selected);
+    border-bottom-color: var(--sdds-dropdown-toggle-border-selected);
   }
+
   &.is-filter {
     transition: border 0.1s ease-in 0.1s;
     cursor: text;
@@ -34,6 +40,7 @@
 
 .#{$prefix}-dropdown-helper {
   @include type-style('detail-05');
+
   display: block;
   color: var(--sdds-dropdown-helper-text);
   margin-top: var(--sdds-spacing-element-4);
@@ -46,9 +53,11 @@
 }
 .#{$prefix}-dropdown-label-inside {
   @include type-style('detail-07');
+
   color: var(--sdds-dropdown-label-inside);
 }
 .#{$prefix}-dropdown-label-outside {
   @include type-style('detail-05');
+
   color: var(--sdds-dropdown-label-outside);
 }
