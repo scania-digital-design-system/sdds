@@ -161,7 +161,11 @@ export class Dropdown {
                   onInput={(event) => this.handleSearch(event)}
                 />
               ) : (
-                <span class="sdds-dropdown-label-main">
+                <span
+                  class={`sdds-dropdown-label-main ${
+                    this.selected.length === 0 && 'sdds-dropdown-placeholder'
+                  }`}
+                >
                   {this.selected.length > 0 ? this.selected : this.placeholder}
                 </span>
               )}

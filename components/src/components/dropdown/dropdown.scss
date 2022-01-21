@@ -245,3 +245,6 @@
     opacity: 1;
   }
 }
+.#{$prefix}-dropdown-placeholder {
+  color: var(--sdds-dropdown-placeholder);
+}
