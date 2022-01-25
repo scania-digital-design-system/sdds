@@ -35,9 +35,11 @@
     width: 4px;
     background-color: transparent;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: var(--sdds-grey-300);
   }
+
   ::-webkit-scrollbar-button {
     height: 0;
     width: 0;
@@ -52,6 +54,7 @@
   opacity: 0;
   transition: opacity 0.1s ease-out;
   visibility: hidden;
+
   &.expanded {
     opacity: 0.5;
     visibility: visible;

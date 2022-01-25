@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   margin-right: auto;
+
   @media all and (min-width: $grid-lg) {
     margin-right: 0;
   }
@@ -25,9 +26,11 @@
   width: var(--#{$prefix}-header-icon-width);
   background-position: center;
   background-repeat: no-repeat;
+
   &:hover {
     background-color: var(--#{$prefix}-nav-item-background-hover);
   }
+
   @media all and (min-width: $grid-lg) {
     display: block;
   }

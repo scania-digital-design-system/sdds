@@ -2,8 +2,11 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 @import '@scania/grid/dist/scss/grid.scss';
-@import '../header/mixins';
-@import '../header/navbar-collapsible';
+@import 'mixins';
+@import 'navbar-brand';
+@import 'navbar-collapsible';
+@import 'navbar-menu-item';
+@import 'navbar-toolbar-menu';
 
 .#{$prefix}-sidebar {
   .#{$prefix}-navbar-menu-item-dropdown-parent {
