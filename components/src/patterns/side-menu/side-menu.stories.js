@@ -31,10 +31,9 @@ const Template = (args) => {
     .sb-show-main.sb-main-padded {
       padding: 0;
     }
-    .sdds-demo-container {
-      padding-top: var(--sdds-header-height);
+    .sdds-demo-container { 
       align-items: stretch;
-      height: 100%;
+      height: calc(100% - 64px);
       overflow:hidden;
     }
     .sdds-container {
@@ -74,15 +73,13 @@ const Template = (args) => {
   return `
   <sdds-theme></sdds-theme>
   ${style}
-  <div class="sdds-navbar-overlay expanded"></div>
-
-  <nav class="sdds-navbar">
-    <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer expanded">
-      <span class="sdds-icon-drawer"></span>
-    </button>
-    <div class="sdds-navbar-application-brand">Application</div>
-
-    <div class="sdds-navbar-scania-brand"></div>
+   <nav class='sdds-nav'>     
+      <div class='sdds-nav__left'>      
+        <div class='sdds-nav__app-name'>My application</div>
+      </div>
+      <div class='sdds-nav__right'>       
+        <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+      </div> 
   </nav>
 
   <div class="sdds-push sdds-demo-container">
