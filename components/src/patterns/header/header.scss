@@ -2,12 +2,7 @@
 @import '@scania/typography/dist/scss/tokens';
 @import '@scania/grid/dist/scss/grid.scss';
 
-// TODO: Move lines 6-42 to shared components CSS file
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+// TODO: Move lines 7-37 to shared components CSS file
 
 @mixin sdds-nav__basic-element-style {
   cursor: pointer;
@@ -42,6 +37,13 @@
 }
 
 // Style for Header itself
+
+.sdds-nav,
+.sdds-nav * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .sdds-nav {
   background-color: var(--sdds-blue-800);
