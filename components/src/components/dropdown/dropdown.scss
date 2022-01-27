@@ -114,6 +114,9 @@
       pointer-events: none;
       color: var(--sdds-dropdown-text-disabled);
       border: none;
+      .#{$prefix}-dropdown-placeholder {
+        color: var(--sdds-dropdown-text-disabled);
+      }
     }
   }
 }
