@@ -8,7 +8,7 @@ The design system supports the design and development of digital solutions at Sc
 
 - [Browser Support](#browser-support)
 - [Getting started](#getting-started)
-- [Demos](#demo)
+- [Framework demos](#framework-demos)
 - [Local environment](#run-local-environment)
   - [Commands](#commands-to-start)
   - [Debugging local environment](#debugging-local-environment)
@@ -42,14 +42,18 @@ You can also install a standalone package for different part. These are availabl
 
 You can find everything in [NPM](https://www.npmjs.com/org/scania)
 
-## Demo
+## Framework demos
+Clone this repo to run framework demo applications locally. Demos are available Angular, React, Vue and HTML. Each application needs to be installed individually before use. Installing creates a `node_modules` directory with modules needed to run the application as they're listed in the `package.json`-file of each app directory.
 
-Check the working demo on this repository.
+Note: If you install and start from root level, you will access a local copy of SDDS UI library in Storybook.
 
-- [Angular](./demo/angular)
-- [React](./demo/react)
-- [Vue](./demo/vue)
-- [HTML](./demo/HTML)
+```shell
+> git clone https://github.com/scania-digital-design-system/sdds.git
+> cd {app-directory}
+> npm i
+> npm start
+```
+
 
 ## Run local environment
 
