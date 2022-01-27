@@ -1,5 +1,5 @@
 name: "Feature request 🚀 "
-description: Suggest an feature for Scania Digital Design System.
+description: Suggest a feature for Scania Digital Design System.
 title: '[Feature Request]: add title '
 labels: 'feature'
 body:
@@ -8,70 +8,7 @@ body:
       value: '## Welcome!'
   - type: markdown
     attributes:
-      value: 'Suggest a feature for Scania Digital Design System, it can be anything from a function or design idea. Before you report a issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
-  - type: checkboxes
-    attributes:
-      label: Requirements before reporting
-      options:
-        - label: No duplicated [issue](https://github.com/scania-digital-design-system/sdds-website/issues) reported
-          required: true
-        - label: I have read the contribution [guidelines](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md)
-          required: true
-        - label: I have checked the lastest version if the feature exist there
-          required: true
-  - type: dropdown
-    attributes:
-      label: Type of feature request
-      description: What is the feature request related with?
-      options:
-        - Functionality
-        - Design
-        - Accessibility
-        - Documentation
-        - Testing
-        - Other
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: What is your feature request?
-      description: A clear and concise description about the feature. Feel free to add screenshots.
-      placeholder: e.g Component x is missing feature y...
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: Background
-      description: "Add a background why do you need it. Describe the benefits of the change (e.g., business justification, user value etc.) and the reach of the problem."
-      placeholder: e.g Because of...
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: Idea
-      description: Do you already have a suggestion how to solve it?
-      placeholder: e.g if you add X....
-  - type: input
-    attributes:
-      label: Rescources
-      description: Do you have any resoruces avaliable?
-      placeholder: https://example.com
-  - type: input
-    attributes:
-      label: Contact information
-      description: Provide email if we need to contact .
-      placeholder: example@example.com
-      name: Feature request
-description: Suggest an feature for Scania Digital Design System.
-title: '[Feature Request]: add title '
-labels: 'feature'
-body:
-  - type: markdown
-    attributes:
-      value: '## Welcome!'
-  - type: markdown
-    attributes:
-      value: 'Suggest a feature for Scania Digital Design System, it can be anything from a function or design idea. Before you report a issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
+      value: 'Suggest a feature for Scania Digital Design System, it can be anything from a function to a design idea. Before you report an issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if the issue is not already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
   - type: checkboxes
     attributes:
       label: Requirements before reporting
@@ -99,39 +36,39 @@ body:
     attributes:
       label: What is your feature request?
       description: A clear and concise description about the feature. Feel free to add screenshots
-      placeholder: e.g Component x is missing feature y...
+      placeholder: E.g Component x is missing feature y...
     validations:
       required: true
   - type: textarea
     attributes:
       label: Background
-      description: "Add a background why you need it. Describe the benefits of the change (e.g., business justification, user value etc.) and the reach of the problem"
-      placeholder: e.g Because of...
+      description: "Why do you need this feature? Describe the benefits of the change (e.g., business justification, user value etc.) and the reach of the problem."
+      placeholder: E.g Because of...
     validations:
       required: true
   - type: textarea
     attributes:
       label: Idea
       description: "Do you already have a suggestion how to solve it? Any previous work or research can be included."
-      placeholder: e.g if you add X....
+      placeholder: E.g if you add X....
   - type: textarea
     attributes:
       label: Goals and objectives
-      description: "What is your desired outcome? What would success look like for you?"
+      description: "What is the desired outcome? What would success look like for you?"
   - type: input
     attributes:
       label: Timeline
       description: "Are there any requests regarding the time period."
-      placeholder: e.g around 10th of jan, because of our release...
+      placeholder: E.g around 10th of Jan, because of our release...
   - type: input
     attributes:
-      label: Rescources
-      description: "Do you have any resoruces avaliable? Can be any inspirational."
+      label: Resources
+      description: "Do you have any resoruces available? Can be any inspirational."
       placeholder: https://example.com
   - type: input
     attributes:
       label: Contact information
-      description: "Provide email if we need to contact you."
+      description: "Provide an email if we need to contact you."
       placeholder: example@example.com
   - type: markdown
     attributes:
