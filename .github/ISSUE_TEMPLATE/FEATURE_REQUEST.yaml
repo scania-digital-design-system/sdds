@@ -58,12 +58,12 @@ body:
   - type: input
     attributes:
       label: Timeline
-      description: "Are there any requests regarding the time period."
+      description: "Are there any requests regarding the time period?"
       placeholder: E.g around 10th of Jan, because of our release...
   - type: input
     attributes:
       label: Resources
-      description: "Do you have any resoruces available? Can be any inspirational."
+      description: "Do you have any resoruces available? Can be anything inspirational."
       placeholder: https://example.com
   - type: input
     attributes:
