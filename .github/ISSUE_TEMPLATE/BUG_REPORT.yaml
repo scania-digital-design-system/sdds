@@ -1,5 +1,5 @@
 name: 'Bug report 🐞 '
-description: Bug report template
+description: Bug report template.
 title: '[Bug report]: add title '
 labels: 'bug'
 body:
@@ -8,7 +8,7 @@ body:
       value: '## Welcome!'
   - type: markdown
     attributes:
-      value: 'Found a bug in Scania Digital Design System? Fill in the template and we will look into it! Before you report an issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
+      value: 'Found a bug in the Scania Digital Design System? Fill in this template and we will look into it! Before you report an issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if the issue is not already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
   - type: checkboxes
     attributes:
       label: Requirements before reporting
@@ -19,7 +19,7 @@ body:
           required: true
         - label: 'I have checked the lastest version if the bug exist there. See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania)'
           required: true
-        - label: 'I have made sure that the issue comes from SDDS packages by removing SDDS from my project as test.'
+        - label: 'I have made sure that the issue comes from SDDS packages by removing SDDS from my project as a test.'
           required: true
         - label: 'I have followed the installation guide.'
           required: true
@@ -27,7 +27,7 @@ body:
     attributes:
       label: Package
       multiple: true
-      description: 'Which packages does the bug come from? You can choose multiple packages. See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
+      description: 'Which package(s) contains the bug? See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
       options:
         - '@scania/components'
         - '@scania/theme-light'
@@ -47,7 +47,7 @@ body:
   - type: dropdown
     attributes:
       label: Browser
-      description: 'What browser has error appeared in or what browser do you mostly use.'
+      description: 'What browser has the error appeared in or what browser do you mostly use.'
       options:
         - 'Chrome'
         - 'Firefox'
@@ -72,7 +72,7 @@ body:
   - type: input
     attributes:
       label: Version
-      description: 'If you use a framework, What version of your framework do you use?'
+      description: 'If you use a framework, what version of your framework do you use?'
       placeholder: 'Angular 13'
   - type: textarea
     attributes:
@@ -110,7 +110,7 @@ body:
   - type: input
     attributes:
       label: Contact information
-      description: Provide email if we need to contact you.
+      description: Provide an email if we need to contact you.
       placeholder: example@example.com
   - type: markdown
     attributes:
