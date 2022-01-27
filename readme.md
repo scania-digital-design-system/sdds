@@ -45,7 +45,9 @@ You can find everything in [NPM](https://www.npmjs.com/org/scania)
 ## Framework demos
 Clone this repo to run framework demo applications locally. Demos are available Angular, React, Vue and HTML. Each application needs to be installed individually before use. Installing creates a `node_modules` directory with modules needed to run the application as they're listed in the `package.json`-file of each app directory.
 
-Note: If you install and start from root level, you will access a local copy of SDDS UI library in Storybook.
+Note 1: If you install and start from root level, you will access a local copy of SDDS UI library in Storybook.
+
+Note 2: `npm start` not applicable for HTML demo 
 
 ```shell
 > git clone https://github.com/scania-digital-design-system/sdds.git
