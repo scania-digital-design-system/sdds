@@ -90,7 +90,7 @@ const InlineMenuTemplate = (args) => {
             </li>
       
             <li class='sdds-nav__item sdds-nav__item--active'>
-                <a class='sdds-nav__item-core ' href='#'>
+                <a class='sdds-nav__item-core' href='#'>
                     <p class='sdds-nav__item-core-text'>Item 2</p>
                 </a>
             </li>
