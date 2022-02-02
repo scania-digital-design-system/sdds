@@ -56,10 +56,10 @@ const SideMenuDropdownItem = ({ itemName, collapse, itemList }) => {
             className="sdds-navbar-menu-item-dropdown"
             style={{ height: '100%' }}
           >
-            <div className="sdds-navbar-menu-item-dropdown-parent">
-              <a className="sdds-navbar-menu-item-link" href="/">
+            <div className="sdds-navbar-menu-item-dropdown-parent popover-dropdown-menu-parent">
+              <div className="sdds-navbar-menu-item-link">
                 <span className="sdds-menu-item-dropdown-text">{itemName}</span>
-              </a>
+              </div>
             </div>
             <ul className="sdds-navbar-menu__dropdown-menu">
               {itemList &&

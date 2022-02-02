@@ -12,6 +12,12 @@ body {
   text-decoration: none;
 }
 
+/*TODO: remove lines 15-18 after release*/
+.popover-dropdown-menu-parent:hover {
+  cursor: default;
+  background: transparent !important;
+}
+
 .sdds-navbar-menu-popover a {
   display: flex;
   text-decoration: none;

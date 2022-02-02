@@ -48,7 +48,8 @@ const Template = (args) => {
     .sdds-navbar-menu-popover {
       display:none;
     }
-    .popover-menu-parent:hover{
+    /*TODO: remove lines 51-55 after release*/
+    .popover-dropdown-menu-parent:hover{
     cursor: default;
     background: transparent !important;
     }
@@ -215,7 +216,7 @@ const Template = (args) => {
           ? `
       <div class="sdds-navbar-menu-popover" style="position:absolute;left:17rem;top:34rem;">
         <div class="sdds-navbar-menu-item-dropdown opened"">
-          <div class="sdds-navbar-menu-item-dropdown-parent popover-menu-parent">
+          <div class="sdds-navbar-menu-item-dropdown-parent popover-dropdown-menu-parent">
             <div class="popover-menu-title active"> 
               <span class="sdds-menu-item-dropdown-text">Item 3</span>
             </div>
