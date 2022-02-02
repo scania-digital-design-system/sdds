@@ -28,7 +28,7 @@
     "@angular/cli": "~13.0.1",
     "@angular/compiler-cli": "~13.0.0",
     "@scania/components":"latest",
-    "@scania/icons": "^1.1.1",
+    "@scania/icons": "latest",
     "@scania/theme-light": "latest",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",

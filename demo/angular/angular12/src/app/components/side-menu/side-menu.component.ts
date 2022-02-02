@@ -129,6 +129,12 @@ export class SideMenuComponent implements OnInit {
     this._eref.nativeElement
       .querySelector('.sdds-sidebar')
       .classList.toggle('sdds-sidebar-collapse');
+    this._eref.nativeElement
+      .querySelector('.sdds-collapse-button')
+      .classList.toggle('collapse-button-collapse');
+    this._eref.nativeElement
+      .querySelector('.sdds-collapse-button--icon')
+      .classList.toggle('sdds-collapse-button--icon--collapsed');
     return false;
   }
 }
