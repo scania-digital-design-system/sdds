@@ -4,7 +4,9 @@ body {
 .nav-link {
   text-decoration: none;
 }
-
+.sdds-demo-container {
+  margin-top: var(--sdds-header-height);
+}
 .sdds-navbar-menu-popover {
   display: block;
   position: fixed;

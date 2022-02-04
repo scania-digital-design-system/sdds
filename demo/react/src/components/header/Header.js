@@ -2,7 +2,7 @@ import './Header.css';
 
 const Header = ({ onDrawerClick, expand }) => {
   return (
-    <nav class="sdds-nav">
+    <nav class="sdds-nav sdds-u-fixed sdds-u-top0">
       <div class="sdds-nav__left">
         <div className="sdds-nav__overlay" />
         <button
