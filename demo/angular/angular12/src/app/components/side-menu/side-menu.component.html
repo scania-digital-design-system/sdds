@@ -57,10 +57,10 @@
           <div class="sdds-navbar-menu-item-dropdown"
                style="height: 100%"
                (mouseenter)="showDropdownPopover=true">
-            <div class="sdds-navbar-menu-item-dropdown-parent">
-              <a class="sdds-navbar-menu-item-link popover-title">
+            <div class="sdds-navbar-menu-item-dropdown-parent popover-dropdown-menu-parent">
+              <div class="sdds-navbar-menu-item-link popover-title">
                 <span class="sdds-menu-item-dropdown-text">{{hoveredItem}}</span>
-              </a>
+              </div>
             </div>
 
             <ul class="sdds-navbar-menu__dropdown-menu">
@@ -76,17 +76,15 @@
       </li>
     </ul>
 
-    <div class="
-        sdds-navbar-menu-item
-        sdds-navbar-menu-item-bottom
-        sdds-navbar-menu-hide-on-mobile
-      "
-         (click)="clickCollapse()"
+    <button class="collapse-btn sdds-collapse-button sdds-navbar-menu-item sdds-navbar-menu-item-bottom hide-collapse-button"
+            (click)="clickCollapse()"
     >
-      <app-icon-button></app-icon-button>
-      <a id="collapse-btn" class="sdds-navbar-menu-item-link" href="#">
+       <span class="sdds-collapse-button--icon">
+         <sdds-icon style="font-size:30px" name="scania-arrow"></sdds-icon>
+      </span>
+      <p id="collapse-btn" class="sdds-collapse-button--text" href="#">
         Collapse
-      </a>
-    </div>
+      </p>
+    </button>
   </div>
 </div>

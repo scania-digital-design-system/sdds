@@ -1,16 +1,23 @@
 body {
   background: var(--sdds-grey-50);
 }
-
+.nav-link {
+  text-decoration: none;
+}
 .sdds-demo-container {
   margin-top: var(--sdds-header-height);
 }
-
 .sdds-navbar-menu-popover {
   display: block;
   position: fixed;
   z-index: 20000;
   text-decoration: none;
+}
+
+/*TODO: remove lines 15-18 after release*/
+.popover-dropdown-menu-parent:hover {
+  cursor: default;
+  background: transparent !important;
 }
 
 .sdds-navbar-menu-popover a {
@@ -39,32 +46,6 @@ body {
 .sdds-btn-group .sdds-btn,
 .sdds-btn-group sdds-button {
   margin: 10px;
-}
-/* TODO: remove lines 44-68 after release */
-.collapse-btn {
-  padding: 0;
-  align-items: center;
-}
-.sdds-collapse-button--icon {
-  margin-left: 16px;
-  transform: rotate(0);
-  transition: transform 250ms ease;
-}
-.sdds-collapse-button--icon--collapsed {
-  transform: rotate(180deg);
-}
-.sdds-collapse-button--text {
-  padding: 0 24px 0 10px;
-  font-family: 'Scania Sans Semi Condensed', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 3.5rem;
-  line-height: 4rem;
-  letter-spacing: -0.01em;
-}
-.sdds-sidebar-collapse {
-  .sdds-collapse-button p {
-    display: none;
-  }
 }
 
 form > div {

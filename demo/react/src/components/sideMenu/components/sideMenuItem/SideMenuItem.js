@@ -18,7 +18,7 @@ const SideMenuItem = ({ itemName, link, collapse }) => {
   return (
     <>
       <NavLink
-        className={`sdds-navbar-menu-item`}
+        className={`nav-link sdds-navbar-menu-item`}
         activeClassName={active ? 'active' : ''}
         to={link}
         style={{ color: 'black' }}
