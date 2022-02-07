@@ -11,9 +11,10 @@
   color: inherit;
 }
 
-.popover-title:hover {
-  background: white;
+/*TODO: remove lines 15-18 after release*/
+.popover-dropdown-menu-parent:hover {
   cursor: default;
+  background: transparent !important;
 }
 
 .sdds-sidebar {

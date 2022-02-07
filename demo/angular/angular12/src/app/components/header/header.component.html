@@ -1,12 +1,18 @@
-<nav class="sdds-navbar">
-  <button
-    id="menu-mobile"
-    class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer"
-    [ngClass]="{expanded:isExpanded}"
-    (click)="expand.emit()"
-  >
-    <span class="sdds-icon-drawer"></span>
-  </button>
-  <div class="sdds-navbar-application-brand">SDDS Demo Angular</div>
-  <div class="sdds-navbar-scania-brand"></div>
+<nav class='sdds-nav sdds-u-fixed sdds-u-top0'>
+  <div class='sdds-nav__left'>
+    <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay(event)"></div>
+    <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu(event)'
+            [ngClass]="{expanded:isExpanded}"
+            (click)="expand.emit()">
+      <div id='sdds-nav__mob-menu-icon'>
+        <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+        <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+        <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+      </div>
+    </button>
+    <div class='sdds-nav__app-name'>SDDS Demo Angular 12</div>
+  </div>
+  <div class='sdds-nav__right'>
+    <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+  </div>
 </nav>

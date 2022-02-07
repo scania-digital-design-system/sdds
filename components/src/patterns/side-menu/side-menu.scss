@@ -114,6 +114,11 @@
       }
     }
 
+    .popover-dropdown-menu-parent:hover {
+      cursor: default;
+      background: transparent !important;
+    }
+
     .#{$prefix}-navbar-menu__dropdown-item {
       &.active,
       &.active a,
