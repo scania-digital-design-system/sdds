@@ -3,6 +3,7 @@
 .#{$prefix}-dropdown {
   select {
     @include dropdown-wrapper;
+
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -14,24 +15,23 @@
   // Size medium
   &.#{$prefix}-dropdown-medium {
     select {
-      padding: var(--#{$prefix}-dropdown-padding-top-medium);
+      padding: 4rem;
     }
   }
 
   // Size small
   &.#{$prefix}-dropdown-small {
     select {
-      padding: var(--#{$prefix}-dropdown-padding-top-small)
-        var(--#{$prefix}-dropdown-padding-left);
+      padding: 3rem 4rem;
     }
   }
 
   &.is-error {
     select {
-      border-color: var(--sdds-dropdown-error);
+      border-color: var(--sdds-negative);
     }
     .#{$prefix}-dropdown-helper {
-      color: var(--sdds-dropdown-error);
+      color: var(--sdds-negative);
     }
   }
 }
