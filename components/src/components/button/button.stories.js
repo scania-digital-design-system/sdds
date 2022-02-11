@@ -1,23 +1,27 @@
+/**
+ * Default controls
+ */
+
 export default {
   title: 'Component/Button',
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        options: ['default', 'small', 'medium'],
-      },
-      defaultValue: 'default',
-      description: 'Size of the button',
-    },
     btnType: {
       name: 'type',
       defaultValue: 'primary',
       description:
         'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['primary', 'secondary', 'ghost', 'danger'],
       },
+    },
+    size: {
+      control: {
+        type: 'radio',
+        options: ['large', 'medium', 'small'],
+      },
+      defaultValue: 'large',
+      description: 'Size of the button',
     },
     fullbleed: {
       type: 'boolean',
@@ -26,6 +30,7 @@ export default {
     },
     disabled: {
       type: 'boolean',
+      defaultValue: false,
       description: 'Choose to disable the button',
     },
     onlyIcon: {
@@ -36,10 +41,17 @@ export default {
     },
     icon: {
       type: 'boolean',
+      defaultValue: false,
       description: 'Include icon',
     },
   },
 };
+
+/**
+ * Basic template
+ * @param {*} param0
+ * @returns Button HTML element
+ */
 
 const ButtonTemplate = ({
   size,
@@ -63,8 +75,7 @@ const ButtonTemplate = ({
       break;
   }
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
-  const inlineStyle = fullbleed ? 'style="width:200px;"' : '';
-
+  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   return `
@@ -88,6 +99,12 @@ const ButtonTemplate = ({
   `;
 };
 
+/**
+ * Basic template
+ * @param {*} param0
+ * @returns Button as a web component
+ */
+
 const ComponentBtn = ({
   size,
   btnType,
@@ -98,18 +115,18 @@ const ComponentBtn = ({
 }) => {
   let sizeValue = '';
   switch (size) {
-    case 'small':
-      sizeValue = 'sm';
+    default:
+      sizeValue = '';
       break;
     case 'medium':
       sizeValue = 'md';
       break;
-    default:
-      sizeValue = '';
+    case 'small':
+      sizeValue = 'sm';
       break;
   }
 
-  const inlineStyle = fullbleed ? 'style="width:200px;"' : '';
+  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
 
   return `
   <sdds-theme></sdds-theme>
@@ -121,22 +138,41 @@ const ComponentBtn = ({
   `;
 };
 
-export const Basic = ButtonTemplate.bind({});
-Basic.args = {
+/** Stories exported to Storybook */
+
+export const Primary = ButtonTemplate.bind({});
+Primary.args = {
   text: 'Button',
 };
 
-export const WithIcon = ButtonTemplate.bind({});
-WithIcon.args = {
-  text: 'Button with Icon',
-  icon: true,
+export const Secondary = ButtonTemplate.bind({});
+Secondary.args = {
+  btnType: 'secondary',
+  text: 'Button',
+};
+
+export const Ghost = ButtonTemplate.bind({});
+Ghost.args = {
+  btnType: 'ghost',
+  text: 'Button',
+};
+
+export const Danger = ButtonTemplate.bind({});
+Danger.args = {
+  btnType: 'danger',
+  text: 'Button',
 };
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
   disabled: 'disabled',
-  text: 'Button Disabled',
-  icon: false,
+  text: 'Button',
+};
+
+export const withIcon = ButtonTemplate.bind({});
+withIcon.args = {
+  text: 'Button',
+  icon: true,
 };
 
 export const onlyIcon = ButtonTemplate.bind({});
@@ -156,4 +192,25 @@ onlyIcon.argTypes = {
 export const sddsButton = ComponentBtn.bind({});
 sddsButton.args = {
   text: 'Button',
+};
+
+export const Medium_Size_W_Icon = ButtonTemplate.bind({});
+Medium_Size_W_Icon.args = {
+  size: 'medium',
+  text: 'Button',
+  icon: true,
+};
+
+export const Small_Size_W_Icon = ButtonTemplate.bind({});
+Small_Size_W_Icon.args = {
+  size: 'small',
+  text: 'Button',
+  icon: true,
+};
+
+export const Fullbleed = ButtonTemplate.bind({});
+Fullbleed.args = {
+  text: 'Button',
+  fullbleed: true,
+  icon: true,
 };
