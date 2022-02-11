@@ -1,6 +1,6 @@
 @import './dropdown-core';
 
-.#{$prefix}-dropdown {
+.sdds-dropdown {
   select {
     @include dropdown-wrapper;
 
@@ -13,14 +13,14 @@
   }
 
   // Size medium
-  &.#{$prefix}-dropdown-medium {
+  &.sdds-dropdown-medium {
     select {
       padding: 4rem;
     }
   }
 
   // Size small
-  &.#{$prefix}-dropdown-small {
+  &.sdds-dropdown-small {
     select {
       padding: 3rem 4rem;
     }
@@ -30,7 +30,8 @@
     select {
       border-color: var(--sdds-negative);
     }
-    .#{$prefix}-dropdown-helper {
+
+    .sdds-dropdown-helper {
       color: var(--sdds-negative);
     }
   }

@@ -47,7 +47,7 @@ html {
   }
 }
 
-.#{$prefix}-dropdown-helper {
+.sdds-dropdown-helper {
   @include type-style('detail-05');
 
   display: block;
@@ -55,17 +55,19 @@ html {
   margin-top: var(--sdds-spacing-element-4);
 }
 
-.#{$prefix}-dropdown-label-inside,
-.#{$prefix}-dropdown-label-outside {
+.sdds-dropdown-label-inside,
+.sdds-dropdown-label-outside {
   display: block;
   margin-bottom: var(--sdds-spacing-element-4);
 }
-.#{$prefix}-dropdown-label-inside {
+
+.sdds-dropdown-label-inside {
   @include type-style('detail-07');
 
   color: var(--sdds-grey-700);
 }
-.#{$prefix}-dropdown-label-outside {
+
+.sdds-dropdown-label-outside {
   @include type-style('detail-05');
 
   color: var(--sdds-grey-958);
