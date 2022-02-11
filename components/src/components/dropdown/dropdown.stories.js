@@ -58,7 +58,7 @@ export default {
     },
     width: {
       type: 'range',
-      defaultValue: 200,
+      defaultValue: 400,
     },
   },
 };
@@ -87,8 +87,8 @@ const Template = ({
           state="${state}"
           type="${type}"
           default-option="${defaultOption}">
-          <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-1">Stockhol & Stockholm</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
           ${dropdownOptions}
         </sdds-dropdown>
@@ -98,12 +98,14 @@ const Template = ({
 export const Basic = Template.bind({});
 Basic.args = {
   disabled: false,
+  defaultOption: 'option-1',
 };
 
 export const LabelInside = Template.bind({});
 LabelInside.args = {
   disabled: false,
   labelPosition: 'inside',
+  label: 'Label text',
 };
 
 export const LabelOutside = Template.bind({});
@@ -174,7 +176,7 @@ const NativeTemplate = ({
     <div style="width:${width}px">
         <div class="sdds-dropdown ${
           size !== 'large' ? `sdds-dropdown-${size}` : ''
-        } ${state === 'error' ? 'is-error' : ''}" >
+        } ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>

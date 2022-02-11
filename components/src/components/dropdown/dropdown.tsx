@@ -21,7 +21,7 @@ export class Dropdown {
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string;
 
-  /** Add the value of the option to set it as default */
+  /** Add the value of the option as string to set it as default */
   @Prop() defaultOption: string;
 
   /** Add the value of the option to set it as default */
@@ -67,7 +67,7 @@ export class Dropdown {
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
         if (el['value'] === this.defaultOption) {
-          this.selected = el.innerHTML;
+          this.selected = el.textContent;
           el.setAttribute('selected', 'true');
         }
       }
@@ -123,10 +123,10 @@ export class Dropdown {
     return (
       <Host
         class={{
-          'is-open': this.open,
+          'sdds-dropdown--open': this.open,
           'sdds-dropdown-inline': this.inline,
-          'is-selected': this.selected.length > 0,
-          'is-error': this.state === 'error',
+          'sdds-dropdown--selected': this.selected.length > 0,
+          'sdds-dropdown--error': this.state === 'error',
         }}
       >
         <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>

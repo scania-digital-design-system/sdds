@@ -54,7 +54,7 @@ export class DropdownOption {
         onClick={(ev) =>
           this.selectOptionHandler({
             value: this.value,
-            label: this.host.innerHTML,
+            label: this.host.innerText,
             parent: ev.target.parentNode,
           })
         }
