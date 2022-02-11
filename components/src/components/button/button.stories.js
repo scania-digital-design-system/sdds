@@ -44,6 +44,7 @@ export default {
       defaultValue: false,
       description: 'Include icon',
     },
+    chromatic: { disableSnapshot: false }, // enables snapshotting for the component
   },
 };
 
