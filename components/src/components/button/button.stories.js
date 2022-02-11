@@ -4,6 +4,12 @@
 
 export default {
   title: 'Component/Button',
+  parameters: {
+    chromatic: {
+      disableSnapshot: false, // enables snapshotting for the component
+      delay: 300, // set delay for component's stories (loading icons)
+    },
+  },
   argTypes: {
     btnType: {
       name: 'type',
@@ -44,7 +50,6 @@ export default {
       defaultValue: false,
       description: 'Include icon',
     },
-    chromatic: { disableSnapshot: false }, // enables snapshotting for the component
   },
 };
 
