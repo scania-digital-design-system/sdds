@@ -7,13 +7,15 @@ import { Component, h, Prop, State } from '@stencil/core';
 })
 export class Spinner {
   @Prop() size = '';
+
   @Prop() type = '';
 
   @State() cubes = 9;
+
   @State() rects = 5;
 
   renderElements(num, className) {
-    let elems = [];
+    const elems = [];
     for (let i = 1; i <= num; i++) {
       elems.push(<div class={className + i}></div>);
     }

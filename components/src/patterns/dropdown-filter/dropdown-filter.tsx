@@ -6,8 +6,11 @@ import { Component, h, Listen, Prop, State, Watch } from '@stencil/core';
 })
 export class DropdownFilter {
   @State() dataOptions = [];
+
   @State() filteredContent = [];
+
   @State() searchTerm = '';
+
   @State() selectedOption: any;
 
   /** Placeholder text for dropdown with no selected item */

@@ -75,8 +75,7 @@ const Template = ({
   defaultOption,
   dropdownOptions,
   width,
-}) => {
-  return `
+}) => `
   <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <sdds-dropdown 
@@ -96,7 +95,6 @@ const Template = ({
         </sdds-dropdown>
       </div>
   `;
-};
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -134,8 +132,7 @@ const FilterTemplate = ({
   placeholder,
   defaultOption,
   width,
-}) => {
-  return `
+}) => `
     <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <sdds-dropdown-filter
@@ -148,7 +145,6 @@ const FilterTemplate = ({
         ></sdds-dropdown-filter>
       </div>
   `;
-};
 
 export const Filter = FilterTemplate.bind({});
 Filter.args = {};
@@ -176,12 +172,11 @@ const NativeTemplate = ({
   label,
   state,
   width,
-}) => {
-  return `
+}) => `
   <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <div class="sdds-dropdown ${
-          size !== 'large' ? 'sdds-dropdown-' + size : ''
+          size !== 'large' ? `sdds-dropdown-${size}` : ''
         } ${state === 'error' ? 'is-error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
@@ -193,7 +188,6 @@ const NativeTemplate = ({
         </div>
       </div>
   `;
-};
 
 export const NativeSelect = NativeTemplate.bind({});
 NativeSelect.args = {};

@@ -16,8 +16,7 @@ const style = `
   </style>
 `;
 
-const BrandTemplate = () => {
-  return `
+const BrandTemplate = () => `
   ${style}
   <div class="colour-div" style="background-color: var(--sdds-black)">
     <span>black</span>
@@ -29,12 +28,10 @@ const BrandTemplate = () => {
     <span>blue</span>
   </div>
   `;
-};
 
 export const Brand = BrandTemplate.bind({});
 
-const SemanticTemplate = () => {
-  return `
+const SemanticTemplate = () => `
   ${style}
   <div class="colour-div" style="background-color: var(--sdds-positive)">
     <span>positive</span>
@@ -48,12 +45,11 @@ const SemanticTemplate = () => {
   <div class="colour-div" style="background-color: var(--sdds-information)">
     <span>information</span>
   </div>`;
-};
 
 export const Sematic = SemanticTemplate.bind({});
 
 const ScaleTemplate = ({ colour = 'grey', scale = '' }) => {
-  let picked = scale[colour];
+  const picked = scale[colour];
   let div = '';
 
   picked.forEach((num) => {

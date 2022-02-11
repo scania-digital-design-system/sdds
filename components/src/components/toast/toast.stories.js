@@ -28,8 +28,7 @@ const ToastTemplate = ({
   link,
   subtext,
   linktext,
-}) => {
-  return `
+}) => `
   <sdds-theme></sdds-theme>
 
   <div class="sdds-toast sdds-toast-${toastType}">
@@ -61,7 +60,6 @@ const ToastTemplate = ({
     </div>
   </div>
   `;
-};
 
 export const Basic = ToastTemplate.bind({});
 Basic.argTypes = {};

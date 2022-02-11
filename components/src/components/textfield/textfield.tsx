@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
+
 @Component({
   tag: 'sdds-textfield',
   styleUrl: 'textfield.scss',

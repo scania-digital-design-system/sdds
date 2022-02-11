@@ -7,12 +7,10 @@ export default {
   },
 };
 
-const Template = ({ content }) => {
-  return `
+const Template = ({ content }) => `
   <sdds-theme></sdds-theme>
   ${content}
   `;
-};
 
 export const Headlines = Template.bind({});
 Headlines.args = {
