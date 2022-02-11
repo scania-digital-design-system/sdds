@@ -1,6 +1,7 @@
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
 @import './dropdown-core';
+@import '../../helpers/components-shared.scss';
 
 :host,
 ::slotted(*) {
@@ -37,6 +38,8 @@
   .sdds-dropdown-arrow {
     color: inherit;
     margin-left: var(--sdds-spacing-element-32);
+    transform: rotate(0);
+    transition: transform ease 250ms;
   }
 
   .sdds-dropdown-label {
@@ -70,22 +73,30 @@
       opacity: 1;
     }
 
-    &::-ms-placeholder {
+    &::-ms-input-placeholder {
       color: var(--sdds-grey-700);
     }
   }
 
   .sdds-dropdown-menu {
+    @include sdds-scrollbar;
+
     position: absolute;
     top: 100%;
     left: 0;
     min-width: 100%;
-    max-height: 0;
-    visibility: hidden;
-    transition: visibility 0.1s ease-in 0.1s, max-height 0.1s ease-in;
+    max-height: 90rem; // max 7 option items, then add scroll
     border-color: transparent;
     border-style: solid;
     border-width: 0 1px 0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    border-left-color: var(--sdds-grey-100);
+    border-right-color: var(--sdds-grey-100);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 250ms ease;
   }
 
   // Size medium
@@ -200,14 +211,12 @@
       }
     }
 
+    .sdds-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
     .sdds-dropdown-menu {
-      max-height: 90rem; // max 7 option items, then add scroll
-      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-      border-left-color: var(--sdds-grey-100);
-      border-right-color: var(--sdds-grey-100);
-      overflow-x: hidden;
-      overflow-y: auto;
-      visibility: visible;
+      transform: scaleY(1);
     }
   }
 
