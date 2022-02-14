@@ -1,5 +1,8 @@
 export default {
   title: 'Foundation/Spacing',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 const SpacingLayoutTemplate = () => `

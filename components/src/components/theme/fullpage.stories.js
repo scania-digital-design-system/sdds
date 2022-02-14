@@ -1,5 +1,8 @@
 export default {
   title: 'Patterns/Fullpage',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 const Template = ({ menuCollapse = false }) => {

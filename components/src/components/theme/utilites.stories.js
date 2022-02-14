@@ -1,5 +1,8 @@
 export default {
   title: 'utilities/Colours',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 const TextColorTemplate = ({ color, text }) => `
