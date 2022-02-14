@@ -41,7 +41,7 @@ export class Icon {
   getTransformViewBox() {
     const minX = parseFloat(this.icon.default.transform[0]) * -1;
     const minY = parseFloat(this.icon.default.transform[1]) * -1;
-    return minX + ' ' + minY;
+    return `${minX} ${minY}`;
   }
 
   render() {

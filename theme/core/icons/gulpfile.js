@@ -91,7 +91,7 @@ async function generateIcons() {
     const node = svgPath.children.length
       ? svgPath.children.find((item) => item.name === 'path')
       : svgPath;
-    const transform = node.attributes.transform;
+    const { transform } = node.attributes;
     if (transform !== undefined) {
       let transformObj = [];
       const regExp = /\(([^)]+)\)/;
@@ -122,16 +122,16 @@ function createIconfont() {
   return src([`${tempFolder}/*.svg`])
     .pipe(
       iconfontCss({
-        fontName: fontName,
+        fontName,
         path: './src/_icons.css', // iconfont css template path
-        targetPath: `css/sdds-icons.css`, // final result of the css
+        targetPath: 'css/sdds-icons.css', // final result of the css
         fontPath: '../',
         cssClass: 'sdds-icon',
       })
     )
     .pipe(
       iconfont({
-        fontName: fontName, // required
+        fontName, // required
         prependUnicode: true, // recommended option
         formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
         timestamp: runTimestamp, // recommended to get consistent builds when watching files

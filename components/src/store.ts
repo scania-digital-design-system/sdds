@@ -8,8 +8,8 @@ const theme = {
 const navigation = { open: false, expanded: undefined };
 
 const store = createStore({
-  theme: theme,
-  navigation: navigation,
+  theme,
+  navigation,
 });
 
 store.onChange('navigation', (value) => {

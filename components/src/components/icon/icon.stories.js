@@ -13,8 +13,7 @@ export default {
   },
 };
 
-const IconTemplate = ({ icon, size }) => {
-  return `
+const IconTemplate = ({ icon, size }) => `
   <style>
     sdds-icon {
       font-size: ${size}rem;
@@ -23,7 +22,6 @@ const IconTemplate = ({ icon, size }) => {
   <sdds-theme></sdds-theme>
   <sdds-icon name="${icon}">sdds-icon</sdds-icon>
   `;
-};
 
 export const Component = IconTemplate.bind({});
 
@@ -32,8 +30,7 @@ Component.args = {
   size: 64,
 };
 
-const IconCssTemplate = ({ icon, size }) => {
-  return `
+const IconCssTemplate = ({ icon, size }) => `
   <style>
     @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
     i {
@@ -43,7 +40,6 @@ const IconCssTemplate = ({ icon, size }) => {
   <sdds-theme></sdds-theme>
   <i class="sdds-icon ${icon}"></i>
   `;
-};
 
 export const CssIcon = IconCssTemplate.bind({});
 

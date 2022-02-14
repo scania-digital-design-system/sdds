@@ -14,8 +14,7 @@ export default {
   },
 };
 
-const BasicTemplate = ({ siteName }) => {
-  return `
+const BasicTemplate = ({ siteName }) => `
     <sdds-theme></sdds-theme>
 
     <nav class='sdds-nav'>     
@@ -27,7 +26,6 @@ const BasicTemplate = ({ siteName }) => {
       </div> 
     </nav>
     `;
-};
 
 export const Basic = BasicTemplate.bind({});
 Basic.args = {

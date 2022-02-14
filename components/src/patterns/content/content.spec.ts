@@ -2,7 +2,7 @@ import { Content } from './content';
 import { applyTheme } from '../../global.spec';
 import store from '../../store';
 
-describe('content', function () {
+describe('content', () => {
   beforeEach(() => {
     store.dispose();
   });

@@ -2,13 +2,11 @@ export default {
   title: 'utilities/Colours',
 };
 
-const TextColorTemplate = ({ color, text }) => {
-  return `
+const TextColorTemplate = ({ color, text }) => `
   <sdds-theme></sdds-theme>
   <h1 class="sdds-text-${color}">${text}</h1>
   <p class="sdds-text-${color}">${text}</p>
   `;
-};
 
 export const textColor = TextColorTemplate.bind({});
 textColor.args = {
@@ -16,12 +14,10 @@ textColor.args = {
   text: 'A text block',
 };
 
-const BackgroundColorTemplate = ({ height, width, backgroundColor }) => {
-  return `
+const BackgroundColorTemplate = ({ height, width, backgroundColor }) => `
   <sdds-theme></sdds-theme>
     <div class="sdds-background-${backgroundColor}" style="height:${height}px; width:${width}px; display:block"> <h1>background-color:${backgroundColor}</h1></div>
   `;
-};
 
 export const backgroundColor = BackgroundColorTemplate.bind({});
 
