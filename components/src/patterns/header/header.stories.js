@@ -11,6 +11,7 @@ export default {
   },
   parameters: {
     notes: readme,
+    layout: 'fullscreen',
   },
 };
 

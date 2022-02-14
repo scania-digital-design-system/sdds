@@ -1,5 +1,8 @@
 export default {
   title: 'Foundation/Grid',
+  parameters: {
+    layout: 'fullscreen',
+  },
   args: {
     fluidContainer: false,
     padding: true,

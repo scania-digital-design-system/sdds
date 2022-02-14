@@ -1,5 +1,8 @@
 export default {
   title: 'Foundation/Colour',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 const style = `
