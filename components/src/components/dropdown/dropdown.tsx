@@ -191,7 +191,26 @@ export class Dropdown {
             <slot />
           </div>
         </div>
-        <span class="sdds-dropdown-helper">{this.helper}</span>
+        <p class="sdds-dropdown-helper">
+          <svg
+            class="sdds-dropdown-error-icon"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16 4C9.37 4 3.996 9.374 3.996 16.004S9.371 28.007 16 28.007c6.63 0 12.004-5.374 12.004-12.003C28.004 9.374 22.629 4 16 4ZM2 16.004c0-7.732 6.268-14 14-14s14 6.268 14 14-6.268 14-14 14-14-6.268-14-14Z"
+              fill="currentColor"
+            />
+            <path
+              d="M14.803 14.47V10h2.376v4.47l-.352 4.295h-1.672l-.352-4.295Zm-.053 5.632h2.5v2.394h-2.5v-2.394Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>{this.helper}</span>
+        </p>
       </Host>
     );
   }

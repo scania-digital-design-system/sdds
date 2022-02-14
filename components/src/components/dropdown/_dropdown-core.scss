@@ -21,7 +21,7 @@ html {
   border-radius: 1rem 1rem 0 0;
   border: none;
   border-bottom: 1px solid var(--sdds-grey-400);
-  box-shadow: 0;
+  box-shadow: none;
   width: 100%;
   text-align: left;
   outline: none;
@@ -50,9 +50,16 @@ html {
 .sdds-dropdown-helper {
   @include type-style('detail-05');
 
-  display: block;
   color: var(--sdds-grey-700);
   margin-top: var(--sdds-spacing-element-4);
+  display: flex;
+
+  .sdds-dropdown-error-icon {
+    width: 16px;
+    height: 16px;
+    padding-right: 9px;
+    display: none;
+  }
 }
 
 .sdds-dropdown-label-inside,
