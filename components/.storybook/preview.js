@@ -95,6 +95,7 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
+  layout: 'centered',
 };
 
 setCustomElements(customElements);

@@ -4,6 +4,7 @@ export default {
   title: 'Patterns/Footer',
   parameters: {
     notes: readme,
+    layout: 'fullscreen',
   },
 };
 

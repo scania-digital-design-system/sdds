@@ -4,6 +4,7 @@ export default {
   title: 'Foundation/Typography',
   parameters: {
     notes: readme,
+    layout: 'fullscreen',
   },
 };
 
