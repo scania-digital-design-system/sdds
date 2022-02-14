@@ -6,8 +6,7 @@ const style = `<style>
   margin: 30px;
 }
 </style>`;
-const Template = ({ type, divider }) => {
-  return `
+const Template = ({ type, divider }) => `
   ${style}
       <sdds-theme></sdds-theme>
       <div class="table-demo">
@@ -50,7 +49,6 @@ const Template = ({ type, divider }) => {
       </table>
       </div>
     `;
-};
 
 export const Default = Template.bind({});
 Default.args = {
@@ -71,8 +69,7 @@ CompactDividers.args = {
   type: 'compact',
   divider: 'divider',
 };
-const Table = ({ type, divider }) => {
-  return `
+const Table = ({ type, divider }) => `
   ${style}
       <sdds-theme></sdds-theme>
       <div class="table-demo">
@@ -114,7 +111,6 @@ const Table = ({ type, divider }) => {
       </table>
       </div>
     `;
-};
 export const TableHeaderOnly = Table.bind({});
 TableHeaderOnly.args = {
   type: '',

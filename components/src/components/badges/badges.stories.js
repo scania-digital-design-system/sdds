@@ -21,7 +21,7 @@ const basicStyle = `<style>
               </style>`;
 const basicTemplate = ({ value }) => {
   // convert to string
-  let valueString = value != null ? value.toString() : '';
+  const valueString = value != null ? value.toString() : '';
   return `
     ${basicStyle}
       <sdds-theme></sdds-theme>
@@ -51,7 +51,7 @@ const style = `<style>
               </style>`;
 const badgesTemplate = ({ value }) => {
   // convert to string
-  let valueString = value != null ? value.toString() : '';
+  const valueString = value != null ? value.toString() : '';
   return `
     ${style}
       <sdds-theme></sdds-theme>

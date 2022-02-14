@@ -9,13 +9,15 @@ export class SddsBadges {
   @Prop() value: string = '';
 
   @State() shape: string = '';
+
   @State() size: string = 'sm';
+
   @State() text: string = '';
 
   @Watch('value')
   watchValue() {
     // parse the value to number
-    let valueAsNumber = parseInt(this.value);
+    const valueAsNumber = parseInt(this.value);
     if (!isNaN(valueAsNumber)) {
       this.shape = valueAsNumber.toString().length >= 2 ? 'pill' : '';
       this.size = '';
@@ -29,9 +31,11 @@ export class SddsBadges {
         : '';
     }
   }
+
   componentWillLoad() {
     this.watchValue();
   }
+
   render() {
     return (
       <div

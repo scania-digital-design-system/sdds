@@ -4,7 +4,7 @@ import store from '../../store';
 
 const navigation = new Navigation();
 
-describe('navigation', function () {
+describe('navigation', () => {
   const primaryItems = [{ text: 'home' }];
   const secondaryItems = [{ text: 'user' }];
 

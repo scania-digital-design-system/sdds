@@ -1,10 +1,9 @@
 import { Component, h, Prop, State, Element, Watch } from '@stencil/core';
 
-import { themeStyle } from '../../helpers/themeStyle';
-import store from '../../store';
-
 import JsCookie from 'js-cookie';
 import Tab from 'bootstrap/js/src/tab';
+import { themeStyle } from '../../helpers/themeStyle';
+import store from '../../store';
 
 @Component({
   tag: 'c-cookie',
@@ -114,7 +113,7 @@ export class Cookie {
   save(event) {
     event.preventDefault();
 
-    let object = {};
+    const object = {};
 
     if (this.all) {
       this.items.forEach((item) => (item.attributes.checked = true));
@@ -186,9 +185,9 @@ export class Cookie {
     // This is used by browsers with support for shadowdom
     if (document.head.attachShadow) {
       const slotted = this.el.shadowRoot.querySelector('slot[name="config"]');
-      items = slotted.assignedNodes().filter((node: any) => {
-        return node.nodeName !== '#text';
-      });
+      items = slotted
+        .assignedNodes()
+        .filter((node: any) => node.nodeName !== '#text');
     }
 
     this.cookie = JsCookie.get('ConfidentialityAgreement');
@@ -248,7 +247,7 @@ export class Cookie {
 
           <main>
             <div
-              class={'row h-100 flex-sm-fill' + (this.active ? ' active' : '')}
+              class={`row h-100 flex-sm-fill${this.active ? ' active' : ''}`}
             >
               <div class="col-6 col-lg-3 h-100 navigation">
                 {this.introHeadline || this.introText ? (
@@ -267,11 +266,10 @@ export class Cookie {
                 >
                   {this.items.map((item, index) => (
                     <a
-                      href={'#v-pills-' + index}
-                      class={
-                        'list-group-item list-group-item-action' +
-                        (index === 0 ? ' active' : '')
-                      }
+                      href={`#v-pills-${index}`}
+                      class={`list-group-item list-group-item-action${
+                        index === 0 ? ' active' : ''
+                      }`}
                       data-toggle="pill"
                       ref={this.setRef}
                       onClick={() => (this.active = true)}
@@ -360,12 +358,12 @@ export class Cookie {
 
                   {this.items.map((item, index) => (
                     <div
-                      class={
-                        'tab-pane fade' + (index === 0 ? ' show active' : '')
-                      }
-                      id={'v-pills-' + index}
+                      class={`tab-pane fade${
+                        index === 0 ? ' show active' : ''
+                      }`}
+                      id={`v-pills-${index}`}
                       role="tabpanel"
-                      aria-labelledby={'v-pills-' + index + '-tab'}
+                      aria-labelledby={`v-pills-${index}-tab`}
                     >
                       <h3>{item.text}</h3>
                       <article innerHTML={item.content} />
