@@ -16,7 +16,7 @@
 
 :host {
   position: relative;
-  z-index: 10000;
+  z-index: 2;
 }
 
 .sdds-dropdown {
@@ -139,6 +139,10 @@
 
   .sdds-dropdown-helper {
     color: var(--sdds-negative);
+
+    .sdds-dropdown-error-icon {
+      display: flex;
+    }
   }
 }
 
@@ -172,7 +176,7 @@
     outline-offset: -2px;
   }
 
-  ::slotted(sdds-dropdown-option.selected),
+  ::slotted(sdds-dropdown-option.sdds-dropdown--selected),
   ::slotted(sdds-dropdown-option.active),
   ::slotted(sdds-dropdown-option:active) {
     background-color: var(--sdds-grey-300);
@@ -256,7 +260,7 @@
   }
 }
 
-:host(.selected) {
+:host(.sdds-dropdown--selected) {
   .sdds-option-checkmark {
     opacity: 1;
   }
