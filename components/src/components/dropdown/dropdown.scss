@@ -172,8 +172,6 @@
 
   ::slotted(sdds-dropdown-option:focus) {
     border: 1px solid var(--sdds-blue-400);
-    outline: 2px solid var(--sdds-blue-400);
-    outline-offset: -2px;
   }
 
   ::slotted(sdds-dropdown-option.sdds-dropdown--selected),
@@ -260,7 +258,7 @@
   }
 }
 
-:host(.sdds-dropdown--selected) {
+:host(.selected) {
   .sdds-option-checkmark {
     opacity: 1;
   }
