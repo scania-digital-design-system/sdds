@@ -7,7 +7,7 @@ export default {
   parameters: {
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
-      delay: 300, // set delay for component's stories (loading icons)
+      delay: 1000, // set delay for component's stories (loading icons)
     },
   },
   argTypes: {
@@ -219,4 +219,5 @@ Fullbleed.args = {
   text: 'Button',
   fullbleed: true,
   icon: true,
+  //layout: 'fullscreen', //DOESN't WORK allowing full width expansion
 };
