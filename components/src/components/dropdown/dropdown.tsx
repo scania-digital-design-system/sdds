@@ -159,6 +159,7 @@ export class Dropdown {
                   placeholder={this.placeholder}
                   value={this.selected}
                   onInput={(event) => this.handleSearch(event)}
+                  autoComplete="off"
                 />
               ) : (
                 <span
