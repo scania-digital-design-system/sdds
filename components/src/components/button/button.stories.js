@@ -7,7 +7,7 @@ export default {
   parameters: {
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
-      delay: 1000, // set delay for component's stories (loading icons)
+      delay: 3000, // set delay for component's stories (loading icons)
     },
   },
   argTypes: {
