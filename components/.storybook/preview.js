@@ -96,6 +96,7 @@ export const parameters = {
     values: customBGvalues,
   },
   chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
+  layout: 'centered',
 };
 
 setCustomElements(customElements);

@@ -2,6 +2,9 @@ import { useArgs } from '@storybook/client-api';
 
 export default {
   title: 'Patterns/SideMenu',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 const Template = (args) => {

@@ -1,5 +1,8 @@
 export default {
   title: 'Foundation/Grid',
+  parameters: {
+    layout: 'fullscreen',
+  },
   args: {
     fluidContainer: false,
     padding: true,
@@ -41,8 +44,7 @@ const style = `
 
   </style>`;
 
-const GridTemplate = ({ fluidContainer, padding }) => {
-  return `
+const GridTemplate = ({ fluidContainer, padding }) => `
   ${style}
   <sdds-theme global=""></sdds-theme>
   <h4>Grid</h4>
@@ -123,13 +125,11 @@ const GridTemplate = ({ fluidContainer, padding }) => {
     </div>
   </div>
   `;
-};
 
 // Controls for the grid
 export const Basic = GridTemplate.bind({});
 
-const GridAutoColTemplate = ({ fluidContainer, padding }) => {
-  return `
+const GridAutoColTemplate = ({ fluidContainer, padding }) => `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Grid Auto columns</h4>
@@ -209,12 +209,10 @@ const GridAutoColTemplate = ({ fluidContainer, padding }) => {
     </div>
   </div>
   `;
-};
 
 export const Auto = GridAutoColTemplate.bind({});
 
-const GridPushTemplate = ({ fluidContainer, collapse, padding }) => {
-  return `
+const GridPushTemplate = ({ fluidContainer, collapse, padding }) => `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Grid Push</h4>
@@ -265,7 +263,6 @@ const GridPushTemplate = ({ fluidContainer, collapse, padding }) => {
     </div>
   </div>
   `;
-};
 
 export const Push = GridPushTemplate.bind({});
 
@@ -273,8 +270,7 @@ Push.args = {
   collapse: false,
 };
 
-const GridOffsetTemplate = ({ fluidContainer, padding }) => {
-  return `
+const GridOffsetTemplate = ({ fluidContainer, padding }) => `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Grid Offset</h4>
@@ -294,12 +290,10 @@ const GridOffsetTemplate = ({ fluidContainer, padding }) => {
       </div>
     </div>
   `;
-};
 
 export const Offset = GridOffsetTemplate.bind({});
 
-const GridNoPaddingTemplate = ({ fluidContainer, padding }) => {
-  return `
+const GridNoPaddingTemplate = ({ fluidContainer, padding }) => `
     ${style}
     <sdds-theme></sdds-theme>
     <h4>Grid no-padding</h4>
@@ -326,7 +320,6 @@ const GridNoPaddingTemplate = ({ fluidContainer, padding }) => {
       </div>
     </div>
   `;
-};
 
 export const NoPadding = GridNoPaddingTemplate.bind({});
 
@@ -334,8 +327,7 @@ NoPadding.args = {
   padding: true,
 };
 
-const GridFluidTemplate = ({ fluidContainer = true, padding }) => {
-  return `
+const GridFluidTemplate = ({ fluidContainer = true, padding }) => `
     ${style}
     <sdds-theme></sdds-theme>
     <h4>Grid fluid</h4>
@@ -350,8 +342,8 @@ const GridFluidTemplate = ({ fluidContainer = true, padding }) => {
     </div>
 
     <div class="${fluidContainer ? 'sdds-container-fluid' : 'sdds-container'} ${
-    padding == false ? 'sdds-no-padding' : ''
-  } container-demo">
+  padding == false ? 'sdds-no-padding' : ''
+} container-demo">
       <div class="sdds-row">
         <div class="sdds-col-max-12 sdds-col-xxlg-12 sdds-col-xlg-12 sdds-col-lg-12 sdds-col-md-12 sdds-col-sm-12 sdds-col-xs-12">
           <div class="inside-demo">container</div>
@@ -359,12 +351,10 @@ const GridFluidTemplate = ({ fluidContainer = true, padding }) => {
       </div>
     </div>
   `;
-};
 
 export const Fluid = GridFluidTemplate.bind({});
 
-const GridNestedTemplate = ({ fluidContainer, padding }) => {
-  return `
+const GridNestedTemplate = ({ fluidContainer, padding }) => `
  ${style}
  <sdds-theme></sdds-theme>
  <h4>Nested</h4>
@@ -409,12 +399,10 @@ const GridNestedTemplate = ({ fluidContainer, padding }) => {
 
   </div>
  `;
-};
 
 export const Nested = GridNestedTemplate.bind({});
 
-const GridHideShow = ({ fluidContainer }) => {
-  return `
+const GridHideShow = ({ fluidContainer }) => `
   ${style}
   <sdds-theme></sdds-theme>
   <h4>Hide/show element</h4>
@@ -434,6 +422,5 @@ const GridHideShow = ({ fluidContainer }) => {
     </div>
   </div>
   `;
-};
 
 export const ShowHide = GridHideShow.bind({});

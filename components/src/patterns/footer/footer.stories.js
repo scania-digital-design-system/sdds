@@ -4,11 +4,11 @@ export default {
   title: 'Patterns/Footer',
   parameters: {
     notes: readme,
+    layout: 'fullscreen',
   },
 };
 
-const Template = ({ topPart = false }) => {
-  return `
+const Template = ({ topPart = false }) => `
   <style>
   .sb-show-main.sb-main-padded {
     padding: 0;
@@ -81,7 +81,6 @@ const Template = ({ topPart = false }) => {
     </div>
   </div>
   `;
-};
 
 export const Basic = Template.bind({});
 export const TopPart = Template.bind({});

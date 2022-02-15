@@ -42,8 +42,7 @@ export default {
   },
 };
 
-const Template = ({ disabled, affix, paddingReset }) => {
-  return `
+const Template = ({ disabled, affix, paddingReset }) => `
   <sdds-theme></sdds-theme>
   <div class="container-demo" style="width:500px; padding:var(--sdds-spacing-layout-48);">
     <sdds-accordion>
@@ -59,7 +58,6 @@ const Template = ({ disabled, affix, paddingReset }) => {
     </sdds-accordion>
   </div>
   `;
-};
 
 export const Suffix = Template.bind({});
 Suffix.args = {

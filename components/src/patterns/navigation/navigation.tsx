@@ -114,7 +114,7 @@ export class Navigation {
 
   toggleNavigation(open) {
     this.store.navigation = {
-      open: open,
+      open,
       expanded: this.store.navigation.expanded,
     };
   }
@@ -122,7 +122,7 @@ export class Navigation {
   toggleSubNavigation(expanded) {
     this.store.navigation = {
       open: this.store.navigation.open,
-      expanded: expanded,
+      expanded,
     };
   }
 

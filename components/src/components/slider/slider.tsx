@@ -7,22 +7,33 @@ import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
 })
 export class Slider {
   @Prop() type: string;
+
   @Prop() min: string = '0';
+
   @Prop() max: string = '100';
+
   @Prop() value: string = '20';
+
   @Prop() valueTwo: string = '70';
 
   spantext!: HTMLInputElement;
+
   sliderspan!: HTMLInputElement;
+
   leftRangeInputEl!: HTMLInputElement;
+
   rightRangeInputEl!: HTMLInputElement;
 
   leftInputTextRef!: HTMLInputElement;
+
   rightInputTextRef!: HTMLInputElement;
 
   @State() leftRangeOldValue: string;
+
   @State() rightRangeOldValue: string;
+
   @State() minDiffValue: number = 0;
+
   @State() rangeStyle = {
     '--min': this.min,
     '--max': this.max,
@@ -34,13 +45,15 @@ export class Slider {
     '--max': this.max,
     '--val': this.valueTwo,
   };
+
   @Watch('value')
   watchValue() {
     if (this.value > this.max || this.value < this.min) {
-      //console.warn('The provided value should be between min and max');
+      // console.warn('The provided value should be between min and max');
       this.rangeStyle = { ...this.rangeStyle, '--val': this.min };
     }
   }
+
   @Watch('valueTwo')
   watchValueTwo() {
     if (this.valueTwo > this.max || this.valueTwo < this.value) {
@@ -50,10 +63,12 @@ export class Slider {
       this.secondRangeStyle = { ...this.secondRangeStyle, '--val': this.max };
     }
   }
+
   componentWillLoad() {
     this.watchValue();
     this.watchValueTwo();
   }
+
   private handleOnClickPlus = () => {
     parseInt(this.rangeStyle['--val']) < parseInt(this.rangeStyle['--max'])
       ? this.updateValue(this.leftRangeInputEl.valueAsNumber + 1)
@@ -199,6 +214,7 @@ export class Slider {
       </div>
     );
   }
+
   dualPoint() {
     return (
       <div class="container">

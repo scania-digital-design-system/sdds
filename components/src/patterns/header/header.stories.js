@@ -11,11 +11,11 @@ export default {
   },
   parameters: {
     notes: readme,
+    layout: 'fullscreen',
   },
 };
 
-const BasicTemplate = ({ siteName }) => {
-  return `
+const BasicTemplate = ({ siteName }) => `
     <sdds-theme></sdds-theme>
 
     <nav class='sdds-nav'>     
@@ -27,7 +27,6 @@ const BasicTemplate = ({ siteName }) => {
       </div> 
     </nav>
     `;
-};
 
 export const Basic = BasicTemplate.bind({});
 Basic.args = {

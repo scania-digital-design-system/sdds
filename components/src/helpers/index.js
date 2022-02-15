@@ -1,4 +1,5 @@
 import { applyPolyfills, defineCustomElements as dce } from '../loader';
+
 export { defineCustomElements, addTheme };
 
 function defineCustomElements() {
@@ -18,7 +19,7 @@ function addTheme(_theme) {
   document.addEventListener('storeReady', (event) => init(_theme, event));
 
   function init(theme, event) {
-    const store = event.detail.store;
+    const { store } = event.detail;
     // need to get store theme through get API to make it work in IE
     const storeTheme = store.get('theme');
 

@@ -1,9 +1,11 @@
 export default {
   title: 'Foundation/Spacing',
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
-const SpacingLayoutTemplate = () => {
-  return `
+const SpacingLayoutTemplate = () => `
   <sdds-theme></sdds-theme>
   <style>
     .sdds-spacing-layout-demo-box {
@@ -96,10 +98,8 @@ const SpacingLayoutTemplate = () => {
     </tr>
   </table>
   `;
-};
 
-const SpacingElementTemplate = ({}) => {
-  return `
+const SpacingElementTemplate = ({}) => `
   <sdds-theme></sdds-theme>
   <style>
     .sdds-spacing-element-demo-box {
@@ -191,7 +191,6 @@ const SpacingElementTemplate = ({}) => {
     </tr>
   </table>
   `;
-};
 
 export const SpacingLayout = SpacingLayoutTemplate.bind({});
 SpacingLayout.args = {};

@@ -128,7 +128,7 @@ function initFavicons() {
   return favicons(
     '../core/assets/images/symbol.svg',
     options,
-    function (error, response) {
+    (error, response) => {
       if (error) throw error;
 
       console.log('Generate favicon module');
@@ -137,19 +137,16 @@ function initFavicons() {
         fs.writeFileSync(`${outputFolder}/${image.name}`, image.contents);
       });
 
-      const content = response.html.map((data) => {
-        return data.replace(
-          /(href|content)="(.*?)"/g,
-          (hit, group1, group2) => {
-            var elm = hit;
-            if (group2.indexOf('.') > -1) {
-              const data2 = base64Img.base64Sync(`${outputFolder}/${group2}`);
-              elm = elm.replace(group2, data2);
-            }
-            return elm;
+      const content = response.html.map((data) =>
+        data.replace(/(href|content)="(.*?)"/g, (hit, group1, group2) => {
+          let elm = hit;
+          if (group2.indexOf('.') > -1) {
+            const data2 = base64Img.base64Sync(`${outputFolder}/${group2}`);
+            elm = elm.replace(group2, data2);
           }
-        );
-      });
+          return elm;
+        })
+      );
 
       faviconItems = response.html;
       faviconItemsNoRefs = content;
@@ -158,12 +155,12 @@ function initFavicons() {
 }
 
 async function initTheme(cb) {
-  let theme = {
+  const theme = {
     [themeName]: {
       components: { default: {} },
     },
   };
-  let themeNoRefs = {
+  const themeNoRefs = {
     [themeName]: {
       components: { default: {} },
     },
@@ -173,7 +170,7 @@ async function initTheme(cb) {
   generateVars('spacing');
 
   console.log('Generate css styles');
-  //Remove old stuff
+  // Remove old stuff
   glob.sync('src/old/patterns/c-*.scss').forEach(generateCss);
   glob.sync('src/theme/*.scss').forEach(generateCss);
 
@@ -181,13 +178,15 @@ async function initTheme(cb) {
 
   glob.sync(`${outputFolder}/styles/*.css`).forEach((file) => {
     const data = fs.readFileSync(path.resolve(file), 'utf8');
-    let name = path.parse(file).name;
+    let { name } = path.parse(file);
     let type = 'default';
 
     // TODO: branch variable should be fetched from travis and contain either branch path
     // For example: "branch/improvement/footer_mobile_mode/www" or "4.0.0-alpha.1/www"
-    var branch = '';
-    var root = branch ? `https://static.scania.com/build/global/${branch}` : '';
+    const branch = '';
+    const root = branch
+      ? `https://static.scania.com/build/global/${branch}`
+      : '';
 
     if (name.substr(-3) === '_ie') {
       type = 'ie';
@@ -196,7 +195,7 @@ async function initTheme(cb) {
 
     theme[themeName]['components'][type][name] = data.replace(
       /url\(\.\./g,
-      'url(%root%' + root
+      `url(%root%${root}`
     );
     themeNoRefs[themeName]['components'][type][name] = data;
   });
@@ -247,10 +246,10 @@ document.addEventListener('storeReady', function(event) {
   cb();
 }
 
-//FIXME: This should be moved from the gulp to the specific package in core
+// FIXME: This should be moved from the gulp to the specific package in core
 function generateVars(input) {
   // Creates a auto-generated file containing variables
-  console.log('Generate css variables for ' + input);
+  console.log(`Generate css variables for ${input}`);
 
   const varFile = `../core/${input}/_vars.scss`;
 
@@ -289,7 +288,7 @@ function generateImages(cb) {
 }
 
 function generateCss(file) {
-  const name = path.parse(file).name;
+  const { name } = path.parse(file);
   const data = fs.readFileSync(path.resolve(file), 'utf8');
   const filepath = `${outputFolder}/styles/${name}`;
   console.log(filepath);
@@ -298,8 +297,8 @@ function generateCss(file) {
     content = sass.renderSync({
       data,
       includePaths: ['src/**'],
-      sourceMapEmbed: sourceMapping === 'enabled' ? true : false,
-      sourceMapContents: sourceMapping === 'enabled' ? true : false,
+      sourceMapEmbed: sourceMapping === 'enabled',
+      sourceMapContents: sourceMapping === 'enabled',
     });
   } catch (err) {
     console.log(err);
@@ -324,7 +323,7 @@ function copyScss() {
 }
 
 function copyGlobalStyle() {
-  //TODO: this will no longer be used when Corporate-Ui 4 is completly removed
+  // TODO: this will no longer be used when Corporate-Ui 4 is completly removed
   console.log(
     `Copying corporate-ui-4 global style... output ${outputFolder}/styles/`
   );
