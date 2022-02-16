@@ -18,7 +18,7 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
-  /** Placeholder text for dropdown with no selected item */
+  /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
   /** Add the value of the option as string to set it as default */
@@ -54,21 +54,24 @@ export class Dropdown {
 
   @State() node: HTMLElement;
 
-  @State() selected: string = '';
+  @State() selectedLabel: string = '';
+
+  @State() selectedValue: string = '';
 
   @State() uuid;
 
   @Element() host: HTMLElement;
 
   componentWillLoad() {
-    // If default option is set, update the default selected value
+    // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
     if (this.defaultOption) {
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
         if (el['value'] === this.defaultOption) {
-          this.selected = el.textContent;
-          el.setAttribute('selected', 'true');
+          this.selectedLabel = el.textContent;
+          this.selectedValue = el['value'];
+          el.setAttribute('selectedLabel', 'true');
         }
       }
     }
@@ -101,7 +104,8 @@ export class Dropdown {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
-    this.selected = event.detail.label;
+    this.selectedLabel = event.detail.label;
+    this.selectedValue = event.detail.value;
     this.open = false;
   }
 
@@ -125,9 +129,11 @@ export class Dropdown {
         class={{
           'sdds-dropdown--open': this.open,
           'sdds-dropdown-inline': this.inline,
-          'sdds-dropdown--selected': this.selected.length > 0,
+          'sdds-dropdown--selected': this.selectedLabel.length > 0,
           'sdds-dropdown--error': this.state === 'error',
         }}
+        selected-value={this.selectedValue}
+        selected-text={this.selectedLabel}
       >
         <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
           {this.labelPosition === 'outside' && this.label.length > 0 ? (
@@ -152,28 +158,28 @@ export class Dropdown {
                   class="sdds-dropdown-filter"
                   type="text"
                   placeholder={this.placeholder}
-                  value={this.selected}
+                  value={this.selectedLabel}
                   onInput={(event) => this.handleSearch(event)}
                   autoComplete="off"
                 />
               ) : (
                 <span
                   class={`sdds-dropdown-label-main ${
-                    (this.selected.length === 0 ||
+                    (this.selectedLabel.length === 0 ||
                       (this.labelPosition === 'inside' &&
                         this.label.length > 0)) &&
                     'sdds-dropdown-placeholder'
                   }`}
                 >
-                  {this.selected.length > 0 && this.selected}
+                  {this.selectedLabel.length > 0 && this.selectedLabel}
 
-                  {!this.selected &&
+                  {!this.selectedLabel &&
                     this.labelPosition !== 'inside' &&
                     this.placeholder}
 
                   {this.labelPosition === 'inside' &&
                     this.label.length > 0 &&
-                    !this.selected &&
+                    !this.selectedLabel &&
                     this.label}
                 </span>
               )}
