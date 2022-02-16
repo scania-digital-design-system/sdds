@@ -144,11 +144,6 @@ export class Dropdown {
             ref={(node) => (this.node = node)}
           >
             <div class="sdds-dropdown-label">
-              {this.labelPosition === 'inside' && this.selected.length > 0 ? (
-                <span class="sdds-dropdown-label-inside">{this.label}</span>
-              ) : (
-                ''
-              )}
               {this.type === 'filter' ? (
                 <input
                   ref={(inputEl) =>
@@ -162,12 +157,23 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <span
-                  class={`sdds-dropdown-label-main ${
-                    this.selected.length === 0 && 'sdds-dropdown-placeholder'
-                  }`}
-                >
-                  {this.selected.length > 0 ? this.selected : this.placeholder}
+                <span>
+                  {this.labelPosition === 'inside' && this.label.length > 0 ? (
+                    <span class="sdds-dropdown-label-main sdds-dropdown-placeholder">
+                      {this.label}
+                    </span>
+                  ) : (
+                    <span
+                      class={`sdds-dropdown-label-main ${
+                        this.selected.length === 0 &&
+                        'sdds-dropdown-placeholder'
+                      }`}
+                    >
+                      {this.selected.length > 0
+                        ? this.selected
+                        : this.placeholder}
+                    </span>
+                  )}
                 </span>
               )}
             </div>
