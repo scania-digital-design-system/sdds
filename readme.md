@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5073e029-d8ec-44a6-8dc9-bd2fea08ddd0/deploy-status)](https://app.netlify.com/sites/sdds-storybook/deploys) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/scania-digital-design-system/sdds) ![GitHub last commit](https://img.shields.io/github/last-commit/scania-digital-design-system/sdds)
+ ![GitHub release (latest by date)](https://img.shields.io/github/v/release/scania-digital-design-system/sdds) ![GitHub last commit](https://img.shields.io/github/last-commit/scania-digital-design-system/sdds)
 
 # Scania Digital Design System
 
