@@ -157,23 +157,24 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <span>
-                  {this.labelPosition === 'inside' && this.label.length > 0 ? (
-                    <span class="sdds-dropdown-label-main sdds-dropdown-placeholder">
-                      {this.label}
-                    </span>
-                  ) : (
-                    <span
-                      class={`sdds-dropdown-label-main ${
-                        this.selected.length === 0 &&
-                        'sdds-dropdown-placeholder'
-                      }`}
-                    >
-                      {this.selected.length > 0
-                        ? this.selected
-                        : this.placeholder}
-                    </span>
-                  )}
+                <span
+                  class={`sdds-dropdown-label-main ${
+                    (this.selected.length === 0 ||
+                      (this.labelPosition === 'inside' &&
+                        this.label.length > 0)) &&
+                    'sdds-dropdown-placeholder'
+                  }`}
+                >
+                  {this.selected.length > 0 && this.selected}
+
+                  {!this.selected &&
+                    this.labelPosition !== 'inside' &&
+                    this.placeholder}
+
+                  {this.labelPosition === 'inside' &&
+                    this.label.length > 0 &&
+                    !this.selected &&
+                    this.label}
                 </span>
               )}
             </div>
