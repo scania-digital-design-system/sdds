@@ -8,7 +8,6 @@ export default {
     layout: 'padded',
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
-      //delay: 3000, // set delay for component's stories (loading icons)
     },
   },
   argTypes: {
@@ -85,6 +84,7 @@ const ButtonTemplate = ({
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
+  // chromatic snapshot requires icon to be sdds-icon instead of font
   return `
   <sdds-theme></sdds-theme>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${
@@ -141,9 +141,18 @@ const ComponentBtn = ({
 
 /** Stories exported to Storybook */
 
+/** Button type representatives (equivalence classes) */
+
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   text: 'Button',
+};
+
+// Toggles the component hover state via parameter.
+export const Primary_Hovered = ButtonTemplate.bind({});
+Primary_Hovered.args = {
+  text: 'Button',
+  pseudo: { hover: true },
 };
 
 export const Secondary = ButtonTemplate.bind({});
@@ -169,6 +178,8 @@ Disabled.args = {
   disabled: 'disabled',
   text: 'Button',
 };
+
+/** Variants of button. Shown only on primary button */
 
 export const withIcon = ButtonTemplate.bind({});
 withIcon.args = {
