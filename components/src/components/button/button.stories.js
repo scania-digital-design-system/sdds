@@ -148,13 +148,6 @@ Primary.args = {
   text: 'Button',
 };
 
-// Toggles the component hover state via parameter.
-export const Primary_Hovered = ButtonTemplate.bind({});
-Primary_Hovered.args = {
-  text: 'Button',
-  pseudo: { hover: true },
-};
-
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   btnType: 'secondary',
@@ -201,11 +194,6 @@ onlyIcon.argTypes = {
   },
 };
 
-export const sddsButton = ComponentBtn.bind({});
-sddsButton.args = {
-  text: 'Button',
-};
-
 export const Medium_Size_W_Icon = ButtonTemplate.bind({});
 Medium_Size_W_Icon.args = {
   size: 'medium',
@@ -225,5 +213,10 @@ Fullbleed.args = {
   text: 'Button',
   fullbleed: true,
   icon: true,
-  //layout: 'fullscreen', //DOESN't WORK allowing full width expansion
+};
+
+/** Button as web component */
+export const sddsButton = ComponentBtn.bind({});
+sddsButton.args = {
+  text: 'Button',
 };
