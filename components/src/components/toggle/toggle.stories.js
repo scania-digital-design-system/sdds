@@ -43,28 +43,18 @@ const Template = ({ size, disabled = '', headline = '' }) => {
       ? `<div class="sdds-toggle-headline">${headline}</div>`
       : '';
   return `
-    <style>
-    .demo-container{
-      width: 500px;
-    }
-    .demo-toggle {
-      margin: 5rem 2rem;
-    }
-    </style>
     <sdds-theme></sdds-theme>
-    <div class="demo-container">
-      <div class="demo-toggle sdds-toggle ${sizeValue} ${disabled}" tabindex="0">
+      <div class="sdds-toggle ${sizeValue} ${disabled}" tabindex="0">
         ${headlineDiv}
         <input type="checkbox" class="sdds-toggle-input" id="customSwitch1">
         <span class="sdds-toggle-switch"></span>
         <label class="sdds-toggle-label" for="customSwitch1">Toggle this switch element</label>
       </div>
-      <div class="demo-toggle sdds-toggle ${sizeValue} ${disabled}" tabindex="1">
+      <div class="sdds-toggle ${sizeValue} ${disabled}" tabindex="1">
         <input type="checkbox" checked="checked" class="sdds-toggle-input" id="customSwitch2">
         <span class="sdds-toggle-switch"></span>
         <label class="sdds-toggle-label" for="customSwitch2">Toggle this switch element</label>
       </div>
-    </div>
   `;
 };
 

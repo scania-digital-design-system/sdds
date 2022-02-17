@@ -81,9 +81,7 @@ const textfieldTemplate = ({
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   return `
   <sdds-theme></sdds-theme>
-  <div class="sdds-container" style="margin-top:10rem;">
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+  <div style="max-width:400px">
         <sdds-textarea
           state="${state}"
           label="${label}"
@@ -93,8 +91,6 @@ const textfieldTemplate = ({
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
-      </div>
-    </div>
   </div>
   `;
 };

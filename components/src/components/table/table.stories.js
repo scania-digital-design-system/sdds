@@ -1,15 +1,8 @@
 export default {
   title: 'Component/Table',
 };
-const style = `<style>
-.table-demo {
-  margin: 30px;
-}
-</style>`;
 const Template = ({ type, divider }) => `
-  ${style}
       <sdds-theme></sdds-theme>
-      <div class="table-demo">
       <table class="sdds-table sdds-table-${type} sdds-table-${divider}">
       <caption>Table header</caption>       
       <thead>
@@ -47,7 +40,6 @@ const Template = ({ type, divider }) => `
                 </tr>
             </tbody>
       </table>
-      </div>
     `;
 
 export const Default = Template.bind({});
@@ -70,7 +62,6 @@ CompactDividers.args = {
   divider: 'divider',
 };
 const Table = ({ type, divider }) => `
-  ${style}
       <sdds-theme></sdds-theme>
       <div class="table-demo">
       <table class="sdds-table sdds-table-${type} sdds-table-${divider}">   

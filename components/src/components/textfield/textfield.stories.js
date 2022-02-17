@@ -85,14 +85,6 @@ export default {
   },
 };
 
-const style = `<style>
-
-.demo {
-  margin-top: 20px;
-  width: 208px
-}
-</style>`;
-
 const textfieldTemplate = ({
   type,
   placeholderText,
@@ -120,9 +112,8 @@ const textfieldTemplate = ({
   }
 
   return `
-  ${style}
   <sdds-theme></sdds-theme>
-  <div class="demo">
+  <div style="width: 208px">
     <sdds-textfield
       type="${type}"
       size="${sizeValue}"

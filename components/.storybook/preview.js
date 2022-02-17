@@ -95,10 +95,9 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
-  layout: 'centered',
+  layout: 'padded', // Adds extra padding around the component
 };
 
 setCustomElements(customElements);
-
 defineCustomElements();
 addTheme(theme);

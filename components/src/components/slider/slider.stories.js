@@ -40,24 +40,14 @@ export default {
   },
 };
 
-const style = `<style>
-  
-.demo {
-margin-top: 20px;
-width: 200px;
-}
-</style>`;
 const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
   return `
-  ${style}
   <sdds-theme></sdds-theme>
-  <div class="demo">
-  <sdds-slider  type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}" >
-    
+  <div style="max-width: 400px">
+  <sdds-slider type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
   </sdds-slider>
   </div>
-
   `;
 };
 
