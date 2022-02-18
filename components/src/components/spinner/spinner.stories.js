@@ -26,7 +26,7 @@ const style = `<style>
 display: flex;
 justify-content: center;
 align-items: center;
-background-color:  #F6F6F7; 
+background-color: #F6F6F7; 
 }
 </style>`;
 const Template = ({ size, type }) => {

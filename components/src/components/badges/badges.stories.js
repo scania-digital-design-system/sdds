@@ -40,8 +40,7 @@ const style = `<style>
                     }
               </style>`;
 const badgesTemplate = ({ value }) => {
-  // convert to string
-  const valueString = value != null ? value.toString() : '';
+  const valueString = value != null ? value.toString() : ''; // convert to string
   return `
     ${style}
       <sdds-theme></sdds-theme>
