@@ -13,7 +13,7 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['large', 'small', 'medium'],
       },
       defaultValue: 'large',
@@ -31,7 +31,7 @@ export default {
     },
     labelPosition: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['no-label', 'inside', 'outside'],
       },
       defaultValue: 'no-label',
@@ -39,7 +39,7 @@ export default {
     },
     state: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'error'],
       },
       defaultValue: 'default',
@@ -47,7 +47,7 @@ export default {
     },
     defaultOption: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['no-default', 'option-1', 'option-2', 'option-3'],
       },
     },

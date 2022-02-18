@@ -3,10 +3,10 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'small'],
       },
-      defaultValue: 'default',
+      defaultValue: 'radio',
       description: 'Size of the toggle',
       table: {
         defaultValue: { summary: 'default' },

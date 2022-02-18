@@ -17,7 +17,7 @@ export default {
       name: 'Type',
       description: 'Which type of textfield',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['password', 'text'],
       },
     },
@@ -25,7 +25,7 @@ export default {
       name: 'Size',
       description: 'Switch between different sizes',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['Default', 'Medium'],
       },
     },
@@ -68,7 +68,7 @@ export default {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['none', 'success', 'error'],
       },
     },

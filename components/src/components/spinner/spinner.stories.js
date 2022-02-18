@@ -3,7 +3,7 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'small', 'medium'],
       },
       defaultValue: 'default',
@@ -11,7 +11,7 @@ export default {
     },
     type: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'circular', 'cube', 'linear'],
       },
       defaultValue: 'default',

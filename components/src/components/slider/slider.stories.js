@@ -3,7 +3,7 @@ export default {
   argTypes: {
     type: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'basic', 'continuousValue', 'dualPoint'],
       },
       defaultValue: 'default',

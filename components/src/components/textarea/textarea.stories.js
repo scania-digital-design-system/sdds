@@ -31,7 +31,7 @@ export default {
       description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['no-label', 'inside', 'outside'],
       },
     },
@@ -53,7 +53,7 @@ export default {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['none', 'success', 'error'],
       },
     },

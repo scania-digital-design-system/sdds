@@ -5,7 +5,7 @@ export default {
   argTypes: {
     affix: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['suffix', 'prefix'],
       },
       description: 'Icon position',
@@ -44,7 +44,7 @@ export default {
 
 const Template = ({ disabled, affix, paddingReset }) => `
   <sdds-theme></sdds-theme>
-    <sdds-accordion>
+    <sdds-accordion style="max-width:400px">
       <sdds-accordion-item header="First item" affix="${affix}" disabled="${disabled}" tabindex="1" padding-reset="${paddingReset}">
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum doler sit amet.

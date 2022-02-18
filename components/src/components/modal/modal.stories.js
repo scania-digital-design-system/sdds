@@ -7,7 +7,7 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['xs', 'sm', 'md', 'lg'],
       },
     },
