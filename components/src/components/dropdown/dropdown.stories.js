@@ -11,7 +11,15 @@ export default {
     notes: readme,
   },
   argTypes: {
+    disabled: {
+      name: 'Disabled',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     size: {
+      name: 'Size',
       control: {
         type: 'radio',
         options: ['large', 'small', 'medium'],
@@ -20,16 +28,19 @@ export default {
       description: 'Size of the dropdown',
     },
     placeholder: {
+      name: 'Placeholder',
       type: 'string',
       defaultValue: 'Select option',
       description: 'Placeholder text when no option is selected',
     },
     label: {
+      name: 'Label',
       type: 'string',
       defaultValue: 'Label text',
       description: 'Label text explains about dropdown',
     },
     labelPosition: {
+      name: 'Label position',
       control: {
         type: 'radio',
         options: ['no-label', 'inside', 'outside'],
@@ -38,6 +49,7 @@ export default {
       description: 'Label text position',
     },
     state: {
+      name: 'Error',
       control: {
         type: 'radio',
         options: ['default', 'error'],
@@ -45,20 +57,29 @@ export default {
       defaultValue: 'default',
       description: 'Support error state',
     },
+    helper: {
+      name: 'Helper text',
+      control: {
+        type: 'text',
+      },
+      defaultValue: '',
+    },
     defaultOption: {
+      name: 'Default option',
       control: {
         type: 'radio',
         options: ['no-default', 'option-1', 'option-2', 'option-3'],
       },
     },
-    dropdownOptions: {
-      type: 'string',
-      defaultValue:
-        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>',
-    },
     width: {
-      type: 'range',
-      defaultValue: 400,
+      name: 'Width',
+      control: {
+        type: 'range',
+        min: 200,
+        max: 600,
+        step: 50,
+      },
+      defaultValue: 250,
     },
   },
 };
@@ -73,7 +94,6 @@ const Template = ({
   state = 'default',
   placeholder,
   defaultOption,
-  dropdownOptions,
   width,
 }) => `
     <div style="width:${width}px">
@@ -90,7 +110,6 @@ const Template = ({
           <sdds-dropdown-option value="option-1">Stockhol & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
-          ${dropdownOptions}
         </sdds-dropdown>
       </div>
   `;
@@ -117,6 +136,7 @@ LabelOutside.args = {
 
 export const Helper = Template.bind({});
 Helper.args = {
+  disabled: false,
   helper: 'Helper text',
 };
 
