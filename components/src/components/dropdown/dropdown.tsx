@@ -18,6 +18,9 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
+  /** ID to help out in selecting element and extracting value */
+  @Prop() id: string = '';
+
   /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
@@ -126,6 +129,7 @@ export class Dropdown {
   render() {
     return (
       <Host
+        id={this.id}
         class={{
           'sdds-dropdown--open': this.open,
           'sdds-dropdown-inline': this.inline,

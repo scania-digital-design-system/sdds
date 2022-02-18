@@ -185,6 +185,11 @@
     border-top: 1px solid var(--sdds-grey-300);
     border-bottom: 1px solid var(--sdds-grey-300);
   }
+
+  ::slotted(sdds-dropdown-option.sdds-option--no-result) {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .sdds-option-label {
