@@ -14,7 +14,7 @@ export class DropdownFilter {
   @State() selectedOption: any;
 
   /** ID to help out in selecting element and extracting value */
-  @Prop() id: string = '';
+  @Prop() idTag: string = '';
 
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string = '';
@@ -123,7 +123,7 @@ export class DropdownFilter {
   render() {
     return (
       <Host
-        id={this.id}
+        id={this.idTag}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
       >
