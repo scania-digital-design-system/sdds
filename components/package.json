@@ -28,7 +28,8 @@
     "new": "stencil generate",
     "prepublishOnly": "npm run build",
     "test": "stencil test --spec --verbose",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "chromatic": "npx chromatic --project-token=d732995e8c94"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -56,6 +57,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "bootstrap": "4.3.1",
+    "chromatic": "^6.4.3",
     "highlight.js": "9.16.2",
     "jest": "^26.6.2",
     "jest-cli": "^26.6.2",
