@@ -16,6 +16,8 @@ const Template = (args) => {
     html, body, #root, #storybook-addon-themes {
       height: 100%;
       padding:0;
+      overflow: hidden;
+      position: relative;
     }
     .sb-show-main.sb-main-padded {
       padding: 0;
@@ -23,8 +25,6 @@ const Template = (args) => {
     .sdds-demo-container {
       align-items: stretch;
       height: calc(100% - 64px);
-      overflow:hidden;
-      position: relative;
     }
     .sdds-container {
       overflow-y:auto;
@@ -52,9 +52,7 @@ const Template = (args) => {
         sidebarElement.classList.toggle('collapsed');
       });
 
-    const menuElementOpen = document.querySelector(
-      '.sdds-sidebar-mheader__open'
-    );
+    const menuElementOpen = document.querySelector('.sdds-nav__mob-menu-btn');
     menuElementOpen &&
       menuElementOpen.addEventListener('click', (e) => {
         e.preventDefault();
@@ -85,9 +83,17 @@ const Template = (args) => {
 
   return `
   ${style}
-   <nav class='sdds-nav'>
+   <nav class='sdds-nav sdds-nav__sidemenu'>
       <div class='sdds-nav__left'>
+
+        <button class='sdds-nav__mob-menu-btn'>
+          <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z" fill="currentColor"/>
+          </svg>
+        </button>
+
         <div class='sdds-nav__app-name'>My application</div>
+
       </div>
       <div class='sdds-nav__right'>
         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
@@ -95,12 +101,6 @@ const Template = (args) => {
   </nav>
 
   <div class="sdds-push sdds-demo-container">
-
-    <a href="#" class="sdds-sidebar-mheader__open">
-    <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z" fill="currentColor"/>
-    </svg>
-    </a>
 
     <div class="sdds-sidebar side-menu">
 
@@ -128,6 +128,9 @@ const Template = (args) => {
             <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
           <ul class="sdds-sidebar-nav-subnav">
+            <li class="sdds-sidebar-nav-subnav__title">
+              <span>item 1</span>
+            </li>
             <li class="sdds-sidebar-nav-subnav__item">
               <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 2-1</span></a>
             </li>
@@ -147,6 +150,9 @@ const Template = (args) => {
             <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
           <ul class="sdds-sidebar-nav-subnav">
+            <li class="sdds-sidebar-nav-subnav__title">
+              <span>item 1</span>
+            </li>
             <li class="sdds-sidebar-nav-subnav__item">
               <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 3-1</span></a>
             </li>
@@ -169,7 +175,7 @@ const Template = (args) => {
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 5</span>
+            <span>A page name that has a very long name</span>
           </a>
         </li>
 
@@ -307,14 +313,20 @@ const Template = (args) => {
   `;
 };
 
+export const Non_collapsible = Template.bind({});
+
+Non_collapsible.args = {
+  icon: false,
+};
+
+export const Non_collapsible_Icons = Template.bind({});
+
+Non_collapsible_Icons.args = {
+  icon: true,
+};
+
 export const Collapsible = Template.bind({});
 
 Collapsible.args = {
   collapsible: true,
-};
-
-export const Non_collapsible = Template.bind({});
-
-Non_collapsible.args = {
-  icon: true,
 };

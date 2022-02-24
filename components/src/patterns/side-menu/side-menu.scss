@@ -3,15 +3,26 @@
 @import '@scania/typography/dist/scss/tokens';
 @import '@scania/grid/dist/scss/grid.scss';
 
-/* NOOO... */
+/* HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
-.sdds-demo-container {
-  @media all and (max-width: $grid-lg) {
-    height: 100% !important;
-    margin-top: -64px;
+.sdds-nav__mob-menu-btn {
+  display: none;
+  transition: background-color 0.15s ease-in-out;
 
-    .sdds-container {
-      margin-top: 64px;
+  @media all and (max-width: $grid-md) {
+    display: flex;
+  }
+
+  &:hover {
+    background-color: var(--sdds-blue-700);
+  }
+
+  svg {
+    height: 21px;
+    width: 21px;
+
+    path {
+      fill: var(--sdds-white);
     }
   }
 }
@@ -20,35 +31,26 @@
 
 @mixin item-states {
   &:focus {
-    background-color: var(--sdds-white);
-    //background-color: #F6F6F9;
     outline: none;
+
+    &::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      border: 1px solid var(--sdds-blue-500);
+    }
   }
 
   &:hover {
     background-color: var(--sdds-grey-100);
-    //background-color: #F6F6F9;
   }
 
   &:active {
     background-color: var(--sdds-grey-200);
-    //background-color: #E0E2EB;
-  }
-}
-
-@mixin sdds-scrollbar {
-  &::-webkit-scrollbar {
-    width: 4px;
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--sdds-grey-300);
-  }
-
-  ::-webkit-scrollbar-button {
-    height: 0;
-    width: 0;
   }
 }
 
@@ -64,16 +66,18 @@
     flex-basis: auto;
     min-width: auto;
     flex-shrink: 0;
-    width: 288px;
+    width: 256px;
     position: relative;
+    border-right: 1px solid var(--sdds-grey-300);
 
-    @media all and (max-width: $grid-lg) {
+    @media all and (max-width: $grid-md) {
       position: absolute;
       top: 0;
       bottom: 0;
       padding-top: 64px;
       transform: translateX(-100%);
       pointer-events: none;
+      width: 75%;
 
       &.mobile-menu-open {
         transform: translateX(0);
@@ -110,53 +114,20 @@
     top: 0;
     width: 100%;
     display: none;
-    //background-color: green;
     border-bottom: 1px solid var(--sdds-grey-300);
-    //border-right: 1px solid var(--sdds-grey-300);
 
-    @media all and (max-width: $grid-lg) {
+    @media all and (max-width: $grid-md) {
       display: block;
     }
 
     &__close {
       height: 64px;
       width: 68px;
-      //background-color: red;
       display: flex;
       align-items: center;
       justify-content: center;
       position: absolute;
       top: 0;
-    }
-
-    &__open {
-      height: 64px;
-      width: 68px;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      border-right: 1px solid var(--sdds-blue-700);
-      //border-right: 1px solid #0F3263;
-      display: none;
-      transition: background-color 0.15s ease-in-out;
-
-      @media all and (max-width: $grid-lg) {
-        display: flex;
-      }
-
-      &:hover {
-        background-color: var(--sdds-blue-700);
-      }
-
-      svg {
-        height: 21px;
-        width: 21px;
-
-        path {
-          fill: var(--sdds-white);
-        }
-      }
     }
   }
 
@@ -165,13 +136,17 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    //border-right: 1px solid var(--sdds-grey-300);
     overflow: hidden;
 
     // MAIN MENU
     &--main {
       margin-bottom: 68px;
       overflow-y: auto;
+      scrollbar-width: 4px;
+
+      @media all and (max-width: $grid-md) {
+        margin-bottom: -1px;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -185,7 +160,7 @@
       width: 100%;
       background-color: var(--sdds-white);
 
-      @media all and (max-width: $grid-lg) {
+      @media all and (max-width: $grid-md) {
         display: none;
       }
 
@@ -196,6 +171,16 @@
 
       .sdds-sidebar-nav__item {
         border-bottom: none;
+
+        &:last-child {
+          .sdds-sidebar-nav__item-link {
+          &:focus {
+            &::after {
+              bottom: 0;
+              }
+            }
+          }
+        }
       }
     }
 
@@ -222,19 +207,19 @@
 
         color: var(--sdds-grey-900);
         text-decoration: none;
-        padding: 24px 16px 24px 24px;
+        padding: 24px 40px 24px 24px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         position: relative;
         min-height: 20px;
         box-sizing: content-box;
-        white-space: nowrap;
         transition: background-color 0.15s ease-in-out;
 
         span {
-          margin-top: 2px;
+          margin-top: 3px;
           opacity: 1;
           transition: opacity 0.15s ease-in-out;
+          min-width: 160px;
         }
       }
 
@@ -263,7 +248,6 @@
           bottom: 0;
           width: 4px;
           background-color: var(--sdds-blue-500);
-          //background-color: #2B70D3;
         }
       }
     }
@@ -287,8 +271,31 @@
           padding: 16px 24px 16px 24px;
           padding-left: 24px + 20px + 12px;
           white-space: nowrap;
-          transition: 0.15s ease-in-out;
+          transition: opacity background-color 0.15s ease-in-out;
           font-weight: normal;
+          min-height: auto;
+
+          span {
+            @include type-style('detail-02');
+
+            transition: opacity height 0.15s ease-in-out;
+          }
+        }
+      }
+
+      &__title {
+        span {
+          @include type-style('headline-07');
+
+          text-decoration: none;
+          display: block;
+          padding: 16px 24px 16px 24px;
+          padding-left: 24px + 20px + 12px;
+          white-space: nowrap;
+          transition: opacity background-color 0.15s ease-in-out;
+          min-height: auto;
+          border-bottom: 1px solid var(--sdds-grey-300);
+          display: none;
         }
       }
 
@@ -313,6 +320,7 @@
     &__chevron {
       position: absolute;
       right: 16px;
+      top: calc(50% - 4px);
       transform-origin: center;
       transition: 0.15s ease-in-out;
     }
@@ -323,7 +331,8 @@
 
     .sdds-sidebar-nav__item {
       span {
-        opacity: 0;
+       opacity: 0;
+       height: 1px;
       }
 
       &:hover {
@@ -332,6 +341,10 @@
           pointer-events: all;
         }
       }
+    }
+
+    .sdds-sidebar-nav-subnav__title {
+      display: block;
     }
 
     .sdds-sidebar-nav__chevron {
@@ -350,15 +363,16 @@
       position: absolute;
       background: var(--sdds-white);
       width: 245px;
-      border-top: 1px solid var(--sdds-grey-300);
       transform: translateY(-69px);
       z-index: 1;
       opacity: 0;
       pointer-events: none;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
 
       .sdds-sidebar-nav-subnav__item {
         .sdds-sidebar-nav__item-link {
           padding-left: 24px;
+          border-bottom: 1px solid var(--sdds-grey-300);
 
           span {
             opacity: 1;
@@ -372,28 +386,18 @@
 
   /* width */
   ::-webkit-scrollbar {
-    width: 4px;
-    background-color: transparent;
+    width: 3px;
+    background-color: var(--sdds-grey-300);
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: var(--sdds-grey-300);
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background-color: var(--sdds-grey-400);
+    background-color: var(--sdds-grey-500);
     border-radius: 0;
-  }
-}
-
-/* HEADER AFFECTING STUFF */
-
-@media all and (max-width: $grid-lg) {
-  .sdds-nav {
-    &__app-name {
-      padding-left: 24px + 64px;
-    }
   }
 }
