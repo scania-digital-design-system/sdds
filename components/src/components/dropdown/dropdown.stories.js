@@ -97,7 +97,7 @@ const Template = ({
   width,
 }) => `
     <div style="width:${width}px">
-        <sdds-dropdown 
+        <sdds-dropdown           
           size="${size}"
           placeholder="${placeholder}"
           disabled="${disabled}"
@@ -110,6 +110,13 @@ const Template = ({
           <sdds-dropdown-option value="option-1">Stockhol & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-4">Option 4 !</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-5">Option 5</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-6">Option 6</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-7">Option 7</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-8">Option 8</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-9">Option 9</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-10">Option 10</sdds-dropdown-option>
         </sdds-dropdown>
       </div>
   `;

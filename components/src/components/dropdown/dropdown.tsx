@@ -63,6 +63,10 @@ export class Dropdown {
 
   @State() uuid;
 
+  @State() dropdownUniqueClass: string = '';
+
+  @State() openUpwards: boolean = false;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
@@ -83,6 +87,7 @@ export class Dropdown {
   componentDidLoad() {
     // generate UUID for unique event listener
     this.uuid = new Date().getTime() + Math.random();
+    this.dropdownUniqueClass = `sdds-dropdown_${Math.round(this.uuid)}`;
   }
 
   @Listen('click', { target: 'document' })
@@ -103,6 +108,11 @@ export class Dropdown {
 
   handleClick(id) {
     if (id !== this.uuid) this.open = false;
+    const distanceToBottom = document
+      .getElementsByClassName(this.dropdownUniqueClass)[0]
+      .getBoundingClientRect().bottom;
+    this.openUpwards = distanceToBottom < 360;
+    // 360 as dropdown menu grows up to max 360px
   }
 
   @Listen('selectOption')
@@ -129,13 +139,13 @@ export class Dropdown {
   render() {
     return (
       <Host
-        id={this.idTag}
-        class={{
-          'sdds-dropdown--open': this.open,
-          'sdds-dropdown-inline': this.inline,
-          'sdds-dropdown--selected': this.selectedLabel.length > 0,
-          'sdds-dropdown--error': this.state === 'error',
-        }}
+        class={`${this.dropdownUniqueClass} 
+          ${this.open ? 'sdds-dropdown--open' : ''}
+          ${this.inline ? 'sdds-dropdown-inline' : ''}
+          ${this.selectedLabel.length > 0 ? 'sdds-dropdown--selected' : ''}
+          ${this.state === 'error' ? 'sdds-dropdown--error' : ''}    
+          ${this.openUpwards ? 'sdds-dropdown--openUpwards' : ''}   
+          `}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
       >
