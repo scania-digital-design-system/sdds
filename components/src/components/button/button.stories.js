@@ -1,6 +1,4 @@
-/**
- * Default controls
- */
+/* Default controls */
 
 export default {
   title: 'Component/Button',
