@@ -81,6 +81,12 @@ export default {
       },
       defaultValue: 250,
     },
+    extraDropdownOptions: {
+      name: 'Extra dropdown options',
+      type: 'string',
+      defaultValue:
+        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>',
+    },
   },
 };
 
@@ -95,6 +101,7 @@ const Template = ({
   placeholder,
   defaultOption,
   width,
+  extraDropdownOptions,
 }) => `
     <div style="width:${width}px">
         <sdds-dropdown           
@@ -109,15 +116,9 @@ const Template = ({
           default-option="${defaultOption}">
           <sdds-dropdown-option value="option-1">Stockhol & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Hello 2</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-4">Option 4 !</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-5">Option 5</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-6">Option 6</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-7">Option 7</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-8">Option 8</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-9">Option 9</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-10">Option 10</sdds-dropdown-option>
-        </sdds-dropdown>
+          <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>          
+          ${extraDropdownOptions}
+                  </sdds-dropdown>
       </div>
   `;
 

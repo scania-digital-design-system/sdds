@@ -88,7 +88,6 @@ export class Dropdown {
   componentDidLoad() {
     // generate UUID for unique event listener
     this.uuid = new Date().getTime() + Math.random();
-    this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
   }
 
   @Listen('click', { target: 'document' })
@@ -109,9 +108,12 @@ export class Dropdown {
 
   handleClick(id) {
     if (id !== this.uuid) this.open = false;
+    this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
     const distanceToBottom = this.host.getBoundingClientRect().bottom;
-    this.openUpwards = distanceToBottom < this.dropdownMenuHeight;
+    this.openUpwards = distanceToBottom < this.dropdownMenuHeight + 57;
     // If dropdown menu height is more than distance to the bottom of the page, open menu upwards
+    // Additional 57px is added as compensation for dropdown element own height
+    // It is added on handleClick due to possible dynamic injection of data when component is already rendered
   }
 
   @Listen('selectOption')
