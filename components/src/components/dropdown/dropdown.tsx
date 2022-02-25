@@ -18,9 +18,6 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
-  /** ID to help out in selecting element and extracting value */
-  @Prop() idTag: string = '';
-
   /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
