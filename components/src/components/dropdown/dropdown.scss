@@ -149,6 +149,12 @@
   .sdds-dropdown {
     .sdds-dropdown-toggle {
       border-color: var(--sdds-negative);
+
+      &:focus {
+        &::before {
+          border-color: var(--sdds-negative);
+        }
+      }
     }
   }
 
