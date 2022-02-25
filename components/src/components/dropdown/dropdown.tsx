@@ -64,6 +64,10 @@ export class Dropdown {
 
   @State() openUpwards: boolean = false;
 
+  @State() dropdownMenuHeight: number = 0;
+
+  @State() dropdownMenuSelector: HTMLElement;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
@@ -84,7 +88,7 @@ export class Dropdown {
   componentDidLoad() {
     // generate UUID for unique event listener
     this.uuid = new Date().getTime() + Math.random();
-    this.dropdownUniqueClass = `sdds-dropdown_${Math.round(this.uuid)}`;
+    this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
   }
 
   @Listen('click', { target: 'document' })
@@ -105,11 +109,9 @@ export class Dropdown {
 
   handleClick(id) {
     if (id !== this.uuid) this.open = false;
-    const distanceToBottom = document
-      .getElementsByClassName(this.dropdownUniqueClass)[0]
-      .getBoundingClientRect().bottom;
-    this.openUpwards = distanceToBottom < 360;
-    // 360 as dropdown menu grows up to max 360px
+    const distanceToBottom = this.host.getBoundingClientRect().bottom;
+    this.openUpwards = distanceToBottom < this.dropdownMenuHeight;
+    // If dropdown menu height is more than distance to the bottom of the page, open menu upwards
   }
 
   @Listen('selectOption')
@@ -136,13 +138,13 @@ export class Dropdown {
   render() {
     return (
       <Host
-        class={`${this.dropdownUniqueClass} 
-          ${this.open ? 'sdds-dropdown--open' : ''}
-          ${this.inline ? 'sdds-dropdown-inline' : ''}
-          ${this.selectedLabel.length > 0 ? 'sdds-dropdown--selected' : ''}
-          ${this.state === 'error' ? 'sdds-dropdown--error' : ''}    
-          ${this.openUpwards ? 'sdds-dropdown--open-upwards' : ''}   
-          `}
+        class={{
+          'sdds-dropdown--open': this.open,
+          'sdds-dropdown-inline': this.inline,
+          'sdds-dropdown--selected': this.selectedLabel.length > 0,
+          'sdds-dropdown--error': this.state === 'error',
+          'sdds-dropdown--open-upwards': this.openUpwards,
+        }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
       >
@@ -212,7 +214,10 @@ export class Dropdown {
               />
             </svg>
           </button>
-          <div class="sdds-dropdown-menu">
+          <div
+            class="sdds-dropdown-menu"
+            ref={(dropdownMenu) => (this.dropdownMenuSelector = dropdownMenu)}
+          >
             <slot />
           </div>
         </div>
