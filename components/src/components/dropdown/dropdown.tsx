@@ -144,7 +144,7 @@ export class Dropdown {
           ${this.inline ? 'sdds-dropdown-inline' : ''}
           ${this.selectedLabel.length > 0 ? 'sdds-dropdown--selected' : ''}
           ${this.state === 'error' ? 'sdds-dropdown--error' : ''}    
-          ${this.openUpwards ? 'sdds-dropdown--openUpwards' : ''}   
+          ${this.openUpwards ? 'sdds-dropdown--open-upwards' : ''}   
           `}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}

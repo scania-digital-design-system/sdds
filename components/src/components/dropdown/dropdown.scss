@@ -118,6 +118,17 @@
   }
 }
 
+:host(.sdds-dropdown--open-upwards) {
+  .sdds-dropdown {
+    .sdds-dropdown-menu {
+      top: auto;
+      bottom: 100%;
+      box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+      transform-origin: bottom;
+    }
+  }
+}
+
 :host([disabled='true']) {
   cursor: not-allowed;
 
@@ -189,6 +200,17 @@
   ::slotted(sdds-dropdown-option.sdds-option--no-result) {
     cursor: not-allowed;
     pointer-events: none;
+  }
+}
+
+:host(.sdds-dropdown--open-upwards) {
+  ::slotted(sdds-dropdown-option:first-child) {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  ::slotted(sdds-dropdown-option:last-child) {
+    border-radius: 0;
+    border-bottom: 1px solid var(--sdds-grey-300);
   }
 }
 
