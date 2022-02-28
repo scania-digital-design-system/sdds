@@ -96,6 +96,7 @@ export const parameters = {
     values: customBGvalues,
   },
   layout: 'padded', // Adds extra padding around the component
+  chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
 };
 
 setCustomElements(customElements);
