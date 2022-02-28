@@ -44,7 +44,7 @@ const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
   return `
   <sdds-theme></sdds-theme>
-  <div style="max-width: 400px">
+  <div class="sdds-storybook-wrapper">
   <sdds-slider type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
   </sdds-slider>
   </div>

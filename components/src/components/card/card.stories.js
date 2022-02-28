@@ -11,12 +11,6 @@ export default {
   },
 };
 
-const style = `<style>
-.card-demo {
-  max-width: 400px;
-}
-</style>`;
-
 const CardTemplate = ({
   headline,
   subheadline,
@@ -26,9 +20,8 @@ const CardTemplate = ({
   divider,
   imageTop,
 }) => `
-  ${style}
     <sdds-theme></sdds-theme>
-    <div class="card-demo">
+    <div class="sdds-storybook-wrapper">
           <div class="sdds-card${clickable ? ' sdds-clickable' : ''}">
             ${
               imageTop == true
@@ -126,9 +119,8 @@ const AvatarTemplate = ({
   imageTop,
   avatar,
 }) => `
-  ${style}
     <sdds-theme></sdds-theme>
-    <div class="card-demo">
+    <div class="sdds-storybook-wrapper">
       <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
       ${
         imageTop == true
