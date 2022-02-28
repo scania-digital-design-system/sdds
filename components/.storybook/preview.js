@@ -95,10 +95,10 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
-  layout: 'centered',
+  layout: 'centered', // center the component horizontally and vertically in the Canvas
+  chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
 };
 
 setCustomElements(customElements);
-
 defineCustomElements();
 addTheme(theme);
