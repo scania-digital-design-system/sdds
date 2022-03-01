@@ -79,7 +79,6 @@ const ButtonTemplate = ({
       break;
   }
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
-  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   // chromatic snapshot requires icon to be sdds-icon instead of font
@@ -87,13 +86,9 @@ const ButtonTemplate = ({
   <sdds-theme></sdds-theme>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${
     disabled ? 'disabled' : ''
-  } ${onlyIconCss}" ${inlineStyle}>
+  } ${onlyIconCss}">
     <span>${text}</span>
-    ${
-      icon
-        ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>"
-        : ''
-    }
+    ${icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''}
   </button>
   `;
 };
@@ -101,7 +96,7 @@ const ButtonTemplate = ({
 /**
  * Basic template
  * @param {*} param0
- * @returns Button as a web component
+ * @returns Web component with button in shadow DOM
  */
 
 const ComponentBtn = ({
@@ -125,15 +120,18 @@ const ComponentBtn = ({
       break;
   }
 
-  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
+  // style attribute for <sdds-button fullbleed> needed to allow fullbleed width for child element in shadow DOM.
 
   return `
   <sdds-theme></sdds-theme>
-  <sdds-button type="${btnType}" size="${sizeValue}" ${
-    disabled ? 'disabled' : ''
-  } ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${
-    icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
-  } </sdds-button>
+  <sdds-button 
+    type="${btnType}" 
+    size="${sizeValue}" 
+    ${disabled ? 'disabled' : ''} 
+    ${fullbleed ? 'fullbleed style="width: 100%"' : ''} 
+    text="${text}"> 
+    ${icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''} 
+  </sdds-button>
   `;
 };
 
