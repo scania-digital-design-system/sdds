@@ -85,7 +85,7 @@ export default {
       name: 'Extra dropdown options',
       type: 'string',
       defaultValue:
-        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>' +
+        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>\n' +
         '<sdds-dropdown-option value="alpha-values-1">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö</sdds-dropdown-option>\n' +
         '<sdds-dropdown-option value="alpha-values-2">a b c d e f g h i j k l m n o p q r s t u v w x y z å ä ö</sdds-dropdown-option>\n' +
         '<sdds-dropdown-option value="num-values">0 1 2 3 4 5 6 7 8 9</sdds-dropdown-option>\n' +
@@ -175,7 +175,7 @@ const FilterTemplate = ({
         disabled="${disabled}"
         helper="${helper}"
         default-option="${defaultOption}"
-        data='[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'
+        data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
         ></sdds-dropdown-filter>
       </div>
   `;
