@@ -50,7 +50,14 @@
   }
 
   .sdds-dropdown-label {
+    display: grid;
     flex-grow: 2;
+  }
+
+  .sdds-dropdown-label-container {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .sdds-dropdown-filter {

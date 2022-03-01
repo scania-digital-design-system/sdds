@@ -180,7 +180,7 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <div>
+                <div class="sdds-dropdown-label-container">
                   {this.size !== 'small' &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
