@@ -146,6 +146,8 @@ export class Dropdown {
           'sdds-dropdown--selected': this.selectedLabel.length > 0,
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
+          'sdds-dropdown--label-inside-position':
+            this.labelPosition === 'inside',
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
@@ -178,25 +180,34 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <span
-                  class={`sdds-dropdown-label-main ${
-                    (this.selectedLabel.length === 0 ||
-                      (this.labelPosition === 'inside' &&
-                        this.label.length > 0)) &&
-                    'sdds-dropdown-placeholder'
-                  }`}
-                >
-                  {this.selectedLabel.length > 0 && this.selectedLabel}
+                <div>
+                  {this.size !== 'small' &&
+                    this.labelPosition === 'inside' &&
+                    this.label.length > 0 && (
+                      <span class="sdds-dropdown-label-inside">
+                        {this.label}
+                      </span>
+                    )}
+                  <span
+                    class={`sdds-dropdown-label-main ${
+                      (this.selectedLabel.length === 0 ||
+                        (this.labelPosition === 'inside' &&
+                          this.label.length > 0)) &&
+                      'sdds-dropdown-placeholder'
+                    }`}
+                  >
+                    {this.selectedLabel.length > 0 && this.selectedLabel}
 
-                  {!this.selectedLabel &&
-                    this.labelPosition !== 'inside' &&
-                    this.placeholder}
+                    {!this.selectedLabel &&
+                      this.labelPosition !== 'inside' &&
+                      this.placeholder}
 
-                  {this.labelPosition === 'inside' &&
-                    this.label.length > 0 &&
-                    !this.selectedLabel &&
-                    this.label}
-                </span>
+                    {!this.selectedLabel &&
+                      this.size === 'small' &&
+                      this.labelPosition === 'inside' &&
+                      this.placeholder}
+                  </span>
+                </div>
               )}
             </div>
             <svg

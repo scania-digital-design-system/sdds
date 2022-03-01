@@ -69,12 +69,6 @@ html {
   }
 }
 
-.sdds-dropdown-label-inside,
-.sdds-dropdown-label-outside {
-  display: block;
-  margin-bottom: var(--sdds-spacing-element-4);
-}
-
 .sdds-dropdown-label-inside {
   @include type-style('detail-07');
 
@@ -85,4 +79,6 @@ html {
   @include type-style('detail-05');
 
   color: var(--sdds-grey-958);
+  position: absolute;
+  top: -16px;
 }
