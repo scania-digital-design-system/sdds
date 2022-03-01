@@ -88,7 +88,11 @@ const ButtonTemplate = ({
     disabled ? 'disabled' : ''
   } ${onlyIconCss}">
     <span>${text}</span>
-    ${icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''}
+    ${
+      icon
+        ? "<sdds-icon slot='icon' name='scania-cross' class='sdds-btn-icon'></sdds-icon>"
+        : ''
+    }
   </button>
   `;
 };
@@ -130,7 +134,11 @@ const ComponentBtn = ({
     ${disabled ? 'disabled' : ''} 
     ${fullbleed ? 'fullbleed style="width: 100%"' : ''} 
     text="${text}"> 
-    ${icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''} 
+    ${
+      icon
+        ? "<sdds-icon slot='icon' name='scania-cross' class='sdds-btn-icon'></sdds-icon>"
+        : ''
+    } 
   </sdds-button>
   `;
 };
