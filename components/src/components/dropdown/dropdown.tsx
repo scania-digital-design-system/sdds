@@ -103,6 +103,13 @@ export class Dropdown {
       this.open = !this.open;
     } else {
       this.open = false;
+      if (!this.selectedLabel && this.selectedLabel.length <= 0) {
+        this.textInput.value = '';
+        this.inputSearch.emit('');
+      }
+      if (this.selectedLabel !== this.textInput.value) {
+        this.textInput.value = this.selectedLabel;
+      }
     }
   }
 
