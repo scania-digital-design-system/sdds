@@ -120,9 +120,9 @@ const Template = ({
           state="${state}"
           type="${type}"
           default-option="${defaultOption}">
-          <sdds-dropdown-option value="option-1">Stockholm & Stockholm</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2">Hello 2</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>          
+          <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
           ${extraDropdownOptions}
                   </sdds-dropdown>
       </div>
