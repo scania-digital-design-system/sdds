@@ -91,7 +91,7 @@ const ButtonTemplate = ({
     <span>${text}</span>
     ${
       icon
-        ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>"
+        ? '<svg class="sdds-btn-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.744 8.48a1 1 0 0 1 .004 1.413 2709.096 2709.096 0 0 1-9.899 9.909 1642.18 1642.18 0 0 0-4.806 4.805 1 1 0 0 1-1.416.001l-7.355-7.362a1 1 0 0 1 1.415-1.414l6.646 6.653a2024.31 2024.31 0 0 1 5.35-5.342c2.362-2.356 5.155-5.146 8.647-8.66a1 1 0 0 1 1.414-.004Z" fill="currentColor"/></svg>'
         : ''
     }
   </button>
@@ -132,7 +132,9 @@ const ComponentBtn = ({
   <sdds-button type="${btnType}" size="${sizeValue}" ${
     disabled ? 'disabled' : ''
   } ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${
-    icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
+    icon
+      ? '<svg class="sdds-btn-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.744 8.48a1 1 0 0 1 .004 1.413 2709.096 2709.096 0 0 1-9.899 9.909 1642.18 1642.18 0 0 0-4.806 4.805 1 1 0 0 1-1.416.001l-7.355-7.362a1 1 0 0 1 1.415-1.414l6.646 6.653a2024.31 2024.31 0 0 1 5.35-5.342c2.362-2.356 5.155-5.146 8.647-8.66a1 1 0 0 1 1.414-.004Z" fill="currentColor"/></svg>'
+      : ''
   } </sdds-button>
   `;
 };
