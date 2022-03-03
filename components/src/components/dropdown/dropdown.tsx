@@ -102,14 +102,8 @@ export class Dropdown {
       }
       this.open = !this.open;
     } else {
+      this.tabbingLabelReset();
       this.open = false;
-      if (!this.selectedLabel && this.selectedLabel.length <= 0) {
-        this.textInput.value = '';
-        this.inputSearch.emit('');
-      }
-      if (this.selectedLabel !== this.textInput.value) {
-        this.textInput.value = this.selectedLabel;
-      }
     }
   }
 
@@ -123,10 +117,23 @@ export class Dropdown {
     // It is added on handleClick due to possible dynamic injection of data when component is already rendered
   }
 
+  tabbingLabelReset() {
+    if (typeof this.textInput !== 'undefined' || this.textInput === null) {
+      if (!this.selectedLabel && this.selectedLabel.length <= 0) {
+        this.textInput.value = '';
+        this.inputSearch.emit('');
+      }
+      if (this.selectedLabel !== this.textInput.value) {
+        this.textInput.value = this.selectedLabel;
+      }
+    }
+  }
+
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selectedLabel = event.detail.label;
     this.selectedValue = event.detail.value;
+    this.tabbingLabelReset();
     this.open = false;
   }
 
@@ -236,6 +243,7 @@ export class Dropdown {
           </button>
           <div
             class="sdds-dropdown-menu"
+            // Need to have reference in order to calc height and distance from bottom
             ref={(dropdownMenu) => (this.dropdownMenuSelector = dropdownMenu)}
           >
             <slot />

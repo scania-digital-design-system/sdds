@@ -101,6 +101,7 @@ export class DropdownFilter {
   setOptionsContent() {
     const newList = this.filteredContent.map((obj) => (
       <sdds-dropdown-option
+        tabindex="0"
         value={obj.value}
         class={`${this.selectedOption === obj.value ? 'selected' : ''}`}
       >
@@ -111,7 +112,11 @@ export class DropdownFilter {
       return newList;
     }
     return (
-      <sdds-dropdown-option value="no-result" class="sdds-option--no-result">
+      <sdds-dropdown-option
+        tabindex="-1"
+        value="no-result"
+        class="sdds-option--no-result"
+      >
         No result
       </sdds-dropdown-option>
     );
