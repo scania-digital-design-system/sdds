@@ -1,14 +1,15 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
-.#{$prefix}-table {
+.sdds-table {
   border-collapse: collapse;
+  display: table;
 
-  caption {
-    background-color: var(--sdds-table-title-bg);
-    @include type-style('headline-07');
-    color: var(--sdds-table-text-color);
+  .sdds-table__title {
+    @include type-style("headline-07");
+
+    background-color: var(--sdds-grey-400);
+    color: var(--sdds-grey-958);
     text-align: left;
     padding-top: var(--sdds-spacing-element-16);
     padding-left: var(--sdds-spacing-element-16);
@@ -16,186 +17,232 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
-  caption ~ thead {
-    th:first-child {
-      border-top-left-radius: 0px;
-    }
-    th:last-child {
-      border-top-right-radius: 0px;
+
+  .sdds-table__title + .sdds-table__header {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      border-radius: 0;
     }
   }
 
-  thead {
-    th:first-child {
-      border-top-left-radius: 4px;
-    }
-    th:last-child {
-      border-top-right-radius: 4px;
-    }
-    th {
-      @include type-style('headline-07');
+  .sdds-table__header {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      @include type-style("headline-07");
+
+      display: table-cell;
       text-align: left;
-      color: var(--sdds-table-text-color);
-      background-color: var(--sdds-table-header-bg);
-      padding: var(--sdds-spacing-element-16);
+      color: var(--sdds-grey-958);
+      background-color: var(--sdds-grey-300);
+      border-bottom: 1px solid var(--sdds-grey-400);
+      padding: 0;
+      height: 48px;
       min-width: 192px;
+
+      // To fix issues with border-radius propagating up from button
+      overflow: hidden;
+      transition: background-color 200ms ease;
+
+      &:first-child {
+        border-top-left-radius: 4px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 4px;
+      }
     }
   }
-  tr {
-    border-bottom: 1px solid var(--sdds-table-title-bg);
+
+  .sdds-table__header {
+    ::slotted(sdds-header-cell:hover) {
+      background-color: var(--sdds-grey-400);
+    }
   }
-  tr:hover td {
-    background-color: var(--sdds-table-body-hover);
+
+  .sdds-table__row {
+    border-bottom: 1px solid var(--sdds-grey-400);
+    background-color: var(--sdds-white);
+    transition: background-color 200ms ease;
   }
-  th,
-  td {
-    @include type-style('detail-02');
-    color: var(--sdds-table-text-color);
-    background-color: var(--sdds-table-body-bg);
+
+  .sdds-table__row:hover {
+    background-color: var(--sdds-grey-100);
+  }
+
+  .sdds-table__body-cell,
+  ::slotted(sdds-body-cell) {
+    @include type-style("detail-02");
+
+    display: table-cell;
+    color: var(--sdds-grey-958);
     padding: var(--sdds-spacing-element-16);
     min-width: 192px;
     vertical-align: top;
+    background-color: transparent;
+    transition: background-color 200ms ease;
   }
 
-  &.#{$prefix}-table-compact {
-    caption {
-      padding-top: var(--sdds-spacing-element-16);
-      padding-left: var(--sdds-spacing-element-16);
+  .sdds-table__body-cell--hover {
+    background-color: var(--sdds-grey-200);
+  }
+
+  // SDDS GLOBAL STYLES:
+  &.sdds-table--compact {
+    .sdds-table__title {
       padding-bottom: var(--sdds-spacing-element-24);
     }
-    thead {
-      th {
-        padding-top: var(--sdds-spacing-element-8);
-        padding-bottom: var(--sdds-spacing-element-8);
-        padding-left: var(--sdds-spacing-element-16);
-        padding-right: var(--sdds-spacing-element-16);
+
+    .sdds-table__body-cell,
+    ::slotted(sdds-body-cell) {
+      padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
+    }
+
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      height: 32px;
+    }
+  }
+
+  &.sdds-table--divider {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell),
+    .sdds-table__body-cell,
+    ::slotted(sdds-body-cell) {
+      border-right: 1px solid var(--sdds-grey-400);
+    }
+
+    .sdds-table__header-cell:last-child,
+    ::slotted(sdds-header-cell:last-child),
+    .sdds-table__body-cell:last-child,
+    ::slotted(sdds-body-cell:last-child) {
+      border-right: none;
+    }
+  }
+
+  &.sdds-table--no-min-width {
+    .sdds-table__header {
+      .sdds-table__header-cell,
+      ::slotted(.sdds-table__header-cell) {
+        min-width: unset;
       }
     }
-    th,
-    td {
-      padding-top: var(--sdds-spacing-element-8);
-      padding-bottom: var(--sdds-spacing-element-8);
-      padding-left: var(--sdds-spacing-element-16);
-      padding-right: var(--sdds-spacing-element-16);
+
+    .sdds-table__body {
+      .sdds-table__body-cell,
+      ::slotted(sdds-body-cell) {
+        min-width: unset;
+      }
     }
   }
 
-  &.#{$prefix}-table-divider {
-    td:not(:first-child) {
-      border-left: 1px solid var(--sdds-divider-light);
-    }
-  }
-}
-
-/* 
-.table {
-  border: 1px solid $table-border-color;
-  border-collapse: collapse;
-
-  caption {
-    caption-side: top;
-    //FIXME: Add correct rem
-    padding: 1.875rem;
-    font-weight: bold;
-    color: get-colour(white);
-    color: Var(--sdds-white);
-    background-color: $primary;
-    // background-color: Var(--primary);
-  }
-  thead {
-    &:first-child {
-      color: get-colour(white);
-      color: Var(--sdds-white);
-      background-color: $table-thead-bg-color;
+  &.sdds-table--on-white-bg {
+    .sdds-table__row {
+      background-color: var(--sdds-grey-50);
     }
 
-    th {
-      border: 1px solid $table-thead-border-color;
-      border-top-color: $table-thead-border-color;
-      border-bottom-color: $table-thead-border-color;
+    .sdds-table__row:hover {
+      background-color: var(--sdds-grey-200);
     }
   }
-  th,
-  td {
-    background-color: inherit;
-    box-shadow: inherit;
-    //FIXME: Add correct rem
-    padding: $spacing-element-12 $spacing-element-12 3.25rem;
+
+  //Web component specific part
+
+  ::slotted(sdds-header-cell:first-child) {
+    border-top-left-radius: 4px;
   }
 
-  &.table-sm {
-    th,
-    td {
-      //FIXME: Add correct rem
-      padding: $spacing-element-2 1.25rem 1.25rem;
+  ::slotted(sdds-header-cell:last-child) {
+    border-top-right-radius: 4px;
+  }
+
+  .sdds-table__title + .sdds-table__header {
+    ::slotted(sdds-header-cell) {
+      border-radius: 0;
     }
   }
 }
- */
-/* /* // Required
-@import 'node_modules/bootstrap/scss/functions';
-@import 'node_modules/bootstrap/scss/variables';
-@import 'node_modules/bootstrap/scss/mixins';
-@import 'node_modules/bootstrap/scss/transitions';
 
-// Optional
-@import 'node_modules/bootstrap/scss/tables';
-@import 'node_modules/bootstrap/scss/forms';
-@import 'node_modules/bootstrap/scss/dropdown';
+// Styling anything inside table-header-cell or sdds-header-cell
 
-:host {
-  display: block;
-  .table-title {
+:host(.sdds-table__header-cell) {
+  vertical-align: middle;
+
+  .sdds-table__header-text {
+    padding: 0 16px;
+    margin: 0;
+  }
+}
+
+:host(.sdds-table__header-cell--sortable) {
+  .sdds-table__header-button {
     display: flex;
-    flex-flow: row wrap;
     align-items: center;
-    //FIXME: Add correct rem
-    margin-bottom: 2.5rem;
-    > div:first-child {
-        //FIXME: Add correct rem
-      padding-right: 2.5rem;
+    gap: 8px;
+    justify-content: start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+
+    &:focus {
+      outline: 2px solid var(--sdds-blue-400);
+      outline-offset: -2px;
+
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
     }
-    > div:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-      div {
-        display: flex;
+
+    .sdds-table__header-button-text {
+      @include type-style("headline-07");
+
+      text-align: left;
+      color: var(--sdds-grey-958);
+    }
+
+    .sdds-table__header-button-icon {
+      /* not to shrink on lot of text */
+      flex: 0 0 16px;
+      height: 16px;
+      opacity: 0;
+      transform-origin: center;
+      transition: opacity 200ms ease-in, transform 200ms ease;
+    }
+
+    &:hover {
+      .sdds-table__header-button-icon {
+        opacity: 1;
       }
     }
   }
+}
 
-  .input-field {
-    display: flex;
-    position: relative;
+:host(.sdds-table__header-cell--right-align) {
+  .sdds-table__header-button {
+    text-align: right;
+    justify-content: end;
+    flex-direction: row-reverse;
   }
+}
 
-  .input-icon-filter {
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojOTc5OTliO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTEzLjEyNCwwSC44NzZBLjg3Ni44NzYsMCwwLDAsLjI1NywxLjQ5NEw1LjI1LDYuNDg3djUuMTA2YS44NzUuODc1LDAsMCwwLC4zLjY1OUw3LjMsMTMuNzgzYS44NzUuODc1LDAsMCwwLDEuNDUxLS42NThWNi40ODdsNC45OTMtNC45OTRBLjg3Ni44NzYsMCwwLDAsMTMuMTI0LDBaTTcuODc1LDYuMTI1djdsLTEuNzUtMS41MzFWNi4xMjVMLjg3NS44NzVoMTIuMjVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwKSIvPjwvc3ZnPg==") no-repeat !important;
-    background-position: center !important;
-    position: absolute;
-    top: 7px;
-    right: 18px;
-    width: 25px;
-    height: 25px;
-  }
+:host(.sdds-table__header-cell--is-sorted) {
+  .sdds-table__header-button {
+    background-color: var(--sdds-grey-500);
 
-  .input-icon-cross {
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDojNTM1NjVhO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTkwLjUsNzkuMzc0bC0uODU3LS44NTdMODQuNSw4My42NTlsLTUuMTQyLTUuMTQzLS44NTcuODU3LDUuMTQyLDUuMTQzTDc4LjUsODkuNjU4bC44NTcuODU3TDg0LjUsODUuMzczbDUuMTQyLDUuMTQzLjg1Ny0uODU3LTUuMTQyLTUuMTQzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc4LjQ5NiAtNzguNTE2KSIvPjwvc3ZnPg==") no-repeat !important;
-    position: absolute;
-    top: 13px;
-    right: 15px;
-    cursor: pointer;
-    width: 23px;
-    height: 23px;
-    display: none;
-  }
-  .form-control {
-    padding-right: 25px !important;
-  }
+    &:hover {
+      background-color: var(--sdds-grey-400);
+    }
 
-  .scania-angle-down{
-    color: inherit;
-    width: 1em;
-    height: 1em;
+    .sdds-table__header-button-icon {
+      opacity: 1;
+    }
+
+    .sdds-table__header-button-icon--rotate {
+      transform: rotate(180deg);
+    }
   }
-} */
+}
