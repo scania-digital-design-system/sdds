@@ -84,7 +84,6 @@ const ButtonTemplate = ({
 
   // chromatic snapshot requires icon to be sdds-icon instead of font
   return `
-  <sdds-theme></sdds-theme>
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${
     disabled ? 'disabled' : ''
   } ${onlyIconCss}" ${inlineStyle}>
@@ -128,7 +127,6 @@ const ComponentBtn = ({
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
 
   return `
-  <sdds-theme></sdds-theme>
   <sdds-button type="${btnType}" size="${sizeValue}" ${
     disabled ? 'disabled' : ''
   } ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${

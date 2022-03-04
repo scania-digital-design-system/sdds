@@ -29,7 +29,10 @@
     "prepublishOnly": "npm run build",
     "test": "stencil test --spec --verbose",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "chromatic": "npx chromatic --project-token=d732995e8c94"
+    "chromatic": "npx chromatic --project-token=d732995e8c94",
+
+    "stencil:watch": "stencil build --watch",
+    "storybook": "start-storybook -s dist"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

@@ -3,7 +3,6 @@ export default {
 };
 
 const Template = () => `
-      <sdds-theme></sdds-theme>
       <div>
         <div class="sdds-checkbox-item">
           <input class="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1">

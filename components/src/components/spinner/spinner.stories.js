@@ -46,7 +46,6 @@ const Template = ({ size, type }) => {
 
   return `
   ${style}
-  <sdds-theme></sdds-theme>
   <div class="demo">
   <sdds-spinner size="${sizeValue}" type="${type}">
   </sdds-spinner>

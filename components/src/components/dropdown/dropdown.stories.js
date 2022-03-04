@@ -76,7 +76,6 @@ const Template = ({
   dropdownOptions,
   width,
 }) => `
-  <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <sdds-dropdown 
           size="${size}"
@@ -133,7 +132,6 @@ const FilterTemplate = ({
   defaultOption,
   width,
 }) => `
-    <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <sdds-dropdown-filter
         size="${size}"
@@ -173,7 +171,6 @@ const NativeTemplate = ({
   state,
   width,
 }) => `
-  <sdds-theme></sdds-theme>
     <div style="width:${width}px">
         <div class="sdds-dropdown ${
           size !== 'large' ? `sdds-dropdown-${size}` : ''

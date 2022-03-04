@@ -9,22 +9,7 @@ const Template = ({ menuCollapse = false }) => {
   document.body.classList.add('sdds');
 
   return `
-    <style>
-    #root {
-      height:100%;
-    }
-    .sb-show-main.sb-main-padded {
-      padding: 0;
-      margin: 0;
-    }
-    html, body, #root, #storybook-addon-themes {
-      height: 100%;
-      padding:0;
-      background: var(--sdds-white);
-    }
-    
-    </style>
-    <sdds-theme></sdds-theme>
+
     
      <nav class='sdds-nav'>     
       <div class='sdds-nav__left'>

@@ -9,7 +9,6 @@ export default {
 };
 
 const Template = ({ content }) => `
-  <sdds-theme></sdds-theme>
   ${content}
   `;
 
