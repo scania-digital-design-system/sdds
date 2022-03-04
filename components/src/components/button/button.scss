@@ -1,6 +1,7 @@
 @import '../../helpers/style-helpers.scss';
 @import '@scania/typography/dist/scss/mixins';
 @import '@scania/typography/dist/scss/tokens';
+@import './button-core';
 
 $btn-default-height: 14rem;
 $btn-md-height: 12rem;
@@ -10,6 +11,7 @@ $props: (background, border-color, color);
 
 @mixin button-base {
   @include type-style('detail-02');
+
   display: inline-block;
   border-radius: 1rem;
   border: none;
@@ -21,6 +23,7 @@ $props: (background, border-color, color);
 
 .#{$prefix}-btn {
   @include button-base;
+
   height: $btn-default-height;
   padding: var(--sdds-spacing-element-20);
   border: 1px solid;
@@ -84,17 +87,20 @@ $props: (background, border-color, color);
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-hover);
         }
       }
+
       &:focus {
         @each $prop in $props {
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-focus);
         }
       }
+
       &:active,
       &.active {
         @each $prop in $props {
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-active);
         }
       }
+
       &.disabled,
       &:disabled {
         @each $prop in $props {
