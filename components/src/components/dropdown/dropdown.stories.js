@@ -8,6 +8,7 @@ export default {
         hidden: true,
       },
     },
+    layout: 'centered',
     notes: readme,
   },
   argTypes: {
