@@ -23,19 +23,9 @@ export default {
 };
 
 const Template = ({ state, prefix, header, subheader, link }) => `
-  <style>
-    .demo-bg {
-      background-color: white;
-      padding: var(--sdds-spacing-layout-96) 0;
-    }
-  </style>
   <sdds-theme></sdds-theme>
-
-  <div class="demo-bg">
     <div class="sdds-banner sdds-banner-${state}">
-
       ${prefix}
-
       <div class="sdds-banner-body">
       ${header}
       ${subheader}
@@ -43,7 +33,6 @@ const Template = ({ state, prefix, header, subheader, link }) => `
       </div>
       <div class="sdds-banner-close"></div>
     </div>
-  </div>
   `;
 
 export const Basic = Template.bind({});

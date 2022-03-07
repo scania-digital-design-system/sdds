@@ -33,9 +33,7 @@ Component.args = {
 const IconCssTemplate = ({ icon, size }) => `
   <style>
     @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
-    i {
-      font-size: ${size}rem;
-    }
+    i {font-size: ${size}rem;}
   </style>
   <sdds-theme></sdds-theme>
   <i class="sdds-icon ${icon}"></i>

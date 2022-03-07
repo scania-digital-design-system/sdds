@@ -3,7 +3,7 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'small', 'medium'],
       },
       defaultValue: 'default',
@@ -11,7 +11,7 @@ export default {
     },
     type: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'circular', 'cube', 'linear'],
       },
       defaultValue: 'default',
@@ -23,13 +23,10 @@ export default {
 const style = `<style>
   
 .demo {
-margin-top: 20px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color:  #F6F6F7; 
-height: 200px;
-width: 200px;
+background-color: #F6F6F7; 
 }
 </style>`;
 const Template = ({ size, type }) => {
@@ -52,7 +49,6 @@ const Template = ({ size, type }) => {
   <sdds-theme></sdds-theme>
   <div class="demo">
   <sdds-spinner size="${sizeValue}" type="${type}">
-    
   </sdds-spinner>
   </div>
 
@@ -60,3 +56,6 @@ const Template = ({ size, type }) => {
 };
 
 export const Basic = Template.bind({});
+Basic.parameters = {
+  layout: 'centered', // Center the component horizontally and vertically in the Canvas
+};

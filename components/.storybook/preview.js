@@ -95,7 +95,7 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
-  layout: 'centered', // center the component horizontally and vertically in the Canvas
+  layout: 'padded', // Adds extra padding around the component
   chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
 };
 
