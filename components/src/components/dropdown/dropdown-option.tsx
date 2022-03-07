@@ -7,6 +7,7 @@ import {
   Host,
   Event,
   EventEmitter,
+  Listen,
 } from '@stencil/core';
 
 @Component({
@@ -34,6 +35,17 @@ export class DropdownOption {
   })
   selectOption: EventEmitter<any>;
 
+  @Listen('keydown')
+  onKeyDown(event: KeyboardEvent) {
+    if (event.code === 'Enter') {
+      this.selectOptionHandler({
+        value: this.value,
+        label: this.host.innerText,
+        parent: this.host.parentNode,
+      });
+    }
+  }
+
   componentWillLoad() {
     this.innerValue = this.value;
   }
@@ -54,13 +66,14 @@ export class DropdownOption {
         onClick={(ev) =>
           this.selectOptionHandler({
             value: this.value,
-            label: this.host.innerHTML,
+            label: this.host.innerText,
             parent: ev.target.parentNode,
           })
         }
         class={{
           selected: this.selected,
         }}
+        tabindex="0"
       >
         <span class="sdds-option-label">
           <slot />

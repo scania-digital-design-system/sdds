@@ -23,8 +23,8 @@
 
 ### Depends on
 
-- [sdds-dropdown-option](../../components/dropdown)
-- [sdds-dropdown](../../components/dropdown)
+- [sdds-dropdown-option]()
+- [sdds-dropdown]()
 
 ### Graph
 ```mermaid

@@ -8,28 +8,40 @@ export default {
         hidden: true,
       },
     },
+    layout: 'centered',
     notes: readme,
   },
   argTypes: {
+    disabled: {
+      name: 'Disabled',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     size: {
+      name: 'Size',
       control: {
         type: 'radio',
-        options: ['large', 'small', 'medium'],
+        options: ['large', 'medium', 'small'],
       },
       defaultValue: 'large',
       description: 'Size of the dropdown',
     },
     placeholder: {
+      name: 'Placeholder',
       type: 'string',
       defaultValue: 'Select option',
       description: 'Placeholder text when no option is selected',
     },
     label: {
+      name: 'Label',
       type: 'string',
       defaultValue: 'Label text',
       description: 'Label text explains about dropdown',
     },
     labelPosition: {
+      name: 'Label position',
       control: {
         type: 'radio',
         options: ['no-label', 'inside', 'outside'],
@@ -38,6 +50,7 @@ export default {
       description: 'Label text position',
     },
     state: {
+      name: 'Error',
       control: {
         type: 'radio',
         options: ['default', 'error'],
@@ -45,20 +58,41 @@ export default {
       defaultValue: 'default',
       description: 'Support error state',
     },
+    helper: {
+      name: 'Helper text',
+      control: {
+        type: 'text',
+      },
+      defaultValue: '',
+    },
     defaultOption: {
+      name: 'Default option',
       control: {
         type: 'radio',
         options: ['no-default', 'option-1', 'option-2', 'option-3'],
       },
     },
-    dropdownOptions: {
+    width: {
+      name: 'Width',
+      control: {
+        type: 'range',
+        min: 200,
+        max: 600,
+        step: 50,
+      },
+      defaultValue: 250,
+    },
+    extraDropdownOptions: {
+      name: 'Extra dropdown options',
       type: 'string',
       defaultValue:
-        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option><sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>',
-    },
-    width: {
-      type: 'range',
-      defaultValue: 200,
+        '<sdds-dropdown-option value="option-4"> Copy this for more options... </sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="alpha-values-1">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö</sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="alpha-values-2">a b c d e f g h i j k l m n o p q r s t u v w x y z å ä ö</sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="num-values">0 1 2 3 4 5 6 7 8 9</sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="special-chars-1">! " # $ % & \' ( ) * + , - . /</sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="special-chars-2">: ; < = > ? @</sdds-dropdown-option>\n' +
+        '<sdds-dropdown-option value="special-chars-3">[ \\ ] ^ _ ` { | } ~</sdds-dropdown-option>',
     },
   },
 };
@@ -73,11 +107,11 @@ const Template = ({
   state = 'default',
   placeholder,
   defaultOption,
-  dropdownOptions,
   width,
+  extraDropdownOptions,
 }) => `
     <div style="width:${width}px">
-        <sdds-dropdown 
+        <sdds-dropdown           
           size="${size}"
           placeholder="${placeholder}"
           disabled="${disabled}"
@@ -87,23 +121,25 @@ const Template = ({
           state="${state}"
           type="${type}"
           default-option="${defaultOption}">
-          <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
-          ${dropdownOptions}
-        </sdds-dropdown>
+          <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
+          ${extraDropdownOptions}
+                  </sdds-dropdown>
       </div>
   `;
 
 export const Basic = Template.bind({});
 Basic.args = {
   disabled: false,
+  defaultOption: 'option-1',
 };
 
 export const LabelInside = Template.bind({});
 LabelInside.args = {
   disabled: false,
   labelPosition: 'inside',
+  label: 'Label text',
 };
 
 export const LabelOutside = Template.bind({});
@@ -115,6 +151,7 @@ LabelOutside.args = {
 
 export const Helper = Template.bind({});
 Helper.args = {
+  disabled: false,
   helper: 'Helper text',
 };
 
@@ -139,7 +176,7 @@ const FilterTemplate = ({
         disabled="${disabled}"
         helper="${helper}"
         default-option="${defaultOption}"
-        data='[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'
+        data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
         ></sdds-dropdown-filter>
       </div>
   `;
@@ -174,7 +211,7 @@ const NativeTemplate = ({
     <div style="width:${width}px">
         <div class="sdds-dropdown ${
           size !== 'large' ? `sdds-dropdown-${size}` : ''
-        } ${state === 'error' ? 'is-error' : ''}" >
+        } ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>

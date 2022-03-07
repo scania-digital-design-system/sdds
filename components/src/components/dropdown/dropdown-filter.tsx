@@ -1,4 +1,4 @@
-import { Component, h, Listen, Prop, State, Watch } from '@stencil/core';
+import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-filter',
@@ -45,6 +45,10 @@ export class DropdownFilter {
    */
   @Prop() data: string;
 
+  @State() selectedLabel: string = 'no-selected';
+
+  @State() selectedValue: string = 'no-selected';
+
   componentWillLoad() {
     this.parseData(this.data);
 
@@ -68,6 +72,8 @@ export class DropdownFilter {
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selectedOption = event.detail.value;
+    this.selectedLabel = event.detail.label;
+    this.selectedValue = event.detail.value;
 
     // Reset list when search is done and user have selected one option
     // To match with animation time for option list to fadeout first
@@ -78,41 +84,64 @@ export class DropdownFilter {
 
   findData() {
     const searchAsRegEx = new RegExp(this.searchTerm, 'gmi');
-    const newList = this.dataOptions.filter((option) => {
+    this.filteredContent = this.dataOptions.filter((option) => {
       if (option.label) {
         const listItem = option.label.toLowerCase();
-        return listItem.match(searchAsRegEx);
+        let searchResultList = listItem.match(searchAsRegEx);
+        if (searchResultList) {
+          return searchResultList;
+        }
+        this.selectedOption = null;
+        this.selectedLabel = 'no-result';
+        this.selectedValue = 'no-result';
       }
     });
-    this.filteredContent = newList;
   }
 
   setOptionsContent() {
-    return this.filteredContent.map((obj) => (
+    const newList = this.filteredContent.map((obj) => (
       <sdds-dropdown-option
+        tabindex="0"
         value={obj.value}
         class={`${this.selectedOption === obj.value ? 'selected' : ''}`}
       >
         {obj.label}
       </sdds-dropdown-option>
     ));
+    if (newList.length > 0) {
+      return newList;
+    }
+    return (
+      <sdds-dropdown-option
+        tabindex="-1"
+        value="no-result"
+        class="sdds-option--no-result"
+      >
+        No result
+      </sdds-dropdown-option>
+    );
   }
 
   render() {
     return (
-      <sdds-dropdown
-        size={this.size}
-        label={this.label}
-        disabled={this.disabled}
-        labelPosition={this.labelPosition}
-        helper={this.helper}
-        state={this.state}
-        placeholder={this.placeholder}
-        defaultOption={this.defaultOption}
-        type="filter"
+      <Host
+        selected-value={this.selectedValue}
+        selected-text={this.selectedLabel}
       >
-        {this.setOptionsContent()}
-      </sdds-dropdown>
+        <sdds-dropdown
+          size={this.size}
+          label={this.label}
+          disabled={this.disabled}
+          labelPosition={this.labelPosition}
+          helper={this.helper}
+          state={this.state}
+          placeholder={this.placeholder}
+          defaultOption={this.defaultOption}
+          type="filter"
+        >
+          {this.setOptionsContent()}
+        </sdds-dropdown>
+      </Host>
     );
   }
 }
