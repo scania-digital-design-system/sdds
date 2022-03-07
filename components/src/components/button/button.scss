@@ -21,7 +21,7 @@ $props: (background, border-color, color);
   cursor: pointer;
 }
 
-.#{$prefix}-btn {
+.sdds-btn {
   @include button-base;
 
   height: $btn-default-height;
@@ -37,47 +37,49 @@ $props: (background, border-color, color);
     outline: none;
   }
 
-  .#{$prefix}-btn-icon,
-  &.#{$prefix}-btn-icon {
+  .sdds-btn-icon,
+  &.sdds-btn-icon {
     fill: var(--sdds-grey-50);
     color: var(--sdds-grey-50);
     font-size: 4rem; //16px
   }
-  .#{$prefix}-btn-icon {
+
+  .sdds-btn-icon {
     margin-left: var(--sdds-spacing-element-32);
     width: 16px;
     height: 16px;
   }
 
-  &.#{$prefix}-btn-sm {
+  &.sdds-btn-sm {
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
-    .#{$prefix}-btn-icon {
+    .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &.#{$prefix}-btn-md {
+  &.sdds-btn-md {
     padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
-    .#{$prefix}-btn-icon {
+
+    .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
   }
 
-  &.#{$prefix}-btn-fullbleed {
+  &.sdds-btn-fullbleed {
     width: inherit;
     text-align: center;
 
-    .#{$prefix}-btn-icon,
-    &.#{$prefix}-btn-icon {
+    .sdds-btn-icon,
+    &.sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-8);
     }
   }
 
   @each $type in $types {
-    &.#{$prefix}-btn-#{$type} {
+    &.sdds-btn-#{$type} {
       @each $prop in $props {
         #{$prop}: var(--sdds-btn-#{$type}-#{$prop});
       }
@@ -107,8 +109,8 @@ $props: (background, border-color, color);
           cursor: not-allowed;
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-disabled);
 
-          .#{$prefix}-btn-icon,
-          &.#{$prefix}-btn-icon {
+          .sdds-btn-icon,
+          &.sdds-btn-icon {
             color: var(--sdds-grey-300);
           }
         }
