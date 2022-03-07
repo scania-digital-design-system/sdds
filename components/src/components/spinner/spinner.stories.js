@@ -1,5 +1,8 @@
 export default {
   title: 'Component/Spinner',
+  parameters: {
+    layout: 'centered', // Center the component horizontally and vertically in the Canvas
+  },
   argTypes: {
     size: {
       control: {
@@ -55,6 +58,3 @@ const Template = ({ size, type }) => {
 };
 
 export const Basic = Template.bind({});
-Basic.parameters = {
-  layout: 'centered', // Center the component horizontally and vertically in the Canvas
-};

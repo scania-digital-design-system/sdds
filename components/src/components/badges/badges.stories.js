@@ -16,8 +16,7 @@ export default {
 
 const basicTemplate = ({ value }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
-  return `      
-    ${basicStyle}     
+  return ` 
       <sdds-badges value=${valueString}>       
       </sdds-badges>
     `;

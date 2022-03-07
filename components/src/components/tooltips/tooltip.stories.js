@@ -1,5 +1,8 @@
 export default {
   title: 'Component/Tooltip',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     tooltipPosition: {
       control: {
@@ -49,7 +52,4 @@ export const Basic = ComponentTooltip.bind({});
 Basic.args = {
   text: 'Text that will be displayed in tooltip',
   mouseOverTooltip: false,
-};
-Basic.parameters = {
-  layout: 'centered',
 };
