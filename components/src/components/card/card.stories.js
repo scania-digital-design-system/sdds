@@ -20,7 +20,6 @@ const CardTemplate = ({
   divider,
   imageTop,
 }) => `
-    <sdds-theme></sdds-theme>
     <div class="sdds-storybook-wrapper">
           <div class="sdds-card${clickable ? ' sdds-clickable' : ''}">
             ${
@@ -118,8 +117,7 @@ const AvatarTemplate = ({
   divider,
   imageTop,
   avatar,
-}) => `
-    <sdds-theme></sdds-theme>
+}) => `  
     <div class="sdds-storybook-wrapper">
       <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
       ${

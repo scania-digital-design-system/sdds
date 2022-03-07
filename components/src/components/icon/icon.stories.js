@@ -19,7 +19,6 @@ const IconTemplate = ({ icon, size }) => `
       font-size: ${size}rem;
     }
   </style>
-  <sdds-theme></sdds-theme>
   <sdds-icon name="${icon}">sdds-icon</sdds-icon>
   `;
 
@@ -35,7 +34,6 @@ const IconCssTemplate = ({ icon, size }) => `
     @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
     i {font-size: ${size}rem;}
   </style>
-  <sdds-theme></sdds-theme>
   <i class="sdds-icon ${icon}"></i>
   `;
 

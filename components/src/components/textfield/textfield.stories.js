@@ -112,7 +112,6 @@ const textfieldTemplate = ({
   }
 
   return `
-  <sdds-theme></sdds-theme>
   <div style="width: 208px">
     <sdds-textfield
       type="${type}"

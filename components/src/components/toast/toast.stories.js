@@ -29,8 +29,6 @@ const ToastTemplate = ({
   subtext,
   linktext,
 }) => `
-  <sdds-theme></sdds-theme>
-
   <div class="sdds-toast sdds-toast-${toastType}">
     <div class="sdds-toast-icon">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

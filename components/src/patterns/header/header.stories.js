@@ -16,7 +16,6 @@ export default {
 };
 
 const BasicTemplate = ({ siteName }) => `
-    <sdds-theme></sdds-theme>
 
     <nav class='sdds-nav'>     
       <div class='sdds-nav__left'>
@@ -61,9 +60,6 @@ const InlineMenuTemplate = (args) => {
   };
 
   return `
-
-  <sdds-theme></sdds-theme>
-
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
      '>     
@@ -183,9 +179,6 @@ const ToolbarMenuTemplate = (args) => {
   };
 
   return `
-
-  <sdds-theme></sdds-theme>
-
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
     ${openAvatarMenu && 'sdds-nav__avatar--opened'}
@@ -388,9 +381,6 @@ const AllMenusTemplate = (args) => {
   };
 
   return `
-
-  <sdds-theme></sdds-theme>
-
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
     ${openAvatarMenu && 'sdds-nav__avatar--opened'}

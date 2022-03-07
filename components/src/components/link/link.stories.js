@@ -6,7 +6,6 @@ const Template = ({ disabled = false, noUnderline = false }) => {
   const disabledClass = disabled ? 'disabled' : '';
   const underlineClass = noUnderline ? 'sdds-link--no-underline' : '';
   return `
-  <sdds-theme></sdds-theme>
   <a class="sdds-link ${disabledClass} ${underlineClass}" href="#">a link</a>
   `;
 };

@@ -12,9 +12,6 @@ export default {
 // Styling for grid templates
 const style = `
   <style>
-    .sb-show-main.sb-main-padded {
-      padding: 0;
-    }
     .sdds-container,
     .sdds-container-fluid {
       background-color: #ff00009e;
@@ -46,7 +43,6 @@ const style = `
 
 const GridTemplate = ({ fluidContainer, padding }) => `
   ${style}
-  <sdds-theme global=""></sdds-theme>
   <h4>Grid</h4>
   <div class="${
     fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'
@@ -131,7 +127,6 @@ export const Basic = GridTemplate.bind({});
 
 const GridAutoColTemplate = ({ fluidContainer, padding }) => `
   ${style}
-  <sdds-theme></sdds-theme>
   <h4>Grid Auto columns</h4>
   <h5>Container 1</h5>
 
@@ -214,7 +209,6 @@ export const Auto = GridAutoColTemplate.bind({});
 
 const GridPushTemplate = ({ fluidContainer, collapse, padding }) => `
   ${style}
-  <sdds-theme></sdds-theme>
   <h4>Grid Push</h4>
   <div class="sdds-push">
     <div class="sdds-sidebar ${collapse ? 'sdds-sidebar-collapse' : ''}">
@@ -272,7 +266,6 @@ Push.args = {
 
 const GridOffsetTemplate = ({ fluidContainer, padding }) => `
   ${style}
-  <sdds-theme></sdds-theme>
   <h4>Grid Offset</h4>
     <div class="${
       fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'
@@ -295,7 +288,6 @@ export const Offset = GridOffsetTemplate.bind({});
 
 const GridNoPaddingTemplate = ({ fluidContainer, padding }) => `
     ${style}
-    <sdds-theme></sdds-theme>
     <h4>Grid no-padding</h4>
     <div class="${
       fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'
@@ -329,7 +321,6 @@ NoPadding.args = {
 
 const GridFluidTemplate = ({ fluidContainer = true, padding }) => `
     ${style}
-    <sdds-theme></sdds-theme>
     <h4>Grid fluid</h4>
     <div class="sdds-container-fluid ${
       padding == false ? 'sdds-no-padding' : ''
@@ -356,7 +347,6 @@ export const Fluid = GridFluidTemplate.bind({});
 
 const GridNestedTemplate = ({ fluidContainer, padding }) => `
  ${style}
- <sdds-theme></sdds-theme>
  <h4>Nested</h4>
  <div class="${
    fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'
@@ -404,7 +394,6 @@ export const Nested = GridNestedTemplate.bind({});
 
 const GridHideShow = ({ fluidContainer }) => `
   ${style}
-  <sdds-theme></sdds-theme>
   <h4>Hide/show element</h4>
   <div class="${
     fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'
