@@ -3,7 +3,6 @@ export default {
 };
 
 const Template = () => `
-    <sdds-theme></sdds-theme>
     <div class="sdds-radio-button-group">
       <div class="sdds-radio-item">
         <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1">

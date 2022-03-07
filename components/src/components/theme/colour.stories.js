@@ -6,7 +6,6 @@ export default {
 };
 
 const style = `
-  <sdds-theme></sdds-theme>
   <style>
     .colour-div {
       height: 90px;

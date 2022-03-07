@@ -15,7 +15,6 @@ const Template = ({ topPart = false }) => `
     margin: 0;
   }
   </style>
-  <sdds-theme></sdds-theme>
 
   <div class="sdds-footer">
     ${

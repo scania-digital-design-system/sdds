@@ -23,7 +23,6 @@ export default {
 };
 
 const Template = ({ state, prefix, header, subheader, link }) => `
-  <sdds-theme></sdds-theme>
     <div class="sdds-banner sdds-banner-${state}">
       ${prefix}
       <div class="sdds-banner-body">

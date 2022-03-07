@@ -75,7 +75,6 @@ const Template = (args) => {
   `;
 
   return `
-  <sdds-theme></sdds-theme>
   ${style}
    <nav class='sdds-nav'>     
       <div class='sdds-nav__left'>      

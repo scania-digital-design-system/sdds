@@ -16,8 +16,7 @@ export default {
 
 const basicTemplate = ({ value }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
-  return `
-      <sdds-theme></sdds-theme>
+  return ` 
       <sdds-badges value=${valueString}>       
       </sdds-badges>
     `;
@@ -43,7 +42,6 @@ const badgesTemplate = ({ value }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
   return `
     ${style}
-      <sdds-theme></sdds-theme>
       <div class="demo">
       <sdds-badges class="demo-badges" value=${valueString}>       
       </sdds-badges> 

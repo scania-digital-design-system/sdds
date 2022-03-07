@@ -43,8 +43,7 @@ const Template = ({ size, disabled = '', headline = '' }) => {
       ? `<div class="sdds-toggle-headline">${headline}</div>`
       : '';
 
-  return `
-    <sdds-theme></sdds-theme>
+  return `  
       <div class="sdds-toggle ${sizeValue} ${disabled}" tabindex="0">
         ${headlineDiv}
         <input type="checkbox" class="sdds-toggle-input" id="customSwitch1">

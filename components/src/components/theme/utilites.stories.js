@@ -6,7 +6,6 @@ export default {
 };
 
 const TextColorTemplate = ({ color, text }) => `
-  <sdds-theme></sdds-theme>
   <h1 class="sdds-text-${color}">${text}</h1>
   <p class="sdds-text-${color}">${text}</p>
   `;
@@ -18,7 +17,6 @@ textColor.args = {
 };
 
 const BackgroundColorTemplate = ({ height, width, backgroundColor }) => `
-  <sdds-theme></sdds-theme>
     <div class="sdds-background-${backgroundColor}" style="height:${height}px; width:${width}px; display:block"> <h1>background-color:${backgroundColor}</h1></div>
   `;
 
