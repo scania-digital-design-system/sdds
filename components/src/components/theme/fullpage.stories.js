@@ -35,7 +35,7 @@ const Template = ({ menuCollapse = false }) => {
       </div> 
     </nav>
 
-    <div class="sdds-push" style="margin-top:-64px;">
+    <div class="sdds-push" style="margin-top:-64px">
       <div class="sdds-sidebar expanded ${
         menuCollapse ? 'sdds-sidebar-collapse' : ''
       }">
