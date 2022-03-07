@@ -1,53 +1,45 @@
 export default {
   title: 'Component/Table',
 };
-const style = `<style>
-.table-demo {
-  margin: 30px;
-}
-</style>`;
 const Template = ({ type, divider }) => `
-  ${style}
-      <sdds-theme></sdds-theme>
-      <div class="table-demo">
-      <table class="sdds-table sdds-table-${type} sdds-table-${divider}">
-      <caption>Table header</caption>       
-      <thead>
-                        <tr >
-                          <th>Header</th>
-                          <th>Header</th>
-                          <th>Header</th>
-                          <th>Header</th>
-                          </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                </tr>
-                <tr>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                </tr>
-                <tr>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                </tr>
-                <tr>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                </tr>
-            </tbody>
-      </table>
-      </div>
+    <sdds-theme></sdds-theme>
+    <table class="sdds-table sdds-table-${type} sdds-table-${divider}">
+    <caption>Table caption</caption>       
+    <thead>
+      <tr>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
+      </tr>
+    </tbody>
+  </table>
     `;
 
 export const Default = Template.bind({});
@@ -70,46 +62,43 @@ CompactDividers.args = {
   divider: 'divider',
 };
 const Table = ({ type, divider }) => `
-  ${style}
-      <sdds-theme></sdds-theme>
-      <div class="table-demo">
-      <table class="sdds-table sdds-table-${type} sdds-table-${divider}">   
+    <sdds-theme></sdds-theme>
+    <table class="sdds-table sdds-table-${type} sdds-table-${divider}">   
       <thead>
-                        <tr >
-                          <th>Header</th>
-                          <th>Header</th>
-                          <th>Header</th>
-                          <th>Header</th>
-                          </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                </tr>
-                <tr>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                </tr>
-                <tr>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                </tr>
-                <tr>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                <td>Text</td>
-                </tr>
-            </tbody>
-      </table>
-      </div>
+        <tr>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+        </tr>
+        <tr>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+        </tr>
+        <tr>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+        </tr>
+        <tr>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+          <td>Text</td>
+        </tr>
+      </tbody>
+    </table>
     `;
 export const TableHeaderOnly = Table.bind({});
 TableHeaderOnly.args = {

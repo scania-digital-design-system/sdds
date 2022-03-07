@@ -3,7 +3,7 @@ export default {
   argTypes: {
     type: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'basic', 'continuousValue', 'dualPoint'],
       },
       defaultValue: 'default',
@@ -40,24 +40,14 @@ export default {
   },
 };
 
-const style = `<style>
-  
-.demo {
-margin-top: 20px;
-width: 200px;
-}
-</style>`;
 const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
   return `
-  ${style}
   <sdds-theme></sdds-theme>
-  <div class="demo">
-  <sdds-slider  type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}" >
-    
+  <div class="sdds-storybook-wrapper">
+  <sdds-slider type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
   </sdds-slider>
   </div>
-
   `;
 };
 

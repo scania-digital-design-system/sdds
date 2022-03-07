@@ -17,7 +17,7 @@ export default {
       name: 'Type',
       description: 'Which type of textfield',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['password', 'text'],
       },
     },
@@ -25,7 +25,7 @@ export default {
       name: 'Size',
       description: 'Switch between different sizes',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['Default', 'Medium'],
       },
     },
@@ -68,7 +68,7 @@ export default {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['none', 'success', 'error'],
       },
     },
@@ -84,14 +84,6 @@ export default {
     helper: '',
   },
 };
-
-const style = `<style>
-
-.demo {
-  margin-top: 20px;
-  width: 208px
-}
-</style>`;
 
 const textfieldTemplate = ({
   type,
@@ -120,9 +112,8 @@ const textfieldTemplate = ({
   }
 
   return `
-  ${style}
   <sdds-theme></sdds-theme>
-  <div class="demo">
+  <div style="width: 208px">
     <sdds-textfield
       type="${type}"
       size="${sizeValue}"
