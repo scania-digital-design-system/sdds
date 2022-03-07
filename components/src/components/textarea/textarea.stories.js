@@ -31,7 +31,7 @@ export default {
       description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['no-label', 'inside', 'outside'],
       },
     },
@@ -53,7 +53,7 @@ export default {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['none', 'success', 'error'],
       },
     },
@@ -81,9 +81,7 @@ const textfieldTemplate = ({
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   return `
   <sdds-theme></sdds-theme>
-  <div class="sdds-container" style="margin-top:10rem;">
-    <div class="sdds-row">
-      <div class="sdds-col-xxlg-5 sdds-col-xlg-5 sdds-col-lg-5 sdds-col-md-5">
+  <div class="sdds-storybook-wrapper">
         <sdds-textarea
           state="${state}"
           label="${label}"
@@ -93,8 +91,6 @@ const textfieldTemplate = ({
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
-      </div>
-    </div>
   </div>
   `;
 };

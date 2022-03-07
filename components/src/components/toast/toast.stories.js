@@ -5,7 +5,7 @@ export default {
       name: 'message type',
       defaultValue: 'success',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['success', 'info', 'warning', 'error'],
       },
     },
@@ -32,21 +32,18 @@ const ToastTemplate = ({
   <sdds-theme></sdds-theme>
 
   <div class="sdds-toast sdds-toast-${toastType}">
-
     <div class="sdds-toast-icon">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     </div>
-
     <div class="sdds-toast-content">
-
       <div class="sdds-toast-header">
         <span class="sdds-toast-headline">${header}</span>
         <span class='sdds-toast-dismiss'></span>
       </div>
 
-      ${
-        body
-          ? `<div class="sdds-toast-body">
+    ${
+      body
+        ? `<div class="sdds-toast-body">
         ${
           subheader
             ? `<span class="sdds-toast-subheadline">${subtext}</span>`
@@ -54,9 +51,8 @@ const ToastTemplate = ({
         }
         ${link ? `<a class="sdds-toast-link" href="#">${linktext}</a>` : ''}
       </div> `
-          : ''
-      }
-
+        : ''
+    }
     </div>
   </div>
   `;
