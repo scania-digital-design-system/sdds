@@ -83,7 +83,7 @@ const Template = (args) => {
 
   return `
   ${style}
-   <nav class='sdds-nav sdds-nav__sidemenu'>
+   <nav class='sdds-nav'>
       <div class='sdds-nav__left'>
 
         <button class='sdds-nav__mob-menu-btn'>
@@ -117,28 +117,28 @@ const Template = (args) => {
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 1</span>
+            <span>Page link</span>
           </a>
         </li>
 
         <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 2</span>
+            <span>Sub-menu</span>
             <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
           <ul class="sdds-sidebar-nav-subnav">
-            <li class="sdds-sidebar-nav-subnav__title">
-              <span>item 1</span>
+            <li class="sdds-sidebar-nav-subnav__item">
+              <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 2-1</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 2-2</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 2-3</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
           </ul>
         </li>
@@ -146,21 +146,21 @@ const Template = (args) => {
         <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended subnav-open">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 3</span>
+            <span>Sub-menu</span>
             <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
           <ul class="sdds-sidebar-nav-subnav">
-            <li class="sdds-sidebar-nav-subnav__title">
-              <span>item 1</span>
+            <li class="sdds-sidebar-nav-subnav__item">
+              <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 3-1</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
             <li class="sdds-sidebar-nav-subnav__item sdds-item--active">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 3-2</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub item 3-3</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
             </li>
           </ul>
         </li>
@@ -168,35 +168,35 @@ const Template = (args) => {
         <li class="sdds-sidebar-nav__item sdds-item--active">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 4</span>
+            <span>Page link</span>
           </a>
         </li>
 
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>A page name that has a very long name</span>
+            <span>Page link</span>
           </a>
         </li>
 
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 6</span>
+            <span>Page link</span>
           </a>
         </li>
 
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 7</span>
+            <span>Page link</span>
           </a>
         </li>
 
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
             <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-            <span>item 8</span>
+            <span>Page link</span>
           </a>
         </li>
 
