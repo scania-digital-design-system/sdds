@@ -5,11 +5,10 @@
   border-collapse: collapse;
 
   caption {
-    background-color: var(--sdds-table-title-bg);
-
     @include type-style('headline-07');
 
-    color: var(--sdds-table-text-color);
+    background-color: var(--sdds-grey-400);
+    color: var(--sdds-grey-958);
     text-align: left;
     padding-top: var(--sdds-spacing-element-16);
     padding-left: var(--sdds-spacing-element-16);
@@ -18,7 +17,7 @@
     border-top-right-radius: 4px;
   }
 
-  caption ~ thead {
+  caption + thead {
     th:first-child {
       border-top-left-radius: 0;
     }
@@ -41,23 +40,23 @@
       @include type-style('headline-07');
 
       text-align: left;
-      color: var(--sdds-table-text-color);
-      background-color: var(--sdds-table-header-bg);
+      color: var(--sdds-grey-958);
+      background-color: var(--sdds-grey-300);
       padding: var(--sdds-spacing-element-16);
       min-width: 192px;
     }
   }
 
   tr {
-    border-bottom: 1px solid var(--sdds-table-title-bg);
+    border-bottom: 1px solid var(--sdds-grey-400);
   }
 
   th,
   td {
     @include type-style('detail-02');
 
-    color: var(--sdds-table-text-color);
-    background-color: var(--sdds-table-body-bg);
+    color: var(--sdds-grey-958);
+    background-color: var(--sdds-white);
     padding: var(--sdds-spacing-element-16);
     min-width: 192px;
     vertical-align: top;
@@ -65,31 +64,17 @@
   }
 
   tr:hover td {
-    background-color: var(--sdds-table-body-hover);
+    background-color: var(--sdds-grey-100);
   }
 
   &.sdds-table-compact {
     caption {
-      padding-top: var(--sdds-spacing-element-16);
-      padding-left: var(--sdds-spacing-element-16);
       padding-bottom: var(--sdds-spacing-element-24);
-    }
-
-    thead {
-      th {
-        padding-top: var(--sdds-spacing-element-8);
-        padding-bottom: var(--sdds-spacing-element-8);
-        padding-left: var(--sdds-spacing-element-16);
-        padding-right: var(--sdds-spacing-element-16);
-      }
     }
 
     th,
     td {
-      padding-top: var(--sdds-spacing-element-8);
-      padding-bottom: var(--sdds-spacing-element-8);
-      padding-left: var(--sdds-spacing-element-16);
-      padding-right: var(--sdds-spacing-element-16);
+      padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
     }
   }
 
