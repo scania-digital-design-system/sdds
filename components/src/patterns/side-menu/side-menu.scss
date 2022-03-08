@@ -149,6 +149,7 @@
 
       @media all and (max-width: $grid-md) {
         margin-bottom: -1px;
+        padding-top: 1px;
       }
 
       &:last-child {
@@ -344,10 +345,11 @@
         height: 1px;
       }
 
-      &:hover {
+      &.subnav-open {
         .sdds-sidebar-nav-subnav {
           opacity: 1;
           pointer-events: all;
+          display: initial;
         }
       }
     }
@@ -381,6 +383,7 @@
       transform: translateY(-69px);
       z-index: 1;
       opacity: 0;
+      display: none;
       pointer-events: none;
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
 
@@ -402,7 +405,7 @@
 
   /* width */
   ::-webkit-scrollbar {
-    width: 3px;
+    width: 2px;
     background-color: var(--sdds-grey-300);
   }
 

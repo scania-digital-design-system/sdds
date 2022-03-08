@@ -1,23 +1,25 @@
 # Introduction
-The side menu should always be paired with the functional header, when it is used for applications with more than 3 sections. It is available in two types; non-collapsible and collapsible. See Usage tab for more information on the design requirements. You can find an working example in the link at the end of the page.
+The side menu should always be paired with the [functional header](/components/header), when it is used for applications with more than 3 sections. It is available in two types; non-collapsible and collapsible. See Usage tab for more information on the design requirements. You can find an working example in the link at the end of the page.
 
 
 # Basic structure
-To use the side menu you need to use the basic structural setup with a base header and then a side menu and content area nested in a container with the class sdds-push. Note that the header should have a .sdds-nav__mob-menu-btn in it so you have something from to trigger the side-menus open state on lower breakpoints.
+To use the side menu you need to use the basic structural setup with a [functional header] and then a side menu and content area nested in a container with the class `'sdds-push'`. Note that the header should have a `'sdds-nav__mob-menu-btn'` in it so you have something from to trigger the side-menus open state on lower breakpoints.
 
 --------------------------------------------
-<sdds-theme></sdds-theme>
-<nav class='sdds-nav sdds-nav__sidemenu'>
-	Header content goes here...
-</nav>
-<div class="sdds-push">
-	<div class="sdds-sidebar side-menu">
-		Side menu content goes here...
-	</div>
-	<div class="sdds-container">
-		Page content goes here...
-	</div>
-</div>
+<body>
+  <sdds-theme></sdds-theme>
+  <nav class='sdds-nav sdds-nav__sidemenu'>
+    Header content goes here...
+  </nav>
+  <div class="sdds-push">
+    <div class="sdds-sidebar side-menu">
+      Side menu content goes here...
+    </div>
+    <div class="sdds-container">
+      Page content goes here...
+    </div>
+  </div>
+<body>
 --------------------------------------------
 
 
