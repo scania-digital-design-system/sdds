@@ -55,7 +55,7 @@ The side-menu header is simply used to display to close button on lower breakpoi
 
 
 # Side menu items
-The menu options are to be placed as li.sdds-sidebar-nav__item within ul.sdds-sidebar-nav--main.
+The menu options are to be placed as `'sdds-sidebar-nav__item'` within `'sdds-sidebar-nav--main'`.
 
 --------------------------------------------
 <ul class="sdds-sidebar-nav sdds-sidebar-nav--main">
@@ -75,12 +75,12 @@ The basic structure of a side menu item is as follows:
 </li>
 --------------------------------------------
 
-!! The side menu has an active state that is displayed by adding the class sdds-item--active to the item by a method of you choice.
+!! The side menu has an active state that is displayed by adding the class `'sdds-item--active'` to the item by a method of you choice.
 
 
 
 # Side menu item with sub page options
-To use sup page options on a side menu item firstly add the class .sdds-sidebar-nav__extended and the inline svg for the chevron icon to the side menu item container. Then at the end within the side menu item add the sub page container. Note that every sub page container should have a .sdds-sidebar-nav__item-title in its first item, this is to display the item title in the sub page options popup in collapsed state.
+To use sup page options on a side menu item firstly add the class `'sdds-sidebar-nav__extended'` and the inline svg for the chevron icon to the side menu item container. Then at the end within the side menu item add the sub page container. Note that every sub page container should have a `'sdds-sidebar-nav__item-title'` in its first item, this is to display the item title in the sub page options popup in collapsed state.
 
 --------------------------------------------
 <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
@@ -108,7 +108,7 @@ To use sup page options on a side menu item firstly add the class .sdds-sidebar-
 
 
 # Icons
-Icons should be in svg format and have the class .sdds-sidebar-nav__icon. Appropriate to use can be found in the icons library. If you opt to not have icons you can simply not add the markup. Or if you are looking for a more dynamic solution you can toggle the visibility of icons with the class icons-disabled on the .sdds-sidebar-nav--main container.
+Icons should be in svg format and have the class `'sdds-sidebar-nav__icon'`. Appropriate to use can be found in the icons library. If you opt to not have icons you can simply not add the markup. Or if you are looking for a more dynamic solution you can toggle the visibility of icons with the class icons-disabled on the `'sdds-sidebar-nav--main container'`.
 
 --------------------------------------------
 <li class="sdds-sidebar-nav__item">
@@ -122,7 +122,7 @@ Icons should be in svg format and have the class .sdds-sidebar-nav__icon. Approp
 
 
 # Collapsible
-Note that if you opt for a collapsible menu, you need to have icon added, since the collapsed state of the menu shows only the icons. To add a collapse-button simply put a .sdds-sidebar-nav__item (the same way you do any side menu item) in the .sdds-sidebar-nav--bottom container, and select an appropriate icon for it. We recommend arrow-left from the icon library. Below is an example with the recomended icon embeded.
+Note that if you opt for a collapsible menu, you need to have icon added, since the collapsed state of the menu shows only the icons. To add a collapse-button simply put a `'sdds-sidebar-nav__item'` (the same way you do any side menu item) in the `'sdds-sidebar-nav--bottom container'`, and select an appropriate icon for it. We recommend arrow-left from the icon library. Below is an example with the recomended icon embeded.
 
 --------------------------------------------
 <ul class="sdds-sidebar-nav sdds-sidebar-nav--bottom">
@@ -140,7 +140,7 @@ Note that if you opt for a collapsible menu, you need to have icon added, since 
 
 
 # Responsive
-The side menu collapses in to a hamburger-menu at lower breakpoints. To then access the menu you need to add the att a trigger to open the menu. Place the trigger on the .sdds-nav__mob-menu-btn in the header and make it add the class .mobile-menu-open to the .side-menu container. To close the menu, add a trigger to .sdds-sidebar-mheader__close that removes the class .mobile-menu-open.
+The side menu collapses in to a hamburger-menu at lower breakpoints. To then access the menu you need to add the att a trigger to open the menu. Place the trigger on the `'sdds-nav__mob-menu-btn'` in the header and make it add the class `'mobile-menu-open'` to the `'side-menu'` container. To close the menu, add a trigger to `'sdds-sidebar-mheader__close'` that removes the class `'mobile-menu-open'`.
 
 
 # Full page example (basic)

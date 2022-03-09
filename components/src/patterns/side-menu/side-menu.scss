@@ -345,7 +345,7 @@
         height: 1px;
       }
 
-      &.subnav-open {
+      &:hover {
         .sdds-sidebar-nav-subnav {
           opacity: 1;
           pointer-events: all;
