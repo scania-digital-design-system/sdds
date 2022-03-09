@@ -3,8 +3,6 @@
 @import '@scania/grid/dist/scss/grid.scss';
 @import '../../helpers/components-shared.scss';
 
-// TODO: Move lines 7-37 to shared components CSS file
-
 @mixin sdds-nav__basic-element-style {
   cursor: pointer;
   background-color: var(--sdds-blue-800);
