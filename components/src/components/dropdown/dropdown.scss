@@ -39,8 +39,10 @@
   }
 
   .sdds-dropdown-arrow {
+    width: 20px;
+    position: absolute;
+    right: 16px;
     color: inherit;
-    margin-left: var(--sdds-spacing-element-32);
     transform: rotate(0);
     transition: transform ease 250ms;
   }
@@ -51,7 +53,7 @@
 
   .sdds-dropdown-label {
     display: grid;
-    flex-grow: 2;
+    width: calc(100% - 25px);
   }
 
   .sdds-dropdown-label-container {
@@ -95,6 +97,7 @@
   .sdds-dropdown-menu {
     @include sdds-scrollbar;
 
+    background-color: var(--sdds-white);
     position: absolute;
     z-index: 2;
     top: 100%;
