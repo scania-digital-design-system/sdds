@@ -7,7 +7,7 @@
 @mixin sdds-scrollbar {
   &::-webkit-scrollbar {
     width: 4px;
-    background-color: transparent;
+    background-color: inherit;
   }
 
   &::-webkit-scrollbar-thumb {
