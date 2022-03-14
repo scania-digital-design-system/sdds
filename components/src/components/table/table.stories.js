@@ -3,39 +3,39 @@ export default {
 };
 const Template = ({ type, divider }) => `
     <table class="sdds-table sdds-table-${type} sdds-table-${divider}">
-    <caption>Table caption</caption>       
-    <thead>
-      <tr>
-        <th>Header</th>
-        <th>Header</th>
-        <th>Header</th>
-        <th>Header</th>
+    <caption class="sdds-table__title">Table title</caption>       
+    <thead class="sdds-table__header">
+      <tr class="sdds-table__row">
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
+     <tbody class="sdds-table__body">
+      <tr class="sdds-table__row">
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
       </tr>
-      <tr>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
+      <tr class="sdds-table__row">
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
       </tr>
-      <tr>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
+      <tr class="sdds-table__row">
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
       </tr>
-      <tr>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
-        <td>Text</td>
+      <tr class="sdds-table__row">
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
       </tr>
     </tbody>
   </table>

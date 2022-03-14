@@ -5,9 +5,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type     | Default     |
-| ----------- | ------------ | ----------- | -------- | ----------- |
-| `tableName` | `table-name` |             | `string` | `undefined` |
+| Property           | Attribute           | Description | Type      | Default     |
+| ------------------ | ------------------- | ----------- | --------- | ----------- |
+| `compactDesign`    | `compact-design`    |             | `boolean` | `true`      |
+| `tableTitle`       | `table-title`       |             | `string`  | `undefined` |
+| `verticalDividers` | `vertical-dividers` |             | `boolean` | `true`      |
 
 
 ----------------------------------------------
