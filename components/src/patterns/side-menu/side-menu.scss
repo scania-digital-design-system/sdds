@@ -217,11 +217,12 @@
         box-sizing: content-box;
         transition: background-color 0.15s ease-in-out;
 
-        span {
+        .sdds-sidebar-nav__item-text {
           margin-top: 3px;
           opacity: 1;
           transition: opacity 0.15s ease-in-out;
           min-width: 160px;
+          background-color: green;
         }
       }
 
