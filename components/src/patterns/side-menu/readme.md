@@ -70,7 +70,7 @@ The basic structure of a side menu item is as follows:
 --------------------------------------------
 <li class="sdds-sidebar-nav__item">
   <a class="sdds-sidebar-nav__item-link">
-    <span>Page link</span>
+    <span class="sdds-sidebar-nav__item-text">Page link</span>
   </a>
 </li>
 --------------------------------------------
@@ -85,16 +85,16 @@ To use sup page options on a side menu item firstly add the class `'sdds-sidebar
 --------------------------------------------
 <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
   <a class="sdds-sidebar-nav__item-link">
-    <span>Sub-menu</span>
+    <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
      <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     <!-- Sub menu -->
     <ul class="sdds-sidebar-nav-subnav">
-      <li class="sdds-sidebar-nav__title"><span>Sub-menu</span></li>
+      <li class="sdds-sidebar-nav__title"><span class="sdds-sidebar-nav__item-text">Sub-menu</span></li>
       <li class="sdds-sidebar-nav__item">
-        <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
+        <a class="sdds-sidebar-nav__item-link" href="#"><span class="sdds-sidebar-nav__item-text">Sub Page name</span></a>
       </li>
       <li class="sdds-sidebar-nav__item">
-        <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
+        <a class="sdds-sidebar-nav__item-link" href="#"><span class="sdds-sidebar-nav__item-text">Sub Page name</span></a>
       </li>
     </ul>
     <!-- Sub menu ends -->
@@ -114,7 +114,7 @@ Icons should be in svg format and have the class `'sdds-sidebar-nav__icon'`. App
 <li class="sdds-sidebar-nav__item">
   <a class="sdds-sidebar-nav__item-link">
     <!-- Icon --> <svg class="sdds-sidebar-nav__icon" width="20" height="20" viewBox="0 0 20 20" fill="#e2e2e4" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/></svg>
-    <span>Page link</span>
+    <span class="sdds-sidebar-nav__item-text">Page link</span>
   </a>
 </li>
 --------------------------------------------
@@ -129,7 +129,7 @@ Note that if you opt for a collapsible menu, you need to have icon added, since 
   <li class="sdds-sidebar-nav__item">
     <a class="sdds-sidebar-nav__item-link">
       <svg class="sdds-sidebar-nav__icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.046 5.685a1 1 0 0 0-1.414-1.415l-9.9 9.9a2.6 2.6 0 0 0 0 3.678l9.9 9.9a1 1 0 1 0 1.415-1.415L4.722 17.01h24.306a1 1 0 0 0 0-2H4.722l9.325-9.324Z" fill="currentColor"/></svg>
-      <span>Collapse</span>
+      <span class="sdds-sidebar-nav__item-text">Collapse</span>
     </a>
   </li>
 </ul>
@@ -176,13 +176,13 @@ The side menu collapses in to a hamburger-menu at lower breakpoints. To then acc
         <!-- Side menu main - Page link -->
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
-            <span>Page link</span>
+            <span class="sdds-sidebar-nav__item-text">Page link</span>
           </a>
         </li>
         <!-- Side menu main - Sub menu -->
         <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
           <a class="sdds-sidebar-nav__item-link" href="#">
-            <span>Sub-menu</span>
+            <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
             <svg class="sdds-sidebar-nav__chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
           <ul class="sdds-sidebar-nav-subnav">
@@ -190,17 +190,17 @@ The side menu collapses in to a hamburger-menu at lower breakpoints. To then acc
               <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span class="sdds-sidebar-nav__item-text">Sub Page name</span></a>
             </li>
             <li class="sdds-sidebar-nav-subnav__item">
-              <a class="sdds-sidebar-nav__item-link" href="#"><span>Sub Page name</span></a>
+              <a class="sdds-sidebar-nav__item-link" href="#"><span class="sdds-sidebar-nav__item-text">Sub Page name</span></a>
             </li>
           </ul>
         </li>
         <!-- Side menu main - Page link -->
         <li class="sdds-sidebar-nav__item">
           <a class="sdds-sidebar-nav__item-link" href="#">
-            <span>Page link</span>
+            <span class="sdds-sidebar-nav__item-text">Page link</span>
           </a>
         </li>
       </ul>
