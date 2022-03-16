@@ -1,5 +1,3 @@
-import { useArgs } from '@storybook/client-api';
-
 export default {
   title: 'Patterns/SideMenu',
   parameters: {
@@ -18,10 +16,7 @@ const Template = (args) => {
       padding:0;
       overflow: hidden;
       position: relative;
-    }
-    .sb-show-main.sb-main-padded {
-      padding: 0;
-    }
+    }   
     .sdds-demo-container {
       align-items: stretch;
       height: calc(100% - 64px);
@@ -313,15 +308,15 @@ const Template = (args) => {
   `;
 };
 
-export const Non_collapsible = Template.bind({});
+export const NonCollapsible = Template.bind({});
 
-Non_collapsible.args = {
+NonCollapsible.args = {
   icon: false,
 };
 
-export const Non_collapsible_Icons = Template.bind({});
+export const NonCollapsibleIcons = Template.bind({});
 
-Non_collapsible_Icons.args = {
+NonCollapsibleIcons.args = {
   icon: true,
 };
 
