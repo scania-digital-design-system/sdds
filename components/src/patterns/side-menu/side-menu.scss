@@ -144,7 +144,6 @@
     &--main {
       margin-bottom: 68px;
       overflow-y: auto;
-      scrollbar-width: 4px;
 
       @media all and (max-width: $grid-md) {
         margin-bottom: -1px;
