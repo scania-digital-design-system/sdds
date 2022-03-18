@@ -6,8 +6,8 @@
   display: block;
 }
 
-$shodow-active: rgba(4, 30, 66, 0.16);
-$shodow-hover: rgba(4, 30, 66, 0.08);
+$shadow-active: rgba(4, 30, 66, 0.16);
+$shadow-hover: rgba(4, 30, 66, 0.08);
 
 @mixin track($fill: 0) {
   box-sizing: border-box;
@@ -16,13 +16,13 @@ $shodow-hover: rgba(4, 30, 66, 0.08);
   height: var(--sdds-slider-track-height);
   background: var(--sdds-slider-track-color);
   border-radius: 2px;
+
   @if $fill == 1 {
-    background: linear-gradient(
+    background:
+ linear-gradient(
         var(--sdds-slider-fill-color),
         var(--sdds-slider-fill-color)
-      )
-      0 /
-      var(--sx)
+      ) 0 / var(--sx)
       100%
       no-repeat
       var(--sdds-slider-track-color);
@@ -55,12 +55,15 @@ $shodow-hover: rgba(4, 30, 66, 0.08);
 
 @mixin thumbhover() {
   @include thumbmargin();
-  box-shadow: 0px 0px 1px 16px $shodow-hover;
+
+  box-shadow: 0 0 1px 16px $shadow-hover;
   cursor: pointer;
 }
+
 @mixin thumbactive() {
   @include thumbmargin();
-  box-shadow: 0px 0px 1px 16px $shodow-active;
+
+  box-shadow: 0 0 1px 16px $shadow-active;
   cursor: grabbing;
 }
 // Added for continuous
@@ -69,9 +72,11 @@ $shodow-hover: rgba(4, 30, 66, 0.08);
   --ratio: calc((var(--val) - var(--min)) / var(--range));
   --newPosition: calc(38px - (var(--ratio) * 76) * 1px);
   --leftspan: calc(var(--ratio) * 100%);
+
   background-color: var(--sdds-slider-span-color);
   color: var(--sdds-slider-track-color);
 }
+
 .container {
   display: flex;
   flex-direction: row;
@@ -80,6 +85,10 @@ $shodow-hover: rgba(4, 30, 66, 0.08);
   height: 20px;
   align-items: center;
   position: relative;
+
+  &--continuous {
+    margin-top: 100px;
+  }
 }
 //// Added for dual point slider
 div .range-slider {
@@ -89,6 +98,7 @@ div .range-slider {
   text-align: center;
   margin-left: 10px;
   position: relative;
+
   [type='range'] {
     position: absolute;
   }
@@ -103,7 +113,6 @@ div .range-slider {
   --range: calc(var(--max) - var(--min));
   --ratio: calc((var(--val) - var(--min)) / var(--range));
   --minvalpx: calc(100% * (((var(--minval) - var(--min)) / var(--range))));
-
   --maxvalpx: calc(100% * (((var(--maxval) - var(--min)) / var(--range))));
   --minrange: calc((var(--maxvalpx) - var(--minvalpx)));
   --sx: calc(var(--ratio) * 100%);
@@ -121,7 +130,9 @@ div .range-slider {
   &.sliders {
     &::-webkit-slider-runnable-track {
       @include track(1);
-      background: linear-gradient(
+
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -129,9 +140,12 @@ div .range-slider {
         )
         100% no-repeat;
     }
+
     &::-moz-range-track {
       @include track(1);
-      background: linear-gradient(
+
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -139,9 +153,12 @@ div .range-slider {
         )
         100% no-repeat;
     }
+
     &::-ms-track {
       @include track(1);
-      background: linear-gradient(
+
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -150,17 +167,21 @@ div .range-slider {
         100% no-repeat;
     }
   }
+
   &.sliders-right {
     &::-moz-range-track {
       background-color: transparent !important;
     }
   }
+
   &::-webkit-slider-runnable-track {
     @include track(1);
   }
+
   &::-moz-range-track {
     @include track(1);
   }
+
   &::-ms-track {
     @include track(1);
   }
@@ -170,7 +191,8 @@ div .range-slider {
   }
 
   &::-webkit-slider-thumb {
-    margin-top: calc(
+    margin-top:
+ calc(
       0.5 *
         (
           #{var(--sdds-slider-track-height)} - #{var(
@@ -178,11 +200,14 @@ div .range-slider {
             )}
         )
     );
+
     @include thumb;
   }
+
   &:hover::-webkit-slider-thumb {
     @include thumbhover;
   }
+
   &:active::-webkit-slider-thumb {
     @include thumbactive;
   }
@@ -190,6 +215,7 @@ div .range-slider {
   &::-moz-range-thumb {
     @include thumb;
   }
+
   &:active::-moz-range-thumb,
   &:active::-ms-thumb {
     @include thumbactive;
@@ -197,6 +223,7 @@ div .range-slider {
 
   &::-ms-thumb {
     margin-top: 0;
+
     @include thumb;
   }
 
@@ -231,16 +258,18 @@ div .range-slider {
 }
 //////////////////// Continuous Value ////////////////////////
 button {
-  border: 0px;
+  border: 0;
   width: 20px;
   height: 16px;
   background: transparent;
-  padding: 0px;
+  padding: 0;
   cursor: pointer;
+
   &.plus {
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.49994 13.5104C8.49994 13.7865 8.27608 14.0104 7.99994 14.0104C7.7238 14.0104 7.49994 13.7865 7.49994 13.5104V8.50002H2.48964C2.2135 8.50002 1.98964 8.27617 1.98964 8.00002C1.98964 7.72388 2.2135 7.50002 2.48964 7.50002H7.49994V2.48968C7.49994 2.21353 7.7238 1.98968 7.99994 1.98968C8.27608 1.98968 8.49994 2.21353 8.49994 2.48968V7.50002H13.5103C13.7865 7.50002 14.0103 7.72388 14.0103 8.00002C14.0103 8.27617 13.7865 8.50002 13.5103 8.50002H8.49994V13.5104Z' fill='%230D0F13'/%3E%3C/svg%3E");
     margin-left: 16px;
   }
+
   &.minus {
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.98965 8.00006C1.98965 8.2762 2.21351 8.50006 2.48965 8.50006H13.5104C13.7865 8.50006 14.0104 8.2762 14.0104 8.00006C14.0104 7.72392 13.7865 7.50006 13.5104 7.50006L2.48965 7.50006C2.21351 7.50006 1.98965 7.72392 1.98965 8.00006Z' fill='%230D0F13'/%3E%3C/svg%3E");
     margin-right: 16px;
@@ -249,13 +278,16 @@ button {
 
 .rangevalue {
   @include spanValues;
+
   position: absolute;
   top: -53px;
   left: calc(var(--leftspan) + calc(var(--newPosition) + 0px));
 
   span {
     padding: 8px;
+
     @include type-style('detail-01');
+
     background-color: var(--sdds-slider-span-color);
     color: var(--sdds-white);
     text-align: center;
@@ -265,13 +297,14 @@ button {
     transform: translate(-50%, 0);
     border-radius: 4px;
   }
-  span:before {
+
+  span::before {
     content: '';
     position: absolute;
     width: 8px;
     height: 8px;
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
-    border-radius: 0px 0px 0px 1px;
+    border-radius: 0 0 0 1px;
     transform: rotate(-45deg);
     background-color: var(--sdds-slider-span-color);
     bottom: -3px;

@@ -79,7 +79,7 @@ export class ContinousValueSlider {
 
   render() {
     return (
-      <div style={this.rangeProp} class="container">
+      <div style={this.rangeProp} class="container container--continuous">
         <div
           class="rangevalue"
           ref={(el) => (this.spantext = el as HTMLInputElement)}

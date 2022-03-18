@@ -69,18 +69,6 @@ export class Slider {
     this.watchValueTwo();
   }
 
-  private handleOnClickPlus = () => {
-    parseInt(this.rangeStyle['--val']) < parseInt(this.rangeStyle['--max'])
-      ? this.updateValue(this.leftRangeInputEl.valueAsNumber + 1)
-      : '';
-  };
-
-  private handleOnClickMinus = () => {
-    parseInt(this.rangeStyle['--val']) > parseInt(this.rangeStyle['--min'])
-      ? this.updateValue(this.leftRangeInputEl.valueAsNumber - 1)
-      : '';
-  };
-
   private handleOnChangeLeft = (event) => {
     this.onInputTextChange(event.target.value, this.leftInputTextRef, true);
   };
@@ -174,7 +162,7 @@ export class Slider {
           max={`${this.rangeStyle['--max']}`}
           ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
           type="range"
-        ></input>
+        />
       </div>
     );
   }
@@ -183,9 +171,7 @@ export class Slider {
     return (
       <div>
         <div style={this.rangeStyle} class="container">
-          <sdds-continousvalue-slider
-            rangeStyle={this.rangeStyle}
-          ></sdds-continousvalue-slider>
+          <sdds-continousvalue-slider />
         </div>
       </div>
     );
@@ -202,7 +188,7 @@ export class Slider {
           ref={(el) => (this.leftInputTextRef = el as HTMLInputElement)}
           class="input-text"
           onKeyUp={(ev) => this.handleOnChangeLeft(ev)}
-        ></input>
+        />
         <div
           class="range-slider"
           style={{
@@ -218,7 +204,7 @@ export class Slider {
             class="sliders"
             style={this.rangeStyle}
             ref={(el) => (this.leftRangeInputEl = el as HTMLInputElement)}
-          ></input>
+          />
           <input
             min={`${this.secondRangeStyle['--min']}`}
             max={`${this.secondRangeStyle['--max']}`}
@@ -227,7 +213,7 @@ export class Slider {
             class="sliders sliders-right"
             ref={(el) => (this.rightRangeInputEl = el as HTMLInputElement)}
             style={this.secondRangeStyle}
-          ></input>
+          />
         </div>
         <input
           min={`${this.secondRangeStyle['--min']}`}
@@ -237,7 +223,7 @@ export class Slider {
           ref={(el) => (this.rightInputTextRef = el as HTMLInputElement)}
           class="input-text"
           onKeyUp={(ev) => this.handleOnChangeRight(ev)}
-        ></input>
+        />
       </div>
     );
   }

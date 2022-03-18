@@ -132,7 +132,6 @@ export class DualPointSlider {
     );
   }
   render() {
-    console.log('Here');
     return (
       <div class="container">
         <input
@@ -143,7 +142,7 @@ export class DualPointSlider {
           ref={(el) => (this.inputTextLeft = el as HTMLInputElement)}
           class="input-text"
           onKeyUp={(ev) => this.OnLeftTextChange(ev)}
-        ></input>
+        />
         <div
           class="range-slider"
           style={{
@@ -159,7 +158,7 @@ export class DualPointSlider {
             class="sliders"
             style={this.rangeProp}
             ref={(el) => (this.inputRangeLeft = el as HTMLInputElement)}
-          ></input>
+          />
           <input
             min={`${this.rangeProp2['--min']}`}
             max={`${this.rangeProp2['--max']}`}
@@ -168,7 +167,7 @@ export class DualPointSlider {
             class="sliders sliders-right"
             ref={(el) => (this.inputRangeRight = el as HTMLInputElement)}
             style={this.rangeProp2}
-          ></input>
+          />
         </div>
         <input
           min={`${this.rangeProp2['--min']}`}
@@ -178,7 +177,7 @@ export class DualPointSlider {
           ref={(el) => (this.inputTextRight = el as HTMLInputElement)}
           class="input-text"
           onKeyUp={(ev) => this.OnRightTextChange(ev)}
-        ></input>
+        />
       </div>
     );
   }

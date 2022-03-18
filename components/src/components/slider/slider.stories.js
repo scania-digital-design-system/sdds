@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Slider',
+  title: 'Pre-alpha/Slider',
   argTypes: {
     type: {
       control: {
@@ -43,10 +43,8 @@ export default {
 const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
   return `
-  <div class="sdds-storybook-wrapper">
   <sdds-slider type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
   </sdds-slider>
-  </div>
   `;
 };
 
@@ -58,15 +56,15 @@ Basic.args = {
   value: '100',
 };
 
-export const continuousValue = Template.bind({});
-continuousValue.args = {
+export const ContinuousValue = Template.bind({});
+ContinuousValue.args = {
   type: 'continuousValue',
   min: '0',
   max: '200',
   value: '100',
 };
-export const dualPoint = Template.bind({});
-dualPoint.args = {
+export const DualPoint = Template.bind({});
+DualPoint.args = {
   type: 'dualPoint',
   min: '0',
   max: '200',
