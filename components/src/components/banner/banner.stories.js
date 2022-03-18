@@ -1,9 +1,12 @@
 export default {
   title: 'Component/Banner',
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     state: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'error', 'info'],
       },
     },
