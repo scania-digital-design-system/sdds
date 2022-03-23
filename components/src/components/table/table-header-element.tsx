@@ -2,7 +2,7 @@ import { Component, Prop, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-head',
-  styleUrl: 'table-header.scss',
+  styleUrl: 'table.scss',
   shadow: true,
 })
 export class TableHeaderElement {
@@ -10,7 +10,7 @@ export class TableHeaderElement {
 
   @Prop({ reflect: true }) columnTitle: string;
 
-  @Prop() isSortable: boolean = false;
+  @Prop() isSortable: boolean = true;
 
   sortButtonClick = (key) => {
     console.log(`It triggers${key}`);
