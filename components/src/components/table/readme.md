@@ -5,9 +5,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type     | Default     |
-| ----------- | ------------ | ----------- | -------- | ----------- |
-| `columnKey` | `column-key` |             | `string` | `undefined` |
+| Property      | Attribute      | Description | Type      | Default     |
+| ------------- | -------------- | ----------- | --------- | ----------- |
+| `columnKey`   | `column-key`   |             | `string`  | `undefined` |
+| `columnTitle` | `column-title` |             | `string`  | `undefined` |
+| `isSortable`  | `is-sortable`  |             | `boolean` | `false`     |
 
 
 ----------------------------------------------

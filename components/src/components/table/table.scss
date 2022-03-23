@@ -33,6 +33,7 @@
     .sdds-table__header-cell {
       @include type-style('headline-07');
 
+      display: table-cell;
       text-align: left;
       color: var(--sdds-grey-958);
       background-color: var(--sdds-grey-300);

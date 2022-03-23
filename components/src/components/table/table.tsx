@@ -63,17 +63,6 @@ export class Table {
     console.log(this.bodyDataManipulated);
   }
 
-  setHeaderItems = () => (
-    <tr class="sdds-table__row">
-      {this.headerData.map((item, index) => (
-        <sdds-table-head
-          columnKey="keyOne"
-          columnTitle={item}
-        ></sdds-table-head>
-      ))}
-    </tr>
-  );
-
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
       <tr class="sdds-table__row">
@@ -95,7 +84,9 @@ export class Table {
         {this.tableTitle && (
           <caption class="sdds-table__title">{this.tableTitle}</caption>
         )}
-        <thead class="sdds-table__header">{this.setHeaderItems()}</thead>
+        <thead class="sdds-table__header">
+          <slot />
+        </thead>
         <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
       </table>
     );
