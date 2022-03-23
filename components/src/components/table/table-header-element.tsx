@@ -1,8 +1,8 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-head',
-  styleUrl: 'table.scss',
+  styleUrl: 'table-header.scss',
   shadow: true,
 })
 export class TableHeaderElement {
@@ -10,11 +10,26 @@ export class TableHeaderElement {
 
   @Prop({ reflect: true }) columnTitle: string;
 
+  @Prop() isSortable: boolean = false;
+
+  sortButtonClick = (key) => {
+    console.log(`It triggers${key}`);
+  };
+
+  headerCellContent = () => {
+    if (this.isSortable) {
+      return (
+        <button onClick={() => this.sortButtonClick(this.columnKey)}>
+          {this.columnTitle}
+        </button>
+      );
+    }
+    return this.columnTitle;
+  };
+
   render() {
     return (
-      <th data-column-key={this.columnKey} class="sdds-table__header-cell">
-        {this.columnTitle}
-      </th>
+      <Host class="sdds-table__header-cell">{this.headerCellContent()}</Host>
     );
   }
 }
