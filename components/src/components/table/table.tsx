@@ -66,9 +66,10 @@ export class Table {
   setHeaderItems = () => (
     <tr class="sdds-table__row">
       {this.headerData.map((item, index) => (
-        <th key={index} class="sdds-table__header-cell">
-          <button onClick={() => this.onButtonClick(index)}>{item}</button>
-        </th>
+        <sdds-table-head
+          columnKey="keyOne"
+          columnTitle={item}
+        ></sdds-table-head>
       ))}
     </tr>
   );
