@@ -12,6 +12,13 @@
 | `isSortable`  | `is-sortable`  |             | `boolean` | `true`      |
 
 
+## Events
+
+| Event            | Description | Type               |
+| ---------------- | ----------- | ------------------ |
+| `sortColumnData` |             | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
