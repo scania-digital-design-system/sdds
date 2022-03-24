@@ -22,7 +22,9 @@ $shadow-hover: rgba(4, 30, 66, 0.08);
  linear-gradient(
         var(--sdds-slider-fill-color),
         var(--sdds-slider-fill-color)
-      ) 0 / var(--sx)
+      )
+      0 /
+      var(--sx)
       100%
       no-repeat
       var(--sdds-slider-track-color);
