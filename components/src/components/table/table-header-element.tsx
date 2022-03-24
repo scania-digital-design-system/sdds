@@ -1,4 +1,12 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  State,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-head',
@@ -12,8 +20,26 @@ export class TableHeaderElement {
 
   @Prop() isSortable: boolean = true;
 
+  @State() sortingDirection: string = 'asc';
+
+  @Event({
+    eventName: 'sortColumnData',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sortColumnData: EventEmitter<any>;
+
   sortButtonClick = (key) => {
-    console.log(`It triggers${key}`);
+    console.log(`It triggers: ${key}`);
+    // Toggling direction of sorting as we only use one button for sorting
+    if (this.sortingDirection !== 'asc') {
+      this.sortingDirection = 'asc';
+    } else {
+      this.sortingDirection = 'desc';
+    }
+    // Use array to send both key and sorting direction
+    this.sortColumnData.emit([key, this.sortingDirection]);
   };
 
   headerCellContent = () => {

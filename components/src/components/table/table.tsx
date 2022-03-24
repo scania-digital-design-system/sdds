@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Listen } from '@stencil/core';
 
 @Component({
   tag: 'sdds-table',
@@ -14,25 +14,18 @@ export class Table {
 
   @Prop({ reflect: true }) compactDesign: boolean = true;
 
-  @Prop({ reflect: true }) headerData: string[] = [
-    'Header 1',
-    'Header 2',
-    'Header 3',
-    'Header 4',
-  ];
-
   @Prop() bodyData = [
     {
-      item1: 'Baka',
-      item2: 'Deda',
-      item3: 'Mama',
-      item4: 'Tata',
+      item1: 2,
+      item2: 'Abba',
+      item3: 'Helloo',
+      item4: 'Salt Lake City',
     },
     {
-      item1: 'Baka2',
-      item2: 'Deda2',
-      item3: 'Mama2',
-      item4: 'Tata2',
+      item1: 1,
+      item2: 'Corn',
+      item3: 'Hello',
+      item4: 'Chicago',
     },
   ];
 
@@ -51,16 +44,41 @@ export class Table {
     console.log(`Value is: ${count}`);
   };
 
-  onButtonClick(index) {
-    console.log(`Index is ${index}`);
+  compareValues = (key, order = 'asc') =>
+    function innerSort(a, b) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        // property doesn't exist on either object
+        return 0;
+      }
 
-    // Double check why is this needed
+      const varA = typeof a[key] === 'string' ? a[key].toUpperCase() : a[key];
+      const varB = typeof b[key] === 'string' ? b[key].toUpperCase() : b[key];
+
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return order === 'desc' ? comparison * -1 : comparison;
+    };
+
+  sortData(keyValue, sortingDirection) {
+    // use spread operator to make enable sorting and modifying array, same as using .slice()
     this.bodyDataManipulated = [...this.bodyDataManipulated];
+    this.bodyDataManipulated.sort(
+      this.compareValues(keyValue, sortingDirection)
+    );
+  }
 
-    this.bodyDataManipulated = this.bodyDataManipulated.sort((a, b) => {
-      return a.item1.toLowerCase() < b.item1.toLowerCase() ? 1 : -1;
-    });
-    console.log(this.bodyDataManipulated);
+  // Listen to sortColumnData from table-header-element
+  @Listen('sortColumnData')
+  updateOptionsContent(event: CustomEvent<any>) {
+    // Nice usage of array deconstruct
+    const [keyValue, sortingDirection] = event.detail;
+    console.log(`Data received is:${keyValue}`);
+    this.sortData(keyValue, sortingDirection);
   }
 
   setBodyItem = () =>
