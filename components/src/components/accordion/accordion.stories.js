@@ -46,7 +46,7 @@ const Template = ({ disabled, affix, paddingReset }) => `
     <sdds-accordion class="sdds-storybook-wrapper">
       <sdds-accordion-item header="First item" affix="${affix}" disabled="${disabled}" tabindex="1" padding-reset="${paddingReset}">
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
-        Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amett.
       </sdds-accordion-item>
       <sdds-accordion-item header="Second item" affix="${affix}" disabled="${disabled}" tabindex="2" padding-reset="${paddingReset}" expanded="true">
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
