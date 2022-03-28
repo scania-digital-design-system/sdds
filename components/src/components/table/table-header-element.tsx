@@ -55,7 +55,15 @@ export class TableHeaderElement {
 
   render() {
     return (
-      <Host class="sdds-table__header-cell">{this.headerCellContent()}</Host>
+      <Host
+        class={{
+          'sdds-table__header-cell': true,
+          'sdds-table__header-cell--sortable': this.isSortable,
+        }}
+        sdds-table__header-cell
+      >
+        {this.headerCellContent()}
+      </Host>
     );
   }
 }

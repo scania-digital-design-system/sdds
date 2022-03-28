@@ -12,7 +12,7 @@ export class Table {
 
   @Prop({ reflect: true }) verticalDividers: boolean = true;
 
-  @Prop({ reflect: true }) compactDesign: boolean = true;
+  @Prop({ reflect: true }) compactDesign: boolean = false;
 
   @Prop() bodyData = [
     {

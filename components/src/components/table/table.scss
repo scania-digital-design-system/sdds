@@ -32,7 +32,7 @@
 
   .sdds-table__header {
     .sdds-table__header-cell,
-    ::slotted(sdds-table-head) {
+    ::slotted(.sdds-table__header-cell) {
       @include type-style('headline-07');
 
       display: table-cell;
@@ -49,6 +49,10 @@
       &:last-child {
         border-top-right-radius: 4px;
       }
+    }
+
+    ::slotted(.sdds-table__header-cell--sortable) {
+      padding: 0;
     }
   }
 
@@ -110,5 +114,14 @@
     ::slotted(sdds-table-head:last-child) {
       border-top-right-radius: 0;
     }
+  }
+}
+
+:host(.sdds-table__header-cell--sortable) {
+  button {
+    background-color: yellow;
+    border: none;
+    cursor: pointer;
+    width: 100%;
   }
 }
