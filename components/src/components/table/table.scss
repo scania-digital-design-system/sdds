@@ -58,23 +58,21 @@
 
   .sdds-table__row {
     border-bottom: 1px solid var(--sdds-grey-400);
+    background-color: var(--sdds-white);
+    transition: background-color 250ms ease;
   }
 
   .sdds-table__row:hover {
     background-color: var(--sdds-grey-100);
   }
 
-  .sdds-table__header-cell,
-  ::slotted(sdds-table-head),
   .sdds-table__body-cell {
     @include type-style('detail-02');
 
     color: var(--sdds-grey-958);
-    background-color: var(--sdds-white);
     padding: var(--sdds-spacing-element-16);
     min-width: 192px;
     vertical-align: top;
-    transition: background-color 250ms ease;
   }
 
   // SDDS GLOBAL STYLES:
@@ -117,11 +115,41 @@
   }
 }
 
+// Styling anything inside table-header-element or sdds-table-head
+
 :host(.sdds-table__header-cell--sortable) {
-  button {
-    background-color: yellow;
+  .sdds-table__header-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 48px;
+    background-color: var(--sdds-grey-300);
+    padding: 0 var(--sdds-spacing-element-16);
     border: none;
     cursor: pointer;
-    width: 100%;
+    transition: background-color 200ms ease;
+
+    .sdds-table__header-button-text {
+      @include type-style('headline-07');
+
+      text-align: left;
+      color: var(--sdds-grey-958);
+    }
+
+    .sdds-table__header-button-icon {
+      width: 16px;
+      height: auto;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    &:hover {
+      background-color: var(--sdds-grey-400);
+
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
+    }
   }
 }
