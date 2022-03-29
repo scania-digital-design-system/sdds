@@ -6,6 +6,7 @@ import {
   Event,
   EventEmitter,
   State,
+  Listen,
 } from '@stencil/core';
 
 @Component({
@@ -20,7 +21,9 @@ export class TableHeaderElement {
 
   @Prop() isSortable: boolean = true;
 
-  @State() sortingDirection: string = 'asc';
+  @State() sortingDirection: string = '';
+
+  @State() sortedByMyKey: boolean = false;
 
   @Event({
     eventName: 'sortColumnData',
@@ -29,6 +32,17 @@ export class TableHeaderElement {
     bubbles: true,
   })
   sortColumnData: EventEmitter<any>;
+
+  // target is set to body so other instances of same component "listen" and react to the change
+  @Listen('sortColumnData', { target: 'body' })
+  updateOptionsContent(event: CustomEvent<any>) {
+    // Nice usage of array deconstruct
+    const keyValue = event.detail[0];
+    console.log(`Header has got this info: ${keyValue}`);
+    if (keyValue !== this.columnKey) {
+      this.sortedByMyKey = false;
+    }
+  }
 
   sortButtonClick = (key) => {
     console.log(`It triggers: ${key}`);
@@ -39,6 +53,7 @@ export class TableHeaderElement {
       this.sortingDirection = 'desc';
     }
     // Use array to send both key and sorting direction
+    this.sortedByMyKey = true;
     this.sortColumnData.emit([key, this.sortingDirection]);
   };
 
@@ -88,6 +103,7 @@ export class TableHeaderElement {
         class={{
           'sdds-table__header-cell': true,
           'sdds-table__header-cell--sortable': this.isSortable,
+          'sdds-table__header-cell--is-sorted': this.sortedByMyKey,
         }}
         sdds-table__header-cell
       >

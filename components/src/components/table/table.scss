@@ -153,3 +153,11 @@
     }
   }
 }
+
+:host(.sdds-table__header-cell--is-sorted) {
+  .sdds-table__header-button {
+    .sdds-table__header-button-icon {
+      opacity: 1;
+    }
+  }
+}
