@@ -33,7 +33,6 @@ export class Table {
 
   componentWillLoad() {
     this.bodyDataManipulated = this.bodyData;
-    console.log(this.bodyDataManipulated);
   }
 
   // Would  be good to make a check to make sure if header is present,
@@ -41,7 +40,6 @@ export class Table {
   countBodyElement = () => {
     let count = 0;
     Object.keys(this.bodyDataManipulated[0]).forEach(() => count++);
-    console.log(`Value is: ${count}`);
   };
 
   compareValues = (key, order = 'asc') =>
@@ -77,7 +75,6 @@ export class Table {
   updateOptionsContent(event: CustomEvent<any>) {
     // Nice usage of array deconstruct
     const [keyValue, sortingDirection] = event.detail;
-    console.log(`Data received is:${keyValue}`);
     this.sortData(keyValue, sortingDirection);
   }
 

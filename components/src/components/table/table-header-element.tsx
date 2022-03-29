@@ -36,9 +36,8 @@ export class TableHeaderElement {
   // target is set to body so other instances of same component "listen" and react to the change
   @Listen('sortColumnData', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    // Nice usage of array deconstruct
+    // grab only value at position 0 as it is the "key"
     const keyValue = event.detail[0];
-    console.log(`Header has got this info: ${keyValue}`);
     if (keyValue !== this.columnKey) {
       this.sortedByMyKey = false;
       // To sync with CSS transition timing
@@ -49,15 +48,15 @@ export class TableHeaderElement {
   }
 
   sortButtonClick = (key) => {
-    console.log(`It triggers: ${key}`);
     // Toggling direction of sorting as we only use one button for sorting
     if (this.sortingDirection !== 'asc') {
       this.sortingDirection = 'asc';
     } else {
       this.sortingDirection = 'desc';
     }
-    // Use array to send both key and sorting direction
+    // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
+    // Use array to send both key and sorting direction
     this.sortColumnData.emit([key, this.sortingDirection]);
   };
 
@@ -97,6 +96,7 @@ export class TableHeaderElement {
               />
             </svg>
           )}
+          {/* First icon is arrow down as first set direction is ascending, clicking it again rotates the icon as we set descending order */}
           {this.sortingDirection !== '' && (
             <svg
               class={`sdds-table__header-button-icon ${
@@ -130,7 +130,6 @@ export class TableHeaderElement {
           'sdds-table__header-cell--sortable': this.isSortable,
           'sdds-table__header-cell--is-sorted': this.sortedByMyKey,
         }}
-        sdds-table__header-cell
       >
         {this.headerCellContent()}
       </Host>
