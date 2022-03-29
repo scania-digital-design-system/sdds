@@ -15,7 +15,6 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@octokit/core": "^3.6.0",
-    "@stencil/sass": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -35,7 +34,7 @@
   "scripts": {
     "install": "lerna bootstrap",
     "start": "lerna run --parallel start",
-    "build": "lerna run build",
+    "build": "lerna run --parallel build",
     "storybook": "npm run install && lerna run build --parallel && lerna run build-sb",
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
