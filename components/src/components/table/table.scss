@@ -141,7 +141,7 @@
       width: 16px;
       height: auto;
       opacity: 0;
-      transition: opacity 200ms ease;
+      transition: opacity 200ms ease-in, transform 200ms ease;
     }
 
     &:hover {
@@ -156,8 +156,18 @@
 
 :host(.sdds-table__header-cell--is-sorted) {
   .sdds-table__header-button {
+    background-color: var(--sdds-grey-500);
+
+    &:hover {
+      background-color: var(--sdds-grey-500);
+    }
+
     .sdds-table__header-button-icon {
       opacity: 1;
+    }
+
+    .sdds-table__header-button-icon--rotate {
+      transform: rotate(180deg);
     }
   }
 }
