@@ -19,12 +19,12 @@
   },
   "devDependencies": {
     "del": "^6.0.0",
-    "fs-extra": "^9.1.0",
-    "glob": "^7.1.6",
+    "fs-extra": "^10.0.1",
+    "glob": "^7.2.0",
     "gulp": "^4.0.2",
-    "gulp-iconfont": "^11.0.0",
+    "gulp-iconfont": "^11.0.1",
     "gulp-iconfont-css": "^3.0.0",
-    "svgo": "^2.3.0",
+    "svgo": "^2.8.0",
     "svgson": "^5.2.1"
   },
   "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"

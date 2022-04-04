@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.29.0"
+    "sass": "^1.49.9"
   },
   "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
 }
