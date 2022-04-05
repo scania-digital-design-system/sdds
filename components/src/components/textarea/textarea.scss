@@ -31,7 +31,6 @@
   @extend .#{$prefix}-textfield-input;
 
   display: block;
-  min-height: var(--sdds-textarea-height);
   resize: vertical;
   border-bottom: 1px solid var(--sdds-textarea-border-bottom);
   transition: border-bottom-color 200ms ease;
