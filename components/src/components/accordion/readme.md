@@ -45,6 +45,13 @@
 | `paddingReset` | `padding-reset` | When true 16px on right padding instead of 64px                                                                      | `boolean` | `false`    |
 
 
+## Events
+
+| Event                 | Description                                                                                                               | Type                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `accordionItemToggle` | Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion | `CustomEvent<boolean>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
