@@ -170,7 +170,7 @@
     );
     background-repeat: no-repeat;
     background-size: 117px;
-    background-position: center bottom;
+    background-position: right bottom;
     p {
       @include type-style('detail-02');
       color: var(--#{$prefix}-footer-main-copyright);
