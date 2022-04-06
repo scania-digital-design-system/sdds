@@ -119,7 +119,7 @@ const InlineMenuTemplate = (args) => {
 
 export const InlineMenu = InlineMenuTemplate.bind({});
 InlineMenu.args = {
-  siteName: 'Inline Menu App',
+  siteName: 'Inline Menu App - Testing Storybook',
   openInlineDropdown: false,
   openMobileMenu: false,
 };
