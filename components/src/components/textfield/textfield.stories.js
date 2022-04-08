@@ -144,7 +144,6 @@ const textfieldTemplate = ({
       <sdds-textfield
         type="${type}"
         size="${sizeValue}"
-        ${minwidth ? 'minwidth' : ''}
         minwidth="${minwidth}"
         state="${state}"
         maxlength="${textcounter}"
