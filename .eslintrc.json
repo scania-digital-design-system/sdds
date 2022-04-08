@@ -61,6 +61,8 @@
     "no-nested-ternary": "warn", // TODO: Turn on
     "import/order": "warn", // Maybe turn on
     "no-restricted-syntax": "warn", // TODO: check this - disables for-in related error
+    "default-case-last": "warn",
+    "no-restricted-exports": "warn",
     /* ------------------------------ Formating on root workshop END ------------------- */
     "radix": ["error", "as-needed"], // TODO: Turn on
     "max-len": "off", // TODO: Set limit ?

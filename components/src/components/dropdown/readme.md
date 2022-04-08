@@ -22,7 +22,7 @@
 
 ### Used by
 
- - [sdds-dropdown-filter](../../patterns/dropdown-filter)
+ - [sdds-dropdown-filter](.)
 
 ### Graph
 ```mermaid

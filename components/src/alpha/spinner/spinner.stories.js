@@ -1,9 +1,12 @@
 export default {
-  title: 'Component/Spinner',
+  title: 'Pre-Alpha/Spinner',
+  parameters: {
+    layout: 'centered', // Center the component horizontally and vertically in the Canvas
+  },
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'small', 'medium'],
       },
       defaultValue: 'default',
@@ -11,7 +14,7 @@ export default {
     },
     type: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'circular', 'cube', 'linear'],
       },
       defaultValue: 'default',
@@ -23,13 +26,10 @@ export default {
 const style = `<style>
   
 .demo {
-margin-top: 20px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color:  #F6F6F7; 
-height: 200px;
-width: 200px;
+background-color: #F6F6F7; 
 }
 </style>`;
 const Template = ({ size, type }) => {
@@ -49,10 +49,8 @@ const Template = ({ size, type }) => {
 
   return `
   ${style}
-  <sdds-theme></sdds-theme>
   <div class="demo">
   <sdds-spinner size="${sizeValue}" type="${type}">
-    
   </sdds-spinner>
   </div>
 

@@ -11,6 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^6.0.0",
-    "ttf2woff": "^2.0.2"
+    "ttf2woff": "^3.0.0"
   }
 }

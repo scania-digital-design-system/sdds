@@ -20,9 +20,7 @@ const style = `<style>
 
 const dividerTemplate = ({ ...Basic }) => `
   ${style}
-    <sdds-theme></sdds-theme>
-
-    <div style="width: ${Basic.width}px;" class="demo sdds-divider-${Basic.type}"></div>
+    <div style="width: ${Basic.width}px;" class="sdds-divider-${Basic.type}"></div>
   `;
 
 export const Basic = dividerTemplate.bind({});
@@ -46,9 +44,7 @@ Basic.argTypes = {
 
 const dividerVerticalTemplate = ({ ...Vertical }) => `
   ${style}
-    <sdds-theme></sdds-theme>
-
-    <div style="height:${Vertical.height}px;" class="demo sdds-divider-${Vertical.type}-vertical"></div>
+    <div style="height:${Vertical.height}px;" class="sdds-divider-${Vertical.type}-vertical"></div>
   `;
 
 export const Vertical = dividerVerticalTemplate.bind({});
@@ -72,11 +68,7 @@ Vertical.args = {
 
 const dividerBorderTemplate = ({ ...Border }) => `
   ${style}
-    <sdds-theme></sdds-theme>
-
-    <div class="demo">
-      <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="demo divider-border-demo sdds-divider-${Border.type}-border-${Border.direction}">Demo</div>
-    </div>
+      <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="divider-border-demo sdds-divider-${Border.type}-border-${Border.direction}">Demo</div>
     `;
 
 export const Border = dividerBorderTemplate.bind({});

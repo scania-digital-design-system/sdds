@@ -14,6 +14,19 @@
 | `valueTwo` | `value-two` |             | `string` | `'70'`      |
 
 
+## Dependencies
+
+### Depends on
+
+- [sdds-continousvalue-slider](.)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-slider --> sdds-continousvalue-slider
+  style sdds-slider fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

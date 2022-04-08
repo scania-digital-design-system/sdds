@@ -1,4 +1,4 @@
-import { series, watch, src, dest } from 'gulp';
+import { series, watch, src, dest, parallel } from 'gulp';
 
 import del from 'del';
 
@@ -76,6 +76,7 @@ function watches(cb) {
 
 function cleanStyles() {
   return del([
+    `${outputFolder}/images/*`,
     `${outputFolder}/styles/*`,
     `${outputFolder}/module.js`,
     `${outputFolder}/${themeName}-theme.js`,
@@ -95,8 +96,7 @@ function serve(done) {
 }
 
 function initFolders(cb) {
-  fs.remove(outputFolder);
-
+  fs.removeSync(outputFolder);
   setTimeout(() => {
     ['images', 'styles', 'scss'].map((folder) => {
       fs.mkdirSync(`${outputFolder}/${folder}`, { recursive: true });
@@ -268,6 +268,7 @@ function generateVars(input) {
 }
 
 function copyImages() {
+  console.log(`Copy images into: ${outputFolder}`);
   return src('../core/assets/images/*.svg').pipe(
     dest(`${outputFolder}/images/`)
   );
@@ -301,15 +302,19 @@ function generateCss(file) {
       sourceMapContents: sourceMapping === 'enabled',
     });
   } catch (err) {
-    console.log(err);
-    console.log(`Problem in file ${file} or imports related to it`);
-    console.log('\n ---- Problem in scss files, read error! ---- \n');
+    setTimeout(() => {
+      console.log(err);
+      console.log(`Problem in file ${file} or imports related to it`);
+      console.log('\n ---- Problem in scss files, read error! ---- \n');
+    }, 200);
   }
   try {
     fs.writeFileSync(`${filepath}.css`, content.css);
   } catch (err) {
-    console.log(err);
-    console.log('\n ---- Problem trying create css files ---- \n');
+    setTimeout(() => {
+      console.log(err);
+      console.log('\n ---- Problem trying create css files ---- \n');
+    }, 200);
   }
 }
 

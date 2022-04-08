@@ -7,7 +7,7 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['xs', 'sm', 'md', 'lg'],
       },
     },
@@ -15,8 +15,6 @@ export default {
 };
 
 const ModalTemplate = ({ ...Modal }) => `
-  
-  <sdds-theme></sdds-theme>
   <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-primary modal1">Open modal 1</button>
   <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-secondary modal1">Open modal 1</button>
   <sdds-modal size="${Modal.size}" selector=".modal1" ${
@@ -55,7 +53,6 @@ Modal.args = {
 };
 
 const ModalCssTemplate = ({ ...ModalCSS }) => `
-  <sdds-theme></sdds-theme>
   <div class="sdds-modal-backdrop show">
     <div class="sdds-modal sdds-modal-${ModalCSS.size}">
       <div class="sdds-modal-header">

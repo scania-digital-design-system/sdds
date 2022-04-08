@@ -2,8 +2,7 @@ export default {
   title: 'Component/Breadcrumb',
 };
 
-const Template = () => `
-    <sdds-theme></sdds-theme>
+const Template = () => `   
     <div class="sdds-breadcrumb">
       <div class="sdds-breadcrumb-item"><a href="#">Page 1</a></div>
       <div class="sdds-breadcrumb-item"><a href="#">Page 2</a></div>

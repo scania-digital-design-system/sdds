@@ -9,33 +9,18 @@ const Template = ({ menuCollapse = false }) => {
   document.body.classList.add('sdds');
 
   return `
-    <style>
-    #root {
-      height:100%;
-    }
-    .sb-show-main.sb-main-padded {
-      padding: 0;
-      margin: 0;
-    }
-    html, body, #root, #storybook-addon-themes {
-      height: 100%;
-      padding:0;
-      background: var(--sdds-white);
-    }
-    
-    </style>
-    <sdds-theme></sdds-theme>
-    
-    <nav class="sdds-navbar">
-      <button id="menu-mobile" class="sdds-navbar-icon-button sdds-navbar-side-menu-drawer">
-        <span class="sdds-icon-drawer"></span>
-      </button>
-      <div class="sdds-navbar-application-brand">Application</div>
 
-      <div class="sdds-navbar-scania-brand"></div>
+    
+     <nav class='sdds-nav'>     
+      <div class='sdds-nav__left'>
+        <div class='sdds-nav__app-name'>Application</div>
+      </div>  
+      <div class='sdds-nav__right'>  
+        <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+      </div> 
     </nav>
 
-    <div class="sdds-push">
+    <div class="sdds-push" style="margin-top:-64px">
       <div class="sdds-sidebar expanded ${
         menuCollapse ? 'sdds-sidebar-collapse' : ''
       }">

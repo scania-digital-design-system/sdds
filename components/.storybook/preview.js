@@ -1,8 +1,8 @@
-import { setCustomElements } from '@storybook/web-components';
-import customElements from '../dist/collection/custom-elements.json';
+import { addTheme } from '../dist/collection/index';
+import { theme } from '../node_modules/@scania/theme-light';
 
-import { addTheme, defineCustomElements } from '../dist/collection/index';
-import { theme } from '@scania/theme-light';
+import { defineCustomElements } from '../dist/esm/loader';
+defineCustomElements();
 
 const customViewports = {
   xs: {
@@ -72,10 +72,6 @@ const customBGvalues = [
     name: 'white',
     value: '#FFFFFF',
   },
-  // {
-  //   name: 'dark',
-  //   value: '#3A3B3F',
-  // },
 ];
 
 //Storybook settings
@@ -87,7 +83,6 @@ export const parameters = {
     list: [
       { name: 'on-white', class: 'sdds-on-white-bg', color: '#FFFFFF' },
       { name: 'on-grey', class: 'sdds-on-grey-bg', color: '#F6F6F7' },
-      // { name: 'on-dark', class: 'sdds-on-grey', color: '#3A3B3F' }
     ],
   },
   backgrounds: {
@@ -95,10 +90,8 @@ export const parameters = {
     default: 'grey',
     values: customBGvalues,
   },
-  layout: 'centered', // center the component horizontally and vertically in the Canvas
+  layout: 'padded', // Adds extra padding around the component
   chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
 };
 
-setCustomElements(customElements);
-defineCustomElements();
 addTheme(theme);

@@ -11,13 +11,6 @@ export default {
   },
 };
 
-const style = `<style>
-.card-demo {
-  max-width: 400px;
-  margin: 30px;
-}
-</style>`;
-
 const CardTemplate = ({
   headline,
   subheadline,
@@ -27,9 +20,7 @@ const CardTemplate = ({
   divider,
   imageTop,
 }) => `
-  ${style}
-    <sdds-theme></sdds-theme>
-        <div class="card-demo">
+    <div class="sdds-storybook-wrapper">
           <div class="sdds-card${clickable ? ' sdds-clickable' : ''}">
             ${
               imageTop == true
@@ -59,7 +50,7 @@ const CardTemplate = ({
             ${text ? `<div class="sdds-card-body">${text}</div>` : ''}
             ${footer ? `<div class="sdds-card-footer">${footer}</div>` : ''}
           </div>
-        </div>
+    </div>
   `;
 
 export const Basic = CardTemplate.bind({});
@@ -126,11 +117,8 @@ const AvatarTemplate = ({
   divider,
   imageTop,
   avatar,
-}) => `
-  ${style}
-    <sdds-theme></sdds-theme>
-
-    <div class="card-demo">
+}) => `  
+    <div class="sdds-storybook-wrapper">
       <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
       ${
         imageTop == true
@@ -157,7 +145,6 @@ const AvatarTemplate = ({
       ${text ? `<div class="sdds-card-body">${text}</div>` : ''}
       ${footer ? `<div class="sdds-card-footer">${footer}</div>` : ''}
     </div>
-
     </div>
   `;
 

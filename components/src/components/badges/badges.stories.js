@@ -14,22 +14,11 @@ export default {
   },
 };
 
-const basicStyle = `<style>
-                 .demo {
-                      margin:20px;
-                  }                   
-              </style>`;
 const basicTemplate = ({ value }) => {
-  // convert to string
-  const valueString = value != null ? value.toString() : '';
-  return `
-    ${basicStyle}
-      <sdds-theme></sdds-theme>
-      <div class="demo">  
+  const valueString = value != null ? value.toString() : ''; // convert to string
+  return ` 
       <sdds-badges value=${valueString}>       
-      </sdds-badges> 
-      </div>
-
+      </sdds-badges>
     `;
 };
 export const Basic = basicTemplate.bind({});
@@ -37,26 +26,24 @@ Basic.args = {};
 
 const style = `<style>
                     .demo {
-                      margin:20px;
-                      height: 50px;
-                      width: 50px;
+                      margin:5px;
+                      height: 32px;
+                      width: 32px;
                       position: relative;
                       background-color: #C4C4C4;
                     }
                     .demo-badges{
                       position: absolute;
-                      left: 32px;
+                      left: 16px;
                       top: -5px;
                     }
               </style>`;
 const badgesTemplate = ({ value }) => {
-  // convert to string
-  const valueString = value != null ? value.toString() : '';
+  const valueString = value != null ? value.toString() : ''; // convert to string
   return `
     ${style}
-      <sdds-theme></sdds-theme>
       <div class="demo">
-      <sdds-badges class = "demo-badges" value=${valueString}>       
+      <sdds-badges class="demo-badges" value=${valueString}>       
       </sdds-badges> 
       </div>
     `;
