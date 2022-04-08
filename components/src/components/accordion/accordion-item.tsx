@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-accordion-item',
@@ -22,8 +22,19 @@ export class AccordionItem {
   /** When true 16px on right padding instead of 64px */
   @Prop() paddingReset: boolean = false;
 
+  /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
+  @Event({
+    eventName: 'accordionItemToggle',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  accordionItemToggle: EventEmitter<boolean>;
+
   openAccordion() {
     this.expanded = !this.expanded;
+
+    this.accordionItemToggle.emit(this.expanded);
   }
 
   render() {
