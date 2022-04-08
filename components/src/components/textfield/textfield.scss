@@ -127,6 +127,9 @@ slot[name='sdds-label']::slotted(*) {
 //Form control
 .#{$prefix}-form-textfield {
   display: block;
+}
+
+.#{$prefix}-form-textfield-min-width {
   min-width: 208px;
 }
 

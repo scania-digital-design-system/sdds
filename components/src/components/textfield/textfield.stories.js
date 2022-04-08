@@ -29,6 +29,13 @@ export default {
         options: ['Default', 'Medium'],
       },
     },
+    minwidth: {
+      name: 'Use min-width',
+      description: 'Toggle the use of min-width (208px), or no min-width',
+      control: {
+        type: 'boolean',
+      },
+    },
     disabled: {
       description: 'Set textfield to disabled state',
       name: 'Disabled',
@@ -77,6 +84,7 @@ export default {
     placeholderText: 'Placeholder',
     type: 'text',
     size: 'Default',
+    minwidth: true,
     disabled: false,
     state: 'default',
     label: '',
@@ -89,14 +97,24 @@ const style = `<style>
 
 .demo {
   margin-top: 20px;
-  width: 208px
 }
+
+.min-width {
+  min-width: 208px
+}
+
+.fixed-width {
+  width: 104px;
+}
+
+
 </style>`;
 
 const textfieldTemplate = ({
   type,
   placeholderText,
   size,
+  minwidth,
   disabled,
   label,
   labelplacement,
@@ -123,24 +141,28 @@ const textfieldTemplate = ({
   ${style}
   <sdds-theme></sdds-theme>
   <div class="demo">
-    <sdds-textfield
-      type="${type}"
-      size="${sizeValue}"
-      state="${state}"
-      maxlength="${textcounter}"
-      ${label && labelplacement ? `label-inside="${label}"` : ''}
-      ${disabled ? 'disabled' : ''}
-      placeholder="${placeholderText}" >
-        ${prefix}
-        ${
-          label && !labelplacement
-            ? `<label slot='sdds-label'>${label}</label>`
-            : ''
-        }
-        ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix}
-        ${icon}
-    </sdds-textfield>
+    <div class="${minwidth ? 'min-width' : 'fixed-width'}">
+      <sdds-textfield
+        type="${type}"
+        size="${sizeValue}"
+        ${minwidth ? 'minwidth' : ''}
+        minwidth="${minwidth}"
+        state="${state}"
+        maxlength="${textcounter}"
+        ${label && labelplacement ? `label-inside="${label}"` : ''}
+        ${disabled ? 'disabled' : ''}
+        placeholder="${placeholderText}" >
+          ${prefix}
+          ${
+            label && !labelplacement
+              ? `<label slot='sdds-label'>${label}</label>`
+              : ''
+          }
+          ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+          ${suffix}
+          ${icon}
+      </sdds-textfield>
+    </div>
   </div>
   `;
 };

@@ -35,6 +35,9 @@ export class Textfield {
   /** Size of the input */
   @Prop() size = '';
 
+  /** Use min-width */
+  @Prop() minwidth: boolean = true;
+
   /** Name property */
   @Prop() name = '';
 
@@ -101,10 +104,15 @@ export class Textfield {
             : ''
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
-        ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
+        ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${
-          this.state == 'error' || this.state == 'success'
+          this.state === 'error' || this.state === 'success'
             ? `sdds-form-textfield-${this.state}`
+            : ''
+        }
+        ${
+          this.minwidth 
+            ? 'sdds-form-textfield-min-width'
             : ''
         }
         `}

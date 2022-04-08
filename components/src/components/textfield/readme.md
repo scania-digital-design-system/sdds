@@ -11,6 +11,7 @@
 | `disabled`    | `disabled`     | Set input in disabled state                 | `boolean` | `false`     |
 | `labelInside` | `label-inside` | Label that will be put inside the input     | `string`  | `''`        |
 | `maxlength`   | `maxlength`    | Max length of input                         | `number`  | `undefined` |
+| `minwidth`    | `minwidth`     | Use min-width                               | `boolean` | `true`      |
 | `name`        | `name`         | Name property                               | `string`  | `''`        |
 | `placeholder` | `placeholder`  | Placeholder text                            | `string`  | `''`        |
 | `size`        | `size`         | Size of the input                           | `string`  | `''`        |
