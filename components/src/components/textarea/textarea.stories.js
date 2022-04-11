@@ -66,6 +66,7 @@ export default {
     labelPosition: 'no-label',
     helper: '',
     textcounter: 0,
+    rows: 5,
   },
 };
 
@@ -77,11 +78,13 @@ const textfieldTemplate = ({
   state,
   helper,
   textcounter,
+  rows,
 }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   return `
   <div class="sdds-storybook-wrapper">
         <sdds-textarea
+          rows="${rows}"
           state="${state}"
           label="${label}"
           helper="${helper}"

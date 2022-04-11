@@ -12,6 +12,7 @@
 | `labelInside` | `label-inside` | Label that will be put inside the input     | `string`  | `''`        |
 | `maxlength`   | `maxlength`    | Max length of input                         | `number`  | `undefined` |
 | `name`        | `name`         | Name property                               | `string`  | `''`        |
+| `nominwidth`  | `nominwidth`   | With setting                                | `boolean` | `false`     |
 | `placeholder` | `placeholder`  | Placeholder text                            | `string`  | `''`        |
 | `size`        | `size`         | Size of the input                           | `string`  | `''`        |
 | `state`       | `state`        | Error state of input                        | `string`  | `undefined` |

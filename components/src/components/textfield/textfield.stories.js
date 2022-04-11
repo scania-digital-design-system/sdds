@@ -29,6 +29,14 @@ export default {
         options: ['Default', 'Medium'],
       },
     },
+    minWidth: {
+      name: 'Min width',
+      description: 'Toggle min width',
+      control: {
+        type: 'radio',
+        options: ['Default', 'No min width'],
+      },
+    },
     disabled: {
       description: 'Set textfield to disabled state',
       name: 'Disabled',
@@ -77,6 +85,7 @@ export default {
     placeholderText: 'Placeholder',
     type: 'text',
     size: 'Default',
+    minWidth: 'Default',
     disabled: false,
     state: 'default',
     label: '',
@@ -89,6 +98,7 @@ const textfieldTemplate = ({
   type,
   placeholderText,
   size,
+  minWidth,
   disabled,
   label,
   labelplacement,
@@ -110,6 +120,14 @@ const textfieldTemplate = ({
     default:
       break;
   }
+  let minWidthValue = false;
+  switch (minWidth) {
+    case 'No min width':
+      minWidthValue = true;
+      break;
+    default:
+      break;
+  }
 
   return `
   <div style="width: 208px">
@@ -120,6 +138,7 @@ const textfieldTemplate = ({
       maxlength="${textcounter}"
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
+      ${minWidthValue ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
         ${prefix}
         ${
