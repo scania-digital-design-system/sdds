@@ -89,7 +89,6 @@ export class Textfield {
   }
 
   render() {
-    console.log(this.nominwidth);
     return (
       <div
         class={`
