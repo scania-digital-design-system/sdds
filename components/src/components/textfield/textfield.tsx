@@ -35,6 +35,9 @@ export class Textfield {
   /** Size of the input */
   @Prop() size = '';
 
+  /** With setting */
+  @Prop() nominwidth: boolean = false;
+
   /** Name property */
   @Prop() name = '';
 
@@ -89,6 +92,7 @@ export class Textfield {
     return (
       <div
         class={`
+        ${this.nominwidth ? 'sdds-form-textfield-nomin' : ''}
         ${
           this.focusInput
             ? 'sdds-form-textfield sdds-textfield-focus'
