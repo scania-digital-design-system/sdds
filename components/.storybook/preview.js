@@ -1,7 +1,7 @@
 import { addTheme } from '../dist/collection/index';
-import { theme } from '../node_modules/@scania/theme-light';
+import { theme } from '@scania/theme-light';
 
-import { defineCustomElements } from '../dist/esm/loader';
+import { defineCustomElements } from '../dist/collection/index';
 defineCustomElements();
 
 const customViewports = {
@@ -92,6 +92,12 @@ export const parameters = {
   },
   layout: 'padded', // Adds extra padding around the component
   chromatic: { disableSnapshot: true }, // disables snapshotting on a global level
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: ['Foundation', 'Utilities', 'Component', 'Patterns', 'Pre-alpha'],
+    },
+  },
 };
 
 addTheme(theme);
