@@ -17,7 +17,7 @@ export class TableComponent {
 
   /* Sets the class for the table */
   @Prop() tblClass: string;
-  
+
   /* Events to set edit and delete callbacks */
   @Prop() hasEdit: boolean;
   @Event() optEdit: EventEmitter;
@@ -64,7 +64,7 @@ export class TableComponent {
     store.use({set: (function(value){
       if(value === 'theme') this.theme = store.state.theme.current;
     }).bind(this)});
-    
+
     this.setTheme(this.theme);
 
     if (!(this.el && this.el.nodeName)) return;
@@ -78,7 +78,7 @@ export class TableComponent {
 
   componentDidLoad() {
     this.style = this.el.shadowRoot['adoptedStyleSheets'] || [];
-    
+
     themeStyle(this.currentTheme, this.tagName, this.style, this.el)
   }
 
@@ -94,15 +94,15 @@ export class TableComponent {
 
     /* needs clone the array this way to no mutate the content Prop */
     this.data = this.content.map((item) => Object.assign({}, this.flattenObject(item)));
-    
+
     keys = keys.filter(function(val) {
       return props.indexOf(val) == -1;
     });
 
-    for (const key of keys) { 
+    for (const key of keys) {
       this.data.forEach(function(v){ delete v[key] });
     }
-    
+
     let i = 0;
 
     this.data.map(function(o){ o.rowIndex = i++; return o; });
@@ -113,7 +113,7 @@ export class TableComponent {
 
   /* Sort filteredData */
   private sortData(key: string, direction: string) {
-    
+
     /* Needs to reset the Prop to make the changes */
     this.filteredData = [...this.filteredData];
 
@@ -132,7 +132,7 @@ export class TableComponent {
     else {
       this.filteredData.sort((a, b) => (a[key] < b[key]) ? 1 : -1);
     }
-    
+
     this.removeSortActive();
 
       input.classList.add("sort-active");
@@ -142,16 +142,16 @@ export class TableComponent {
   private searchColumn() {
     /* Needs to reset the Prop to make the changes */
     this.filteredData = [...this.data];
-        
+
     const keys = this.header.map(cl => cl.key);
     let items = this.filteredData;
-    
+
 
     for (const key of keys) {
       const inputId = "search" + key;
 
       let inputValue = ((this.el.shadowRoot || this.el).querySelector('#' + inputId) as HTMLInputElement).value;
-      
+
       if(inputValue)
       {
         var iconFilter = (this.el.shadowRoot || this.el).querySelector("#iconFilter" + key);
@@ -164,12 +164,12 @@ export class TableComponent {
 
         /* Filter the values */
         const columnFiltered = column.filter((cl) => this.matchValue(cl, inputValue))
-        
+
         /* Values that should return */
-        const arrayFiltered = items.filter(el => columnFiltered.includes(el[key]))
-        
+           const arrayFiltered = items.filter(el => columnFiltered.includes(el[key]))
+
         items = []
-        
+
         for (const item of arrayFiltered) {
           items.push(item);
         }
@@ -243,7 +243,7 @@ export class TableComponent {
       }
     </tr>
   }
-  
+
   /* Sets the boby of the table */
   private setbody(): any {
     const keys = this.header.map(a => a.key);
@@ -262,14 +262,14 @@ export class TableComponent {
     if(this.hasEdit || this.hasDelete)
       return <td class="text-right">
         <c-dropdown buttonType="primary" menuAlignment="dropdown-menu-right">
-          <span slot="dropdown-title">Action</span>          
+          <span slot="dropdown-title">Action</span>
           { this.hasEdit && <a slot="dropdown-item" class="dropdown-item" onClick={ () => this.callbackDropdown("edit", rowIndex) }>Edit</a> }
           { this.descrCustomLink && <a class="dropdown-item" onClick={ () => this.callbackDropdown("customLink", rowIndex) }>{ this.descrCustomLink }</a> }
           { this.hasDelete && <a slot="dropdown-item" class="dropdown-item text-danger" onClick={ () => this.callbackDropdown("delete", rowIndex) }>Delete</a> }
         </c-dropdown>
       </td>
   }
-  
+
   /* Makes the callback for the developer */
   private callbackDropdown(event: string, rowIndex: number)
   {
@@ -320,7 +320,7 @@ export class TableComponent {
     return toReturn;
   }
 
-  
+
   //
 
   render() {

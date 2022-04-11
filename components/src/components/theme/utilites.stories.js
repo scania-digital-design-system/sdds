@@ -1,5 +1,5 @@
 export default {
-  title: 'utilities/Colours',
+  title: 'Utilities/Colours',
   parameters: {
     layout: 'fullscreen',
   },

@@ -184,6 +184,21 @@
 </div>
 
 <div class="component-wrapper">
+  <h5 class="sdds-headline-05">Data table with sorting</h5>
+  <sdds-table id="test-table"
+              table-title="Sortable table"
+              vertical-dividers
+              compact-design
+              body-data='[{"eyeColor":"brown","name":"Mcfarland Decker","gender":"male","company":1},{"eyeColor":"brown","name":"Alta Lee","gender":"female","company":0},{"eyeColor":"green","name":"Jones Hanson","gender":"male","company":-99},{"eyeColor":"blue","name":"Monique Trujillo","gender":"female","company":1000},{"eyeColor":"green","name":"Francesca Walters","gender":"female","company":13},{"eyeColor":"brown","name":"Jewel Snyder","gender":"female","company":85}]'
+  >
+    <sdds-header-cell column-key="eyeColor" column-title="Eye color" sortable></sdds-header-cell>
+    <sdds-header-cell column-key="name" column-title="Name" sortable></sdds-header-cell>
+    <sdds-header-cell column-key="gender" column-title="Gender" sortable></sdds-header-cell>
+    <sdds-header-cell column-key="company" column-title="Score" sortable text-align="right"></sdds-header-cell>
+  </sdds-table>
+</div>
+
+<div class="component-wrapper">
   <h5 class="sdds-headline-05">Link</h5>
   This is an example of <a href="#">a link</a> inside a paragraph. This is an
   example of <a class="disabled" href="#">a link</a> inside a paragraph.
@@ -338,3 +353,5 @@
     <i class="sdds-icon scania-truck"></i>
   </div>
 </div>
+
+
