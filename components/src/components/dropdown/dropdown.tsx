@@ -8,6 +8,7 @@ import {
   Host,
   Event,
   EventEmitter,
+  Watch,
 } from '@stencil/core';
 
 @Component({
@@ -23,6 +24,9 @@ export class Dropdown {
 
   /** Add the value of the option as string to set it as default */
   @Prop() defaultOption: string;
+
+  /** Add the value of the option as string to set it as new selected value **/
+  @Prop() selectedOption: string;
 
   /** Add the value of the option to set it as default */
   @Prop() disabled: boolean;
@@ -88,6 +92,20 @@ export class Dropdown {
   componentDidLoad() {
     // generate UUID for unique event listener
     this.uuid = new Date().getTime() + Math.random();
+  }
+
+  @Watch('selectedOption')
+  changeSelectedOption() {
+    if (this.selectedOption) {
+      for (let i = 0; i < this.host.children.length; i++) {
+        const el = this.host.children[i];
+        if (el['value'] === this.selectedOption) {
+          this.selectedLabel = el.textContent;
+          this.selectedValue = el['value'];
+          el.setAttribute('selectedLabel', 'true');
+        }
+      }
+    }
   }
 
   @Listen('click', { target: 'document' })
