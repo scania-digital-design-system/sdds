@@ -77,16 +77,7 @@ export class Dropdown {
   componentWillLoad() {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
-    if (this.defaultOption) {
-      for (let i = 0; i < this.host.children.length; i++) {
-        const el = this.host.children[i];
-        if (el['value'] === this.defaultOption) {
-          this.selectedLabel = el.textContent;
-          this.selectedValue = el['value'];
-          el.setAttribute('selectedLabel', 'true');
-        }
-      }
-    }
+    this.setOptionFromOutside(this.defaultOption);
   }
 
   componentDidLoad() {
@@ -94,18 +85,26 @@ export class Dropdown {
     this.uuid = new Date().getTime() + Math.random();
   }
 
-  @Watch('selectedOption')
-  changeSelectedOption() {
-    if (this.selectedOption) {
+  setOptionFromOutside(optionValue) {
+    if (optionValue) {
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
-        if (el['value'] === this.selectedOption) {
+        if (el['value'] === optionValue) {
           this.selectedLabel = el.textContent;
           this.selectedValue = el['value'];
           el.setAttribute('selectedLabel', 'true');
+          el.setAttribute('selected', 'true');
+        } else {
+          el.setAttribute('selectedLabel', 'false');
+          el.setAttribute('selected', 'false');
         }
       }
     }
+  }
+
+  @Watch('selectedOption')
+  changeSelectedOption() {
+    this.setOptionFromOutside(this.selectedOption);
   }
 
   @Listen('click', { target: 'document' })
