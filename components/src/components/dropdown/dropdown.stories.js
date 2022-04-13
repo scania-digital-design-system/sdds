@@ -109,7 +109,6 @@ const Template = ({
   defaultOption,
   width,
   extraDropdownOptions,
-  selectedOption,
 }) => `
     <div style="width:${width}px">
         <sdds-dropdown   
@@ -122,7 +121,7 @@ const Template = ({
           helper="${helper}"
           state="${state}"
           type="${type}"
-          default-option="${defaultOption}"         
+          default-option="${defaultOption}">     
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
