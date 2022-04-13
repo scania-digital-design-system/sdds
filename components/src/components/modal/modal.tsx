@@ -83,7 +83,6 @@ export class Modal {
   render() {
     return (
       <Host class={`sdds-modal-backdrop ${this.show ? 'show' : 'hide'}`}>
-        fdsafdsafdsafdsafdsa
         <div
           class={`sdds-modal ${this.size ? `sdds-modal-${this.size}` : ''} `}
         >
