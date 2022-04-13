@@ -25,7 +25,7 @@ export class Dropdown {
   /** Add the value of the option as string to set it as default */
   @Prop() defaultOption: string;
 
-  /** Add the value of the option as string to set it as new selected value **/
+  /** Add the value of the option as string to set it as new selected value */
   @Prop() selectedOption: string;
 
   /** Add the value of the option to set it as default */
