@@ -58,10 +58,11 @@ export class Modal {
 
   @Watch('show')
   showToggled() {
+    let root = document.querySelector('html');
     if (this.show === true) {
-      document.body.classList.add('sdds-modal-overflow');
+      root.classList.add('sdds-modal-overflow');
     } else {
-      document.body.classList.remove('sdds-modal-overflow');
+      root.classList.remove('sdds-modal-overflow');
     }
   }
 
@@ -82,6 +83,7 @@ export class Modal {
   render() {
     return (
       <Host class={`sdds-modal-backdrop ${this.show ? 'show' : 'hide'}`}>
+        fdsafdsafdsafdsafdsa
         <div
           class={`sdds-modal ${this.size ? `sdds-modal-${this.size}` : ''} `}
         >
