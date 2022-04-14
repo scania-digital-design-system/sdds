@@ -11,7 +11,7 @@ export class DropdownFilter {
 
   @State() searchTerm = '';
 
-  @State() selectedOption: any;
+  @State() selectedOptionState: any;
 
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string = '';
@@ -21,6 +21,9 @@ export class DropdownFilter {
 
   /** Add the value of the option to set it as default */
   @Prop() defaultOption: string;
+
+  /** Add the value of the option as string to set it as new selected value */
+  @Prop() selectedOption: string;
 
   /** Add the value of the option to set it as default */
   @Prop() disabled: boolean;
@@ -53,7 +56,7 @@ export class DropdownFilter {
     this.parseData(this.data);
 
     if (this.defaultOption) {
-      this.selectedOption = this.defaultOption;
+      this.selectedOptionState = this.defaultOption;
     }
   }
 
@@ -71,7 +74,7 @@ export class DropdownFilter {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
-    this.selectedOption = event.detail.value;
+    this.selectedOptionState = event.detail.value;
     this.selectedLabel = event.detail.label;
     this.selectedValue = event.detail.value;
 
@@ -91,7 +94,7 @@ export class DropdownFilter {
         if (searchResultList) {
           return searchResultList;
         }
-        this.selectedOption = null;
+        this.selectedOptionState = null;
         this.selectedLabel = 'no-result';
         this.selectedValue = 'no-result';
       }
@@ -103,7 +106,7 @@ export class DropdownFilter {
       <sdds-dropdown-option
         tabindex="0"
         value={obj.value}
-        class={`${this.selectedOption === obj.value ? 'selected' : ''}`}
+        class={`${this.selectedOptionState === obj.value ? 'selected' : ''}`}
       >
         {obj.label}
       </sdds-dropdown-option>
@@ -137,6 +140,7 @@ export class DropdownFilter {
           state={this.state}
           placeholder={this.placeholder}
           defaultOption={this.defaultOption}
+          selectedOption={this.selectedOption}
           type="filter"
         >
           {this.setOptionsContent()}
