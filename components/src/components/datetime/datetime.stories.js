@@ -6,13 +6,6 @@ export default {
     notes: readme,
   },
   argTypes: {
-    placeholderText: {
-      name: 'Placeholder',
-      description: 'Placeholder text',
-      control: {
-        type: 'text',
-      },
-    },
     type: {
       name: 'Type',
       description: 'Which type of textfield',
@@ -27,6 +20,14 @@ export default {
       control: {
         type: 'radio',
         options: ['Default', 'Medium'],
+      },
+    },
+    minWidth: {
+      name: 'Min width',
+      description: 'Toggle min width',
+      control: {
+        type: 'radio',
+        options: ['Default', 'No min width'],
       },
     },
     disabled: {
@@ -57,13 +58,6 @@ export default {
         type: 'text',
       },
     },
-    textcounter: {
-      name: 'Text counter',
-      description: 'Set a maximum value how long the text can be',
-      control: {
-        type: 'number',
-      },
-    },
     state: {
       name: 'State',
       description: 'Switch between success or error state',
@@ -74,9 +68,9 @@ export default {
     },
   },
   args: {
-    placeholderText: 'Placeholder',
     type: 'datetime-local',
     size: 'Default',
+    minWidth: 'Default',
     disabled: false,
     state: 'default',
     label: '',
@@ -87,15 +81,13 @@ export default {
 
 const datetimeTemplate = ({
   type,
-  placeholderText,
   size,
+  minWidth,
   disabled,
   label,
   labelplacement,
   state,
   helper,
-  prefix,
-  suffix,
   icon,
   textcounter,
 }) => {
@@ -110,6 +102,14 @@ const datetimeTemplate = ({
     default:
       break;
   }
+  let minWidthValue = false;
+  switch (minWidth) {
+    case 'No min width':
+      minWidthValue = true;
+      break;
+    default:
+      break;
+  }
 
   return `
   <div style="width: 208px">
@@ -120,15 +120,13 @@ const datetimeTemplate = ({
       maxlength="${textcounter}"
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
-      placeholder="${placeholderText}" >
-        ${prefix}
+      ${minWidthValue ? 'noMinWidth' : ''}
         ${
           label && !labelplacement
             ? `<label slot='sdds-label'>${label}</label>`
             : ''
         }
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix}
         ${icon}
     </sdds-datetime>
   </div>
@@ -165,42 +163,6 @@ state.args = {
   state: 'error',
   helper: 'Helper text',
   label: 'Label text',
-};
-
-export const prefix = datetimeTemplate.bind({});
-
-prefix.argTypes = {
-  prefix: {
-    name: 'Prefix',
-    description: 'Add prefix symbol/text before the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-prefix.args = {
-  helper: '',
-  label: 'Label text',
-  prefix: '<span slot="sdds-prefix">$</span>',
-};
-
-export const suffix = datetimeTemplate.bind({});
-
-suffix.argTypes = {
-  suffix: {
-    name: 'Suffix',
-    description: 'Add suffix symbol/text after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-suffix.args = {
-  helper: '',
-  label: 'Label text',
-  suffix: '<span slot="sdds-suffix">$</span>',
 };
 
 export const icon = datetimeTemplate.bind({});
