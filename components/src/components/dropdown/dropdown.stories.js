@@ -111,7 +111,8 @@ const Template = ({
   extraDropdownOptions,
 }) => `
     <div style="width:${width}px">
-        <sdds-dropdown           
+        <sdds-dropdown   
+          id="sdds-dropdown-reg"        
           size="${size}"
           placeholder="${placeholder}"
           disabled="${disabled}"
@@ -120,7 +121,7 @@ const Template = ({
           helper="${helper}"
           state="${state}"
           type="${type}"
-          default-option="${defaultOption}">
+          default-option="${defaultOption}">     
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
@@ -171,11 +172,12 @@ const FilterTemplate = ({
 }) => `
     <div style="width:${width}px">
         <sdds-dropdown-filter
+         id="sdds-dropdown-filter" 
         size="${size}"
         placeholder="${placeholder}"
         disabled="${disabled}"
         helper="${helper}"
-        default-option="${defaultOption}"
+        default-option="${defaultOption}"       
         data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
         ></sdds-dropdown-filter>
       </div>
