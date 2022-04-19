@@ -13,7 +13,7 @@ import { Component, Prop, h, State, Listen, Watch } from '@stencil/core';
 export class Table {
   @Prop({ reflect: true }) tableTitle: string;
 
-  @Prop({ reflect: true }) verticalDividers: boolean = true;
+  @Prop({ reflect: true }) verticalDividers: boolean = false;
 
   @Prop({ reflect: true }) compactDesign: boolean = false;
 
