@@ -20,9 +20,6 @@ export class Datetime {
   /** Which input type, text, password or similar */
   @Prop({ reflect: true }) type: string = 'text';
 
-  /** Label that will be put inside the input */
-  @Prop() labelInside: string = '';
-
   /** Placeholder text */
   @Prop() placeholder: string = '';
 
@@ -99,11 +96,6 @@ export class Datetime {
             : ' sdds-form-datetime'
         }
         ${this.value.length > 0 ? 'sdds-datetime-data' : ''}
-        ${
-          this.labelInside.length > 0
-            ? 'sdds-datetime-container-label-inside'
-            : ''
-        }
         ${this.disabled ? 'sdds-form-datetime-disabled' : ''}
         ${this.size == 'md' ? 'sdds-form-datetime-md' : ''}
         ${
@@ -171,12 +163,6 @@ export class Datetime {
                 />
               </svg>
             </div>
-
-            {this.labelInside.length > 0 && (
-              <label class="sdds-datetime-label-inside">
-                {this.labelInside}
-              </label>
-            )}
           </div>
           <div class="sdds-datetime-bar"></div>
         </div>

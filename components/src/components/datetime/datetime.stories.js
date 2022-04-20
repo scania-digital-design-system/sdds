@@ -44,13 +44,7 @@ export default {
         type: 'text',
       },
     },
-    labelplacement: {
-      description: 'Label can be placed inside the textfield',
-      name: 'Label inside',
-      control: {
-        type: 'boolean',
-      },
-    },
+
     helper: {
       name: 'Helper text',
       description: 'Add helper text for the textfield',
@@ -74,7 +68,6 @@ export default {
     disabled: false,
     state: 'default',
     label: '',
-    labelplacement: false,
     helper: '',
   },
 };
@@ -85,7 +78,6 @@ const datetimeTemplate = ({
   minWidth,
   disabled,
   label,
-  labelplacement,
   state,
   helper,
   icon,
@@ -118,16 +110,11 @@ const datetimeTemplate = ({
       size="${sizeValue}"
       state="${state}"
       maxlength="${textcounter}"
-      ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       ${minWidthValue ? 'noMinWidth' : ''}
-        ${
-          label && !labelplacement
-            ? `<label slot='sdds-label'>${label}</label>`
-            : ''
-        }
-        ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${icon}
+      ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
+      ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+      ${icon}
     </sdds-datetime>
   </div>
   `;
@@ -163,22 +150,4 @@ state.args = {
   state: 'error',
   helper: 'Helper text',
   label: 'Label text',
-};
-
-export const icon = datetimeTemplate.bind({});
-
-icon.argTypes = {
-  icon: {
-    name: 'Icon',
-    description: 'Add icon before or after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-icon.args = {
-  helper: '',
-  label: 'Label text',
-  icon: '<sdds-icon name="scania-cross" slot="sdds-prefix"></sdds-icon>',
 };

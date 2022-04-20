@@ -275,9 +275,12 @@ slot[name="sdds-label"]::slotted(*) {
     border-bottom-color: transparent;
   }
 
-  slot[name="sdds-prefix"]::slotted(*),
-  slot[name="sdds-suffix"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-ps-color);
+  .datetime-icon {
+    svg {
+      path {
+        fill: var(--sdds-textfield-disabled-color);
+      }
+    }
   }
 
   slot[name="sdds-label"]::slotted(*) {
