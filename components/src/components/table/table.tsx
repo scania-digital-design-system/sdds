@@ -137,6 +137,14 @@ export class Table {
     }
   };
 
+  headCheckBoxClicked = (event) => {
+    if (event.currentTarget.checked) {
+      console.log('checked');
+    } else {
+      console.log('not checked');
+    }
+  };
+
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
       <tr class="sdds-table__row">
@@ -178,7 +186,11 @@ export class Table {
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
                 <label class="sdds-form-label sdds-form-label--data-table">
-                  <input class="sdds-form-input" type="checkbox" />
+                  <input
+                    class="sdds-form-input"
+                    type="checkbox"
+                    onChange={(e) => this.headCheckBoxClicked(e)}
+                  />
                 </label>
               </div>
             </th>
