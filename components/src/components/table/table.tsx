@@ -72,6 +72,10 @@ export class Table {
 
   @State() bodyDataManipulated = [];
 
+  componentWillLoad() {
+    this.arrayDataWatcher(this.bodyData);
+  }
+
   @Watch('bodyData')
   arrayDataWatcher(newValue: string) {
     if (typeof newValue === 'string') {
@@ -82,8 +86,12 @@ export class Table {
     this.bodyDataManipulated = [...this.innerBodyData];
   }
 
-  componentWillLoad() {
-    this.arrayDataWatcher(this.bodyData);
+  // Listen to sortColumnData from table-header-element
+  @Listen('sortColumnData')
+  updateOptionsContent(event: CustomEvent<any>) {
+    // Nice usage of array deconstruct
+    const [keyValue, sortingDirection] = event.detail;
+    this.sortData(keyValue, sortingDirection);
   }
 
   // Would  be good to make a check to make sure if header is present,
@@ -119,14 +127,6 @@ export class Table {
     this.bodyDataManipulated.sort(
       this.compareValues(keyValue, sortingDirection)
     );
-  }
-
-  // Listen to sortColumnData from table-header-element
-  @Listen('sortColumnData')
-  updateOptionsContent(event: CustomEvent<any>) {
-    // Nice usage of array deconstruct
-    const [keyValue, sortingDirection] = event.detail;
-    this.sortData(keyValue, sortingDirection);
   }
 
   bodyCheckBoxClicked = (event) => {
