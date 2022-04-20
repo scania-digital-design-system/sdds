@@ -69,7 +69,7 @@
     .sdds-table__header-cell--checkbox {
       min-width: unset;
       width: 48px;
-      padding: var(--sdds-spacing-element-16);
+      padding: 0;
     }
   }
 
@@ -110,6 +110,7 @@
   .sdds-table__body-cell--checkbox {
     min-width: unset;
     width: 48px;
+    padding: 0;
   }
 
   // SDDS GLOBAL STYLES:
@@ -403,4 +404,14 @@
     transform: scale(1);
     opacity: 0;
   }
+}
+
+// TODO: Place this code in correct position
+.sdds-form-label--data-table {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

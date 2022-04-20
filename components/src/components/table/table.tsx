@@ -129,13 +129,27 @@ export class Table {
     this.sortData(keyValue, sortingDirection);
   }
 
+  bodyCheckBoxClicked = (event) => {
+    if (event.currentTarget.checked) {
+      console.log('checked');
+    } else {
+      console.log('not checked');
+    }
+  };
+
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
       <tr class="sdds-table__row">
         {this.multiSelect && (
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">
-              <input class="sdds-form-input" type="checkbox" />
+              <label class="sdds-form-label sdds-form-label--data-table">
+                <input
+                  class="sdds-form-input"
+                  type="checkbox"
+                  onChange={(e) => this.bodyCheckBoxClicked(e)}
+                />
+              </label>
             </div>
           </td>
         )}
@@ -163,7 +177,9 @@ export class Table {
           {this.multiSelect && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
-                <input class="sdds-form-input" type="checkbox" />
+                <label class="sdds-form-label sdds-form-label--data-table">
+                  <input class="sdds-form-input" type="checkbox" />
+                </label>
               </div>
             </th>
           )}
