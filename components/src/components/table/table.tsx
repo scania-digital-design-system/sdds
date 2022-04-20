@@ -21,6 +21,8 @@ export class Table {
 
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
+  @Prop({ reflect: true }) multiSelect: boolean = false;
+
   @Prop() bodyData: any = `[
       {
           "truck": "L-series",
@@ -130,6 +132,13 @@ export class Table {
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
       <tr class="sdds-table__row">
+        {this.multiSelect && (
+          <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
+            <div class="sdds-checkbox-item">
+              <input class="sdds-form-input" type="checkbox" />
+            </div>
+          </td>
+        )}
         {Object.keys(row).map((cellData) => (
           <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
         ))}
@@ -151,6 +160,13 @@ export class Table {
           <caption class="sdds-table__title">{this.tableTitle}</caption>
         )}
         <thead class="sdds-table__header">
+          {this.multiSelect && (
+            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
+              <div class="sdds-checkbox-item">
+                <input class="sdds-form-input" type="checkbox" />
+              </div>
+            </th>
+          )}
           <slot />
         </thead>
         <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
