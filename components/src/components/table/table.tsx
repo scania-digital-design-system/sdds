@@ -129,7 +129,7 @@ export class Table {
     );
   }
 
-  bodyCheckBoxClicked = (event) => {
+  headCheckBoxClicked = (event) => {
     if (event.currentTarget.checked) {
       console.log('checked');
     } else {
@@ -137,9 +137,18 @@ export class Table {
     }
   };
 
-  headCheckBoxClicked = (event) => {
+  bodyCheckBoxClicked = (event) => {
     if (event.currentTarget.checked) {
       console.log('checked');
+      const cell = event.currentTarget
+        .closest('tr')
+        .getElementsByTagName('sdds-body-cell');
+      console.log(cell);
+
+      for (let i = 0; i < cell.length; i++) {
+        console.log(cell[i].getAttribute('cell-key'));
+        console.log(cell[i].getAttribute('cell-value'));
+      }
     } else {
       console.log('not checked');
     }
