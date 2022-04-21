@@ -1,7 +1,15 @@
 // https://stackoverflow.com/questions/63051941/how-to-pass-data-as-array-of-object-in-stencil-js
 // https://medium.com/@scottmgerstl/passing-an-object-or-array-to-stencil-dd62b7d92641
 
-import { Component, Prop, h, State, Listen, Watch } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  State,
+  Listen,
+  Watch,
+  Element,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table',
@@ -72,6 +80,12 @@ export class Table {
 
   @State() bodyDataManipulated = [];
 
+  @State() bodyRowSelected = false;
+
+  @State() multiselectArray = [];
+
+  @Element() host: HTMLElement;
+
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
   }
@@ -138,20 +152,33 @@ export class Table {
   };
 
   bodyCheckBoxClicked = (event) => {
-    if (event.currentTarget.checked) {
-      console.log('checked');
-      const cell = event.currentTarget
-        .closest('tr')
-        .getElementsByTagName('sdds-body-cell');
-      console.log(cell);
+    const row = event.currentTarget.closest('tr');
+    // TODO: Check with others if there is a smarter way to do one below
+    // "Climb-up" to the body wrapper so get overview of all rows and find ones that are selected
+    const selectedRows =
+      event.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName(
+        'sdds-table__row--selected'
+      );
 
-      for (let i = 0; i < cell.length; i++) {
-        console.log(cell[i].getAttribute('cell-key'));
-        console.log(cell[i].getAttribute('cell-value'));
-      }
+    if (event.currentTarget.checked === true) {
+      row.classList.add('sdds-table__row--selected');
     } else {
-      console.log('not checked');
+      row.classList.remove('sdds-table__row--selected');
     }
+
+    // Bottom one goes through all selected rows, enters every cell to pick up key and value in order to form new JSON
+    this.multiselectArray = [];
+    for (let j = 0; j < selectedRows.length; j++) {
+      const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
+      const selectedObject = {};
+      for (let i = 0; i < rowCells.length; i++) {
+        const currentCellKey = rowCells[i].getAttribute('cell-key');
+        const currentCellValue = rowCells[i].getAttribute('cell-value');
+        selectedObject[currentCellKey] = currentCellValue;
+      }
+      this.multiselectArray.push(selectedObject);
+    }
+    console.log(JSON.stringify(this.multiselectArray));
   };
 
   setBodyItem = () =>
@@ -191,20 +218,22 @@ export class Table {
           <caption class="sdds-table__title">{this.tableTitle}</caption>
         )}
         <thead class="sdds-table__header">
-          {this.multiSelect && (
-            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
-              <div class="sdds-checkbox-item">
-                <label class="sdds-form-label sdds-form-label--data-table">
-                  <input
-                    class="sdds-form-input"
-                    type="checkbox"
-                    onChange={(e) => this.headCheckBoxClicked(e)}
-                  />
-                </label>
-              </div>
-            </th>
-          )}
-          <slot />
+          <tr class="sdds-table__header-row">
+            {this.multiSelect && (
+              <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
+                <div class="sdds-checkbox-item">
+                  <label class="sdds-form-label sdds-form-label--data-table">
+                    <input
+                      class="sdds-form-input"
+                      type="checkbox"
+                      onChange={(e) => this.headCheckBoxClicked(e)}
+                    />
+                  </label>
+                </div>
+              </th>
+            )}
+            <slot />
+          </tr>
         </thead>
         <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
       </table>
