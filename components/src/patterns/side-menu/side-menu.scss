@@ -1,6 +1,6 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '@scania/grid/dist/scss/grid.scss';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "@scania/grid/dist/scss/grid.scss";
 
 /* HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
@@ -35,7 +35,7 @@
     background-color: var(--sdds-grey-50);
 
     &::after {
-      content: ' ';
+      content: " ";
       display: block;
       position: absolute;
       top: -1px;
@@ -68,7 +68,7 @@
     flex-basis: auto;
     min-width: auto;
     flex-shrink: 0;
-    width: 256px;
+    width: 288px;
     position: relative;
     border-right: 1px solid var(--sdds-grey-300);
 
@@ -91,7 +91,7 @@
       }
 
       &::after {
-        content: ' ';
+        content: " ";
         position: absolute;
         background: var(--sdds-black);
         opacity: 0;
@@ -204,10 +204,10 @@
       border-bottom: 1px solid var(--sdds-grey-300);
 
       &-link {
-        @include type-style('headline-07');
+        @include type-style("headline-07");
         @include item-states;
 
-        color: var(--sdds-grey-900);
+        color: var(--sdds-grey-958);
         text-decoration: none;
         padding: 24px 40px 24px 24px;
         display: flex;
@@ -243,7 +243,7 @@
         position: relative;
 
         &::before {
-          content: ' ';
+          content: " ";
           position: absolute;
           left: 0;
           top: 0;
@@ -263,10 +263,10 @@
 
       &__item {
         .sdds-sidebar-nav__item-link {
-          @include type-style('detail-02');
+          @include type-style("detail-02");
           @include item-states;
 
-          color: var(--sdds-grey-600);
+          color: var(--sdds-grey-800);
           text-decoration: none;
           display: block;
           padding: 16px 24px 16px 56px;
@@ -278,16 +278,16 @@
           min-height: auto;
 
           .sdds-sidebar-nav__item-text {
-            @include type-style('detail-02');
+            @include type-style("detail-02");
 
             transition: opacity 0.15s ease-in-out, height 0.15s ease-in-out;
           }
         }
 
         .sdds-sidebar-nav__item-title {
-          @include type-style('detail-02');
+          @include type-style("detail-02");
 
-          color: var(--sdds-grey-900);
+          color: var(--sdds-grey-958);
           text-decoration: none;
           padding: 16px 24px 16px 56px;
           white-space: nowrap;
@@ -302,9 +302,9 @@
 
       .sdds-item--active {
         .sdds-sidebar-nav__item-link {
-          @include type-style('headline-07');
+          @include type-style("headline-07");
 
-          color: var(--sdds-grey-900);
+          color: var(--sdds-grey-958);
         }
       }
     }
@@ -376,7 +376,7 @@
       opacity: 0;
       display: none;
       pointer-events: none;
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 3px 3px rgb(0 0 0 / 15%);
 
       .sdds-sidebar-nav-subnav__item {
         .sdds-sidebar-nav__item-title,
