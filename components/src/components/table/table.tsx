@@ -144,10 +144,19 @@ export class Table {
   }
 
   headCheckBoxClicked = (event) => {
-    if (event.currentTarget.checked) {
-      console.log('checked');
-    } else {
-      console.log('not checked');
+    const bodyCheckboxes = event.currentTarget
+      .closest('.sdds-table')
+      .getElementsByClassName('sdds-table__body')[0].children;
+
+    for (let z = 0; z < bodyCheckboxes.length; z++) {
+      const element =
+        bodyCheckboxes[z].getElementsByClassName('sdds-form-input')[0];
+
+      if (event.currentTarget.checked) {
+        element.checked = true;
+      } else {
+        element.checked = false;
+      }
     }
   };
 
