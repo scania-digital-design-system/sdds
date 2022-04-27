@@ -144,31 +144,55 @@ export class Table {
   }
 
   headCheckBoxClicked = (event) => {
-    const bodyCheckboxes = event.currentTarget
+    const tableBody = event.currentTarget
       .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0].children;
+      .getElementsByClassName('sdds-table__body')[0];
+
+    const bodyCheckboxes = tableBody.children;
 
     for (let z = 0; z < bodyCheckboxes.length; z++) {
       const element =
         bodyCheckboxes[z].getElementsByClassName('sdds-form-input')[0];
+      const row = element.closest('tr');
 
       if (event.currentTarget.checked) {
         element.checked = true;
+        row.classList.add('sdds-table__row--selected');
       } else {
         element.checked = false;
+        row.classList.remove('sdds-table__row--selected');
       }
     }
+
+    const selectedRows = tableBody.getElementsByClassName(
+      'sdds-table__row--selected'
+    );
+    // ToDo: Make one below as a function where user passes an array of selected rows instead of copy paste
+    this.multiselectArray = [];
+    for (let j = 0; j < selectedRows.length; j++) {
+      const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
+      const selectedObject = {};
+      for (let i = 0; i < rowCells.length; i++) {
+        const currentCellKey = rowCells[i].getAttribute('cell-key');
+        const currentCellValue = rowCells[i].getAttribute('cell-value');
+        selectedObject[currentCellKey] = currentCellValue;
+      }
+      this.multiselectArray.push(selectedObject);
+    }
+    console.log(JSON.stringify(this.multiselectArray));
   };
 
   bodyCheckBoxClicked = (event) => {
     const row = event.currentTarget.closest('tr');
     // TODO: Check with others if there is a smarter way to do one below
     // "Climb-up" to the body wrapper so get overview of all rows and find ones that are selected
+    // ToDo: fix this one with closes (sdds-table) instead
     const selectedRows =
       event.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName(
         'sdds-table__row--selected'
       );
 
+    // ToDo: make this one to uncheck main checkbox if not all element are selected and vice versa - select main if all are selected
     if (event.currentTarget.checked === true) {
       row.classList.add('sdds-table__row--selected');
     } else {
