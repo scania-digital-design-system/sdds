@@ -19,7 +19,7 @@ export default {
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
-        options: ['Default', 'Medium'],
+        options: ['Default', 'Medium', 'Small'],
       },
     },
     minWidth: {
@@ -80,11 +80,12 @@ const datetimeTemplate = ({
   label,
   state,
   helper,
-  icon,
-  textcounter,
 }) => {
   let sizeValue;
   switch (size) {
+    case 'Small':
+      sizeValue = 'sm';
+      break;
     case 'Medium':
       sizeValue = 'md';
       break;
@@ -109,12 +110,10 @@ const datetimeTemplate = ({
       type="${type}"
       size="${sizeValue}"
       state="${state}"
-      maxlength="${textcounter}"
       ${disabled ? 'disabled' : ''}
-      ${minWidthValue ? 'noMinWidth' : ''}
+      ${minWidthValue ? 'noMinWidth' : ''} >
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-      ${icon}
     </sdds-datetime>
   </div>
   `;
@@ -131,22 +130,22 @@ Disabled.args = {
   placeholderText: 'Disabled',
 };
 
-export const labels = datetimeTemplate.bind({});
+export const Labels = datetimeTemplate.bind({});
 
-labels.args = {
+Labels.args = {
   label: 'Label text',
 };
 
-export const helper = datetimeTemplate.bind({});
+export const Helper = datetimeTemplate.bind({});
 
-helper.args = {
+Helper.args = {
   helper: 'Helper text',
   label: 'Label text',
 };
 
-export const state = datetimeTemplate.bind({});
+export const State = datetimeTemplate.bind({});
 
-state.args = {
+State.args = {
   state: 'error',
   helper: 'Helper text',
   label: 'Label text',

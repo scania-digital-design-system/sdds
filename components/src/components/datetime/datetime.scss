@@ -12,8 +12,6 @@
   color: var(--sdds-textfield-color);
   background-color: var(--sdds-textfield-bg);
 
-  //background-color: red !important;
-
   &::placeholder {
     opacity: 1;
     color: var(--sdds-textfield-placeholder);
@@ -40,22 +38,15 @@
 // icons
 
 .sdds-datetime-input,
-.sdds-datetime-input-md {
+.sdds-datetime-input-md,
+.sdds-datetime-input-sm {
   &[type="datetime-local"] {
-    ~ .icon-datetime-local {
-      //background-color: red;
-    }
-
     ~ .icon-time {
       display: none;
     }
   }
 
   &[type="date"] {
-    ~ .icon-datetime-local {
-      //background-color: green;
-    }
-
     ~ .icon-time {
       display: none;
     }
@@ -64,10 +55,6 @@
   &[type="time"] {
     ~ .icon-datetime-local {
       display: none;
-    }
-
-    ~ .icon-time {
-      //background-color: blue;
     }
   }
 }
@@ -81,6 +68,13 @@
 }
 
 .sdds-datetime-input-md {
+  @include datetime-base;
+  @include type-style("detail-02");
+
+  padding: var(--sdds-spacing-element-16);
+}
+
+.sdds-datetime-input-sm {
   @include datetime-base;
   @include type-style("detail-02");
 
@@ -104,6 +98,10 @@
 
   .sdds-form-datetime-md & {
     height: 48px;
+  }
+
+  .sdds-form-datetime-sm & {
+    height: 40px;
   }
 }
 
@@ -205,8 +203,26 @@ slot[name="sdds-label"]::slotted(*) {
     @include placeholder-label;
   }
 
+  .sdds-datetime-input-sm {
+    padding-top: var(--sdds-spacing-element-20);
+    padding-bottom: 11px;
+
+    ~ .sdds-datetime-label-inside {
+      top: 16px;
+    }
+
+    @include placeholder-label;
+  }
+
   &.sdds-datetime-focus,
   &.sdds-datetime-data {
+    .sdds-datetime-input-sm ~ .sdds-datetime-label-inside {
+      @include type-style("detail-07");
+      @include label-inside-transition;
+
+      top: 8px;
+    }
+
     .sdds-datetime-input-md ~ .sdds-datetime-label-inside {
       @include type-style("detail-07");
       @include label-inside-transition;
@@ -242,6 +258,10 @@ slot[name="sdds-label"]::slotted(*) {
 
     .sdds-form-datetime-md & {
       top: 46px;
+    }
+
+    .sdds-form-datetime-sm & {
+      top: 40px;
     }
   }
 

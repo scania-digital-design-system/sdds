@@ -1,7 +1,7 @@
 import {
   Component,
-  h,
   State,
+  h,
   Prop,
   Listen,
   Event,
@@ -20,9 +20,6 @@ export class Datetime {
   /** Which input type, text, password or similar */
   @Prop({ reflect: true }) type: string = 'text';
 
-  /** Placeholder text */
-  @Prop() placeholder: string = '';
-
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
 
@@ -40,9 +37,6 @@ export class Datetime {
 
   /** Error state of input */
   @Prop() state: string;
-
-  /** Max length of input */
-  @Prop() maxlength: number;
 
   /** Autofocus for input */
   @Prop() autofocus: boolean = false;
@@ -86,6 +80,13 @@ export class Datetime {
   }
 
   render() {
+    let className = 'sdds-datetime-input';
+    if (this.size === 'md') {
+      className += className + '-md';
+    }
+    if (this.size === 'sm') {
+      className += className + '-sm';
+    }
     return (
       <div
         class={`
@@ -98,6 +99,7 @@ export class Datetime {
         ${this.value.length > 0 ? 'sdds-datetime-data' : ''}
         ${this.disabled ? 'sdds-form-datetime-disabled' : ''}
         ${this.size == 'md' ? 'sdds-form-datetime-md' : ''}
+        ${this.size == 'sm' ? 'sdds-form-datetime-sm' : ''}
         ${
           this.state == 'error' || this.state == 'success'
             ? `sdds-form-datetime-${this.state}`
@@ -114,17 +116,11 @@ export class Datetime {
           <div class="sdds-datetime-input-container">
             <input
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
-              class={`${
-                this.size !== 'md'
-                  ? 'sdds-datetime-input'
-                  : 'sdds-datetime-input-md'
-              }`}
+              class={className}
               type={this.type}
               disabled={this.disabled}
-              placeholder={this.placeholder}
               value={this.value}
               autofocus={this.autofocus}
-              maxlength={this.maxlength}
               name={this.name}
               onInput={(e) => this.handleInput(e)}
               onChange={(e) => this.handleChange(e)}
