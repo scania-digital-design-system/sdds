@@ -1,0 +1,40 @@
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
+.sdds-containerbox {
+  background-color: magenta;
+  border-radius: 4px;
+  padding: 16px;
+
+  &__onwhite {
+    background-color: var(--sdds-grey-50);
+
+    .sdds-containerbox {
+      background-color: var(--sdds-white);
+    }
+  }
+
+  &__ongrey {
+    background-color: var(--sdds-white);
+
+    .sdds-containerbox {
+      background-color: var(--sdds-grey-50);
+    }
+  }
+
+  &__ongrey958 {
+    background-color: var(--sdds-grey-900);
+
+    .sdds-containerbox {
+      background-color: var(--sdds-grey-868);
+    }
+  }
+
+  &__ongrey900 {
+    background-color: var(--sdds-grey-868);
+
+    .sdds-containerbox {
+      background-color: var(--sdds-grey-846);
+    }
+  }
+}
