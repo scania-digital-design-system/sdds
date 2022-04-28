@@ -15,6 +15,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     // "prettier/prettier": "warn" // TODO: See if this can be turned on after rest is done,
+    "no-lonely-if": "off",
     "indent": "off", // TODO: Turn on
     "spaced-comment": "warn", // TODO: Turn on
     "camelcase": "warn", // TODO: turn on
