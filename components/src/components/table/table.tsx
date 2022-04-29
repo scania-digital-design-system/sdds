@@ -84,6 +84,8 @@ export class Table {
 
   @State() multiselectArray = [];
 
+  @State() multiselectArrayJSON: string;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
@@ -143,6 +145,22 @@ export class Table {
     );
   }
 
+  selectedDataExporter = (selectedRows) => {
+    this.multiselectArray = [];
+    for (let j = 0; j < selectedRows.length; j++) {
+      const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
+      const selectedObject = {};
+      for (let i = 0; i < rowCells.length; i++) {
+        const currentCellKey = rowCells[i].getAttribute('cell-key');
+        const currentCellValue = rowCells[i].getAttribute('cell-value');
+        selectedObject[currentCellKey] = currentCellValue;
+      }
+      this.multiselectArray.push(selectedObject);
+    }
+    this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
+    console.log(this.multiselectArrayJSON);
+  };
+
   headCheckBoxClicked = (event) => {
     const tableBody = event.currentTarget
       .closest('.sdds-table')
@@ -167,19 +185,7 @@ export class Table {
     const selectedRows = tableBody.getElementsByClassName(
       'sdds-table__row--selected'
     );
-    // ToDo: Make one below as a function where user passes an array of selected rows instead of copy paste
-    this.multiselectArray = [];
-    for (let j = 0; j < selectedRows.length; j++) {
-      const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
-      const selectedObject = {};
-      for (let i = 0; i < rowCells.length; i++) {
-        const currentCellKey = rowCells[i].getAttribute('cell-key');
-        const currentCellValue = rowCells[i].getAttribute('cell-value');
-        selectedObject[currentCellKey] = currentCellValue;
-      }
-      this.multiselectArray.push(selectedObject);
-    }
-    console.log(JSON.stringify(this.multiselectArray));
+    this.selectedDataExporter(selectedRows);
   };
 
   bodyCheckBoxClicked = (event) => {
@@ -200,18 +206,7 @@ export class Table {
     }
 
     // Bottom one goes through all selected rows, enters every cell to pick up key and value in order to form new JSON
-    this.multiselectArray = [];
-    for (let j = 0; j < selectedRows.length; j++) {
-      const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
-      const selectedObject = {};
-      for (let i = 0; i < rowCells.length; i++) {
-        const currentCellKey = rowCells[i].getAttribute('cell-key');
-        const currentCellValue = rowCells[i].getAttribute('cell-value');
-        selectedObject[currentCellKey] = currentCellValue;
-      }
-      this.multiselectArray.push(selectedObject);
-    }
-    console.log(JSON.stringify(this.multiselectArray));
+    this.selectedDataExporter(selectedRows);
   };
 
   setBodyItem = () =>
