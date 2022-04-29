@@ -1,11 +1,11 @@
 export default {
   title: 'Component/Tabs/Inline Tabs (full bleed) Test',
   parameters: {
-    layout: 'fullscreen',
+    //layout: 'fullscreen',
   },
   argTypes: {
     tabs: {
-      name: 'Tabs',
+      name: 'Number of tabs',
       control: {
         type: 'range',
         min: 2,
@@ -22,25 +22,24 @@ export default {
 };
 
 const Template = ({ headline, content, tabs = 3 }) => `
+
+<div class="sdds-containerbox">
+<h2 class="sdds-headline-02">${headline}</h2>
+
 <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example">
+<a href="#">Tab name</a>
+<a class="sdds-inline-tabs-fullbleed--tab__disabled" href="#">Disabled tab</a>
+${tabs >= 3 ? `<a href="#">Tab name</a>` : ''}
+${tabs >= 4 ? `<a href="#">Tab name</a>` : ''}
+${tabs >= 5 ? `<a href="#">Tab name</a>` : ''}
+${tabs >= 6 ? `<a href="#">Tab name</a>` : ''}
+</sdds-inline-tabs-fullbleed>
 
-<div class="sdds-inline-tabs-fullbleed__headline">
-  <h2 class="sdds-headline-02">${headline}</h2>
+<div>
+${content}
 </div>
 
-<div class="sdds-inline-tabs-fullbleed__tabs">
-    <a href="#">Tab name</a>
-    <a class="sdds-inline-tabs-fullbleed--tab__disabled" href="#">Disabled tab</a>
-    ${tabs >= 3 ? `<a href="#">Tab name</a>` : ''}
-    ${tabs >= 4 ? `<a href="#">Tab name</a>` : ''}
-    ${tabs >= 5 ? `<a href="#">Tab name</a>` : ''}
-    ${tabs >= 6 ? `<a href="#">Tab name</a>` : ''}
 </div>
-
-<div class="sdds-inline-tabs-fullbleed__tab-content">
-    ${content}
-</div>
-  </sdds-inline-tabs-fullbleed>
 `;
 
 export const Basic = Template.bind({});

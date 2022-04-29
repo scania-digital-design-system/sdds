@@ -9,14 +9,14 @@ export default {
       defaultValue: false,
     },
     container: {
-      name: 'Use container',
+      name: 'Wrap in sdds-container',
       control: {
         type: 'boolean',
       },
       defaultValue: false,
     },
     columns: {
-      name: 'Width',
+      name: 'Width (in columns)',
       control: {
         type: 'range',
         min: 1,
@@ -26,7 +26,7 @@ export default {
       defaultValue: 12,
     },
     tabs: {
-      name: 'Tabs',
+      name: 'Number of tabs',
       control: {
         type: 'range',
         min: 2,
