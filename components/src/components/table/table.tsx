@@ -9,6 +9,7 @@ import {
   Listen,
   Watch,
   Element,
+  Host,
 } from '@stencil/core';
 
 @Component({
@@ -86,6 +87,8 @@ export class Table {
 
   @State() multiselectArrayJSON: string;
 
+  @State() mainCheckboxSelected: boolean = false;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
@@ -145,7 +148,13 @@ export class Table {
     );
   }
 
-  selectedDataExporter = (selectedRows) => {
+  /* Lines 148 to 201 - multiSelect feature of table */
+  selectedDataExporter = (event) => {
+    const selectedRows = event.currentTarget
+      .closest('.sdds-table')
+      .getElementsByClassName('sdds-table__body')[0]
+      .getElementsByClassName('sdds-table__row--selected');
+
     this.multiselectArray = [];
     for (let j = 0; j < selectedRows.length; j++) {
       const rowCells = selectedRows[j].getElementsByTagName('sdds-body-cell');
@@ -162,51 +171,51 @@ export class Table {
   };
 
   headCheckBoxClicked = (event) => {
-    const tableBody = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0];
+    this.mainCheckboxSelected = !!event.currentTarget.checked;
 
-    const bodyCheckboxes = tableBody.children;
+    const bodyCheckboxes = event.currentTarget
+      .closest('.sdds-table')
+      .getElementsByClassName('sdds-table__body')[0].children;
 
     for (let z = 0; z < bodyCheckboxes.length; z++) {
-      const element =
+      const singleCheckbox =
         bodyCheckboxes[z].getElementsByClassName('sdds-form-input')[0];
-      const row = element.closest('tr');
+      const row = singleCheckbox.closest('tr');
 
       if (event.currentTarget.checked) {
-        element.checked = true;
+        singleCheckbox.checked = true;
         row.classList.add('sdds-table__row--selected');
       } else {
-        element.checked = false;
+        singleCheckbox.checked = false;
         row.classList.remove('sdds-table__row--selected');
       }
     }
-
-    const selectedRows = tableBody.getElementsByClassName(
-      'sdds-table__row--selected'
-    );
-    this.selectedDataExporter(selectedRows);
+    this.selectedDataExporter(event);
   };
 
   bodyCheckBoxClicked = (event) => {
     const row = event.currentTarget.closest('tr');
-    // TODO: Check with others if there is a smarter way to do one below
-    // "Climb-up" to the body wrapper so get overview of all rows and find ones that are selected
-    // ToDo: fix this one with closes (sdds-table) instead
-    const selectedRows =
-      event.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName(
-        'sdds-table__row--selected'
-      );
 
-    // ToDo: make this one to uncheck main checkbox if not all element are selected and vice versa - select main if all are selected
     if (event.currentTarget.checked === true) {
       row.classList.add('sdds-table__row--selected');
     } else {
       row.classList.remove('sdds-table__row--selected');
     }
 
-    // Bottom one goes through all selected rows, enters every cell to pick up key and value in order to form new JSON
-    this.selectedDataExporter(selectedRows);
+    const tableBodyLevel = event.currentTarget
+      .closest('.sdds-table')
+      .getElementsByClassName('sdds-table__body')[0];
+
+    const numberOfRows =
+      tableBodyLevel.getElementsByClassName('sdds-table__row').length;
+
+    const numberOfRowsSelected = tableBodyLevel.getElementsByClassName(
+      'sdds-table__row--selected'
+    ).length;
+
+    this.mainCheckboxSelected = numberOfRows === numberOfRowsSelected;
+
+    this.selectedDataExporter(event);
   };
 
   setBodyItem = () =>
@@ -233,38 +242,41 @@ export class Table {
 
   render() {
     return (
-      <table
-        class={{
-          'sdds-table': true,
-          'sdds-table--compact': this.compactDesign,
-          'sdds-table--divider': this.verticalDividers,
-          'sdds-table--no-min-width': this.noMinWidth,
-          'sdds-table--on-white-bg': this.whiteBackground,
-        }}
-      >
-        {this.tableTitle && (
-          <caption class="sdds-table__title">{this.tableTitle}</caption>
-        )}
-        <thead class="sdds-table__header">
-          <tr class="sdds-table__header-row">
-            {this.multiSelect && (
-              <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
-                <div class="sdds-checkbox-item">
-                  <label class="sdds-form-label sdds-form-label--data-table">
-                    <input
-                      class="sdds-form-input"
-                      type="checkbox"
-                      onChange={(e) => this.headCheckBoxClicked(e)}
-                    />
-                  </label>
-                </div>
-              </th>
-            )}
-            <slot />
-          </tr>
-        </thead>
-        <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
-      </table>
+      <Host selected-rows={this.multiselectArrayJSON}>
+        <table
+          class={{
+            'sdds-table': true,
+            'sdds-table--compact': this.compactDesign,
+            'sdds-table--divider': this.verticalDividers,
+            'sdds-table--no-min-width': this.noMinWidth,
+            'sdds-table--on-white-bg': this.whiteBackground,
+          }}
+        >
+          {this.tableTitle && (
+            <caption class="sdds-table__title">{this.tableTitle}</caption>
+          )}
+          <thead class="sdds-table__header">
+            <tr class="sdds-table__header-row">
+              {this.multiSelect && (
+                <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
+                  <div class="sdds-checkbox-item">
+                    <label class="sdds-form-label sdds-form-label--data-table">
+                      <input
+                        class="sdds-form-input"
+                        type="checkbox"
+                        onChange={(e) => this.headCheckBoxClicked(e)}
+                        checked={this.mainCheckboxSelected}
+                      />
+                    </label>
+                  </div>
+                </th>
+              )}
+              <slot />
+            </tr>
+          </thead>
+          <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
+        </table>
+      </Host>
     );
   }
 }
