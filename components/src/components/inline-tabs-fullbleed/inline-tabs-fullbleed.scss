@@ -1,11 +1,21 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-inline-tabs-fullbleed {
-  border-bottom: 1px solid var(--sdds-grey-300);
   display: flex;
   position: relative;
-  background-color: var(--sdds-grey-50);
+
+  //background-color: var(--sdds-grey-50);
+
+  &::after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid var(--sdds-grey-300);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
 
   &-wrapper {
     display: flex;
@@ -82,7 +92,7 @@
   }
 
   &--tab {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     color: rgb(0 21 51 / 60%);
     padding: 16px 0;
@@ -103,9 +113,9 @@
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
-      bottom: -1px;
+      bottom: 0;
       right: 0;
       left: 0;
       margin-left: auto;
@@ -114,12 +124,32 @@
       height: 2px;
       background-color: var(--sdds-grey-300);
       transition: width 0.15s ease-in-out;
+      z-index: 10;
     }
 
     /* states */
 
     &:hover {
       color: var(--sdds-blue-958);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      color: var(--sdds-blue-958);
+
+      &::before {
+        content: " ";
+        border: 1px solid var(--sdds-blue-400);
+        position: absolute;
+        top: 11px;
+        bottom: 13px;
+        left: -8px;
+        right: -8px;
+      }
 
       &::after {
         width: 100%;

@@ -8,7 +8,7 @@ export default {
 const Template = () => `
   <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example">
     <a href="#">Tab name</a>
-    <a href="#">Tab name</a>
+    <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Tab name</a>
     <a href="#">Tab name</a>
     <a href="#">Tab name</a>
     <a class="sdds-inline-tabs-fullbleed--tab__disabled" href="#">Disabled tab</a>

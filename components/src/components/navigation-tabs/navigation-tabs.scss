@@ -1,5 +1,5 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-navigation-tabs {
   background-color: var(--sdds-white);
@@ -78,7 +78,7 @@
   }
 
   &--tab {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     color: rgb(0 21 51 / 60%);
     padding: 26px 0;
@@ -98,7 +98,7 @@
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
       bottom: -1px;
       right: 0;
@@ -115,6 +115,25 @@
 
     &:hover {
       color: var(--sdds-blue-958);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      color: var(--sdds-blue-958);
+
+      &::before {
+        content: " ";
+        border: 1px solid var(--sdds-blue-400);
+        position: absolute;
+        top: 20px;
+        bottom: 22px;
+        left: -8px;
+        right: -8px;
+      }
 
       &::after {
         width: 100%;
