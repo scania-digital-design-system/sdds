@@ -51,15 +51,3 @@ export const OnGrey = Template.bind({});
 OnGrey.args = {
   type: 'ongrey',
 };
-
-export const OnGrey958 = Template.bind({});
-
-OnGrey958.args = {
-  type: 'ongrey958',
-};
-
-export const OnGrey900 = Template.bind({});
-
-OnGrey900.args = {
-  type: 'ongrey900',
-};
