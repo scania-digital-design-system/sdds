@@ -80,7 +80,7 @@ export class Datetime {
   }
 
   render() {
-    let className = 'sdds-datetime-input';
+    let className = ' sdds-datetime-input';
     if (this.size === 'md') {
       className += className + '-md';
     }
@@ -165,14 +165,6 @@ export class Datetime {
 
         <div class="sdds-datetime-helper">
           <slot name="sdds-helper" />
-
-          {this.maxlength > 0 && (
-            <div class="sdds-datetime-textcounter">
-              {this.value.length}
-              <span class="sdds-datetime-textcounter-divider"> / </span>
-              {this.maxlength}
-            </div>
-          )}
         </div>
       </div>
     );
