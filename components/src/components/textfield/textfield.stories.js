@@ -26,7 +26,7 @@ export default {
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
-        options: ['Default', 'Medium'],
+        options: ['Default', 'Medium', 'Small'],
       },
     },
     minWidth: {
@@ -111,6 +111,9 @@ const textfieldTemplate = ({
 }) => {
   let sizeValue;
   switch (size) {
+    case 'Small':
+      sizeValue = 'sm';
+      break;
     case 'Medium':
       sizeValue = 'md';
       break;
