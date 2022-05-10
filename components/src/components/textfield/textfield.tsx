@@ -89,6 +89,13 @@ export class Textfield {
   }
 
   render() {
+    let className = ' sdds-textfield-input';
+    if (this.size === 'md') {
+      className += className + '-md';
+    }
+    if (this.size === 'sm') {
+      className += className + '-sm';
+    }
     return (
       <div
         class={`
@@ -106,6 +113,7 @@ export class Textfield {
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
+        ${this.size == 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
           this.state == 'error' || this.state == 'success'
             ? `sdds-form-textfield-${this.state}`
@@ -124,11 +132,7 @@ export class Textfield {
           <div class="sdds-textfield-input-container">
             <input
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
-              class={`${
-                this.size !== 'md'
-                  ? 'sdds-textfield-input'
-                  : 'sdds-textfield-input-md'
-              }`}
+              class={className}
               type={this.type}
               disabled={this.disabled}
               placeholder={this.placeholder}
