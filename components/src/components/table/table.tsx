@@ -250,6 +250,7 @@ export class Table {
             'sdds-table--divider': this.verticalDividers,
             'sdds-table--no-min-width': this.noMinWidth,
             'sdds-table--on-white-bg': this.whiteBackground,
+            'sdds-table--multiselect': this.multiSelect,
           }}
         >
           {this.tableTitle && (

@@ -191,6 +191,15 @@
     }
   }
 
+  // Rule to fix tiny gap that shows when multiselect is on but table has no caption area
+  &.sdds-table--multiselect {
+    .sdds-table__header {
+      ::slotted(.sdds-table__header-cell:first-child) {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
   //Web component specific part
 
   ::slotted(sdds-header-cell:first-child) {
