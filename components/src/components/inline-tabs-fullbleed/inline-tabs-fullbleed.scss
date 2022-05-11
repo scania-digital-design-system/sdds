@@ -5,8 +5,6 @@
   display: flex;
   position: relative;
 
-  //background-color: var(--sdds-grey-50);
-
   &::after {
     content: " ";
     display: block;
@@ -152,7 +150,7 @@
       }
 
       &::after {
-        width: 100%;
+        width: 0%;
       }
     }
 
@@ -162,6 +160,12 @@
       &::after {
         width: 100%;
         background-color: var(--sdds-blue-400);
+      }
+
+      &:focus {
+        &::after {
+          width: 100%;
+        }
       }
     }
 

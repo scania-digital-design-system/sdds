@@ -146,7 +146,7 @@
       }
 
       &::after {
-        width: 100%;
+        width: 0%;
       }
     }
 
@@ -156,6 +156,12 @@
       &::after {
         width: 100%;
         background-color: var(--sdds-blue-400);
+      }
+
+      &:focus {
+        &::after {
+          width: 100%;
+        }
       }
     }
 
