@@ -36,34 +36,19 @@
   }
 }
 
-//Sizes
 .#{$prefix}-textfield-input {
   @include textfield-base;
   @include type-style("detail-02");
 
-  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
-}
-
-.#{$prefix}-textfield-input-md {
-  @include textfield-base;
-  @include type-style("detail-02");
-
-  padding: var(--sdds-spacing-element-16);
-}
-
-.#{$prefix}-textfield-input-sm {
-  @include textfield-base;
-  @include type-style("detail-02");
-
-  padding: var(--sdds-spacing-element-16);
+  padding: 0 var(--sdds-spacing-element-16);
 }
 
 //Container for input field and prefix/suffix
 .#{$prefix}-textfield-container {
+  height: 100%;
   border-radius: 1rem 1rem 0 0;
   display: flex;
   position: relative;
-  height: 56px;
   box-sizing: border-box;
   background-color: var(--sdds-textfield-bg);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
@@ -72,19 +57,12 @@
   &:hover {
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
-
-  .#{$prefix}-form-textfield-md & {
-    height: 48px;
-  }
-
-  .#{$prefix}-form-textfield-sm & {
-    height: 40px;
-  }
 }
 
 .#{$prefix}-textfield-input-container {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 //Textfield label
@@ -139,6 +117,7 @@ slot[name="sdds-label"]::slotted(*) {
 .#{$prefix}-form-textfield {
   display: block;
   min-width: 208px;
+  height: 100%;
 
   &-nomin {
     min-width: auto;
@@ -159,42 +138,8 @@ slot[name="sdds-label"]::slotted(*) {
     @include placeholder-label;
   }
 
-  .#{$prefix}-textfield-input-md {
-    padding-top: var(--sdds-spacing-element-20);
-    padding-bottom: 11px;
-
-    ~ .#{$prefix}-textfield-label-inside {
-      top: 16px;
-    }
-
-    @include placeholder-label;
-  }
-
-  .#{$prefix}-textfield-input-sm {
-    padding-top: var(--sdds-spacing-element-20);
-    padding-bottom: 11px;
-
-    ~ .#{$prefix}-textfield-label-inside {
-      top: 16px;
-    }
-
-    @include placeholder-label;
-  }
-
   &.#{$prefix}-textfield-focus,
   &.#{$prefix}-textfield-data {
-    .#{$prefix}-textfield-input-sm ~ .#{$prefix}-textfield-label-inside {
-      @include type-style("detail-07");
-      @include label-inside-transition;
-
-      top: 8px;
-    }
-    .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
-      @include type-style("detail-07");
-      @include label-inside-transition;
-
-      top: 8px;
-    }
     .#{$prefix}-textfield-input ~ .#{$prefix}-textfield-label-inside {
       @include type-style("detail-07");
       @include label-inside-transition;
@@ -206,28 +151,17 @@ slot[name="sdds-label"]::slotted(*) {
 
 //Textfield bottom bar when in focus
 .#{$prefix}-textfield-bar {
-  position: absolute;
-  width: 100%;
-
   &::before,
   &::after {
     content: "";
     height: 2px;
-    top: 54px;
+    bottom: 0;
     width: 0;
     position: absolute;
     background: var(--sdds-textfield-bar);
     transition: 0.35s ease all;
     transition: 0.35s ease all;
     transition: 0.35s ease all;
-
-    .#{$prefix}-form-textfield-md & {
-      top: 46px;
-    }
-
-    .#{$prefix}-form-textfield-sm & {
-      top: 40px;
-    }
   }
 
   &::before {

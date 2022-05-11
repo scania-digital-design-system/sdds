@@ -32,9 +32,6 @@ export class Textfield {
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
 
-  /** Size of the input */
-  @Prop() size = '';
-
   /** With setting */
   @Prop() nominwidth: boolean = false;
 
@@ -90,12 +87,6 @@ export class Textfield {
 
   render() {
     let className = ' sdds-textfield-input';
-    if (this.size === 'md') {
-      className += className + '-md';
-    }
-    if (this.size === 'sm') {
-      className += className + '-sm';
-    }
     return (
       <div
         class={`
@@ -112,8 +103,6 @@ export class Textfield {
             : ''
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
-        ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
-        ${this.size == 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
           this.state == 'error' || this.state == 'success'
             ? `sdds-form-textfield-${this.state}`

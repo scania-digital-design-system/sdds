@@ -21,14 +21,6 @@ export default {
         options: ['password', 'text'],
       },
     },
-    size: {
-      name: 'Size',
-      description: 'Switch between different sizes',
-      control: {
-        type: 'radio',
-        options: ['Default', 'Medium', 'Small'],
-      },
-    },
     minWidth: {
       name: 'Min width',
       description: 'Toggle min width',
@@ -84,7 +76,6 @@ export default {
   args: {
     placeholderText: 'Placeholder',
     type: 'text',
-    size: 'Default',
     minWidth: 'Default',
     disabled: false,
     state: 'default',
@@ -97,7 +88,6 @@ export default {
 const textfieldTemplate = ({
   type,
   placeholderText,
-  size,
   minWidth,
   disabled,
   label,
@@ -109,20 +99,6 @@ const textfieldTemplate = ({
   icon,
   textcounter,
 }) => {
-  let sizeValue;
-  switch (size) {
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    case 'Default':
-      sizeValue = 'default';
-      break;
-    default:
-      break;
-  }
   let minWidthValue = false;
   switch (minWidth) {
     case 'No min width':
@@ -136,7 +112,6 @@ const textfieldTemplate = ({
   <div style="width: 208px">
     <sdds-textfield
       type="${type}"
-      size="${sizeValue}"
       state="${state}"
       maxlength="${textcounter}"
       ${label && labelplacement ? `label-inside="${label}"` : ''}
