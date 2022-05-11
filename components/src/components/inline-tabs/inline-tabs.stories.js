@@ -36,7 +36,7 @@ const Template = ({ autoHeight = false }) => `
 
     <div default name="Tab 2">
       Content for tab 2<br>
-      This is just a little content, but the size of the container is based to the tab with the most content.      
+      This is just a little content, but the size of the container is based to the tab with the most content.
     </div>
 
     <div disabled name="Tab 3">

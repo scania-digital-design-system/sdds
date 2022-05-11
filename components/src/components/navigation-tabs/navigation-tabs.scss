@@ -3,9 +3,18 @@
 
 .sdds-navigation-tabs {
   background-color: var(--sdds-white);
-  border-bottom: 1px solid var(--sdds-grey-300);
   position: relative;
   display: flex;
+
+  &::after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid var(--sdds-grey-300);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
 
   &-wrapper {
     display: flex;
@@ -80,7 +89,7 @@
   &--tab {
     @include type-style("headline-07");
 
-    color: rgb(var(--sdds-blue-900) 0.6);
+    color: rgb(0 21 51 / 60%);
     padding: 26px 0;
     margin-right: 32px;
     text-decoration: none;
@@ -100,7 +109,7 @@
     &::after {
       content: " ";
       position: absolute;
-      bottom: -1px;
+      bottom: 0;
       right: 0;
       left: 0;
       margin-left: auto;
@@ -109,6 +118,7 @@
       height: 2px;
       background-color: var(--sdds-grey-300);
       transition: width 0.15s ease-in-out;
+      z-index: 10;
     }
 
     /* states */
@@ -150,7 +160,7 @@
     }
 
     &__disabled {
-      color: rgb(var(--sdds-grey-900) 0.6);
+      color: rgb(0 21 51 / 60%);
       pointer-events: none;
     }
   }
