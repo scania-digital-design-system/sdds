@@ -117,7 +117,7 @@
       right: 0;
       left: 0;
       margin-left: auto;
-      width: 0%;
+      width: 0;
       margin-right: auto;
       height: 2px;
       background-color: var(--sdds-grey-400);
@@ -150,7 +150,7 @@
       }
 
       &::after {
-        width: 0%;
+        width: 0;
       }
     }
 
