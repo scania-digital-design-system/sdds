@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type     | Default |
-| ------------ | ------------- | ----------- | -------- | ------- |
-| `defaultTab` | `default-tab` |             | `string` | `''`    |
-| `height`     | `height`      |             | `string` | `''`    |
+| Property     | Attribute     | Description | Type      | Default |
+| ------------ | ------------- | ----------- | --------- | ------- |
+| `autoHeight` | `auto-height` |             | `boolean` | `false` |
+| `defaultTab` | `default-tab` |             | `string`  | `''`    |
 
 
 ## Methods

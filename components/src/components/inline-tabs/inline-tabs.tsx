@@ -16,7 +16,7 @@ import {
 export class InlineTabs {
   @Element() host: HTMLElement;
   @Prop() defaultTab: string = ''; // either use this (default-tab="...") or read attribute "default" from one of the slotted children.
-  @Prop() height: string = ''; // different height settings. right now only supports "auto", otherwise ignored
+  @Prop() autoHeight: boolean = false; // different height settings. right now only supports "auto", otherwise ignored
   @State() tabs: Array<any> = []; // array with metadata for slotted children
   @State() buttonWidth: number = 0; // current calculated width of each nav button (calculated from the largest one)
   @State() tabHeight: number = 0; // current calculated tab height (calculated from the one with the most height)
@@ -51,7 +51,7 @@ export class InlineTabs {
   _initComponent(createInitialState = true) {
     this.tabs = [];
 
-    if (this.height == 'auto') {
+    if (this.autoHeight) {
       this.useAutoHeight = true;
     }
 
