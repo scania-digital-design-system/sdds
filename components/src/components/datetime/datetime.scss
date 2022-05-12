@@ -1,8 +1,7 @@
-@import "../../helpers/style-helpers.scss";
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
-@mixin textfield-base {
+@mixin datetime-base {
   border-radius: 1rem 1rem 0 0;
   width: 100%;
   box-sizing: border-box;
@@ -30,36 +29,60 @@
       color: var(--sdds-textfield-disabled-placeholder);
     }
 
-    ~  .sdds-textfield-label-inside {
+    ~  .sdds-datetime-label-inside {
       color: var(--sdds-textfield-disabled-label);
     }
   }
 }
 
+// icons
+
+.sdds-datetime-input,
+.sdds-datetime-input-md,
+.sdds-datetime-input-sm {
+  &[type='datetime-local'] {
+    ~ .icon-time {
+      display: none;
+    }
+  }
+
+  &[type='date'] {
+    ~ .icon-time {
+      display: none;
+    }
+  }
+
+  &[type='time'] {
+    ~ .icon-datetime-local {
+      display: none;
+    }
+  }
+}
+
 //Sizes
-.#{$prefix}-textfield-input {
-  @include textfield-base;
-  @include type-style("detail-02");
+.sdds-datetime-input {
+  @include datetime-base;
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-textfield-input-md {
-  @include textfield-base;
-  @include type-style("detail-02");
+.sdds-datetime-input-md {
+  @include datetime-base;
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-textfield-input-sm {
-  @include textfield-base;
-  @include type-style("detail-02");
+.sdds-datetime-input-sm {
+  @include datetime-base;
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-16);
 }
 
 //Container for input field and prefix/suffix
-.#{$prefix}-textfield-container {
+.sdds-datetime-container {
   border-radius: 1rem 1rem 0 0;
   display: flex;
   position: relative;
@@ -73,31 +96,41 @@
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
-  .#{$prefix}-form-textfield-md & {
+  .sdds-form-datetime-md & {
     height: 48px;
   }
 
-  .#{$prefix}-form-textfield-sm & {
+  .sdds-form-datetime-sm & {
     height: 40px;
   }
 }
 
-.#{$prefix}-textfield-input-container {
+.sdds-datetime-input-container {
   position: relative;
   width: 100%;
+
+  .datetime-icon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 18px;
+    pointer-events: none;
+  }
 }
 
-//Textfield label
-slot[name="sdds-label"]::slotted(*) {
-  @include type-style("detail-05");
+//datetime label
+slot[name='sdds-label']::slotted(*) {
+  @include type-style('detail-05');
 
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
 }
 
-.#{$prefix}-textfield-label-inside {
-  @include type-style("detail-02");
+.sdds-datetime-label-inside {
+  @include type-style('detail-02');
 
   position: absolute;
   pointer-events: none;
@@ -136,7 +169,7 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Form control
-.#{$prefix}-form-textfield {
+.sdds-form-datetime {
   display: block;
   min-width: 208px;
 
@@ -145,58 +178,60 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-//Textfield container with label inside
+//datetime container with label inside
 //Handling position, focus and transition for label inside
-.#{$prefix}-form-textfield.sdds-textfield-container-label-inside {
-  .#{$prefix}-textfield-input {
+.sdds-form-datetime.sdds-datetime-container-label-inside {
+  .sdds-datetime-input {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: 15px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-datetime-label-inside {
       top: 20px;
     }
 
     @include placeholder-label;
   }
 
-  .#{$prefix}-textfield-input-md {
+  .sdds-datetime-input-md {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-datetime-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  .#{$prefix}-textfield-input-sm {
+  .sdds-datetime-input-sm {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-datetime-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  &.#{$prefix}-textfield-focus,
-  &.#{$prefix}-textfield-data {
-    .#{$prefix}-textfield-input-sm ~ .#{$prefix}-textfield-label-inside {
-      @include type-style("detail-07");
+  &.sdds-datetime-focus,
+  &.sdds-datetime-data {
+    .sdds-datetime-input-sm ~ .sdds-datetime-label-inside {
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
-    .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
-      @include type-style("detail-07");
+
+    .sdds-datetime-input-md ~ .sdds-datetime-label-inside {
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
-    .#{$prefix}-textfield-input ~ .#{$prefix}-textfield-label-inside {
-      @include type-style("detail-07");
+
+    .sdds-datetime-input ~ .sdds-datetime-label-inside {
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 12px;
@@ -204,14 +239,14 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-//Textfield bottom bar when in focus
-.#{$prefix}-textfield-bar {
+//datetime bottom bar when in focus
+.sdds-datetime-bar {
   position: absolute;
   width: 100%;
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     height: 2px;
     top: 54px;
     width: 0;
@@ -221,11 +256,11 @@ slot[name="sdds-label"]::slotted(*) {
     transition: 0.35s ease all;
     transition: 0.35s ease all;
 
-    .#{$prefix}-form-textfield-md & {
+    .sdds-form-datetime-md & {
       top: 46px;
     }
 
-    .#{$prefix}-form-textfield-sm & {
+    .sdds-form-datetime-sm & {
       top: 40px;
     }
   }
@@ -237,15 +272,16 @@ slot[name="sdds-label"]::slotted(*) {
   &::after {
     right: 50%;
   }
-  .#{$prefix}-textfield-focus &:before,
-  .#{$prefix}-textfield-focus &:after {
+
+  .sdds-datetime-focus &::before,
+  .sdds-datetime-focus &::after {
     width: 50%;
   }
 }
 
 //Helper text
-.#{$prefix}-textfield-helper {
-  @include type-style("detail-05");
+.sdds-datetime-helper {
+  @include type-style('detail-05');
 
   display: block;
   flex-basis: 100%;
@@ -254,88 +290,108 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Disabled state
-.#{$prefix}-form-textfield-disabled {
-  .#{$prefix}-textfield-container {
+.sdds-form-datetime-disabled {
+  .sdds-datetime-container {
     border-bottom-color: transparent;
   }
 
-  slot[name="sdds-prefix"]::slotted(*),
-  slot[name="sdds-suffix"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-ps-color);
+  .datetime-icon {
+    svg {
+      path {
+        fill: var(--sdds-textfield-disabled-color);
+      }
+    }
   }
 
-  slot[name="sdds-label"]::slotted(*) {
+  slot[name='sdds-label']::slotted(*) {
     color: var(--sdds-textfield-disabled-label);
   }
 }
 
 //Success state
-.#{$prefix}-form-textfield-success {
-  .#{$prefix}-textfield-container {
+.sdds-form-datetime-success {
+  .sdds-datetime-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
 //Error State
-.#{$prefix}-form-textfield-error {
-  .#{$prefix}-textfield-helper {
+.sdds-form-datetime-error {
+  .sdds-datetime-helper {
     color: var(--sdds-textfield-helper-error);
   }
 
-  .#{$prefix}-textfield-container {
+  .sdds-datetime-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
-  .#{$prefix}-textfield-bar {
+  .sdds-datetime-bar {
     &::before,
     &::after {
       background: var(--sdds-textfield-bar-error);
     }
   }
 
-  slot[name="sdds-prefix"]::slotted(sdds-icon),
-  slot[name="sdds-suffix"]::slotted(sdds-icon) {
+  slot[name='sdds-prefix']::slotted(sdds-icon),
+  slot[name='sdds-suffix']::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
 
-.#{$prefix}-textfield-textcounter {
-  @include type-style("detail-05");
+.sdds-datetime-textcounter {
+  @include type-style('detail-05');
 
   color: var(--sdds-textfield-textcounter);
   float: right;
 
-  & .#{$prefix}-textfield-textcounter-divider {
+  & .sdds-datetime-textcounter-divider {
     // @include type-style('detail-05');
     color: var(--sdds-textfield-textcounter-divider);
   }
 }
 
-slot[name="sdds-prefix"]::slotted(*),
-slot[name="sdds-suffix"]::slotted(*) {
-  @include type-style("detail-02");
+slot[name='sdds-prefix']::slotted(*),
+slot[name='sdds-suffix']::slotted(*) {
+  @include type-style('detail-02');
 
   align-self: center;
   color: var(--sdds-textfield-ps-color);
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name="sdds-prefix"]::slotted(sdds-icon),
-slot[name="sdds-suffix"]::slotted(sdds-icon) {
+slot[name='sdds-prefix']::slotted(sdds-icon),
+slot[name='sdds-suffix']::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }
 
 //Text gerenerated infront of the input field
-slot[name="sdds-prefix"]::slotted(*) {
+slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .#{$prefix}-textfield-input  {
+  & ~ .sdds-datetime-input  {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
 
 //Text generated after the input field
-slot[name="sdds-suffix"]::slotted(*) {
+slot[name='sdds-suffix']::slotted(*) {
   padding-right: var(--sdds-spacing-element-20);
+}
+
+/* datetime picker icon remove testing */
+
+input[type='datetime-local']::-webkit-inner-spin-button,
+input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type='time']::-webkit-inner-spin-button,
+input[type='time']::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }

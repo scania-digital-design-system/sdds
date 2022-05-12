@@ -1,28 +1,29 @@
 // Components
-@import "../accordion/accordion.scss";
-@import "../banner/banner.scss";
-@import "../breadcrumb/breadcrumb.scss";
-@import "../button/button.scss";
-@import "../card/card.scss";
-@import "../checkbox/checkbox.scss";
-@import "../divider/divider.scss";
-@import "../link/link.scss";
-@import "../radio-button/radio-button.scss";
-@import "../textfield/textfield.scss";
-@import "../toast/toast.scss";
-@import "../toggle/toggle.scss";
-@import "../table/table.scss";
-@import "../dropdown/dropdown-select.scss";
-@import "../modal/modal-native.scss";
-@import "../block/block.scss";
+@import '../accordion/accordion.scss';
+@import '../banner/banner.scss';
+@import '../breadcrumb/breadcrumb.scss';
+@import '../button/button.scss';
+@import '../card/card.scss';
+@import '../checkbox/checkbox.scss';
+@import '../divider/divider.scss';
+@import '../link/link.scss';
+@import '../radio-button/radio-button.scss';
+@import '../textfield/textfield.scss';
+@import '../toast/toast.scss';
+@import '../toggle/toggle.scss';
+@import '../table/table.scss';
+@import '../dropdown/dropdown-select.scss';
+@import '../modal/modal-native.scss';
+@import '../datetime/datetime.scss';
+@import '../block/block.scss';
 
 // Patterns
-@import "../../patterns/header/header.scss";
-@import "../../patterns/side-menu/side-menu.scss";
-@import "../../patterns/footer/footer.scss";
+@import '../../patterns/header/header.scss';
+@import '../../patterns/side-menu/side-menu.scss';
+@import '../../patterns/footer/footer.scss';
 
 // Utility classes
-@import "../../helpers/_utility-classes.scss";
+@import '../../helpers/_utility-classes.scss';
 
 * :focus {
   outline: 2px solid var(--sdds-blue-400);
@@ -104,13 +105,13 @@ body[data-env]::before {
   text-transform: uppercase;
 }
 
-body[data-env=""]::before,
-body[data-env="prod"]::before,
-body[data-env="production"]::before,
-body[data-env="hidden"]::before {
+body[data-env='']::before,
+body[data-env='prod']::before,
+body[data-env='production']::before,
+body[data-env='hidden']::before {
   display: none;
 }
 
-body[data-env="development"]::before {
-  content: "dev";
+body[data-env='development']::before {
+  content: 'dev';
 }
