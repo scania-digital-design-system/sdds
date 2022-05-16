@@ -1,12 +1,12 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
+@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
 
 .sdds-inline-tabs-fullbleed {
   display: flex;
   position: relative;
 
   &::after {
-    content: " ";
+    content: ' ';
     display: block;
     border-bottom: 1px solid var(--sdds-grey-300);
     left: 0;
@@ -90,7 +90,7 @@
   }
 
   &--tab {
-    @include type-style("headline-07");
+    @include type-style('headline-07');
 
     color: rgb(0 21 51 / 60%);
     padding: 16px 0;
@@ -111,7 +111,7 @@
     }
 
     &::after {
-      content: " ";
+      content: ' ';
       position: absolute;
       bottom: 0;
       right: 0;
@@ -140,7 +140,7 @@
       color: var(--sdds-grey-958);
 
       &::before {
-        content: " ";
+        content: ' ';
         border: 1px solid var(--sdds-blue-400);
         position: absolute;
         top: 11px;
