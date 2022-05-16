@@ -1,23 +1,24 @@
 // Components
 @import "../accordion/accordion.scss";
 @import "../banner/banner.scss";
+@import "../block/block.scss";
 @import "../breadcrumb/breadcrumb.scss";
 @import "../button/button.scss";
 @import "../card/card.scss";
 @import "../checkbox/checkbox.scss";
+@import "../datetime/datetime.scss";
 @import "../divider/divider.scss";
 @import "../link/link.scss";
 @import "../radio-button/radio-button.scss";
+@import "../tabs/inline-tabs/inline-tabs.scss";
+@import "../tabs/inline-tabs-fullbleed/inline-tabs-fullbleed.scss";
+@import "../tabs/navigation-tabs/navigation-tabs.scss";
 @import "../textfield/textfield.scss";
 @import "../toast/toast.scss";
 @import "../toggle/toggle.scss";
 @import "../table/table.scss";
 @import "../dropdown/dropdown-select.scss";
 @import "../modal/modal-native.scss";
-@import "../datetime/datetime.scss";
-@import "../tabs/inline-tabs/inline-tabs.scss";
-@import "../tabs/inline-tabs-fullbleed/inline-tabs-fullbleed.scss";
-@import "../tabs/navigation-tabs/navigation-tabs.scss";
 
 // Patterns
 @import "../../patterns/header/header.scss";
@@ -99,10 +100,6 @@ body[data-env]::before {
   top: 0;
   left: 0;
   z-index: 1170;
-  transform: translateY(-50%) translateX(-50%) rotate(-45deg);
-  transform: translateY(-50%) translateX(-50%) rotate(-45deg);
-  transform: translateY(-50%) translateX(-50%) rotate(-45deg);
-  transform: translateY(-50%) translateX(-50%) rotate(-45deg);
   transform: translateY(-50%) translateX(-50%) rotate(-45deg);
   text-transform: uppercase;
 }
