@@ -5,12 +5,10 @@ export default {
       name: 'Type',
       control: {
         type: 'select',
-        options: ['onwhite', 'ongrey', 'ongrey958', 'ongrey900'],
+        options: ['onwhite', 'ongrey'],
         label: {
           onwhite: 'On white',
           ongrey: 'On grey',
-          ongrey958: 'On grey-958',
-          ongrey900: 'On grey-900',
         },
       },
     },
