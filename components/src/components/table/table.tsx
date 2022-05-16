@@ -167,7 +167,6 @@ export class Table {
       this.multiselectArray.push(selectedObject);
     }
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
-    console.log(this.multiselectArrayJSON);
   };
 
   headCheckBoxClicked = (event) => {
