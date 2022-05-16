@@ -1,6 +1,13 @@
 export default {
   title: 'Component/Table',
   argTypes: {
+    multiSelect: {
+      name: 'Multiselect',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: true,
+    },
     noMinWidthArg: {
       name: 'No minimum width',
       control: {
@@ -159,6 +166,7 @@ const Template = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  multiSelect,
 }) => `
           <sdds-table 
             table-title="${label}"
@@ -166,6 +174,7 @@ const Template = ({
             vertical-dividers="${verticalDivider}"
             compact-design="${compactDesign}"   
             white-background="${onWhiteBackground}"
+            multi-select="${multiSelect}"
         >
           <sdds-header-cell column-key="truck" column-title="${header_1_title}" custom-width="${column_1_width}" text-align="${column_1_text_align}" sortable="${column_1_sortable}"></sdds-header-cell>
           <sdds-header-cell column-key="driver" column-title="${header_2_title}" custom-width="${column_2_width}" text-align="${column_2_text_align}" sortable="${column_2_sortable}"></sdds-header-cell>

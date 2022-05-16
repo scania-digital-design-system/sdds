@@ -72,10 +72,10 @@ const Table = ({ type, divider }) => `
     </thead>
      <tbody class="sdds-table__body">
       <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-       <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell sdds-u-pr2 sdds-u-pl2">Text</td>
+       <td class="sdds-table__body-cell sdds-u-pr2 sdds-u-pl2">Text</td>
       </tr>
       <tr class="sdds-table__row">
         <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
