@@ -81,9 +81,13 @@ export class Table {
 
   @State() bodyDataManipulated = [];
 
+  @State() bodyDataOriginal = [];
+
   @State() bodyRowSelected = false;
 
   @State() multiselectArray = [];
+
+  @State() arrayOfKeys = [];
 
   @State() multiselectArrayJSON: string;
 
@@ -103,6 +107,8 @@ export class Table {
       this.innerBodyData = newValue;
     }
     this.bodyDataManipulated = [...this.innerBodyData];
+    this.bodyDataOriginal = [...this.innerBodyData];
+    this.arrayOfKeys = Object.keys(this.bodyDataManipulated[0]);
   }
 
   // Listen to sortColumnData from table-header-element
@@ -239,6 +245,31 @@ export class Table {
       </tr>
     ));
 
+  // ToDo: below is just a test concept
+
+  searchFunction = (event) => {
+    const searchTerm = event.currentTarget.value.toLowerCase();
+
+    console.log(searchTerm);
+
+    if (searchTerm.length > 0) {
+      this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
+        Object.keys(option).some(
+          (key) =>
+            String(option[key] ?? '')
+              .toLowerCase()
+              .indexOf(searchTerm) >= 0
+        )
+      );
+
+      console.log(`After inner loop: ${this.bodyDataManipulated}`);
+    } else {
+      this.bodyDataManipulated = this.bodyDataOriginal;
+    }
+
+    console.log(this.bodyDataManipulated);
+  };
+
   render() {
     return (
       <Host selected-rows={this.multiselectArrayJSON}>
@@ -253,7 +284,13 @@ export class Table {
           }}
         >
           {this.tableTitle && (
-            <caption class="sdds-table__title">{this.tableTitle}</caption>
+            <caption class="sdds-table__title">
+              {this.tableTitle}
+              <input
+                type="text"
+                onKeyUp={(event) => this.searchFunction(event)}
+              />
+            </caption>
           )}
           <thead class="sdds-table__header">
             <tr class="sdds-table__header-row">
