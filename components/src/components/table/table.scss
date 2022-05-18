@@ -1,12 +1,12 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-table {
   border-collapse: collapse;
   display: table;
 
   .sdds-table__title {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     background-color: var(--sdds-grey-400);
     color: var(--sdds-grey-958);
@@ -41,7 +41,7 @@
   .sdds-table__header {
     .sdds-table__header-cell,
     ::slotted(sdds-header-cell) {
-      @include type-style('headline-07');
+      @include type-style("headline-07");
 
       display: table-cell;
       text-align: left;
@@ -89,7 +89,6 @@
     background-color: var(--sdds-grey-100);
   }
 
-  // TODO: Check with Alex which colors are used on white background :)
   .sdds-table__row--selected {
     background-color: var(--sdds-grey-300);
   }
@@ -98,9 +97,13 @@
     background-color: var(--sdds-grey-400);
   }
 
+  .sdds-table__row--hidden {
+    display: none;
+  }
+
   .sdds-table__body-cell,
   ::slotted(sdds-body-cell) {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     display: table-cell;
     box-sizing: border-box;
@@ -253,7 +256,7 @@
     }
 
     .sdds-table__header-button-text {
-      @include type-style('headline-07');
+      @include type-style("headline-07");
 
       text-align: left;
       color: var(--sdds-grey-958);

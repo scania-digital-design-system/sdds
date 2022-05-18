@@ -259,16 +259,28 @@ export class Table {
     dataRowsToArray.map((item) => {
       const cells = [...item.getElementsByTagName('sdds-body-cell')];
       console.log('-------- New row --------');
+      const cellValuesArray = [];
       cells.map((cellItem) => {
-        console.log(cellItem.getAttribute('cell-value'));
-        console.log(item);
+        const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+        cellValuesArray.push(cellValue);
       });
+      console.log(cellValuesArray);
+
+      const matchCounter = cellValuesArray.find((element) =>
+        element.includes(searchTerm)
+      );
+
+      if (matchCounter) {
+        item.classList.remove('sdds-table__row--hidden');
+      } else {
+        item.classList.add('sdds-table__row--hidden');
+      }
     });
 
     // console.log(dataRows2);
 
     // console.log(searchTerm);
-
+    /*
     if (searchTerm.length > 0) {
       this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
         Object.keys(option).some(
@@ -284,6 +296,7 @@ export class Table {
       this.bodyDataManipulated = this.bodyDataOriginal;
     }
 
+ */
     console.log(this.bodyDataManipulated);
   };
 
