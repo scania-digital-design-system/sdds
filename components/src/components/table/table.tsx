@@ -250,7 +250,24 @@ export class Table {
   searchFunction = (event) => {
     const searchTerm = event.currentTarget.value.toLowerCase();
 
-    console.log(searchTerm);
+    const dataRows2 = event.currentTarget.parentElement.parentElement
+      .getElementsByClassName('sdds-table__body')[0]
+      .querySelectorAll('.sdds-table__row');
+
+    const dataRowsToArray = [...dataRows2];
+
+    dataRowsToArray.map((item) => {
+      const cells = [...item.getElementsByTagName('sdds-body-cell')];
+      console.log('-------- New row --------');
+      cells.map((cellItem) => {
+        console.log(cellItem.getAttribute('cell-value'));
+        console.log(item);
+      });
+    });
+
+    // console.log(dataRows2);
+
+    // console.log(searchTerm);
 
     if (searchTerm.length > 0) {
       this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
