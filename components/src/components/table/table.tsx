@@ -95,6 +95,8 @@ export class Table {
 
   @Element() host: HTMLElement;
 
+  @State() tableSelector: HTMLElement;
+
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
   }
@@ -152,6 +154,8 @@ export class Table {
     this.bodyDataManipulated.sort(
       this.compareValues(keyValue, sortingDirection)
     );
+    // Uncheck all checkboxes as state is lost on sorting. We will try to find a better approach to solve this one
+    this.uncheckedAll();
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
@@ -173,6 +177,32 @@ export class Table {
       this.multiselectArray.push(selectedObject);
     }
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
+  };
+
+  uncheckedAll = () => {
+    const headCheckbox = this.tableSelector.querySelector(
+      '.sdds-table__header-cell.sdds-table__header-cell--checkbox > .sdds-checkbox-item > .sdds-form-label > .sdds-form-input'
+    ) as HTMLInputElement;
+
+    if (headCheckbox.checked) {
+      headCheckbox.checked = false;
+    }
+
+    const bodyCheckboxes =
+      this.tableSelector.getElementsByClassName('sdds-table__body')[0].children;
+
+    for (let z = 0; z < bodyCheckboxes.length; z++) {
+      const singleCheckbox = bodyCheckboxes[z].getElementsByClassName(
+        'sdds-form-input'
+      )[0] as HTMLInputElement;
+      const row = singleCheckbox.closest('tr');
+
+      if (singleCheckbox.checked) {
+        singleCheckbox.checked = false;
+        row.classList.remove('sdds-table__row--selected');
+      }
+    }
+    this.multiselectArrayJSON = JSON.stringify([]);
   };
 
   headCheckBoxClicked = (event) => {
@@ -284,6 +314,7 @@ export class Table {
     });
 
     /*
+
     // Logic for filtering JSON data on all columns
     // Really nice solution, do not delete, might be needed in future
     // Reason to go with upper one is not to lose selected state on checkboxes
@@ -299,7 +330,8 @@ export class Table {
     } else {
       this.bodyDataManipulated = this.bodyDataOriginal;
     }
-    */
+
+      */
   };
 
   render() {
@@ -314,6 +346,7 @@ export class Table {
             'sdds-table--on-white-bg': this.whiteBackground,
             'sdds-table--multiselect': this.multiSelect,
           }}
+          ref={(table) => (this.tableSelector = table)}
         >
           {this.tableTitle && (
             <caption class="sdds-table__title">
