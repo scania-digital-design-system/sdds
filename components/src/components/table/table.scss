@@ -18,6 +18,14 @@
     border-top-right-radius: 4px;
   }
 
+  .sdds-table__searchbar {
+    background: yellow;
+
+    &:focus {
+      background: lightgreen;
+    }
+  }
+
   // Fix that works for css&html version only
   .sdds-table__header {
     .sdds-table__header-cell {

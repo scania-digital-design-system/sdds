@@ -154,8 +154,11 @@ export class Table {
     this.bodyDataManipulated.sort(
       this.compareValues(keyValue, sortingDirection)
     );
-    // Uncheck all checkboxes as state is lost on sorting. We will try to find a better approach to solve this one
-    this.uncheckedAll();
+    // Uncheck all checkboxes as state is lost on sorting. Do it only in case multiSelect is True.
+    // We will try to find a better approach to solve this one
+    if (this.multiSelect) {
+      this.uncheckedAll();
+    }
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
@@ -352,6 +355,7 @@ export class Table {
             <caption class="sdds-table__title">
               {this.tableTitle}
               <input
+                class="sdds-table__searchbar"
                 type="text"
                 onKeyUp={(event) => this.searchFunction(event)}
               />
