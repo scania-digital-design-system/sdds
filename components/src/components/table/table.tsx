@@ -32,7 +32,7 @@ export class Table {
 
   @Prop({ reflect: true }) multiSelect: boolean = false;
 
-  @Prop({ reflect: true }) filtering: boolean = true;
+  @Prop({ reflect: true }) filtering: boolean = false;
 
   @Prop() bodyData: any = `[
       {
