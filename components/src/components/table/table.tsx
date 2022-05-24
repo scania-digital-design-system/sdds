@@ -299,44 +299,44 @@ export class Table {
 
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
+    // grab all rows in body
+    const dataRows =
+      event.currentTarget.parentElement.parentElement.parentElement.parentElement
+        .getElementsByClassName('sdds-table__body')[0]
+        .querySelectorAll('.sdds-table__row');
+
+    // turn it into array
+    const dataRowsToArray = [...dataRows];
+
+    dataRowsToArray.map((item) => {
+      // every row contains of many cells, find them and turn into array
+      const cells = [...item.getElementsByTagName('sdds-body-cell')];
+
+      const cellValuesArray = [];
+      // go through cells and save cell-values in array
+      cells.map((cellItem) => {
+        const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+        cellValuesArray.push(cellValue);
+      });
+
+      // iterate over array of values and see if one matches search string
+      const matchCounter = cellValuesArray.find((element) =>
+        element.includes(searchTerm)
+      );
+
+      // if matches, show parent row, otherwise hide the row
+      if (matchCounter) {
+        item.classList.remove('sdds-table__row--hidden');
+      } else {
+        item.classList.add('sdds-table__row--hidden');
+      }
+    });
+
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
 
       this.enableAllSorting = false;
       this.sortingEnabler.emit(this.enableAllSorting);
-
-      // grab all rows in body
-      const dataRows =
-        event.currentTarget.parentElement.parentElement.parentElement.parentElement
-          .getElementsByClassName('sdds-table__body')[0]
-          .querySelectorAll('.sdds-table__row');
-
-      // turn it into array
-      const dataRowsToArray = [...dataRows];
-
-      dataRowsToArray.map((item) => {
-        // every row contains of many cells, find them and turn into array
-        const cells = [...item.getElementsByTagName('sdds-body-cell')];
-
-        const cellValuesArray = [];
-        // go through cells and save cell-values in array
-        cells.map((cellItem) => {
-          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-          cellValuesArray.push(cellValue);
-        });
-
-        // iterate over array of values and see if one matches search string
-        const matchCounter = cellValuesArray.find((element) =>
-          element.includes(searchTerm)
-        );
-
-        // if matches, show parent row, otherwise hide the row
-        if (matchCounter) {
-          item.classList.remove('sdds-table__row--hidden');
-        } else {
-          item.classList.add('sdds-table__row--hidden');
-        }
-      });
     } else {
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
       this.enableAllSorting = true;
