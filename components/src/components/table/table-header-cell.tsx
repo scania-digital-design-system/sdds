@@ -106,12 +106,11 @@ export class TableHeaderCell {
   };
 
   headerCellContent = () => {
-    if (this.sortable) {
+    if (this.sortable && !this.disableSortingBtn) {
       return (
         <button
           class="sdds-table__header-button"
           onClick={() => this.sortButtonClick(this.columnKey)}
-          disabled={this.disableSortingBtn}
         >
           <span
             class="sdds-table__header-button-text"
