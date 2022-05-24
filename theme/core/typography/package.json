@@ -15,7 +15,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.49.9"
+    "sass": "^1.52.1"
   },
-  "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
+  "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509",
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  }
 }
