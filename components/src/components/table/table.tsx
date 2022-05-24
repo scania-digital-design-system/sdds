@@ -292,8 +292,7 @@ export class Table {
       </tr>
     ));
 
-  // ToDo: below is just a test concept
-
+  // Search feat with two search logics
   searchFunction = (event) => {
     // grab the value of search and turn to small caps
     const searchTerm = event.currentTarget.value.toLowerCase();
