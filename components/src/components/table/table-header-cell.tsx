@@ -31,7 +31,7 @@ export class TableHeaderCell {
 
   @State() sortedByMyKey: boolean = false;
 
-  @State() globalSortingEnabler: boolean = this.sortable;
+  @State() disableSortingBtn: boolean = false;
 
   @Event({
     eventName: 'sortColumnData',
@@ -85,7 +85,7 @@ export class TableHeaderCell {
   // Listen to parent table if sorting is allowed
   @Listen('sortingEnabler', { target: 'body' })
   updateSortingStatus(event: CustomEvent<any>) {
-    this.globalSortingEnabler = event.detail;
+    this.disableSortingBtn = event.detail;
   }
 
   sortButtonClick = (key) => {
@@ -106,7 +106,7 @@ export class TableHeaderCell {
   };
 
   headerCellContent = () => {
-    if (this.globalSortingEnabler) {
+    if (this.sortable && !this.disableSortingBtn) {
       return (
         <button
           class="sdds-table__header-button"
