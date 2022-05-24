@@ -101,7 +101,7 @@ export class Table {
 
   @State() tableSelector: HTMLElement;
 
-  @State() enableAllSorting: boolean = false;
+  @State() disableAllSorting: boolean = false;
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
@@ -335,12 +335,12 @@ export class Table {
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
 
-      this.enableAllSorting = false;
-      this.sortingEnabler.emit(this.enableAllSorting);
+      this.disableAllSorting = true;
+      this.sortingEnabler.emit(this.disableAllSorting);
     } else {
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
-      this.enableAllSorting = true;
-      this.sortingEnabler.emit(this.enableAllSorting);
+      this.disableAllSorting = false;
+      this.sortingEnabler.emit(this.disableAllSorting);
     }
 
     /*
