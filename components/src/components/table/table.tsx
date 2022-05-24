@@ -10,6 +10,8 @@ import {
   Watch,
   Element,
   Host,
+  Event,
+  EventEmitter,
 } from '@stencil/core';
 
 @Component({
@@ -31,6 +33,8 @@ export class Table {
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
   @Prop({ reflect: true }) multiSelect: boolean = false;
+
+  @Prop({ reflect: true }) filtering: boolean = false;
 
   @Prop() bodyData: any = `[
       {
@@ -81,9 +85,13 @@ export class Table {
 
   @State() bodyDataManipulated = [];
 
+  @State() bodyDataOriginal = [];
+
   @State() bodyRowSelected = false;
 
   @State() multiselectArray = [];
+
+  @State() arrayOfKeys = [];
 
   @State() multiselectArrayJSON: string;
 
@@ -91,9 +99,21 @@ export class Table {
 
   @Element() host: HTMLElement;
 
+  @State() tableSelector: HTMLElement;
+
+  @State() enableAllSorting: boolean = false;
+
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
   }
+
+  @Event({
+    eventName: 'sortingEnabler',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sortingEnabler: EventEmitter<any>;
 
   @Watch('bodyData')
   arrayDataWatcher(newValue: string) {
@@ -103,6 +123,8 @@ export class Table {
       this.innerBodyData = newValue;
     }
     this.bodyDataManipulated = [...this.innerBodyData];
+    this.bodyDataOriginal = [...this.innerBodyData];
+    this.arrayOfKeys = Object.keys(this.bodyDataManipulated[0]);
   }
 
   // Listen to sortColumnData from table-header-element
@@ -146,6 +168,11 @@ export class Table {
     this.bodyDataManipulated.sort(
       this.compareValues(keyValue, sortingDirection)
     );
+    // Uncheck all checkboxes as state is lost on sorting. Do it only in case multiSelect is True.
+    // We will try to find a better approach to solve this one
+    if (this.multiSelect) {
+      this.uncheckedAll();
+    }
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
@@ -167,6 +194,32 @@ export class Table {
       this.multiselectArray.push(selectedObject);
     }
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
+  };
+
+  uncheckedAll = () => {
+    const headCheckbox = this.tableSelector.querySelector(
+      '.sdds-table__header-cell.sdds-table__header-cell--checkbox > .sdds-checkbox-item > .sdds-form-label > .sdds-form-input'
+    ) as HTMLInputElement;
+
+    if (headCheckbox.checked) {
+      headCheckbox.checked = false;
+    }
+
+    const bodyCheckboxes =
+      this.tableSelector.getElementsByClassName('sdds-table__body')[0].children;
+
+    for (let z = 0; z < bodyCheckboxes.length; z++) {
+      const singleCheckbox = bodyCheckboxes[z].getElementsByClassName(
+        'sdds-form-input'
+      )[0] as HTMLInputElement;
+      const row = singleCheckbox.closest('tr');
+
+      if (singleCheckbox.checked) {
+        singleCheckbox.checked = false;
+        row.classList.remove('sdds-table__row--selected');
+      }
+    }
+    this.multiselectArrayJSON = JSON.stringify([]);
   };
 
   headCheckBoxClicked = (event) => {
@@ -239,6 +292,78 @@ export class Table {
       </tr>
     ));
 
+  // Search feat with two search logics
+  searchFunction = (event) => {
+    // grab the value of search and turn to small caps
+    const searchTerm = event.currentTarget.value.toLowerCase();
+
+    const sddsTableSearchBar = event.currentTarget.parentElement;
+
+    if (searchTerm.length > 0) {
+      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
+
+      this.enableAllSorting = false;
+      this.sortingEnabler.emit(this.enableAllSorting);
+
+      // grab all rows in body
+      const dataRows =
+        event.currentTarget.parentElement.parentElement.parentElement.parentElement
+          .getElementsByClassName('sdds-table__body')[0]
+          .querySelectorAll('.sdds-table__row');
+
+      // turn it into array
+      const dataRowsToArray = [...dataRows];
+
+      dataRowsToArray.map((item) => {
+        // every row contains of many cells, find them and turn into array
+        const cells = [...item.getElementsByTagName('sdds-body-cell')];
+
+        const cellValuesArray = [];
+        // go through cells and save cell-values in array
+        cells.map((cellItem) => {
+          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+          cellValuesArray.push(cellValue);
+        });
+
+        // iterate over array of values and see if one matches search string
+        const matchCounter = cellValuesArray.find((element) =>
+          element.includes(searchTerm)
+        );
+
+        // if matches, show parent row, otherwise hide the row
+        if (matchCounter) {
+          item.classList.remove('sdds-table__row--hidden');
+        } else {
+          item.classList.add('sdds-table__row--hidden');
+        }
+      });
+    } else {
+      sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
+      this.enableAllSorting = true;
+      this.sortingEnabler.emit(this.enableAllSorting);
+    }
+
+    /*
+
+    // Logic for filtering JSON data on all columns
+    // Really nice solution, do not delete, might be needed in future
+    // Reason to go with upper one is not to lose selected state on checkboxes
+    if (searchTerm.length > 0) {
+      this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
+        Object.keys(option).some(
+          (key) =>
+            String(option[key] ?? '')
+              .toLowerCase()
+              .indexOf(searchTerm) >= 0
+        )
+      );
+    } else {
+      this.bodyDataManipulated = this.bodyDataOriginal;
+    }
+
+      */
+  };
+
   render() {
     return (
       <Host selected-rows={this.multiselectArrayJSON}>
@@ -251,9 +376,37 @@ export class Table {
             'sdds-table--on-white-bg': this.whiteBackground,
             'sdds-table--multiselect': this.multiSelect,
           }}
+          ref={(table) => (this.tableSelector = table)}
         >
-          {this.tableTitle && (
-            <caption class="sdds-table__title">{this.tableTitle}</caption>
+          {(this.tableTitle || this.filtering) && (
+            <div class="sdds-table__upper-bar">
+              <div class="sdds-table__upper-bar-flex">
+                <caption class="sdds-table__title">{this.tableTitle}</caption>
+                {this.filtering && (
+                  <div class="sdds-table__searchbar">
+                    <input
+                      class="sdds-table__searchbar-input"
+                      type="text"
+                      onKeyUp={(event) => this.searchFunction(event)}
+                    />
+                    <span class="sdds-table__searchbar-icon">
+                      <svg
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12.942 1.985c-6.051 0-10.957 4.905-10.957 10.957 0 6.051 4.906 10.957 10.957 10.957 2.666 0 5.109-.952 7.008-2.534l8.332 8.331a1 1 0 1 0 1.414-1.414l-8.331-8.331a10.912 10.912 0 0 0 2.534-7.01c0-6.05-4.905-10.956-10.957-10.956ZM3.985 12.942a8.957 8.957 0 1 1 17.914 0 8.957 8.957 0 0 1-17.914 0Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
           )}
           <thead class="sdds-table__header">
             <tr class="sdds-table__header-row">

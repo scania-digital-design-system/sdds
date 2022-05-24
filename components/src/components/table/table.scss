@@ -1,21 +1,102 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-table {
   border-collapse: collapse;
   display: table;
 
-  .sdds-table__title {
-    @include type-style('headline-07');
-
+  .sdds-table__upper-bar {
+    display: table-caption;
+    position: relative;
     background-color: var(--sdds-grey-400);
     color: var(--sdds-grey-958);
-    text-align: left;
-    padding-top: var(--sdds-spacing-element-16);
-    padding-left: var(--sdds-spacing-element-16);
-    padding-bottom: var(--sdds-spacing-element-32);
+    padding: 0 var(--sdds-spacing-element-16);
+    height: 64px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+  }
+
+  .sdds-table__upper-bar-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sdds-table__title {
+    @include type-style("headline-07");
+
+    padding-top: var(--sdds-spacing-element-16);
+    text-align: left;
+  }
+
+  .sdds-table__searchbar {
+    display: flex;
+    align-self: center;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px 4px 0 0;
+    transition: background-color 250ms ease, width 250ms ease;
+    overflow: hidden;
+    background-color: transparent;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      background-color: var(--sdds-blue-400);
+      transform: scaleX(0);
+      transition: transform 150ms ease;
+    }
+
+    &:focus-within {
+      &::after {
+        transform: scaleX(100%);
+      }
+    }
+
+    &:focus-within,
+    &.sdds-table__searchbar--active {
+      width: 208px;
+      background-color: var(--sdds-grey-50);
+
+      &:hover {
+        background-color: var(--sdds-grey-50);
+      }
+    }
+
+    .sdds-table__searchbar-input {
+      @include type-style("detail-02");
+
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 0 36px 0 16px;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+
+      :focus {
+        background-color: var(--sdds-grey-50);
+      }
+    }
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+    }
+
+    .sdds-table__searchbar-icon {
+      z-index: 0;
+      position: absolute;
+      right: 9px;
+      top: 9px;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   // Fix that works for css&html version only
@@ -31,7 +112,7 @@
     }
   }
 
-  .sdds-table__title + .sdds-table__header {
+  .sdds-table__upper-bar + .sdds-table__header {
     .sdds-table__header-cell,
     ::slotted(sdds-header-cell) {
       border-radius: 0;
@@ -41,7 +122,7 @@
   .sdds-table__header {
     .sdds-table__header-cell,
     ::slotted(sdds-header-cell) {
-      @include type-style('headline-07');
+      @include type-style("headline-07");
 
       display: table-cell;
       text-align: left;
@@ -89,7 +170,6 @@
     background-color: var(--sdds-grey-100);
   }
 
-  // TODO: Check with Alex which colors are used on white background :)
   .sdds-table__row--selected {
     background-color: var(--sdds-grey-300);
   }
@@ -98,9 +178,13 @@
     background-color: var(--sdds-grey-400);
   }
 
+  .sdds-table__row--hidden {
+    display: none;
+  }
+
   .sdds-table__body-cell,
   ::slotted(sdds-body-cell) {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     display: table-cell;
     box-sizing: border-box;
@@ -124,8 +208,8 @@
 
   // SDDS GLOBAL STYLES:
   &.sdds-table--compact {
-    .sdds-table__title {
-      padding-bottom: var(--sdds-spacing-element-24);
+    .sdds-table__upper-bar {
+      height: 56px;
     }
 
     .sdds-table__body-cell,
@@ -210,7 +294,7 @@
     border-top-right-radius: 4px;
   }
 
-  .sdds-table__title + .sdds-table__header {
+  .sdds-table__upper-bar + .sdds-table__header {
     ::slotted(sdds-header-cell) {
       border-radius: 0;
     }
@@ -253,7 +337,7 @@
     }
 
     .sdds-table__header-button-text {
-      @include type-style('headline-07');
+      @include type-style("headline-07");
 
       text-align: left;
       color: var(--sdds-grey-958);
