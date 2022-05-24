@@ -1,6 +1,13 @@
 export default {
   title: 'Component/Table',
   argTypes: {
+    filtering: {
+      name: 'Filtering',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: true,
+    },
     multiSelect: {
       name: 'Multiselect',
       control: {
@@ -167,6 +174,7 @@ const Template = ({
   compactDesign,
   onWhiteBackground,
   multiSelect,
+  filtering,
 }) => `
           <sdds-table 
             table-title="${label}"
@@ -175,6 +183,7 @@ const Template = ({
             compact-design="${compactDesign}"   
             white-background="${onWhiteBackground}"
             multi-select="${multiSelect}"
+            filtering="${filtering}"
         >
           <sdds-header-cell column-key="truck" column-title="${header_1_title}" custom-width="${column_1_width}" text-align="${column_1_text_align}" sortable="${column_1_sortable}"></sdds-header-cell>
           <sdds-header-cell column-key="driver" column-title="${header_2_title}" custom-width="${column_2_width}" text-align="${column_2_text_align}" sortable="${column_2_sortable}"></sdds-header-cell>
