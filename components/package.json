@@ -77,6 +77,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "browserslist": "^4.20.3",
+    "caniuse-lite": "^1.0.30001342",
     "concurrently": "^7.2.1"
   },
   "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
