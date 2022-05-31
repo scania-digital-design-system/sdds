@@ -1,14 +1,14 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import './dropdown-core';
-@import '../../helpers/components-shared.scss';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "./dropdown-core";
+@import "../../helpers/components-shared.scss";
 
 :host,
 ::slotted(*) {
   --sdds-link: var(--sdds-grey-958);
   --sdds-link-text-decoration: none;
 
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   color: var(--sdds-grey-958);
   box-sizing: border-box;
@@ -16,7 +16,7 @@
 
 :host {
   position: relative;
-  z-index: 2;
+  z-index: auto;
 }
 
 .sdds-dropdown {
@@ -66,7 +66,7 @@
     border: 0;
     outline: none;
 
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     color: var(--sdds-grey-958);
     width: 100%;
@@ -80,34 +80,35 @@
       color: var(--sdds-grey-700);
     }
 
-    &::-webkit-input-placeholder {
+    &::input-placeholder {
       color: var(--sdds-grey-700);
     }
 
-    &::-moz-placeholder {
+    &::placeholder {
       color: var(--sdds-grey-700);
       opacity: 1;
     }
 
-    &::-ms-input-placeholder {
+    &::input-placeholder {
       color: var(--sdds-grey-700);
     }
   }
 
   .sdds-dropdown-menu {
+    z-index: 1;
+
     @include sdds-scrollbar;
 
     background-color: var(--sdds-white);
     position: absolute;
-    z-index: 2;
     top: 100%;
     left: 0;
     min-width: 100%;
     max-height: 360px; // max 7 option items, then add scroll
     border-color: transparent;
     border-style: solid;
-    border-width: 0 1px 0;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    border-width: 0 1px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%);
     border-left-color: var(--sdds-grey-100);
     border-right-color: var(--sdds-grey-100);
     overflow-x: hidden;
@@ -147,13 +148,13 @@
     .sdds-dropdown-menu {
       top: auto;
       bottom: 100%;
-      box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
       transform-origin: bottom;
     }
   }
 }
 
-:host([disabled='true']) {
+:host([disabled="true"]) {
   cursor: not-allowed;
 
   .sdds-dropdown {
@@ -257,7 +258,7 @@
   margin-left: var(--sdds-spacing-element-16);
 }
 
-:host([size='small']) {
+:host([size="small"]) {
   ::slotted(sdds-dropdown-option) {
     padding: var(--sdds-spacing-element-12) var(--sdds-spacing-element-16);
   }
@@ -266,13 +267,13 @@
 :host(.sdds-dropdown--open) {
   .sdds-dropdown {
     .sdds-dropdown-toggle {
-      box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -1px 3px -1px rgb(0 0 0 / 10%);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
 
       &.is-filter {
         &::before {
-          content: ' ';
+          content: " ";
           position: absolute;
           z-index: 2;
           bottom: 0;
@@ -305,7 +306,7 @@
 }
 
 .sdds-dropdown-label-inside {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   color: var(--sdds-grey-958);
   position: absolute;
