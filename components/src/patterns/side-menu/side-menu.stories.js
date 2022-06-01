@@ -16,7 +16,7 @@ const Template = (args) => {
       padding:0;
       overflow: hidden;
       position: relative;
-    }   
+    }
     .sdds-demo-container {
       align-items: stretch;
       height: calc(100% - 64px);
@@ -221,7 +221,11 @@ const Template = (args) => {
     <div class="sdds-container" style="padding-top: 30px;">
       <div class="sdds-row">
 
-        <div class="sdds-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="sdds-col">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <br><br>
+        <sdds-datetime type="datetime-local" size="default" state="default" value="" class="hydrated"></sdds-datetime>
+        </div>
 
         <div class="sdds-col">
           Filler content to enable scrolling.<br>
