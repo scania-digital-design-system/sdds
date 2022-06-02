@@ -269,6 +269,11 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
+//Read only state
+.#{$prefix}-form-textfield-readonly {
+  pointer-events: none;
+}
+
 //Success state
 .#{$prefix}-form-textfield-success {
   .#{$prefix}-textfield-container {

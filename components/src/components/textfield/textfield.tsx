@@ -32,6 +32,9 @@ export class Textfield {
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
 
+  /** Set input in readonly state */
+  @Prop() readonly: boolean = false;
+
   /** Size of the input */
   @Prop() size = '';
 
@@ -112,6 +115,7 @@ export class Textfield {
             : ''
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
+        ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
         ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size == 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
