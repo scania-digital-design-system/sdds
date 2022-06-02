@@ -36,6 +36,8 @@ export class Table {
 
   @Prop({ reflect: true }) filtering: boolean = false;
 
+  @Prop({ reflect: true }) actionBar: boolean = false;
+
   @Prop() bodyData: any = `[
       {
           "truck": "L-series",
@@ -378,7 +380,7 @@ export class Table {
           }}
           ref={(table) => (this.tableSelector = table)}
         >
-          {(this.tableTitle || this.filtering) && (
+          {(this.tableTitle || this.filtering || this.actionBar) && (
             <div class="sdds-table__upper-bar">
               <div class="sdds-table__upper-bar-flex">
                 <caption class="sdds-table__title">{this.tableTitle}</caption>
@@ -406,7 +408,7 @@ export class Table {
                       </span>
                     </div>
                   )}
-                  <slot name="sdds-table__actionbar" />
+                  {this.actionBar && <slot name="sdds-table__actionbar" />}
                 </div>
               </div>
             </div>
