@@ -1,5 +1,3 @@
-import { Fragment } from 'jsx-dom';
-
 export default {
   title: 'Component/Table',
   argTypes: {
