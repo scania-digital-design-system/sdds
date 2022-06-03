@@ -113,5 +113,4 @@ body[data-env="hidden"]::before {
 
 body[data-env="development"]::before {
   content: "dev";
-  color: red;
 }
