@@ -99,6 +99,8 @@ export class Table {
 
   @State() mainCheckboxSelected: boolean = false;
 
+  @State() columnsNumber: number = 0;
+
   @Element() host: HTMLElement;
 
   @State() tableSelector: HTMLElement;
@@ -107,6 +109,7 @@ export class Table {
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
+    this.countBodyElement();
   }
 
   @Event({
@@ -140,8 +143,12 @@ export class Table {
   // Would  be good to make a check to make sure if header is present,
   // that Number of elements in header is equal to the number of elements in first row of table
   countBodyElement = () => {
-    let count = 0;
-    Object.keys(this.bodyDataManipulated[0]).forEach(() => count++);
+    if (this.multiSelect) {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
+    } else {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
+    }
+    console.log(`Number of columns is: ${this.columnsNumber}`);
   };
 
   compareValues = (key, order = 'asc') =>
@@ -366,6 +373,18 @@ export class Table {
       */
   };
 
+  paginationPrev = () => {
+    console.log('Clicked pagination prev');
+  };
+
+  paginationNext = () => {
+    console.log('Clicked pagination next');
+  };
+
+  paginationInputChange(e) {
+    console.log(`Pagination value is: ${e.target.value}`);
+  }
+
   render() {
     return (
       <Host selected-rows={this.multiselectArrayJSON}>
@@ -433,6 +452,60 @@ export class Table {
             </tr>
           </thead>
           <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
+          <tfoot class="sdds-table__footer">
+            <tr class="sdds-table__footer-row">
+              <td class="sdds-table__footer-cell" colSpan={this.columnsNumber}>
+                <div class="sdds-table__pagination">
+                  <div class="sdds-table__row-selector">Test left</div>
+                  <div class="sdds-table__page-selector">
+                    <input
+                      class="sdds-table__page-selector-input"
+                      type="number"
+                      min="1"
+                      value="1"
+                      dir="rtl"
+                      onChange={(e) => this.paginationInputChange(e)}
+                    />
+                    <p class="sdds-table__footer-text">
+                      of <span>57</span> pages
+                    </p>
+                    <button class="sdds-table__footer-btn">
+                      <svg
+                        class="sdds-table__footer-btn-svg"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 32 32"
+                        onClick={() => this.paginationPrev()}
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                    <button class="sdds-table__footer-btn">
+                      <svg
+                        class="sdds-table__footer-btn-svg"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 32 32"
+                        onClick={() => this.paginationNext()}
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </Host>
     );
