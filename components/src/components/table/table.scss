@@ -108,11 +108,11 @@
   // Fix that works for css&html version only
   .sdds-table__header {
     .sdds-table__header-cell {
-      &:first-child {
+      &:first-of-type {
         border-top-left-radius: 4px;
       }
 
-      &:last-child {
+      &:last-of-type {
         border-top-right-radius: 4px;
       }
     }
@@ -144,11 +144,11 @@
       overflow: hidden;
       transition: background-color 200ms ease;
 
-      &:first-child {
+      &:first-of-type {
         border-top-left-radius: 4px;
       }
 
-      &:last-child {
+      &:last-of-type {
         border-top-right-radius: 4px;
       }
     }
@@ -343,7 +343,7 @@
   // Rule to fix tiny gap that shows when multiselect is on but table has no caption area
   &.sdds-table--multiselect {
     .sdds-table__header {
-      ::slotted(.sdds-table__header-cell:first-child) {
+      ::slotted(.sdds-table__header-cell:first-of-type) {
         border-top-left-radius: 0;
       }
     }
@@ -351,11 +351,11 @@
 
   //Web component specific part
 
-  ::slotted(sdds-header-cell:first-child) {
+  ::slotted(sdds-header-cell:first-of-type) {
     border-top-left-radius: 4px;
   }
 
-  ::slotted(sdds-header-cell:last-child) {
+  ::slotted(sdds-header-cell:last-of-type) {
     border-top-right-radius: 4px;
   }
 
