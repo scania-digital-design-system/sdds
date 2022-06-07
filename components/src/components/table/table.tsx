@@ -164,7 +164,6 @@ export class Table {
     } else {
       this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
     }
-    console.log(`Number of columns is: ${this.columnsNumber}`);
   };
 
   compareValues = (key, order = 'asc') =>
