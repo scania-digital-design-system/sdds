@@ -528,7 +528,7 @@ export class Table {
                         onChange={(event) => this.paginationInputChange(event)}
                       />
                       <p class="sdds-table__footer-text">
-                        of <span>57</span> pages
+                        of <span>{this.numberOfPages}</span> pages
                       </p>
                       <button
                         class="sdds-table__footer-btn"
