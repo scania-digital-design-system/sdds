@@ -30,6 +30,12 @@
     text-align: left;
   }
 
+  .sdds-table__actionbar {
+    display: flex;
+    align-self: center;
+    gap: 8px;
+  }
+
   .sdds-table__searchbar {
     display: flex;
     align-self: center;
@@ -398,4 +404,30 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+// Actionbar buttons styling
+
+.sdds-table__actionbar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  min-width: 40px;
+  border: none;
+  background-color: transparent;
+  color: var(--sdds-grey-958);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 250ms ease;
+  margin-left: 0;
+
+  &:hover {
+    background-color: var(--sdds-grey-300);
+  }
+}
+
+.sdds-table__actionbar-btn-icon {
+  height: 20px;
+  width: auto;
 }
