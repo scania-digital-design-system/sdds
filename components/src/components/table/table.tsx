@@ -326,7 +326,7 @@ export class Table {
 
     // grab all rows in body
     const dataRows =
-      event.currentTarget.parentElement.parentElement.parentElement.parentElement
+      event.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement
         .getElementsByClassName('sdds-table__body')[0]
         .querySelectorAll('.sdds-table__row');
 
