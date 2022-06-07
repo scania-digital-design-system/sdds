@@ -270,8 +270,21 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Read only state
+
+.#{$prefix}-textfield-icon__readonly {
+  display: none;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .#{$prefix}-form-textfield-readonly {
   pointer-events: none;
+
+  .#{$prefix}-textfield-icon__readonly {
+    display: block;
+  }
 }
 
 //Success state
