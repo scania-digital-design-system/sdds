@@ -261,6 +261,10 @@
           cursor: pointer;
           height: 40px;
           width: 40px;
+
+          &:disabled {
+            cursor: default;
+          }
         }
 
         .sdds-table__footer-btn-svg {

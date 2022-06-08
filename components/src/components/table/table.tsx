@@ -117,7 +117,7 @@ export class Table {
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
-    this.countBodyElement();
+    this.countColumnNumber();
   }
 
   componentDidRender() {
@@ -158,7 +158,7 @@ export class Table {
 
   // Would  be good to make a check to make sure if header is present,
   // that Number of elements in header is equal to the number of elements in first row of table
-  countBodyElement = () => {
+  countColumnNumber = () => {
     if (this.multiSelect) {
       this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
     } else {
@@ -200,11 +200,10 @@ export class Table {
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
-  selectedDataExporter = (event) => {
-    const selectedRows = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0]
-      .getElementsByClassName('sdds-table__row--selected');
+  selectedDataExporter = () => {
+    const selectedRows = this.tableBodySelector.getElementsByClassName(
+      'sdds-table__row--selected'
+    );
 
     this.multiselectArray = [];
     for (let j = 0; j < selectedRows.length; j++) {
@@ -229,8 +228,7 @@ export class Table {
       headCheckbox.checked = false;
     }
 
-    const bodyCheckboxes =
-      this.tableSelector.getElementsByClassName('sdds-table__body')[0].children;
+    const bodyCheckboxes = this.tableBodySelector.children;
 
     for (let z = 0; z < bodyCheckboxes.length; z++) {
       const singleCheckbox = bodyCheckboxes[z].getElementsByClassName(
@@ -266,7 +264,7 @@ export class Table {
         row.classList.remove('sdds-table__row--selected');
       }
     }
-    this.selectedDataExporter(event);
+    this.selectedDataExporter();
   };
 
   bodyCheckBoxClicked = (event) => {
@@ -278,20 +276,16 @@ export class Table {
       row.classList.remove('sdds-table__row--selected');
     }
 
-    const tableBodyLevel = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0];
-
     const numberOfRows =
-      tableBodyLevel.getElementsByClassName('sdds-table__row').length;
+      this.tableBodySelector.getElementsByClassName('sdds-table__row').length;
 
-    const numberOfRowsSelected = tableBodyLevel.getElementsByClassName(
+    const numberOfRowsSelected = this.tableBodySelector.getElementsByClassName(
       'sdds-table__row--selected'
     ).length;
 
     this.mainCheckboxSelected = numberOfRows === numberOfRowsSelected;
 
-    this.selectedDataExporter(event);
+    this.selectedDataExporter();
   };
 
   setBodyItem = () =>
@@ -304,7 +298,7 @@ export class Table {
                 <input
                   class="sdds-form-input"
                   type="checkbox"
-                  onChange={(e) => this.bodyCheckBoxClicked(e)}
+                  onChange={(event) => this.bodyCheckBoxClicked(event)}
                 />
               </label>
             </div>
@@ -324,21 +318,15 @@ export class Table {
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
     // grab all rows in body
-    const dataRows =
-      event.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement
-        .getElementsByClassName('sdds-table__body')[0]
-        .querySelectorAll('.sdds-table__row');
+    const dataRowsFiltering =
+      this.tableBodySelector.querySelectorAll('.sdds-table__row');
 
-    // turn it into array
-    const dataRowsToArray = [...dataRows];
-
-    dataRowsToArray.map((item) => {
-      // every row contains of many cells, find them and turn into array
-      const cells = [...item.getElementsByTagName('sdds-body-cell')];
-
+    dataRowsFiltering.forEach((item) => {
+      const cells = item.querySelectorAll('sdds-body-cell');
       const cellValuesArray = [];
+
       // go through cells and save cell-values in array
-      cells.map((cellItem) => {
+      cells.forEach((cellItem) => {
         const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
         cellValuesArray.push(cellValue);
       });
@@ -358,7 +346,6 @@ export class Table {
 
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
-
       this.disableAllSorting = true;
       this.sortingEnabler.emit(this.disableAllSorting);
     } else {
