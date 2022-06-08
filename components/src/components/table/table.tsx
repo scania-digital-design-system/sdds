@@ -93,11 +93,7 @@ export class Table {
 
   @State() bodyDataOriginal = [];
 
-  @State() bodyRowSelected = false;
-
   @State() multiselectArray = [];
-
-  @State() arrayOfKeys = [];
 
   @State() multiselectArrayJSON: string;
 
@@ -110,6 +106,8 @@ export class Table {
   @State() tableSelector: HTMLElement;
 
   @State() tableBodySelector: HTMLElement;
+
+  @State() headCheckBox: HTMLInputElement;
 
   @State() disableAllSorting: boolean = false;
 
@@ -145,7 +143,6 @@ export class Table {
     }
     this.bodyDataManipulated = [...this.innerBodyData];
     this.bodyDataOriginal = [...this.innerBodyData];
-    this.arrayOfKeys = Object.keys(this.bodyDataManipulated[0]);
   }
 
   // Listen to sortColumnData from table-header-element
@@ -220,40 +217,38 @@ export class Table {
   };
 
   uncheckedAll = () => {
-    const headCheckbox = this.tableSelector.querySelector(
-      '.sdds-table__header-cell.sdds-table__header-cell--checkbox > .sdds-checkbox-item > .sdds-form-label > .sdds-form-input'
-    ) as HTMLInputElement;
-
-    if (headCheckbox.checked) {
-      headCheckbox.checked = false;
+    if (this.headCheckBox.checked) {
+      this.headCheckBox.checked = false;
     }
 
-    const bodyCheckboxes = this.tableBodySelector.children;
+    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
 
-    for (let z = 0; z < bodyCheckboxes.length; z++) {
-      const singleCheckbox = bodyCheckboxes[z].getElementsByClassName(
-        'sdds-form-input'
-      )[0] as HTMLInputElement;
+    bodyCheckboxes.forEach((item) => {
+      const singleCheckbox = item.querySelector(
+        '.sdds-form-input'
+      ) as HTMLInputElement;
+
       const row = singleCheckbox.closest('tr');
 
       if (singleCheckbox.checked) {
         singleCheckbox.checked = false;
         row.classList.remove('sdds-table__row--selected');
       }
-    }
+    });
+
     this.multiselectArrayJSON = JSON.stringify([]);
   };
 
   headCheckBoxClicked = (event) => {
     this.mainCheckboxSelected = !!event.currentTarget.checked;
 
-    const bodyCheckboxes = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0].children;
+    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
 
-    for (let z = 0; z < bodyCheckboxes.length; z++) {
-      const singleCheckbox =
-        bodyCheckboxes[z].getElementsByClassName('sdds-form-input')[0];
+    bodyCheckboxes.forEach((item) => {
+      const singleCheckbox = item.querySelector(
+        '.sdds-form-input'
+      ) as HTMLInputElement;
+
       const row = singleCheckbox.closest('tr');
 
       if (event.currentTarget.checked) {
@@ -263,7 +258,7 @@ export class Table {
         singleCheckbox.checked = false;
         row.classList.remove('sdds-table__row--selected');
       }
-    }
+    });
     this.selectedDataExporter();
   };
 
@@ -355,24 +350,22 @@ export class Table {
     }
 
     /*
-
-    // Logic for filtering JSON data on all columns
-    // Really nice solution, do not delete, might be needed in future
-    // Reason to go with upper one is not to lose selected state on checkboxes
-    if (searchTerm.length > 0) {
-      this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
-        Object.keys(option).some(
-          (key) =>
-            String(option[key] ?? '')
-              .toLowerCase()
-              .indexOf(searchTerm) >= 0
-        )
-      );
-    } else {
-      this.bodyDataManipulated = this.bodyDataOriginal;
-    }
-
-      */
+        // Logic for filtering JSON data on all columns
+        // Really nice solution, do not delete, might be needed in future
+        // Reason to go with upper one is not to lose selected state on checkboxes
+        if (searchTerm.length > 0) {
+          this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
+            Object.keys(option).some(
+              (key) =>
+                String(option[key] ?? '')
+                  .toLowerCase()
+                  .indexOf(searchTerm) >= 0
+            )
+          );
+        } else {
+          this.bodyDataManipulated = this.bodyDataOriginal;
+        }
+    */
   };
 
   paginationPrev = (event) => {
@@ -480,6 +473,9 @@ export class Table {
                         type="checkbox"
                         onChange={(e) => this.headCheckBoxClicked(e)}
                         checked={this.mainCheckboxSelected}
+                        ref={(headCheckbox) =>
+                          (this.headCheckBox = headCheckbox)
+                        }
                       />
                     </label>
                   </div>
