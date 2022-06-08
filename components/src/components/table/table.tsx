@@ -113,6 +113,8 @@ export class Table {
 
   @State() numberOfPages: number = 0;
 
+  @State() tempPaginationDisable: boolean = false;
+
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
     this.countColumnNumber();
@@ -330,6 +332,10 @@ export class Table {
     */
 
     if (searchTerm.length > 0) {
+      if (this.pagination) {
+        this.tempPaginationDisable = true;
+      }
+
       // grab all rows in body
       const dataRowsFiltering =
         this.tableBodySelector.querySelectorAll('.sdds-table__row');
@@ -361,6 +367,9 @@ export class Table {
       this.disableAllSorting = true;
       this.sortingEnabler.emit(this.disableAllSorting);
     } else {
+      if (this.pagination) {
+        this.tempPaginationDisable = false;
+      }
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
       this.disableAllSorting = false;
       this.sortingEnabler.emit(this.disableAllSorting);
@@ -403,13 +412,18 @@ export class Table {
       // for making logic easier 1st result, 2nd result...
       const index = i + 1;
 
-      const lastResult = this.rowsPerPage * this.paginationValue;
-      const firstResult = lastResult - this.rowsPerPage;
-
-      if (index > firstResult && index <= lastResult) {
+      if (this.tempPaginationDisable) {
         item.classList.remove('sdds-table__row--hidden');
+        this.paginationValue = 1;
       } else {
-        item.classList.add('sdds-table__row--hidden');
+        const lastResult = this.rowsPerPage * this.paginationValue;
+        const firstResult = lastResult - this.rowsPerPage;
+
+        if (index > firstResult && index <= lastResult) {
+          item.classList.remove('sdds-table__row--hidden');
+        } else {
+          item.classList.add('sdds-table__row--hidden');
+        }
       }
     });
   };
@@ -507,13 +521,21 @@ export class Table {
                         value={this.paginationValue}
                         dir="rtl"
                         onChange={(event) => this.paginationInputChange(event)}
+                        disabled={this.tempPaginationDisable}
                       />
                       <p class="sdds-table__footer-text">
-                        of <span>{this.numberOfPages}</span> pages
+                        of{' '}
+                        <span>
+                          {this.tempPaginationDisable ? 1 : this.numberOfPages}
+                        </span>{' '}
+                        pages
                       </p>
                       <button
                         class="sdds-table__footer-btn"
-                        disabled={this.paginationValue === 1}
+                        disabled={
+                          this.paginationValue === 1 ||
+                          this.tempPaginationDisable
+                        }
                         onClick={(event) => this.paginationPrev(event)}
                       >
                         <svg
@@ -532,7 +554,10 @@ export class Table {
                       </button>
                       <button
                         class="sdds-table__footer-btn"
-                        disabled={this.paginationValue === this.numberOfPages}
+                        disabled={
+                          this.paginationValue === this.numberOfPages ||
+                          this.tempPaginationDisable
+                        }
                         onClick={(event) => this.paginationNext(event)}
                       >
                         <svg
