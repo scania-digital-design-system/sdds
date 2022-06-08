@@ -309,45 +309,7 @@ export class Table {
   searchFunction = (event) => {
     // grab the value of search and turn to small caps
     const searchTerm = event.currentTarget.value.toLowerCase();
-
     const sddsTableSearchBar = event.currentTarget.parentElement;
-
-    // grab all rows in body
-    const dataRowsFiltering =
-      this.tableBodySelector.querySelectorAll('.sdds-table__row');
-
-    dataRowsFiltering.forEach((item) => {
-      const cells = item.querySelectorAll('sdds-body-cell');
-      const cellValuesArray = [];
-
-      // go through cells and save cell-values in array
-      cells.forEach((cellItem) => {
-        const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-        cellValuesArray.push(cellValue);
-      });
-
-      // iterate over array of values and see if one matches search string
-      const matchCounter = cellValuesArray.find((element) =>
-        element.includes(searchTerm)
-      );
-
-      // if matches, show parent row, otherwise hide the row
-      if (matchCounter) {
-        item.classList.remove('sdds-table__row--hidden');
-      } else {
-        item.classList.add('sdds-table__row--hidden');
-      }
-    });
-
-    if (searchTerm.length > 0) {
-      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
-      this.disableAllSorting = true;
-      this.sortingEnabler.emit(this.disableAllSorting);
-    } else {
-      sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
-      this.disableAllSorting = false;
-      this.sortingEnabler.emit(this.disableAllSorting);
-    }
 
     /*
         // Logic for filtering JSON data on all columns
@@ -366,6 +328,43 @@ export class Table {
           this.bodyDataManipulated = this.bodyDataOriginal;
         }
     */
+
+    if (searchTerm.length > 0) {
+      // grab all rows in body
+      const dataRowsFiltering =
+        this.tableBodySelector.querySelectorAll('.sdds-table__row');
+
+      dataRowsFiltering.forEach((item) => {
+        const cells = item.querySelectorAll('sdds-body-cell');
+        const cellValuesArray = [];
+
+        // go through cells and save cell-values in array
+        cells.forEach((cellItem) => {
+          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+          cellValuesArray.push(cellValue);
+        });
+
+        // iterate over array of values and see if one matches search string
+        const matchCounter = cellValuesArray.find((element) =>
+          element.includes(searchTerm)
+        );
+
+        // if matches, show parent row, otherwise hide the row
+        if (matchCounter) {
+          item.classList.remove('sdds-table__row--hidden');
+        } else {
+          item.classList.add('sdds-table__row--hidden');
+        }
+      });
+
+      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
+      this.disableAllSorting = true;
+      this.sortingEnabler.emit(this.disableAllSorting);
+    } else {
+      sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
+      this.disableAllSorting = false;
+      this.sortingEnabler.emit(this.disableAllSorting);
+    }
   };
 
   paginationPrev = (event) => {
