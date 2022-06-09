@@ -511,7 +511,7 @@ export class Table {
                   colSpan={this.columnsNumber}
                 >
                   <div class="sdds-table__pagination">
-                    <div class="sdds-table__row-selector">Test left</div>
+                    <div class="sdds-table__row-selector"></div>
                     <div class="sdds-table__page-selector">
                       <input
                         class="sdds-table__page-selector-input"
