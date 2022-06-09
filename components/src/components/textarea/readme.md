@@ -16,6 +16,7 @@
 | `maxlength`     | `maxlength`      | Max length of input                                       | `number`  | `undefined`  |
 | `name`          | `name`           | Name attribute                                            | `string`  | `''`         |
 | `placeholder`   | `placeholder`    | Placeholder text                                          | `string`  | `''`         |
+| `readonly`      | `readonly`       | Set input in readonly state                               | `boolean` | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`  | `undefined`  |
 | `state`         | `state`          | Error state of input                                      | `string`  | `undefined`  |
 | `value`         | `value`          | Value of the input text                                   | `string`  | `''`         |
