@@ -209,11 +209,13 @@
   <button id="modal" class="sdds-btn sdds-btn-primary">Open modal</button>
   <sdds-modal size="md" selector="#modal">
     <h5 slot="sdds-modal-headline">Header 1</h5>
-    <p slot="sdds-modal-body">
-      Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
-      ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum
-      rhoncus.
-    </p>
+    <div slot="sdds-modal-body">
+      <sdds-dropdown id="dropdown_3" placeholder="Select option">
+        <sdds-dropdown-option value="option-1">Option 11</sdds-dropdown-option>
+        <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+        <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+      </sdds-dropdown>
+    </div>
     <button
       slot="sdds-modal-actions"
       onclick="alert('delete')"
