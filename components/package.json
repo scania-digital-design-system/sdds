@@ -40,7 +40,7 @@
     "@popperjs/core": "^2.11.4",
     "@scania/grid": "^2.0.1",
     "@scania/icons": "^1.1.1",
-    "@scania/theme-light": "^4.2.1",
+    "@scania/theme-light": "latest",
     "@scania/typography": "^1.2.1",
     "@stencil/core": "2.14.2",
     "@stencil/router": "1.0.1",
@@ -77,6 +77,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@storybook/theming": "^6.5.8",
     "concurrently": "^5.3.0"
   },
   "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
