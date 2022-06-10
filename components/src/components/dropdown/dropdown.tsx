@@ -62,8 +62,6 @@ export class Dropdown {
 
   @State() selectedValue: string = '';
 
-  @State() uuid;
-
   @State() dropdownUniqueClass: string = '';
 
   @State() openUpwards: boolean = false;
@@ -78,11 +76,6 @@ export class Dropdown {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
     this.setOptionFromOutside(this.defaultOption);
-  }
-
-  componentDidLoad() {
-    // generate UUID for unique event listener
-    this.uuid = new Date().getTime() + Math.random();
   }
 
   setOptionFromOutside(optionValue) {
@@ -117,15 +110,15 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      this.open = !this.open;
+      this.open = true;
     } else {
       this.tabbingLabelReset();
       this.open = false;
     }
   }
 
-  handleClick(id) {
-    if (id !== this.uuid) this.open = false;
+  handleClick() {
+    this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
     const distanceToBottom = this.host.getBoundingClientRect().top;
     const viewportHeight = window.innerHeight;
@@ -196,7 +189,7 @@ export class Dropdown {
               this.type === 'filter' ? 'is-filter' : ''
             }`}
             type="button"
-            onClick={() => this.handleClick(this.uuid)}
+            onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
           >
             <div class="sdds-dropdown-label">
