@@ -118,6 +118,9 @@ export class Table {
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
     this.countColumnNumber();
+    if (this.pagination) {
+      this.setNumberOfPages();
+    }
   }
 
   componentDidRender() {
@@ -395,15 +398,32 @@ export class Table {
   };
 
   paginationInputChange(event) {
-    this.paginationValue = event.target.value;
+    const insertedValue = event.target.value;
+    // const inputMaxValue = event.target.max;
+    console.log(`Value is: ${insertedValue}`);
+    console.log(`Number of pages is: ${this.numberOfPages}`);
+
+    if (insertedValue > this.numberOfPages || insertedValue < 1) {
+      event.target.classList.add('sdds-table__page-selector-input--shake');
+      event.target.value = event.target.max;
+      this.paginationValue = event.target.value;
+    } else {
+      this.paginationValue = event.target.value;
+    }
     this.runPagination();
   }
 
-  runPagination = () => {
+  removeShakeAnimation(event) {
+    event.target.classList.remove('sdds-table__page-selector-input--shake');
+  }
+
+  setNumberOfPages() {
     this.numberOfPages = Math.ceil(
       this.bodyDataManipulated.length / this.rowsPerPage
     );
+  }
 
+  runPagination = () => {
     // grab all rows in body
     const dataRowsPagination =
       this.tableBodySelector.querySelectorAll('.sdds-table__row');
@@ -519,8 +539,15 @@ export class Table {
                         min="1"
                         max={this.numberOfPages}
                         value={this.paginationValue}
+                        pattern="[0-9]+"
                         dir="rtl"
                         onChange={(event) => this.paginationInputChange(event)}
+                        onFocusout={(event) =>
+                          this.paginationInputChange(event)
+                        }
+                        onAnimationEnd={(event) => {
+                          this.removeShakeAnimation(event);
+                        }}
                         disabled={this.tempPaginationDisable}
                       />
                       <p class="sdds-table__footer-text">
@@ -533,7 +560,7 @@ export class Table {
                       <button
                         class="sdds-table__footer-btn"
                         disabled={
-                          this.paginationValue === 1 ||
+                          this.paginationValue <= 1 ||
                           this.tempPaginationDisable
                         }
                         onClick={(event) => this.paginationPrev(event)}
@@ -555,7 +582,7 @@ export class Table {
                       <button
                         class="sdds-table__footer-btn"
                         disabled={
-                          this.paginationValue === this.numberOfPages ||
+                          this.paginationValue >= this.numberOfPages ||
                           this.tempPaginationDisable
                         }
                         onClick={(event) => this.paginationNext(event)}
