@@ -305,6 +305,10 @@
 
           &:disabled {
             cursor: default;
+
+            &:hover {
+              background-color: transparent;
+            }
           }
         }
 
