@@ -171,6 +171,10 @@ export class Textarea {
               fill="#0D0F13"
             />
           </svg>
+
+          <span class="sdds-textarea-icon__readonly-label">
+            This field is non-editable
+          </span>
         </div>
         {this.helper.length > 0 && (
           <span class={'sdds-textarea-helper'}>{this.helper}</span>

@@ -277,6 +277,21 @@ slot[name="sdds-label"]::slotted(*) {
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
+
+  &-label {
+    display: none;
+    position: absolute;
+    right: 18px;
+    bottom: -24px;
+
+    @include type-style("detail-05");
+
+    padding: 8px;
+    color: var(--sdds-white);
+    background-color: var(--sdds-grey-800);
+    white-space: nowrap;
+    border-radius: 4px 0 4px 4px;
+  }
 }
 
 .#{$prefix}-form-textfield-readonly {
@@ -284,6 +299,22 @@ slot[name="sdds-label"]::slotted(*) {
 
   .#{$prefix}-textfield-icon__readonly {
     display: block;
+    pointer-events: all;
+
+    &:hover {
+      ~ .#{$prefix}-textfield-icon__readonly-label {
+        display: block;
+      }
+    }
+  }
+
+  .#{$prefix}-textfield-input {
+    padding-right: 54px;
+    background-color: transparent;
+  }
+
+  .#{$prefix}-textfield-container {
+    background-color: transparent;
   }
 }
 

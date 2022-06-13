@@ -183,6 +183,10 @@ export class Textfield {
               fill="#0D0F13"
             />
           </svg>
+
+          <span class="sdds-textfield-icon__readonly-label">
+            This field is non-editable
+          </span>
         </div>
 
         <div class="sdds-textfield-helper">
