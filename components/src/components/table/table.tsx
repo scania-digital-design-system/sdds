@@ -38,6 +38,10 @@ export class Table {
 
   @Prop({ reflect: true }) actionBar: boolean = false;
 
+  @Prop({ reflect: true }) pagination: boolean = false;
+
+  @Prop({ reflect: true }) rowsPerPage: number = 2;
+
   @Prop() bodyData: any = `[
       {
           "truck": "L-series",
@@ -89,25 +93,43 @@ export class Table {
 
   @State() bodyDataOriginal = [];
 
-  @State() bodyRowSelected = false;
-
   @State() multiselectArray = [];
-
-  @State() arrayOfKeys = [];
 
   @State() multiselectArrayJSON: string;
 
   @State() mainCheckboxSelected: boolean = false;
 
+  @State() columnsNumber: number = 0;
+
   @Element() host: HTMLElement;
 
   @State() tableSelector: HTMLElement;
 
+  @State() tableBodySelector: HTMLElement;
+
+  @State() headCheckBox: HTMLInputElement;
+
   @State() disableAllSorting: boolean = false;
+
+  @State() numberOfPages: number = 0;
+
+  @State() tempPaginationDisable: boolean = false;
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
+    this.countColumnNumber();
+    if (this.pagination) {
+      this.setNumberOfPages();
+    }
   }
+
+  componentDidRender() {
+    if (this.pagination) {
+      this.runPagination();
+    }
+  }
+
+  @State() paginationValue: number = 1;
 
   @Event({
     eventName: 'sortingEnabler',
@@ -126,7 +148,6 @@ export class Table {
     }
     this.bodyDataManipulated = [...this.innerBodyData];
     this.bodyDataOriginal = [...this.innerBodyData];
-    this.arrayOfKeys = Object.keys(this.bodyDataManipulated[0]);
   }
 
   // Listen to sortColumnData from table-header-element
@@ -139,9 +160,12 @@ export class Table {
 
   // Would  be good to make a check to make sure if header is present,
   // that Number of elements in header is equal to the number of elements in first row of table
-  countBodyElement = () => {
-    let count = 0;
-    Object.keys(this.bodyDataManipulated[0]).forEach(() => count++);
+  countColumnNumber = () => {
+    if (this.multiSelect) {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
+    } else {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
+    }
   };
 
   compareValues = (key, order = 'asc') =>
@@ -178,11 +202,10 @@ export class Table {
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
-  selectedDataExporter = (event) => {
-    const selectedRows = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0]
-      .getElementsByClassName('sdds-table__row--selected');
+  selectedDataExporter = () => {
+    const selectedRows = this.tableBodySelector.getElementsByClassName(
+      'sdds-table__row--selected'
+    );
 
     this.multiselectArray = [];
     for (let j = 0; j < selectedRows.length; j++) {
@@ -199,41 +222,38 @@ export class Table {
   };
 
   uncheckedAll = () => {
-    const headCheckbox = this.tableSelector.querySelector(
-      '.sdds-table__header-cell.sdds-table__header-cell--checkbox > .sdds-checkbox-item > .sdds-form-label > .sdds-form-input'
-    ) as HTMLInputElement;
-
-    if (headCheckbox.checked) {
-      headCheckbox.checked = false;
+    if (this.headCheckBox.checked) {
+      this.headCheckBox.checked = false;
     }
 
-    const bodyCheckboxes =
-      this.tableSelector.getElementsByClassName('sdds-table__body')[0].children;
+    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
 
-    for (let z = 0; z < bodyCheckboxes.length; z++) {
-      const singleCheckbox = bodyCheckboxes[z].getElementsByClassName(
-        'sdds-form-input'
-      )[0] as HTMLInputElement;
+    bodyCheckboxes.forEach((item) => {
+      const singleCheckbox = item.querySelector(
+        '.sdds-form-input'
+      ) as HTMLInputElement;
+
       const row = singleCheckbox.closest('tr');
 
       if (singleCheckbox.checked) {
         singleCheckbox.checked = false;
         row.classList.remove('sdds-table__row--selected');
       }
-    }
+    });
+
     this.multiselectArrayJSON = JSON.stringify([]);
   };
 
   headCheckBoxClicked = (event) => {
     this.mainCheckboxSelected = !!event.currentTarget.checked;
 
-    const bodyCheckboxes = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0].children;
+    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
 
-    for (let z = 0; z < bodyCheckboxes.length; z++) {
-      const singleCheckbox =
-        bodyCheckboxes[z].getElementsByClassName('sdds-form-input')[0];
+    bodyCheckboxes.forEach((item) => {
+      const singleCheckbox = item.querySelector(
+        '.sdds-form-input'
+      ) as HTMLInputElement;
+
       const row = singleCheckbox.closest('tr');
 
       if (event.currentTarget.checked) {
@@ -243,8 +263,8 @@ export class Table {
         singleCheckbox.checked = false;
         row.classList.remove('sdds-table__row--selected');
       }
-    }
-    this.selectedDataExporter(event);
+    });
+    this.selectedDataExporter();
   };
 
   bodyCheckBoxClicked = (event) => {
@@ -256,20 +276,16 @@ export class Table {
       row.classList.remove('sdds-table__row--selected');
     }
 
-    const tableBodyLevel = event.currentTarget
-      .closest('.sdds-table')
-      .getElementsByClassName('sdds-table__body')[0];
-
     const numberOfRows =
-      tableBodyLevel.getElementsByClassName('sdds-table__row').length;
+      this.tableBodySelector.getElementsByClassName('sdds-table__row').length;
 
-    const numberOfRowsSelected = tableBodyLevel.getElementsByClassName(
+    const numberOfRowsSelected = this.tableBodySelector.getElementsByClassName(
       'sdds-table__row--selected'
     ).length;
 
     this.mainCheckboxSelected = numberOfRows === numberOfRowsSelected;
 
-    this.selectedDataExporter(event);
+    this.selectedDataExporter();
   };
 
   setBodyItem = () =>
@@ -282,7 +298,7 @@ export class Table {
                 <input
                   class="sdds-form-input"
                   type="checkbox"
-                  onChange={(e) => this.bodyCheckBoxClicked(e)}
+                  onChange={(event) => this.bodyCheckBoxClicked(event)}
                 />
               </label>
             </div>
@@ -298,72 +314,138 @@ export class Table {
   searchFunction = (event) => {
     // grab the value of search and turn to small caps
     const searchTerm = event.currentTarget.value.toLowerCase();
-
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    // grab all rows in body
-    const dataRows =
-      event.currentTarget.parentElement.parentElement.parentElement.parentElement
-        .getElementsByClassName('sdds-table__body')[0]
-        .querySelectorAll('.sdds-table__row');
-
-    // turn it into array
-    const dataRowsToArray = [...dataRows];
-
-    dataRowsToArray.map((item) => {
-      // every row contains of many cells, find them and turn into array
-      const cells = [...item.getElementsByTagName('sdds-body-cell')];
-
-      const cellValuesArray = [];
-      // go through cells and save cell-values in array
-      cells.map((cellItem) => {
-        const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-        cellValuesArray.push(cellValue);
-      });
-
-      // iterate over array of values and see if one matches search string
-      const matchCounter = cellValuesArray.find((element) =>
-        element.includes(searchTerm)
-      );
-
-      // if matches, show parent row, otherwise hide the row
-      if (matchCounter) {
-        item.classList.remove('sdds-table__row--hidden');
-      } else {
-        item.classList.add('sdds-table__row--hidden');
-      }
-    });
+    /*
+        // Logic for filtering JSON data on all columns
+        // Really nice solution, do not delete, might be needed in future
+        // Reason to go with upper one is not to lose selected state on checkboxes
+        if (searchTerm.length > 0) {
+          this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
+            Object.keys(option).some(
+              (key) =>
+                String(option[key] ?? '')
+                  .toLowerCase()
+                  .indexOf(searchTerm) >= 0
+            )
+          );
+        } else {
+          this.bodyDataManipulated = this.bodyDataOriginal;
+        }
+    */
 
     if (searchTerm.length > 0) {
-      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
+      if (this.pagination) {
+        this.tempPaginationDisable = true;
+      }
 
+      // grab all rows in body
+      const dataRowsFiltering =
+        this.tableBodySelector.querySelectorAll('.sdds-table__row');
+
+      dataRowsFiltering.forEach((item) => {
+        const cells = item.querySelectorAll('sdds-body-cell');
+        const cellValuesArray = [];
+
+        // go through cells and save cell-values in array
+        cells.forEach((cellItem) => {
+          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+          cellValuesArray.push(cellValue);
+        });
+
+        // iterate over array of values and see if one matches search string
+        const matchCounter = cellValuesArray.find((element) =>
+          element.includes(searchTerm)
+        );
+
+        // if matches, show parent row, otherwise hide the row
+        if (matchCounter) {
+          item.classList.remove('sdds-table__row--hidden');
+        } else {
+          item.classList.add('sdds-table__row--hidden');
+        }
+      });
+
+      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
       this.disableAllSorting = true;
       this.sortingEnabler.emit(this.disableAllSorting);
     } else {
+      if (this.pagination) {
+        this.tempPaginationDisable = false;
+      }
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
       this.disableAllSorting = false;
       this.sortingEnabler.emit(this.disableAllSorting);
     }
+  };
 
-    /*
-
-    // Logic for filtering JSON data on all columns
-    // Really nice solution, do not delete, might be needed in future
-    // Reason to go with upper one is not to lose selected state on checkboxes
-    if (searchTerm.length > 0) {
-      this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
-        Object.keys(option).some(
-          (key) =>
-            String(option[key] ?? '')
-              .toLowerCase()
-              .indexOf(searchTerm) >= 0
-        )
-      );
-    } else {
-      this.bodyDataManipulated = this.bodyDataOriginal;
+  paginationPrev = (event) => {
+    event.preventDefault();
+    // Enable lowering until 1st page
+    if (this.paginationValue >= 2) {
+      this.paginationValue--;
     }
+    this.runPagination();
+  };
 
-      */
+  paginationNext = (event) => {
+    event.preventDefault();
+    // Enable increasing until the max number of pages
+    if (this.paginationValue <= this.numberOfPages) {
+      this.paginationValue++;
+    }
+    this.runPagination();
+  };
+
+  paginationInputChange(event) {
+    const insertedValue = event.target.value;
+    // const inputMaxValue = event.target.max;
+    console.log(`Value is: ${insertedValue}`);
+    console.log(`Number of pages is: ${this.numberOfPages}`);
+
+    if (insertedValue > this.numberOfPages || insertedValue < 1) {
+      event.target.classList.add('sdds-table__page-selector-input--shake');
+      event.target.value = event.target.max;
+      this.paginationValue = event.target.value;
+    } else {
+      this.paginationValue = event.target.value;
+    }
+    this.runPagination();
+  }
+
+  removeShakeAnimation(event) {
+    event.target.classList.remove('sdds-table__page-selector-input--shake');
+  }
+
+  setNumberOfPages() {
+    this.numberOfPages = Math.ceil(
+      this.bodyDataManipulated.length / this.rowsPerPage
+    );
+  }
+
+  runPagination = () => {
+    // grab all rows in body
+    const dataRowsPagination =
+      this.tableBodySelector.querySelectorAll('.sdds-table__row');
+
+    dataRowsPagination.forEach((item, i) => {
+      // for making logic easier 1st result, 2nd result...
+      const index = i + 1;
+
+      if (this.tempPaginationDisable) {
+        item.classList.remove('sdds-table__row--hidden');
+        this.paginationValue = 1;
+      } else {
+        const lastResult = this.rowsPerPage * this.paginationValue;
+        const firstResult = lastResult - this.rowsPerPage;
+
+        if (index > firstResult && index <= lastResult) {
+          item.classList.remove('sdds-table__row--hidden');
+        } else {
+          item.classList.add('sdds-table__row--hidden');
+        }
+      }
+    });
   };
 
   render() {
@@ -424,6 +506,9 @@ export class Table {
                         type="checkbox"
                         onChange={(e) => this.headCheckBoxClicked(e)}
                         checked={this.mainCheckboxSelected}
+                        ref={(headCheckbox) =>
+                          (this.headCheckBox = headCheckbox)
+                        }
                       />
                     </label>
                   </div>
@@ -432,7 +517,96 @@ export class Table {
               <slot />
             </tr>
           </thead>
-          <tbody class="sdds-table__body">{this.setBodyItem()}</tbody>
+          <tbody
+            class="sdds-table__body"
+            ref={(tableBody) => (this.tableBodySelector = tableBody)}
+          >
+            {this.setBodyItem()}
+          </tbody>
+          {this.pagination && (
+            <tfoot class="sdds-table__footer">
+              <tr class="sdds-table__footer-row">
+                <td
+                  class="sdds-table__footer-cell"
+                  colSpan={this.columnsNumber}
+                >
+                  <div class="sdds-table__pagination">
+                    <div class="sdds-table__row-selector"></div>
+                    <div class="sdds-table__page-selector">
+                      <input
+                        class="sdds-table__page-selector-input"
+                        type="number"
+                        min="1"
+                        max={this.numberOfPages}
+                        value={this.paginationValue}
+                        pattern="[0-9]+"
+                        dir="rtl"
+                        onChange={(event) => this.paginationInputChange(event)}
+                        onFocusout={(event) =>
+                          this.paginationInputChange(event)
+                        }
+                        onAnimationEnd={(event) => {
+                          this.removeShakeAnimation(event);
+                        }}
+                        disabled={this.tempPaginationDisable}
+                      />
+                      <p class="sdds-table__footer-text">
+                        of{' '}
+                        <span>
+                          {this.tempPaginationDisable ? 1 : this.numberOfPages}
+                        </span>{' '}
+                        pages
+                      </p>
+                      <button
+                        class="sdds-table__footer-btn"
+                        disabled={
+                          this.paginationValue <= 1 ||
+                          this.tempPaginationDisable
+                        }
+                        onClick={(event) => this.paginationPrev(event)}
+                      >
+                        <svg
+                          class="sdds-table__footer-btn-svg"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 32 32"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="sdds-table__footer-btn"
+                        disabled={
+                          this.paginationValue >= this.numberOfPages ||
+                          this.tempPaginationDisable
+                        }
+                        onClick={(event) => this.paginationNext(event)}
+                      >
+                        <svg
+                          class="sdds-table__footer-btn-svg"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 32 32"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          )}
         </table>
       </Host>
     );
