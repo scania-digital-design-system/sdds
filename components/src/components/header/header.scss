@@ -1,7 +1,7 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '@scania/grid/dist/scss/grid.scss';
-@import '../../helpers/components-shared.scss';
+@import "../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared";
 
 @mixin sdds-nav__basic-element-style {
   cursor: pointer;
@@ -31,7 +31,7 @@
   justify-content: space-between;
 
   .sdds-nav__overlay {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: fixed;
@@ -82,7 +82,7 @@
       position: absolute;
       height: 2px;
       width: 16px;
-      background-color: currentColor;
+      background-color: currentcolor;
       border-radius: 2px;
       opacity: 1;
       left: 0;
@@ -166,7 +166,7 @@
   }
 
   .sdds-nav__item--active::after {
-    content: '';
+    content: "";
     border-bottom: 4px solid var(--sdds-blue-400);
     width: calc(100% + 2px);
     display: block;
@@ -198,7 +198,7 @@
   .sdds-nav__item-core:active {
     @include sdds-nav__basic-element-style;
     @include sdds-flex-center;
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     text-decoration: none;
     white-space: nowrap;
@@ -263,7 +263,7 @@
     height: 48px;
     background-color: var(--sdds-white);
     border-bottom: 1px solid var(--sdds-grey-300);
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 15%);
     transition: background-color 150ms ease;
 
     &:hover {
@@ -288,7 +288,7 @@
   .sdds-nav__dropdown-item-core,
   .sdds-nav__dropdown-item-core:visited,
   .sdds-nav__dropdown-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     background-color: inherit;
     height: 100%;
@@ -361,7 +361,8 @@
     height: 64px;
     background-color: var(--sdds-white);
     border-bottom: 1px solid var(--sdds-grey-300);
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 15%);
+
     //WHY WE NEED DOUBLE VALUES HERE TO MAKE IT WORK???
     &:last-child {
       border-radius: 0 0 4px 4px;
@@ -391,7 +392,7 @@
 
   .sdds-nav__avatar-title,
   .sdds-nav__avatar-subtitle {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     width: 100%;
   }
@@ -404,7 +405,7 @@
   .sdds-nav__avatar-item-core,
   .sdds-nav__avatar-item-core:visited,
   .sdds-nav__avatar-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     text-decoration: none;
     display: flex;
@@ -471,7 +472,7 @@
   }
 
   .sdds-nav__app-launcher-category-title {
-    @include type-style('detail-06');
+    @include type-style("detail-06");
 
     display: flex;
     align-items: center;
@@ -485,7 +486,7 @@
   .sdds-nav__app-launcher-item-core,
   .sdds-nav__app-launcher-item-core:visited,
   .sdds-nav__app-launcher-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     text-decoration: none;
     display: flex;
@@ -559,7 +560,7 @@
       }
 
       .sdds-nav__item--active::after {
-        content: '';
+        content: "";
         border-bottom: none;
         border-right: 4px solid var(--sdds-blue-400);
         width: 100%;

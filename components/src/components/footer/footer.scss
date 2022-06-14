@@ -1,7 +1,7 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '@scania/grid/dist/scss/grid.scss';
+@import "../../helpers/style-helpers";
+@import "../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../node_modules/@scania/grid/dist/scss/grid";
 
 @mixin footer-links {
   padding: 0;
@@ -14,6 +14,7 @@
     padding: 0;
     margin: 0;
     display: inline-block;
+
     a {
       margin-right: var(--sdds-spacing-element-24);
       text-decoration: none;
@@ -25,8 +26,8 @@
   position: relative;
   color: var(--#{$prefix}-footer-top-links);
 
-  &:after {
-    content: '';
+  &::after {
+    content: "";
     position: absolute;
     width: calc(100% + 120px);
     height: 100%;
@@ -39,7 +40,7 @@
 
   &:hover,
   &.hover {
-    &:after {
+    &::after {
       background-color: var(--#{$prefix}-footer-top-links-bg-hover);
     }
   }
@@ -48,7 +49,7 @@
     padding: 0;
     margin-bottom: var(--#{$prefix}-spacing-element-8);
 
-    &:after {
+    &::after {
       display: none;
     }
   }
@@ -71,8 +72,9 @@
   background-color: var(--#{$prefix}-footer-top-bg);
 
   .#{$prefix}-footer-title {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
     @include footer-top-link;
+
     padding: var(--#{$prefix}-footer-top-title-padding-mobile);
     opacity: var(--#{$prefix}-footer-top-title-opacity-mobile);
     display: flex;
@@ -96,17 +98,21 @@
 
   .#{$prefix}-footer-main-links {
     display: none;
+
     li a {
       padding: var(--#{$prefix}-footer-top-link-padding-mobile);
       opacity: var(--#{$prefix}-footer-top-links-opacity);
       font-weight: normal;
       display: block;
+
       @include footer-top-link;
+
       &:hover,
       &.hover {
         text-decoration: underline;
       }
     }
+
     &.opened {
       display: flex;
     }
@@ -136,6 +142,7 @@
     li a {
       margin-bottom: var(--sdds-spacing-element-8);
       display: inline-block;
+
       &:hover,
       &.hover {
         text-decoration: underline;
@@ -147,9 +154,11 @@
     margin-top: var(--sdds-spacing-element-24);
     margin-bottom: var(--sdds-spacing-element-24);
     flex-direction: row;
+
     li a {
       margin-left: 0;
       margin-right: var(--sdds-spacing-element-24);
+
       &:hover,
       &.hover {
         text-decoration: none;
@@ -162,17 +171,21 @@
     padding-top: var(--#{$prefix}-footer-brand-padding-top-mobile);
     padding-bottom: var(--#{$prefix}-footer-brand-padding-bottom-mobile);
     width: 100%;
-    background-image: var(
+    background-image:
+ var(
       --#{$prefix}-background-image-scania-wordmark-white-png
     );
-    background-image: var(
+    background-image:
+ var(
       --#{$prefix}-background-image-scania-wordmark-white-svg
     );
     background-repeat: no-repeat;
     background-size: 117px;
     background-position: right bottom;
+
     p {
-      @include type-style('detail-02');
+      @include type-style("detail-02");
+
       color: var(--#{$prefix}-footer-main-copyright);
       margin: 0;
       padding: 0;
@@ -202,6 +215,7 @@
 
     .#{$prefix}-footer-main-links {
       display: flex;
+
       li a {
         font-weight: bold;
       }
@@ -216,6 +230,7 @@
       flex-direction: row;
       flex-grow: 1;
       margin-bottom: var(--sdds-spacing-element-40);
+
       li a {
         margin-bottom: 0;
       }
@@ -223,6 +238,7 @@
     .#{$prefix}-footer-social-links {
       margin-top: 0;
       text-align: right;
+
       li a {
         margin-right: 0;
         margin-left: var(--sdds-spacing-element-24);

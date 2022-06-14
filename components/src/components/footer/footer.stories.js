@@ -1,7 +1,7 @@
 import readme from './readme.md';
 
 export default {
-  title: 'Patterns/Footer',
+  title: 'Component/Footer',
   parameters: {
     notes: readme,
     layout: 'fullscreen',

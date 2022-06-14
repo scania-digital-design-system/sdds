@@ -1,5 +1,5 @@
 export default {
-  title: 'Patterns/SideMenu',
+  title: 'Component/Side menu',
   parameters: {
     layout: 'fullscreen',
   },
