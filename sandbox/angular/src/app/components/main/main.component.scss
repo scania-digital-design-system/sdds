@@ -1,0 +1,42 @@
+//THIS CSS IS NOT LOADING, NEEDS TO BE FIXED
+//RATHER ADD TO home.component.scss
+@import "~node_modules/@scania/typography/dist/scss/mixins";
+@import "~node_modules/@scania/typography/dist/scss/tokens";
+
+:host {
+  padding-top: var(--sdds-header-height);
+  display: block;
+}
+
+.sub-lead {
+  @include type-style("paragraph-02");
+}
+
+.content-wrapper {
+  padding-top: var(--sdds-spacing-element-24);
+  padding-bottom: var(--sdds-spacing-element-24);
+}
+
+.lead-head {
+  margin-bottom: var(--sdds-spacing-element-16);
+}
+
+.section-wrapper {
+  margin-top: var(--sdds-spacing-element-32);
+}
+
+.component-wrapper {
+  padding-bottom: var(--sdds-spacing-element-24);
+}
+
+.spinner-wrapper {
+  margin-left: var(--sdds-spacing-element-16);
+  display: inline-block;
+}
+
+.sdds-btn-group {
+  .sdds-btn,
+  sdds-button {
+    margin: 10px;
+  }
+}
