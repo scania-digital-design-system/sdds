@@ -50,6 +50,7 @@ $props: (background, border-color, color);
     margin-left: var(--sdds-spacing-element-32);
     width: 16px;
     height: 16px;
+    line-height: 0;
   }
 
   &.sdds-btn-sm {
