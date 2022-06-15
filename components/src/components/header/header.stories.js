@@ -2,7 +2,7 @@ import { useArgs } from '@storybook/client-api';
 import readme from './readme.md';
 
 export default {
-  title: 'Patterns/Header',
+  title: 'Component/Header',
   argTypes: {
     siteName: {
       type: 'string',
