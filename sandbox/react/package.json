@@ -42,6 +42,7 @@
     "@scania/components": "latest",
     "@scania/grid": "latest",
     "@scania/icons": "latest",
-    "@scania/theme-light": "latest"
+    "@scania/theme-light": "latest",
+    "@scania/typography": "latest"
   }
 }

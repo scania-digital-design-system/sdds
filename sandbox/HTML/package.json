@@ -15,6 +15,7 @@
     "@scania/grid": "latest",
     "@scania/icons": "latest",
     "@scania/theme-light": "latest",
+    "@scania/typography": "latest",
     "http-server": "^14.1.1"
   }
 }

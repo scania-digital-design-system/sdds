@@ -17,6 +17,7 @@
     "@scania/grid": "latest",
     "@scania/icons": "latest",
     "@scania/theme-light": "latest",
+    "@scania/typography": "latest",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
