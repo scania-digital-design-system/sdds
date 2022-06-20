@@ -7,7 +7,7 @@
 **/conf.js
 **/.www
 
-demo
+sandbox
 
 components/src/themes.built/*
 components/.storybook

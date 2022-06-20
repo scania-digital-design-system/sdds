@@ -19,8 +19,8 @@
 # Component package
 components/storybook-static
 
-#Demo
-demo/**/**/.angular/**
+#Sandbox folders and files
+sandbox
 
 # Specific file
 theme/core/icons/src/_icons.css
