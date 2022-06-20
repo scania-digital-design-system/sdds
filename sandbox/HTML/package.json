@@ -1,0 +1,21 @@
+{
+  "name": "sdds-html-demo",
+  "version": "1.0.0",
+  "description": "HTML testing environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "npm link @scania/components && npm link @scania/theme-light && npm link @scania/icons",
+    "start": "http-server -p 4242"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@scania/components": "latest",
+    "@scania/grid": "latest",
+    "@scania/icons": "latest",
+    "@scania/theme-light": "latest",
+    "@scania/typography": "latest",
+    "http-server": "^14.1.1"
+  }
+}

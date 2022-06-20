@@ -1,0 +1,31 @@
+.sdds-navbar-menu-popover {
+  display: block;
+  position: fixed;
+  z-index: 20000;
+  text-decoration: none;
+}
+
+.sdds-navbar-menu-popover a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* TODO: remove lines 15-18 after release */
+.popover-dropdown-menu-parent:hover {
+  cursor: default;
+  background: transparent !important;
+}
+
+.sdds-sidebar {
+  height: 100%;
+}
+
+@media all and (max-width: 992px) {
+  .sdds-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 800;
+  }
+}

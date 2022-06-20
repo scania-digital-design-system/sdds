@@ -1,0 +1,65 @@
+body {
+  background: var(--sdds-grey-50);
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.sdds-demo-container {
+  margin-top: var(--sdds-header-height);
+}
+
+.sdds-navbar-menu-popover {
+  display: block;
+  position: fixed;
+  z-index: 20000;
+  text-decoration: none;
+}
+
+/* TODO: remove lines 15-18 after release */
+.popover-dropdown-menu-parent:hover {
+  cursor: default;
+  background: transparent !important;
+}
+
+.sdds-navbar-menu-popover a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.content-wrapper {
+  padding-top: var(--sdds-spacing-element-24);
+  padding-bottom: var(--sdds-spacing-element-24);
+}
+
+.lead-head {
+  margin-bottom: var(--sdds-spacing-element-16);
+}
+
+.section-wrapper {
+  margin-top: var(--sdds-spacing-element-32);
+}
+
+.component-wrapper {
+  padding-bottom: var(--sdds-spacing-element-24);
+}
+
+.sdds-btn-group .sdds-btn,
+.sdds-btn-group sdds-button {
+  margin: 10px;
+}
+
+form > div {
+  margin-bottom: var(--sdds-spacing-element-32);
+}
+
+@media all and (max-width: 992px) {
+  .sdds-sidebar.expanded {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 800;
+  }
+}
