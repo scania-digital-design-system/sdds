@@ -13,16 +13,16 @@
   &-single {
     @include type-style("headline-07");
 
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     max-width: 486px;
   }
 
   &-extended {
     @include type-style("detail-02");
 
-    margin-top: 4px;
-    margin-bottom: 0;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
     max-width: 486px;
   }
 
