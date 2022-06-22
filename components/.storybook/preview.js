@@ -66,7 +66,7 @@ const customViewports = {
 const customBGvalues = [
   {
     name: 'grey',
-    value: '#F6F6F7',
+    value: '#F9FAFB',
   },
   {
     name: 'white',
@@ -82,7 +82,7 @@ export const parameters = {
     default: 'on-grey',
     list: [
       { name: 'on-white', class: 'sdds-on-white-bg', color: '#FFFFFF' },
-      { name: 'on-grey', class: 'sdds-on-grey-bg', color: '#F6F6F7' },
+      { name: 'on-grey', class: 'sdds-on-grey-bg', color: '#F9FAFB' },
     ],
   },
   backgrounds: {
