@@ -334,14 +334,14 @@ export class Table {
         }
     */
 
+    // grab all rows in body
+    const dataRowsFiltering =
+      this.tableBodySelector.querySelectorAll('.sdds-table__row');
+
     if (searchTerm.length > 0) {
       if (this.pagination) {
         this.tempPaginationDisable = true;
       }
-
-      // grab all rows in body
-      const dataRowsFiltering =
-        this.tableBodySelector.querySelectorAll('.sdds-table__row');
 
       dataRowsFiltering.forEach((item) => {
         const cells = item.querySelectorAll('sdds-body-cell');
@@ -374,6 +374,11 @@ export class Table {
         this.tempPaginationDisable = false;
       }
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
+
+      dataRowsFiltering.forEach((item) => {
+        item.classList.remove('sdds-table__row--hidden');
+      });
+
       this.disableAllSorting = false;
       this.sortingEnabler.emit(this.disableAllSorting);
     }
