@@ -373,6 +373,7 @@ export class Table {
       if (this.pagination) {
         this.tempPaginationDisable = false;
       }
+
       sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
 
       dataRowsFiltering.forEach((item) => {
@@ -438,7 +439,6 @@ export class Table {
       const index = i + 1;
 
       if (this.tempPaginationDisable) {
-        item.classList.remove('sdds-table__row--hidden');
         this.paginationValue = 1;
       } else {
         const lastResult = this.rowsPerPage * this.paginationValue;
