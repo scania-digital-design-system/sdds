@@ -27,8 +27,6 @@ $props: (background, border-color, color);
   height: $btn-default-height;
   padding: var(--sdds-spacing-element-20);
   border: 1px solid;
-  display: flex;
-  align-items: center;
 
   &:disabled,
   &.disabled {
