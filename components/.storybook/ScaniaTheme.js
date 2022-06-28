@@ -12,12 +12,13 @@ export default create({
   // colorPrimary: '#ff2340',
   // Commented out as its usage is unclear
 
-  colorSecondary: '#2b70d3',
+  colorSecondary: '#2b70d3', // --sdds-blue-400
 
   // UI
-  appBg: '#f9fafb',
-  appContentBg: '#ffffff',
-  appBorderColor: '#edeff3',
+
+  appBg: '#f9fafb', // --sdds-grey-50
+  appContentBg: '#ffffff', // --sdds-white
+  appBorderColor: '#edeff3', // --sdds-grey-100
   appBorderRadius: 4,
 
   // Typography
@@ -25,17 +26,17 @@ export default create({
   fontCode: 'monospace',
 
   // Text colors
-  textColor: '#0d0f13',
-  textInverseColor: 'rgba(255,255,255,0.9)',
+  textColor: '#0d0f13', // --sdds-grey-958
+  textInverseColor: 'rgba(255,255,255,0.9)', // storybook default
 
   // Toolbar default and active colors
-  barTextColor: '#5f6d80',
-  barSelectedColor: '#2b70d3',
-  barBg: '#ffffff',
+  barTextColor: '#5f6d80', // custom made color
+  barSelectedColor: '#2b70d3', // --sdds-blue-400
+  barBg: '#ffffff', // --sdds-white
 
   // Form colors
-  inputBg: 'white',
-  inputBorder: 'silver',
-  inputTextColor: 'black',
+  inputBg: 'white', // storybook default
+  inputBorder: 'silver', // storybook default
+  inputTextColor: 'black', // storybook default
   inputBorderRadius: 4,
 });
