@@ -299,7 +299,6 @@ slot[name="sdds-label"]::slotted(*) {
 
   .#{$prefix}-textfield-icon__readonly {
     display: block;
-    pointer-events: all;
 
     &:hover {
       ~ .#{$prefix}-textfield-icon__readonly-label {
