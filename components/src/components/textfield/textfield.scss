@@ -269,6 +269,54 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
+//Read only state
+
+.#{$prefix}-textfield-icon__readonly {
+  display: none;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &-label {
+    display: none;
+    position: absolute;
+    right: 18px;
+    bottom: -24px;
+
+    @include type-style("detail-05");
+
+    padding: 8px;
+    color: var(--sdds-white);
+    background-color: var(--sdds-grey-800);
+    white-space: nowrap;
+    border-radius: 4px 0 4px 4px;
+  }
+}
+
+.#{$prefix}-form-textfield-readonly {
+  pointer-events: none;
+
+  .#{$prefix}-textfield-icon__readonly {
+    display: block;
+
+    &:hover {
+      ~ .#{$prefix}-textfield-icon__readonly-label {
+        display: block;
+      }
+    }
+  }
+
+  .#{$prefix}-textfield-input {
+    padding-right: 54px;
+    background-color: transparent;
+  }
+
+  .#{$prefix}-textfield-container {
+    background-color: transparent;
+  }
+}
+
 //Success state
 .#{$prefix}-form-textfield-success {
   .#{$prefix}-textfield-container {

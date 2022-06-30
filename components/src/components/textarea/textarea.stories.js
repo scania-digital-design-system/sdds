@@ -20,6 +20,13 @@ export default {
         type: 'boolean',
       },
     },
+    readonly: {
+      description: 'Set textfield to disabled state',
+      name: 'Read only',
+      control: {
+        type: 'boolean',
+      },
+    },
     label: {
       description: 'Label text for specific textfield',
       name: 'Label text',
@@ -61,6 +68,7 @@ export default {
   args: {
     placeholder: 'Placeholder',
     disabled: false,
+    readonly: false,
     state: 'default',
     label: '',
     labelPosition: 'no-label',
@@ -73,6 +81,7 @@ export default {
 const textfieldTemplate = ({
   placeholder,
   disabled,
+  readonly,
   label,
   labelPosition,
   state,
@@ -90,6 +99,7 @@ const textfieldTemplate = ({
           helper="${helper}"
           label-position="${labelPosition}"
           ${disabled ? 'disabled' : ''}
+          ${readonly ? 'readonly' : ''}
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
@@ -106,6 +116,13 @@ export const Disabled = textfieldTemplate.bind({});
 Disabled.args = {
   disabled: true,
   placeholderText: 'Disabled',
+};
+
+export const ReadOnly = textfieldTemplate.bind({});
+
+ReadOnly.args = {
+  readonly: true,
+  placeholderText: 'Read only',
 };
 
 export const labelInside = textfieldTemplate.bind({});
