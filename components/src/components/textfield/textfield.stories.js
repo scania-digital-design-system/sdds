@@ -44,6 +44,13 @@ export default {
         type: 'boolean',
       },
     },
+    readonly: {
+      description: 'Set textfield to read only',
+      name: 'Read Only',
+      control: {
+        type: 'boolean',
+      },
+    },
     label: {
       description: 'Label text for specific textfield',
       name: 'Label text',
@@ -87,6 +94,7 @@ export default {
     size: 'Default',
     minWidth: 'Default',
     disabled: false,
+    readonly: false,
     state: 'default',
     label: '',
     labelplacement: false,
@@ -100,6 +108,7 @@ const textfieldTemplate = ({
   size,
   minWidth,
   disabled,
+  readonly,
   label,
   labelplacement,
   state,
@@ -141,6 +150,7 @@ const textfieldTemplate = ({
       maxlength="${textcounter}"
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
+      ${readonly ? 'readonly' : ''}
       ${minWidthValue ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
         ${prefix}
