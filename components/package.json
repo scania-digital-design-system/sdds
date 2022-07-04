@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
-    "@babel/plugin-syntax-jsx": "^7.16.7",:
+    "@babel/plugin-syntax-jsx": "^7.16.7",
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@popperjs/core": "^2.11.4",
     "@scania/grid": "^2.0.1",
