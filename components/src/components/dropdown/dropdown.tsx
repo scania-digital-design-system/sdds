@@ -110,7 +110,7 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      this.open = true;
+      this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
       this.open = false;
