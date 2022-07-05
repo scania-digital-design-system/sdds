@@ -113,6 +113,8 @@ export class Table {
 
   @State() numberOfPages: number = 0;
 
+  @State() paginationValue: number = 1;
+
   @State() tempPaginationDisable: boolean = false;
 
   componentWillLoad() {
@@ -128,8 +130,6 @@ export class Table {
       this.runPagination();
     }
   }
-
-  @State() paginationValue: number = 1;
 
   @Event({
     eventName: 'sortingEnabler',
@@ -254,7 +254,7 @@ export class Table {
         '.sdds-form-input'
       ) as HTMLInputElement;
 
-      const row = singleCheckbox.closest('tr');
+      const row = singleCheckbox.closest('sdds-table-body-row');
 
       if (event.currentTarget.checked) {
         singleCheckbox.checked = true;
@@ -268,7 +268,7 @@ export class Table {
   };
 
   bodyCheckBoxClicked = (event) => {
-    const row = event.currentTarget.closest('tr');
+    const row = event.currentTarget.closest('sdds-table-body-row');
 
     if (event.currentTarget.checked === true) {
       row.classList.add('sdds-table__row--selected');
@@ -290,7 +290,7 @@ export class Table {
 
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
-      <tr class="sdds-table__row">
+      <sdds-table-body-row>
         {this.multiSelect && (
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">
@@ -307,7 +307,7 @@ export class Table {
         {Object.keys(row).map((cellData) => (
           <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
         ))}
-      </tr>
+      </sdds-table-body-row>
     ));
 
   // Search feat with two search logics
@@ -468,7 +468,7 @@ export class Table {
           ref={(table) => (this.tableSelector = table)}
         >
           {(this.tableTitle || this.filtering || this.actionBar) && (
-            <div class="sdds-table__upper-bar">
+            <sdds-table-toolbar>
               <div class="sdds-table__upper-bar-flex">
                 <caption class="sdds-table__title">{this.tableTitle}</caption>
                 <div class="sdds-table__actionbar">
@@ -498,10 +498,10 @@ export class Table {
                   {this.actionBar && <slot name="sdds-table__actionbar" />}
                 </div>
               </div>
-            </div>
+            </sdds-table-toolbar>
           )}
-          <thead class="sdds-table__header">
-            <tr class="sdds-table__header-row">
+          <sdds-table-header>
+            <sdds-table-header-row>
               {this.multiSelect && (
                 <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
                   <div class="sdds-checkbox-item">
@@ -520,16 +520,15 @@ export class Table {
                 </th>
               )}
               <slot />
-            </tr>
-          </thead>
-          <tbody
-            class="sdds-table__body"
+            </sdds-table-header-row>
+          </sdds-table-header>
+          <sdds-table-body
             ref={(tableBody) => (this.tableBodySelector = tableBody)}
           >
             {this.setBodyItem()}
-          </tbody>
+          </sdds-table-body>
           {this.pagination && (
-            <tfoot class="sdds-table__footer">
+            <sdds-table-footer>
               <tr class="sdds-table__footer-row">
                 <td
                   class="sdds-table__footer-cell"
@@ -610,8 +609,9 @@ export class Table {
                   </div>
                 </td>
               </tr>
-            </tfoot>
+            </sdds-table-footer>
           )}
+          <slot />
         </table>
       </Host>
     );

@@ -106,6 +106,10 @@
     }
   }
 
+  .sdds-table__header {
+    display: table-header-group;
+  }
+
   // Fix that works for css&html version only
   .sdds-table__header {
     .sdds-table__header-cell {
@@ -167,7 +171,12 @@
     }
   }
 
+  .sdds-table__body {
+    display: table-row-group;
+  }
+
   .sdds-table__row {
+    display: table-row;
     border-bottom: 1px solid var(--sdds-grey-400);
     background-color: var(--sdds-white);
     transition: background-color 200ms ease;
@@ -215,6 +224,7 @@
 
   .sdds-table__footer {
     height: 48px;
+    display: table-footer-group;
 
     .sdds-table__footer-row {
       background-color: var(--sdds-grey-100);
