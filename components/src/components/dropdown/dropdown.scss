@@ -95,7 +95,7 @@
   }
 
   .sdds-dropdown-menu {
-    z-index: 1;
+    z-index: 10000;
 
     @include sdds-scrollbar;
 
