@@ -21,7 +21,6 @@ components/content.e2e.ts
 components/dealer-header.spec.tsx
 components/dealer-header.spec.ts
 components/dealer-header.e2e.ts
-components/table.model.ts
 components/navigation.tsx
 components/navigation.spec.ts
 components/navigation.e2e.ts
