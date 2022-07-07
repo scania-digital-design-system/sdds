@@ -53,6 +53,7 @@ export class Dropdown {
   @Prop() helper: string = '';
 
   @State() items: Array<any> = [];
+  @State() options: Array<any> = [];
 
   @State() open: boolean = false;
 
@@ -69,6 +70,10 @@ export class Dropdown {
   @State() dropdownMenuHeight: number = 0;
 
   @State() dropdownMenuSelector: HTMLElement;
+
+  @State() listItemIndex: any = -1;
+
+  @State() listItemArray: any;
 
   @Element() host: HTMLElement;
 
@@ -104,7 +109,6 @@ export class Dropdown {
   handleDocClick(ev) {
     // To stop bubble click
     ev.stopPropagation();
-
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
     if (this.node !== undefined && this.node.contains(target)) {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
@@ -117,6 +121,48 @@ export class Dropdown {
     }
   }
 
+  @Listen('keydown')
+  keyListener(ev: KeyboardEvent) {
+    this.listItemArray = Array.from(this.host.children);
+    switch (ev.key) {
+      case 'Enter':
+        return;
+
+      case 'ArrowDown':
+        if (this.open) {
+          ev.preventDefault();
+          if (this.listItemIndex < this.listItemArray.length - 1) {
+            this.listItemIndex++;
+          } else {
+            this.listItemIndex = 0;
+          }
+          this.listItemArray[this.listItemIndex].focus();
+          return;
+        }
+      case 'ArrowUp':
+        if (this.open) {
+          ev.preventDefault();
+
+          if (this.listItemIndex > 0) {
+            this.listItemIndex--;
+          } else {
+            this.listItemIndex = this.listItemArray.length - 1;
+          }
+          this.listItemArray[this.listItemIndex].focus();
+          return;
+        }
+      case 'Tab':
+        this.open = false;
+        return;
+
+      case 'Escape':
+        this.open = false;
+        return;
+
+      default:
+        return;
+    }
+  }
   handleClick() {
     this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
