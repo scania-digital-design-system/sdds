@@ -232,7 +232,9 @@ export class Dropdown {
           )}
           <button
             class={`sdds-dropdown-toggle ${
-              this.type === 'filter' ? 'is-filter' : ''
+              this.selectedValue === 'filter' ? 'is-filter' : ''
+            } ${
+              this.selectedValue !== '' ? 'sdds-dropdown-toggle--selected' : ''
             }`}
             type="button"
             onClick={() => this.handleClick()}
