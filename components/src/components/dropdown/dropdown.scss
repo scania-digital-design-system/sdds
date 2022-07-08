@@ -1,14 +1,14 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
-@import "./dropdown-core";
-@import "../../helpers/components-shared.scss";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import './dropdown-core';
+@import '../../helpers/components-shared.scss';
 
 :host,
 ::slotted(*) {
   --sdds-link: var(--sdds-grey-958);
   --sdds-link-text-decoration: none;
 
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   color: var(--sdds-grey-958);
   box-sizing: border-box;
@@ -86,7 +86,7 @@
     border: 0;
     outline: none;
 
-    @include type-style("detail-02");
+    @include type-style('detail-02');
 
     color: var(--sdds-grey-958);
     width: 100%;
@@ -171,7 +171,7 @@
   }
 }
 
-:host([disabled="true"]) {
+:host([disabled='true']) {
   cursor: not-allowed;
 
   .sdds-dropdown {
@@ -296,7 +296,7 @@
   margin-left: var(--sdds-spacing-element-16);
 }
 
-:host([size="small"]) {
+:host([size='small']) {
   ::slotted(sdds-dropdown-option) {
     padding: var(--sdds-spacing-element-12) var(--sdds-spacing-element-16);
   }
@@ -311,7 +311,7 @@
 
       &.is-filter {
         &::before {
-          content: " ";
+          content: ' ';
           position: absolute;
           z-index: 2;
           bottom: 0;
@@ -344,7 +344,7 @@
 }
 
 .sdds-dropdown-label-inside {
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   color: var(--sdds-grey-958);
   position: absolute;
