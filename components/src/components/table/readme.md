@@ -12,8 +12,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  sdds-table --> sdds-table-toolbar
-  style sdds-table-toolbar fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-table --> sdds-table-header-row
+  style sdds-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
