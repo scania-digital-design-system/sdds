@@ -163,7 +163,6 @@ export class Dropdown {
       }
     }
   }
-
   handleClick() {
     this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
