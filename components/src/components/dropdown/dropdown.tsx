@@ -224,7 +224,7 @@ export class Dropdown {
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
       >
-        <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
+        <span class={`sdds-dropdown sdds-dropdown-${this.size}`}>
           {this.labelPosition === 'outside' && this.label.length > 0 ? (
             <span class="sdds-dropdown-label-outside">{this.label}</span>
           ) : (
@@ -240,7 +240,7 @@ export class Dropdown {
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
           >
-            <div class="sdds-dropdown-label">
+            <span class="sdds-dropdown-label">
               {this.type === 'filter' ? (
                 <input
                   ref={(inputEl) =>
@@ -254,7 +254,7 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <div class="sdds-dropdown-label-container">
+                <span class="sdds-dropdown-label-container">
                   {this.size !== 'small' &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
@@ -281,9 +281,9 @@ export class Dropdown {
                       this.labelPosition === 'inside' &&
                       this.placeholder}
                   </span>
-                </div>
+                </span>
               )}
-            </div>
+            </span>
             <svg
               class="sdds-dropdown-arrow"
               width="12"
@@ -301,14 +301,14 @@ export class Dropdown {
               />
             </svg>
           </button>
-          <div
+          <span
             class="sdds-dropdown-menu"
             // Need to have reference in order to calc height and distance from bottom
             ref={(dropdownMenu) => (this.dropdownMenuSelector = dropdownMenu)}
           >
             <slot />
-          </div>
-        </div>
+          </span>
+        </span>
         <p class="sdds-dropdown-helper">
           <svg
             class="sdds-dropdown-error-icon"
