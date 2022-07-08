@@ -465,7 +465,10 @@ export class Table {
           }}
           ref={(table) => (this.tableSelector = table)}
         >
-          <sdds-table-toolbar table-title={'Hello'} showSearchbar={true} />
+          <sdds-table-toolbar
+            tableTitle="Hello new toolbar"
+            showSearchbar={true}
+          />
 
           {this.johnnyTest && (
             <sdds-table-header>
