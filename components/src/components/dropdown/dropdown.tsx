@@ -123,11 +123,9 @@ export class Dropdown {
 
   @Listen('keydown')
   keyListener(ev: KeyboardEvent) {
+    if(!this.disabled){
     this.listItemArray = Array.from(this.host.children);
     switch (ev.key) {
-      case 'Enter':
-        return;
-
       case 'ArrowDown':
         if (this.open) {
           ev.preventDefault();
@@ -162,6 +160,7 @@ export class Dropdown {
       default:
         return;
     }
+  }
   }
   handleClick() {
     this.open = this.open === false;
@@ -213,7 +212,7 @@ export class Dropdown {
     return (
       <Host
         class={{
-          'sdds-dropdown--open': this.open,
+          'sdds-dropdown--open': this.open && !this.disabled,
           'sdds-dropdown-inline': this.inline,
           'sdds-dropdown--selected': this.selectedLabel.length > 0,
           'sdds-dropdown--error': this.state === 'error',

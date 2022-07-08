@@ -168,6 +168,11 @@
       .sdds-dropdown-placeholder {
         color: var(--sdds-grey-400);
       }
+      &:focus {
+        &::before {
+          content: none;
+        }
+      }
     }
   }
 }
