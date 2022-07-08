@@ -502,6 +502,7 @@ export class Table {
             </sdds-table-body>
           )}
 
+          {/*
           {this.pagination && (
             <sdds-table-footer>
               <tr class="sdds-table__footer-row">
@@ -585,7 +586,9 @@ export class Table {
                 </td>
               </tr>
             </sdds-table-footer>
+
           )}
+          */}
           <slot />
         </table>
       </Host>
