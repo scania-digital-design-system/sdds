@@ -1,14 +1,19 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Listen,
+  State,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-footer',
-  // styleUrl: 'table.scss',
+  styleUrl: 'table-footer.scss',
   shadow: true,
 })
 export class TableFooter {
-  /** User sets number of rows displayed on one page */
-  @Prop({ reflect: true }) rowsPerPage: number = 2;
-
   /** State that memorize number of columns to display colSpan correctly - set from parent level */
   @State() columnsNumber: number = 0;
 
@@ -21,13 +26,33 @@ export class TableFooter {
   /** Temporarily disable pagination - due to search - set from parent level */
   @State() tempPaginationDisable: boolean = false;
 
+  /** Listens to elementary pagination data made and sent by parent component */
+  @Listen('tableToFooter', { target: 'body' })
+  tableToFooterListener(event: CustomEvent<any>) {
+    [this.columnsNumber, this.numberOfPages, this.tempPaginationDisable] =
+      event.detail;
+  }
+
+  /** Event to send current pagination back to parent */
+  @Event({
+    eventName: 'footerToTable',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  footerToTable: EventEmitter<number>;
+
+  sendPaginationValue(value) {
+    this.footerToTable.emit(value);
+  }
+
   paginationPrev = (event) => {
     event.preventDefault();
     // Enable lowering until 1st page
     if (this.paginationValue >= 2) {
       this.paginationValue--;
+      this.sendPaginationValue(this.paginationValue);
     }
-    // this.runPagination();
   };
 
   paginationNext = (event) => {
@@ -35,15 +60,12 @@ export class TableFooter {
     // Enable increasing until the max number of pages
     if (this.paginationValue <= this.numberOfPages) {
       this.paginationValue++;
+      this.sendPaginationValue(this.paginationValue);
     }
-    // this.runPagination();
   };
 
   paginationInputChange(event) {
     const insertedValue = event.target.value;
-    // const inputMaxValue = event.target.max;
-    console.log(`Value is: ${insertedValue}`);
-    console.log(`Number of pages is: ${this.numberOfPages}`);
 
     if (insertedValue > this.numberOfPages || insertedValue < 1) {
       event.target.classList.add('sdds-table__page-selector-input--shake');
@@ -52,25 +74,16 @@ export class TableFooter {
     } else {
       this.paginationValue = event.target.value;
     }
-    // this.runPagination();
+    this.sendPaginationValue(this.paginationValue);
   }
 
   removeShakeAnimation(event) {
     event.target.classList.remove('sdds-table__page-selector-input--shake');
   }
 
-  /*
-  setNumberOfPages() {
-    this.numberOfPages = Math.ceil(
-      this.bodyDataManipulated.length / this.rowsPerPage
-    );
-  }
-
-   */
-
   render() {
     return (
-      <Host class="sdds-table__footer">
+      <Host>
         <tr class="sdds-table__footer-row">
           <td class="sdds-table__footer-cell" colSpan={this.columnsNumber}>
             <div class="sdds-table__pagination">

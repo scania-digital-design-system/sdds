@@ -1,0 +1,88 @@
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared.scss";
+
+:host {
+  height: 48px;
+  display: table-footer-group;
+
+  .sdds-table__footer-row {
+    background-color: var(--sdds-grey-100);
+  }
+
+  .sdds-table__footer-cell {
+    padding: 0 16px;
+
+    .sdds-table__pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .sdds-table__row-selector,
+      .sdds-table__page-selector {
+        display: flex;
+        align-items: center;
+      }
+
+      .sdds-table__page-selector-input {
+        @include type-style("detail-02");
+
+        background-color: var(--sdds-grey-50);
+        width: 36px;
+        height: 30px;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 250ms ease;
+        margin-right: 4px;
+        padding-right: 8px;
+
+        &:hover {
+          background-color: var(--sdds-white);
+        }
+      }
+
+      .sdds-table__page-selector-input--shake {
+        animation: sdds-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      .sdds-table__footer-text {
+        @include type-style("detail-02");
+
+        padding: 0 8px 0 0;
+      }
+
+      .sdds-table__footer-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        height: 32px;
+        width: 32px;
+        border-radius: 4px;
+        transition: background-color 250ms ease;
+
+        &:hover {
+          background-color: var(--sdds-grey-300);
+        }
+
+        &:disabled {
+          cursor: default;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .sdds-table__footer-btn-svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+}
