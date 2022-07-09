@@ -5,12 +5,25 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Events
 
-| Property      | Attribute       | Description                                    | Type     | Default |
-| ------------- | --------------- | ---------------------------------------------- | -------- | ------- |
-| `rowsPerPage` | `rows-per-page` | User sets number of rows displayed on one page | `number` | `2`     |
+| Event           | Description                                     | Type                  |
+| --------------- | ----------------------------------------------- | --------------------- |
+| `footerToTable` | Event to send current pagination back to parent | `CustomEvent<number>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [sdds-table](..)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-table --> sdds-table-footer
+  style sdds-table-footer fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
