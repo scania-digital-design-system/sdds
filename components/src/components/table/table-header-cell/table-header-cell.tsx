@@ -11,7 +11,7 @@ import {
 
 @Component({
   tag: 'sdds-header-cell',
-  styleUrl: '../table.scss',
+  styleUrl: 'table-header-cell.scss',
   shadow: true,
 })
 export class TableHeaderCell {

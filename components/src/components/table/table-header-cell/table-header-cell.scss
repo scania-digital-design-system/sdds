@@ -1,0 +1,44 @@
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
+.sdds-table__header-cell {
+  @include type-style("headline-07");
+
+  display: table-cell;
+  text-align: left;
+  color: var(--sdds-grey-958);
+  background-color: var(--sdds-grey-300);
+  border-bottom: 1px solid var(--sdds-grey-400);
+  padding: 0;
+  height: 48px;
+  min-width: 192px;
+  box-sizing: border-box;
+
+  // To fix issues with border-radius propagating up from button
+  overflow: hidden;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: var(--sdds-grey-400);
+  }
+
+  &:first-of-type {
+    border-top-left-radius: 4px;
+  }
+
+  &:last-of-type {
+    border-top-right-radius: 4px;
+  }
+}
+
+.sdds-table__header-cell--checkbox {
+  min-width: unset;
+  width: 48px;
+  padding: 0;
+}
+
+sdds-table-toolbar + sdds-table-header {
+  .sdds-table__header-cell {
+    border-radius: 0;
+  }
+}
