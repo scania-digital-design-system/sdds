@@ -5,11 +5,11 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Events
 
-| Property      | Attribute      | Description | Type      | Default |
-| ------------- | -------------- | ----------- | --------- | ------- |
-| `multiSelect` | `multi-select` |             | `boolean` | `true`  |
+| Event            | Description                                                                | Type                   |
+| ---------------- | -------------------------------------------------------------------------- | ---------------------- |
+| `headRowToTable` | Send status of main checkbox in header to the parent, sdds-table component | `CustomEvent<boolean>` |
 
 
 ## Dependencies
