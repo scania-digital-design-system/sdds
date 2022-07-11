@@ -96,7 +96,7 @@ export class Table {
 
   @State() multiselectArrayJSON: string;
 
-  @State() mainCheckboxSelected: boolean = false;
+  @State() mainCheckboxStatus: boolean = false;
 
   @State() columnsNumber: number = 0;
 
@@ -243,6 +243,10 @@ export class Table {
     };
 
   sortData(keyValue, sortingDirection) {
+    if (this.multiSelect) {
+      this.uncheckedAll();
+    }
+
     // use spread operator to make enable sorting and modifying array, same as using .slice()
     this.bodyDataManipulated = [...this.bodyDataManipulated];
     this.bodyDataManipulated.sort(
@@ -250,9 +254,6 @@ export class Table {
     );
     // Uncheck all checkboxes as state is lost on sorting. Do it only in case multiSelect is True.
     // We will try to find a better approach to solve this one
-    if (this.multiSelect) {
-      this.uncheckedAll();
-    }
   }
 
   /* Lines 148 to 201 - multiSelect feature of table */
@@ -275,51 +276,25 @@ export class Table {
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
 
+  @Event({
+    eventName: 'tableToBodyRow',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  tableToBodyRow: EventEmitter<any>;
+
   uncheckedAll = () => {
-    if (this.headCheckBox.checked) {
-      this.headCheckBox.checked = false;
-    }
-
-    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
-
-    bodyCheckboxes.forEach((item) => {
-      const singleCheckbox = item.querySelector(
-        '.sdds-form-input'
-      ) as HTMLInputElement;
-
-      const row = singleCheckbox.closest('tr');
-
-      if (singleCheckbox.checked) {
-        singleCheckbox.checked = false;
-        row.classList.remove('sdds-table__row--selected');
-      }
-    });
-
-    this.multiselectArrayJSON = JSON.stringify([]);
+    this.mainCheckboxStatus = false;
+    this.tableToHeaderRow.emit(this.mainCheckboxStatus);
+    this.tableToBodyRow.emit(this.mainCheckboxStatus);
   };
 
-  headCheckBoxClicked = (event) => {
-    this.mainCheckboxSelected = !!event.currentTarget.checked;
-
-    const bodyCheckboxes = Array.from(this.tableBodySelector.children);
-
-    bodyCheckboxes.forEach((item) => {
-      const singleCheckbox = item.querySelector(
-        '.sdds-form-input'
-      ) as HTMLInputElement;
-
-      const row = singleCheckbox.closest('sdds-table-body-row');
-
-      if (event.currentTarget.checked) {
-        singleCheckbox.checked = true;
-        row.classList.add('sdds-table__row--selected');
-      } else {
-        singleCheckbox.checked = false;
-        row.classList.remove('sdds-table__row--selected');
-      }
-    });
+  @Listen('headRowToTable')
+  headCheckboxListener(event: CustomEvent<boolean>) {
+    this.mainCheckboxStatus = event.detail;
     this.selectedDataExporter();
-  };
+  }
 
   @Listen('bodyRowToTable')
   bodyCheckboxListener(event: CustomEvent<boolean>) {
@@ -327,6 +302,14 @@ export class Table {
     console.log(bodyCheckboxValue);
     this.bodyCheckBoxClicked();
   }
+
+  @Event({
+    eventName: 'tableToHeaderRow',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  tableToHeaderRow: EventEmitter<any>;
 
   bodyCheckBoxClicked = () => {
     const numberOfRows =
@@ -336,7 +319,9 @@ export class Table {
       'sdds-table__row--selected'
     ).length;
 
-    this.mainCheckboxSelected = numberOfRows === numberOfRowsSelected;
+    this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
+
+    this.tableToHeaderRow.emit(this.mainCheckboxStatus);
 
     this.selectedDataExporter();
   };

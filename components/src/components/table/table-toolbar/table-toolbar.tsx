@@ -13,7 +13,7 @@ export class TableToolbar {
   @Prop() tableTitle: string = '';
 
   /** Enables preview of searchbar */
-  @Prop() showSearchbar: boolean = false;
+  @Prop() showSearchbar: boolean = true;
 
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({

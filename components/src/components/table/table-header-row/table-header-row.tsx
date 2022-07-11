@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  State,
+  Event,
+  EventEmitter,
+  Listen,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-header-row',
@@ -6,12 +14,27 @@ import { Component, h, Host, Prop, State } from '@stencil/core';
   shadow: true,
 })
 export class TableHeaderRow {
-  @Prop() multiSelect: boolean = true;
+  @State() multiSelect: boolean = true;
 
   @State() mainCheckboxSelected: boolean = false;
 
+  /** Send status of main checkbox in header to the parent, sdds-table component */
+  @Event({
+    eventName: 'headRowToTable',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  headRowToTable: EventEmitter<boolean>;
+
   headCheckBoxClicked(event) {
-    console.log(`Event is ${event.value}`);
+    this.mainCheckboxSelected = event.currentTarget.checked;
+    this.headRowToTable.emit(this.mainCheckboxSelected);
+  }
+
+  @Listen('tableToHeaderRow', { target: 'body' })
+  tableToHeaderRowListener(event: CustomEvent<boolean>) {
+    this.mainCheckboxSelected = event.detail;
   }
 
   render() {
