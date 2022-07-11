@@ -53,6 +53,7 @@ export class Dropdown {
   @Prop() helper: string = '';
 
   @State() items: Array<any> = [];
+
   @State() options: Array<any> = [];
 
   @State() open: boolean = false;
@@ -123,45 +124,46 @@ export class Dropdown {
 
   @Listen('keydown')
   keyListener(ev: KeyboardEvent) {
-    if(!this.disabled){
-    this.listItemArray = Array.from(this.host.children);
-    switch (ev.key) {
-      case 'ArrowDown':
-        if (this.open) {
-          ev.preventDefault();
-          if (this.listItemIndex < this.listItemArray.length - 1) {
-            this.listItemIndex++;
-          } else {
-            this.listItemIndex = 0;
+    if (!this.disabled) {
+      this.listItemArray = Array.from(this.host.children);
+      switch (ev.key) {
+        case 'ArrowDown':
+          if (this.open) {
+            ev.preventDefault();
+            if (this.listItemIndex < this.listItemArray.length - 1) {
+              this.listItemIndex++;
+            } else {
+              this.listItemIndex = 0;
+            }
+            this.listItemArray[this.listItemIndex].focus();
           }
-          this.listItemArray[this.listItemIndex].focus();
-          return;
-        }
-      case 'ArrowUp':
-        if (this.open) {
-          ev.preventDefault();
-
-          if (this.listItemIndex > 0) {
-            this.listItemIndex--;
-          } else {
-            this.listItemIndex = this.listItemArray.length - 1;
+          break;
+        case 'ArrowUp':
+          if (this.open) {
+            ev.preventDefault();
+            if (this.listItemIndex > 0) {
+              this.listItemIndex--;
+            } else {
+              this.listItemIndex = this.listItemArray.length - 1;
+            }
+            this.listItemArray[this.listItemIndex].focus();
           }
-          this.listItemArray[this.listItemIndex].focus();
-          return;
-        }
-      case 'Tab':
-        this.open = false;
-        return;
+          break;
 
-      case 'Escape':
-        this.open = false;
-        return;
+        case 'Tab':
+          this.open = false;
+          break;
 
-      default:
-        return;
+        case 'Escape':
+          this.open = false;
+          break;
+
+        default:
+          break;
+      }
     }
   }
-  }
+
   handleClick() {
     this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
