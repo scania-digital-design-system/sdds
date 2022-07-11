@@ -450,31 +450,10 @@ export class Table {
           }}
           ref={(table) => (this.tableSelector = table)}
         >
-          <sdds-table-toolbar
-            tableTitle="Hello new toolbar"
-            showSearchbar={true}
-          />
-
+          <sdds-table-toolbar tableTitle={'Hello johnny'}></sdds-table-toolbar>
           {this.johnnyTest && (
             <sdds-table-header>
               <sdds-table-header-row>
-                {this.multiSelect && (
-                  <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
-                    <div class="sdds-checkbox-item">
-                      <label class="sdds-form-label sdds-form-label--data-table">
-                        <input
-                          class="sdds-form-input"
-                          type="checkbox"
-                          onChange={(e) => this.headCheckBoxClicked(e)}
-                          checked={this.mainCheckboxSelected}
-                          ref={(headCheckbox) =>
-                            (this.headCheckBox = headCheckbox)
-                          }
-                        />
-                      </label>
-                    </div>
-                  </th>
-                )}
                 <slot />
               </sdds-table-header-row>
             </sdds-table-header>

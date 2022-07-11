@@ -1,6 +1,7 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
+:host,
 .sdds-table__header-cell {
   @include type-style("headline-07");
 
@@ -17,28 +18,88 @@
   // To fix issues with border-radius propagating up from button
   overflow: hidden;
   transition: background-color 200ms ease;
+}
 
-  &:hover {
-    background-color: var(--sdds-grey-400);
-  }
+:host(.sdds-table__header-cell--sortable) {
+  .sdds-table__header-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease;
 
-  &:first-of-type {
-    border-top-left-radius: 4px;
-  }
+    &:focus {
+      outline: 2px solid var(--sdds-blue-400);
+      outline-offset: -2px;
 
-  &:last-of-type {
-    border-top-right-radius: 4px;
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
+    }
+
+    .sdds-table__header-button-text {
+      @include type-style("headline-07");
+
+      text-align: left;
+      color: var(--sdds-grey-958);
+    }
+
+    .sdds-table__header-button-icon {
+      /* not to shrink on lot of text */
+      flex: 0 0 16px;
+      height: 16px;
+      opacity: 0;
+      transform-origin: center;
+      transition: opacity 200ms ease-in, transform 200ms ease;
+    }
+
+    &:hover {
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
+    }
   }
 }
 
-.sdds-table__header-cell--checkbox {
-  min-width: unset;
-  width: 48px;
-  padding: 0;
+:host(.sdds-table__header-cell--right-align) {
+  .sdds-table__header-button {
+    text-align: right;
+    justify-content: end;
+    flex-direction: row-reverse;
+  }
 }
 
-sdds-table-toolbar + sdds-table-header {
-  .sdds-table__header-cell {
-    border-radius: 0;
+:host(.sdds-table__header-cell--is-sorted) {
+  .sdds-table__header-button {
+    background-color: var(--sdds-grey-500);
+
+    &:hover {
+      background-color: var(--sdds-grey-400);
+    }
+
+    .sdds-table__header-button-icon {
+      opacity: 1;
+    }
+
+    .sdds-table__header-button-icon--rotate {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Styling anything inside table-header-cell or sdds-header-cell
+:host(.sdds-table__header-cell) {
+  vertical-align: middle;
+
+  .sdds-table__header-text {
+    padding: 0 16px;
+    margin: 0;
   }
 }

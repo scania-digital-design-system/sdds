@@ -7,69 +7,6 @@
   border-collapse: collapse;
   display: table;
 
-  // Fix that works for css&html version only
-  sdds-table-header,
-  .sdds-table__header {
-    .sdds-table__header-cell {
-      &:first-of-type {
-        border-top-left-radius: 4px;
-      }
-
-      &:last-of-type {
-        border-top-right-radius: 4px;
-      }
-    }
-  }
-
-  .sdds-table__upper-bar + .sdds-table__header {
-    .sdds-table__header-cell,
-    ::slotted(sdds-header-cell) {
-      border-radius: 0;
-    }
-  }
-
-  .sdds-table__header,
-  sdds-table-header {
-    .sdds-table__header-cell,
-    ::slotted(sdds-header-cell) {
-      @include type-style("headline-07");
-
-      display: table-cell;
-      text-align: left;
-      color: var(--sdds-grey-958);
-      background-color: var(--sdds-grey-300);
-      border-bottom: 1px solid var(--sdds-grey-400);
-      padding: 0;
-      height: 48px;
-      min-width: 192px;
-      box-sizing: border-box;
-
-      // To fix issues with border-radius propagating up from button
-      overflow: hidden;
-      transition: background-color 200ms ease;
-
-      &:first-of-type {
-        border-top-left-radius: 4px;
-      }
-
-      &:last-of-type {
-        border-top-right-radius: 4px;
-      }
-    }
-
-    .sdds-table__header-cell--checkbox {
-      min-width: unset;
-      width: 48px;
-      padding: 0;
-    }
-  }
-
-  .sdds-table__header {
-    ::slotted(sdds-header-cell:hover) {
-      background-color: var(--sdds-grey-400);
-    }
-  }
-
   .sdds-table__body {
     display: table-row-group;
   }
@@ -100,10 +37,6 @@
   .sdds-table__row--expended {
     width: 100%;
     background-color: pink;
-  }
-
-  ::slotted(sdds-table-body-row-expendable) {
-    width: 100%;
   }
 
   .sdds-table__body-cell,
@@ -201,8 +134,8 @@
 
   // Rule to fix tiny gap that shows when multiselect is on but table has no caption area
   &.sdds-table--multiselect {
-    .sdds-table__header {
-      ::slotted(.sdds-table__header-cell:first-of-type) {
+    sdds-table-header {
+      ::slotted(sdds-header-cell:first-of-type) {
         border-top-left-radius: 0;
       }
     }
@@ -210,118 +143,11 @@
 
   //Web component specific part
 
-  ::slotted(sdds-header-cell:first-of-type) {
-    border-top-left-radius: 4px;
-  }
-
-  ::slotted(sdds-header-cell:last-of-type) {
-    border-top-right-radius: 4px;
-  }
-
   .sdds-table__upper-bar + .sdds-table__header {
     ::slotted(sdds-header-cell) {
       border-radius: 0;
     }
   }
-}
-
-// Styling anything inside table-header-cell or sdds-header-cell
-
-:host(.sdds-table__header-cell) {
-  vertical-align: middle;
-
-  .sdds-table__header-text {
-    padding: 0 16px;
-    margin: 0;
-  }
-}
-
-:host(.sdds-table__header-cell--sortable) {
-  .sdds-table__header-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: start;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    padding: 0 16px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: background-color 200ms ease;
-
-    &:focus {
-      outline: 2px solid var(--sdds-blue-400);
-      outline-offset: -2px;
-
-      .sdds-table__header-button-icon {
-        opacity: 1;
-      }
-    }
-
-    .sdds-table__header-button-text {
-      @include type-style("headline-07");
-
-      text-align: left;
-      color: var(--sdds-grey-958);
-    }
-
-    .sdds-table__header-button-icon {
-      /* not to shrink on lot of text */
-      flex: 0 0 16px;
-      height: 16px;
-      opacity: 0;
-      transform-origin: center;
-      transition: opacity 200ms ease-in, transform 200ms ease;
-    }
-
-    &:hover {
-      .sdds-table__header-button-icon {
-        opacity: 1;
-      }
-    }
-  }
-}
-
-:host(.sdds-table__header-cell--right-align) {
-  .sdds-table__header-button {
-    text-align: right;
-    justify-content: end;
-    flex-direction: row-reverse;
-  }
-}
-
-:host(.sdds-table__header-cell--is-sorted) {
-  .sdds-table__header-button {
-    background-color: var(--sdds-grey-500);
-
-    &:hover {
-      background-color: var(--sdds-grey-400);
-    }
-
-    .sdds-table__header-button-icon {
-      opacity: 1;
-    }
-
-    .sdds-table__header-button-icon--rotate {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-/* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
-
-@import "../checkbox/checkbox";
-
-// Extra rule for label use in data-table
-.sdds-form-label--data-table {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 }
 
 // Actionbar buttons styling
