@@ -11,21 +11,26 @@ import {
 
 @Component({
   tag: 'sdds-header-cell',
-  styleUrl: 'table.scss',
+  styleUrl: '../table.scss',
   shadow: true,
 })
 export class TableHeaderCell {
+  /** Value of column key, usually comes from JSON, needed for sorting */
   @Prop({ reflect: true }) columnKey: string;
 
+  /** Text that displays in column cell */
   @Prop({ reflect: true }) columnTitle: string;
 
+  /** In case noMinWidth setting, user has to specify width value for each column, for example "150px" */
   @Prop({ reflect: true }) customWidth: string;
 
+  /** If passed as prop, enables sorting on that column */
+  @Prop() sortable: boolean = false;
+
+  /** Setting for text align, default is left, but user can pass "right" as string - useful for numeric values */
   @Prop({ reflect: true }) textAlign: string;
 
   @State() textAlignState: string;
-
-  @Prop() sortable: boolean = false;
 
   @State() sortingDirection: string = '';
 
@@ -33,6 +38,7 @@ export class TableHeaderCell {
 
   @State() disableSortingBtn: boolean = false;
 
+  /** Sends column key and sorting direction to the sdds-table component */
   @Event({
     eventName: 'sortColumnData',
     composed: true,
@@ -41,6 +47,7 @@ export class TableHeaderCell {
   })
   sortColumnData: EventEmitter<any>;
 
+  /** Sends column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
     eventName: 'bodyCellData',
     composed: true,
@@ -49,6 +56,7 @@ export class TableHeaderCell {
   })
   bodyCellData: EventEmitter<any>;
 
+  /** Sends column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
     eventName: 'headKey',
     composed: true,

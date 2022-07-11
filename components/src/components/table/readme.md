@@ -5,15 +5,15 @@
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [sdds-table](.)
+- [sdds-table-body-row](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-table --> sdds-table-header-row
-  style sdds-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-table-body-row-expendable --> sdds-table-body-row
+  style sdds-table-body-row-expendable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
