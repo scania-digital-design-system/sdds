@@ -7,11 +7,8 @@
   border-collapse: collapse;
   display: table;
 
-  .sdds-table__header {
-    display: table-header-group;
-  }
-
   // Fix that works for css&html version only
+  sdds-table-header,
   .sdds-table__header {
     .sdds-table__header-cell {
       &:first-of-type {
@@ -31,7 +28,8 @@
     }
   }
 
-  .sdds-table__header {
+  .sdds-table__header,
+  sdds-table-header {
     .sdds-table__header-cell,
     ::slotted(sdds-header-cell) {
       @include type-style("headline-07");
