@@ -7,10 +7,6 @@
   border-collapse: collapse;
   display: table;
 
-  .sdds-table__body {
-    display: table-row-group;
-  }
-
   .sdds-table__row {
     display: table-row;
     border-bottom: 1px solid var(--sdds-grey-400);
