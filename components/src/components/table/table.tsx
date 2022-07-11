@@ -321,15 +321,14 @@ export class Table {
     this.selectedDataExporter();
   };
 
-  bodyCheckBoxClicked = (event) => {
-    const row = event.currentTarget.closest('sdds-table-body-row');
+  @Listen('bodyRowToTable')
+  bodyCheckboxListener(event: CustomEvent<boolean>) {
+    const bodyCheckboxValue = event.detail;
+    console.log(bodyCheckboxValue);
+    this.bodyCheckBoxClicked();
+  }
 
-    if (event.currentTarget.checked === true) {
-      row.classList.add('sdds-table__row--selected');
-    } else {
-      row.classList.remove('sdds-table__row--selected');
-    }
-
+  bodyCheckBoxClicked = () => {
     const numberOfRows =
       this.tableBodySelector.getElementsByClassName('sdds-table__row').length;
 
@@ -345,19 +344,6 @@ export class Table {
   setBodyItem = () =>
     this.bodyDataManipulated.map((row) => (
       <sdds-table-body-row>
-        {this.multiSelect && (
-          <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
-            <div class="sdds-checkbox-item">
-              <label class="sdds-form-label sdds-form-label--data-table">
-                <input
-                  class="sdds-form-input"
-                  type="checkbox"
-                  onChange={(event) => this.bodyCheckBoxClicked(event)}
-                />
-              </label>
-            </div>
-          </td>
-        )}
         {Object.keys(row).map((cellData) => (
           <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
         ))}

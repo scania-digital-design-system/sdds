@@ -7,7 +7,7 @@
 
 ### Depends on
 
-- [sdds-table-body-row](.)
+- [sdds-table-body-row](table-body-row)
 
 ### Graph
 ```mermaid
