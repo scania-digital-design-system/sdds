@@ -38,7 +38,7 @@
     align-items: center;
   }
 
-  .sdds-dropdown-toggle--selected-value:not(:focus) {
+  .sdds-dropdown-toggle--selected:not(:focus) {
     border-bottom: 1px solid var(--sdds-grey-800);
   }
 
@@ -237,7 +237,7 @@
     outline-offset: -1px;
   }
 
-  ::slotted(sdds-dropdown-option.sdds-dropdown--selected-value),
+  ::slotted(sdds-dropdown-option.sdds-dropdown--selected),
   ::slotted(sdds-dropdown-option.selected),
   ::slotted(sdds-dropdown-option.active),
   ::slotted(sdds-dropdown-option:active) {
@@ -334,7 +334,7 @@
   text-overflow: ellipsis;
 }
 
-:host(.sdds-dropdown--label-inside-position.sdds-dropdown--selected-value) {
+:host(.sdds-dropdown--label-inside-position.sdds-dropdown--selected) {
   .sdds-dropdown-label {
     padding-top: 12px;
   }
