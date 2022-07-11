@@ -54,8 +54,6 @@ export class Dropdown {
 
   @State() items: Array<any> = [];
 
-  @State() options: Array<any> = [];
-
   @State() open: boolean = false;
 
   @State() node: HTMLElement;
