@@ -7,34 +7,6 @@
   border-collapse: collapse;
   display: table;
 
-  .sdds-table__row {
-    display: table-row;
-    border-bottom: 1px solid var(--sdds-grey-400);
-    background-color: var(--sdds-white);
-    transition: background-color 200ms ease;
-  }
-
-  .sdds-table__row:hover {
-    background-color: var(--sdds-grey-100);
-  }
-
-  .sdds-table__row--selected {
-    background-color: var(--sdds-grey-300);
-  }
-
-  .sdds-table__row--selected:hover {
-    background-color: var(--sdds-grey-400);
-  }
-
-  .sdds-table__row--hidden {
-    display: none;
-  }
-
-  .sdds-table__row--expended {
-    width: 100%;
-    background-color: pink;
-  }
-
   .sdds-table__body-cell,
   ::slotted(sdds-body-cell) {
     @include type-style("detail-02");

@@ -1,0 +1,42 @@
+/* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
+@import "../../checkbox/checkbox";
+
+:host(.sdds-table__row) {
+  display: table-row;
+  border-bottom: 1px solid var(--sdds-grey-400);
+  background-color: var(--sdds-white);
+  transition: background-color 200ms ease;
+}
+
+:host(.sdds-table__row:hover) {
+  background-color: var(--sdds-grey-100);
+}
+
+:host(.sdds-table__row--selected) {
+  background-color: var(--sdds-grey-300);
+}
+
+:host(.sdds-table__row--selected:hover) {
+  background-color: var(--sdds-grey-400);
+}
+
+:host(.sdds-table__row--hidden) {
+  display: none;
+}
+
+:host(.sdds-table__row--expended) {
+  width: 100%;
+  background-color: pink;
+}
+
+:host {
+  // Extra rule for label use in data-table
+  .sdds-form-label--data-table {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
