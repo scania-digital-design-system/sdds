@@ -126,7 +126,6 @@
   &.sdds-dropdown-large {
     .sdds-dropdown-toggle {
       height: 56px;
-      padding: 0 20px;
     }
   }
 
@@ -134,7 +133,6 @@
   &.sdds-dropdown-medium {
     .sdds-dropdown-toggle {
       height: 48px;
-      padding: 0 16px;
     }
   }
 
@@ -142,7 +140,6 @@
   &.sdds-dropdown-small {
     .sdds-dropdown-toggle {
       height: 40px;
-      padding: 0 12px;
     }
   }
 }
@@ -166,6 +163,7 @@
       pointer-events: none;
       color: var(--sdds-grey-400);
       border: none;
+      padding: 0 16px;
 
       .sdds-dropdown-placeholder {
         color: var(--sdds-grey-400);
@@ -341,7 +339,7 @@
 
   .sdds-dropdown-label-inside {
     color: var(--sdds-grey-700);
-    transform: translate(0, -20px);
+    transform: translate(0, -17.8px);
     font-size: calc(2.5rem);
     width: calc(100% - 64px);
     overflow: hidden;
