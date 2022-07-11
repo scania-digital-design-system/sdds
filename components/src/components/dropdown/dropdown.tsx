@@ -53,6 +53,7 @@ export class Dropdown {
   @Prop() helper: string = '';
 
   @State() items: Array<any> = [];
+
   @State() options: Array<any> = [];
 
   @State() open: boolean = false;
