@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property      | Attribute      | Description | Type      | Default |
+| ------------- | -------------- | ----------- | --------- | ------- |
+| `multiSelect` | `multi-select` |             | `boolean` | `true`  |
+
+
 ## Dependencies
 
 ### Used by
