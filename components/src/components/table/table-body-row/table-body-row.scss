@@ -6,6 +6,12 @@
   border-bottom: 1px solid var(--sdds-grey-400);
   background-color: var(--sdds-white);
   transition: background-color 200ms ease;
+
+  .sdds-table__body-cell--checkbox {
+    min-width: 48px;
+    width: 48px;
+    padding: 0;
+  }
 }
 
 :host(.sdds-table__row:hover) {
