@@ -2,12 +2,14 @@ import { Component, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-body-cell',
-  styleUrl: 'table.scss',
+  styleUrl: 'table-body-cell.scss',
   shadow: true,
 })
 export class TableBodyCell {
+  /** Value that will be presented as text inside a cell */
   @Prop({ reflect: true }) cellValue: string | number;
 
+  /** Passing same cell key for all body cells which is used in head cell enables features of text align and hovering */
   @Prop({ reflect: true }) cellKey: any;
 
   @State() textAlign: string;
