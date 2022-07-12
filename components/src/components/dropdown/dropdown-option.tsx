@@ -34,12 +34,10 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
-  
-  @Listen('mouseover')
-  changeFocusHandler(event: CustomEvent<any>) {
-    console.log(event)
-    this.host.focus()
 
+  @Listen('mouseover')
+  changeFocusHandler() {
+    this.host.focus();
   }
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {

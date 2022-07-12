@@ -225,11 +225,14 @@
     background-color: var(--sdds-grey-50);
   }
 
-  ::slotted(sdds-dropdown-option:hover:not(:focus)) {
+  ::slotted(sdds-dropdown-option:hover:not(:focus):not(sdds-dropdown-option.selected)) {
     background-color: var(--sdds-white);
   }
 
-  //Overridden by *-selector in theme.scss
+  ::slotted(sdds-dropdown-option:hover:focus) {
+    outline: none;
+  }
+
   ::slotted(sdds-dropdown-option:focus) {
     outline: 1px solid var(--sdds-blue-400);
     outline-offset: -1px;
