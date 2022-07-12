@@ -1,7 +1,8 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '../divider/divider.scss';
+@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "../divider/divider.scss";
+@import "../../helpers/components-shared.scss";
 
 @mixin disabledStyle {
   &,
@@ -36,7 +37,7 @@
     display: flex;
     align-items: center;
 
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-bg);
@@ -60,7 +61,7 @@
     padding-right: var(--sdds-spacing-layout-64);
     display: none;
 
-    @include type-style('detail-03');
+    @include type-style("detail-03");
 
     p {
       margin: 0;
@@ -95,7 +96,7 @@
   }
 
   &:focus {
-    outline: none;
+    @include sdds-focus-state;
     .#{$prefix}-accordion-header-prefix,
     .#{$prefix}-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
@@ -129,7 +130,7 @@
     &:focus,
     &:active,
     &.active {
-      @include disabledStyle();
+      @include disabledStyle;
     }
   }
 
@@ -163,7 +164,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 0;
@@ -186,7 +187,7 @@
   border-top: 1px solid var(--sdds-accordion-border-focus);
 }
 
-::slotted(sdds-accordion-item[disabled='true']:focus) {
+::slotted(sdds-accordion-item[disabled="true"]:focus) {
   border-color: var(--sdds-accordion-border);
 }
 
@@ -195,7 +196,7 @@
 }
 
 :host(:focus) {
-  outline: none;
+  @include sdds-focus-state;
 
   .#{$prefix}-accordion-item {
     .#{$prefix}-accordion-header-prefix,
@@ -210,7 +211,7 @@
   }
 
   .disabled {
-    @include disabledStyle();
+    @include disabledStyle;
   }
 }
 
@@ -222,6 +223,6 @@
   }
 
   .disabled {
-    @include disabledStyle();
+    @include disabledStyle;
   }
 }
