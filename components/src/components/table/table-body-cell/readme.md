@@ -17,12 +17,12 @@
 
 ### Used by
 
- - [sdds-table](..)
+ - [sdds-table-body](../table-body)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-table --> sdds-body-cell
+  sdds-table-body --> sdds-body-cell
   style sdds-body-cell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
