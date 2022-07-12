@@ -20,9 +20,6 @@ import {
   shadow: true,
 })
 export class Table {
-  /** Adds caption to the table */
-  @Prop({ reflect: true }) tableTitle: string;
-
   @Prop({ reflect: true }) verticalDividers: boolean = false;
 
   @Prop({ reflect: true }) compactDesign: boolean = false;
@@ -33,11 +30,7 @@ export class Table {
 
   @Prop({ reflect: true }) multiSelect: boolean = false;
 
-  @Prop({ reflect: true }) filtering: boolean = false;
-
-  @Prop({ reflect: true }) actionBar: boolean = false;
-
-  @Prop({ reflect: true }) pagination: boolean = false;
+  @State() pagination: boolean = true;
 
   @Prop({ reflect: true }) rowsPerPage: number = 2;
 
@@ -102,8 +95,6 @@ export class Table {
 
   @Element() host: HTMLElement;
 
-  @State() tableSelector: HTMLElement;
-
   @State() tableBodySelector: HTMLElement;
 
   @State() headCheckBox: HTMLInputElement;
@@ -115,8 +106,6 @@ export class Table {
   @State() paginationValue: number = 1;
 
   @State() tempPaginationDisable: boolean = false;
-
-  @State() johnnyTest: boolean = true;
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
@@ -419,7 +408,6 @@ export class Table {
             'sdds-table--on-white-bg': this.whiteBackground,
             'sdds-table--multiselect': this.multiSelect,
           }}
-          ref={(table) => (this.tableSelector = table)}
         >
           <sdds-table-toolbar tableTitle={'Hello johnny'}>
             <button
@@ -473,24 +461,22 @@ export class Table {
               type="primary"
               size="sm"
               text="Download"
-            ></sdds-button>
+            />
           </sdds-table-toolbar>
-          {this.johnnyTest && (
-            <sdds-table-header>
-              <sdds-table-header-row>
-                <slot />
-              </sdds-table-header-row>
-            </sdds-table-header>
-          )}
-          {this.johnnyTest && (
-            <sdds-table-body
-              ref={(tableBody) => (this.tableBodySelector = tableBody)}
-            >
-              {this.setBodyItem()}
-            </sdds-table-body>
-          )}
 
-          {this.pagination && <sdds-table-footer></sdds-table-footer>}
+          <sdds-table-header>
+            <sdds-table-header-row>
+              <slot />
+            </sdds-table-header-row>
+          </sdds-table-header>
+
+          <sdds-table-body
+            ref={(tableBody) => (this.tableBodySelector = tableBody)}
+          >
+            {this.setBodyItem()}
+          </sdds-table-body>
+
+          <sdds-table-footer></sdds-table-footer>
 
           <slot />
         </table>

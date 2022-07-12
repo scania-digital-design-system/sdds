@@ -9,7 +9,7 @@
 
   // SDDS GLOBAL STYLES:
   &.sdds-table--compact {
-    .sdds-table__upper-bar {
+    sdds-table-toolbar {
       height: 56px;
     }
 
@@ -18,18 +18,8 @@
       padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
     }
 
-    .sdds-table__body-cell--checkbox {
-      min-width: 32px;
-      width: 32px;
-      padding: 0;
-    }
-
     .sdds-table__header-cell,
-    ::slotted(sdds-header-cell) {
-      height: 32px;
-    }
-
-    .sdds-form-label--data-table {
+    sdds-header-cell {
       height: 32px;
     }
   }

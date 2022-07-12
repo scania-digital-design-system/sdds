@@ -211,6 +211,7 @@ const Template = ({
             action-bar="${actionbar}"
             pagination="${pagination}"
             rows-per-page="${rowsPerPage}"
+        
         >
           <sdds-header-cell column-key="truck" column-title="${header_1_title}" custom-width="${column_1_width}" text-align="${column_1_text_align}" sortable="${column_1_sortable}"></sdds-header-cell>
           <sdds-header-cell column-key="driver" column-title="${header_2_title}" custom-width="${column_2_width}" text-align="${column_2_text_align}" sortable="${column_2_sortable}"></sdds-header-cell>
