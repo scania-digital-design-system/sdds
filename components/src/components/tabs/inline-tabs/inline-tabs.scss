@@ -1,5 +1,6 @@
 @import "../../../../node_modules/@scania/typography/dist/scss/mixins";
 @import "../../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared";
 
 :host {
   outline: 0 !important;
@@ -55,6 +56,10 @@
     &:active {
       background-color: var(--sdds-grey-400);
     }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
   }
 
   &--back {
@@ -83,6 +88,10 @@
 
     &:active {
       background-color: var(--sdds-grey-400);
+    }
+
+    &:focus {
+      @include sdds-focus-state;
     }
   }
 
@@ -129,16 +138,7 @@
     }
 
     &:focus {
-      &::before {
-        content: " ";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        display: block;
-        border: 1px solid var(--sdds-blue-400);
-      }
+      @include sdds-focus-state;
     }
 
     &__active {
@@ -166,15 +166,6 @@
         left: -1px;
         display: block;
         position: absolute;
-      }
-
-      &:focus {
-        &::before {
-          right: -1px;
-          left: -1px;
-          width: auto;
-          background-color: transparent;
-        }
       }
 
       &:first-child {

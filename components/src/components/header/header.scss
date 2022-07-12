@@ -11,6 +11,10 @@
   &:hover {
     background-color: var(--sdds-blue-700);
   }
+
+  &:focus {
+    @include sdds-focus-state;
+  }
 }
 
 // Style for Header itself

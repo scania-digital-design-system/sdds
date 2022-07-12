@@ -217,8 +217,7 @@
   }
 
   ::slotted(sdds-dropdown-option:focus) {
-    outline: 2px solid var(--sdds-blue-400);
-    outline-offset: -2px;
+    @include sdds-focus-state;
   }
 
   ::slotted(sdds-dropdown-option.sdds-dropdown--selected),
