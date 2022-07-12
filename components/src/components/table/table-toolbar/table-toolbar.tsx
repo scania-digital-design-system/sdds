@@ -7,7 +7,7 @@ import { Component, h, Host, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class TableToolbar {
   /** Enables section for adding user custom buttons */
-  @Prop({ reflect: true }) enableActionBar: boolean = false;
+  @Prop({ reflect: true }) enableActionBar: boolean = true;
 
   /** Adds title to the table */
   @Prop() tableTitle: string = '';
