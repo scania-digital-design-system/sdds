@@ -9,7 +9,7 @@
 
 | Property          | Attribute           | Description                                    | Type      | Default |
 | ----------------- | ------------------- | ---------------------------------------------- | --------- | ------- |
-| `enableActionBar` | `enable-action-bar` | Enables section for adding user custom buttons | `boolean` | `false` |
+| `enableActionBar` | `enable-action-bar` | Enables section for adding user custom buttons | `boolean` | `true`  |
 | `showSearchbar`   | `show-searchbar`    | Enables preview of searchbar                   | `boolean` | `true`  |
 | `tableTitle`      | `table-title`       | Adds title to the table                        | `string`  | `''`    |
 
