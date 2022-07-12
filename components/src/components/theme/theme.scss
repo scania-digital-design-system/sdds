@@ -28,11 +28,6 @@
 @import '../slider/slider.scss';
 @import '../../helpers/_utility-classes.scss';
 
-* :focus {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
-}
-
 html.#{$prefix},
 body.#{$prefix},
 .#{$prefix}-body {
