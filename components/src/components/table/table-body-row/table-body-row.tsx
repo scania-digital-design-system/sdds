@@ -15,7 +15,7 @@ import {
   shadow: true,
 })
 export class TableBodyRow {
-  @State() multiSelect: boolean = true;
+  @State() enableMultiselectBodyRow: boolean = false;
 
   @State() bodyCheckBoxStatus: boolean = false;
 
@@ -65,10 +65,15 @@ export class TableBodyRow {
     this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
+  @Listen('enableMultiselectEvent', { target: 'body' })
+  enableMultiselectEventListener(event: CustomEvent<boolean>) {
+    this.enableMultiselectBodyRow = event.detail;
+  }
+
   render() {
     return (
       <Host class="sdds-table__row">
-        {this.multiSelect && (
+        {this.enableMultiselectBodyRow && (
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">
               <label class="sdds-form-label sdds-form-label--data-table">

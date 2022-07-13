@@ -14,7 +14,7 @@ import {
   shadow: true,
 })
 export class TableHeaderRow {
-  @State() multiSelect: boolean = true;
+  @State() enableMultiselectHeaderRow: boolean = false;
 
   @State() mainCheckboxSelected: boolean = false;
 
@@ -37,10 +37,15 @@ export class TableHeaderRow {
     this.mainCheckboxSelected = event.detail;
   }
 
+  @Listen('enableMultiselectEvent', { target: 'body' })
+  enableMultiselectEventListener(event: CustomEvent<boolean>) {
+    this.enableMultiselectHeaderRow = event.detail;
+  }
+
   render() {
     return (
       <Host>
-        {this.multiSelect && (
+        {this.enableMultiselectHeaderRow && (
           <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
             <div class="sdds-checkbox-item">
               <label class="sdds-form-label sdds-form-label--data-table">
