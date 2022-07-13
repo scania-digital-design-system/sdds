@@ -230,6 +230,7 @@ export class Dropdown {
             ''
           )}
           <button
+            tabindex={this.disabled ? '-1' : null}
             class={`sdds-dropdown-toggle ${
               this.selectedValue === 'filter' ? 'is-filter' : ''
             } ${

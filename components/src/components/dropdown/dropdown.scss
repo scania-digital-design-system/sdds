@@ -52,7 +52,7 @@
   }
 
   .sdds-dropdown-placeholder {
-    color: var(--sdds-grey-700);
+    color: var(--sdds-grey-958);
   }
 
   .sdds-dropdown-label {
@@ -166,6 +166,10 @@
       padding: 0 16px;
 
       .sdds-dropdown-placeholder {
+        color: var(--sdds-grey-400);
+      }
+
+      .sdds-dropdown-label-inside {
         color: var(--sdds-grey-400);
       }
 
