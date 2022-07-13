@@ -6,6 +6,7 @@ import {
   State,
   Event,
   EventEmitter,
+  Prop,
 } from '@stencil/core';
 
 @Component({
@@ -14,6 +15,9 @@ import {
   shadow: true,
 })
 export class TableFooter {
+  /** Sets how many rows to display when pagination is enabled */
+  @Prop({ reflect: true }) rowsPerPage: number = 5;
+
   /** State that memorize number of columns to display colSpan correctly - set from parent level */
   @State() columnsNumber: number = 0;
 
@@ -33,17 +37,30 @@ export class TableFooter {
       event.detail;
   }
 
-  /** Event to send current pagination back to parent */
+  /** Event to send rowsPerPage value back to sdds-table-body component */
   @Event({
-    eventName: 'footerToTable',
+    eventName: 'rowsPerPageEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  footerToTable: EventEmitter<number>;
+  rowsPerPageEvent: EventEmitter<number>;
+
+  componentWillLoad() {
+    this.rowsPerPageEvent.emit(this.rowsPerPage);
+  }
+
+  /** Event to send current page value back to sdds-table-body component */
+  @Event({
+    eventName: 'currentPageValue',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  currentPageValue: EventEmitter<number>;
 
   sendPaginationValue(value) {
-    this.footerToTable.emit(value);
+    this.currentPageValue.emit(value);
   }
 
   paginationPrev = (event) => {

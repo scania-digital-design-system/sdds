@@ -18,7 +18,7 @@ import {
 })
 export class TableBody {
   // TODO: move this one the footer!!!
-  @Prop({ reflect: true }) rowsPerPage: number = 2;
+  @State() rowsPerPage: number = 1;
 
   @Prop() bodyData: any = `[
       {
@@ -96,9 +96,14 @@ export class TableBody {
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
     this.countColumnNumber();
-    if (this.pagination) {
-      this.setNumberOfPages();
-    }
+  }
+
+  @Listen('rowsPerPageEvent', { target: 'body' })
+  rowsPerPageListener(event: CustomEvent<number>) {
+    this.rowsPerPage = event.detail;
+    this.numberOfPages = Math.ceil(
+      this.bodyDataManipulated.length / this.rowsPerPage
+    );
   }
 
   componentDidRender() {
@@ -106,12 +111,6 @@ export class TableBody {
       this.sendDataToFooter();
       this.runPagination();
     }
-  }
-
-  setNumberOfPages() {
-    this.numberOfPages = Math.ceil(
-      this.bodyDataManipulated.length / this.rowsPerPage
-    );
   }
 
   @Event({
@@ -130,8 +129,8 @@ export class TableBody {
     ]);
   }
 
-  @Listen('footerToTable', { target: 'body' })
-  footerToTableListener(event: CustomEvent<number>) {
+  @Listen('currentPageValue', { target: 'body' })
+  currentPageValueListener(event: CustomEvent<number>) {
     this.paginationValue = event.detail;
     this.runPagination();
   }
