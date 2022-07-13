@@ -299,13 +299,11 @@ export class TableBody {
     this.selectedDataExporter();
   };
 
-  // Listen to sddsTableSearchTerm from tableToolbar component
-  @Listen('sddsTableSearchTerm', { target: 'body' })
+  // Listen to tableFilteringTerm from tableToolbar component
+  @Listen('tableFilteringTerm', { target: 'body' })
   searchFunction(event: CustomEvent<any>) {
     // Search feat with two search logics
     const searchTerm = event.detail;
-    console.log('Search function listens too');
-    console.log(this.host);
 
     /*
         // Logic for filtering JSON data on all columns

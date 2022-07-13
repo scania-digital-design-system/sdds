@@ -14,7 +14,7 @@ export class TableToolbar {
 
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
-    eventName: 'sddsTableSearchTerm',
+    eventName: 'tableFilteringTerm',
     composed: true,
     cancelable: true,
     bubbles: true,

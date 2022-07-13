@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event                 | Description                                                        | Type               |
-| --------------------- | ------------------------------------------------------------------ | ------------------ |
-| `sddsTableSearchTerm` | Used for sending users input to main parent <sdds-table> component | `CustomEvent<any>` |
+| Event                | Description                                                        | Type               |
+| -------------------- | ------------------------------------------------------------------ | ------------------ |
+| `tableFilteringTerm` | Used for sending users input to main parent <sdds-table> component | `CustomEvent<any>` |
 
 
 ----------------------------------------------
