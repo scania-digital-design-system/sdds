@@ -67,7 +67,7 @@ export class TableBody {
 
   @Element() host: HTMLElement;
 
-  @State() multiSelect: boolean = true;
+  @State() enableMultiselectTableBody: boolean = false;
 
   @State() pagination: boolean = true;
 
@@ -97,7 +97,11 @@ export class TableBody {
 
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
-    this.countColumnNumber();
+  }
+
+  @Listen('enableMultiselectEvent', { target: 'body' })
+  enableMultiselectEventListener(event: CustomEvent<boolean>) {
+    this.enableMultiselectTableBody = event.detail;
   }
 
   @Listen('rowsPerPageEvent', { target: 'body' })
@@ -109,6 +113,12 @@ export class TableBody {
   }
 
   componentDidRender() {
+    // multiselect feature requires one extra column for checkboxes...
+    if (this.enableMultiselectTableBody) {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
+    } else {
+      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
+    }
     if (this.pagination) {
       this.sendDataToFooter();
       this.runPagination();
@@ -187,16 +197,6 @@ export class TableBody {
     this.sortData(keyValue, sortingDirection);
   }
 
-  // Would  be good to make a check to make sure if header is present,
-  // that Number of elements in header is equal to the number of elements in first row of table
-  countColumnNumber = () => {
-    if (this.multiSelect) {
-      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
-    } else {
-      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
-    }
-  };
-
   compareValues = (key, order = 'asc') =>
     function innerSort(a, b) {
       // eslint-disable-next-line no-prototype-builtins
@@ -218,7 +218,8 @@ export class TableBody {
     };
 
   sortData(keyValue, sortingDirection) {
-    if (this.multiSelect) {
+    if (this.enableMultiselectTableBody) {
+      // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
       this.uncheckedAll();
     }
 
@@ -227,11 +228,8 @@ export class TableBody {
     this.bodyDataManipulated.sort(
       this.compareValues(keyValue, sortingDirection)
     );
-    // Uncheck all checkboxes as state is lost on sorting. Do it only in case multiSelect is True.
-    // We will try to find a better approach to solve this one
   }
 
-  /* Lines 148 to 201 - multiSelect feature of table */
   selectedDataExporter = () => {
     const selectedRows = this.host.getElementsByClassName(
       'sdds-table__row--selected'
@@ -366,9 +364,9 @@ export class TableBody {
         '.sdds-table__row--hidden'
       );
 
+      // If same, info message will be shown
       this.showNoResultsMessage =
         dataRowsHidden.length === dataRowsFiltering.length;
-      console.log(`Is is the same number?${this.showNoResultsMessage}`);
     } else {
       if (this.pagination) {
         this.tempPaginationDisable = false;
@@ -393,7 +391,6 @@ export class TableBody {
             ))}
           </sdds-table-body-row>
         ))}
-        <slot></slot>
         {this.showNoResultsMessage && (
           <tr>
             <td class="sdds-table__info-message" colSpan={this.columnsNumber}>
@@ -401,6 +398,7 @@ export class TableBody {
             </td>
           </tr>
         )}
+        <slot></slot>
       </Host>
     );
   }
