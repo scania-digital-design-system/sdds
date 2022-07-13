@@ -191,8 +191,13 @@ export class Dropdown {
     this.selectedLabel = event.detail.label;
     this.selectedValue = event.detail.value;
     this.tabbingLabelReset();
-    this.open ? !this.open : this.open;
-    this.node.focus();
+    if (this.type !== 'filter') {
+      this.open ? !this.open : this.open;
+      this.node.focus();
+    } else {
+      this.open = false;
+    }
+    // this.node.focus();
   }
 
   @Event({
@@ -248,6 +253,7 @@ export class Dropdown {
                 <input
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
                   disabled={this.disabled}
+                  tabindex="-1"
                   ref={(inputEl) =>
                     (this.textInput = inputEl as HTMLInputElement)
                   }
