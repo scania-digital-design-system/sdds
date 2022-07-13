@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/63051941/how-to-pass-data-as-array-of-object-in-stencil-js
 // https://medium.com/@scottmgerstl/passing-an-object-or-array-to-stencil-dd62b7d92641
 
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-table',
@@ -22,7 +22,19 @@ export class Table {
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
   /** Enables multiselect feature of data-table */
-  @Prop({ reflect: true }) multiSelect: boolean = false;
+  @Prop({ reflect: true }) enableMultiselect: boolean = true;
+
+  @Event({
+    eventName: 'enableMultiselectEvent',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  enableMultiselectEvent: EventEmitter<boolean>;
+
+  componentDidLoad() {
+    this.enableMultiselectEvent.emit(this.enableMultiselect);
+  }
 
   render() {
     return (
@@ -34,7 +46,6 @@ export class Table {
             'sdds-table--divider': this.verticalDividers,
             'sdds-table--no-min-width': this.noMinWidth,
             'sdds-table--on-white-bg': this.whiteBackground,
-            'sdds-table--multiselect': this.multiSelect,
           }}
         >
           <slot />
