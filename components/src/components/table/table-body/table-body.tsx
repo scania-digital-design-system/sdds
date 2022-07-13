@@ -69,7 +69,7 @@ export class TableBody {
 
   @State() enableMultiselectTableBody: boolean = false;
 
-  @State() pagination: boolean = true;
+  @State() enablePaginationTableBody: boolean = true;
 
   @State() innerBodyData = [];
 
@@ -104,9 +104,9 @@ export class TableBody {
     this.enableMultiselectTableBody = event.detail;
   }
 
-  @Listen('rowsPerPageEvent', { target: 'body' })
-  rowsPerPageListener(event: CustomEvent<number>) {
-    this.rowsPerPage = event.detail;
+  @Listen('enablePaginationData', { target: 'body' })
+  rowsPerPageListener(event: CustomEvent<any>) {
+    [this.enablePaginationTableBody, this.rowsPerPage] = event.detail;
     this.numberOfPages = Math.ceil(
       this.bodyDataManipulated.length / this.rowsPerPage
     );
@@ -119,8 +119,8 @@ export class TableBody {
     } else {
       this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
     }
-    if (this.pagination) {
-      this.sendDataToFooter();
+    this.sendDataToFooter();
+    if (this.enablePaginationTableBody) {
       this.runPagination();
     }
   }
@@ -328,7 +328,7 @@ export class TableBody {
     console.log(dataRowsFiltering);
 
     if (searchTerm.length > 0) {
-      if (this.pagination) {
+      if (this.enablePaginationTableBody) {
         this.tempPaginationDisable = true;
       }
 
@@ -366,7 +366,7 @@ export class TableBody {
       this.showNoResultsMessage =
         dataRowsHidden.length === dataRowsFiltering.length;
     } else {
-      if (this.pagination) {
+      if (this.enablePaginationTableBody) {
         this.tempPaginationDisable = false;
       }
 
