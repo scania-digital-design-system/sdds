@@ -12,9 +12,6 @@ export class TableToolbar {
   /** Enables preview of searchbar */
   @Prop({ reflect: true }) enableFiltering: boolean = false;
 
-  /** Enables section for adding user custom buttons */
-  @Prop({ reflect: true }) enableActionbar: boolean = false;
-
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
     eventName: 'sddsTableSearchTerm',
@@ -66,7 +63,7 @@ export class TableToolbar {
                 </span>
               </div>
             )}
-            {this.enableActionbar && <slot name="sdds-table__actionbar" />}
+            <slot name="sdds-table__actionbar" />
           </div>
         </div>
       </Host>
