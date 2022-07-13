@@ -28,7 +28,7 @@ const Template = () => `
             </sdds-table-body-row>
         -->
         </sdds-table-body>
-        <sdds-table-footer></sdds-table-footer>
+        <sdds-table-footer enable-pagination rows-per-page="2"></sdds-table-footer>
   </sdds-table>
   `;
 
