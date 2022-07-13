@@ -17,6 +17,18 @@
 :host {
   position: relative;
   z-index: auto;
+
+  &::part(dropdown-filter-disabled) {
+    cursor: not-allowed;
+    caret-color: transparent;
+    pointer-events: none;
+    color: var(--sdds-grey-400);
+    border: none;
+
+    &::placeholder {
+      color: var(--sdds-grey-400);
+    }
+  }
 }
 
 .sdds-dropdown {

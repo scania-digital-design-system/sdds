@@ -154,6 +154,7 @@ export class Dropdown {
 
         case 'Escape':
           this.open = false;
+          this.node.focus();
           break;
 
         default:
@@ -191,7 +192,8 @@ export class Dropdown {
     this.selectedLabel = event.detail.label;
     this.selectedValue = event.detail.value;
     this.tabbingLabelReset();
-    this.open = false;
+    this.open ? !this.open : this.open;
+    this.node.focus();
   }
 
   @Event({
@@ -230,6 +232,8 @@ export class Dropdown {
             ''
           )}
           <button
+            part={this.disabled ? 'dropdown-filter-disabled' : ''}
+            disabled={this.disabled}
             tabindex={this.disabled ? '-1' : null}
             class={`sdds-dropdown-toggle ${
               this.selectedValue === 'filter' ? 'is-filter' : ''
@@ -243,6 +247,8 @@ export class Dropdown {
             <span class="sdds-dropdown-label">
               {this.type === 'filter' ? (
                 <input
+                  part={this.disabled ? 'dropdown-filter-disabled' : ''}
+                  disabled={this.disabled}
                   ref={(inputEl) =>
                     (this.textInput = inputEl as HTMLInputElement)
                   }
