@@ -93,6 +93,8 @@ export class TableBody {
 
   @State() tempPaginationDisable: boolean = false;
 
+  @State() showNoResultsMessage: boolean = false;
+
   componentWillLoad() {
     this.arrayDataWatcher(this.bodyData);
     this.countColumnNumber();
@@ -359,6 +361,14 @@ export class TableBody {
 
       this.disableAllSorting = true;
       this.sortingEnabler.emit(this.disableAllSorting);
+
+      const dataRowsHidden = this.host.querySelectorAll(
+        '.sdds-table__row--hidden'
+      );
+
+      this.showNoResultsMessage =
+        dataRowsHidden.length === dataRowsFiltering.length;
+      console.log(`Is is the same number?${this.showNoResultsMessage}`);
     } else {
       if (this.pagination) {
         this.tempPaginationDisable = false;
@@ -384,6 +394,13 @@ export class TableBody {
           </sdds-table-body-row>
         ))}
         <slot></slot>
+        {this.showNoResultsMessage && (
+          <tr>
+            <td class="sdds-table__info-message" colSpan={this.columnsNumber}>
+              Unfortunately, no data matches your search term &#128533;
+            </td>
+          </tr>
+        )}
       </Host>
     );
   }
