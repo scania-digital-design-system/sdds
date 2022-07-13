@@ -2,8 +2,8 @@ export default {
   title: 'Component/Table',
 };
 const Template = () => `
-   <sdds-table>
-       <sdds-table-toolbar></sdds-table-toolbar>
+   <sdds-table enable-multiselect>
+       <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>
         <sdds-table-header>
           <sdds-table-header-row>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
@@ -12,7 +12,7 @@ const Template = () => `
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
           </sdds-table-header-row>
         </sdds-table-header>
-        <sdds-table-body>
+        <sdds-table-body >
         <!--
             <sdds-table-body-row>
                 <sdds-body-cell cell-value="Test value 1" cell-key="truck" ></sdds-body-cell>
