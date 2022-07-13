@@ -6,14 +6,14 @@ import { Component, h, Host, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class TableToolbar {
-  /** Enables section for adding user custom buttons */
-  @Prop({ reflect: true }) enableActionBar: boolean = true;
-
   /** Adds title to the table */
-  @Prop() tableTitle: string = '';
+  @Prop({ reflect: true }) tableTitle: string = '';
 
   /** Enables preview of searchbar */
-  @Prop() showSearchbar: boolean = true;
+  @Prop({ reflect: true }) enableFiltering: boolean = false;
+
+  /** Enables section for adding user custom buttons */
+  @Prop({ reflect: true }) enableActionbar: boolean = false;
 
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
@@ -27,7 +27,7 @@ export class TableToolbar {
   searchFunction(event) {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
-    console.log(`Search function emits: ${searchTerm}`);
+
     this.sddsTableSearchTerm.emit(searchTerm);
 
     if (searchTerm.length > 0) {
@@ -43,7 +43,7 @@ export class TableToolbar {
         <div class="sdds-table__upper-bar-flex">
           <caption class="sdds-table__title">{this.tableTitle}</caption>
           <div class="sdds-table__actionbar">
-            {this.showSearchbar && (
+            {this.enableFiltering && (
               <div class="sdds-table__searchbar">
                 <input
                   class="sdds-table__searchbar-input"
@@ -66,7 +66,7 @@ export class TableToolbar {
                 </span>
               </div>
             )}
-            {this.enableActionBar && <slot name="sdds-table__actionbar" />}
+            {this.enableActionbar && <slot name="sdds-table__actionbar" />}
           </div>
         </div>
       </Host>

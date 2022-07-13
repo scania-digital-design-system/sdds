@@ -22,7 +22,7 @@ export class Table {
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
   /** Enables multiselect feature of data-table */
-  @Prop({ reflect: true }) enableMultiselect: boolean = true;
+  @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
   @Event({
     eventName: 'enableMultiselectEvent',
