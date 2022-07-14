@@ -76,6 +76,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &--label-inside {
+      padding-bottom: 5px;
+    }
   }
 
   .sdds-dropdown-filter {

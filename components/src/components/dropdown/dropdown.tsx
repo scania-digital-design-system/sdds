@@ -265,7 +265,13 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <span class="sdds-dropdown-label-container">
+                <span
+                  class={{
+                    'sdds-dropdown-label-container': true,
+                    'sdds-dropdown-label-container--label-inside':
+                      this.labelPosition === 'inside',
+                  }}
+                >
                   {this.size !== 'small' &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
