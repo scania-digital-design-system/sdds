@@ -65,23 +65,6 @@
       background-color: var(--sdds-grey-200);
     }
   }
-
-  // Rule to fix tiny gap that shows when multiselect is on but table has no caption area
-  &.sdds-table--multiselect {
-    sdds-table-header {
-      ::slotted(sdds-header-cell:first-of-type) {
-        border-top-left-radius: 0;
-      }
-    }
-  }
-
-  //Web component specific part
-
-  .sdds-table__upper-bar + .sdds-table__header {
-    ::slotted(sdds-header-cell) {
-      border-radius: 0;
-    }
-  }
 }
 
 // Actionbar buttons styling - has to be part of general styling as it comes as slotted, from outside
@@ -112,4 +95,13 @@
 .sdds-table__actionbar-btn-icon {
   height: 20px;
   width: auto;
+}
+
+// Test
+.sdds-table__header-cell:first-of-type {
+  border-top-left-radius: 10px;
+}
+
+.sdds-table__header-cell:last-of-type {
+  border-top-right-radius: 10px;
 }

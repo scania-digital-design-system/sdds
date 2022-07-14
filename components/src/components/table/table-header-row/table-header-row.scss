@@ -24,7 +24,6 @@
     min-width: unset;
     width: 48px;
     padding: 0;
-    border-top-left-radius: 4px;
   }
 
   // Extra rule for label use in data-table
@@ -35,14 +34,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-  }
-
-  ::slotted(sdds-header-cell:first-of-type) {
-    border-top-left-radius: 4px;
-  }
-
-  ::slotted(sdds-header-cell:last-of-type) {
-    border-top-right-radius: 4px;
   }
 
   ::slotted(sdds-header-cell:hover) {

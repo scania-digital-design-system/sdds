@@ -1,8 +1,7 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
-:host,
-.sdds-table__header-cell {
+:host(.sdds-table__header-cell) {
   @include type-style("headline-07");
 
   display: table-cell;
@@ -14,10 +13,14 @@
   height: 48px;
   min-width: 192px;
   box-sizing: border-box;
-
-  // To fix issues with border-radius propagating up from button
+  vertical-align: middle;
   overflow: hidden;
   transition: background-color 200ms ease;
+
+  .sdds-table__header-text {
+    padding: 0 16px;
+    margin: 0;
+  }
 }
 
 :host(.sdds-table__header-cell--sortable) {
@@ -91,15 +94,5 @@
     .sdds-table__header-button-icon--rotate {
       transform: rotate(180deg);
     }
-  }
-}
-
-// Styling anything inside table-header-cell or sdds-header-cell
-:host(.sdds-table__header-cell) {
-  vertical-align: middle;
-
-  .sdds-table__header-text {
-    padding: 0 16px;
-    margin: 0;
   }
 }

@@ -6,7 +6,7 @@ const Template = () => `
        <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>
         <sdds-table-header>
           <sdds-table-header-row>
-              <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
