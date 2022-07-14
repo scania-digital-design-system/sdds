@@ -2,6 +2,7 @@
 @import "../../../node_modules/@scania/typography/dist/scss/mixins";
 @import "../../../node_modules/@scania/typography/dist/scss/tokens";
 @import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared.scss";
 
 @mixin footer-links {
   padding: 0;
@@ -18,6 +19,10 @@
     a {
       margin-right: var(--sdds-spacing-element-24);
       text-decoration: none;
+
+      &:focus {
+        @include sdds-focus-state;
+      }
     }
   }
 }

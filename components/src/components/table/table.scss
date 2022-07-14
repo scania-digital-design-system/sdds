@@ -1,5 +1,6 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
+@import "../../helpers/components-shared";
 
 .sdds-table {
   border-collapse: collapse;
@@ -248,6 +249,10 @@
           &:hover {
             background-color: var(--sdds-white);
           }
+
+          &:focus {
+            @include sdds-focus-state;
+          }
         }
 
         .sdds-table__page-selector-input--shake {
@@ -301,6 +306,10 @@
 
           &:hover {
             background-color: var(--sdds-grey-300);
+          }
+
+          &:focus {
+            @include sdds-focus-state;
           }
 
           &:disabled {
@@ -529,6 +538,10 @@
   border-radius: 4px;
   transition: background-color 250ms ease;
   margin-left: 0;
+
+  &:focus {
+    @include sdds-focus-state;
+  }
 
   &:hover {
     background-color: var(--sdds-grey-300);

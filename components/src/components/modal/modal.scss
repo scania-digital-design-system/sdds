@@ -1,7 +1,17 @@
-@import './modal-core';
+@import "./modal-core";
+@import "../../helpers/components-shared";
 
 :host {
   @include modal-host;
+
+  .sdds-modal-btn {
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+  }
 }
 
 :host(.show) {

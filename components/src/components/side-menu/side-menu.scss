@@ -1,6 +1,7 @@
 @import "../../../node_modules/@scania/typography/dist/scss/mixins";
 @import "../../../node_modules/@scania/typography/dist/scss/tokens";
 @import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared";
 
 /* HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
@@ -31,8 +32,9 @@
 
 @mixin item-states {
   &:focus {
-    outline: none;
     background-color: var(--sdds-grey-50);
+
+    @include sdds-focus-state;
 
     &::after {
       content: " ";
@@ -218,6 +220,10 @@
         box-sizing: content-box;
         transition: background-color 0.15s ease-in-out;
 
+        &:focus {
+          @include sdds-focus-state;
+        }
+
         .sdds-sidebar-nav__item-text {
           margin-top: 3px;
           opacity: 1;
@@ -277,6 +283,10 @@
             background-color 0.15s ease-in-out;
           font-weight: normal;
           min-height: auto;
+
+          &:focus {
+            @include sdds-focus-state;
+          }
 
           .sdds-sidebar-nav__item-text {
             @include type-style("detail-02");

@@ -1,12 +1,13 @@
-@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
+@import "../../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared";
 
 .sdds-inline-tabs-fullbleed {
   display: flex;
   position: relative;
 
   &::after {
-    content: ' ';
+    content: " ";
     display: block;
     border-bottom: 1px solid var(--sdds-grey-300);
     left: 0;
@@ -54,6 +55,10 @@
     &:active {
       background-color: var(--sdds-grey-400);
     }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
   }
 
   &--back {
@@ -83,6 +88,10 @@
     &:active {
       background-color: var(--sdds-grey-400);
     }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
   }
 
   &-centered {
@@ -90,7 +99,7 @@
   }
 
   &--tab {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     color: rgb(0 21 51 / 60%);
     padding: 16px 0;
@@ -111,7 +120,7 @@
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
       bottom: 0;
       right: 0;
@@ -136,18 +145,9 @@
     }
 
     &:focus {
-      outline: none;
-      color: var(--sdds-grey-958);
+      @include sdds-focus-state;
 
-      &::before {
-        content: ' ';
-        border: 1px solid var(--sdds-blue-400);
-        position: absolute;
-        top: 11px;
-        bottom: 13px;
-        left: -8px;
-        right: -8px;
-      }
+      color: var(--sdds-grey-958);
 
       &::after {
         width: 0;

@@ -58,7 +58,7 @@ export class Modal {
 
   @Watch('show')
   showToggled() {
-    let root = document.querySelector('html');
+    const root = document.querySelector('html');
     if (this.show === true) {
       root.classList.add('sdds-modal-overflow');
     } else {
@@ -88,7 +88,7 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <span class="sdds-modal-btn"></span>
+            <button class="sdds-modal-btn"></button>
           </div>
           <slot name="sdds-modal-body"></slot>
           <div class="sdds-modal-actions">

@@ -28,11 +28,6 @@
 // Utility classes
 @import "../../helpers/_utility-classes.scss";
 
-* :not(::slotted(sdds-dropdown-option)) :focus {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
-}
-
 html.#{$prefix},
 body.#{$prefix},
 .#{$prefix}-body {
