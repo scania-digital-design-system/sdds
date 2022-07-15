@@ -51,3 +51,9 @@
     height: 32px;
   }
 }
+
+:host(.sdds-table--compact) {
+  .sdds-table__header-cell--checkbox {
+    border-right: 1px solid var(--sdds-grey-400);
+  }
+}

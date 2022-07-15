@@ -62,7 +62,12 @@ export class TableHeaderRow {
 
   render() {
     return (
-      <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
+      <Host
+        class={{
+          'sdds-table--compact': this.compactDesign,
+          'sdds-table--divider': this.verticalDividers,
+        }}
+      >
         {this.enableMultiselectHeaderRow && (
           <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
             <div class="sdds-checkbox-item">

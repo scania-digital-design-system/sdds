@@ -1,44 +1,11 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
-@import "../../helpers/components-shared";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import '../../helpers/components-shared';
 
 :host,
 .sdds-table {
   border-collapse: collapse;
   display: table;
-
-  // SDDS GLOBAL STYLES:
-  &.sdds-table--compact {
-    sdds-table-toolbar {
-      height: 56px;
-    }
-
-    .sdds-table__body-cell,
-    ::slotted(sdds-body-cell) {
-      padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
-    }
-
-    .sdds-table__header-cell,
-    sdds-header-cell {
-      height: 32px;
-    }
-  }
-
-  &.sdds-table--divider {
-    .sdds-table__header-cell,
-    ::slotted(sdds-header-cell),
-    .sdds-table__body-cell,
-    ::slotted(sdds-body-cell) {
-      border-right: 1px solid var(--sdds-grey-400);
-    }
-
-    .sdds-table__header-cell:last-child,
-    ::slotted(sdds-header-cell:last-child),
-    .sdds-table__body-cell:last-child,
-    ::slotted(sdds-body-cell:last-child) {
-      border-right: none;
-    }
-  }
 
   &.sdds-table--no-min-width {
     .sdds-table__header {
