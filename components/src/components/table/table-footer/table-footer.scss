@@ -41,11 +41,7 @@
         }
 
         &:disabled {
-          background-color: transparent;
-
-          &:hover {
-            background-color: transparent;
-          }
+          color: var(--sdds-grey-600);
         }
       }
 

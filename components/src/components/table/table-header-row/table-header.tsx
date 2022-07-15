@@ -9,8 +9,8 @@ import {
 } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-table-header-row',
-  styleUrl: 'table-header-row.scss',
+  tag: 'sdds-table-header',
+  styleUrl: 'table-header.scss',
   shadow: true,
 })
 export class TableHeaderRow {
@@ -76,21 +76,23 @@ export class TableHeaderRow {
           'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
       >
-        {this.enableMultiselectHeaderRow && (
-          <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
-            <div class="sdds-checkbox-item">
-              <label class="sdds-form-label sdds-form-label--data-table">
-                <input
-                  class="sdds-form-input"
-                  type="checkbox"
-                  onChange={(e) => this.headCheckBoxClicked(e)}
-                  checked={this.mainCheckboxSelected}
-                />
-              </label>
-            </div>
-          </th>
-        )}
-        <slot></slot>
+        <tr>
+          {this.enableMultiselectHeaderRow && (
+            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
+              <div class="sdds-checkbox-item">
+                <label class="sdds-form-label sdds-form-label--data-table">
+                  <input
+                    class="sdds-form-input"
+                    type="checkbox"
+                    onChange={(e) => this.headCheckBoxClicked(e)}
+                    checked={this.mainCheckboxSelected}
+                  />
+                </label>
+              </div>
+            </th>
+          )}
+          <slot></slot>
+        </tr>
       </Host>
     );
   }

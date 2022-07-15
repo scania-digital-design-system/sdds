@@ -17,9 +17,6 @@ import {
   shadow: false,
 })
 export class TableBody {
-  // TODO: move this one the footer!!!
-  @State() rowsPerPage: number = 1;
-
   @Prop() bodyData: any = `[
       {
           "truck": "L-series",
@@ -66,6 +63,8 @@ export class TableBody {
   ]`;
 
   @Element() host: HTMLElement;
+
+  @State() rowsPerPage: number = 1;
 
   @State() enableMultiselectTableBody: boolean = false;
 
@@ -325,7 +324,6 @@ export class TableBody {
 
     // grab all rows in body
     const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
-    console.log(dataRowsFiltering);
 
     if (searchTerm.length > 0) {
       if (this.enablePaginationTableBody) {
