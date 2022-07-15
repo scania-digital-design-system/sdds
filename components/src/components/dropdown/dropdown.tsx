@@ -9,6 +9,7 @@ import {
   Event,
   EventEmitter,
   Watch,
+  Method,
 } from '@stencil/core';
 
 @Component({
@@ -80,6 +81,7 @@ export class Dropdown {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
     this.setOptionFromOutside(this.defaultOption);
+    this.listItemArray = Array.from(this.host.children);
   }
 
   setOptionFromOutside(optionValue) {
@@ -123,7 +125,6 @@ export class Dropdown {
   @Listen('keydown')
   keyListener(ev: KeyboardEvent) {
     if (!this.disabled) {
-      this.listItemArray = Array.from(this.host.children);
       switch (ev.key) {
         case 'ArrowDown':
           if (this.open) {
@@ -197,7 +198,6 @@ export class Dropdown {
     } else {
       this.open = false;
     }
-    // this.node.focus();
   }
 
   @Event({
@@ -214,6 +214,16 @@ export class Dropdown {
     this.open = true;
   }
 
+  @Method() async resetOption() {
+    console.log(this.selectedLabel);
+    // this.listItemIndex = '0'
+    // this.selectedValue = ''
+    this.selectedLabel = '';
+    console.log(this.selectedLabel);
+    this.listItemArray.forEach((optionItem) => {
+      optionItem.selected = false;
+    });
+  }
   render() {
     return (
       <Host
