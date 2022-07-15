@@ -33,6 +33,24 @@ export class TableFooter {
   /** Temporarily disable pagination - due to search - set from parent level */
   @State() tempPaginationDisable: boolean = false;
 
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
+
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   /** Listens to elementary pagination data made and sent by parent component */
   @Listen('tableToFooter', { target: 'body' })
   tableToFooterListener(event: CustomEvent<any>) {
@@ -103,7 +121,7 @@ export class TableFooter {
 
   render() {
     return (
-      <Host>
+      <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
         <tr class="sdds-table__footer-row">
           <td class="sdds-table__footer-cell" colSpan={this.columnsNumber}>
             {this.enablePagination && (

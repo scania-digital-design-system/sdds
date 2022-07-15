@@ -1,4 +1,13 @@
-import { Component, h, Host, Prop, Event, EventEmitter } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  Event,
+  EventEmitter,
+  Listen,
+  State,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-toolbar',
@@ -11,6 +20,14 @@ export class TableToolbar {
 
   /** Enables preview of searchbar */
   @Prop({ reflect: true }) enableFiltering: boolean = false;
+
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
 
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
@@ -34,9 +51,19 @@ export class TableToolbar {
     }
   }
 
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   render() {
     return (
-      <Host>
+      <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
         <div class="sdds-table__upper-bar-flex">
           <caption class="sdds-table__title">{this.tableTitle}</caption>
           <div class="sdds-table__actionbar">

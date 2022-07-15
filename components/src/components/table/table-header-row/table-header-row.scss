@@ -40,3 +40,14 @@
     background-color: var(--sdds-grey-400);
   }
 }
+
+:host(.sdds-table--compact) {
+  .sdds-table__header-cell--checkbox {
+    height: 32px;
+  }
+
+  // Extra rule for label use in data-table
+  .sdds-form-label--data-table {
+    height: 32px;
+  }
+}

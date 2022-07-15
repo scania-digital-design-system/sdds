@@ -96,3 +96,7 @@
     }
   }
 }
+
+:host(.sdds-table--compact) {
+  height: 32px;
+}

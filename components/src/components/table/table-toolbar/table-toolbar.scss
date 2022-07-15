@@ -101,3 +101,7 @@
     }
   }
 }
+
+:host(.sdds-table--compact) {
+  height: 56px;
+}

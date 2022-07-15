@@ -23,6 +23,24 @@ export class TableBodyRow {
 
   @Element() host: HTMLElement;
 
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
+
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   /** Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control */
   @Event({
     eventName: 'bodyRowToTable',
@@ -72,7 +90,12 @@ export class TableBodyRow {
 
   render() {
     return (
-      <Host class="sdds-table__row">
+      <Host
+        class={{
+          'sdds-table__row': true,
+          'sdds-table__compact': this.compactDesign,
+        }}
+      >
         {this.enableMultiselectBodyRow && (
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">

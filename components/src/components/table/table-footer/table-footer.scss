@@ -3,7 +3,6 @@
 @import "../../../helpers/components-shared.scss";
 
 :host {
-  height: 48px;
   display: table-footer-group;
 
   .sdds-table__footer-row {
@@ -14,6 +13,7 @@
     padding: 0 16px;
 
     .sdds-table__pagination {
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -39,6 +39,14 @@
         &:hover {
           background-color: var(--sdds-white);
         }
+
+        &:disabled {
+          background-color: transparent;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
       }
 
       .sdds-table__page-selector-input--shake {
@@ -51,7 +59,7 @@
       .sdds-table__footer-text {
         @include type-style("detail-02");
 
-        padding: 0 8px 0 0;
+        padding: 1px 8px 0 0;
       }
 
       .sdds-table__footer-btn {
@@ -82,6 +90,23 @@
       .sdds-table__footer-btn-svg {
         height: 20px;
         width: 20px;
+      }
+    }
+  }
+}
+
+:host(.sdds-table--compact) {
+  .sdds-table__footer-cell {
+    .sdds-table__pagination {
+      height: 32px;
+
+      .sdds-table__page-selector-input {
+        height: 24px;
+      }
+
+      .sdds-table__footer-btn {
+        height: 28px;
+        width: 28px;
       }
     }
   }

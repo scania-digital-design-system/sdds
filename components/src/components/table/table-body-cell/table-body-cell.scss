@@ -17,3 +17,7 @@
 :host(.sdds-table__body-cell--hover) {
   background-color: var(--sdds-grey-200);
 }
+
+:host(.sdds-table__compact) {
+  padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
+}

@@ -16,6 +16,24 @@ export class TableBodyCell {
 
   @State() activeSorting: boolean = false;
 
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
+
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   // Listen to sortColumnData from table-header-element
   @Listen('bodyCellData', { target: 'body' })
   updateTextAlign(event: CustomEvent<any>) {
@@ -39,6 +57,7 @@ export class TableBodyCell {
         class={{
           'sdds-table__body-cell': true,
           'sdds-table__body-cell--hover': this.activeSorting,
+          'sdds-table__compact': this.compactDesign,
         }}
         style={{ textAlign: this.textAlign }}
       >
