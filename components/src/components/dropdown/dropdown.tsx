@@ -219,6 +219,7 @@ export class Dropdown {
       this.setOptionFromOutside(this.defaultOption);
     } else {
       this.selectedLabel = '';
+      this.selectedValue = '';
       this.listItemArray.forEach((optionItem) => {
         optionItem.selected = false;
       });
@@ -230,7 +231,8 @@ export class Dropdown {
         class={{
           'sdds-dropdown--open': this.open && !this.disabled,
           'sdds-dropdown-inline': this.inline,
-          'sdds-dropdown--selected': this.selectedLabel.length > 0,
+          'sdds-dropdown--selected':
+            this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
           'sdds-dropdown--label-inside-position':
