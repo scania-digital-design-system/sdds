@@ -26,6 +26,8 @@ export class TableHeaderRow {
 
   @State() whiteBackground: boolean = false;
 
+  @State() enableToolbarDesign: boolean = false;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     [
@@ -60,12 +62,18 @@ export class TableHeaderRow {
     this.enableMultiselectHeaderRow = event.detail;
   }
 
+  @Listen('tableToolbarAvailableEvent', { target: 'body' })
+  tableToolbarAvailableEventListener(event: CustomEvent<boolean>) {
+    this.enableToolbarDesign = event.detail;
+  }
+
   render() {
     return (
       <Host
         class={{
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
+          'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
       >
         {this.enableMultiselectHeaderRow && (

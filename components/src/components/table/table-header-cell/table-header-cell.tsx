@@ -46,6 +46,10 @@ export class TableHeaderCell {
 
   @State() whiteBackground: boolean = false;
 
+  @State() enableMultiselectStyle: boolean = false;
+
+  @State() enableToolbarDesign: boolean = false;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     [
@@ -130,6 +134,16 @@ export class TableHeaderCell {
   onHeadCellHover = (key) => {
     this.headKey.emit(key);
   };
+
+  @Listen('enableMultiselectEvent', { target: 'body' })
+  enableMultiselectEventListener(event: CustomEvent<boolean>) {
+    this.enableMultiselectStyle = event.detail;
+  }
+
+  @Listen('tableToolbarAvailableEvent', { target: 'body' })
+  tableToolbarAvailableEventListener(event: CustomEvent<boolean>) {
+    this.enableToolbarDesign = event.detail;
+  }
 
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
@@ -218,6 +232,8 @@ export class TableHeaderCell {
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
+          'sdds-table--multiselect': this.enableMultiselectStyle,
+          'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
         style={{ width: this.customWidth }}
         // Calling actions from here to enable hover functionality for both sortable and un-sortable tables

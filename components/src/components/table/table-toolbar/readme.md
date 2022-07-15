@@ -15,9 +15,10 @@
 
 ## Events
 
-| Event                | Description                                                        | Type               |
-| -------------------- | ------------------------------------------------------------------ | ------------------ |
-| `tableFilteringTerm` | Used for sending users input to main parent <sdds-table> component | `CustomEvent<any>` |
+| Event                        | Description                                                        | Type                   |
+| ---------------------------- | ------------------------------------------------------------------ | ---------------------- |
+| `tableFilteringTerm`         | Used for sending users input to main parent <sdds-table> component | `CustomEvent<any>`     |
+| `tableToolbarAvailableEvent` | Event used to inform other subcomponents about presence of toolbar | `CustomEvent<boolean>` |
 
 
 ----------------------------------------------

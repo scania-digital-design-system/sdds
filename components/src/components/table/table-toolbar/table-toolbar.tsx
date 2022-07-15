@@ -29,6 +29,19 @@ export class TableToolbar {
 
   @State() whiteBackground: boolean = false;
 
+  /** Event used to inform other subcomponents about presence of toolbar */
+  @Event({
+    eventName: 'tableToolbarAvailableEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  tableToolbarAvailableEvent: EventEmitter<boolean>;
+
+  componentWillLoad() {
+    this.tableToolbarAvailableEvent.emit(true);
+  }
+
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
     eventName: 'tableFilteringTerm',
