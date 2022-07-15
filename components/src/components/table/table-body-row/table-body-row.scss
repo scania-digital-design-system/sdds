@@ -58,3 +58,11 @@
     border-right: 1px solid var(--sdds-grey-400);
   }
 }
+
+:host(.sdds-table--on-white-bg) {
+  background-color: var(--sdds-grey-50);
+}
+
+:host(.sdds-table--on-white-bg:hover) {
+  background-color: var(--sdds-grey-200);
+}
