@@ -95,6 +95,7 @@ export class TableBodyRow {
           'sdds-table__row': true,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
+          'sdds-table--on-white-bg': this.whiteBackground,
         }}
       >
         {this.enableMultiselectBodyRow && (
