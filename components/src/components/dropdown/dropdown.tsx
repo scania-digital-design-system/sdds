@@ -215,14 +215,14 @@ export class Dropdown {
   }
 
   @Method() async resetOption() {
-    console.log(this.selectedLabel);
-    // this.listItemIndex = '0'
-    // this.selectedValue = ''
-    this.selectedLabel = '';
-    console.log(this.selectedLabel);
-    this.listItemArray.forEach((optionItem) => {
-      optionItem.selected = false;
-    });
+    if (this.defaultOption) {
+      this.setOptionFromOutside(this.defaultOption);
+    } else {
+      this.selectedLabel = '';
+      this.listItemArray.forEach((optionItem) => {
+        optionItem.selected = false;
+      });
+    }
   }
   render() {
     return (
