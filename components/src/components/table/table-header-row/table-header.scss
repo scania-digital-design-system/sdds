@@ -5,7 +5,7 @@
 @import "../../checkbox/checkbox";
 
 :host {
-  display: table-row;
+  display: table-header-group;
 
   .sdds-table__header-cell--checkbox {
     @include type-style("headline-07");
