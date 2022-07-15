@@ -1,27 +1,11 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '../../helpers/components-shared';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "../../helpers/components-shared";
 
 :host,
 .sdds-table {
   border-collapse: collapse;
   display: table;
-
-  &.sdds-table--no-min-width {
-    .sdds-table__header {
-      .sdds-table__header-cell,
-      ::slotted(.sdds-table__header-cell) {
-        min-width: unset;
-      }
-    }
-
-    .sdds-table__body {
-      .sdds-table__body-cell,
-      ::slotted(sdds-body-cell) {
-        min-width: unset;
-      }
-    }
-  }
 
   &.sdds-table--on-white-bg {
     .sdds-table__row {
