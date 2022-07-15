@@ -21,3 +21,11 @@
 :host(.sdds-table__compact) {
   padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
 }
+
+:host(.sdds-table--divider) {
+  border-right: 1px solid var(--sdds-grey-400);
+}
+
+:host(.sdds-table--divider:last-of-type) {
+  border-right: none;
+}

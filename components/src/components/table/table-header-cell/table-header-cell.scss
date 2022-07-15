@@ -100,3 +100,11 @@
 :host(.sdds-table--compact) {
   height: 32px;
 }
+
+:host(.sdds-table--divider) {
+  border-right: 1px solid var(--sdds-grey-400);
+}
+
+:host(.sdds-table--divider:last-of-type) {
+  border-right: none;
+}

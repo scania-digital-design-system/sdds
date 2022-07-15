@@ -94,6 +94,7 @@ export class TableBodyRow {
         class={{
           'sdds-table__row': true,
           'sdds-table__compact': this.compactDesign,
+          'sdds-table--divider': this.verticalDividers,
         }}
       >
         {this.enableMultiselectBodyRow && (
