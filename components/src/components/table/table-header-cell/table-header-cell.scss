@@ -112,3 +112,25 @@
 :host(.sdds-table--no-min-width) {
   min-width: unset;
 }
+
+// border-radius style control
+// it depends id multiselect si on or off, same for if toolbar is there or not
+:host(.sdds-table__header-cell:first-of-type) {
+  border-top-left-radius: 4px;
+}
+
+:host(.sdds-table__header-cell:last-of-type) {
+  border-top-right-radius: 4px;
+}
+
+:host(.sdds-table--multiselect:first-of-type) {
+  border-top-left-radius: 0;
+}
+
+:host(.sdds-table--toolbar-available) {
+  border-radius: 0;
+}
+
+:host(.sdds-table--multiselect.sdds-table--toolbar-available) {
+  border-radius: 0;
+}
