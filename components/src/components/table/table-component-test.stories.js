@@ -2,7 +2,7 @@ export default {
   title: 'Component/Table',
 };
 const Template = () => `
-   <sdds-table enable-multiselect>
+   <sdds-table enable-multiselect compact-design2>
        <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>
         <sdds-table-header>
           <sdds-table-header-row>

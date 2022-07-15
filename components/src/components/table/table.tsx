@@ -24,6 +24,7 @@ export class Table {
   /** Enables multiselect feature of data-table */
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
+  /** Sends out status of multiselect feature to children components */
   @Event({
     eventName: 'enableMultiselectEvent',
     bubbles: true,
@@ -32,7 +33,22 @@ export class Table {
   })
   enableMultiselectEvent: EventEmitter<boolean>;
 
+  /** Sends out status of different general styling changes to children components */
+  @Event({
+    eventName: 'commonTableStylesEvent',
+    bubbles: true,
+    composed: true,
+    cancelable: true,
+  })
+  commonTableStyledEvent: EventEmitter<any>;
+
   componentDidLoad() {
+    this.commonTableStyledEvent.emit([
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ]);
     this.enableMultiselectEvent.emit(this.enableMultiselect);
   }
 

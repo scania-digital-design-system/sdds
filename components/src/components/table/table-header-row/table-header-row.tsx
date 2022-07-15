@@ -18,6 +18,24 @@ export class TableHeaderRow {
 
   @State() mainCheckboxSelected: boolean = false;
 
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
+
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   /** Send status of main checkbox in header to the parent, sdds-table component */
   @Event({
     eventName: 'headRowToTable',
@@ -44,7 +62,7 @@ export class TableHeaderRow {
 
   render() {
     return (
-      <Host>
+      <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
         {this.enableMultiselectHeaderRow && (
           <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
             <div class="sdds-checkbox-item">

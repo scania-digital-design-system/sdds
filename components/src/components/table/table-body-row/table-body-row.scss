@@ -46,3 +46,9 @@
     cursor: pointer;
   }
 }
+
+:host(.sdds-table__compact) {
+  .sdds-form-label--data-table {
+    height: 32px;
+  }
+}

@@ -38,6 +38,24 @@ export class TableHeaderCell {
 
   @State() disableSortingBtn: boolean = false;
 
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
+
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    [
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ] = event.detail;
+  }
+
   /** Sends column key and sorting direction to the sdds-table component */
   @Event({
     eventName: 'sortColumnData',
@@ -197,6 +215,7 @@ export class TableHeaderCell {
           'sdds-table__header-cell--custom-width': this.customWidth !== '',
           'sdds-table__header-cell--right-align':
             this.textAlignState === 'right',
+          'sdds-table--compact': this.compactDesign,
         }}
         style={{ width: this.customWidth }}
         // Calling actions from here to enable hover functionality for both sortable and un-sortable tables
