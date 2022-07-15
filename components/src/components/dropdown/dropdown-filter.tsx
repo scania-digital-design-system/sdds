@@ -1,4 +1,13 @@
-import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-filter',
@@ -13,6 +22,8 @@ export class DropdownFilter {
   @State() searchTerm = '';
 
   @State() selectedOptionState: any;
+
+  @State() dropdownRef?: HTMLSddsDropdownElement;
 
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string = '';
@@ -126,6 +137,10 @@ export class DropdownFilter {
     );
   }
 
+  @Method() async resetOption() {
+    await this.dropdownRef?.resetOption();
+  }
+
   render() {
     return (
       <Host
@@ -133,6 +148,7 @@ export class DropdownFilter {
         selected-text={this.selectedLabel}
       >
         <sdds-dropdown
+          ref={(el) => (this.dropdownRef = el)}
           exportparts="dropdown-filter-disabled"
           size={this.size}
           label={this.label}
