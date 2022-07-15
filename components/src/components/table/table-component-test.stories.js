@@ -3,7 +3,9 @@ export default {
 };
 const Template = () => `
    <sdds-table data-table-group-name="test1" enable-multiselect  vertical-divider>
-       <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>        
+          <sdds-table-toolbar enable-filtering table-title="Table title">
+            <button slot="sdds-table__actionbar">Test</button>
+          </sdds-table-toolbar>        
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' ></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
