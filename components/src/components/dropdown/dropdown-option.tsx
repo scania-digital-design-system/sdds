@@ -34,7 +34,11 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
-
+  
+  @Listen('mouseover')
+  changeFocusHandler() {
+    this.host.focus();
+  }
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
     if (event.code === 'Enter') {
@@ -73,7 +77,7 @@ export class DropdownOption {
         class={{
           selected: this.selected,
         }}
-        tabindex="0"
+        tabindex="-1"
       >
         <span class="sdds-option-label">
           <slot />

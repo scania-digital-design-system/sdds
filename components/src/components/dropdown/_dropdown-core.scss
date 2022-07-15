@@ -10,7 +10,7 @@ html {
 }
 
 @mixin dropdown-wrapper {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   color: var(--sdds-grey-958);
   display: flex;
@@ -33,7 +33,7 @@ html {
 
   &:focus {
     &::before {
-      content: ' ';
+      content: " ";
       position: absolute;
       z-index: 2;
       bottom: 0;
@@ -55,7 +55,7 @@ html {
 }
 
 .sdds-dropdown-helper {
-  @include type-style('detail-05');
+  @include type-style("detail-05");
 
   color: var(--sdds-grey-700);
   margin-top: var(--sdds-spacing-element-4);
@@ -70,13 +70,13 @@ html {
 }
 
 .sdds-dropdown-label-inside {
-  @include type-style('detail-07');
+  @include type-style("detail-07");
 
   color: var(--sdds-grey-700);
 }
 
 .sdds-dropdown-label-outside {
-  @include type-style('detail-05');
+  @include type-style("detail-05");
 
   color: var(--sdds-grey-958);
   position: absolute;

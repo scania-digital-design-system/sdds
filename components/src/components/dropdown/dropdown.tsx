@@ -70,6 +70,10 @@ export class Dropdown {
 
   @State() dropdownMenuSelector: HTMLElement;
 
+  @State() listItemIndex: any = -1;
+
+  @State() listItemArray: any;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
@@ -104,19 +108,60 @@ export class Dropdown {
   handleDocClick(ev) {
     // To stop bubble click
     ev.stopPropagation();
-
     const target = ev ? ev.composedPath()[0] : window.event.target[0];
     if (this.node !== undefined && this.node.contains(target)) {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      this.open = true;
+      this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
       this.open = false;
     }
   }
 
+  @Listen('keydown')
+  keyListener(ev: KeyboardEvent) {
+    if (!this.disabled) {
+      this.listItemArray = Array.from(this.host.children);
+      switch (ev.key) {
+        case 'ArrowDown':
+          if (this.open) {
+            ev.preventDefault();
+            if (this.listItemIndex < this.listItemArray.length - 1) {
+              this.listItemIndex++;
+            } else {
+              this.listItemIndex = 0;
+            }
+            this.listItemArray[this.listItemIndex].focus();
+          }
+          break;
+        case 'ArrowUp':
+          if (this.open) {
+            ev.preventDefault();
+            if (this.listItemIndex > 0) {
+              this.listItemIndex--;
+            } else {
+              this.listItemIndex = this.listItemArray.length - 1;
+            }
+            this.listItemArray[this.listItemIndex].focus();
+          }
+          break;
+
+        case 'Tab':
+          this.open = false;
+          break;
+
+        case 'Escape':
+          this.open = false;
+          this.node.focus();
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
   handleClick() {
     this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
@@ -146,7 +191,13 @@ export class Dropdown {
     this.selectedLabel = event.detail.label;
     this.selectedValue = event.detail.value;
     this.tabbingLabelReset();
-    this.open = false;
+    if (this.type !== 'filter') {
+      this.open ? !this.open : this.open;
+      this.node.focus();
+    } else {
+      this.open = false;
+    }
+    // this.node.focus();
   }
 
   @Event({
@@ -167,7 +218,7 @@ export class Dropdown {
     return (
       <Host
         class={{
-          'sdds-dropdown--open': this.open,
+          'sdds-dropdown--open': this.open && !this.disabled,
           'sdds-dropdown-inline': this.inline,
           'sdds-dropdown--selected': this.selectedLabel.length > 0,
           'sdds-dropdown--error': this.state === 'error',
@@ -178,23 +229,31 @@ export class Dropdown {
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
       >
-        <div class={`sdds-dropdown sdds-dropdown-${this.size}`}>
+        <span class={`sdds-dropdown sdds-dropdown-${this.size}`}>
           {this.labelPosition === 'outside' && this.label.length > 0 ? (
             <span class="sdds-dropdown-label-outside">{this.label}</span>
           ) : (
             ''
           )}
           <button
+            part={this.disabled ? 'dropdown-filter-disabled' : ''}
+            disabled={this.disabled}
+            tabindex={this.disabled ? '-1' : null}
             class={`sdds-dropdown-toggle ${
-              this.type === 'filter' ? 'is-filter' : ''
+              this.selectedValue === 'filter' ? 'is-filter' : ''
+            } ${
+              this.selectedValue !== '' ? 'sdds-dropdown-toggle--selected' : ''
             }`}
             type="button"
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
           >
-            <div class="sdds-dropdown-label">
+            <span class="sdds-dropdown-label">
               {this.type === 'filter' ? (
                 <input
+                  part={this.disabled ? 'dropdown-filter-disabled' : ''}
+                  disabled={this.disabled}
+                  tabindex="-1"
                   ref={(inputEl) =>
                     (this.textInput = inputEl as HTMLInputElement)
                   }
@@ -206,7 +265,13 @@ export class Dropdown {
                   autoComplete="off"
                 />
               ) : (
-                <div class="sdds-dropdown-label-container">
+                <span
+                  class={{
+                    'sdds-dropdown-label-container': true,
+                    'sdds-dropdown-label-container--label-inside':
+                      this.labelPosition === 'inside',
+                  }}
+                >
                   {this.size !== 'small' &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
@@ -233,9 +298,9 @@ export class Dropdown {
                       this.labelPosition === 'inside' &&
                       this.placeholder}
                   </span>
-                </div>
+                </span>
               )}
-            </div>
+            </span>
             <svg
               class="sdds-dropdown-arrow"
               width="12"
@@ -253,14 +318,14 @@ export class Dropdown {
               />
             </svg>
           </button>
-          <div
+          <span
             class="sdds-dropdown-menu"
             // Need to have reference in order to calc height and distance from bottom
             ref={(dropdownMenu) => (this.dropdownMenuSelector = dropdownMenu)}
           >
             <slot />
-          </div>
-        </div>
+          </span>
+        </span>
         <p class="sdds-dropdown-helper">
           <svg
             class="sdds-dropdown-error-icon"

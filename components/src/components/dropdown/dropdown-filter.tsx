@@ -3,6 +3,7 @@ import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
 @Component({
   tag: 'sdds-dropdown-filter',
   shadow: true,
+  styleUrl: 'dropdown.scss',
 })
 export class DropdownFilter {
   @State() dataOptions = [];
@@ -132,6 +133,7 @@ export class DropdownFilter {
         selected-text={this.selectedLabel}
       >
         <sdds-dropdown
+          exportparts="dropdown-filter-disabled"
           size={this.size}
           label={this.label}
           disabled={this.disabled}
@@ -142,6 +144,7 @@ export class DropdownFilter {
           defaultOption={this.defaultOption}
           selectedOption={this.selectedOption}
           type="filter"
+          tabindex={this.disabled ? '-1' : null}
         >
           {this.setOptionsContent()}
         </sdds-dropdown>
