@@ -2,11 +2,11 @@ export default {
   title: 'Component/Table',
 };
 const Template = () => `
-   <sdds-table enable-multiselect compact-design2>
+   <sdds-table enable-multiselect no-min-width>
        <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>
         <sdds-table-header>
           <sdds-table-header-row>
-              <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable custom-width="300px"></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 

@@ -59,6 +59,7 @@ export class TableBodyCell {
           'sdds-table__body-cell--hover': this.activeSorting,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
+          'sdds-table--no-min-width': this.noMinWidth,
         }}
         style={{ textAlign: this.textAlign }}
       >
