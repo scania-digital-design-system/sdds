@@ -3,32 +3,27 @@ export default {
 };
 const Template = () => `
    <sdds-table data-table-group-name="test1" enable-multiselect  vertical-divider>
-       <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>
-        
+       <sdds-table-toolbar enable-filtering table-title="Table title"></sdds-table-toolbar>        
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' ></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
-          </sdds-table-header>
-       
-        <sdds-table-body>
-       
-            <sdds-table-body-row>
-                <sdds-body-cell cell-value="Test value 1" cell-key="truck" >       
-</sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>            
-            </sdds-table-body-row>
-            <sdds-table-body-row>
-                <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-                <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
-            </sdds-table-body-row>
-      
-        </sdds-table-body>
+          </sdds-table-header>       
+          <sdds-table-body>       
+              <sdds-table-body-row>
+                  <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>            
+              </sdds-table-body-row>
+              <sdds-table-body-row>
+                  <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
+                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
+              </sdds-table-body-row>      
+          </sdds-table-body>
         <sdds-table-footer enable-pagination rows-per-page="3"></sdds-table-footer>
   </sdds-table>  
   
