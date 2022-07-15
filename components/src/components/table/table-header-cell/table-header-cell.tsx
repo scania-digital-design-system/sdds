@@ -217,6 +217,7 @@ export class TableHeaderCell {
             this.textAlignState === 'right',
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
+          'sdds-table--no-min-width': this.noMinWidth,
         }}
         style={{ width: this.customWidth }}
         // Calling actions from here to enable hover functionality for both sortable and un-sortable tables

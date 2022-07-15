@@ -108,3 +108,7 @@
 :host(.sdds-table--divider:last-of-type) {
   border-right: none;
 }
+
+:host(.sdds-table--no-min-width) {
+  min-width: unset;
+}
