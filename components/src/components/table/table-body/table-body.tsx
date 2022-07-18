@@ -260,12 +260,12 @@ export class TableBody {
   };
 
   @Event({
-    eventName: 'tableToBodyRow',
+    eventName: 'updateBodyCheckboxesEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  tableToBodyRow: EventEmitter<any>;
+  updateBodyCheckboxesEvent: EventEmitter<any>;
 
   uncheckedAll = () => {
     this.mainCheckboxStatus = false;
@@ -273,7 +273,10 @@ export class TableBody {
       this.uniqueTableIdentifier,
       this.mainCheckboxStatus,
     ]);
-    this.tableToBodyRow.emit(this.mainCheckboxStatus);
+    this.updateBodyCheckboxesEvent.emit([
+      this.uniqueTableIdentifier,
+      this.mainCheckboxStatus,
+    ]);
   };
 
   @Listen('mainCheckboxSelectedEvent', { target: 'body' })
