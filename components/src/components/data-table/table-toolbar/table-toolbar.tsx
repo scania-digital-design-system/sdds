@@ -16,7 +16,7 @@ import {
   shadow: true,
 })
 export class TableToolbar {
-  /** Adds title to the table */
+  /** Adds title to the data-table */
   @Prop({ reflect: true }) tableTitle: string = '';
 
   /** Enables preview of searchbar */

@@ -21,16 +21,16 @@ export class Table {
   /** Enables style with vertical dividers between columns */
   @Prop({ reflect: true }) verticalDividers: boolean = false;
 
-  /** Enables style where table toolbar, rows and footer are less high */
+  /** Enables style where data-table toolbar, rows and footer are less high */
   @Prop({ reflect: true }) compactDesign: boolean = false;
 
-  /** Enables to customise width on table columns */
+  /** Enables to customise width on data-table columns */
   @Prop({ reflect: true }) noMinWidth: boolean = false;
 
-  /** Changes a colors of data table when used on white background */
+  /** Changes a colors of data data-table when used on white background */
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
-  /** Enables multiselect feature of data-table */
+  /** Enables multiselect feature of data-data-table */
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
   @State() uniqueTableIdentifier: string = '';

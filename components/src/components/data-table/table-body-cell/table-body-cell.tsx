@@ -55,7 +55,7 @@ export class TableBodyCell {
     }
   }
 
-  // Listen to textAlignEvent from table-header-element
+  // Listen to textAlignEvent from data-table-header-element
   @Listen('textAlignEvent', { target: 'body' })
   textAlignEventListener(event: CustomEvent<any>) {
     if (
@@ -66,7 +66,7 @@ export class TableBodyCell {
     }
   }
 
-  // Listen to headKey from table-header-element
+  // Listen to headKey from data-table-header-element
   @Listen('headCellHoverEvent', { target: 'body' })
   headCellHoverEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue] = event.detail;

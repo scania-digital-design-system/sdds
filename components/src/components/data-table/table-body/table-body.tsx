@@ -205,7 +205,7 @@ export class TableBody {
     this.bodyDataOriginal = [...this.innerBodyData];
   }
 
-  // Listen to sortColumnData from table-header-element
+  // Listen to sortColumnData from data-table-header-element
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     // Nice usage of array deconstruct

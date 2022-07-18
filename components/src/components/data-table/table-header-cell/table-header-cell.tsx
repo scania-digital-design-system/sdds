@@ -120,7 +120,7 @@ export class TableHeaderCell {
         .length >= 1;
   }
 
-  // Listen to parent table if sorting is allowed
+  // Listen to parent data-table if sorting is allowed
   @Listen('sortingSwitcherEvent', { target: 'body' })
   sortingSwitcherEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedSortingStatus] = event.detail;
