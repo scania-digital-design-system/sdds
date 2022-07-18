@@ -105,8 +105,9 @@ export class TableBody {
   }
 
   @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<boolean>) {
-    this.enableMultiselectTableBody = event.detail;
+  enableMultiselectEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableMultiselectTableBody = event.detail[1];
   }
 
   @Listen('enablePaginationData', { target: 'body' })

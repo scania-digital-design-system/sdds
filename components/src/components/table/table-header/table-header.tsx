@@ -73,8 +73,9 @@ export class TableHeaderRow {
   }
 
   @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<boolean>) {
-    this.enableMultiselectHeaderRow = event.detail;
+  enableMultiselectEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableMultiselectHeaderRow = event.detail[1];
   }
 
   @Listen('tableToolbarAvailableEvent', { target: 'body' })

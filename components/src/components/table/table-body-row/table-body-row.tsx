@@ -98,8 +98,9 @@ export class TableBodyRow {
   }
 
   @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<boolean>) {
-    this.enableMultiselectBodyRow = event.detail;
+  enableMultiselectEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableMultiselectBodyRow = event.detail[1];
   }
 
   render() {
