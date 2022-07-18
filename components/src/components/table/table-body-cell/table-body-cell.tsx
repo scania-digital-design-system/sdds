@@ -59,12 +59,13 @@ export class TableBodyCell {
   }
 
   // Listen to sortColumnData from table-header-element
-  @Listen('bodyCellData', { target: 'body' })
-  updateTextAlign(event: CustomEvent<any>) {
-    // Nice usage of array deconstruct
-    const [keyValue, textDirection] = event.detail;
-    if (this.cellKey === keyValue) {
-      this.textAlign = textDirection;
+  @Listen('textAlignEvent', { target: 'body' })
+  textAlignEventListener(event: CustomEvent<any>) {
+    if (
+      this.uniqueTableIdentifier === event.detail[0] &&
+      this.cellKey === event.detail[1]
+    ) {
+      this.textAlign = event.detail[2];
     }
   }
 
