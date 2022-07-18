@@ -151,8 +151,9 @@ export class TableHeaderCell {
   };
 
   @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<boolean>) {
-    this.enableMultiselectStyle = event.detail;
+  enableMultiselectEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableMultiselectStyle = event.detail[1];
   }
 
   @Listen('tableToolbarAvailableEvent', { target: 'body' })

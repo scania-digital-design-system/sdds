@@ -44,7 +44,7 @@ export class Table {
     cancelable: true,
     composed: true,
   })
-  enableMultiselectEvent: EventEmitter<boolean>;
+  enableMultiselectEvent: EventEmitter<any>;
 
   /** Sends out status of different general styling changes to children components */
   @Event({
@@ -68,7 +68,10 @@ export class Table {
       this.noMinWidth,
       this.whiteBackground,
     ]);
-    this.enableMultiselectEvent.emit(this.enableMultiselect);
+    this.enableMultiselectEvent.emit([
+      this.uniqueTableIdentifier,
+      this.enableMultiselect,
+    ]);
   }
 
   render() {
