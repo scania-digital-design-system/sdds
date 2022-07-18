@@ -15,10 +15,10 @@
 
 ## Events
 
-| Event                  | Description                                                        | Type                  |
-| ---------------------- | ------------------------------------------------------------------ | --------------------- |
-| `currentPageValue`     | Event to send current page value back to sdds-table-body component | `CustomEvent<number>` |
-| `enablePaginationData` | Event to send rowsPerPage value back to sdds-table-body component  | `CustomEvent<any>`    |
+| Event                   | Description                                                        | Type               |
+| ----------------------- | ------------------------------------------------------------------ | ------------------ |
+| `currentPageValueEvent` | Event to send current page value back to sdds-table-body component | `CustomEvent<any>` |
+| `enablePaginationData`  | Event to send rowsPerPage value back to sdds-table-body component  | `CustomEvent<any>` |
 
 
 ----------------------------------------------

@@ -37,10 +37,10 @@ const Template = () => `
             <button slot="sdds-table__actionbar">Test</button>
           </sdds-table-toolbar>        
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type' ></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country' sortable ></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable custom-width="150px"></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' sortable custom-width="200px"></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' sortable custom-width="70px"></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' custom-width="150px"></sdds-header-cell> 
           </sdds-table-header>       
           <sdds-table-body>       
               <sdds-table-body-row>
@@ -56,7 +56,7 @@ const Template = () => `
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
               </sdds-table-body-row>              
           </sdds-table-body>
-        <sdds-table-footer enable-pagination rows-per-page="3"></sdds-table-footer>
+        <sdds-table-footer enable-pagination rows-per-page="2"></sdds-table-footer>
   </sdds-table>  
   `;
 
