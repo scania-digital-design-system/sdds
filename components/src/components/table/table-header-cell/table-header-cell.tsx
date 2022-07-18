@@ -117,6 +117,10 @@ export class TableHeaderCell {
       this.columnKey,
       this.textAlignState,
     ]);
+
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar')
+        .length >= 1;
   }
 
   // Listen to parent table if sorting is allowed
@@ -168,11 +172,6 @@ export class TableHeaderCell {
   enableMultiselectEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0])
       this.enableMultiselectStyle = event.detail[1];
-  }
-
-  @Listen('tableToolbarAvailableEvent', { target: 'body' })
-  tableToolbarAvailableEventListener(event: CustomEvent<boolean>) {
-    this.enableToolbarDesign = event.detail;
   }
 
   headerCellContent = () => {

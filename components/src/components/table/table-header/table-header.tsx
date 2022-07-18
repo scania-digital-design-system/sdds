@@ -40,6 +40,12 @@ export class TableHeaderRow {
     console.log(`Header reports table ID is:${this.uniqueTableIdentifier}`);
   }
 
+  componentWillRender() {
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar')
+        .length >= 1;
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -82,11 +88,6 @@ export class TableHeaderRow {
   enableMultiselectEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0])
       this.enableMultiselectHeaderRow = event.detail[1];
-  }
-
-  @Listen('tableToolbarAvailableEvent', { target: 'body' })
-  tableToolbarAvailableEventListener(event: CustomEvent<boolean>) {
-    this.enableToolbarDesign = event.detail;
   }
 
   render() {

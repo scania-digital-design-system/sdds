@@ -34,17 +34,7 @@ export class TableToolbar {
 
   @Element() host: HTMLElement;
 
-  /** Event used to inform other subcomponents about presence of toolbar */
-  @Event({
-    eventName: 'tableToolbarAvailableEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  tableToolbarAvailableEvent: EventEmitter<boolean>;
-
   componentWillLoad() {
-    this.tableToolbarAvailableEvent.emit(true);
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');

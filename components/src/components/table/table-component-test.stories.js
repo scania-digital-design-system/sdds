@@ -32,10 +32,8 @@ const Template = () => `
   <br>
   <br>
   
-  <sdds-table id="johnny-test-id2" compact-design vertical-dividers white-background no-min-width>
-          <sdds-table-toolbar table-title="Table title 2">
-            <button slot="sdds-table__actionbar">Test</button>
-          </sdds-table-toolbar>        
+  <sdds-table id="johnny-test-id2" enable-multiselect compact-design vertical-dividers white-background no-min-width>
+              
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable custom-width="150px"></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable custom-width="200px"></sdds-header-cell>
@@ -56,7 +54,7 @@ const Template = () => `
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
               </sdds-table-body-row>              
           </sdds-table-body>
-        <sdds-table-footer enable-pagination rows-per-page="2"></sdds-table-footer>
+        <sdds-table-footer ></sdds-table-footer>
   </sdds-table>  
   `;
 
