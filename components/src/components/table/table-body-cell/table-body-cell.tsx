@@ -58,7 +58,7 @@ export class TableBodyCell {
     }
   }
 
-  // Listen to sortColumnData from table-header-element
+  // Listen to textAlignEvent from table-header-element
   @Listen('textAlignEvent', { target: 'body' })
   textAlignEventListener(event: CustomEvent<any>) {
     if (
@@ -69,11 +69,14 @@ export class TableBodyCell {
     }
   }
 
-  // Listen to sortColumnData from table-header-element
-  @Listen('headKey', { target: 'body' })
-  updateCellActiveState(event: CustomEvent<any>) {
-    const keyValue = event.detail;
-    this.activeSorting = this.cellKey === keyValue;
+  // Listen to headKey from table-header-element
+  @Listen('headCellHoverEvent', { target: 'body' })
+  headCellHoverEventListener(event: CustomEvent<any>) {
+    const [receivedID, receivedKeyValue] = event.detail;
+
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.activeSorting = this.cellKey === receivedKeyValue;
+    }
   }
 
   render() {
