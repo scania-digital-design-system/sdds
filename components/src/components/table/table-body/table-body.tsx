@@ -269,7 +269,10 @@ export class TableBody {
 
   uncheckedAll = () => {
     this.mainCheckboxStatus = false;
-    this.tableToHeaderRow.emit(this.mainCheckboxStatus);
+    this.updateMainCheckboxEvent.emit([
+      this.uniqueTableIdentifier,
+      this.mainCheckboxStatus,
+    ]);
     this.tableToBodyRow.emit(this.mainCheckboxStatus);
   };
 
@@ -289,12 +292,12 @@ export class TableBody {
   }
 
   @Event({
-    eventName: 'tableToHeaderRow',
+    eventName: 'updateMainCheckboxEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  tableToHeaderRow: EventEmitter<any>;
+  updateMainCheckboxEvent: EventEmitter<any>;
 
   bodyCheckBoxClicked = () => {
     const numberOfRows =
@@ -306,7 +309,10 @@ export class TableBody {
 
     this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
 
-    this.tableToHeaderRow.emit(this.mainCheckboxStatus);
+    this.updateMainCheckboxEvent.emit([
+      this.uniqueTableIdentifier,
+      this.mainCheckboxStatus,
+    ]);
 
     this.selectedDataExporter();
   };
