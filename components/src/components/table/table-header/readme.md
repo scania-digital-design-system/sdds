@@ -7,9 +7,9 @@
 
 ## Events
 
-| Event            | Description                                                                | Type                   |
-| ---------------- | -------------------------------------------------------------------------- | ---------------------- |
-| `headRowToTable` | Send status of main checkbox in header to the parent, sdds-table component | `CustomEvent<boolean>` |
+| Event                       | Description                                                                | Type               |
+| --------------------------- | -------------------------------------------------------------------------- | ------------------ |
+| `mainCheckboxSelectedEvent` | Send status of main checkbox in header to the parent, sdds-table component | `CustomEvent<any>` |
 
 
 ----------------------------------------------

@@ -55,16 +55,19 @@ export class TableHeaderRow {
 
   /** Send status of main checkbox in header to the parent, sdds-table component */
   @Event({
-    eventName: 'headRowToTable',
+    eventName: 'mainCheckboxSelectedEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  headRowToTable: EventEmitter<boolean>;
+  mainCheckboxSelectedEvent: EventEmitter<any>;
 
   headCheckBoxClicked(event) {
     this.mainCheckboxSelected = event.currentTarget.checked;
-    this.headRowToTable.emit(this.mainCheckboxSelected);
+    this.mainCheckboxSelectedEvent.emit([
+      this.uniqueTableIdentifier,
+      this.mainCheckboxSelected,
+    ]);
   }
 
   @Listen('tableToHeaderRow', { target: 'body' })
