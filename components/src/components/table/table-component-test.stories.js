@@ -33,7 +33,7 @@ const Template = () => `
   <br>
   
   <sdds-table id="johnny-test-id2" compact-design vertical-dividers white-background no-min-width>
-          <sdds-table-toolbar enable-filtering table-title="Table title">
+          <sdds-table-toolbar table-title="Table title 2">
             <button slot="sdds-table__actionbar">Test</button>
           </sdds-table-toolbar>        
           <sdds-table-header>
