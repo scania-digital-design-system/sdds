@@ -56,7 +56,6 @@ export class Table {
   commonTableStyledEvent: EventEmitter<any>;
 
   componentWillLoad() {
-    console.log(`Table component will load:${this.host.getAttribute('id')}`);
     this.uniqueTableIdentifier = this.host.getAttribute('id');
   }
 
