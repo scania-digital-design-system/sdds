@@ -16,7 +16,7 @@
 
 | Event                       | Description | Type               |
 | --------------------------- | ----------- | ------------------ |
-| `sortingEnabler`            |             | `CustomEvent<any>` |
+| `sortingSwitcherEvent`      |             | `CustomEvent<any>` |
 | `tableToFooterEvent`        |             | `CustomEvent<any>` |
 | `updateBodyCheckboxesEvent` |             | `CustomEvent<any>` |
 | `updateMainCheckboxEvent`   |             | `CustomEvent<any>` |

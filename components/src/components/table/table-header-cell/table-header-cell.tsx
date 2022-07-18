@@ -120,9 +120,12 @@ export class TableHeaderCell {
   }
 
   // Listen to parent table if sorting is allowed
-  @Listen('sortingEnabler', { target: 'body' })
-  updateSortingStatus(event: CustomEvent<any>) {
-    this.disableSortingBtn = event.detail;
+  @Listen('sortingSwitcherEvent', { target: 'body' })
+  sortingSwitcherEventListener(event: CustomEvent<any>) {
+    const [receivedID, receivedSortingStatus] = event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.disableSortingBtn = receivedSortingStatus;
+    }
   }
 
   sortButtonClick = (key) => {

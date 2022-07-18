@@ -178,12 +178,12 @@ export class TableBody {
   };
 
   @Event({
-    eventName: 'sortingEnabler',
+    eventName: 'sortingSwitcherEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortingEnabler: EventEmitter<any>;
+  sortingSwitcherEvent: EventEmitter<any>;
 
   @Watch('bodyData')
   arrayDataWatcher(newValue: string) {
@@ -379,7 +379,10 @@ export class TableBody {
       });
 
       this.disableAllSorting = true;
-      this.sortingEnabler.emit(this.disableAllSorting);
+      this.sortingSwitcherEvent.emit([
+        this.uniqueTableIdentifier,
+        this.disableAllSorting,
+      ]);
 
       const dataRowsHidden = this.host.querySelectorAll(
         '.sdds-table__row--hidden'
@@ -403,7 +406,10 @@ export class TableBody {
       }
 
       this.disableAllSorting = false;
-      this.sortingEnabler.emit(this.disableAllSorting);
+      this.sortingSwitcherEvent.emit([
+        this.uniqueTableIdentifier,
+        this.disableAllSorting,
+      ]);
     }
   }
 
