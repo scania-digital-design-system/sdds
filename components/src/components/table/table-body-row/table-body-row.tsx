@@ -82,9 +82,12 @@ export class TableBodyRow {
     }
   }
 
-  @Listen('tableToBodyRow', { target: 'body' })
-  tableToBodyRowListener(event: CustomEvent<boolean>) {
-    this.bodyCheckBoxStatusUpdater(event.detail);
+  @Listen('updateBodyCheckboxesEvent', { target: 'body' })
+  updateBodyCheckboxesEventListener(event: CustomEvent<any>) {
+    const [receivedID, receivedBodyCheckboxStatus] = event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.bodyCheckBoxStatusUpdater(receivedBodyCheckboxStatus);
+    }
   }
 
   bodyCheckBoxStatusUpdater(status) {

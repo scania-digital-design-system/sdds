@@ -14,12 +14,12 @@
 
 ## Events
 
-| Event                     | Description | Type               |
-| ------------------------- | ----------- | ------------------ |
-| `sortingEnabler`          |             | `CustomEvent<any>` |
-| `tableToBodyRow`          |             | `CustomEvent<any>` |
-| `tableToFooterEvent`      |             | `CustomEvent<any>` |
-| `updateMainCheckboxEvent` |             | `CustomEvent<any>` |
+| Event                       | Description | Type               |
+| --------------------------- | ----------- | ------------------ |
+| `sortingEnabler`            |             | `CustomEvent<any>` |
+| `tableToFooterEvent`        |             | `CustomEvent<any>` |
+| `updateBodyCheckboxesEvent` |             | `CustomEvent<any>` |
+| `updateMainCheckboxEvent`   |             | `CustomEvent<any>` |
 
 
 ## Dependencies
