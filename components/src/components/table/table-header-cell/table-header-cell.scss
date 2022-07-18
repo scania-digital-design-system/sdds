@@ -134,3 +134,11 @@
 :host(.sdds-table--multiselect.sdds-table--toolbar-available) {
   border-radius: 0;
 }
+
+:host(.sdds-table__header-cell.sdds-table--toolbar-available:first-of-type) {
+  border-top-left-radius: 0;
+}
+
+:host(.sdds-table__header-cell.sdds-table--toolbar-available:last-of-type) {
+  border-top-right-radius: 0;
+}
