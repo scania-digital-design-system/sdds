@@ -70,12 +70,12 @@ export class TableHeaderCell {
 
   /** Sends column key and sorting direction to the sdds-table component */
   @Event({
-    eventName: 'sortColumnData',
+    eventName: 'sortColumnDataEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortColumnData: EventEmitter<any>;
+  sortColumnDataEvent: EventEmitter<any>;
 
   /** Sends column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
@@ -88,12 +88,12 @@ export class TableHeaderCell {
 
   /** Sends column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
-    eventName: 'headKey',
+    eventName: 'headCellHoverEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  headKey: EventEmitter<any>;
+  headCellHoverEvent: EventEmitter<any>;
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host
@@ -119,20 +119,6 @@ export class TableHeaderCell {
     ]);
   }
 
-  // target is set to body so other instances of same component "listen" and react to the change
-  @Listen('sortColumnData', { target: 'body' })
-  updateOptionsContent(event: CustomEvent<any>) {
-    // grab only value at position 0 as it is the "key"
-    const keyValue = event.detail[0];
-    if (keyValue !== this.columnKey) {
-      this.sortedByMyKey = false;
-      // To sync with CSS transition timing
-      setTimeout(() => {
-        this.sortingDirection = '';
-      }, 200);
-    }
-  }
-
   // Listen to parent table if sorting is allowed
   @Listen('sortingEnabler', { target: 'body' })
   updateSortingStatus(event: CustomEvent<any>) {
@@ -149,11 +135,30 @@ export class TableHeaderCell {
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
     // Use array to send both key and sorting direction
-    this.sortColumnData.emit([key, this.sortingDirection]);
+    this.sortColumnDataEvent.emit([
+      this.uniqueTableIdentifier,
+      key,
+      this.sortingDirection,
+    ]);
   };
 
+  // target is set to body so other instances of same component "listen" and react to the change
+  @Listen('sortColumnDataEvent', { target: 'body' })
+  updateOptionsContent(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      // grab only value at position 1 as it is the "key"
+      if (this.columnKey !== event.detail[1]) {
+        this.sortedByMyKey = false;
+        // To sync with CSS transition timing
+        setTimeout(() => {
+          this.sortingDirection = '';
+        }, 200);
+      }
+    }
+  }
+
   onHeadCellHover = (key) => {
-    this.headKey.emit(key);
+    this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
   };
 
   @Listen('enableMultiselectEvent', { target: 'body' })

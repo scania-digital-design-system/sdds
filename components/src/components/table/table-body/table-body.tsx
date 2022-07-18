@@ -196,11 +196,14 @@ export class TableBody {
   }
 
   // Listen to sortColumnData from table-header-element
-  @Listen('sortColumnData', { target: 'body' })
+  @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     // Nice usage of array deconstruct
-    const [keyValue, sortingDirection] = event.detail;
-    this.sortData(keyValue, sortingDirection);
+    const [receivedID, receivedKeyValue, receivedSortingDirection] =
+      event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.sortData(receivedKeyValue, receivedSortingDirection);
+    }
   }
 
   compareValues = (key, order = 'asc') =>
