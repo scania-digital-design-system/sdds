@@ -37,7 +37,6 @@ export class TableHeaderRow {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(`Header reports table ID is:${this.uniqueTableIdentifier}`);
   }
 
   componentWillRender() {

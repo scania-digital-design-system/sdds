@@ -100,7 +100,7 @@ export class TableBody {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(`Table body reports table ID is:${this.uniqueTableIdentifier}`);
+
     this.arrayDataWatcher(this.bodyData);
   }
 
@@ -296,10 +296,9 @@ export class TableBody {
     }
   }
 
+  // No need to read the value, event is here just to trigger another function
   @Listen('bodyRowToTable', { target: 'body' })
-  bodyCheckboxListener(event: CustomEvent<boolean>) {
-    const bodyCheckboxValue = event.detail;
-    console.log(bodyCheckboxValue);
+  bodyCheckboxListener() {
     this.bodyCheckBoxClicked();
   }
 

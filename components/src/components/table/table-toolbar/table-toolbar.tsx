@@ -38,7 +38,6 @@ export class TableToolbar {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(`Toolbar reports table ID is:${this.uniqueTableIdentifier}`);
   }
 
   /** Used for sending users input to main parent <sdds-table> component */

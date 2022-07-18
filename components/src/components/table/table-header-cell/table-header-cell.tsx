@@ -99,9 +99,6 @@ export class TableHeaderCell {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(
-      `Header cell reports table ID is:${this.uniqueTableIdentifier}`
-    );
   }
 
   componentWillRender() {

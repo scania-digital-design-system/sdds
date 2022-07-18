@@ -40,9 +40,6 @@ export class TableBodyCell {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(
-      `Table body cell reports table ID is:${this.uniqueTableIdentifier}`
-    );
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })

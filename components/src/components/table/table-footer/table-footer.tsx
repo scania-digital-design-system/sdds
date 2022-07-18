@@ -89,7 +89,7 @@ export class TableFooter {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(`Footer reports table ID is:${this.uniqueTableIdentifier}`);
+
     this.enablePaginationData.emit([
       this.uniqueTableIdentifier,
       this.enablePagination,
