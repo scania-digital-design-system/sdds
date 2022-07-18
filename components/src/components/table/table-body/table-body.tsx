@@ -132,15 +132,16 @@ export class TableBody {
   }
 
   @Event({
-    eventName: 'tableToFooter',
+    eventName: 'tableToFooterEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  tableToFooter: EventEmitter<any>;
+  tableToFooterEvent: EventEmitter<any>;
 
   sendDataToFooter() {
-    this.tableToFooter.emit([
+    this.tableToFooterEvent.emit([
+      this.uniqueTableIdentifier,
       this.columnsNumber,
       this.numberOfPages,
       this.tempPaginationDisable,
