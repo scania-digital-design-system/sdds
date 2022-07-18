@@ -6,6 +6,7 @@ import {
   Event,
   EventEmitter,
   Listen,
+  Element,
 } from '@stencil/core';
 
 @Component({
@@ -28,14 +29,28 @@ export class TableHeaderRow {
 
   @State() enableToolbarDesign: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(`Header reports table ID is:${this.uniqueTableIdentifier}`);
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   /** Send status of main checkbox in header to the parent, sdds-table component */

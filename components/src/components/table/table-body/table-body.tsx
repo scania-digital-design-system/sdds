@@ -94,7 +94,13 @@ export class TableBody {
 
   @State() showNoResultsMessage: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
   componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(`Table body reports table ID is:${this.uniqueTableIdentifier}`);
     this.arrayDataWatcher(this.bodyData);
   }
 
