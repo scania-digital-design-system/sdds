@@ -79,12 +79,12 @@ export class TableHeaderCell {
 
   /** Sends column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
-    eventName: 'bodyCellData',
+    eventName: 'textAlignEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  bodyCellData: EventEmitter<any>;
+  textAlignEvent: EventEmitter<any>;
 
   /** Sends column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
@@ -102,7 +102,9 @@ export class TableHeaderCell {
     console.log(
       `Header cell reports table ID is:${this.uniqueTableIdentifier}`
     );
+  }
 
+  componentWillRender() {
     // enable only right or left text align
     if (this.textAlign === 'right' || this.textAlign === 'end') {
       this.textAlignState = 'right';
@@ -110,7 +112,11 @@ export class TableHeaderCell {
       this.textAlignState = 'left';
     }
     // To enable body cells text align per rules set in head cell
-    this.bodyCellData.emit([this.columnKey, this.textAlignState]);
+    this.textAlignEvent.emit([
+      this.uniqueTableIdentifier,
+      this.columnKey,
+      this.textAlignState,
+    ]);
   }
 
   // target is set to body so other instances of same component "listen" and react to the change
