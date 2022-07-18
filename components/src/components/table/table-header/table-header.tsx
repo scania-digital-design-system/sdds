@@ -70,9 +70,12 @@ export class TableHeaderRow {
     ]);
   }
 
-  @Listen('tableToHeaderRow', { target: 'body' })
-  tableToHeaderRowListener(event: CustomEvent<boolean>) {
-    this.mainCheckboxSelected = event.detail;
+  @Listen('updateMainCheckboxEvent', { target: 'body' })
+  updateMainCheckboxEventListener(event: CustomEvent<any>) {
+    const [receivedID, receivedMainCheckboxStatus] = event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.mainCheckboxSelected = receivedMainCheckboxStatus;
+    }
   }
 
   @Listen('enableMultiselectEvent', { target: 'body' })
