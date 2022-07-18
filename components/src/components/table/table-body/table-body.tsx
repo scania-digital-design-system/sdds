@@ -111,11 +111,17 @@ export class TableBody {
   }
 
   @Listen('enablePaginationData', { target: 'body' })
-  rowsPerPageListener(event: CustomEvent<any>) {
-    [this.enablePaginationTableBody, this.rowsPerPage] = event.detail;
-    this.numberOfPages = Math.ceil(
-      this.bodyDataManipulated.length / this.rowsPerPage
-    );
+  enablePaginationDataListener(event: CustomEvent<any>) {
+    const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
+      event.detail;
+
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.enablePaginationTableBody = receivedPaginationStatus;
+      this.rowsPerPage = receivedRowsPerPage;
+      this.numberOfPages = Math.ceil(
+        this.bodyDataManipulated.length / this.rowsPerPage
+      );
+    }
   }
 
   componentDidRender() {
@@ -148,10 +154,13 @@ export class TableBody {
     ]);
   }
 
-  @Listen('currentPageValue', { target: 'body' })
-  currentPageValueListener(event: CustomEvent<number>) {
-    this.paginationValue = event.detail;
-    this.runPagination();
+  @Listen('currentPageValueEvent', { target: 'body' })
+  currentPageValueListener(event: CustomEvent<any>) {
+    const [receivedID, receivedPaginationValue] = event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.paginationValue = receivedPaginationValue;
+      this.runPagination();
+    }
   }
 
   runPagination = () => {

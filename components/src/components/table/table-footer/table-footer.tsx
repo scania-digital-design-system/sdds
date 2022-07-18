@@ -90,20 +90,24 @@ export class TableFooter {
       .closest('sdds-table')
       .getAttribute('id');
     console.log(`Footer reports table ID is:${this.uniqueTableIdentifier}`);
-    this.enablePaginationData.emit([this.enablePagination, this.rowsPerPage]);
+    this.enablePaginationData.emit([
+      this.uniqueTableIdentifier,
+      this.enablePagination,
+      this.rowsPerPage,
+    ]);
   }
 
   /** Event to send current page value back to sdds-table-body component */
   @Event({
-    eventName: 'currentPageValue',
+    eventName: 'currentPageValueEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  currentPageValue: EventEmitter<number>;
+  currentPageValueEvent: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.currentPageValue.emit(value);
+    this.currentPageValueEvent.emit([this.uniqueTableIdentifier, value]);
   }
 
   paginationPrev = (event) => {
