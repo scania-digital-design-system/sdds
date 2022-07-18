@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Listen,
   State,
+  Element,
 } from '@stencil/core';
 
 @Component({
@@ -29,6 +30,10 @@ export class TableToolbar {
 
   @State() whiteBackground: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
   /** Event used to inform other subcomponents about presence of toolbar */
   @Event({
     eventName: 'tableToolbarAvailableEvent',
@@ -40,6 +45,10 @@ export class TableToolbar {
 
   componentWillLoad() {
     this.tableToolbarAvailableEvent.emit(true);
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(`Toolbar reports table ID is:${this.uniqueTableIdentifier}`);
   }
 
   /** Used for sending users input to main parent <sdds-table> component */
@@ -66,12 +75,15 @@ export class TableToolbar {
 
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   render() {

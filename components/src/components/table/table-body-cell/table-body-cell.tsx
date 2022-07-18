@@ -1,4 +1,12 @@
-import { Component, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-body-cell',
@@ -24,14 +32,30 @@ export class TableBodyCell {
 
   @State() whiteBackground: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(
+      `Table body cell reports table ID is:${this.uniqueTableIdentifier}`
+    );
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   // Listen to sortColumnData from table-header-element

@@ -7,6 +7,7 @@ import {
   EventEmitter,
   State,
   Listen,
+  Element,
 } from '@stencil/core';
 
 @Component({
@@ -50,14 +51,21 @@ export class TableHeaderCell {
 
   @State() enableToolbarDesign: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   /** Sends column key and sorting direction to the sdds-table component */
@@ -88,6 +96,13 @@ export class TableHeaderCell {
   headKey: EventEmitter<any>;
 
   componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(
+      `Header cell reports table ID is:${this.uniqueTableIdentifier}`
+    );
+
     // enable only right or left text align
     if (this.textAlign === 'right' || this.textAlign === 'end') {
       this.textAlignState = 'right';

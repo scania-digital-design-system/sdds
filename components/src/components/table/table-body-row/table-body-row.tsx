@@ -21,8 +21,6 @@ export class TableBodyRow {
 
   @State() mainCheckBoxStatus: boolean = false;
 
-  @Element() host: HTMLElement;
-
   @State() verticalDividers: boolean = false;
 
   @State() compactDesign: boolean = false;
@@ -31,14 +29,30 @@ export class TableBodyRow {
 
   @State() whiteBackground: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(
+      `Table body raw reports table ID is:${this.uniqueTableIdentifier}`
+    );
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   /** Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control */

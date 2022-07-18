@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Prop,
+  Element,
 } from '@stencil/core';
 
 @Component({
@@ -41,14 +42,21 @@ export class TableFooter {
 
   @State() whiteBackground: boolean = false;
 
+  @State() uniqueTableIdentifier: string = '';
+
+  @Element() host: HTMLElement;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    [
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ] = event.detail;
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
   }
 
   /** Listens to elementary pagination data made and sent by parent component */
@@ -68,6 +76,10 @@ export class TableFooter {
   enablePaginationData: EventEmitter<any>;
 
   componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(`Footer reports table ID is:${this.uniqueTableIdentifier}`);
     this.enablePaginationData.emit([this.enablePagination, this.rowsPerPage]);
   }
 
