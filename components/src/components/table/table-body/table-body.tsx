@@ -269,10 +269,12 @@ export class TableBody {
     this.tableToBodyRow.emit(this.mainCheckboxStatus);
   };
 
-  @Listen('headRowToTable', { target: 'body' })
-  headCheckboxListener(event: CustomEvent<boolean>) {
-    this.mainCheckboxStatus = event.detail;
-    this.selectedDataExporter();
+  @Listen('mainCheckboxSelectedEvent', { target: 'body' })
+  headCheckboxListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      this.mainCheckboxStatus = event.detail[1];
+      this.selectedDataExporter();
+    }
   }
 
   @Listen('bodyRowToTable', { target: 'body' })

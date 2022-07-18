@@ -75,9 +75,11 @@ export class TableBodyRow {
     this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
-  @Listen('headRowToTable', { target: 'body' })
-  headCheckboxListener(event: CustomEvent<boolean>) {
-    this.bodyCheckBoxStatusUpdater(event.detail);
+  @Listen('mainCheckboxSelectedEvent', { target: 'body' })
+  headCheckboxListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      this.bodyCheckBoxStatusUpdater(event.detail[1]);
+    }
   }
 
   @Listen('tableToBodyRow', { target: 'body' })
