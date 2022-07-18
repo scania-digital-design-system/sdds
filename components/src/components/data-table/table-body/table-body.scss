@@ -1,12 +1,12 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 :host,
 sdds-table-body {
   display: table-row-group;
 
   .sdds-table__info-message {
-    @include type-style("detail-02");
+    @include type-style('detail-02');
 
     display: table-cell;
     box-sizing: border-box;

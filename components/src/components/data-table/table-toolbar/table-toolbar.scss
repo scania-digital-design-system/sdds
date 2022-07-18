@@ -1,6 +1,6 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
-@import "../../../helpers/components-shared";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import '../../../helpers/components-shared';
 
 :host {
   display: table-caption;
@@ -20,7 +20,7 @@
   }
 
   .sdds-table__title {
-    @include type-style("headline-07");
+    @include type-style('headline-07');
 
     padding-top: var(--sdds-spacing-element-16);
     text-align: left;
@@ -44,7 +44,7 @@
     background-color: transparent;
 
     &::after {
-      content: "";
+      content: '';
       width: 100%;
       height: 2px;
       position: absolute;
@@ -71,7 +71,7 @@
     }
 
     .sdds-table__searchbar-input {
-      @include type-style("detail-02");
+      @include type-style('detail-02');
 
       z-index: 1;
       width: 100%;

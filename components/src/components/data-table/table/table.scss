@@ -1,6 +1,6 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '../../helpers/components-shared';
+@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
+@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
+@import '../../../helpers/components-shared';
 
 :host,
 .sdds-table {
