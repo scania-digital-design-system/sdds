@@ -307,10 +307,13 @@ export class TableBody {
 
   // Listen to tableFilteringTerm from tableToolbar component
   @Listen('tableFilteringTerm', { target: 'body' })
-  searchFunction(event: CustomEvent<any>) {
-    // Search feat with two search logics
-    const searchTerm = event.detail;
+  tableFilteringTermListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      this.searchFunction(event.detail[1]);
+    }
+  }
 
+  searchFunction(searchTerm) {
     /*
         // Logic for filtering JSON data on all columns
         // Really nice solution, do not delete, might be needed in future
@@ -375,9 +378,14 @@ export class TableBody {
         this.tempPaginationDisable = false;
       }
 
-      dataRowsFiltering.forEach((item) => {
-        item.classList.remove('sdds-table__row--hidden');
-      });
+      // Check if pagination is ON in order to prevent showing all rows
+      if (this.enablePaginationTableBody) {
+        this.runPagination();
+      } else {
+        dataRowsFiltering.forEach((item) => {
+          item.classList.remove('sdds-table__row--hidden');
+        });
+      }
 
       this.disableAllSorting = false;
       this.sortingEnabler.emit(this.disableAllSorting);

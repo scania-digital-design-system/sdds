@@ -58,13 +58,13 @@ export class TableToolbar {
     cancelable: true,
     bubbles: true,
   })
-  sddsTableSearchTerm: EventEmitter<any>;
+  tableFilteringTerm: EventEmitter<any>;
 
   searchFunction(event) {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    this.sddsTableSearchTerm.emit(searchTerm);
+    this.tableFilteringTerm.emit([this.uniqueTableIdentifier, searchTerm]);
 
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
