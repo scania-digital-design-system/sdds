@@ -119,12 +119,12 @@ export class TableBody {
       this.enablePaginationTableBody = receivedPaginationStatus;
       this.rowsPerPage = receivedRowsPerPage;
       this.numberOfPages = Math.ceil(
-        this.bodyDataManipulated.length / this.rowsPerPage
+        this.host.children.length / this.rowsPerPage
       );
     }
   }
 
-  componentDidRender() {
+  componentWillRender() {
     // multiselect feature requires one extra column for checkboxes...
     if (this.enableMultiselectTableBody) {
       this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
