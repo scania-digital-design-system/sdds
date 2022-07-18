@@ -60,10 +60,20 @@ export class TableFooter {
   }
 
   /** Listens to elementary pagination data made and sent by parent component */
-  @Listen('tableToFooter', { target: 'body' })
-  tableToFooterListener(event: CustomEvent<any>) {
-    [this.columnsNumber, this.numberOfPages, this.tempPaginationDisable] =
-      event.detail;
+  @Listen('tableToFooterEvent', { target: 'body' })
+  tableToFooterEventListener(event: CustomEvent<any>) {
+    const [
+      receivedID,
+      receivedColumnsNUmber,
+      receivedNumberOfPages,
+      receivedTempPaginationDisabled,
+    ] = event.detail;
+
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.columnsNumber = receivedColumnsNUmber;
+      this.numberOfPages = receivedNumberOfPages;
+      this.tempPaginationDisable = receivedTempPaginationDisabled;
+    }
   }
 
   /** Event to send rowsPerPage value back to sdds-table-body component */
