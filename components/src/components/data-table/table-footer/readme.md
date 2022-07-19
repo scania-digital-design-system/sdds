@@ -7,10 +7,13 @@
 
 ## Properties
 
-| Property           | Attribute           | Description                                              | Type      | Default |
-| ------------------ | ------------------- | -------------------------------------------------------- | --------- | ------- |
-| `enablePagination` | `enable-pagination` | Enable pagination and show pagination controls           | `boolean` | `false` |
-| `rowsPerPage`      | `rows-per-page`     | Sets how many rows to display when pagination is enabled | `number`  | `5`     |
+| Property                 | Attribute                  | Description                                              | Type      | Default |
+| ------------------------ | -------------------------- | -------------------------------------------------------- | --------- | ------- |
+| `clientMaxPages`         | `client-max-pages`         | Prop for client to set max number of pages               | `number`  | `1`     |
+| `clientPaginationValue`  | `client-pagination-value`  | Prop for client to set current page number               | `number`  | `1`     |
+| `enableClientPagination` | `enable-client-pagination` | Prop to enable client controlled pagination              | `boolean` | `false` |
+| `enablePagination`       | `enable-pagination`        | Enable pagination and show pagination controls           | `boolean` | `false` |
+| `rowsPerPage`            | `rows-per-page`            | Sets how many rows to display when pagination is enabled | `number`  | `5`     |
 
 
 ## Events

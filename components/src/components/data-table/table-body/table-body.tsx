@@ -17,7 +17,17 @@ import {
   shadow: false,
 })
 export class TableBody {
-  @Prop() bodyData: any = `[
+  /** Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term */
+  @Prop() disableFilteringFunction: boolean = false;
+
+  /** Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting */
+  @Prop() disableSortingFunction: boolean = false;
+
+  /** Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component */
+  @Prop() disablePaginationFunction: boolean = false;
+
+  /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
+  @Prop({ reflect: true }) bodyData: any = `[
       {
           "truck": "L-series",
           "driver": "Sonya Bruce",
@@ -68,7 +78,7 @@ export class TableBody {
 
   @State() enableMultiselectTableBody: boolean = false;
 
-  @State() enablePaginationTableBody: boolean = true;
+  @State() enablePaginationTableBody: boolean = false;
 
   @State() innerBodyData = [];
 
@@ -112,15 +122,17 @@ export class TableBody {
 
   @Listen('enablePaginationData', { target: 'body' })
   enablePaginationDataListener(event: CustomEvent<any>) {
-    const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
-      event.detail;
+    if (!this.disablePaginationFunction) {
+      const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
+        event.detail;
 
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.enablePaginationTableBody = receivedPaginationStatus;
-      this.rowsPerPage = receivedRowsPerPage;
-      this.numberOfPages = Math.ceil(
-        this.host.children.length / this.rowsPerPage
-      );
+      if (this.uniqueTableIdentifier === receivedID) {
+        this.enablePaginationTableBody = receivedPaginationStatus;
+        this.rowsPerPage = receivedRowsPerPage;
+        this.numberOfPages = Math.ceil(
+          this.host.children.length / this.rowsPerPage
+        );
+      }
     }
   }
 
@@ -135,6 +147,7 @@ export class TableBody {
     } else {
       this.columnsNumber = headerColumnsNo;
     }
+
     this.sendDataToFooter();
     if (this.enablePaginationTableBody) {
       this.runPagination();
@@ -160,10 +173,12 @@ export class TableBody {
 
   @Listen('currentPageValueEvent', { target: 'body' })
   currentPageValueListener(event: CustomEvent<any>) {
-    const [receivedID, receivedPaginationValue] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.paginationValue = receivedPaginationValue;
-      this.runPagination();
+    if (!this.disablePaginationFunction) {
+      const [receivedID, receivedPaginationValue] = event.detail;
+      if (this.uniqueTableIdentifier === receivedID) {
+        this.paginationValue = receivedPaginationValue;
+        this.runPagination();
+      }
     }
   }
 
@@ -212,11 +227,12 @@ export class TableBody {
   // Listen to sortColumnData from data-table-header-element
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    // Nice usage of array deconstruct
-    const [receivedID, receivedKeyValue, receivedSortingDirection] =
-      event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.sortData(receivedKeyValue, receivedSortingDirection);
+    if (!this.disableSortingFunction) {
+      const [receivedID, receivedKeyValue, receivedSortingDirection] =
+        event.detail;
+      if (this.uniqueTableIdentifier === receivedID) {
+        this.sortData(receivedKeyValue, receivedSortingDirection);
+      }
     }
   }
 
@@ -335,8 +351,10 @@ export class TableBody {
   // Listen to tableFilteringTerm from tableToolbar component
   @Listen('tableFilteringTerm', { target: 'body' })
   tableFilteringTermListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      this.searchFunction(event.detail[1]);
+    if (!this.disableFilteringFunction) {
+      if (this.uniqueTableIdentifier === event.detail[0]) {
+        this.searchFunction(event.detail[1]);
+      }
     }
   }
 
