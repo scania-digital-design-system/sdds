@@ -1,6 +1,6 @@
-@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../helpers/components-shared';
+@import "../../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared";
 
 :host,
 .sdds-table {
@@ -36,4 +36,14 @@
 .sdds-table__actionbar-btn-icon {
   height: 20px;
   width: auto;
+}
+
+::slotted(sdds-table-body-row-expendable) {
+  width: 100%;
+  background-color: pink;
+}
+
+.sdds-table__row--expended {
+  width: 100%;
+  background-color: pink;
 }
