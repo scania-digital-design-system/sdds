@@ -22,6 +22,15 @@ export class TableFooter {
   /** Sets how many rows to display when pagination is enabled */
   @Prop({ reflect: true }) rowsPerPage: number = 5;
 
+  /** Prop to enable client controlled pagination  */
+  @Prop({ reflect: true }) enableClientPagination: boolean = false;
+
+  /** Prop for client to set current page number */
+  @Prop({ reflect: true }) clientPaginationValue: number = 1;
+
+  /** Prop for client to set max number of pages */
+  @Prop({ reflect: true }) clientMaxPages: number = 1;
+
   /** State that memorize number of columns to display colSpan correctly - set from parent level */
   @State() columnsNumber: number = 0;
 
@@ -145,6 +154,39 @@ export class TableFooter {
     event.target.classList.remove('sdds-table__page-selector-input--shake');
   }
 
+  /* Client based functions below */
+
+  clientPaginationPrev = (event) => {
+    event.preventDefault();
+    // Enable lowering until 1st page
+    if (this.clientPaginationValue >= 2) {
+      this.clientPaginationValue--;
+      this.sendPaginationValue(this.clientPaginationValue);
+    }
+  };
+
+  clientPaginationNext = (event) => {
+    event.preventDefault();
+    // Enable increasing until the max number of pages
+    if (this.clientPaginationValue <= this.clientMaxPages) {
+      this.clientPaginationValue++;
+      this.sendPaginationValue(this.clientPaginationValue);
+    }
+  };
+
+  clientPaginationInputChange(event) {
+    const insertedValue = event.target.value;
+
+    if (insertedValue > this.clientMaxPages || insertedValue < 1) {
+      event.target.classList.add('sdds-table__page-selector-input--shake');
+      event.target.value = event.target.max;
+      this.clientPaginationValue = event.target.value;
+    } else {
+      this.clientPaginationValue = event.target.value;
+    }
+    this.sendPaginationValue(this.clientPaginationValue);
+  }
+
   render() {
     return (
       <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
@@ -204,6 +246,72 @@ export class TableFooter {
                       this.tempPaginationDisable
                     }
                     onClick={(event) => this.paginationNext(event)}
+                  >
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+            {this.enableClientPagination && !this.enablePagination && (
+              <div class="sdds-table__pagination">
+                <div class="sdds-table__row-selector"></div>
+                <div class="sdds-table__page-selector">
+                  <input
+                    class="sdds-table__page-selector-input"
+                    type="number"
+                    min="1"
+                    max={this.clientMaxPages}
+                    value={this.clientPaginationValue}
+                    pattern="[0-9]+"
+                    dir="rtl"
+                    onChange={(event) =>
+                      this.clientPaginationInputChange(event)
+                    }
+                    onFocusout={(event) =>
+                      this.clientPaginationInputChange(event)
+                    }
+                    onAnimationEnd={(event) => {
+                      this.removeShakeAnimation(event);
+                    }}
+                  />
+                  <p class="sdds-table__footer-text">
+                    of <span>{this.clientMaxPages}</span> pages
+                  </p>
+                  <button
+                    class="sdds-table__footer-btn"
+                    disabled={this.clientPaginationValue <= 1}
+                    onClick={(event) => this.clientPaginationPrev(event)}
+                  >
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="sdds-table__footer-btn"
+                    disabled={this.clientPaginationValue >= this.clientMaxPages}
+                    onClick={(event) => this.clientPaginationNext(event)}
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"

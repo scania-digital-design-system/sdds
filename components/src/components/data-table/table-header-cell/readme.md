@@ -18,11 +18,11 @@
 
 ## Events
 
-| Event                 | Description                                                                                                       | Type               |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `headCellHoverEvent`  | Sends column key so the body cells with the same key change background when user hovers over header cell          | `CustomEvent<any>` |
-| `sortColumnDataEvent` | Sends column key and sorting direction to the sdds-table component                                                | `CustomEvent<any>` |
-| `textAlignEvent`      | Sends column key and text align value so the body cells with same key take the same text alignment as header cell | `CustomEvent<any>` |
+| Event                 | Description                                                                                                                                | Type               |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `headCellHoverEvent`  | Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell          | `CustomEvent<any>` |
+| `sortColumnDataEvent` | Sends unique table identifier,column key and sorting direction to the sdds-table-body component                                            | `CustomEvent<any>` |
+| `textAlignEvent`      | Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell | `CustomEvent<any>` |
 
 
 ----------------------------------------------

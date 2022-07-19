@@ -68,7 +68,7 @@ export class TableHeaderCell {
     }
   }
 
-  /** Sends column key and sorting direction to the sdds-table component */
+  /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component */
   @Event({
     eventName: 'sortColumnDataEvent',
     composed: true,
@@ -77,7 +77,7 @@ export class TableHeaderCell {
   })
   sortColumnDataEvent: EventEmitter<any>;
 
-  /** Sends column key and text align value so the body cells with same key take the same text alignment as header cell */
+  /** Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
     eventName: 'textAlignEvent',
     composed: true,
@@ -86,7 +86,7 @@ export class TableHeaderCell {
   })
   textAlignEvent: EventEmitter<any>;
 
-  /** Sends column key so the body cells with the same key change background when user hovers over header cell */
+  /** Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
     eventName: 'headCellHoverEvent',
     composed: true,

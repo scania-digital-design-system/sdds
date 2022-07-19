@@ -3,25 +3,22 @@ export default {
 };
 const Template = () => `
    <sdds-table id="johnny-test-id" enable-multiselect>
-          
+          <sdds-table-toolbar table-title="Hello table 1" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' ></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
           </sdds-table-header>       
-          <sdds-table-body>  
+          <sdds-table-body disable-sorting-function disable-pagination-function>  
               <sdds-table-body-row>
                   <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>  
-                  <div slot="extended">
-                  <p></p>
-</div>          
+                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>           
               </sdds-table-body-row>       
           </sdds-table-body>
-        <sdds-table-footer enable-pagination rows-per-page="2"></sdds-table-footer>
+        <sdds-table-footer enable-client-pagination client-max-pages="10""></sdds-table-footer>
   </sdds-table>  
   
   <br>
@@ -49,7 +46,7 @@ const Template = () => `
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
               </sdds-table-body-row>              
           </sdds-table-body>
-        <sdds-table-footer></sdds-table-footer>
+        <sdds-table-footer enable-pagination></sdds-table-footer>
   </sdds-table>  
   `;
 
