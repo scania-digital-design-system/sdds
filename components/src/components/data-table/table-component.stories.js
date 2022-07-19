@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Table',
+  title: 'Component/Data Table',
   argTypes: {
     pagination: {
       name: 'Pagination',

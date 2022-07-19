@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Table',
+  title: 'Component/Data Table',
 };
 const Template = ({ type, divider }) => `
     <table class="sdds-table sdds-table--${type} sdds-table--${divider}">
