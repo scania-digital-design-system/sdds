@@ -26,7 +26,7 @@ export class Table {
 
   /** Enables to customise width on data-table columns */
   @Prop({ reflect: true }) noMinWidth: boolean;
-  // TODO: Due to unknown reason, one of this items has to be letf as is. If all are false, it seems like emitting is not properly done and it affects other events in data table. Try setting it and observe text-align set on  header cell
+  // TODO: Due to unknown reason, one of this items has to be left as is. If all are false, it seems like emitting is not properly done and it affects other events in data table. Try setting it and observe text-align set on  header cell
 
   /** Changes a colors of data data-table when used on white background */
   @Prop({ reflect: true }) whiteBackground: boolean = false;

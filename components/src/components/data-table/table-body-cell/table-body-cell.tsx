@@ -77,7 +77,6 @@ export class TableBodyCell {
 
     if (this.uniqueTableIdentifier === receivedID) {
       if (this.cellKey === receivedKey) {
-        console.log(receivedID, receivedKey, receivedTextAlign);
         this.textAlignState = receivedTextAlign;
       }
     }
