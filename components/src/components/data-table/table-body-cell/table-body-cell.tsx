@@ -20,7 +20,7 @@ export class TableBodyCell {
   /** Passing same cell key for all body cells which is used in head cell enables features of text align and hovering */
   @Prop({ reflect: true }) cellKey: any;
 
-  @State() textAlign: string;
+  @State() textAlignState: string;
 
   @State() activeSorting: boolean = false;
 
@@ -44,25 +44,19 @@ export class TableBodyCell {
 
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [
-        ,
-        this.verticalDividers,
-        this.compactDesign,
-        this.noMinWidth,
-        this.whiteBackground,
-      ] = event.detail;
-    }
-  }
+    const [
+      receiverID,
+      receiverVerticalDividers,
+      receiverCompactDesign,
+      receiverNoMinWidth,
+      receiverWhiteBackground,
+    ] = event.detail;
 
-  // Listen to textAlignEvent from data-table-header-element
-  @Listen('textAlignEvent', { target: 'body' })
-  textAlignEventListener(event: CustomEvent<any>) {
-    if (
-      this.uniqueTableIdentifier === event.detail[0] &&
-      this.cellKey === event.detail[1]
-    ) {
-      this.textAlign = event.detail[2];
+    if (this.uniqueTableIdentifier === receiverID) {
+      this.verticalDividers = receiverVerticalDividers;
+      this.compactDesign = receiverCompactDesign;
+      this.noMinWidth = receiverNoMinWidth;
+      this.whiteBackground = receiverWhiteBackground;
     }
   }
 
@@ -76,6 +70,19 @@ export class TableBodyCell {
     }
   }
 
+  // Listen to textAlignEvent from data-table-header-element
+  @Listen('textAlignEvent', { target: 'body' })
+  textAlignEventListener(event: CustomEvent<any>) {
+    const [receivedID, receivedKey, receivedTextAlign] = event.detail;
+
+    if (this.uniqueTableIdentifier === receivedID) {
+      if (this.cellKey === receivedKey) {
+        console.log(receivedID, receivedKey, receivedTextAlign);
+        this.textAlignState = receivedTextAlign;
+      }
+    }
+  }
+
   render() {
     return (
       <Host
@@ -86,7 +93,7 @@ export class TableBodyCell {
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
         }}
-        style={{ textAlign: this.textAlign }}
+        style={{ textAlign: this.textAlignState }}
       >
         {this.cellValue}
       </Host>

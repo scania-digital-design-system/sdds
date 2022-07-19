@@ -25,7 +25,8 @@ export class Table {
   @Prop({ reflect: true }) compactDesign: boolean = false;
 
   /** Enables to customise width on data-table columns */
-  @Prop({ reflect: true }) noMinWidth: boolean = false;
+  @Prop({ reflect: true }) noMinWidth: boolean;
+  // TODO: Due to unknown reason, one of this items has to be letf as is. If all are false, it seems like emitting is not properly done and it affects other events in data table. Try setting it and observe text-align set on  header cell
 
   /** Changes a colors of data data-table when used on white background */
   @Prop({ reflect: true }) whiteBackground: boolean = false;
@@ -59,7 +60,7 @@ export class Table {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
   }
 
-  componentDidLoad() {
+  componentDidRender() {
     this.commonTableStyledEvent.emit([
       this.uniqueTableIdentifier,
       this.verticalDividers,
