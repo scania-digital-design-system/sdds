@@ -114,28 +114,6 @@ export class TableBody {
     this.arrayDataWatcher(this.bodyData);
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableMultiselectTableBody = event.detail[1];
-  }
-
-  @Listen('enablePaginationData', { target: 'body' })
-  enablePaginationDataListener(event: CustomEvent<any>) {
-    if (!this.disablePaginationFunction) {
-      const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
-        event.detail;
-
-      if (this.uniqueTableIdentifier === receivedID) {
-        this.enablePaginationTableBody = receivedPaginationStatus;
-        this.rowsPerPage = receivedRowsPerPage;
-        this.numberOfPages = Math.ceil(
-          this.host.children.length / this.rowsPerPage
-        );
-      }
-    }
-  }
-
   componentWillRender() {
     const headerColumnsNo =
       this.host.parentElement.querySelector('sdds-table-header').children
@@ -151,6 +129,26 @@ export class TableBody {
     this.sendDataToFooter();
     if (this.enablePaginationTableBody) {
       this.runPagination();
+    }
+  }
+
+  @Listen('enableMultiselectEvent', { target: 'body' })
+  enableMultiselectEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableMultiselectTableBody = event.detail[1];
+  }
+
+  @Listen('enablePaginationData', { target: 'body' })
+  enablePaginationDataListener(event: CustomEvent<any>) {
+    const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
+      event.detail;
+
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.enablePaginationTableBody = receivedPaginationStatus;
+      this.rowsPerPage = receivedRowsPerPage;
+      this.numberOfPages = Math.ceil(
+        this.host.children.length / this.rowsPerPage
+      );
     }
   }
 
@@ -173,36 +171,36 @@ export class TableBody {
 
   @Listen('currentPageValueEvent', { target: 'body' })
   currentPageValueListener(event: CustomEvent<any>) {
-    if (!this.disablePaginationFunction) {
-      const [receivedID, receivedPaginationValue] = event.detail;
-      if (this.uniqueTableIdentifier === receivedID) {
-        this.paginationValue = receivedPaginationValue;
-        this.runPagination();
-      }
+    const [receivedID, receivedPaginationValue] = event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.paginationValue = receivedPaginationValue;
+      this.runPagination();
     }
   }
 
   runPagination = () => {
-    // grab all rows in body
-    const dataRowsPagination = this.host.querySelectorAll('.sdds-table__row');
+    if (!this.disablePaginationFunction) {
+      // grab all rows in body
+      const dataRowsPagination = this.host.querySelectorAll('.sdds-table__row');
 
-    dataRowsPagination.forEach((item, i) => {
-      // for making logic easier 1st result, 2nd result...
-      const index = i + 1;
+      dataRowsPagination.forEach((item, i) => {
+        // for making logic easier 1st result, 2nd result...
+        const index = i + 1;
 
-      if (this.tempPaginationDisable) {
-        this.paginationValue = 1;
-      } else {
-        const lastResult = this.rowsPerPage * this.paginationValue;
-        const firstResult = lastResult - this.rowsPerPage;
-
-        if (index > firstResult && index <= lastResult) {
-          item.classList.remove('sdds-table__row--hidden');
+        if (this.tempPaginationDisable) {
+          this.paginationValue = 1;
         } else {
-          item.classList.add('sdds-table__row--hidden');
+          const lastResult = this.rowsPerPage * this.paginationValue;
+          const firstResult = lastResult - this.rowsPerPage;
+
+          if (index > firstResult && index <= lastResult) {
+            item.classList.remove('sdds-table__row--hidden');
+          } else {
+            item.classList.add('sdds-table__row--hidden');
+          }
         }
-      }
-    });
+      });
+    }
   };
 
   @Event({
@@ -227,12 +225,10 @@ export class TableBody {
   // Listen to sortColumnData from data-table-header-element
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    if (!this.disableSortingFunction) {
-      const [receivedID, receivedKeyValue, receivedSortingDirection] =
-        event.detail;
-      if (this.uniqueTableIdentifier === receivedID) {
-        this.sortData(receivedKeyValue, receivedSortingDirection);
-      }
+    const [receivedID, receivedKeyValue, receivedSortingDirection] =
+      event.detail;
+    if (this.uniqueTableIdentifier === receivedID) {
+      this.sortData(receivedKeyValue, receivedSortingDirection);
     }
   }
 
@@ -257,16 +253,18 @@ export class TableBody {
     };
 
   sortData(keyValue, sortingDirection) {
-    if (this.enableMultiselectTableBody) {
-      // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
-      this.uncheckedAll();
-    }
+    if (!this.disableSortingFunction) {
+      if (this.enableMultiselectTableBody) {
+        // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
+        this.uncheckedAll();
+      }
 
-    // use spread operator to make enable sorting and modifying array, same as using .slice()
-    this.bodyDataManipulated = [...this.bodyDataManipulated];
-    this.bodyDataManipulated.sort(
-      this.compareValues(keyValue, sortingDirection)
-    );
+      // use spread operator to make enable sorting and modifying array, same as using .slice()
+      this.bodyDataManipulated = [...this.bodyDataManipulated];
+      this.bodyDataManipulated.sort(
+        this.compareValues(keyValue, sortingDirection)
+      );
+    }
   }
 
   selectedDataExporter = () => {
@@ -351,95 +349,97 @@ export class TableBody {
   // Listen to tableFilteringTerm from tableToolbar component
   @Listen('tableFilteringTerm', { target: 'body' })
   tableFilteringTermListener(event: CustomEvent<any>) {
-    if (!this.disableFilteringFunction) {
-      if (this.uniqueTableIdentifier === event.detail[0]) {
-        this.searchFunction(event.detail[1]);
-      }
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      this.searchFunction(event.detail[1]);
     }
   }
 
   searchFunction(searchTerm) {
-    /*
-        // Logic for filtering JSON data on all columns
-        // Really nice solution, do not delete, might be needed in future
-        // Reason to go with upper one is not to lose selected state on checkboxes
-        if (searchTerm.length > 0) {
-          this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
-            Object.keys(option).some(
-              (key) =>
-                String(option[key] ?? '')
-                  .toLowerCase()
-                  .indexOf(searchTerm) >= 0
-            )
-          );
-        } else {
-          this.bodyDataManipulated = this.bodyDataOriginal;
-        }
-    */
-
-    // grab all rows in body
-    const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
-
-    if (searchTerm.length > 0) {
-      if (this.enablePaginationTableBody) {
-        this.tempPaginationDisable = true;
-      }
-
-      dataRowsFiltering.forEach((item) => {
-        const cells = item.querySelectorAll('sdds-body-cell');
-        const cellValuesArray = [];
-
-        // go through cells and save cell-values in array
-        cells.forEach((cellItem) => {
-          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-          cellValuesArray.push(cellValue);
-        });
-
-        // iterate over array of values and see if one matches search string
-        const matchCounter = cellValuesArray.find((element) =>
-          element.includes(searchTerm)
+    if (!this.disableFilteringFunction) {
+      /*
+      // Logic for filtering JSON data on all columns
+      // Really nice solution, do not delete, might be needed in future
+      // Reason to go with upper one is not to lose selected state on checkboxes
+      if (searchTerm.length > 0) {
+        this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
+          Object.keys(option).some(
+            (key) =>
+              String(option[key] ?? '')
+                .toLowerCase()
+                .indexOf(searchTerm) >= 0
+          )
         );
+      } else {
+        this.bodyDataManipulated = this.bodyDataOriginal;
+      }
+  */
 
-        // if matches, show parent row, otherwise hide the row
-        if (matchCounter) {
-          item.classList.remove('sdds-table__row--hidden');
-        } else {
-          item.classList.add('sdds-table__row--hidden');
-        }
-      });
-
-      this.disableAllSorting = true;
-      this.sortingSwitcherEvent.emit([
-        this.uniqueTableIdentifier,
-        this.disableAllSorting,
-      ]);
-
-      const dataRowsHidden = this.host.querySelectorAll(
-        '.sdds-table__row--hidden'
+      // grab all rows in body
+      const dataRowsFiltering = this.host.querySelectorAll(
+        'sdds-table-body-row'
       );
 
-      // If same, info message will be shown
-      this.showNoResultsMessage =
-        dataRowsHidden.length === dataRowsFiltering.length;
-    } else {
-      if (this.enablePaginationTableBody) {
-        this.tempPaginationDisable = false;
-      }
+      if (searchTerm.length > 0) {
+        if (this.enablePaginationTableBody) {
+          this.tempPaginationDisable = true;
+        }
 
-      // Check if pagination is ON in order to prevent showing all rows
-      if (this.enablePaginationTableBody) {
-        this.runPagination();
-      } else {
         dataRowsFiltering.forEach((item) => {
-          item.classList.remove('sdds-table__row--hidden');
-        });
-      }
+          const cells = item.querySelectorAll('sdds-body-cell');
+          const cellValuesArray = [];
 
-      this.disableAllSorting = false;
-      this.sortingSwitcherEvent.emit([
-        this.uniqueTableIdentifier,
-        this.disableAllSorting,
-      ]);
+          // go through cells and save cell-values in array
+          cells.forEach((cellItem) => {
+            const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+            cellValuesArray.push(cellValue);
+          });
+
+          // iterate over array of values and see if one matches search string
+          const matchCounter = cellValuesArray.find((element) =>
+            element.includes(searchTerm)
+          );
+
+          // if matches, show parent row, otherwise hide the row
+          if (matchCounter) {
+            item.classList.remove('sdds-table__row--hidden');
+          } else {
+            item.classList.add('sdds-table__row--hidden');
+          }
+        });
+
+        this.disableAllSorting = true;
+        this.sortingSwitcherEvent.emit([
+          this.uniqueTableIdentifier,
+          this.disableAllSorting,
+        ]);
+
+        const dataRowsHidden = this.host.querySelectorAll(
+          '.sdds-table__row--hidden'
+        );
+
+        // If same, info message will be shown
+        this.showNoResultsMessage =
+          dataRowsHidden.length === dataRowsFiltering.length;
+      } else {
+        if (this.enablePaginationTableBody) {
+          this.tempPaginationDisable = false;
+        }
+
+        // Check if pagination is ON in order to prevent showing all rows
+        if (this.enablePaginationTableBody) {
+          this.runPagination();
+        } else {
+          dataRowsFiltering.forEach((item) => {
+            item.classList.remove('sdds-table__row--hidden');
+          });
+        }
+
+        this.disableAllSorting = false;
+        this.sortingSwitcherEvent.emit([
+          this.uniqueTableIdentifier,
+          this.disableAllSorting,
+        ]);
+      }
     }
   }
 

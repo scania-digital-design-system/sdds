@@ -10,7 +10,7 @@ const Template = () => `
               <sdds-header-cell column-key='country' column-title='Country' sortable></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' ></sdds-header-cell> 
           </sdds-table-header>       
-          <sdds-table-body disable-pagination>  
+          <sdds-table-body disable-pagination-function disable-filtering-function disable-sorting-function>  
               <sdds-table-body-row>
                   <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
@@ -18,7 +18,7 @@ const Template = () => `
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>           
               </sdds-table-body-row>       
           </sdds-table-body>
-        <sdds-table-footer enable-client-pagination></sdds-table-footer>
+        <sdds-table-footer enable-client-pagination client-max-pages="10"></sdds-table-footer>
   </sdds-table>  
   
   <br>
