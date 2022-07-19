@@ -49,7 +49,7 @@ const Template = () => `
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>            
               </sdds-table-body-row>              
           </sdds-table-body>
-        <sdds-table-footer ></sdds-table-footer>
+        <sdds-table-footer></sdds-table-footer>
   </sdds-table>  
   `;
 
