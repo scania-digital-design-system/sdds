@@ -125,11 +125,15 @@ export class TableBody {
   }
 
   componentWillRender() {
+    const headerColumnsNo =
+      this.host.parentElement.querySelector('sdds-table-header').children
+        .length;
+
     // multiselect feature requires one extra column for checkboxes...
     if (this.enableMultiselectTableBody) {
-      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length + 1;
+      this.columnsNumber = headerColumnsNo + 1;
     } else {
-      this.columnsNumber = Object.keys(this.bodyDataManipulated[0]).length;
+      this.columnsNumber = headerColumnsNo;
     }
     this.sendDataToFooter();
     if (this.enablePaginationTableBody) {
