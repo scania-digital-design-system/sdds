@@ -1,9 +1,10 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import '../../../helpers/components-shared.scss';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared.scss";
 
 :host {
   display: table-footer-group;
+  height: 48px;
 
   .sdds-table__footer-row {
     background-color: var(--sdds-grey-100);
@@ -25,7 +26,7 @@
       }
 
       .sdds-table__page-selector-input {
-        @include type-style('detail-02');
+        @include type-style("detail-02");
 
         background-color: var(--sdds-grey-50);
         width: 36px;
@@ -53,7 +54,7 @@
       }
 
       .sdds-table__footer-text {
-        @include type-style('detail-02');
+        @include type-style("detail-02");
 
         padding: 1px 8px 0 0;
       }
@@ -92,6 +93,8 @@
 }
 
 :host(.sdds-table--compact) {
+  height: 32px;
+
   .sdds-table__footer-cell {
     .sdds-table__pagination {
       height: 32px;
