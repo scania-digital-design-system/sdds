@@ -1,0 +1,41 @@
+:host {
+  display: contents;
+
+  .sdds-table__row,
+  .sdds-table__row-extend {
+    display: table-row;
+    border-bottom: 1px solid var(--sdds-grey-400);
+    background-color: var(--sdds-white);
+    transition: background-color 200ms ease;
+  }
+
+  .sdds-table__input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+
+    label {
+      input {
+        opacity: 0;
+      }
+
+      span svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  .sdds-table__row-extend {
+    visibility: collapse;
+
+    .sdds-table__cell-extend {
+      padding: 16px 16px 16px 66px;
+    }
+  }
+
+  .sdds-table__row-extend--opened {
+    visibility: visible;
+  }
+}

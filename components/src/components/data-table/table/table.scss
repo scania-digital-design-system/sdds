@@ -37,13 +37,3 @@
   height: 20px;
   width: auto;
 }
-
-::slotted(sdds-table-body-row-expendable) {
-  width: 100%;
-  background-color: pink;
-}
-
-.sdds-table__row--expended {
-  width: 100%;
-  background-color: pink;
-}
