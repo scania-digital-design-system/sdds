@@ -17,13 +17,11 @@
 ### Used by
 
  - [sdds-table-body](../table-body)
- - [sdds-table-body-row-expendable](../table-body-row-expended)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-table-body --> sdds-table-body-row
-  sdds-table-body-row-expendable --> sdds-table-body-row
   style sdds-table-body-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

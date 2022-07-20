@@ -2,6 +2,43 @@ export default {
   title: 'Component/Data Table',
 };
 const Template = () => `
+
+  <sdds-table id="johnny-test-id3" no-min-width>
+              
+          <sdds-table-header>
+          <sdds-header-cell custom-width="50px"></sdds-header-cell>   
+              <sdds-header-cell column-key='truck' column-title='Truck type'  custom-width="200px"></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name'  custom-width="200px"></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country'  custom-width="200px"></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage'  text-align='right' custom-width="200px"></sdds-header-cell> 
+          </sdds-table-header>       
+          <sdds-table-body body-data=[]>      
+          
+            <sdds-table-body-row-expendable>  
+              <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell> 
+              <div slot="extend">Hello world</div>
+            </sdds-table-body-row-expendable>
+            
+             <sdds-table-body-row-expendable>  
+              <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell> 
+              <div slot="extend">Hello world</div>
+            </sdds-table-body-row-expendable>
+            
+          
+                
+          </sdds-table-body>
+        <sdds-table-footer ></sdds-table-footer>
+  </sdds-table> 
+  
+  <br>
+  <br>
+  
    <sdds-table id="johnny-test-id">
           <sdds-table-toolbar table-title="Hello table 1" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
@@ -53,45 +90,7 @@ const Template = () => `
    <br>
   <br>
   
-  <sdds-table id="johnny-test-id3">
-              
-          <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type' sortable custom-width="150px"></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name' sortable custom-width="200px"></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country' sortable custom-width="70px"></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right' custom-width="150px"></sdds-header-cell> 
-          </sdds-table-header>       
-          <sdds-table-body>      
-            <sdds-table-body-row-extended>
-            
-              <sdds-table-body-row>
-                  <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>            
-              </sdds-table-body-row>
-            
-            <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell> 
-                  <div slot="johnny-test">Hello world</div>
-            </sdds-table-body-row-extended>
-            
-              <sdds-table-body-row>
-                  <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>            
-              </sdds-table-body-row>
-                
-          </sdds-table-body>
-        <sdds-table-footer ></sdds-table-footer>
-  </sdds-table>  
-  
-  
-  
-
+ 
   `;
 
 export const WebComponentTest = Template.bind({});
