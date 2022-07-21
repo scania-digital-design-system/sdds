@@ -19,7 +19,7 @@ const Template = () => `
               <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell> 
-              <div slot="extend">Hello world 1</div>
+              <div slot="expend-row">Hello world 1</div>
             </sdds-table-body-row-expendable>
             
              <sdds-table-body-row-expendable>  
@@ -27,7 +27,7 @@ const Template = () => `
               <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell> 
-              <div slot="extend">Hello to you too</div>
+              <div slot="expend-row">Hello to you too</div>
             </sdds-table-body-row-expendable>
             
             <sdds-table-body-row-expendable>  
@@ -35,7 +35,7 @@ const Template = () => `
               <sdds-body-cell cell-value="Test value 10" cell-key="driver"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 11" cell-key="country"></sdds-body-cell>
               <sdds-body-cell cell-value="Test value 12" cell-key="mileage"></sdds-body-cell> 
-              <div slot="extend"><sdds-button type="primary" text="Call to action"></sdds-button></div>
+              <div slot="expend-row"><sdds-button type="primary" text="Call to action"></sdds-button></div>
             </sdds-table-body-row-expendable>            
           </sdds-table-body>
           
@@ -76,7 +76,7 @@ const Template = () => `
               <sdds-header-cell column-key='country' column-title='Country'></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage'text-align='right'></sdds-header-cell> 
           </sdds-table-header>       
-          <sdds-table-body body-data="[]">       
+          <sdds-table-body>       
               <sdds-table-body-row>
                   <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
