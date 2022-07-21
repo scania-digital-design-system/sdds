@@ -27,7 +27,12 @@ export class TableBody {
   @Prop() disablePaginationFunction: boolean = false;
 
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
-  @Prop({ reflect: true }) bodyData: any = `[
+  @Prop({ reflect: true }) bodyData: any;
+
+  /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
+  @Prop() enableDummyData: boolean = false;
+
+  @State() dummyData: any = `[
       {
           "truck": "L-series",
           "driver": "Sonya Bruce",
@@ -113,23 +118,28 @@ export class TableBody {
       .closest('sdds-table')
       .getAttribute('id');
 
+    if (this.enableDummyData) {
+      this.bodyData = this.dummyData;
+    }
+
     this.arrayDataWatcher(this.bodyData);
   }
 
-  componentWillRender() {
+  componentDidRender() {
     const headerColumnsNo =
       this.host.parentElement.querySelector('sdds-table-header').children
         .length;
 
-    // multiselect feature requires one extra column for checkboxes...
+    // multiselect and expended features requires one extra column for controls...
     if (this.enableMultiselectTableBody || this.enableExpendedTableBody) {
       this.columnsNumber = headerColumnsNo + 1;
     } else {
       this.columnsNumber = headerColumnsNo;
     }
 
-    this.sendDataToFooter();
     this.sendColumnsNumber();
+    this.sendDataToFooter();
+
     if (this.enablePaginationTableBody) {
       this.runPagination();
     }
