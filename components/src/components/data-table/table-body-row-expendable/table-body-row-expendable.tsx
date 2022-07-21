@@ -97,7 +97,7 @@ export class TableBodyRowExpandable {
 
         <tr class="sdds-table__row-extend">
           <td class="sdds-table__cell-extend" colSpan={this.columnsNumber}>
-            <slot name="extend" />
+            <slot name="expend-row" />
           </td>
         </tr>
       </Host>
