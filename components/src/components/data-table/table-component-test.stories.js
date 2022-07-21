@@ -3,10 +3,9 @@ export default {
 };
 const Template = () => `
 
-  <sdds-table id="johnny-test-id3" no-min-width>
+  <sdds-table id="johnny-test-id3" no-min-width enable-extended-rows>
               
-          <sdds-table-header>
-          <sdds-header-cell custom-width="50px"></sdds-header-cell>   
+          <sdds-table-header>         
               <sdds-header-cell column-key='truck' column-title='Truck type'  custom-width="200px"></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name'  custom-width="200px"></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country'  custom-width="200px"></sdds-header-cell>

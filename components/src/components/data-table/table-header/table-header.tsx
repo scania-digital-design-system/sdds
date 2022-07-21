@@ -17,6 +17,8 @@ import {
 export class TableHeaderRow {
   @State() enableMultiselectHeaderRow: boolean = false;
 
+  @State() enableExpendedHeaderRow: boolean = false;
+
   @State() mainCheckboxSelected: boolean = false;
 
   @State() verticalDividers: boolean = false;
@@ -89,6 +91,12 @@ export class TableHeaderRow {
       this.enableMultiselectHeaderRow = event.detail[1];
   }
 
+  @Listen('enableExtendedRowsEvent', { target: 'body' })
+  enableExtendedRowsEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpendedHeaderRow = event.detail[1];
+  }
+
   render() {
     return (
       <Host
@@ -100,6 +108,20 @@ export class TableHeaderRow {
       >
         <tr>
           {this.enableMultiselectHeaderRow && (
+            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
+              <div class="sdds-checkbox-item">
+                <label class="sdds-form-label sdds-form-label--data-table">
+                  <input
+                    class="sdds-form-input"
+                    type="checkbox"
+                    onChange={(e) => this.headCheckBoxClicked(e)}
+                    checked={this.mainCheckboxSelected}
+                  />
+                </label>
+              </div>
+            </th>
+          )}
+          {this.enableExpendedHeaderRow && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
                 <label class="sdds-form-label sdds-form-label--data-table">

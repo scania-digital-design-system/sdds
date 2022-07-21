@@ -19,6 +19,7 @@
 
 | Event                       | Description | Type               |
 | --------------------------- | ----------- | ------------------ |
+| `columnsNumberEvent`        |             | `CustomEvent<any>` |
 | `sortingSwitcherEvent`      |             | `CustomEvent<any>` |
 | `tableToFooterEvent`        |             | `CustomEvent<any>` |
 | `updateBodyCheckboxesEvent` |             | `CustomEvent<any>` |
