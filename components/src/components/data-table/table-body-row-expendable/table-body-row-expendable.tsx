@@ -1,4 +1,4 @@
-import { Component, h, Host, State } from '@stencil/core';
+import { Component, Element, h, Host, Listen, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-body-row-expendable',
@@ -7,6 +7,25 @@ import { Component, h, Host, State } from '@stencil/core';
 })
 export class TableBodyRowExpandable {
   @State() isExtended: boolean = false;
+
+  @State() uniqueTableIdentifier: string = '';
+
+  @State() columnsNumber: number = 0;
+
+  @Element() host: HTMLElement;
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host
+      .closest('sdds-table')
+      .getAttribute('id');
+    console.log(`id is${this.uniqueTableIdentifier}`);
+  }
+
+  @Listen('columnsNumberEvent', { target: 'body' })
+  columnsNumberEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.columnsNumber = event.detail[1];
+  }
 
   onChangeHandler(event) {
     this.isExtended = event.currentTarget.checked;
@@ -27,6 +46,7 @@ export class TableBodyRowExpandable {
                 class="sdds-table__expand-input"
                 type="checkbox"
                 onChange={(event) => this.onChangeHandler(event)}
+                checked={this.isExtended}
               />
               <span
                 class={{
@@ -58,7 +78,7 @@ export class TableBodyRowExpandable {
             'sdds-table__row-extend--opened': this.isExtended,
           }}
         >
-          <td class="sdds-table__cell-extend" colSpan={5}>
+          <td class="sdds-table__cell-extend" colSpan={this.columnsNumber}>
             <slot name="extend" />
           </td>
         </tr>

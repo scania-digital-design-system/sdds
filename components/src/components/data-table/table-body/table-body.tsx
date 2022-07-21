@@ -80,6 +80,8 @@ export class TableBody {
 
   @State() enablePaginationTableBody: boolean = false;
 
+  @State() enableExpendedTableBody: boolean = true;
+
   @State() innerBodyData = [];
 
   @State() bodyDataManipulated = [];
@@ -120,16 +122,23 @@ export class TableBody {
         .length;
 
     // multiselect feature requires one extra column for checkboxes...
-    if (this.enableMultiselectTableBody) {
+    if (this.enableMultiselectTableBody || this.enableExpendedTableBody) {
       this.columnsNumber = headerColumnsNo + 1;
     } else {
       this.columnsNumber = headerColumnsNo;
     }
 
     this.sendDataToFooter();
+    this.sendColumnsNumber();
     if (this.enablePaginationTableBody) {
       this.runPagination();
     }
+  }
+
+  @Listen('enableExtendedRowsEvent', { target: 'body' })
+  enableExtendedRowsEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpendedTableBody = event.detail[1];
   }
 
   @Listen('enableMultiselectEvent', { target: 'body' })
@@ -166,6 +175,21 @@ export class TableBody {
       this.columnsNumber,
       this.numberOfPages,
       this.tempPaginationDisable,
+    ]);
+  }
+
+  @Event({
+    eventName: 'columnsNumberEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  columnsNumberEvent: EventEmitter<any>;
+
+  sendColumnsNumber() {
+    this.columnsNumberEvent.emit([
+      this.uniqueTableIdentifier,
+      this.columnsNumber,
     ]);
   }
 

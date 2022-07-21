@@ -31,8 +31,11 @@ export class Table {
   /** Changes a colors of data data-table when used on white background */
   @Prop({ reflect: true }) whiteBackground: boolean = false;
 
-  /** Enables multiselect feature of data-data-table */
+  /** Enables multiselect feature of data-table */
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
+
+  /** Enables extended row feature of data-table */
+  @Prop({ reflect: true }) enableExtendedRows: boolean = false;
 
   @State() uniqueTableIdentifier: string = '';
 
@@ -56,6 +59,15 @@ export class Table {
   })
   commonTableStyledEvent: EventEmitter<any>;
 
+  /** Sends out status of multiselect feature to children components */
+  @Event({
+    eventName: 'enableExtendedRowsEvent',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  enableExtendedRowsEvent: EventEmitter<any>;
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
   }
@@ -71,6 +83,10 @@ export class Table {
     this.enableMultiselectEvent.emit([
       this.uniqueTableIdentifier,
       this.enableMultiselect,
+    ]);
+    this.enableExtendedRowsEvent.emit([
+      this.uniqueTableIdentifier,
+      this.enableExtendedRows,
     ]);
   }
 
