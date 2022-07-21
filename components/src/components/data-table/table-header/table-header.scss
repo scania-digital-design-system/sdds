@@ -1,14 +1,14 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 /* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
-@import '../../checkbox/checkbox';
+@import "../../checkbox/checkbox";
 
 :host {
   display: table-header-group;
 
   .sdds-table__header-cell--checkbox {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     display: table-cell;
     text-align: left;
@@ -35,6 +35,29 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+  .sdds-table__expand-control-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    cursor: pointer;
+
+    .sdds-table__expand-input {
+      display: none;
+    }
+
+    .sdds-expendable-row-icon {
+      height: 20px;
+      width: 20px;
+      transition: transform 200ms ease;
+      transform: rotate(0);
+    }
+
+    .sdds-expendable-row-icon--opened {
+      transform: rotate(180deg);
+    }
   }
 
   ::slotted(sdds-header-cell:hover) {

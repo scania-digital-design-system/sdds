@@ -12,13 +12,14 @@ export class TableBodyRowExpandable {
 
   @State() columnsNumber: number = 0;
 
+  @State() mainExtendActive: boolean = false;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log(`id is${this.uniqueTableIdentifier}`);
   }
 
   @Listen('columnsNumberEvent', { target: 'body' })
@@ -27,19 +28,20 @@ export class TableBodyRowExpandable {
       this.columnsNumber = event.detail[1];
   }
 
+  @Listen('mainExpendSelectedEvent', { target: 'body' })
+  mainExpendSelectedEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.isExtended = event.detail[1];
+  }
+
   onChangeHandler(event) {
     this.isExtended = event.currentTarget.checked;
   }
 
   render() {
     return (
-      <Host>
-        <tr
-          class={{
-            'sdds-table__row': true,
-            'sdds-table__row-extend--active': this.isExtended,
-          }}
-        >
+      <Host class={this.isExtended ? 'sdds-table__row-extend--active' : ''}>
+        <tr class="sdds-table__row">
           <td class="sdds-table__cell">
             <label class="sdds-table__expand-control-container">
               <input
@@ -48,12 +50,7 @@ export class TableBodyRowExpandable {
                 onChange={(event) => this.onChangeHandler(event)}
                 checked={this.isExtended}
               />
-              <span
-                class={{
-                  'sdds-expendable-row-icon': true,
-                  'sdds-expendable-row-icon--opened': this.isExtended,
-                }}
-              >
+              <span class="sdds-expendable-row-icon">
                 <svg
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -72,12 +69,7 @@ export class TableBodyRowExpandable {
           <slot />
         </tr>
 
-        <tr
-          class={{
-            'sdds-table__row-extend': true,
-            'sdds-table__row-extend--opened': this.isExtended,
-          }}
-        >
+        <tr class="sdds-table__row-extend">
           <td class="sdds-table__cell-extend" colSpan={this.columnsNumber}>
             <slot name="extend" />
           </td>
