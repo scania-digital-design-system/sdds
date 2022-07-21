@@ -121,8 +121,6 @@ export class TableBody {
     if (this.enableDummyData) {
       this.bodyData = this.dummyData;
     }
-
-    this.arrayDataWatcher(this.bodyData);
   }
 
   componentDidRender() {
