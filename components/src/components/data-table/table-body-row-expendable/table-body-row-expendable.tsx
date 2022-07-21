@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Listen, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  State,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-body-row-expendable',
@@ -15,6 +24,15 @@ export class TableBodyRowExpandable {
   @State() mainExtendActive: boolean = false;
 
   @Element() host: HTMLElement;
+
+  /** Sends out status of itw own expended status feature to table header component */
+  @Event({
+    eventName: 'singleRowExpandedEvent',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  singleRowExpandedEvent: EventEmitter<any>;
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host
@@ -35,7 +53,15 @@ export class TableBodyRowExpandable {
   }
 
   onChangeHandler(event) {
-    this.isExtended = event.currentTarget.checked;
+    this.isExtended = event.currentTarget.checked === true;
+    this.sendValue();
+  }
+
+  sendValue() {
+    this.singleRowExpandedEvent.emit([
+      this.uniqueTableIdentifier,
+      this.isExtended,
+    ]);
   }
 
   render() {

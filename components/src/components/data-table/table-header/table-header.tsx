@@ -116,6 +116,31 @@ export class TableHeaderRow {
       this.enableExpendedHeaderRow = event.detail[1];
   }
 
+  @Listen('singleRowExpandedEvent', { target: 'body' })
+  singleRowExpandedEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      // TODO: Improve this logic. Why we get late repose in DOM?
+      setTimeout(() => {
+        this.bodyExpandClicked();
+      }, 100);
+    }
+  }
+
+  bodyExpandClicked() {
+    const numberOfExtendRowsActive = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByClassName('sdds-table__row-extend--active').length;
+    const numberOfExtendRows = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByTagName('sdds-table-body-row-expendable').length;
+
+    if (numberOfExtendRows === numberOfExtendRowsActive) {
+      this.mainExpendSelected = true;
+    } else {
+      this.mainExpendSelected = false;
+    }
+  }
+
   render() {
     return (
       <Host
