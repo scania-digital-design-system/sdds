@@ -35,7 +35,7 @@ export class Table {
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
   /** Enables extended row feature of data-table */
-  @Prop({ reflect: true }) enableExtendedRows: boolean = false;
+  @Prop({ reflect: true }) enableExpandableRows: boolean = false;
 
   @State() uniqueTableIdentifier: string = '';
 
@@ -86,7 +86,7 @@ export class Table {
     ]);
     this.enableExtendedRowsEvent.emit([
       this.uniqueTableIdentifier,
-      this.enableExtendedRows,
+      this.enableExpandableRows,
     ]);
   }
 
