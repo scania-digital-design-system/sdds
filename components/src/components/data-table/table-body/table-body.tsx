@@ -143,7 +143,7 @@ export class TableBody {
     }
   }
 
-  @Listen('enableExtendedRowsEvent', { target: 'body' })
+  @Listen('enableExpandedRowsEvent', { target: 'body' })
   enableExtendedRowsEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0])
       this.enableExpendedTableBody = event.detail[1];

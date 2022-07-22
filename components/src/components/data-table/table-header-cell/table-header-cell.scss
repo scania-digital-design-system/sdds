@@ -123,7 +123,7 @@
   border-top-right-radius: 4px;
 }
 
-:host(.sdds-table--multiselect:first-of-type) {
+:host(.sdds-table--extra-column:first-of-type) {
   border-top-left-radius: 0;
 }
 
@@ -131,7 +131,7 @@
   border-radius: 0;
 }
 
-:host(.sdds-table--multiselect.sdds-table--toolbar-available) {
+:host(.sdds-table--extra-column.sdds-table--toolbar-available) {
   border-radius: 0;
 }
 

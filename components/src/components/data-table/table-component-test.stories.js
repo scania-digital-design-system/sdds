@@ -4,7 +4,7 @@ export default {
 const Template = () => `
 
   <h3>Expandable rows</h3>
-  <sdds-table id="expendable-rows-table" enable-expandable-rows>              
+  <sdds-table id="expendable-rows-table" enable-expandable-rows>
       <sdds-table-header>         
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
           <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>
