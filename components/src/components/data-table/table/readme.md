@@ -22,7 +22,7 @@
 | Event                     | Description                                                                  | Type               |
 | ------------------------- | ---------------------------------------------------------------------------- | ------------------ |
 | `commonTableStylesEvent`  | Sends out status of different general styling changes to children components | `CustomEvent<any>` |
-| `enableExtendedRowsEvent` | Sends out status of multiselect feature to children components               | `CustomEvent<any>` |
+| `enableExpandedRowsEvent` | Sends out status of multiselect feature to children components               | `CustomEvent<any>` |
 | `enableMultiselectEvent`  | Sends out status of multiselect feature to children components               | `CustomEvent<any>` |
 
 

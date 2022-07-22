@@ -17,7 +17,7 @@ import {
 export class TableHeaderRow {
   @State() enableMultiselectHeaderRow: boolean = false;
 
-  @State() enableExpendedHeaderRow: boolean = false;
+  @State() enableExpandedHeaderRow: boolean = false;
 
   @State() mainCheckboxSelected: boolean = false;
 
@@ -110,10 +110,10 @@ export class TableHeaderRow {
       this.enableMultiselectHeaderRow = event.detail[1];
   }
 
-  @Listen('enableExtendedRowsEvent', { target: 'body' })
+  @Listen('enableExpandedRowsEvent', { target: 'body' })
   enableExtendedRowsEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableExpendedHeaderRow = event.detail[1];
+      this.enableExpandedHeaderRow = event.detail[1];
   }
 
   @Listen('singleRowExpandedEvent', { target: 'body' })
@@ -165,7 +165,7 @@ export class TableHeaderRow {
               </div>
             </th>
           )}
-          {this.enableExpendedHeaderRow && (
+          {this.enableExpandedHeaderRow && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <label class="sdds-table__expand-control-container">
                 <input
@@ -176,8 +176,8 @@ export class TableHeaderRow {
                 />
                 <span
                   class={{
-                    'sdds-expendable-row-icon': true,
-                    'sdds-expendable-row-icon--opened': this.mainExpendSelected,
+                    'sdds-expandable-row-icon': true,
+                    'sdds-expandable-row-icon--opened': this.mainExpendSelected,
                   }}
                 >
                   <svg

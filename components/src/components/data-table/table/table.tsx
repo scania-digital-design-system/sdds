@@ -61,12 +61,12 @@ export class Table {
 
   /** Sends out status of multiselect feature to children components */
   @Event({
-    eventName: 'enableExtendedRowsEvent',
+    eventName: 'enableExpandedRowsEvent',
     bubbles: true,
     cancelable: true,
     composed: true,
   })
-  enableExtendedRowsEvent: EventEmitter<any>;
+  enableExpandedRowsEvent: EventEmitter<any>;
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
@@ -84,7 +84,7 @@ export class Table {
       this.uniqueTableIdentifier,
       this.enableMultiselect,
     ]);
-    this.enableExtendedRowsEvent.emit([
+    this.enableExpandedRowsEvent.emit([
       this.uniqueTableIdentifier,
       this.enableExpandableRows,
     ]);

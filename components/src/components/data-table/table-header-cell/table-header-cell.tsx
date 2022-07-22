@@ -53,6 +53,8 @@ export class TableHeaderCell {
 
   @State() uniqueTableIdentifier: string = '';
 
+  @State() enableExpandedHeaderCell: boolean = false;
+
   @Element() host: HTMLElement;
 
   @Listen('commonTableStylesEvent', { target: 'body' })
@@ -171,6 +173,12 @@ export class TableHeaderCell {
       this.enableMultiselectStyle = event.detail[1];
   }
 
+  @Listen('enableExpandedRowsEvent', { target: 'body' })
+  enableExtendedRowsEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpandedHeaderCell = event.detail[1];
+  }
+
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
       return (
@@ -258,7 +266,8 @@ export class TableHeaderCell {
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
-          'sdds-table--multiselect': this.enableMultiselectStyle,
+          'sdds-table--extra-column':
+            this.enableMultiselectStyle || this.enableExpandedHeaderCell,
           'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
         style={{ width: this.customWidth }}
