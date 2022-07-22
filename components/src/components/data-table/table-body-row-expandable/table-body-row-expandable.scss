@@ -28,17 +28,17 @@
     }
   }
 
-  .sdds-table__row-extend {
+  .sdds-table__row-expand {
     visibility: collapse;
     transition: background-color 200ms ease;
 
-    .sdds-table__cell-extend {
+    .sdds-table__cell-expand {
       padding: 16px 16px 16px 66px;
     }
   }
 }
 
-:host(.sdds-table__row-extend--active) {
+:host(.sdds-table__row-expand--active) {
   .sdds-table__row {
     background-color: var(--sdds-grey-300);
   }
@@ -49,7 +49,7 @@
     }
   }
 
-  .sdds-table__row-extend {
+  .sdds-table__row-expand {
     background-color: var(--sdds-grey-300);
     visibility: visible;
   }

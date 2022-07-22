@@ -10,12 +10,12 @@ import {
 } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-table-body-row-expendable',
-  styleUrl: 'table-body-row-expendable.scss',
+  tag: 'sdds-table-body-row-expandable',
+  styleUrl: 'table-body-row-expandable.scss',
   shadow: true,
 })
 export class TableBodyRowExpandable {
-  @State() isExtended: boolean = false;
+  @State() isExpanded: boolean = false;
 
   @State() uniqueTableIdentifier: string = '';
 
@@ -49,24 +49,24 @@ export class TableBodyRowExpandable {
   @Listen('mainExpendSelectedEvent', { target: 'body' })
   mainExpendSelectedEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0])
-      this.isExtended = event.detail[1];
+      this.isExpanded = event.detail[1];
   }
 
   onChangeHandler(event) {
-    this.isExtended = event.currentTarget.checked === true;
+    this.isExpanded = event.currentTarget.checked === true;
     this.sendValue();
   }
 
   sendValue() {
     this.singleRowExpandedEvent.emit([
       this.uniqueTableIdentifier,
-      this.isExtended,
+      this.isExpanded,
     ]);
   }
 
   render() {
     return (
-      <Host class={this.isExtended ? 'sdds-table__row-extend--active' : ''}>
+      <Host class={this.isExpanded ? 'sdds-table__row-expand--active' : ''}>
         <tr class="sdds-table__row">
           <td class="sdds-table__cell">
             <label class="sdds-table__expand-control-container">
@@ -74,7 +74,7 @@ export class TableBodyRowExpandable {
                 class="sdds-table__expand-input"
                 type="checkbox"
                 onChange={(event) => this.onChangeHandler(event)}
-                checked={this.isExtended}
+                checked={this.isExpanded}
               />
               <span class="sdds-expendable-row-icon">
                 <svg
@@ -95,9 +95,9 @@ export class TableBodyRowExpandable {
           <slot />
         </tr>
 
-        <tr class="sdds-table__row-extend">
-          <td class="sdds-table__cell-extend" colSpan={this.columnsNumber}>
-            <slot name="expend-row" />
+        <tr class="sdds-table__row-expand">
+          <td class="sdds-table__cell-expand" colSpan={this.columnsNumber}>
+            <slot name="expand-row" />
           </td>
         </tr>
       </Host>
