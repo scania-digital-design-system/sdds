@@ -169,6 +169,7 @@ export class TableBody {
     }
   }
 
+  /** Sends unique table identifier, columns number, number of pages and temporarily disable state of pagination to the sdds-table-footer component */
   @Event({
     eventName: 'tableToFooterEvent',
     composed: true,
@@ -186,6 +187,7 @@ export class TableBody {
     ]);
   }
 
+  /** Sends unique table identifier and column number to the expandable rows and sdds-table-footer components */
   @Event({
     eventName: 'columnsNumberEvent',
     composed: true,
@@ -235,6 +237,7 @@ export class TableBody {
     }
   };
 
+  /** Event that sends unique table identifier and enable/disable status for sorting functionality */
   @Event({
     eventName: 'sortingSwitcherEvent',
     composed: true,
@@ -318,6 +321,7 @@ export class TableBody {
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
 
+  /** Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
   @Event({
     eventName: 'updateBodyCheckboxesEvent',
     composed: true,
@@ -352,6 +356,7 @@ export class TableBody {
     this.bodyCheckBoxClicked();
   }
 
+  /** Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
   @Event({
     eventName: 'updateMainCheckboxEvent',
     composed: true,
