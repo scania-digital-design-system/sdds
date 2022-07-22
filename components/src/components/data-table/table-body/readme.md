@@ -18,13 +18,13 @@
 
 ## Events
 
-| Event                       | Description | Type               |
-| --------------------------- | ----------- | ------------------ |
-| `columnsNumberEvent`        |             | `CustomEvent<any>` |
-| `sortingSwitcherEvent`      |             | `CustomEvent<any>` |
-| `tableToFooterEvent`        |             | `CustomEvent<any>` |
-| `updateBodyCheckboxesEvent` |             | `CustomEvent<any>` |
-| `updateMainCheckboxEvent`   |             | `CustomEvent<any>` |
+| Event                       | Description                                                                                                                                                | Type               |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `columnsNumberEvent`        | Sends unique table identifier and column number to the expandable rows and sdds-table-footer components                                                    | `CustomEvent<any>` |
+| `sortingSwitcherEvent`      | Event that sends unique table identifier and enable/disable status for sorting functionality                                                               | `CustomEvent<any>` |
+| `tableToFooterEvent`        | Sends unique table identifier, columns number, number of pages and temporarily disable state of pagination to the sdds-table-footer component              | `CustomEvent<any>` |
+| `updateBodyCheckboxesEvent` | Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled                                                      | `CustomEvent<any>` |
+| `updateMainCheckboxEvent`   | Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used | `CustomEvent<any>` |
 
 
 ## Dependencies
