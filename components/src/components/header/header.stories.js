@@ -31,6 +31,22 @@ export const Basic = BasicTemplate.bind({});
 Basic.args = {
   siteName: 'Basic App',
 };
+// const SearchbarMenuTemplate = ({ siteName }) => `
+
+//     <nav class='sdds-nav'>
+//       <div class='sdds-nav__left'>
+//         <div class='sdds-nav__app-name'>${siteName}</div>
+//       </div>
+//       <div class='sdds-nav__right'>
+//         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+//       </div>
+//     </nav>
+//     `;
+
+// export const SearchbarMenu = SearchbarMenuTemplate.bind({});
+// SearchbarMenu.args = {
+//   siteName: 'Searchbar Menu',
+// };
 
 const InlineMenuTemplate = (args) => {
   const { siteName, openInlineDropdown = true, openMobileMenu = false } = args;
@@ -318,6 +334,203 @@ const ToolbarMenuTemplate = (args) => {
 };
 
 export const ToolbarMenu = ToolbarMenuTemplate.bind({});
+ToolbarMenu.args = {
+  siteName: 'ToolBar Menu App',
+  openInlineDropdown: false,
+  openAppLauncher: false,
+  openAvatarMenu: false,
+  openMobileMenu: false,
+};
+const SearchbarMenuTemplate = (args) => {
+  const {
+    siteName,
+    openInlineDropdown = true,
+    openAppLauncher = false,
+    openAvatarMenu = false,
+    openMobileMenu = false,
+  } = args;
+
+  const [_, setArgs] = useArgs();
+
+  window.toggleAppLauncher = (event) => {
+    event.preventDefault();
+    setArgs({
+      ...args,
+      openAppLauncher: !openAppLauncher,
+      openAvatarMenu: false,
+      openMobileMenu: false,
+    });
+  };
+
+  window.toggleInlineDropdown = (event) => {
+    event.preventDefault();
+    setArgs({ ...args, openInlineDropdown: !openInlineDropdown });
+  };
+
+  window.toggleAvatarMenu = (event) => {
+    event.preventDefault();
+    setArgs({
+      ...args,
+      openAvatarMenu: !openAvatarMenu,
+      openAppLauncher: false,
+    });
+  };
+
+  window.toggleMobileMenu = (event) => {
+    event.preventDefault();
+    setArgs({
+      ...args,
+      openMobileMenu: !openMobileMenu,
+      openAppLauncher: false,
+    });
+  };
+
+  window.closeDropdownsFromOverlay = (event) => {
+    event.preventDefault();
+    setArgs({
+      ...args,
+      openAppLauncher: false,
+      openAvatarMenu: false,
+      openMobileMenu: false,
+    });
+  };
+
+  return `
+  <nav class='sdds-nav  
+    ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
+    ${openAvatarMenu && 'sdds-nav__avatar--opened'}
+    ${openAppLauncher && 'sdds-nav__app-launcher--opened'}
+     '>     
+      <div class='sdds-nav__left'>
+        <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay(event)"></div>
+        <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu(event)'>
+            <div id='sdds-nav__mob-menu-icon'>
+                <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+                <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+                <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+            </div>
+        </button>
+        <div class='sdds-nav__app-name'>${siteName}</div>
+      </div>
+      
+      <div class='sdds-nav__center'>
+        <ul class='sdds-nav__inline-menu'>
+      
+            <li class='sdds-nav__item'>
+                <a class='sdds-nav__item-core' href='#'>
+                    <p class='sdds-nav__item-core-text'>Item 1</p>
+                </a>
+            </li>
+      
+            <li class='sdds-nav__item sdds-nav__item--active'>
+                <a class='sdds-nav__item-core ' href='#'>
+                    <p class='sdds-nav__item-core-text'>Item 2</p>
+                </a>
+            </li>
+      
+            <li class='sdds-nav__item sdds-nav__dropdown ${
+              openInlineDropdown && 'sdds-nav__dropdown--opened'
+            }'>
+           
+            </li>
+        </ul>
+        <div class=' sdds-nav__app-searchbar'>
+        
+        <button class='sdds-nav__app-searchbar-btn'>
+        <svg class="sdds-nav__app-searchbar-btn-svg" viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.47098 0.99231C3.44526 0.99231 0.992432 3.44514 0.992432 6.47086C0.992432 9.49657 3.44526 11.9494 6.47098 11.9494C7.80373 11.9494 9.02533 11.4735 9.97512 10.6824L14.1407 14.848C14.336 15.0433 14.6526 15.0433 14.8479 14.848C15.0431 14.6528 15.0431 14.3362 14.8479 14.1409L10.6823 9.97531C11.4735 9.02547 11.9495 7.80375 11.9495 6.47086C11.9495 3.44514 9.4967 0.99231 6.47098 0.99231ZM1.99243 6.47086C1.99243 3.99742 3.99755 1.99231 6.47098 1.99231C8.94441 1.99231 10.9495 3.99742 10.9495 6.47086C10.9495 8.94429 8.94441 10.9494 6.47098 10.9494C3.99755 10.9494 1.99243 8.94429 1.99243 6.47086Z" fill='currentColor' fill-opacity='1'/>
+        </svg>
+            </svg>
+        </button>
+    </div>
+        </div>
+        <ul class='sdds-nav__toolbar-menu'>       
+       <li class='sdds-nav__item sdds-nav__avatar' >
+                <button class='sdds-nav__avatar-btn' onclick='toggleAvatarMenu(event)'>
+                    <img class="sdds-nav__avatar-img" src='https://www.svgrepo.com/show/170303/avatar.svg' alt='profile photo'/>
+                    <div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+                        <p class='sdds-nav__avatar-title'>Employee Name</p>
+                        <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+                    </div>
+                </button>
+      
+                <ul class='sdds-nav__avatar-menu'>
+                    <li class='sdds-nav__avatar-item sdds-nav__avatar-item--large'>
+                        <div class='sdds-nav__avatar-info'>
+                            <p class='sdds-nav__avatar-title'>Employee Name</p>
+                            <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+                        </div>
+                    </li>
+                    <li class='sdds-nav__avatar-item'>
+                        <a href='' class='sdds-nav__avatar-item-core'>Link 1</a>
+                    </li>
+                    <li class='sdds-nav__avatar-item'>
+                        <a href='' class='sdds-nav__avatar-item-core'>Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+      
+      <div class='sdds-nav__right'>
+        <div class='sdds-nav__item sdds-nav__app-launcher'>
+            <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher(event)'>
+                <svg class="sdds-nav__app-launcher-btn-svg" viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path fill-rule='evenodd' clip-rule='evenodd' d='M1.33333 2.66667C2.06971 2.66667 2.66667 2.06971 2.66667 1.33333C2.66667 0.596954 2.06971 0 1.33333 0C0.596954 0 0 0.596954 0 1.33333C0 2.06971 0.596954 2.66667 1.33333 2.66667ZM9.33307 1.33333C9.33307 2.06971 8.73612 2.66667 7.99974 2.66667C7.26336 2.66667 6.66641 2.06971 6.66641 1.33333C6.66641 0.596954 7.26336 0 7.99974 0C8.73612 0 9.33307 0.596954 9.33307 1.33333ZM16.0003 1.33333C16.0003 2.06971 15.4033 2.66667 14.6669 2.66667C13.9305 2.66667 13.3336 2.06971 13.3336 1.33333C13.3336 0.596954 13.9305 0 14.6669 0C15.4033 0 16.0003 0.596954 16.0003 1.33333ZM16.0003 8C16.0003 8.73638 15.4033 9.33333 14.6669 9.33333C13.9305 9.33333 13.3336 8.73638 13.3336 8C13.3336 7.26362 13.9305 6.66667 14.6669 6.66667C15.4033 6.66667 16.0003 7.26362 16.0003 8ZM14.6669 16C15.4033 16 16.0003 15.403 16.0003 14.6667C16.0003 13.9303 15.4033 13.3333 14.6669 13.3333C13.9305 13.3333 13.3336 13.9303 13.3336 14.6667C13.3336 15.403 13.9305 16 14.6669 16ZM7.99974 9.33333C8.73612 9.33333 9.33307 8.73638 9.33307 8C9.33307 7.26362 8.73612 6.66667 7.99974 6.66667C7.26336 6.66667 6.66641 7.26362 6.66641 8C6.66641 8.73638 7.26336 9.33333 7.99974 9.33333ZM9.33307 14.6667C9.33307 15.403 8.73612 16 7.99974 16C7.26336 16 6.66641 15.403 6.66641 14.6667C6.66641 13.9303 7.26336 13.3333 7.99974 13.3333C8.73612 13.3333 9.33307 13.9303 9.33307 14.6667ZM2.66667 8C2.66667 8.73638 2.06971 9.33333 1.33333 9.33333C0.596954 9.33333 0 8.73638 0 8C0 7.26362 0.596954 6.66667 1.33333 6.66667C2.06971 6.66667 2.66667 7.26362 2.66667 8ZM1.33333 16C2.06971 16 2.66667 15.403 2.66667 14.6667C2.66667 13.9303 2.06971 13.3333 1.33333 13.3333C0.596954 13.3333 0 13.9303 0 14.6667C0 15.403 0.596954 16 1.33333 16Z' fill='currentColor' fill-opacity='1'/>
+                </svg>
+            </button>
+            <ul class='sdds-nav__app-launcher-menu'>
+                <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>
+                    <p class='sdds-nav__app-launcher-category-title'>Category 1</p>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 1</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 2</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 3</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 4</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 5</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 6</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>
+                    <p class='sdds-nav__app-launcher-category-title'>Category 2</p>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 1</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 2</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 3</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 4</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 5</a>
+                </li>
+                <li class='sdds-nav__app-launcher-item'>
+                    <a href='' class='sdds-nav__app-launcher-item-core'>Application 6</a>
+                </li>
+            </ul>
+        </div>
+        <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+      </div> 
+  </nav>
+  `;
+};
+
+export const SearchbarMenu = SearchbarMenuTemplate.bind({});
 ToolbarMenu.args = {
   siteName: 'ToolBar Menu App',
   openInlineDropdown: false,

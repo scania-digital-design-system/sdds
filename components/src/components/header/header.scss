@@ -55,7 +55,8 @@
   }
 
   .sdds-nav__inline-menu,
-  .sdds-nav__toolbar-menu {
+  .sdds-nav__toolbar-menu,
+  .sdds-nav__searchbar-menu {
     display: flex;
   }
 
@@ -680,5 +681,40 @@
     .sdds-nav__app-logo {
       display: none;
     }
+  }
+}
+
+------ .sdds-nav__searchbar-menu {
+  color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  border-left: 1px solid red;
+}
+
+.sdds-nav__app-searchbar {
+  border-left: 1px solid var(--sdds-blue-700);
+  border-right: none;
+}
+
+.sdds-nav__app-searchbar-btn {
+  @include sdds-nav__basic-element-style;
+  @include sdds-flex-center;
+
+  border: 5px solid red;
+  height: 100%;
+  width: 64px;
+  border: none;
+  color: var(--sdds-white);
+  transition: color 150ms ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .sdds-nav__app-searchbar-btn-svg {
+    width: 20px;
+    height: auto;
+    transition: fill 150ms ease;
   }
 }
