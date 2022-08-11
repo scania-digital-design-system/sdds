@@ -399,6 +399,67 @@
     width: 64px;
     border: none;
   }
+  .sdds-nav__searchbar-menu {
+    list-style-type: none;
+    position: absolute;
+    // right: 0;
+    width: 100%;
+    transition: transform 150ms ease;
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  .sdds-nav__searchbar-item {
+    // width: 320px;
+    height: 64px;
+    background-color: var(--sdds-white);
+    border-bottom: 1px solid var(--sdds-grey-300);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 15%);
+    //WHY WE NEED DOUBLE VALUES HERE TO MAKE IT WORK???
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+      .sdds-nav__searchbar-item-core {
+        border-radius: 0 0 4px 4px;
+      }
+    }
+  }
+  .sdds-nav__searchbar-item--top {
+    height: 84px;
+  }
+  .sdds-nav__searchbar-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 16px;
+  }
+  .sdds-nav__searchbar-info--mobile {
+    display: none;
+  }
+  .sdds-nav__searchbar-title {
+    @include type-style('detail-02');
+    width: 100%;
+  }
+  .sdds-nav__searchbar-item-core,
+  .sdds-nav__searchbar-item-core:visited,
+  .sdds-nav__searchbar-item-core:active {
+    @include type-style('detail-02');
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--sdds-white);
+    color: var(--sdds-grey-700);
+    transition: background-color 150ms ease;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+      background-color: var(--sdds-grey-100);
+    }
+  }
 
   &.sdds-nav__searchbar--opened {
     .mgl-btn {
@@ -407,6 +468,8 @@
     .x-btn {
       background-color: var(--sdds-blue-700);
       width: 64px;
+      
+    position: relative;
     }
     .sdds-nav__app-searchbar {
       width: 100%;
@@ -424,7 +487,14 @@
     .sdds-nav__searchbar-input-expanded {
       display: flex;
       width: 100%;
+      
+    position: relative;
     }
+    .sdds-nav__searchbar-menu {
+      transform: scaleY(1);
+      top: 100%;
+    }
+
   }
 
   /////
