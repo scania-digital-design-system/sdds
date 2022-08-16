@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, Prop, Listen, Host, h } from '@stencil/core';
+=======
+import { Component, Listen, Host, h } from '@stencil/core';
+>>>>>>> 8243e55 (fix: work in progress slider)
 
 @Component({
   tag: 'sdds-slider',
@@ -8,6 +12,7 @@ import { Component, Prop, Listen, Host, h } from '@stencil/core';
 export class Slider {
   wrapperElement: HTMLElement = null;
   scrubberElement: HTMLElement = null;
+<<<<<<< HEAD
   scrubberInnerElement: HTMLElement = null;
   dividersElement: HTMLElement = null;
   trackElement: HTMLElement = null;
@@ -78,6 +83,15 @@ export class Slider {
     this.updateValue();
 
     this.trackElement.focus();
+=======
+  trackElement: HTMLElement = null;
+  scrubberGrabPos: Object = {};
+  scrubberGrabbed: boolean = false;
+
+  @Listen('mouseup', { target: 'window' })
+  handleMouseUp() {
+    this.scrubberGrabbed = false;
+>>>>>>> 8243e55 (fix: work in progress slider)
   }
 
   @Listen('mousemove', { target: 'window' })
@@ -86,6 +100,7 @@ export class Slider {
       return;
     }
 
+<<<<<<< HEAD
     const trackRect = this.trackElement.getBoundingClientRect();
     const localLeft = event.clientX - trackRect.left;
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -119,6 +134,17 @@ export class Slider {
 
   getMax() {
     return parseFloat(this.max);
+=======
+    const wrapperRect = this.wrapperElement.getBoundingClientRect();
+    // console.log(wrapperRect.left | 0);
+
+    const localLeft = event.clientX - wrapperRect.left;
+    let scrubberLeft = this.constrainScrubber(localLeft);
+
+    this.scrubberElement.style.left = `${scrubberLeft}px`;
+
+    console.log(scrubberLeft);
+>>>>>>> 8243e55 (fix: work in progress slider)
   }
 
   constrainScrubber(x) {
@@ -140,6 +166,7 @@ export class Slider {
     return trackRect.right - trackRect.left;
   }
 
+<<<<<<< HEAD
   calculateScrubberLeftFromValue(value) {
     const initValue = value; // this.value;
     const trackWidth = this.getTrackWidth();
@@ -156,6 +183,11 @@ export class Slider {
     const resizeObserver = new ResizeObserver((/*entries*/) => {
       this.calculateScrubberLeftFromValue(this.value);
       this.updateTrack();
+=======
+  componentDidLoad() {
+    const resizeObserver = new ResizeObserver((entries) => {
+      console.log('resize', entries);
+>>>>>>> 8243e55 (fix: work in progress slider)
     });
 
     resizeObserver.observe(this.wrapperElement);
@@ -169,6 +201,7 @@ export class Slider {
       };
 
       this.scrubberGrabbed = true;
+<<<<<<< HEAD
       this.scrubberInnerElement.classList.add('pressed');
     });
 
@@ -439,6 +472,30 @@ export class Slider {
               </div>
             </div>
           )}
+=======
+    });
+  }
+
+  updateTrack() {}
+
+  render() {
+    return (
+      <Host>
+        <div
+          class="sdds-slider"
+          ref={(el) => (this.wrapperElement = el as HTMLElement)}
+        >
+          <div
+            class="sdds-slider__scrubber"
+            ref={(el) => (this.scrubberElement = el as HTMLElement)}
+          ></div>
+          <div
+            class="sdds-slider__track"
+            ref={(el) => (this.trackElement = el as HTMLElement)}
+          >
+            <div class="sdds-slider__track-fill"></div>
+          </div>
+>>>>>>> 8243e55 (fix: work in progress slider)
         </div>
       </Host>
     );

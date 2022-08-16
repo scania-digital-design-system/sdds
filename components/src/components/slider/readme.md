@@ -5,6 +5,7 @@
 <!-- Auto Generated Below -->
 
 
+<<<<<<< HEAD
 ## Properties
 
 | Property             | Attribute              | Description | Type      | Default |
@@ -24,6 +25,8 @@
 | `value`              | `value`                |             | `string`  | `'0'`   |
 
 
+=======
+>>>>>>> 8243e55 (fix: work in progress slider)
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

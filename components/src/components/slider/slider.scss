@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
@@ -20,10 +21,18 @@ html .sdds-on-white-bg {
 
 :host.sdds-slider-small {
   display: none;
+=======
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+:host {
+>>>>>>> 8243e55 (fix: work in progress slider)
 }
 
 .sdds-slider {
   width: 100%;
+<<<<<<< HEAD
   display: flex;
   flex-wrap: nowrap;
 
@@ -156,12 +165,37 @@ html .sdds-on-white-bg {
         display: none;
         width: 48px;
         height: 48px;
+=======
+
+  .sdds-slider__scrubber {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: var(--sdds-blue-800);
+    position: absolute;
+
+    // top: -7px;
+
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      &::before {
+        content: ' ';
+        display: block;
+        width: 48px;
+        height: 48px;
+        opacity: 0.08;
+>>>>>>> 8243e55 (fix: work in progress slider)
         background-color: #041e42;
         position: absolute;
         border-radius: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+<<<<<<< HEAD
       }
 
       &:hover {
@@ -215,6 +249,10 @@ html .sdds-on-white-bg {
         transform: translate(-50%, -100%);
         width: 50px;
         text-align: center;
+=======
+
+        // pointer-events: none;
+>>>>>>> 8243e55 (fix: work in progress slider)
       }
     }
   }
@@ -226,6 +264,7 @@ html .sdds-on-white-bg {
     background-color: var(--sdds-grey-400);
     position: relative;
 
+<<<<<<< HEAD
     &:focus {
       outline: 0;
 
@@ -249,10 +288,14 @@ html .sdds-on-white-bg {
       position: absolute;
       left: 0;
       top: -1px;
+=======
+    .sdds-slider__track-fill {
+>>>>>>> 8243e55 (fix: work in progress slider)
     }
   }
 
   &.disabled {
+<<<<<<< HEAD
     pointer-events: none;
 
     label {
@@ -331,6 +374,15 @@ html .sdds-on-white-bg {
         &.pressed {
           width: 20px;
           height: 20px;
+=======
+    .sdds-slider__scrubber {
+      background: #cdd1db;
+      cursor: default;
+
+      &:hover {
+        &::before {
+          display: none;
+>>>>>>> 8243e55 (fix: work in progress slider)
         }
       }
     }
