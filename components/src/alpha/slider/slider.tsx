@@ -1,11 +1,11 @@
 import { Component, h, State, Listen, Prop, Watch } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-slider',
+  tag: 'sdds-slider-alpha',
   styleUrl: 'slider.scss',
   shadow: true,
 })
-export class Slider {
+export class SliderAlpha {
   @Prop() type: string;
 
   @Prop() min: string = '0';

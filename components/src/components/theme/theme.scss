@@ -25,9 +25,13 @@
 @import '../toast/toast.scss';
 @import '../toggle/toggle.scss';
 @import '../stepper/stepper.scss';
-
-// Utility classes
+@import '../slider/slider.scss';
 @import '../../helpers/_utility-classes.scss';
+
+* :focus {
+  outline: 2px solid var(--sdds-blue-400);
+  outline-offset: -2px;
+}
 
 html.#{$prefix},
 body.#{$prefix},

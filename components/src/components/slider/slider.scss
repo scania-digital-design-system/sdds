@@ -1,0 +1,67 @@
+@import '../../helpers/style-helpers.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+:host {
+}
+
+.sdds-slider {
+  width: 100%;
+
+  .sdds-slider__scrubber {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: var(--sdds-blue-800);
+    position: absolute;
+
+    // top: -7px;
+
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      &::before {
+        content: ' ';
+        display: block;
+        width: 48px;
+        height: 48px;
+        opacity: 0.08;
+        background-color: #041e42;
+        position: absolute;
+        border-radius: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        // pointer-events: none;
+      }
+    }
+  }
+
+  .sdds-slider__track {
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--sdds-grey-400);
+    position: relative;
+
+    .sdds-slider__track-fill {
+    }
+  }
+
+  &.disabled {
+    .sdds-slider__scrubber {
+      background: #cdd1db;
+      cursor: default;
+
+      &:hover {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
