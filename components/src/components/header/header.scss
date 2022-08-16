@@ -47,7 +47,8 @@
   }
 
   &.sdds-nav__mob-menu--opened,
-  &.sdds-nav__app-launcher--opened {
+  &.sdds-nav__app-launcher--opened, 
+  &.sdds-nav__app-searchbar--opened {
     .sdds-nav__overlay {
       opacity: 0.4;
       visibility: visible;
@@ -341,21 +342,16 @@
     @include type-style('detail-02');
 
     color: white;
-    // display: none;
     align-items: center;
     justify-content: flex-end;
-    // display: none;
     display: flex;
     position: relative;
     margin: 4px 2px;
-    // width: 100%;
     width: calc(100% - 64px);
-    // justify-content: flex-end;
     align-items: center;
     transition: transform 150ms ease;
     transform-origin: top;
     transform: scaleY(0);
-    // display: none;
     padding: 24px 14px 24px 23px;
     outline: none;
   }
@@ -401,87 +397,81 @@
   .sdds-nav__searchbar-menu {
     list-style-type: none;
     position: absolute;
-    // right: 0;
     width: 100%;
     transition: transform 150ms ease;
     transform-origin: top;
     transform: scaleY(0);
   }
   .sdds-nav__searchbar-results--category {
-  border-bottom: 1px solid var(--sdds-grey-300);
-  padding-bottom:12px;
-  background-color: white;
-  &:last-child {
+    border-bottom: 1px solid var(--sdds-grey-300);
+    padding-bottom: 12px;
+    background-color: white;
+    &:last-child {
       border: none;
-      }
+    }
   }
   .sdds-nav__searchbar-results-item {
-    // width: 320px;
     height: 40px;
-    padding: 12px;;
+    padding: 12px;
     list-style: none;
     background-color: var(--sdds-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //WHY WE NEED DOUBLE VALUES HERE TO MAKE IT WORK???
-    // &:last-child {
-    //   border-radius: 0 0 4px 4px;
-    //   .sdds-nav__searchbar-results-item-core {
-    //     border-radius: 0 0 4px 4px;
-    //   }
-    // }
+    &:hover {
+      background-color: var(--sdds-grey-100);
+    }
+  }
+  .sdds-nav__searchbar-results-item:hover button,
+  .sdds-nav__searchbar-results-item:hover a {
+    background-color: var(--sdds-grey-100);
+    cursor: pointer;
   }
   .sdds-nav__searchbar-item--top {
     border-bottom: 1px solid var(--sdds-grey-300);
     background-color: var(--sdds-white);
   }
-  .sdds-nav__searchbar-results-category-title{
+  .sdds-nav__searchbar-results-category-title {
     @include type-style('detail-04');
     padding: 24px 12px 12px 24px;
     display: flex;
     align-items: center;
-    // height: 100%;
     width: 100%;
     background-color: var(--sdds-white);
-    // color: var(--sdds-grey-500);
   }
-  .sdds-nav__app-searchbar-results-mgl-btn-svg{
+  .sdds-nav__app-searchbar-results-mgl-svg {
     margin-right: 24px;
   }
-  .sdds-nav__app-searchbar-results-x-btn{
+  .sdds-nav__app-searchbar-results-x-btn {
     background-color: var(--sdds-white);
-    border:none;
-    margin-right: 14px;
-
+    border: none;
+    margin: auto 14px;
   }
-  .sdds-nav__searchbar-results-item-core-category{
+  .sdds-nav__searchbar-results-item-core-category {
     font-weight: bold;
   }
   .sdds-nav__searchbar-all-results {
     @include type-style('detail-02');
     width: 100%;
-    width: 100%;
     padding: 24px;
     top: 12px;
     left: 56px;
     height: auto;
-
+    cursor: pointer;
+    &:hover {
+      background-color: var(--sdds-grey-100);
+    }
   }
-  .sdds-nav__searchbar-results-item-core,
-  .sdds-nav__searchbar-results-item-core:visited,
-  .sdds-nav__searchbar-results-item-core:active {
+  .sdds-nav__searchbar-results-item-core{
     @include type-style('detail-02');
     color: var(--sdds-black);
     text-decoration: none;
-    padding:12px 0 12px 40px;
+    width: 100%;
+    padding: 12px 0 12px 40px;
     background-color: var(--sdds-white);
-    transition: background-color 150ms ease;
-    border: none;
     cursor: pointer;
     &:hover {
       text-decoration: none;
-      background-color: var(--sdds-grey-100);
     }
   }
 
@@ -496,11 +486,11 @@
     .x-btn {
       background-color: var(--sdds-blue-700);
       width: 64px;
-      
-    position: relative;
+      position: relative;
     }
     .sdds-nav__app-searchbar {
       width: 100%;
+      border: none;
     }
     .sdds-nav__searchbar-input {
       display: flex;
@@ -515,16 +505,13 @@
     .sdds-nav__searchbar-input-expanded {
       display: flex;
       width: 100%;
-      
-    position: relative;
+      position: relative;
     }
     .sdds-nav__searchbar-menu {
       transform: scaleY(1);
       top: 100%;
     }
-
   }
-
   /////
   .sdds-nav__avatar-btn,
   .sdds-nav__avatar-btn:active {
