@@ -47,7 +47,7 @@
   }
 
   &.sdds-nav__mob-menu--opened,
-  &.sdds-nav__app-launcher--opened, 
+  &.sdds-nav__app-launcher--opened,
   &.sdds-nav__app-searchbar--opened {
     .sdds-nav__overlay {
       opacity: 0.4;
@@ -366,9 +366,11 @@
     border-left: 1px solid var(--sdds-blue-700);
     border-right: none;
   }
-  .sdds-nav__app-searchbar-btn {
+  .sdds-nav__app-searchbar-btn,
+  .sdds-nav__app-searchbar-btn:active {
     @include sdds-nav__basic-element-style;
     @include sdds-flex-center;
+
     height: 100%;
     width: 64px;
     border: none;
@@ -385,15 +387,6 @@
     }
   }
 
-  .sdds-nav__app-searchbar-btn,
-  .sdds-nav__app-searchbar-btn:active {
-    @include sdds-nav__basic-element-style;
-    @include sdds-flex-center;
-
-    height: 100%;
-    width: 64px;
-    border: none;
-  }
   .sdds-nav__searchbar-menu {
     list-style-type: none;
     position: absolute;
@@ -405,11 +398,19 @@
   .sdds-nav__searchbar-results--category {
     border-bottom: 1px solid var(--sdds-grey-300);
     padding-bottom: 12px;
+    height: 100%;
     background-color: white;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+
+    &:focus {
+      @include sdds-focus-state;
+    }
     &:last-child {
       border: none;
     }
   }
+
   .sdds-nav__searchbar-results-item {
     height: 40px;
     padding: 12px;
@@ -417,9 +418,16 @@
     background-color: var(--sdds-white);
     display: flex;
     align-items: center;
+
     justify-content: space-between;
     &:hover {
       background-color: var(--sdds-grey-100);
+    }
+    &:active {
+      border: 1px solid var(--sdds-blue-400);
+    }
+    &:visited {
+      background-color: var(--sdds-grey-400);
     }
   }
   .sdds-nav__searchbar-results-item:hover button,
@@ -447,9 +455,6 @@
     border: none;
     margin: auto 14px;
   }
-  .sdds-nav__searchbar-results-item-core-category {
-    font-weight: bold;
-  }
   .sdds-nav__searchbar-all-results {
     @include type-style('detail-02');
     width: 100%;
@@ -461,13 +466,20 @@
     &:hover {
       background-color: var(--sdds-grey-100);
     }
+    &:active {
+      border: 1px solid var(--sdds-blue-400);
+    }
+    &:visited {
+      background-color: var(--sdds-grey-400);
+    }
   }
-  .sdds-nav__searchbar-results-item-core{
+
+  .sdds-nav__searchbar-results-item-core {
     @include type-style('detail-02');
     color: var(--sdds-black);
     text-decoration: none;
     width: 100%;
-    padding: 12px 0 12px 40px;
+    padding-left: 40px;
     background-color: var(--sdds-white);
     cursor: pointer;
     &:hover {

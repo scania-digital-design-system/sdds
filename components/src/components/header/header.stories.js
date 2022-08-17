@@ -485,24 +485,22 @@ const SearchbarMenuTemplate = (args) => {
       </ul>
       </li>
     </ul>
-    <div class=" sdds-nav__app-searchbar-container">
-    <div class=" sdds-nav__app-searchbar">
+    <div class="sdds-nav__app-searchbar-container">
+    <div class="sdds-nav__app-searchbar">
       <div class="sdds-nav__searchbar-input-expanded">
         <ul class='sdds-nav__searchbar-menu'>
-            <li class='sdds-nav__searchbar-item sdds-nav__searchbar-item--top'>
-              <div class='sdds-nav__searchbar-info'>
+            <li class='sdds-nav__searchbar-item--top' tabindex="0">
                   <p class='sdds-nav__searchbar-all-results'>
                   <svg width="16" height="16" class="sdds-nav__app-searchbar-results-mgl-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.47098 0.99231C3.44526 0.99231 0.992432 3.44514 0.992432 6.47086C0.992432 9.49657 3.44526 11.9494 6.47098 11.9494C7.80373 11.9494 9.02533 11.4735 9.97512 10.6824L14.1407 14.848C14.336 15.0433 14.6526 15.0433 14.8479 14.848C15.0431 14.6528 15.0431 14.3362 14.8479 14.1409L10.6823 9.97531C11.4735 9.02547 11.9495 7.80375 11.9495 6.47086C11.9495 3.44514 9.4967 0.99231 6.47098 0.99231ZM1.99243 6.47086C1.99243 3.99742 3.99755 1.99231 6.47098 1.99231C8.94441 1.99231 10.9495 3.99742 10.9495 6.47086C10.9495 8.94429 8.94441 10.9494 6.47098 10.9494C3.99755 10.9494 1.99243 8.94429 1.99243 6.47086Z" fill="currentColor" fill-opacity="1"></path>
                   </svg>
                   See all search results (press enter)
                   </p>
-              </div>
             </li>
           <ul class='sdds-nav__searchbar-results--category'>
             <p class='sdds-nav__searchbar-results-category-title'>USERS</p>
           <li class='sdds-nav__searchbar-results-item'>
-            <a href='' class='sdds-nav__searchbar-results-item-core'><span class='sdds-nav__searchbar-results-item-core-category'>User</span> – Eric Mattsson – IXCD Visual designer </a>
+            <a href='' class='sdds-nav__searchbar-results-item-core'>User – Eric Mattsson – IXCD Visual designer </a>
             <button class="sdds-nav__app-searchbar-results-x-btn">
               <svg width="16" height="16" class="sdds-nav__app-searchbar-results-x-btn-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2499 3.75004C12.4452 3.9453 12.4452 4.26188 12.2499 4.45714L4.4571 12.25C4.26184 12.4452 3.94526 12.4452 3.75 12.25C3.55474 12.0547 3.55474 11.7381 3.75 11.5429L11.5428 3.75004C11.7381 3.55478 12.0547 3.55478 12.2499 3.75004Z" fill="currentColor" fill-opacity="1"/>
@@ -511,7 +509,7 @@ const SearchbarMenuTemplate = (args) => {
             </button>
           </li>
           <li class='sdds-nav__searchbar-results-item'>
-            <a href='' class='sdds-nav__searchbar-results-item-core'><span class='sdds-nav__searchbar-results-item-core-category'>User</span>– Eric Mattsson – IXCD Visual designer </a>
+            <a href='' class='sdds-nav__searchbar-results-item-core'>User– Eric Mattsson – IXCD Visual designer </a>
             <button class="sdds-nav__app-searchbar-results-x-btn">
               <svg width="16" height="16" class="sdds-nav__app-searchbar-results-x-btn-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2499 3.75004C12.4452 3.9453 12.4452 4.26188 12.2499 4.45714L4.4571 12.25C4.26184 12.4452 3.94526 12.4452 3.75 12.25C3.55474 12.0547 3.55474 11.7381 3.75 11.5429L11.5428 3.75004C11.7381 3.55478 12.0547 3.55478 12.2499 3.75004Z" fill="currentColor" fill-opacity="1"/>
@@ -524,7 +522,7 @@ const SearchbarMenuTemplate = (args) => {
             <p class='sdds-nav__searchbar-results-category-title'>TEAMS</p>
           
           <li class='sdds-nav__searchbar-results-item'>
-            <a href='' class='sdds-nav__searchbar-results-item-core'><span class='sdds-nav__searchbar-results-item-core-category'>Team</span>– Eric Mattsson – IXCD Visual designer </a>
+            <a href='' class='sdds-nav__searchbar-results-item-core'>Team– Eric Mattsson – IXCD Visual designer </a>
             <button class="sdds-nav__app-searchbar-results-x-btn">
               <svg width="16" height="16" class="sdds-nav__app-searchbar-results-x-btn-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2499 3.75004C12.4452 3.9453 12.4452 4.26188 12.2499 4.45714L4.4571 12.25C4.26184 12.4452 3.94526 12.4452 3.75 12.25C3.55474 12.0547 3.55474 11.7381 3.75 11.5429L11.5428 3.75004C11.7381 3.55478 12.0547 3.55478 12.2499 3.75004Z" fill="currentColor" fill-opacity="1"/>
