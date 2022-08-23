@@ -1,19 +1,5 @@
 @import "../../helpers/style-helpers.scss";
 
-/* temp */
-
-.sdds-stepper-demo-container {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.sdds-stepper-demo-container--dark {
-  background-color: black;
-  padding: 40px 0;
-}
-
-/* temp */
-
 .sdds-stepper {
   @include type-style("detail-02");
 
@@ -100,7 +86,6 @@
   }
 
   &__step {
-    //background-color: red;
     position: relative;
     padding: 0 16px;
     display: flex;
