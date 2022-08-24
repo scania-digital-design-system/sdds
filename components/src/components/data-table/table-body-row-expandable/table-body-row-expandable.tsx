@@ -46,12 +46,6 @@ export class TableBodyRowExpandable {
       this.columnsNumber = event.detail[1];
   }
 
-  @Listen('mainExpendSelectedEvent', { target: 'body' })
-  mainExpendSelectedEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.isExpanded = event.detail[1];
-  }
-
   onChangeHandler(event) {
     this.isExpanded = event.currentTarget.checked === true;
     this.sendValue();
