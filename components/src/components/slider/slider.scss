@@ -26,11 +26,12 @@ html .sdds-on-white-bg {
   .sdds-slider-inner {
     width: 100%;
     height: 20px;
+    position: relative;
   }
 
   .sdds-slider__controls {
     position: relative;
-    top: -8px;
+    top: -25px;
 
     .sdds-slider__control {
       cursor: pointer;
@@ -49,7 +50,7 @@ html .sdds-on-white-bg {
 
   .sdds-slider__input-values {
     position: relative;
-    top: -8px;
+    top: -25px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -95,7 +96,7 @@ html .sdds-on-white-bg {
     @include type-style("detail-05");
 
     user-select: none;
-    position: relative;
+    position: absolute; // relative;
     color: var(--sdds-grey-958);
     top: -16px;
     transform: translateY(-100%);
@@ -246,8 +247,25 @@ html .sdds-on-white-bg {
   }
 
   &.disabled {
+    pointer-events: none;
+
     label {
       color: var(--sdds-grey-400);
+    }
+
+    .sdds-slider__controls {
+      .sdds-slider__control {
+        cursor: default;
+
+        &.sdds-slider__control-minus,
+        &.sdds-slider__control-plus {
+          svg {
+            path {
+              fill: var(--sdds-grey-400);
+            }
+          }
+        }
+      }
     }
 
     .sdds-slider__input-values {

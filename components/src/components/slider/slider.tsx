@@ -150,7 +150,7 @@ export class Slider {
   }
 
   componentDidLoad() {
-    const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new ResizeObserver((/*entries*/) => {
       this.calculateScrubberLeftFromValue(this.value);
       this.updateTrack();
     });
@@ -323,11 +323,9 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            {this.label !== '' && (
-              <label class={this.dividerValues.length > 0 && 'offset'}>
-                {this.label}
-              </label>
-            )}
+            <label class={this.dividerValues.length > 0 && 'offset'}>
+              {this.label}
+            </label>
 
             {this.dividerValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
