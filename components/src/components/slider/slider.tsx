@@ -151,8 +151,6 @@ export class Slider {
 
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
-      console.log('resize', entries);
-
       this.calculateScrubberLeftFromValue(this.value);
       this.updateTrack();
     });
