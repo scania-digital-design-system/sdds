@@ -23,6 +23,7 @@ export class Slider {
   disabledState: boolean = false;
   useControls: boolean = false;
   useInput: boolean = false;
+  useSmall: boolean = false;
 
   @Prop() label = '';
 
@@ -47,6 +48,8 @@ export class Slider {
   @Prop() step = '1';
 
   @Prop() name = '';
+
+  @Prop() small = null;
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -268,6 +271,10 @@ export class Slider {
     } else if (this.input !== null) {
       this.useInput = true;
     }
+
+    if (this.small !== null) {
+      this.useSmall = true;
+    }
   }
 
   render() {
@@ -284,7 +291,12 @@ export class Slider {
         ></input>
 
         <div
-          class={'sdds-slider ' + (this.disabledState ? 'disabled' : '')}
+          class={
+            'sdds-slider ' +
+            (this.disabledState ? 'disabled' : '') +
+            ' ' +
+            (this.useSmall ? 'sdds-slider-small' : '')
+          }
           ref={(el) => (this.wrapperElement = el as HTMLElement)}
         >
           {this.useInput && (

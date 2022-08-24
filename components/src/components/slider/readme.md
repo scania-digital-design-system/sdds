@@ -18,6 +18,7 @@
 | `min`                | `min`                  |             | `string`  | `'0'`   |
 | `name`               | `name`                 |             | `string`  | `''`    |
 | `showDividerNumbers` | `show-divider-numbers` |             | `boolean` | `false` |
+| `small`              | `small`                |             | `any`     | `null`  |
 | `step`               | `step`                 |             | `string`  | `'1'`   |
 | `tooltip`            | `tooltip`              |             | `any`     | `null`  |
 | `value`              | `value`                |             | `string`  | `'0'`   |

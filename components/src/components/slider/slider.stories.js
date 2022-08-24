@@ -85,7 +85,7 @@ export default {
       },
     },
     showControls: {
-      name: 'Show controls',
+      name: 'Show controls (not compatible with input field)',
       description: 'Show or hide controls',
       control: {
         type: 'boolean',
@@ -99,7 +99,7 @@ export default {
       },
     },
     showInput: {
-      name: 'Show value input field',
+      name: 'Show value input field (not compatible with controls)',
       description: 'Show or hide value input field',
       control: {
         type: 'boolean',
@@ -116,6 +116,13 @@ export default {
     disabled: {
       name: 'Disabled',
       description: 'Put control in disabled state',
+      control: {
+        type: 'boolean',
+      },
+    },
+    small: {
+      name: 'Small',
+      description: 'Use small variant',
       control: {
         type: 'boolean',
       },
@@ -149,7 +156,7 @@ const ComponentSlider = ({ ...Basic }) => {
         ${Basic.showControls && 'controls'} 
         ${Basic.showInput && 'input'} 
         ${Basic.disabled && 'disabled'} 
-        class="${classes}"
+        ${Basic.small && 'small'}
         >
 
       </sdds-slider>
@@ -173,4 +180,5 @@ Basic.args = {
   step: '1',
   colorTheme: 'On-grey',
   disabled: false,
+  small: false,
 };
