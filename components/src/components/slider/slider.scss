@@ -63,7 +63,6 @@ html .sdds-on-white-bg {
     }
 
     .sdds-slider__input-field-wrapper {
-      // background-color: #fff; // var(--sdds-grey-50);
       background-color: var(--sdds-slider-inputfield-bg);
       display: flex;
       align-items: center;
@@ -156,8 +155,6 @@ html .sdds-on-white-bg {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
-        // pointer-events: none;
       }
 
       &:hover {
@@ -223,7 +220,6 @@ html .sdds-on-white-bg {
     position: relative;
 
     &:focus {
-      // border: 2px solid #f0f;
       outline: 0;
 
       .sdds-slider__scrubber {
@@ -293,12 +289,6 @@ html .sdds-on-white-bg {
       .sdds-slider__scrubber-inner {
         background: var(--sdds-grey-400);
         cursor: default;
-
-        /* &:hover {
-          &::before {
-            display: none;
-          }
-        } */
       }
     }
   }
