@@ -45,8 +45,8 @@ const ComponentPopoverCanvas = ({ ...Basic }) => {
       </sdds-popover-canvas>
 
       <div style="display: flex; flex-wrap: nowrap; align-items: center;">
-        <span style="margin-right: 16px;">Click icon for popover canvas</span>
-        <div style="cursor: pointer" id="trigger">
+        <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
+        <div style="cursor: pointer; display: flex; align-items: center;" id="trigger">
           <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.03296 3.98828C7.03296 4.54057 7.48278 4.98828 8.03767 4.98828C8.59255 4.98828 9.04238 4.54057 9.04238 3.98828C9.04238 3.436 8.59255 2.98828 8.03767 2.98828C7.48278 2.98828 7.03296 3.436 7.03296 3.98828Z" fill="#0D0F13"/>
             <path d="M7.03296 8C7.03296 8.55228 7.48278 9 8.03767 9C8.59255 9 9.04238 8.55228 9.04238 8C9.04238 7.44772 8.59255 7 8.03767 7C7.48278 7 7.03296 7.44772 7.03296 8Z" fill="#0D0F13"/>
