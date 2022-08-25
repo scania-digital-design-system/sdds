@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, Prop, Listen, Host, h } from '@stencil/core';
-=======
-import { Component, Listen, Host, h } from '@stencil/core';
->>>>>>> 8243e55 (fix: work in progress slider)
+import { Component, Element, Prop, Listen, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -10,17 +6,16 @@ import { Component, Listen, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class Slider {
-  wrapperElement: HTMLElement = null;
-  scrubberElement: HTMLElement = null;
-<<<<<<< HEAD
-  scrubberInnerElement: HTMLElement = null;
-  dividersElement: HTMLElement = null;
-  trackElement: HTMLElement = null;
-  trackFillElement: HTMLElement = null;
-  minusElement: HTMLElement = null;
-  plusElement: HTMLElement = null;
-  inputElement: HTMLInputElement = null;
-  nativeRangeInputElement: HTMLInputElement = null;
+  @Element() wrapperElement: HTMLElement = null;
+  @Element() scrubberElement: HTMLElement = null;
+  @Element() scrubberInnerElement: HTMLElement = null;
+  @Element() dividersElement: HTMLElement = null;
+  @Element() trackElement: HTMLElement = null;
+  @Element() trackFillElement: HTMLElement = null;
+  @Element() minusElement: HTMLElement = null;
+  @Element() plusElement: HTMLElement = null;
+  @Element() inputElement: HTMLInputElement = null;
+  @Element() nativeRangeInputElement: HTMLInputElement = null;
   scrubberGrabPos: object = { x: 0, y: 0 };
   scrubberGrabbed: boolean = false;
   scrubberLeft: number = 0;
@@ -30,30 +25,43 @@ export class Slider {
   useInput: boolean = false;
   useSmall: boolean = false;
 
+  /** Text for label */
   @Prop() label = '';
 
+  /** Initial value */
   @Prop() value = '0';
 
+  /** Minimum value */
   @Prop() min = '0';
 
+  /** Maximum value */
   @Prop() max = '100';
 
+  /** Number of dividers (tick for min- and max-value will be added automatically) */
   @Prop() dividers = '0';
 
+  /** Decide to show dividers(ticks) or not  */
   @Prop() showDividerNumbers = false;
 
+  /** Decide to show the tooltip or not */
   @Prop() tooltip = null;
 
+  /** Sets the disabled state for the whole component  */
   @Prop() disabled = null;
 
+  /** Decide to show the controls or not */
   @Prop() controls = null;
 
+  /** Decide to show the input field or not */
   @Prop() input = null;
 
+  /** Defines how much to increment/decrement the value when using controls */
   @Prop() step = '1';
 
+  /** Name property (will be inherited by the native slider component) */
   @Prop() name = '';
 
+  /** Decide to use the small variant or not */
   @Prop() small = null;
 
   @Listen('keydown')
@@ -83,15 +91,6 @@ export class Slider {
     this.updateValue();
 
     this.trackElement.focus();
-=======
-  trackElement: HTMLElement = null;
-  scrubberGrabPos: Object = {};
-  scrubberGrabbed: boolean = false;
-
-  @Listen('mouseup', { target: 'window' })
-  handleMouseUp() {
-    this.scrubberGrabbed = false;
->>>>>>> 8243e55 (fix: work in progress slider)
   }
 
   @Listen('mousemove', { target: 'window' })
@@ -100,7 +99,6 @@ export class Slider {
       return;
     }
 
-<<<<<<< HEAD
     const trackRect = this.trackElement.getBoundingClientRect();
     const localLeft = event.clientX - trackRect.left;
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -134,17 +132,6 @@ export class Slider {
 
   getMax() {
     return parseFloat(this.max);
-=======
-    const wrapperRect = this.wrapperElement.getBoundingClientRect();
-    // console.log(wrapperRect.left | 0);
-
-    const localLeft = event.clientX - wrapperRect.left;
-    let scrubberLeft = this.constrainScrubber(localLeft);
-
-    this.scrubberElement.style.left = `${scrubberLeft}px`;
-
-    console.log(scrubberLeft);
->>>>>>> 8243e55 (fix: work in progress slider)
   }
 
   constrainScrubber(x) {
@@ -166,9 +153,8 @@ export class Slider {
     return trackRect.right - trackRect.left;
   }
 
-<<<<<<< HEAD
   calculateScrubberLeftFromValue(value) {
-    const initValue = value; // this.value;
+    const initValue = value;
     const trackWidth = this.getTrackWidth();
 
     const calculatedLeft =
@@ -183,11 +169,6 @@ export class Slider {
     const resizeObserver = new ResizeObserver((/*entries*/) => {
       this.calculateScrubberLeftFromValue(this.value);
       this.updateTrack();
-=======
-  componentDidLoad() {
-    const resizeObserver = new ResizeObserver((entries) => {
-      console.log('resize', entries);
->>>>>>> 8243e55 (fix: work in progress slider)
     });
 
     resizeObserver.observe(this.wrapperElement);
@@ -201,7 +182,6 @@ export class Slider {
       };
 
       this.scrubberGrabbed = true;
-<<<<<<< HEAD
       this.scrubberInnerElement.classList.add('pressed');
     });
 
@@ -282,9 +262,6 @@ export class Slider {
 
     if (numDividers > 0) {
       this.dividerValues = [this.getMin()];
-
-      /*const step =
-        this.getMin() + (this.getMax() - this.getMin()) / (numDividers + 1);*/
 
       const step = (this.getMax() - this.getMin()) / (numDividers + 1);
 
@@ -472,30 +449,6 @@ export class Slider {
               </div>
             </div>
           )}
-=======
-    });
-  }
-
-  updateTrack() {}
-
-  render() {
-    return (
-      <Host>
-        <div
-          class="sdds-slider"
-          ref={(el) => (this.wrapperElement = el as HTMLElement)}
-        >
-          <div
-            class="sdds-slider__scrubber"
-            ref={(el) => (this.scrubberElement = el as HTMLElement)}
-          ></div>
-          <div
-            class="sdds-slider__track"
-            ref={(el) => (this.trackElement = el as HTMLElement)}
-          >
-            <div class="sdds-slider__track-fill"></div>
-          </div>
->>>>>>> 8243e55 (fix: work in progress slider)
         </div>
       </Host>
     );

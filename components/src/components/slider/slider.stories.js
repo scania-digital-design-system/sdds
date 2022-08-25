@@ -1,25 +1,17 @@
 const style = `
   <style>
     .storybook-slider-wrapper {
-<<<<<<< HEAD
-      width: 100%;
-      top: 200px;
-      position: relative;
+      width: 80%;
       margin: 0 auto;
-      padding-top: 200px;
-      padding-bottom: 200px;
-      background-color: transparent;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding-top: 100px;
       padding-left: 40px;
       padding-right: 40px;
     }
     .storybook-slider-wrapper.sdds-on-white-bg {
       background-color: #fff;
-=======
-      width: 80%;
-      top: 200px;
-      position: relative;
-      margin: 0 auto;
->>>>>>> 8243e55 (fix: work in progress slider)
     }
   </style>
 `;
@@ -27,7 +19,6 @@ const style = `
 export default {
   title: 'Component/Slider',
   parameters: {},
-<<<<<<< HEAD
   argTypes: {
     initialValue: {
       name: 'Initial value',
@@ -190,18 +181,3 @@ Basic.args = {
   disabled: false,
   small: false,
 };
-=======
-  argTypes: {},
-};
-
-const ComponentSlider = ({ ...Basic }) => `
-  ${style}
-  <div class="storybook-slider-wrapper">
-    <sdds-slider>
-    </sdds-slider>
-  </div>
-  `;
-
-export const Basic = ComponentSlider.bind({});
-Basic.args = {};
->>>>>>> 8243e55 (fix: work in progress slider)
