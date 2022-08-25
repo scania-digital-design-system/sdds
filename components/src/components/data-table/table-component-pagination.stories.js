@@ -36,8 +36,7 @@ const PaginationTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"   
-   >
-          <sdds-table-toolbar table-title="Pagination"></sdds-table-toolbar>
+   >          
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>

@@ -36,8 +36,7 @@ const SortingTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
-      >      
-          <sdds-table-toolbar table-title="Sort example"></sdds-table-toolbar>
+      > 
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable></sdds-header-cell>
