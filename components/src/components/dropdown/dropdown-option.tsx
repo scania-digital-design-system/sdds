@@ -34,7 +34,7 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
-  
+
   @Listen('mouseover')
   changeFocusHandler() {
     this.host.focus();
