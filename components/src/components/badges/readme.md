@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default |
-| -------- | --------- | ----------- | -------- | ------- |
-| `value`  | `value`   |             | `string` | `''`    |
+| Property    | Attribute    | Description | Type      | Default |
+| ----------- | ------------ | ----------- | --------- | ------- |
+| `showBadge` | `show-badge` |             | `boolean` | `true`  |
+| `value`     | `value`      |             | `string`  | `''`    |
 
 
 ----------------------------------------------

@@ -8,6 +8,8 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
 export class SddsBadges {
   @Prop() value: string = '';
 
+  @Prop() showBadge: boolean = true;
+
   @State() shape: string = '';
 
   @State() size: string = 'sm';
@@ -34,15 +36,20 @@ export class SddsBadges {
 
   componentWillLoad() {
     this.watchValue();
+    console.log(this.showBadge);
   }
 
   render() {
     return (
-      <div
-        class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
-      >
-        <div class="sdds-badges-text">{this.text}</div>
-      </div>
+      <host>
+        {this.showBadge && (
+          <div
+            class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
+          >
+            <div class="sdds-badges-text">{this.text}</div>
+          </div>
+        )}
+      </host>
     );
   }
 }
