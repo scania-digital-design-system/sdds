@@ -1,0 +1,23 @@
+@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
+.sdds-popover-canvas {
+  // transition: opacity 200ms ease-in, visibility 200ms ease-in;
+  min-width: 160px;
+  min-height: 160px;
+  background-color: #fff;
+  padding: 16px;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+
+  // visibility: hidden;
+  display: none;
+}
+
+.sdds-popover-canvas-show {
+  opacity: 1;
+
+  // visibility: visible;
+  display: block;
+}
