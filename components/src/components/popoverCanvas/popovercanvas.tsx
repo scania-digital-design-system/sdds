@@ -8,7 +8,7 @@ import type { Placement } from '@popperjs/core';
   shadow: true,
 })
 export class PopoverCanvas {
-  popoverCanvasElement!: HTMLInputElement;
+  popoverCanvasElement!: HTMLElement;
 
   @Prop() selector = '';
 
@@ -23,9 +23,8 @@ export class PopoverCanvas {
   @State() target: any;
 
   @Listen('mousedown', { target: 'window' })
-  handleScroll() {
+  handleOutsideClick() {
     if (this.show) {
-      console.log('hiding canvas because clicked outside');
       this.show = false;
     }
   }
@@ -61,22 +60,15 @@ export class PopoverCanvas {
       this.show = false;
     };
 
-    // For hovering over element with selector
     this.target.addEventListener('mousedown', (event) => {
       event.stopPropagation();
 
       if (this.show) {
-        console.log('hiding canvas because clicking on trigger');
         hideCanvas();
       } else {
-        console.log('showing canvas because clicking on trigger');
         showCanvas();
       }
     });
-
-    /*this.target.addEventListener('mouseleave', () => {
-      hideCanvas();
-    });*/
 
     this.popoverCanvasElement.addEventListener('mousemove', (event) => {
       event.stopPropagation();
@@ -90,7 +82,7 @@ export class PopoverCanvas {
   render() {
     return (
       <div
-        ref={(el) => (this.popoverCanvasElement = el as HTMLInputElement)}
+        ref={(el) => (this.popoverCanvasElement = el as HTMLElement)}
         class={`sdds-popover-canvas ${
           this.show ? 'sdds-popover-canvas-show' : ''
         }`}
