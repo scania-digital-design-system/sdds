@@ -29,7 +29,25 @@ const EventListenersTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
-}) => `
+}) => {
+  window.addEventListener('tableFilteringTerm', (e) => {
+    document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
+    document.getElementById('event-value-textarea').value = e.detail;
+  });
+
+  window.addEventListener('sortColumnDataEvent', (e) => {
+    document.getElementById('event-name-textarea').value =
+      'sortColumnDataEvent';
+    document.getElementById('event-value-textarea').value = e.detail;
+  });
+
+  window.addEventListener('currentPageValueEvent', (e) => {
+    document.getElementById('event-name-textarea').value =
+      'currentPageValueEvent';
+    document.getElementById('event-value-textarea').value = e.detail;
+  });
+
+  return `
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table 
       id="disabled-functionality-table"
@@ -39,7 +57,7 @@ const EventListenersTemplate = ({
    >
           <sdds-table-toolbar table-title="Disabled functionalities table" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right'></sdds-header-cell> 
@@ -53,7 +71,19 @@ const EventListenersTemplate = ({
               </sdds-table-body-row>       
           </sdds-table-body>
         <sdds-table-footer enable-client-pagination client-max-pages="10"></sdds-table-footer>
-  </sdds-table>  `;
+  </sdds-table> 
+  <br>
+  
+  <div style="width: 500px; background-color: lightblue; padding: 16px;">
+    <h5>Event test box</h5>
+    <h6 class="sdds-u-pb0 sdds-u-mb0">Event name:</h6>
+    <textarea id="event-name-textarea" rows="1" cols="50" readonly></textarea>
+    <h6 class="sdds-u-pb0 sdds-u-mb0">Events value (aka detail)</h6>
+    <small>Event always sent an array of items, where first one is always an ID of tabel where event is emitted from</small>
+    <br>
+    <textarea id="event-value-textarea" rows="1" cols="50" readonly></textarea> 
+  </div>`;
+};
 
 export const EventListeners = EventListenersTemplate.bind({});
 EventListeners.args = {};
