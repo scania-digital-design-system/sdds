@@ -1,4 +1,4 @@
-# Scania Digital Design System - Colour package
+# Tegel Design System - Colour package
 
 ---
 
@@ -22,7 +22,7 @@ See all available tokens in [digitaldesign.scania.com](https://digitaldesign.sca
 // you need to have sass compiler in your application
 @import '~node_modules/@scania/colour/dist/scss/colour';
 
-// use get-colour(token-name) function to get colour from SDDS colour scale
+// use get-colour(token-name) function to get colour from Tegel colour scale
 .my-div {
   color: get-colour(grey-500);
 }
