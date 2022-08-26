@@ -1,8 +1,8 @@
 ![npm](https://img.shields.io/npm/v/@scania/theme-light)
 
-# @scania/theme-light
+# Tegel Design System - Theme light
 
-Scania theme is a package to style Scania looks and feel in the [Scania Digital Design System setup](https://github.com/scania-digital-design-system/sdds/).
+Scania theme is a package to style Scania looks and feel in the [Tegel Design System setup](https://github.com/scania-digital-design-system/sdds/).
 
 ## Installation
 
