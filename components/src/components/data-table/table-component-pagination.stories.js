@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    rowsPerPageControl: {
+      name: 'Rows per page',
+      control: {
+        type: 'number',
+      },
+      defaultValue: 4,
+    },
   },
 };
 
@@ -29,6 +36,7 @@ const PaginationTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  rowsPerPageControl,
 }) => `
   <h3>Pagination</h3>
    <sdds-table 
@@ -45,7 +53,7 @@ const PaginationTemplate = ({
           </sdds-table-header>       
           <sdds-table-body enable-dummy-data>                      
           </sdds-table-body>
-          <sdds-table-footer enable-pagination rows-per-page="4"></sdds-table-footer>
+          <sdds-table-footer enable-pagination rows-per-page="${rowsPerPageControl}"></sdds-table-footer>
   </sdds-table>`;
 
 export const Pagination = PaginationTemplate.bind({});
