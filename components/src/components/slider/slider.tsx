@@ -1,4 +1,4 @@
-import { Component, Element, Prop, Listen, Host, h } from '@stencil/core';
+import { Component, Prop, Listen, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -6,16 +6,16 @@ import { Component, Element, Prop, Listen, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class Slider {
-  @Element() wrapperElement: HTMLElement = null;
-  @Element() scrubberElement: HTMLElement = null;
-  @Element() scrubberInnerElement: HTMLElement = null;
-  @Element() dividersElement: HTMLElement = null;
-  @Element() trackElement: HTMLElement = null;
-  @Element() trackFillElement: HTMLElement = null;
-  @Element() minusElement: HTMLElement = null;
-  @Element() plusElement: HTMLElement = null;
-  @Element() inputElement: HTMLInputElement = null;
-  @Element() nativeRangeInputElement: HTMLInputElement = null;
+  wrapperElement: HTMLElement = null;
+  scrubberElement: HTMLElement = null;
+  scrubberInnerElement: HTMLElement = null;
+  dividersElement: HTMLElement = null;
+  trackElement: HTMLElement = null;
+  trackFillElement: HTMLElement = null;
+  minusElement: HTMLElement = null;
+  plusElement: HTMLElement = null;
+  inputElement: HTMLInputElement = null;
+  nativeRangeInputElement: HTMLInputElement = null;
   scrubberGrabPos: object = { x: 0, y: 0 };
   scrubberGrabbed: boolean = false;
   scrubberLeft: number = 0;
