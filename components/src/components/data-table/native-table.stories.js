@@ -32,6 +32,9 @@ export default {
   },
 };
 const Template = ({ tableTitle, isCompact, dividers, onWhiteBG }) => `
+
+<h3>Native HTML & CSS table</h3>
+
     <table class="
         sdds-table 
         ${isCompact ? 'sdds-table--compact' : ''} 
@@ -44,36 +47,36 @@ const Template = ({ tableTitle, isCompact, dividers, onWhiteBG }) => `
           
     <thead class="sdds-table__header">
       <tr class="sdds-table__row">
-        <th class="sdds-table__header-cell sdds-u-pr2 sdds-u-pl2">Header</th>
-        <th class="sdds-table__header-cell sdds-u-pr2 sdds-u-pl2">Header</th>
-        <th class="sdds-table__header-cell sdds-u-pr2 sdds-u-pl2">Header</th>
-        <th class="sdds-table__header-cell sdds-u-pr2 sdds-u-pl2">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
+        <th class="sdds-table__header-cell">Header</th>
       </tr>
     </thead>
      <tbody class="sdds-table__body">
       <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-       <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+       <td class="sdds-table__body-cell">Text</td>
       </tr>
       <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-       <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+       <td class="sdds-table__body-cell">Text</td>
       </tr>
       <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-       <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+       <td class="sdds-table__body-cell">Text</td>
       </tr>
       <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-        <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
-       <td class="sdds-table__body-cell  sdds-u-pr2 sdds-u-pl2">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+        <td class="sdds-table__body-cell">Text</td>
+       <td class="sdds-table__body-cell">Text</td>
       </tr>
     </tbody>
   </table>
