@@ -29,7 +29,32 @@ const MultiselectTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
-}) => `
+}) => {
+  function getValue() {
+    const element = document.querySelector(
+      '#multiselect-table > sdds-table-body'
+    );
+
+    const textArea = document.getElementById('selected-rows-value-textarea');
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes') {
+          const selectedRows = element.getAttribute('data-selected-rows');
+          textArea.value = selectedRows;
+        }
+      });
+    });
+
+    observer.observe(element, {
+      attributes: true,
+    });
+  }
+  window.addEventListener('click', () => {
+    getValue();
+  });
+
+  return `
   <h3>Multiselect</h3>
    <sdds-table 
         id="multiselect-table" 
@@ -46,7 +71,16 @@ const MultiselectTemplate = ({
           </sdds-table-header>       
           <sdds-table-body enable-dummy-data>                      
           </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>
+  <br>
+  <div style="width: 500px; background-color: lightblue; padding: 16px;">
+
+    <h6 class="sdds-u-pb0 sdds-u-mb0">Selected rows data</h6>
+    <small>Values here are values found in data-selected-rows attribute of sdds-table-body element. They are show here just for presentation purposes.</small>
+    <br>
+    <textarea id="selected-rows-value-textarea" rows="5" cols="50" readonly></textarea> 
+  </div>`;
+};
 
 export const Multiselect = MultiselectTemplate.bind({});
 Multiselect.args = {};
