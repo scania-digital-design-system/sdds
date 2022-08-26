@@ -6,13 +6,13 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
   shadow: true,
 })
 export class SddsBadges {
-  /**Value shown in badge**/
+  /**Value shown in badge*/
   @Prop() value: string = '';
 
-  /**Changes visibility of badge**/
+  /**Changes visibility of badge*/
   @Prop() isVisible: boolean = true;
 
-  /**Changes badge from default to small size**/
+  /**Changes badge from default to small size*/
   @Prop() isSmall: boolean = false;
 
   @State() shape: string = '';
