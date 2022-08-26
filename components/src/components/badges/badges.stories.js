@@ -14,7 +14,7 @@ export default {
 const basicTemplate = ({ value }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
   return ` 
-      <sdds-badges value=${valueString} showBadge = false >       
+      <sdds-badges value=${valueString} is-visible = true>       
       </sdds-badges>
     `;
 };
@@ -42,13 +42,13 @@ const badgesTemplate = ({ value }) => {
   return `
     ${style}
       <div class="demo">
-      <sdds-badges class="demo-badges" value='${valueString}' showBadge = false>       
+      <sdds-badges class="demo-badges" value='${valueString}' is-visible = true>       
       </sdds-badges> 
       </div>
     `;
 };
 
-const noValueStyle = `<style>
+const smallBadgeStyle = `<style>
                     .demo {
                       margin:5px;
                       height: 32px;
@@ -62,11 +62,11 @@ const noValueStyle = `<style>
                       top: -2px;
                     }
               </style>`;
-const noValueTemplate = () => {
+const smallBadgeTemplate = () => {
   return `
-    ${noValueStyle}
+    ${smallBadgeStyle}
       <div class="demo">
-      <sdds-badges class="demo-badges">       
+      <sdds-badges class="demo-badges" value = '0' is-small>       
       </sdds-badges> 
       </div>
     `;
@@ -80,4 +80,4 @@ export const Pill = badgesTemplate.bind({});
 Pill.args = {
   value: 100,
 };
-export const noValue = noValueTemplate.bind({});
+export const small = smallBadgeTemplate.bind({});
