@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/PopoverCanvas',
+  title: 'Component/Popover-canvas',
   parameters: {
     layout: 'centered',
   },
@@ -8,22 +8,22 @@ export default {
       control: {
         type: 'radio',
         options: [
-          'bottom-start',
           'bottom',
+          'bottom-start',
           'bottom-end',
-          'top-start',
           'top',
+          'top-start',
           'top-end',
-          'left-start',
           'left',
+          'left-start',
           'left-end',
-          'right-start',
           'right',
+          'right-start',
           'right-end',
         ],
       },
-      defaultValue: 'bottom',
-      description: 'Position of the tooltip',
+      defaultValue: 'right-start',
+      description: 'Position of the PopoverCanvas',
     },
   },
 };
@@ -59,6 +59,4 @@ const ComponentPopoverCanvas = ({ ...Basic }) => {
 };
 
 export const Basic = ComponentPopoverCanvas.bind({});
-Basic.args = {
-  canvasPosition: 'right',
-};
+Basic.args = {};

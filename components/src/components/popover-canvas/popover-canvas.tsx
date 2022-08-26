@@ -1,23 +1,36 @@
-import { Component, Listen, h, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Host,
+  Element,
+  Listen,
+  h,
+  Prop,
+  State,
+} from '@stencil/core';
 import { createPopper } from '@popperjs/core';
 import type { Placement } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-popover-canvas',
-  styleUrl: 'popovercanvas.scss',
+  styleUrl: 'popover-canvas.scss',
   shadow: true,
 })
 export class PopoverCanvas {
-  popoverCanvasElement!: HTMLElement;
+  @Element() popoverCanvasElement!: HTMLElement;
 
+  /** The CSS-selector that will trigger this Popover Canvas */
   @Prop() selector = '';
 
+  /** Decides if the Popover Canvas should be visible from the start */
   @Prop() show: boolean = false;
 
-  @Prop() placement: Placement = 'right-end';
+  /** Decides the placement of the Popover Canvas */
+  @Prop() placement: Placement = 'auto';
 
+  /** Sets the offset skidding */
   @Prop() offsetSkidding: number = 0;
 
+  /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
   @State() target: any;
@@ -81,14 +94,13 @@ export class PopoverCanvas {
 
   render() {
     return (
-      <div
-        ref={(el) => (this.popoverCanvasElement = el as HTMLElement)}
+      <Host
         class={`sdds-popover-canvas ${
           this.show ? 'sdds-popover-canvas-show' : ''
         }`}
       >
         <slot></slot>
-      </div>
+      </Host>
     );
   }
 }
