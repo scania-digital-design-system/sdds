@@ -76,7 +76,7 @@ const MultiselectTemplate = ({
   <div style="width: 500px; background-color: lightblue; padding: 16px;">
 
     <h6 class="sdds-u-pb0 sdds-u-mb0">Selected rows data</h6>
-    <small>Values here are values found in data-selected-rows attribute of sdds-table-body element. They are show here just for presentation purposes.</small>
+    <small>Values here are values found in data-selected-rows attribute of sdds-table-body element. They are shown here just for presentation purposes.</small>
     <br>
     <textarea id="selected-rows-value-textarea" rows="5" cols="50" readonly></textarea> 
   </div>`;
