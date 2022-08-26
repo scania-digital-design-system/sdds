@@ -1,6 +1,6 @@
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/scania-digital-design-system/sdds) ![GitHub last commit](https://img.shields.io/github/last-commit/scania-digital-design-system/sdds)
 
-# Scania Digital Design System
+# Tegel Design System
 
 [https://digitaldesign.scania.com/](https://digitaldesign.scania.com/)
 
@@ -24,7 +24,7 @@ The design system supports the design and development of digital solutions at Sc
 
 ## Getting started
 
-You can use SDDS CSS custom properties to use the design tokens for colour, typography, spacing, and logotype. To have all CSS custom properties available, you need to install both compoonents and scania-theme. And then you need to include `sdds-theme` component in your application. Check instruction below on how to install components and scania-theme.
+You can use Tegel CSS custom properties to use the design tokens for colour, typography, spacing, and logotype. To have all CSS custom properties available, you need to install both compoonents and scania-theme. And then you need to include `sdds-theme` component in your application. Check instruction below on how to install components and scania-theme.
 
 - [How to install components](https://github.com/scania-digital-design-system/sdds/blob/master/components/readme.md)
 - [How to install scania-theme](https://github.com/scania-digital-design-system/sdds/blob/master/theme/light/readme.md)
@@ -45,7 +45,7 @@ You can find everything in [NPM](https://www.npmjs.com/org/scania)
 ## Framework demos
 Clone this repo to run framework demo applications locally. Demos are available Angular, React, Vue and HTML. Each application needs to be installed individually before use. Installing creates a `node_modules` directory with modules needed to run the application as they're listed in the `package.json`-file of each app directory.
 
-Note 1: If you install and start from root level, you will access a local copy of SDDS UI library in Storybook.
+Note 1: If you install and start from root level, you will access a local copy of Tegel UI library in Storybook.
 
 Note 2: `npm start` not applicable for HTML demo 
 
