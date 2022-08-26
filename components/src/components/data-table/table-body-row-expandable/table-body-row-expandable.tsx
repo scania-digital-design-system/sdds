@@ -21,7 +21,13 @@ export class TableBodyRowExpandable {
 
   @State() columnsNumber: number = 0;
 
-  @State() mainExtendActive: boolean = false;
+  @State() verticalDividers: boolean = false;
+
+  @State() compactDesign: boolean = false;
+
+  @State() noMinWidth: boolean = false;
+
+  @State() whiteBackground: boolean = false;
 
   @Element() host: HTMLElement;
 
@@ -46,6 +52,19 @@ export class TableBodyRowExpandable {
       this.columnsNumber = event.detail[1];
   }
 
+  @Listen('commonTableStylesEvent', { target: 'body' })
+  commonTableStyleListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0]) {
+      [
+        ,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ] = event.detail;
+    }
+  }
+
   onChangeHandler(event) {
     this.isExpanded = event.currentTarget.checked === true;
     this.sendValue();
@@ -60,9 +79,16 @@ export class TableBodyRowExpandable {
 
   render() {
     return (
-      <Host class={this.isExpanded ? 'sdds-table__row-expand--active' : ''}>
+      <Host
+        class={{
+          'sdds-table__row-expand--active': this.isExpanded,
+          'sdds-table__compact': this.compactDesign,
+          'sdds-table--divider': this.verticalDividers,
+          'sdds-table--on-white-bg': this.whiteBackground,
+        }}
+      >
         <tr class="sdds-table__row">
-          <td class="sdds-table__cell">
+          <td class="sdds-table__cell sdds-table__cell--expand">
             <label class="sdds-table__expand-control-container">
               <input
                 class="sdds-table__expand-input"
