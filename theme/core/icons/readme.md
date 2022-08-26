@@ -1,4 +1,4 @@
-# Scania Icons package
+# Tegel Icons package
 
 ---
 
@@ -35,13 +35,13 @@ Or you can add it in the HTML inside `<head>`.
 </head>
 ```
 
-Then, you can use it as a class in your element. Do not forget to add 'sdds-icon' class befor the icon name.
+Then, you can use it as a class in your element. Do not forget to add 'sdds-icon' class before the icon name.
 
 ```html
 <i class="sdds-icon scania-arrow"></i>
 ```
 
-Scania icons webfont is also available in the distribution of `@scania/icons` package. If you do not want to connect to Scania Digital Design CDN, or, you want to go fully offline, you can use this solution. To be able to use it, you can refer to the CSS which is available under `node_modules/@scania/icons`
+Scania icons webfont is also available in the distribution of `@scania/icons` package. If you do not want to connect to Tegel Digital Design CDN, or, you want to go fully offline, you can use this solution. To be able to use it, you can refer to the CSS which is available under `node_modules/@scania/icons`
 
 ```html
 <head>

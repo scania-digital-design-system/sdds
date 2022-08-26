@@ -1,4 +1,4 @@
-# Scania Digital Design System - Grid package
+# Tegel Design System - Grid package
 
 ---
 
@@ -19,7 +19,7 @@ This grid package contains both SCSS and CSS files available
 
 ### How to use
 
-See implementation in [digitaldesign.scania.com](https://digitaldesign.scania.com/foundation/unit-grid-system)
+See implementation in [Tegel Design System](https://digitaldesign.scania.com/foundation/unit-grid-system)
 
 ```html
 

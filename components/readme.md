@@ -4,11 +4,11 @@
 ![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
 [![Getting Started](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://digitaldesign.scania.com/getting-started/development)
 
-# Scania Digital Design System components
+# Tegel Design System - Components
 
 **Technical documentation**
 
-Check out [Scania Digital Design System](https://digitaldesign.scania.com/) for implementation and technical documentation.
+Check out [Tegel Design System](https://digitaldesign.scania.com/) for implementation and technical documentation.
 
 ## Quick start
 
@@ -28,7 +28,7 @@ import { defineCustomElements } from '@scania/components';
 defineCustomElements();
 ```
 
-See all available components in the [Scania Digital Design System](https://digitaldesign.scania.com/components).
+See all available components in the [Tegel Design System](https://digitaldesign.scania.com/components).
 
 ## Styling
 

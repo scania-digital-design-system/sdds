@@ -1,4 +1,4 @@
-# Scania Digital Design System - Typography package
+# Tegel Design System - Typography package
 
 ---
 
@@ -15,7 +15,7 @@ This package contains both SCSS and CSS files available
 
 ### How to use
 
-See all available tokens in [digitaldesign.scania.com](https://digitaldesign.scania.com/foundation/typography)
+See all available tokens in [Tegel Design System](https://digitaldesign.scania.com/foundation/typography)
 
 ```html
 // style.scss
@@ -23,7 +23,7 @@ See all available tokens in [digitaldesign.scania.com](https://digitaldesign.sca
 @import '~node_modules/@scania/typography/dist/scss/mixins';
 @import '~node_modules/@scania/typography/dist/scss/tokens';
 
-// use SDDS mixin type-style(token-name) to add specific token properties
+// use Tegel mixin type-style(token-name) to add specific token properties
 .my-headline {
     @include type-style('headline-01');
 }
