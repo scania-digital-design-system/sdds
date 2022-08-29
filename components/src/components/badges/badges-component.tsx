@@ -29,13 +29,13 @@ export class SddsBadges {
   @Watch('isVisible')
   @Watch('isSmall')
   watchProps() {
-    this.test();
+    this.checkProps();
   }
   componentWillLoad() {
-    this.test();
+    this.checkProps();
   }
 
-  test() {
+  checkProps() {
     // parse the value to number
     const valueAsNumber = parseInt(this.value);
     if (!isNaN(valueAsNumber) && !this.isSmall) {
