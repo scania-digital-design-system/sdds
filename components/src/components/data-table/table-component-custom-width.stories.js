@@ -22,13 +22,6 @@ export default {
       },
       defaultValue: false,
     },
-    noMinWidthArg: {
-      name: 'No minimum width',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: true,
-    },
     column_1_width: {
       name: 'Column 1 width',
       type: 'string',
@@ -56,7 +49,6 @@ const CustomWidthTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
-  noMinWidthArg,
   column_1_width,
   column_2_width,
   column_3_width,
@@ -69,8 +61,7 @@ const CustomWidthTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
-      no-min-width="${noMinWidthArg}"
-      style="width: 100%;"
+      no-min-width   
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' custom-width="${column_1_width}"></sdds-header-cell>
