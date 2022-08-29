@@ -62,23 +62,30 @@ export default {
         type: 'boolean',
       },
     },
-    showDividers: {
-      name: 'Show dividers',
-      description: 'Show or hide dividers',
+    showTicks: {
+      name: 'Show ticks',
+      description: 'Show or hide ticks',
       control: {
         type: 'boolean',
       },
     },
-    numDividers: {
-      name: 'Number of dividers',
-      description: 'Set the number of dividers to display',
+    numTicks: {
+      name: 'Number of ticks',
+      description: 'Set the number of ticks to display',
       control: {
         type: 'text',
       },
     },
-    showDividerNumbers: {
-      name: 'Show divider numbers',
-      description: 'Show or hide divider numbers',
+    snapToTicks: {
+      name: 'Snap to ticks',
+      description: 'Snap the scrubber to the closest tick when dragging',
+      control: {
+        type: 'boolean',
+      },
+    },
+    showTickNumbers: {
+      name: 'Show tick numbers',
+      description: 'Show or hide tick numbers',
       control: {
         type: 'boolean',
       },
@@ -148,8 +155,9 @@ const ComponentSlider = ({ ...Basic }) => {
         max="${Basic.max}" 
         step="${Basic.step}" 
         value="${Basic.initialValue}" 
-        ${Basic.showDividers && 'dividers="' + Basic.numDividers + '"'} 
-        ${Basic.showDividerNumbers && 'show-divider-numbers'} 
+        ${Basic.showTicks && 'ticks="' + Basic.numTicks + '"'} 
+        ${Basic.showTickNumbers && 'show-tick-numbers'} 
+        ${Basic.snapToTicks && 'snap'} 
         ${Basic.showLabel && 'label="' + Basic.labelText + '"'} 
         ${Basic.showTooltip && 'tooltip'} 
         ${Basic.showControls && 'controls'} 
@@ -169,9 +177,9 @@ Basic.args = {
   showLabel: false,
   labelText: 'Label',
   showTooltip: true,
-  showDividers: false,
-  numDividers: '3',
-  showDividerNumbers: false,
+  showTicks: false,
+  numTicks: '3',
+  showTickNumbers: false,
   showControls: false,
   showInput: false,
   min: '0',
@@ -180,4 +188,5 @@ Basic.args = {
   colorTheme: 'On-grey',
   disabled: false,
   small: false,
+  snapToTicks: false,
 };

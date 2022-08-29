@@ -19,11 +19,12 @@ export class Slider {
   scrubberGrabPos: object = { x: 0, y: 0 };
   scrubberGrabbed: boolean = false;
   scrubberLeft: number = 0;
-  dividerValues: Array<number> = [];
+  tickValues: Array<number> = [];
   disabledState: boolean = false;
   useControls: boolean = false;
   useInput: boolean = false;
   useSmall: boolean = false;
+  useSnapping: boolean = false;
 
   /** Text for label */
   @Prop() label = '';
@@ -37,11 +38,11 @@ export class Slider {
   /** Maximum value */
   @Prop() max = '100';
 
-  /** Number of dividers (tick for min- and max-value will be added automatically) */
-  @Prop() dividers = '0';
+  /** Number of tick markers (tick for min- and max-value will be added automatically) */
+  @Prop() ticks = '0';
 
-  /** Decide to show dividers(ticks) or not  */
-  @Prop() showDividerNumbers = false;
+  /** Decide to show numbers above the tick markers or not  */
+  @Prop() showTickNumbers = false;
 
   /** Decide to show the tooltip or not */
   @Prop() tooltip = null;
@@ -63,6 +64,9 @@ export class Slider {
 
   /** Decide to use the small variant or not */
   @Prop() small = null;
+
+  /** Snap to the ticks grid */
+  @Prop() snap = null;
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -99,10 +103,16 @@ export class Slider {
       return;
     }
 
+    const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
-    const localLeft = event.clientX - trackRect.left;
-    this.scrubberLeft = this.constrainScrubber(localLeft);
+    let localLeft = event.clientX - trackRect.left;
 
+    if (this.useSnapping && numTicks > 0) {
+      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
+      localLeft = Math.round(localLeft / v) * v;
+    }
+
+    this.scrubberLeft = this.constrainScrubber(localLeft);
     this.scrubberElement.style.left = `${this.scrubberLeft}px`;
 
     this.updateValue();
@@ -258,18 +268,18 @@ export class Slider {
   }
 
   componentWillLoad() {
-    const numDividers = parseInt(this.dividers);
+    const numTicks = parseInt(this.ticks);
 
-    if (numDividers > 0) {
-      this.dividerValues = [this.getMin()];
+    if (numTicks > 0) {
+      this.tickValues = [this.getMin()];
 
-      const step = (this.getMax() - this.getMin()) / (numDividers + 1);
+      const step = (this.getMax() - this.getMin()) / (numTicks + 1);
 
-      for (let i = 1; i < numDividers + 1; i++) {
-        this.dividerValues.push(this.getMin() + Math.round(step * i));
+      for (let i = 1; i < numTicks + 1; i++) {
+        this.tickValues.push(this.getMin() + Math.round(step * i));
       }
 
-      this.dividerValues.push(this.getMax());
+      this.tickValues.push(this.getMax());
     }
 
     if (this.disabled !== null) {
@@ -284,6 +294,10 @@ export class Slider {
 
     if (this.small !== null) {
       this.useSmall = true;
+    }
+
+    if (this.snap !== null) {
+      this.useSnapping = true;
     }
   }
 
@@ -345,20 +359,20 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            <label class={this.dividerValues.length > 0 && 'offset'}>
+            <label class={this.tickValues.length > 0 && 'offset'}>
               {this.label}
             </label>
 
-            {this.dividerValues.length > 0 && (
+            {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
                 <div
                   ref={(el) => (this.dividersElement = el as HTMLElement)}
                   class="sdds-slider__value-dividers"
                 >
-                  {this.dividerValues.map((value) => {
+                  {this.tickValues.map((value) => {
                     return (
                       <div class="sdds-slider__value-divider">
-                        {this.showDividerNumbers && <span>{value}</span>}
+                        {this.showTickNumbers && <span>{value}</span>}
                       </div>
                     );
                   })}
