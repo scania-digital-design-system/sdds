@@ -25,6 +25,7 @@ export class Slider {
   useInput: boolean = false;
   useSmall: boolean = false;
   useSnapping: boolean = false;
+  supposedValueSlot: number = -1;
 
   /** Text for label */
   @Prop() label = '';
@@ -106,10 +107,13 @@ export class Slider {
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
     let localLeft = event.clientX - trackRect.left;
+    this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
       const v = Math.round(this.getTrackWidth() / (numTicks + 1));
       localLeft = Math.round(localLeft / v) * v;
+
+      this.supposedValueSlot = Math.round(localLeft / v);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -129,11 +133,18 @@ export class Slider {
   updateValue() {
     const trackWidth = this.getTrackWidth();
 
-    const percentage = this.scrubberLeft / trackWidth;
-
-    this.value =
-      '' +
-      Math.trunc(this.getMin() + percentage * (this.getMax() - this.getMin()));
+    /* if snapping (supposedValueSlot > 0) is enabled, make sure we display the supposed value (instead of maybe getting a -1/+1 depending on rounding)  */
+    if (this.supposedValueSlot > 0) {
+      const supposedValue = this.tickValues[this.supposedValueSlot];
+      this.value = '' + supposedValue;
+    } else {
+      const percentage = this.scrubberLeft / trackWidth;
+      this.value =
+        '' +
+        Math.trunc(
+          this.getMin() + percentage * (this.getMax() - this.getMin())
+        );
+    }
   }
 
   getMin() {
@@ -167,8 +178,10 @@ export class Slider {
     const initValue = value;
     const trackWidth = this.getTrackWidth();
 
-    const calculatedLeft =
-      (parseFloat(initValue) / parseFloat(this.max)) * trackWidth;
+    const normalizedValue = initValue - this.getMin();
+    const normalizedMax = this.getMax() - this.getMin();
+
+    const calculatedLeft = (normalizedValue / normalizedMax) * trackWidth;
 
     this.scrubberLeft = calculatedLeft;
 
@@ -238,8 +251,8 @@ export class Slider {
 
   controlsStep(delta) {
     const trackWidth = this.getTrackWidth();
-
     const percentage = this.scrubberLeft / trackWidth;
+    const numTicks = parseInt(this.ticks);
 
     let currentValue =
       this.getMin() + percentage * (this.getMax() - this.getMin());
@@ -253,6 +266,18 @@ export class Slider {
     }
 
     this.value = '' + currentValue;
+
+    /* if snapping is enabled, instead just increment or decrement the current "fixed" value from our ticknumber array */
+    if (this.useSnapping && numTicks > 0) {
+      const stepDir = delta > 0 ? 1 : -1;
+      this.supposedValueSlot += stepDir;
+
+      if (this.supposedValueSlot < 0) {
+        this.supposedValueSlot = 0;
+      } else if (this.supposedValueSlot > numTicks + 1) {
+        this.supposedValueSlot = numTicks + 1;
+      }
+    }
 
     this.calculateScrubberLeftFromValue(currentValue);
     this.updateTrack();
