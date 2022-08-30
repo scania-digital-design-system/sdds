@@ -324,6 +324,15 @@ export class Slider {
     if (this.snap !== null) {
       this.useSnapping = true;
     }
+
+    const min = this.getMin();
+    const max = this.getMax();
+
+    if (min > max) {
+      console.warn(
+        'min-prop must have a higher value than max-prop for the component to work correctly.'
+      );
+    }
   }
 
   render() {
