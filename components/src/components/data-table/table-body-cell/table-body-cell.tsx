@@ -95,6 +95,7 @@ export class TableBodyCell {
         style={{ textAlign: this.textAlignState }}
       >
         {this.cellValue}
+        <slot />
       </Host>
     );
   }
