@@ -1,26 +1,36 @@
 export default {
   title: 'Component/Badges',
   argTypes: {
+    visible: {
+      name: 'Visible',
+      description: 'Toggle visibility of badge',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: true,
+    },
     value: {
       name: 'Value',
       description: 'Set a value to show on the badge',
       control: {
         type: 'number',
       },
+      if: { arg: 'value' || 'visible', truthy: true },
     },
   },
 };
 
-const basicTemplate = ({ value }) => {
+const basicTemplate = ({ value, visible }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
   return ` 
-      <sdds-badges value=${valueString} is-visible = true>       
+      <sdds-badges value=${valueString} is-visible = ${visible}>       
       </sdds-badges>
     `;
 };
 export const Basic = basicTemplate.bind({});
 Basic.args = {
-  value: 0,
+  visible: true,
+  value: 1,
 };
 
 const style = `<style>
@@ -37,12 +47,12 @@ const style = `<style>
                       top: -5px;
                     }
               </style>`;
-const badgesTemplate = ({ value }) => {
+const badgesTemplate = ({ value, visible }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
   return `
     ${style}
       <div class="demo">
-      <sdds-badges class="demo-badges" value='${valueString}' is-visible = true>       
+      <sdds-badges class="demo-badges" value='${valueString}' is-visible = ${visible}>       
       </sdds-badges> 
       </div>
     `;
@@ -62,11 +72,11 @@ const smallBadgeStyle = `<style>
                       top: -2px;
                     }
               </style>`;
-const smallBadgeTemplate = () => {
+const smallBadgeTemplate = ({ visible }) => {
   return `
     ${smallBadgeStyle}
       <div class="demo">
-      <sdds-badges class="demo-badges" value = '0' is-small>       
+      <sdds-badges class="demo-badges" is-small is-visible = ${visible}>       
       </sdds-badges> 
       </div>
     `;
@@ -74,10 +84,15 @@ const smallBadgeTemplate = () => {
 
 export const Rounded = badgesTemplate.bind({});
 Rounded.args = {
+  visible: true,
   value: 2,
 };
 export const Pill = badgesTemplate.bind({});
 Pill.args = {
+  visible: true,
   value: 100,
 };
-export const small = smallBadgeTemplate.bind({});
+export const Small = smallBadgeTemplate.bind({});
+Small.args = {
+  visible: true,
+};

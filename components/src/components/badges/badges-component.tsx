@@ -36,7 +36,6 @@ export class SddsBadges {
   }
 
   checkProps() {
-    // parse the value to number
     const valueAsNumber = parseInt(this.value);
     if (!isNaN(valueAsNumber) && !this.isSmall) {
       this.shape = valueAsNumber.toString().length >= 2 ? 'pill' : '';
