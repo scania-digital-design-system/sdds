@@ -1,15 +1,27 @@
 export default {
   title: 'component/Modal',
-  args: {
-    preventBackdrop: false,
-    size: 'md',
-  },
   argTypes: {
+    preventBackdrop: {
+      name: 'Prevent backdrop',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     size: {
+      name: 'Size',
       control: {
         type: 'radio',
         options: ['xs', 'sm', 'md', 'lg'],
       },
+      defaultValue: 'md',
+    },
+    headline: {
+      name: 'Modal headline',
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Headline',
     },
   },
 };
@@ -17,13 +29,14 @@ export default {
 const ModalTemplate = ({ ...Modal }) => `
   <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-primary modal1">Open modal 1</button>
   <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-secondary modal1">Open modal 1</button>
-  <sdds-modal size="${Modal.size}" selector=".modal1" ${
+  
+  <sdds-modal id="modal-test" size="${Modal.size}" selector=".modal1" ${
   Modal.preventBackdrop === true ? 'prevent' : ''
 } >
-    <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
-      <p slot="sdds-modal-body">
+    <h5 slot="sdds-modal-headline">${Modal.headline}</h5>
+      <div slot="sdds-modal-body">
         Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
-      </p>
+      </div>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
@@ -31,13 +44,13 @@ const ModalTemplate = ({ ...Modal }) => `
   <br/>
   <br/>  
 
-  <sdds-modal size="${Modal.size}" selector="#modal2" ${
+  <sdds-modal id="modal-test-2" size="${Modal.size}" selector="#modal2" ${
   Modal.preventBackdrop === true ? 'prevent' : ''
 } >
-    <h5 slot="sdds-modal-headline">${Modal.Headline}</h5>
-    <div slot="sdds-modal-body">
-      Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
-    </div>
+      <h5 slot="sdds-modal-headline">${Modal.headline}</h5>
+      <div slot="sdds-modal-body">
+        Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
+      </div>
     <button slot="sdds-modal-actions" onclick="console.log('save')" class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
     <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
@@ -45,19 +58,16 @@ const ModalTemplate = ({ ...Modal }) => `
   <button onclick="console.log('Open modal 2')" id="modal2" class="sdds-btn sdds-btn-primary">Open modal 2</button>
   `;
 
-export const Modal = ModalTemplate.bind();
+export const WebComponent = ModalTemplate.bind();
 
-Modal.args = {
-  size: 'md',
-  Headline: 'Headline 1',
-};
+WebComponent.args = {};
 
 const ModalCssTemplate = ({ ...ModalCSS }) => `
   <div class="sdds-modal-backdrop show">
     <div class="sdds-modal sdds-modal-${ModalCSS.size}">
       <div class="sdds-modal-header">
         <div class="sdds-modal-headline">
-          <h5>${ModalCSS.Headline}</h5>
+          <h5>${ModalCSS.headline}</h5>
         </div>
         <span class="sdds-modal-btn"></span>
       </div>
@@ -74,17 +84,6 @@ const ModalCssTemplate = ({ ...ModalCSS }) => `
   </div>
   `;
 
-export const ModalCSS = ModalCssTemplate.bind();
+export const htmlAndCss = ModalCssTemplate.bind();
 
-ModalCSS.args = {
-  size: 'md',
-  Headline: 'Headline 1',
-};
-
-ModalCSS.argTypes = {
-  preventBackdrop: {
-    table: {
-      disable: true,
-    },
-  },
-};
+htmlAndCss.args = {};

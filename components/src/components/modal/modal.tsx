@@ -7,6 +7,7 @@ import {
   State,
   Element,
   Watch,
+  Method,
 } from '@stencil/core';
 
 @Component({
@@ -15,19 +16,24 @@ import {
   shadow: true,
 })
 export class Modal {
-  // Target selector to show modal
-  @Prop() selector;
+  /** Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1" */
+  @Prop() selector: string = '';
 
-  // Disable click event on backdrop
-  @Prop() prevent = false;
+  /** Disables closing modal on clicking on overlay area. */
+  @Prop() prevent: boolean = false;
 
-  // Size of the modal
-  @Prop() size = 'md';
+  /** Size of modal. Accepted strings are: xs, sm, md, lg.  */
+  @Prop() size: string = 'md';
 
   @Element() el: HTMLElement;
 
   // State when modal should be shown
   @State() show: boolean = false;
+
+  @Method()
+  async openModal() {
+    this.show = true;
+  }
 
   componentDidLoad() {
     const targets = document.querySelectorAll(this.selector);

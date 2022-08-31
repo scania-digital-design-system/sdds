@@ -5,11 +5,24 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `prevent`  | `prevent`  |             | `boolean` | `false`     |
-| `selector` | `selector` |             | `any`     | `undefined` |
-| `size`     | `size`     |             | `string`  | `'md'`      |
+| Property   | Attribute  | Description                                                                                                 | Type      | Default |
+| ---------- | ---------- | ----------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `prevent`  | `prevent`  | Disables closing modal on clicking on overlay area.                                                         | `boolean` | `false` |
+| `selector` | `selector` | Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1" | `string`  | `''`    |
+| `size`     | `size`     | Size of modal. Accepted strings are: xs, sm, md, lg.                                                        | `string`  | `'md'`  |
+
+
+## Methods
+
+### `openModal() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
