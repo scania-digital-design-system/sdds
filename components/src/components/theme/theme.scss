@@ -25,8 +25,7 @@
 @import '../toast/toast.scss';
 @import '../toggle/toggle.scss';
 @import '../stepper/stepper.scss';
-
-// Utility classes
+@import '../slider/slider.scss';
 @import '../../helpers/_utility-classes.scss';
 
 html.#{$prefix},

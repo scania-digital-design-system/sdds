@@ -23,8 +23,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  sdds-slider --> sdds-continousvalue-slider
-  style sdds-slider fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-slider-alpha --> sdds-continousvalue-slider
+  style sdds-slider-alpha fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
