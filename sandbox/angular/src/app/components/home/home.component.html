@@ -175,6 +175,9 @@
 <div class="component-wrapper">
   <h5 class="sdds-headline-05">Modal</h5>
   <button id="modal" class="sdds-btn sdds-btn-primary">Open modal</button>
+  <br>
+  <br>
+  <sdds-button type="ghost" text="Open modal with openModal method" onclick="{document.querySelector('sdds-modal').openModal()}"></sdds-button>
   <sdds-modal size="md" selector="#modal">
     <h5 slot="sdds-modal-headline">Header 1</h5>
     <p slot="sdds-modal-body">
