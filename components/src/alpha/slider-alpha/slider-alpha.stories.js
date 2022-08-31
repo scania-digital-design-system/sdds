@@ -1,5 +1,5 @@
 export default {
-  title: 'Pre-Alpha/Slider',
+  title: 'Pre-Alpha/Slider(Alpha)',
   type: {
     control: {
       type: 'radio',
@@ -41,8 +41,8 @@ export default {
 const Template = ({ type, min, max, value, valueTwo }) => {
   type = type === 'default' ? 'basic' : type;
   return `
-  <sdds-slider type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
-  </sdds-slider>
+  <sdds-slider-alpha type="${type}" min="${min}" max="${max}" value="${value}" value-two="${valueTwo}">
+  </sdds-slider-alpha>
   `;
 };
 

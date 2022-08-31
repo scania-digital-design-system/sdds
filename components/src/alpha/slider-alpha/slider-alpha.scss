@@ -1,13 +1,13 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 :host {
   display: block;
 }
 
-$shadow-active: rgba(4, 30, 66, 0.16);
-$shadow-hover: rgba(4, 30, 66, 0.08);
+$shadow-active: rgb(4 30 66 / 16%);
+$shadow-hover: rgb(4 30 66 / 8%);
 
 @mixin track($fill: 0) {
   box-sizing: border-box;
@@ -56,18 +56,19 @@ $shadow-hover: rgba(4, 30, 66, 0.08);
 }
 
 @mixin thumbhover() {
-  @include thumbmargin();
+  @include thumbmargin;
 
   box-shadow: 0 0 1px 16px $shadow-hover;
   cursor: pointer;
 }
 
 @mixin thumbactive() {
-  @include thumbmargin();
+  @include thumbmargin;
 
   box-shadow: 0 0 1px 16px $shadow-active;
   cursor: grabbing;
 }
+
 // Added for continuous
 @mixin spanValues() {
   --range: calc(var(--max) - var(--min));
@@ -92,6 +93,7 @@ $shadow-hover: rgba(4, 30, 66, 0.08);
     margin-top: 100px;
   }
 }
+
 //// Added for dual point slider
 div .range-slider {
   width: 100%;
@@ -101,15 +103,15 @@ div .range-slider {
   margin-left: 10px;
   position: relative;
 
-  [type='range'] {
+  [type="range"] {
     position: absolute;
   }
 }
 
-[type='range'] {
+[type="range"] {
   &,
   &::-webkit-slider-thumb {
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   --range: calc(var(--max) - var(--min));
@@ -233,6 +235,7 @@ div .range-slider {
     display: none;
   }
 }
+
 //////////////////// Dual Point ////////////////////////
 .input-text {
   width: 25px;
@@ -258,6 +261,7 @@ div .range-slider {
     border-bottom: 1px solid var(--sdds-slider-error-red-color);
   }
 }
+
 //////////////////// Continuous Value ////////////////////////
 button {
   border: 0;
@@ -288,7 +292,7 @@ button {
   span {
     padding: 8px;
 
-    @include type-style('detail-01');
+    @include type-style("detail-01");
 
     background-color: var(--sdds-slider-span-color);
     color: var(--sdds-white);
@@ -301,7 +305,7 @@ button {
   }
 
   span::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 8px;
     height: 8px;
@@ -313,4 +317,5 @@ button {
     left: calc(50% - 4px);
   }
 }
+
 //////////////////////

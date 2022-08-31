@@ -2,7 +2,7 @@ import { Component, h, Prop, State, Watch, Listen } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dual-point-slider',
-  styleUrl: 'slider.scss',
+  styleUrl: 'slider-alpha.scss',
   shadow: true,
 })
 export class DualPointSlider {

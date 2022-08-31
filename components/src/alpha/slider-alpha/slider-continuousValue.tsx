@@ -2,7 +2,7 @@ import { Component, h, Prop, State, Listen, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-continousvalue-slider',
-  styleUrl: 'slider.scss',
+  styleUrl: 'slider-alpha.scss',
   shadow: true,
 })
 export class ContinousValueSlider {
