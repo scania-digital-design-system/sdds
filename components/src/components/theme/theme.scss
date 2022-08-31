@@ -20,12 +20,15 @@
 @import '../tabs/navigation-tabs/navigation-tabs.scss';
 @import '../radio-button/radio-button.scss';
 @import '../side-menu/side-menu.scss';
+@import '../stepper/stepper.scss';
+@import '../slider/slider.scss';
 @import '../table/table.scss';
 @import '../textfield/textfield.scss';
 @import '../toast/toast.scss';
 @import '../toggle/toggle.scss';
-@import '../stepper/stepper.scss';
-@import '../slider/slider.scss';
+@import '../popover-canvas/popover-canvas.scss';
+
+// Utility classes
 @import '../../helpers/_utility-classes.scss';
 
 html.#{$prefix},
