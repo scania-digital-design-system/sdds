@@ -104,4 +104,4 @@ If you are still using older component while migrate and still need the old docu
 
 ## Contributing
 
-This repository is a place for all Front End Developers to join the UI Development at Scania. It is us together that develop and maintain this repository as well as the documentation. Check out our [Contributing Guide](/.github/CONTRIBUTING.md) and help us improving the design system technical solution!
+This repository is a place for all Front End Developers to join the UI Development at Scania. It is us together that develop and maintain this repository as well as the documentation. Check out our [Contributing Guide](CONTRIBUTING.md) and help us improving the design system technical solution!
