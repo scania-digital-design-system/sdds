@@ -41,13 +41,13 @@ export class DropdownFilter {
   @Prop() disabled: boolean;
 
   /** `large` (default), `small`, `medium` */
-  @Prop() size: string = 'large';
+  @Prop() size: 'small' | 'medium' | 'large' = 'large';
 
   /** Set to true to make the width following the label text length */
   @Prop() inline: boolean = false;
 
   /** Position of label: `no-label` (default), `inside`, `outside` */
-  @Prop() labelPosition: string = 'no-label';
+  @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
 
   /** Support `error` state */
   @Prop() state: string = 'default';

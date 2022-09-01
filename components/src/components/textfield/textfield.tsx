@@ -36,7 +36,7 @@ export class Textfield {
   @Prop() readonly: boolean = false;
 
   /** Size of the input */
-  @Prop() size = '';
+  @Prop() size: 'sm' | 'md' | '' = '';
 
   /** With setting */
   @Prop() nominwidth: boolean = false;
