@@ -21,10 +21,6 @@ export class SddsBadges {
 
   @State() text: string = '';
 
-  @State() smallVariation: boolean = false;
-
-  @State() defaultVariation: boolean = true;
-
   @Watch('value')
   @Watch('isVisible')
   @Watch('isSmall')
@@ -38,49 +34,35 @@ export class SddsBadges {
   checkProps() {
     const valueAsNumber = parseInt(this.value);
     if (!isNaN(valueAsNumber) && !this.isSmall) {
-      this.shape = valueAsNumber.toString().length >= 2 ? 'pill' : '';
-
-      if (!isNaN(valueAsNumber) && !this.isSmall) {
-        this.shape = this.value.toString().length >= 2 ? 'pill' : '';
-        this.size = '';
-        this.text =
-          valueAsNumber.toString().length >= 3
-            ? '99+'
-            : valueAsNumber.toString();
-      } else {
-        this.value !== ''
-          ? console.warn(
-              'The provided value is either empty or string, please provide value as number.'
-            )
-          : '';
-      }
-    }
-    if (this.isVisible) {
-      if (!this.isSmall) {
-        this.defaultVariation = true;
-        this.smallVariation = false;
-      }
-      if (this.isSmall) {
-        this.defaultVariation = false;
-        this.smallVariation = true;
-      }
+      this.shape = this.value.toString().length >= 2 ? 'pill' : '';
+      this.size = '';
+      this.text =
+        valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
     } else {
-      this.defaultVariation = false;
-      this.smallVariation = false;
+      this.value !== ''
+        ? console.warn(
+            'The provided value is either empty or string, please provide value as number.'
+          )
+        : '';
+    }
+
+    if (this.isVisible) {
+      this.isSmall ? (this.size = 'sm') : (this.size = 'md');
+    } else {
+      this.size = '';
     }
   }
 
   render() {
     return (
       <host>
-        {this.defaultVariation && (
+        {this.size === 'md' ? (
           <div
             class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
           >
             <div class="sdds-badges-text">{this.text}</div>
           </div>
-        )}
-        {this.smallVariation && (
+        ) : (
           <div class={`sdds-badges sdds-badges-sm`}></div>
         )}
       </host>
