@@ -17,7 +17,7 @@ export class SddsBadges {
 
   @State() shape: string = '';
 
-  @Prop() size: 'sm' | 'md' | '' = 'sm';
+  @State() size: string = 'sm';
 
   @State() text: string = '';
 
