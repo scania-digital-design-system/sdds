@@ -29,20 +29,20 @@ export class Dropdown {
   /** Add the value of the option as string to set it as new selected value */
   @Prop() selectedOption: string;
 
-  /** Add the value of the option to set it as default */
+  /** Set to true for disabled states */
   @Prop() disabled: boolean;
 
-  /** `default`, `multiselect`, `filter`, `nested` */
-  @Prop() type: 'default' | 'multiselect' | 'filter' | 'nested' = 'default';
+  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values*/
+  @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
 
-  /** `large` (default), `small`, `medium` */
-  @Prop() size: 'small' | 'medium' | 'large' = 'large';
+  /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
+  @Prop() size: 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large' = 'lg';
 
   /** Set to true to make the width following the label text length */
   @Prop() inline: boolean = false;
 
-  /** Position of label: `no-label` (default), `inside`, `outside` */
-  @Prop() labelPosition: string = 'no-label';
+  /** Controls position of label */
+  @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
 
   /** Label text for label inside & outside */
   @Prop() label: string;
@@ -53,7 +53,9 @@ export class Dropdown {
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';
 
-  @State() items: Array<any> = [];
+  @State() optionValues: Array<any> = [];
+
+  @State() optionLabels: Array<any> = [];
 
   @State() open: boolean = false;
 
@@ -62,6 +64,10 @@ export class Dropdown {
   @State() selectedLabel: string = '';
 
   @State() selectedValue: string = '';
+
+  @State() selectedValuesArray: Array<any> = [];
+
+  @State() selectedLabelsArray: Array<any> = [];
 
   @State() dropdownUniqueClass: string = '';
 
@@ -80,15 +86,34 @@ export class Dropdown {
   componentWillLoad() {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
-    this.setOptionFromOutside(this.defaultOption);
     this.listItemArray = Array.from(this.host.children);
-  }
+    this.listItemArray.map((listItem) => {
+      this.optionValues.push(listItem.value);
+      this.optionLabels.push(listItem.innerText);
+    });
+    this.setOptionFromOutside(this.defaultOption);
 
+    if (this.size === 'small') {
+      this.size = 'sm';
+      console.warn('size="small" is deprecated, use size="sm" instead');
+    }
+    if (this.size === 'medium') {
+      this.size = 'md';
+      console.warn('size="medium" is deprecated, use size="md" instead');
+    }
+    if (this.size === 'large') {
+      this.size = 'lg';
+      console.warn('size="large" is deprecated, use size="lg" instead');
+    }
+  }
   setOptionFromOutside(optionValue) {
     if (optionValue) {
+      this.deselectAll();
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
-        if (el['value'] === optionValue) {
+        if (optionValue.includes(el['value']) || el['value'] === optionValue) {
+          this.selectedLabelsArray.push(el.textContent);
+          this.selectedValuesArray.push(el['value']);
           this.selectedLabel = el.textContent;
           this.selectedValue = el['value'];
           el.setAttribute('selectedLabel', 'true');
@@ -100,10 +125,13 @@ export class Dropdown {
       }
     }
   }
-
   @Watch('selectedOption')
   changeSelectedOption() {
+    if (this.selectedValuesArray.includes(this.selectedOption)) {
+      this.resetOption();
+    }
     this.setOptionFromOutside(this.selectedOption);
+    this.host.setAttribute('selected-option', '');
   }
 
   @Listen('click', { target: 'document' })
@@ -189,14 +217,27 @@ export class Dropdown {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
-    this.selectedLabel = event.detail.label;
-    this.selectedValue = event.detail.value;
-    this.tabbingLabelReset();
-    if (this.type !== 'filter') {
-      this.open ? !this.open : this.open;
-      this.node.focus();
+    this.type === 'multiselect' ? (this.open = true) : (this.open = false);
+    if (this.type !== 'multiselect') {
+      this.selectedLabel = event.detail.label;
+      this.selectedValue = event.detail.value;
+      this.tabbingLabelReset();
     } else {
-      this.open = false;
+      if (this.selectedValuesArray.includes(event.detail.value)) {
+        var index = this.selectedValuesArray.indexOf(event.detail.value);
+        this.selectedValuesArray.splice(index, 1);
+        this.selectedLabelsArray.splice(index, 1);
+      } else {
+        this.selectedValuesArray.push(event.detail.value);
+        this.selectedLabelsArray.push(event.detail.label);
+      }
+      //sorting array to keep selected in same order as user input
+      this.selectedValuesArray = this.optionValues.filter((word) =>
+        this.selectedValuesArray.includes(word)
+      );
+      this.selectedLabelsArray = this.optionLabels.filter((word) =>
+        this.selectedLabelsArray.includes(word)
+      );
     }
   }
 
@@ -213,16 +254,21 @@ export class Dropdown {
     this.inputSearch.emit(searchTerm);
     this.open = true;
   }
-
+  deselectAll() {
+    this.selectedLabel = '';
+    this.selectedValue = '';
+    this.selectedLabelsArray = [];
+    this.selectedValuesArray = [];
+    this.listItemArray.forEach((optionItem) => {
+      optionItem.selected = false;
+    });
+  }
   @Method() async resetOption() {
+    this.deselectAll();
+    this.open = false;
+
     if (this.defaultOption) {
       this.setOptionFromOutside(this.defaultOption);
-    } else {
-      this.selectedLabel = '';
-      this.selectedValue = '';
-      this.listItemArray.forEach((optionItem) => {
-        optionItem.selected = false;
-      });
     }
   }
   render() {
@@ -230,6 +276,7 @@ export class Dropdown {
       <Host
         class={{
           'sdds-dropdown--open': this.open && !this.disabled,
+          'sdds-dropdown-multiselect': this.type == 'multiselect',
           'sdds-dropdown-inline': this.inline,
           'sdds-dropdown--selected':
             this.selectedLabel.length > 0 || this.selectedLabel === '',
@@ -240,6 +287,8 @@ export class Dropdown {
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
+        multi-selected-values={JSON.stringify(this.selectedValuesArray)}
+        multi-selected-labels={JSON.stringify(this.selectedLabelsArray)}
       >
         <span class={`sdds-dropdown sdds-dropdown-${this.size}`}>
           {this.labelPosition === 'outside' && this.label.length > 0 ? (
@@ -254,14 +303,16 @@ export class Dropdown {
             class={`sdds-dropdown-toggle ${
               this.selectedValue === 'filter' ? 'is-filter' : ''
             } ${
-              this.selectedValue !== '' ? 'sdds-dropdown-toggle--selected' : ''
+              this.selectedValue !== '' || this.selectedLabelsArray.length > 0
+                ? 'sdds-dropdown-toggle--selected'
+                : ''
             }`}
             type="button"
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
           >
             <span class="sdds-dropdown-label">
-              {this.type === 'filter' ? (
+              {this.type === 'filter' && (
                 <input
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
                   disabled={this.disabled}
@@ -276,7 +327,8 @@ export class Dropdown {
                   onInput={(event) => this.handleSearch(event)}
                   autoComplete="off"
                 />
-              ) : (
+              )}
+              {this.type !== 'filter' && (
                 <span
                   class={{
                     'sdds-dropdown-label-container': true,
@@ -284,7 +336,7 @@ export class Dropdown {
                       this.labelPosition === 'inside',
                   }}
                 >
-                  {this.size !== 'small' &&
+                  {this.size !== 'sm' &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
                       <span class="sdds-dropdown-label-inside">
@@ -299,14 +351,30 @@ export class Dropdown {
                       'sdds-dropdown-placeholder'
                     }`}
                   >
-                    {this.selectedLabel.length > 0 && this.selectedLabel}
+                    {this.selectedLabel.length > 0 &&
+                      this.type !== 'multiselect' &&
+                      this.selectedLabel}
+
+                    {this.type === 'multiselect' && (
+                      <span class="sdds-dropdown-multiselect-result">
+                        {this.labelPosition !== 'inside' &&
+                          this.selectedLabelsArray.toString().length < 1 &&
+                          this.placeholder}
+                        {this.selectedLabelsArray.toString().length > 0 &&
+                          this.selectedLabelsArray
+                            .toString()
+                            .split(',')
+                            .join(', ')}
+                      </span>
+                    )}
 
                     {!this.selectedLabel &&
+                      this.type !== 'multiselect' &&
                       this.labelPosition !== 'inside' &&
                       this.placeholder}
 
                     {!this.selectedLabel &&
-                      this.size === 'small' &&
+                      this.size === 'sm' &&
                       this.labelPosition === 'inside' &&
                       this.placeholder}
                   </span>
