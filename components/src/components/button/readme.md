@@ -5,13 +5,13 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type      | Default     |
-| ----------- | ----------- | ----------- | --------- | ----------- |
-| `disabled`  | `disabled`  |             | `boolean` | `undefined` |
-| `fullbleed` | `fullbleed` |             | `boolean` | `undefined` |
-| `size`      | `size`      |             | `string`  | `''`        |
-| `text`      | `text`      |             | `string`  | `undefined` |
-| `type`      | `type`      |             | `string`  | `undefined` |
+| Property    | Attribute   | Description | Type                 | Default     |
+| ----------- | ----------- | ----------- | -------------------- | ----------- |
+| `disabled`  | `disabled`  |             | `boolean`            | `undefined` |
+| `fullbleed` | `fullbleed` |             | `boolean`            | `undefined` |
+| `size`      | `size`      |             | `"" \| "md" \| "sm"` | `''`        |
+| `text`      | `text`      |             | `string`             | `undefined` |
+| `type`      | `type`      |             | `string`             | `undefined` |
 
 
 ----------------------------------------------
