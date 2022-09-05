@@ -3,7 +3,7 @@ import {
   h,
   State,
   Prop,
-  Listen,
+  /* Listen ,*/
   Event,
   EventEmitter,
 } from '@stencil/core';
@@ -11,7 +11,7 @@ import {
 @Component({
   tag: 'sdds-textfield',
   styleUrl: 'textfield.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Textfield {
   /** Textinput for focus state */
@@ -65,16 +65,17 @@ export class Textfield {
   customChange: EventEmitter;
 
   // Listener if input enters focus state
-  @Listen('focus')
+  /*@Listen('focus')
   handleFocusIn() {
+    console.log('this focus?');
     this.focusInput = true;
-  }
+  }*/
 
   // Listener if input leaves focus state
-  @Listen('focusout')
+  /*@Listen('focusout')
   handleFocusOut() {
     this.focusInput = false;
-  }
+  }*/
 
   // Data input event in value prop
   handleInput(e): void {
@@ -87,11 +88,31 @@ export class Textfield {
   }
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
-  handleFocusClick(): void {
+  /* handleFocusClick(): void {
+    console.log('handle focus click');
+
     this.textInput.focus();
+    this.focusInput = true; // @Albin
+  } */
+
+  componentDidLoad() {
+    console.log('component did load');
+    console.log('text input element: ', this.textInput);
+
+    // @Albin
+    this.textInput.addEventListener('focus', () => {
+      console.log('textfield on focus');
+      this.focusInput = true;
+    });
+
+    this.textInput.addEventListener('blur', () => {
+      console.log('textfield on blur');
+      this.focusInput = false;
+    });
   }
 
   render() {
+    console.log('re-render ', this.focusInput);
     let className = ' sdds-textfield-input';
     if (this.size === 'md') {
       className += className + '-md';
@@ -128,7 +149,7 @@ export class Textfield {
         <slot name="sdds-label" />
 
         <div
-          onClick={() => this.handleFocusClick()}
+          // onClick={() => this.handleFocusClick()}
           class="sdds-textfield-container"
         >
           <slot name="sdds-prefix" />
