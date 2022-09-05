@@ -11,7 +11,7 @@ export class AccordionItem {
 
   /** Icon can be placed after or before accordion header. Values accepted: `prefix` or `suffix`
    *  Default value is `suffix` */
-  @Prop() affix: string = 'suffix';
+  @Prop() affix: 'prefix' | 'suffix' = 'suffix';
 
   /** Disabled option in `boolean`. */
   @Prop() disabled: boolean = false;

@@ -27,7 +27,7 @@ export class Datetime {
   @Prop() disabled: boolean = false;
 
   /** Size of the input */
-  @Prop() size = '';
+  @Prop() size: 'sm' | 'md' | '' = '';
 
   /** With setting */
   @Prop() nominwidth: boolean = false;

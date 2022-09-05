@@ -23,7 +23,7 @@ export class Modal {
   @Prop() prevent: boolean = false;
 
   /** Size of modal. Accepted strings are: xs, sm, md, lg.  */
-  @Prop() size: string = 'md';
+  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
 
   @Element() el: HTMLElement;
 
