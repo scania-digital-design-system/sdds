@@ -88,12 +88,12 @@ export class Textfield {
   }
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
-  /* handleFocusClick(): void {
+  handleFocusClick(): void {
     console.log('handle focus click');
 
     this.textInput.focus();
     this.focusInput = true; // @Albin
-  } */
+  }
 
   componentDidLoad() {
     console.log('component did load');
@@ -149,7 +149,7 @@ export class Textfield {
         <slot name="sdds-label" />
 
         <div
-          // onClick={() => this.handleFocusClick()}
+          onClick={() => this.handleFocusClick()}
           class="sdds-textfield-container"
         >
           <slot name="sdds-prefix" />

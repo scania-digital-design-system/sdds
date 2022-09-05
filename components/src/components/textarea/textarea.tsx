@@ -1,7 +1,7 @@
 import {
   Component,
   h,
-  Listen,
+  /*Listen,*/
   Prop,
   State,
   Event,
@@ -11,7 +11,7 @@ import {
 @Component({
   tag: 'sdds-textarea',
   styleUrl: 'textarea.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Textarea {
   /** Textinput for focus state */
@@ -68,7 +68,7 @@ export class Textarea {
   customChange: EventEmitter;
 
   // Listener if input enters focus state
-  @Listen('focus')
+  /* @Listen('focus')
   handleFocusIn() {
     this.focusInput = true;
   }
@@ -77,7 +77,7 @@ export class Textarea {
   @Listen('focusout')
   handleFocusOut() {
     this.focusInput = false;
-  }
+  }*/
 
   // Data input event in value prop
   handleInput(e): void {
@@ -87,10 +87,24 @@ export class Textarea {
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
     this.textEl.focus();
+    this.focusInput = true;
   }
 
   handleChange(e): void {
     this.customChange.emit(e);
+  }
+
+  componentDidLoad(): void {
+    // @Albin
+    this.textEl.addEventListener('focus', () => {
+      console.log('textarea on focus');
+      this.focusInput = true;
+    });
+
+    this.textEl.addEventListener('blur', () => {
+      console.log('textarea on blur');
+      this.focusInput = false;
+    });
   }
 
   render() {

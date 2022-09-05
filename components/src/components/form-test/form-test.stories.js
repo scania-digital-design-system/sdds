@@ -29,7 +29,7 @@ const Template = ({ topPart = false }) => `
           type="password"
           value="a-unique-password"
         ></sdds-textfield>
-        
+
         <div class="sdds-checkbox-item">
           <input
             name="checkbox"
@@ -121,17 +121,22 @@ function ready(fn) {
   }
 }
 
-let loaded = false;
+let formTestLoaded = false;
 
 ready(function () {
-  if (loaded) {
+  if (formTestLoaded) {
     return;
   }
 
-  loaded = true;
+  formTestLoaded = true;
 
   const formSdds = document.querySelector('#form-sdds');
   const formVanilla = document.querySelector('#form-vanilla');
+
+  /* we are not in this story, so bail out */
+  if (!formSdds || !formVanilla) {
+    return;
+  }
 
   formSdds.addEventListener('submit', (event) => {
     console.log('submitting SDDS form');
