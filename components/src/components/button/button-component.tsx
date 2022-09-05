@@ -10,7 +10,7 @@ export class SddsButton {
 
   @Prop() type: string;
 
-  @Prop() size = '';
+  @Prop() size: 'sm' | 'md' | '' = '';
 
   @Prop() disabled: boolean;
 

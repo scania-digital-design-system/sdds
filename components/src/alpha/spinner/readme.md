@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default |
-| -------- | --------- | ----------- | -------- | ------- |
-| `size`   | `size`    |             | `string` | `''`    |
-| `type`   | `type`    |             | `string` | `''`    |
+| Property | Attribute | Description | Type                 | Default |
+| -------- | --------- | ----------- | -------------------- | ------- |
+| `size`   | `size`    |             | `"" \| "md" \| "sm"` | `''`    |
+| `type`   | `type`    |             | `string`             | `''`    |
 
 
 ----------------------------------------------

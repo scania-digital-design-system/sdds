@@ -15,6 +15,10 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": ["components/src", "components/types/jsx.d.ts"],
+  "include": [
+    "components/src",
+    "components/types/jsx.d.ts",
+    "components/node_modules/@types/jest/index.d.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

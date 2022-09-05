@@ -33,10 +33,10 @@ export class Dropdown {
   @Prop() disabled: boolean;
 
   /** `default`, `multiselect`, `filter`, `nested` */
-  @Prop() type: string = 'default';
+  @Prop() type: 'default' | 'multiselect' | 'filter' | 'nested' = 'default';
 
   /** `large` (default), `small`, `medium` */
-  @Prop() size: string = 'large';
+  @Prop() size: 'small' | 'medium' | 'large' = 'large';
 
   /** Set to true to make the width following the label text length */
   @Prop() inline: boolean = false;
