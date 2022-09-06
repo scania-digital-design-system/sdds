@@ -67,18 +67,6 @@ export class Textarea {
   })
   customChange: EventEmitter;
 
-  // Listener if input enters focus state
-  /* @Listen('focus')
-  handleFocusIn() {
-    this.focusInput = true;
-  }
-
-  // Listener if input leaves focus state
-  @Listen('focusout')
-  handleFocusOut() {
-    this.focusInput = false;
-  }*/
-
   // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
@@ -92,19 +80,6 @@ export class Textarea {
 
   handleChange(e): void {
     this.customChange.emit(e);
-  }
-
-  componentDidLoad(): void {
-    // @Albin
-    this.textEl.addEventListener('focus', () => {
-      console.log('textarea on focus');
-      this.focusInput = true;
-    });
-
-    this.textEl.addEventListener('blur', () => {
-      console.log('textarea on blur');
-      this.focusInput = false;
-    });
   }
 
   render() {
@@ -130,6 +105,9 @@ export class Textarea {
         )}
         <div class="sdds-textarea-wrapper">
           <textarea
+            onBlur={() => {
+              this.focusInput = false;
+            }}
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}

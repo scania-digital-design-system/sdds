@@ -64,19 +64,6 @@ export class Textfield {
   })
   customChange: EventEmitter;
 
-  // Listener if input enters focus state
-  /*@Listen('focus')
-  handleFocusIn() {
-    console.log('this focus?');
-    this.focusInput = true;
-  }*/
-
-  // Listener if input leaves focus state
-  /*@Listen('focusout')
-  handleFocusOut() {
-    this.focusInput = false;
-  }*/
-
   // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
@@ -89,30 +76,11 @@ export class Textfield {
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
-    console.log('handle focus click');
-
     this.textInput.focus();
-    this.focusInput = true; // @Albin
-  }
-
-  componentDidLoad() {
-    console.log('component did load');
-    console.log('text input element: ', this.textInput);
-
-    // @Albin
-    this.textInput.addEventListener('focus', () => {
-      console.log('textfield on focus');
-      this.focusInput = true;
-    });
-
-    this.textInput.addEventListener('blur', () => {
-      console.log('textfield on blur');
-      this.focusInput = false;
-    });
+    this.focusInput = true;
   }
 
   render() {
-    console.log('re-render ', this.focusInput);
     let className = ' sdds-textfield-input';
     if (this.size === 'md') {
       className += className + '-md';
@@ -156,6 +124,9 @@ export class Textfield {
 
           <div class="sdds-textfield-input-container">
             <input
+              onBlur={() => {
+                this.focusInput = false;
+              }}
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
               class={className}
               type={this.type}

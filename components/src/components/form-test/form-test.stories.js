@@ -5,8 +5,7 @@ export default {
   },
 };
 
-const Template = ({ topPart = false }) => `
-
+const Template = () => `
 <div class="sdds-container">
   <div class="sdds-row">
     <div
@@ -110,8 +109,6 @@ const Template = ({ topPart = false }) => `
 `;
 
 export const Basic = Template.bind({});
-
-console.log('scripts');
 
 function ready(fn) {
   if (document.readyState !== 'loading') {
