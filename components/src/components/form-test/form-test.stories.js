@@ -63,6 +63,11 @@ const Template = () => `
         </div>
 
         <div>
+          <sdds-slider name="slider" tooltip>
+          </sdds-slider>
+        </div>
+
+        <div>
           <input
             class="sdds-btn sdds-btn-primary sdds-btn-sm"
             type="submit"
