@@ -1,17 +1,16 @@
 import {
   Component,
   Prop,
+  h,
+  Listen,
   EventEmitter,
   Event,
-  Listen,
-  Host,
-  h,
 } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
   styleUrl: 'slider.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Slider {
   wrapperElement: HTMLElement = null;
@@ -53,6 +52,15 @@ export class Slider {
   useSnapping: boolean = false;
 
   supposedValueSlot: number = -1;
+
+  /** Change event for the textfield */
+  @Event({
+    eventName: 'sliderChange',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sliderChangeEmitter: EventEmitter<any>;
 
   /** Text for label */
   @Prop() label: string = '';
@@ -431,7 +439,7 @@ export class Slider {
 
   render() {
     return (
-      <Host value={this.value}>
+      <div class="sdds-slider-wrapper">
         <input
           ref={(el) => (this.nativeRangeInputElement = el as HTMLInputElement)}
           class="sdds-slider-native-element"
@@ -587,7 +595,7 @@ export class Slider {
             </div>
           )}
         </div>
-      </Host>
+      </div>
     );
   }
 }

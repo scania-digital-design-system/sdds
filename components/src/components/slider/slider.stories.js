@@ -150,8 +150,7 @@ const ComponentSlider = ({ ...Basic }) => {
   return `
     ${style}
     <div class="storybook-slider-wrapper ${classes}">
-      <sdds-slider 
-        id="sdds-slider"
+      <sdds-slider id="sdds-slider"
         min="${Basic.min}" 
         max="${Basic.max}" 
         step="${Basic.step}" 
@@ -173,14 +172,6 @@ const ComponentSlider = ({ ...Basic }) => {
 };
 
 let sliderStoryLoaded = false;
-
-function ready(fn) {
-  if (document.readyState !== 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
 
 ready(function () {
   if (sliderStoryLoaded) {
