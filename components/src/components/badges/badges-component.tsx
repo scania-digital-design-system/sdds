@@ -51,21 +51,25 @@ export class SddsBadges {
         : '';
     }
 
-    if (!this.isVisible) {
-      this.size = '';
-    }
+    // if (this.isVisible) {
+    //   this.size=''
+    // }
+    // else{
+    //   this.size = 'default';
+    // }
   }
 
   render() {
     return (
       <host>
-        {this.size === 'default' ? (
+        {this.size === 'default' && this.isVisible && (
           <div
             class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
           >
             <div class="sdds-badges-text">{this.text}</div>
           </div>
-        ) : (
+        )}
+        {this.size === 'sm' && this.isVisible && (
           <div class={`sdds-badges sdds-badges-sm`}></div>
         )}
       </host>
