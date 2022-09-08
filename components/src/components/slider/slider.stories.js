@@ -163,7 +163,7 @@ const ComponentSlider = ({ ...Basic }) => {
         ${Basic.showControls && 'controls'} 
         ${Basic.showInput && 'input'} 
         ${Basic.disabled && 'disabled'} 
-        ${Basic.small && 'small'}
+        ${Basic.small && 'size="sm"'}
         >
 
       </sdds-slider>

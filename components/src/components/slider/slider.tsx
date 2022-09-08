@@ -63,8 +63,11 @@ export class Slider {
   /** Name property (will be inherited by the native slider component) */
   @Prop() name = '';
 
-  /** Decide to use the small variant or not */
+  /** @DEPRECATED Decide to use the small variant or not */
   @Prop() small = null;
+
+  /** Sets the size of the scrubber */
+  @Prop() size: 'sm' | '' = '';
 
   /** Snap to the ticks grid */
   @Prop() snap = null;
@@ -98,6 +101,19 @@ export class Slider {
     this.trackElement.focus();
   }
 
+  @Listen('touchend', { target: 'window' })
+  handleTouchEnd() {
+    if (!this.scrubberGrabbed) {
+      return;
+    }
+
+    this.scrubberGrabbed = false;
+    this.scrubberInnerElement.classList.remove('pressed');
+    this.updateValue();
+
+    this.trackElement.focus();
+  }
+
   @Listen('mousemove', { target: 'window' })
   handleMouseMove(event) {
     if (!this.scrubberGrabbed) {
@@ -107,6 +123,33 @@ export class Slider {
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
     let localLeft = event.clientX - trackRect.left;
+    this.supposedValueSlot = -1;
+
+    if (this.useSnapping && numTicks > 0) {
+      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
+      localLeft = Math.round(localLeft / v) * v;
+
+      this.supposedValueSlot = Math.round(localLeft / v);
+    }
+
+    this.scrubberLeft = this.constrainScrubber(localLeft);
+    this.scrubberElement.style.left = `${this.scrubberLeft}px`;
+
+    this.updateValue();
+    this.updateTrack();
+  }
+
+  @Listen('touchmove', { target: 'window' })
+  handleTouchMove(event) {
+    if (!this.scrubberGrabbed) {
+      return;
+    }
+
+    const numTicks = parseInt(this.ticks);
+    const trackRect = this.trackElement.getBoundingClientRect();
+    // let localLeft = event.clientX - trackRect.left;
+    let localLeft = event.touches[0].clientX - trackRect.left;
+
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
@@ -198,14 +241,14 @@ export class Slider {
 
     this.scrubberElement.addEventListener('mousedown', (event) => {
       event.preventDefault();
+      this.grabScrubber(event.offsetX, event.offsetY);
+    });
 
-      this.scrubberGrabPos = {
-        x: event.offsetX,
-        y: event.offsetY,
-      };
-
-      this.scrubberGrabbed = true;
-      this.scrubberInnerElement.classList.add('pressed');
+    this.scrubberElement.addEventListener('touchstart', (event) => {
+      const rect = this.scrubberElement.getBoundingClientRect();
+      const x = event.targetTouches[0].pageX - rect.left;
+      const y = event.targetTouches[0].pageY - rect.top;
+      this.grabScrubber(x, y);
     });
 
     if (this.useControls) {
@@ -243,6 +286,16 @@ export class Slider {
 
     this.calculateScrubberLeftFromValue(this.value);
     this.updateTrack();
+  }
+
+  grabScrubber(xOffset, yOffset) {
+    this.scrubberGrabPos = {
+      x: xOffset,
+      y: yOffset,
+    };
+
+    this.scrubberGrabbed = true;
+    this.scrubberInnerElement.classList.add('pressed');
   }
 
   calculateInputSizeFromMax() {
@@ -317,7 +370,7 @@ export class Slider {
       this.useInput = true;
     }
 
-    if (this.small !== null) {
+    if (this.small !== null || this.size === 'sm') {
       this.useSmall = true;
     }
 
