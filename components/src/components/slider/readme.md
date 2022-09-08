@@ -26,6 +26,13 @@
 | `value`           | `value`             | Initial value                                                                    | `string`     | `'0'`   |
 
 
+## Events
+
+| Event          | Description                    | Type               |
+| -------------- | ------------------------------ | ------------------ |
+| `sliderChange` | Change event for the textfield | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

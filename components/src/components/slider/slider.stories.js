@@ -151,6 +151,7 @@ const ComponentSlider = ({ ...Basic }) => {
     ${style}
     <div class="storybook-slider-wrapper ${classes}">
       <sdds-slider 
+        id="sdds-slider"
         min="${Basic.min}" 
         max="${Basic.max}" 
         step="${Basic.step}" 
@@ -170,6 +171,39 @@ const ComponentSlider = ({ ...Basic }) => {
     </div>
   `;
 };
+
+let sliderStoryLoaded = false;
+
+function ready(fn) {
+  if (document.readyState !== 'loading') {
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(function () {
+  if (sliderStoryLoaded) {
+    return;
+  }
+
+  sliderStoryLoaded = true;
+
+  const slider = document.querySelector('#sdds-slider');
+  if (!slider) {
+    return;
+  }
+
+  /*
+    @ATTENTION
+    Keep in mind that storybook does stuff, so if any story control is changed,
+    the page has to be reloaded for this event listener to work!!
+  */
+
+  slider.addEventListener('sliderChange', (event) => {
+    console.log('Got a sliderChange event', event.detail.value);
+  });
+});
 
 export const Basic = ComponentSlider.bind({});
 Basic.args = {

@@ -1,4 +1,12 @@
-import { Component, Prop, Listen, Host, h } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  EventEmitter,
+  Event,
+  Listen,
+  Host,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -72,6 +80,15 @@ export class Slider {
   /** Snap to the ticks grid */
   @Prop() snap = null;
 
+  /** Change event for the textfield */
+  @Event({
+    eventName: 'sliderChange',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sliderChangeEmitter: EventEmitter<any>;
+
   @Listen('keydown')
   handleKeydown(event) {
     switch (event.key) {
@@ -141,13 +158,14 @@ export class Slider {
 
   @Listen('touchmove', { target: 'window' })
   handleTouchMove(event) {
+    event.preventDefault();
+
     if (!this.scrubberGrabbed) {
       return;
     }
 
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
-    // let localLeft = event.clientX - trackRect.left;
     let localLeft = event.touches[0].clientX - trackRect.left;
 
     this.supposedValueSlot = -1;
@@ -173,6 +191,10 @@ export class Slider {
     this.trackFillElement.style.width = `${percentageFilled}%`;
   }
 
+  dispatchChangeEvent() {
+    this.sliderChangeEmitter.emit({ value: this.value });
+  }
+
   updateValue() {
     const trackWidth = this.getTrackWidth();
 
@@ -188,6 +210,8 @@ export class Slider {
           this.getMin() + percentage * (this.getMax() - this.getMin())
         );
     }
+
+    this.dispatchChangeEvent();
   }
 
   getMin() {
