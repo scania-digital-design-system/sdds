@@ -16,7 +16,7 @@ export class SddsBadges {
   @Prop() isSmall: boolean = false;
 
   /**Component is avaible in size default and small (small dot). Default size is default*/
-  @Prop() size: string = 'default';
+  @Prop() size: 'default' | 'sm' = 'default';
 
   @State() shape: string = '';
 
@@ -55,15 +55,12 @@ export class SddsBadges {
 
   render() {
     return (
-      <host>
-        <div
-          class={`sdds-badges sdds-badges-${this.size} ${
-            this.shape === 'pill' ? 'sdds-badges-pill' : ''
-          }
-          } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
-        >
-          <div class="sdds-badges-text">{this.text}</div>
-        </div>
+      <host
+        class={`sdds-badges sdds-badges-${this.size} ${
+          this.shape === 'pill' ? 'sdds-badges-pill' : ''
+        } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+      >
+        <div class="sdds-badges-text">{this.text}</div>
       </host>
     );
   }
