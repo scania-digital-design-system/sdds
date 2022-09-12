@@ -4,6 +4,7 @@
   display: block;
 }
 .#{$prefix}-badges {
+  display: block;
   height: var(--sdds-badges-default-height);
   line-height: var(--sdds-badges-default-height);
   width: var(--sdds-badges-default-height);
@@ -18,10 +19,14 @@
     padding-right: var(--sdds-badges-pill-padding);
   }
   &.#{$prefix}-badges-sm {
+    display: block;
     height: var(--sdds-badges-sm-height);
     width: var(--sdds-badges-sm-width);
     line-height: var(--sdds-badges-sm-height);
     text-align: center;
+  }
+  &.#{$prefix}-badges-hidden {
+    display: none;
   }
 }
 

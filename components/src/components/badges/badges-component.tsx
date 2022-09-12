@@ -12,12 +12,13 @@ export class SddsBadges {
   /**Changes visibility of badge*/
   @Prop() isVisible: boolean = true;
 
-  /**Changes badge from default to small size*/
+  /** !!Deprecated!! Use size prop instead. Changes badge from default to small size*/
   @Prop() isSmall: boolean = false;
 
-  @State() shape: string = '';
-
+  /**Component is avaible in size default and small (small dot). Default size is default*/
   @Prop() size: string = 'default';
+
+  @State() shape: string = '';
 
   @State() text: string = '';
 
@@ -50,28 +51,19 @@ export class SddsBadges {
           )
         : '';
     }
-
-    // if (this.isVisible) {
-    //   this.size=''
-    // }
-    // else{
-    //   this.size = 'default';
-    // }
   }
 
   render() {
     return (
       <host>
-        {this.size === 'default' && this.isVisible && (
-          <div
-            class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
-          >
-            <div class="sdds-badges-text">{this.text}</div>
-          </div>
-        )}
-        {this.size === 'sm' && this.isVisible && (
-          <div class={`sdds-badges sdds-badges-sm`}></div>
-        )}
+        <div
+          class={`sdds-badges sdds-badges-${this.size} ${
+            this.shape === 'pill' ? 'sdds-badges-pill' : ''
+          }
+          } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+        >
+          <div class="sdds-badges-text">{this.text}</div>
+        </div>
       </host>
     );
   }
