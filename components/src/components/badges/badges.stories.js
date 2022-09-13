@@ -76,7 +76,7 @@ const smallBadgeTemplate = ({ visible }) => {
   return `
     ${smallBadgeStyle}
       <div class="demo">
-      <sdds-badges class="demo-badges" is-small is-visible = ${visible}>       
+      <sdds-badges class="demo-badges" value='0' size='sm' is-visible = ${visible}>       
       </sdds-badges> 
       </div>
     `;
