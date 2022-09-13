@@ -12,77 +12,55 @@ export class SddsBadges {
   /**Changes visibility of badge*/
   @Prop() isVisible: boolean = true;
 
-  /**Changes badge from default to small size*/
+  /** !!Deprecated!! Use size prop instead. Changes badge from default to small size*/
   @Prop() isSmall: boolean = false;
+
+  /**Component is avaible in size default and small (small dot). Default size is default*/
+  @Prop() size: 'default' | 'sm' = 'default';
 
   @State() shape: string = '';
 
-  @State() size: string = 'sm';
-
   @State() text: string = '';
-
-  @State() smallVariation: boolean = false;
-
-  @State() defaultVariation: boolean = true;
 
   @Watch('value')
   @Watch('isVisible')
   @Watch('isSmall')
+  @Watch('size')
   watchProps() {
     this.checkProps();
   }
   componentWillLoad() {
     this.checkProps();
+    if (this.isSmall) {
+      this.size = 'sm';
+      console.warn('Prop isSmall is deprecated. Use size"small" instead');
+    }
   }
 
   checkProps() {
     const valueAsNumber = parseInt(this.value);
-    if (!isNaN(valueAsNumber) && !this.isSmall) {
-      this.shape = valueAsNumber.toString().length >= 2 ? 'pill' : '';
-
-      if (!isNaN(valueAsNumber) && !this.isSmall) {
-        this.shape = this.value.toString().length >= 2 ? 'pill' : '';
-        this.size = '';
-        this.text =
-          valueAsNumber.toString().length >= 3
-            ? '99+'
-            : valueAsNumber.toString();
-      } else {
-        this.value !== ''
-          ? console.warn(
-              'The provided value is either empty or string, please provide value as number.'
-            )
-          : '';
-      }
-    }
-    if (this.isVisible) {
-      if (!this.isSmall) {
-        this.defaultVariation = true;
-        this.smallVariation = false;
-      }
-      if (this.isSmall) {
-        this.defaultVariation = false;
-        this.smallVariation = true;
-      }
+    if (!isNaN(valueAsNumber) && this.size !== 'sm') {
+      this.shape = this.value.toString().length >= 2 ? 'pill' : '';
+      this.size = 'default';
+      this.text =
+        valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
     } else {
-      this.defaultVariation = false;
-      this.smallVariation = false;
+      this.value !== '' && this.size !== 'sm'
+        ? console.warn(
+            'The provided value is either empty or string, please provide value as number.'
+          )
+        : '';
     }
   }
 
   render() {
     return (
-      <host>
-        {this.defaultVariation && (
-          <div
-            class={`sdds-badges sdds-badges-${this.size} sdds-badges-${this.shape}`}
-          >
-            <div class="sdds-badges-text">{this.text}</div>
-          </div>
-        )}
-        {this.smallVariation && (
-          <div class={`sdds-badges sdds-badges-sm`}></div>
-        )}
+      <host
+        class={`sdds-badges sdds-badges-${this.size} ${
+          this.shape === 'pill' ? 'sdds-badges-pill' : ''
+        } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+      >
+        <div class="sdds-badges-text">{this.text}</div>
       </host>
     );
   }
