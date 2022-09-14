@@ -1,7 +1,7 @@
-@import '../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../node_modules/@scania/grid/dist/scss/grid';
-@import '../../helpers/components-shared';
+@import "../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared";
 
 @mixin sdds-nav__basic-element-style {
   cursor: pointer;
@@ -35,7 +35,7 @@
   justify-content: space-between;
 
   .sdds-nav__overlay {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: fixed;
@@ -146,7 +146,8 @@
 
     display: block;
     cursor: pointer;
-    background-image: var(--sdds-background-image-scania-symbol-svg),
+    background-image:
+ var(--sdds-background-image-scania-symbol-svg),
       var(--sdds-background-image-scania-symbol-png);
     background-size: 30px auto;
     width: 64px;
@@ -171,7 +172,7 @@
   }
 
   .sdds-nav__item--active::after {
-    content: '';
+    content: "";
     border-bottom: 4px solid var(--sdds-blue-400);
     width: calc(100% + 2px);
     display: block;
@@ -203,7 +204,7 @@
   .sdds-nav__item-core:active {
     @include sdds-nav__basic-element-style;
     @include sdds-flex-center;
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     text-decoration: none;
     white-space: nowrap;
@@ -292,7 +293,7 @@
   .sdds-nav__dropdown-item-core,
   .sdds-nav__dropdown-item-core:visited,
   .sdds-nav__dropdown-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     background-color: inherit;
     height: 100%;
@@ -334,12 +335,14 @@
       transition: fill 150ms ease;
     }
   }
+
   /////
   .sdds-nav__searchbar-input-expanded {
     display: none;
   }
+
   .sdds-nav__searchbar-input {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     color: white;
     align-items: center;
@@ -355,17 +358,20 @@
     padding: 24px 14px 24px 23px;
     outline: none;
   }
+
   .sdds-nav__app-searchbar-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
   }
+
   .sdds-nav__app-searchbar {
     display: flex;
     width: 64px;
     border-left: 1px solid var(--sdds-blue-700);
     border-right: none;
   }
+
   .sdds-nav__app-searchbar-btn,
   .sdds-nav__app-searchbar-btn:active {
     @include sdds-nav__basic-element-style;
@@ -380,6 +386,7 @@
     &:hover {
       text-decoration: none;
     }
+
     .sdds-nav__app-searchbar-btn-svg {
       width: 20px;
       height: auto;
@@ -395,6 +402,7 @@
     transform-origin: top;
     transform: scaleY(0);
   }
+
   .sdds-nav__searchbar-results--category {
     border-bottom: 1px solid var(--sdds-grey-300);
     padding-bottom: 12px;
@@ -406,6 +414,7 @@
     &:focus {
       @include sdds-focus-state;
     }
+
     &:last-child {
       border: none;
     }
@@ -418,70 +427,85 @@
     background-color: var(--sdds-white);
     display: flex;
     align-items: center;
-
     justify-content: space-between;
+
     &:hover {
       background-color: var(--sdds-grey-100);
     }
+
     &:active {
       border: 1px solid var(--sdds-blue-400);
     }
+
     &:visited {
       background-color: var(--sdds-grey-400);
     }
   }
+
   .sdds-nav__searchbar-results-item:hover button,
   .sdds-nav__searchbar-results-item:hover a {
     background-color: var(--sdds-grey-100);
     cursor: pointer;
   }
+
   .sdds-nav__searchbar-item--top {
     border-bottom: 1px solid var(--sdds-grey-300);
     background-color: var(--sdds-white);
   }
+
   .sdds-nav__searchbar-results-category-title {
-    @include type-style('detail-04');
+    @include type-style("detail-04");
+
     padding: 24px 12px 12px 24px;
     display: flex;
     align-items: center;
     width: 100%;
     background-color: var(--sdds-white);
   }
+
   .sdds-nav__app-searchbar-results-mgl-svg {
     margin-right: 24px;
   }
+
   .sdds-nav__app-searchbar-results-x-btn {
     background-color: var(--sdds-white);
     border: none;
     margin: auto 14px;
   }
+
   .sdds-nav__searchbar-all-results {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
+
     width: 100%;
     padding: 24px;
     top: 12px;
     left: 56px;
     height: auto;
     cursor: pointer;
+
     &:hover {
       background-color: var(--sdds-grey-100);
     }
+
     &:active {
       border: 1px solid var(--sdds-blue-400);
     }
+
     &:visited {
       background-color: var(--sdds-grey-400);
     }
   }
 
   .sdds-nav__searchbar-results-item-core {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
+
     color: var(--sdds-black);
     text-decoration: none;
     width: 100%;
     padding-left: 40px;
     background-color: var(--sdds-white);
     cursor: pointer;
+
     &:hover {
       text-decoration: none;
     }
@@ -492,38 +516,46 @@
       opacity: 0.4;
       visibility: visible;
     }
+
     .mgl-btn {
       display: none;
     }
+
     .x-btn {
       background-color: var(--sdds-blue-700);
       width: 64px;
       position: relative;
     }
+
     .sdds-nav__app-searchbar {
       width: 100%;
       border: none;
     }
+
     .sdds-nav__searchbar-input {
       display: flex;
       background-color: var(--sdds-blue-700);
       transform: scaleY(1);
-      margin: 0px;
+      margin: 0;
       border: none;
     }
+
     .sdds-nav__searchbar-input::placeholder {
       color: var(--sdds-white);
     }
+
     .sdds-nav__searchbar-input-expanded {
       display: flex;
       width: 100%;
       position: relative;
     }
+
     .sdds-nav__searchbar-menu {
       transform: scaleY(1);
       top: 100%;
     }
   }
+
   /////
   .sdds-nav__avatar-btn,
   .sdds-nav__avatar-btn:active {
@@ -586,7 +618,7 @@
 
   .sdds-nav__avatar-title,
   .sdds-nav__avatar-subtitle {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     width: 100%;
   }
@@ -599,7 +631,7 @@
   .sdds-nav__avatar-item-core,
   .sdds-nav__avatar-item-core:visited,
   .sdds-nav__avatar-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     text-decoration: none;
     display: flex;
@@ -666,7 +698,7 @@
   }
 
   .sdds-nav__app-launcher-category-title {
-    @include type-style('detail-06');
+    @include type-style("detail-06");
 
     display: flex;
     align-items: center;
@@ -680,7 +712,7 @@
   .sdds-nav__app-launcher-item-core,
   .sdds-nav__app-launcher-item-core:visited,
   .sdds-nav__app-launcher-item-core:active {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     text-decoration: none;
     display: flex;
@@ -705,8 +737,149 @@
   @media all and (max-width: $grid-lg) {
     justify-content: space-between;
 
+    .sdds-nav__app-searchbar-container {
+      position: absolute;
+      top: 0;
+      height: 68px;
+      border-bottom: 1px solid var(--sdds-grey-300);
+    }
+
+    .sdds-nav__app-searchbar {
+      width: 100%;
+    }
+
+    .sdds-nav__searchbar-item--top {
+      span {
+        display: none;
+      }
+    }
+
+    .sdds-nav__searchbar-results-item-core {
+      padding-left: 28px;
+    }
+
+    .sdds-nav__app-searchbar-results-mgl-svg {
+      margin-right: 16px;
+      transform: translateY(4px);
+      margin-left: 17px;
+    }
+
+    .sdds-nav__searchbar-results-item {
+      height: auto;
+      align-items: flex-start;
+
+      .sdds-nav__app-searchbar-results-x-btn {
+        margin-top: 0;
+      }
+    }
+
+    .sdds-nav__app-searchbar-btn {
+      width: 100%;
+
+      &::before {
+        @include type-style("headline-07");
+
+        color: var(--sdds-grey-958);
+        content: "Search";
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+      }
+
+      .sdds-nav__app-searchbar-btn-svg {
+        display: none;
+      }
+
+      &:active {
+        width: 100%;
+      }
+    }
+
+    &.sdds-nav__searchbar--opened {
+      .sdds-nav__app-searchbar-btn {
+        &::before {
+          display: none;
+        }
+
+        .sdds-nav__app-searchbar-btn-svg {
+          display: block;
+        }
+      }
+
+      .sdds-nav__app-searchbar-container {
+        height: 65px;
+      }
+
+      .sdds-nav__center {
+        margin-top: -64px;
+        height: 100vh;
+      }
+
+      .sdds-nav__searchbar-input-expanded {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+          content: " ";
+          height: 500px;
+          background-color: var(--sdds-white);
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100vh;
+        }
+      }
+
+      .sdds-nav__searchbar-input {
+        background-color: var(--sdds-white);
+        color: var(--sdds-grey-800);
+
+        &::placeholder {
+          color: var(--sdds-grey-800);
+        }
+      }
+
+      .sdds-nav__searchbar-menu {
+        border-top: 1px solid var(--sdds-grey-300);
+      }
+
+      .sdds-nav__app-searchbar-btn {
+        background-color: var(--sdds-white);
+
+        &:active {
+          width: 64px;
+        }
+
+        &:hover {
+          background-color: var(--sdds-grey-100);
+        }
+
+        .sdds-nav__app-searchbar-btn-svg {
+          path {
+            fill: var(--sdds-grey-958);
+          }
+        }
+      }
+    }
+
+    .sdds-nav__app-searchbar-btn:hover {
+      background-color: var(--sdds-grey-100);
+    }
+
+    .sdds-nav__app-searchbar {
+      border-left: none;
+    }
+
     .sdds-nav__mob-menu-btn {
       display: flex;
+    }
+
+    .sdds-nav__app-searchbar-btn {
+      background-color: transparent;
+      border-left: none;
     }
 
     .sdds-nav__center {
@@ -723,6 +896,10 @@
       transform-origin: top;
       transition: transform 250ms ease;
 
+      .sdds-nav__inline-menu {
+        margin-top: 68px;
+      }
+
       .sdds-nav__inline-menu,
       .sdds-nav__toolbar-menu {
         flex-direction: column;
@@ -733,6 +910,11 @@
       .sdds-nav__avatar-btn {
         width: 100%;
         justify-content: flex-start;
+      }
+
+      .sdds-nav__avatar-btn {
+        border-top: 1px solid var(--sdds-grey-300);
+        border-bottom: 1px solid var(--sdds-grey-300);
       }
 
       .sdds-nav__item {
@@ -746,6 +928,10 @@
       }
 
       .sdds-nav__toolbar-menu {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
         .sdds-nav__item-core {
           &:first-child {
             border-top: 1px solid var(--sdds-grey-300);
@@ -754,7 +940,7 @@
       }
 
       .sdds-nav__item--active::after {
-        content: '';
+        content: "";
         border-bottom: none;
         border-right: 4px solid var(--sdds-blue-400);
         width: 100%;
@@ -860,6 +1046,7 @@
     &.sdds-nav__mob-menu--opened {
       .sdds-nav__center {
         transform: scaleY(1);
+        justify-content: flex-start;
       }
     }
 
@@ -869,6 +1056,12 @@
 
     .sdds-nav__app-logo {
       display: none;
+    }
+  }
+
+  @media all and (max-width: $grid-sm) {
+    .sdds-nav__center {
+      width: 100%;
     }
   }
 }

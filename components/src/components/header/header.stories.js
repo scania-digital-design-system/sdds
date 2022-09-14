@@ -38,13 +38,14 @@ const InlineMenuTemplate = (args) => {
 
   window.toggleInlineDropdown = (event) => {
     event.preventDefault();
-    setArgs({ ...args, 
+    setArgs({
+      ...args,
       openInlineDropdown: !openInlineDropdown,
       openAppLauncher: false,
       openAvatarMenu: false,
       openMobileMenu: false,
       openSearchbar: false,
-     });
+    });
   };
 
   window.toggleMobileMenu = (event) => {
@@ -156,13 +157,14 @@ const ToolbarMenuTemplate = (args) => {
 
   window.toggleInlineDropdown = (event) => {
     event.preventDefault();
-    setArgs({ ...args, 
+    setArgs({
+      ...args,
       openInlineDropdown: !openInlineDropdown,
       openAppLauncher: false,
       openAvatarMenu: false,
       openMobileMenu: false,
       openSearchbar: false,
-     });
+    });
   };
 
   window.toggleAvatarMenu = (event) => {
@@ -177,7 +179,7 @@ const ToolbarMenuTemplate = (args) => {
   };
   window.toggleSearchbar = (event) => {
     event.preventDefault();
-    
+
     setArgs({
       ...args,
       openSearchbar: !openSearchbar,
@@ -382,13 +384,14 @@ const SearchbarMenuTemplate = (args) => {
 
   window.toggleInlineDropdown = (event) => {
     event.preventDefault();
-    setArgs({ ...args, 
+    setArgs({
+      ...args,
       openInlineDropdown: !openInlineDropdown,
       openAppLauncher: false,
       openAvatarMenu: false,
       openMobileMenu: false,
       openSearchbar: false,
-     });
+    });
   };
 
   window.toggleAvatarMenu = (event) => {
@@ -403,7 +406,7 @@ const SearchbarMenuTemplate = (args) => {
   };
   window.toggleSearchbar = (event) => {
     event.preventDefault();
-    
+
     setArgs({
       ...args,
       openSearchbar: !openSearchbar,
@@ -494,7 +497,7 @@ const SearchbarMenuTemplate = (args) => {
                   <svg width="16" height="16" class="sdds-nav__app-searchbar-results-mgl-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.47098 0.99231C3.44526 0.99231 0.992432 3.44514 0.992432 6.47086C0.992432 9.49657 3.44526 11.9494 6.47098 11.9494C7.80373 11.9494 9.02533 11.4735 9.97512 10.6824L14.1407 14.848C14.336 15.0433 14.6526 15.0433 14.8479 14.848C15.0431 14.6528 15.0431 14.3362 14.8479 14.1409L10.6823 9.97531C11.4735 9.02547 11.9495 7.80375 11.9495 6.47086C11.9495 3.44514 9.4967 0.99231 6.47098 0.99231ZM1.99243 6.47086C1.99243 3.99742 3.99755 1.99231 6.47098 1.99231C8.94441 1.99231 10.9495 3.99742 10.9495 6.47086C10.9495 8.94429 8.94441 10.9494 6.47098 10.9494C3.99755 10.9494 1.99243 8.94429 1.99243 6.47086Z" fill="currentColor" fill-opacity="1"></path>
                   </svg>
-                  See all search results (press enter)
+                  See all search results <span>(press enter)</span>
                   </p>
             </li>
           <ul class='sdds-nav__searchbar-results--category'>
@@ -644,7 +647,6 @@ SearchbarMenu.args = {
   openAvatarMenu: false,
   openMobileMenu: false,
   openSearchbar: false,
-  
 };
 
 const AllMenusTemplate = (args) => {
@@ -654,8 +656,7 @@ const AllMenusTemplate = (args) => {
     openAppLauncher = false,
     openAvatarMenu = false,
     openMobileMenu = false,
-  openSearchbar = false,
-
+    openSearchbar = false,
   } = args;
 
   const [_, setArgs] = useArgs();
@@ -674,13 +675,14 @@ const AllMenusTemplate = (args) => {
 
   window.toggleInlineDropdown = (event) => {
     event.preventDefault();
-    setArgs({ ...args, 
+    setArgs({
+      ...args,
       openInlineDropdown: !openInlineDropdown,
       openAppLauncher: false,
       openAvatarMenu: false,
       openMobileMenu: false,
       openSearchbar: false,
-     });
+    });
   };
 
   window.toggleAvatarMenu = (event) => {
@@ -696,7 +698,7 @@ const AllMenusTemplate = (args) => {
 
   window.toggleSearchbar = (event) => {
     event.preventDefault();
-    
+
     setArgs({
       ...args,
       openSearchbar: !openSearchbar,
@@ -723,8 +725,7 @@ const AllMenusTemplate = (args) => {
       openAppLauncher: false,
       openAvatarMenu: false,
       openMobileMenu: false,
-  openSearchbar: false,
-
+      openSearchbar: false,
     });
   };
 
