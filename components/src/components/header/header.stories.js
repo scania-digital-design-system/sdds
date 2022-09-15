@@ -455,7 +455,7 @@ const SearchbarMenuTemplate = (args) => {
         <div class='sdds-nav__app-name'>${siteName}</div>
       </div>
       
-      <div class='sdds-nav__center'>
+      <div class='sdds-nav__center sdds-nav__center-withsearch'>
       <ul class='sdds-nav__inline-menu'>
       
       <li class='sdds-nav__item'>

@@ -196,6 +196,34 @@
     .sdds-nav__mob-menu-btn {
       color: var(--sdds-grey-958);
       background-color: var(--sdds-white);
+      position: absolute;
+      height: 64px;
+      width: 64px;
+      left: 209px;
+      border-bottom: 1px solid var(--sdds-grey-300);
+
+      @media all and (max-width: $grid-sm) {
+        left: auto;
+        right: 0;
+        border-right: none;
+      }
+
+      &::before {
+        content: " ";
+        width: 209px;
+        height: 63px;
+        background-color: var(--sdds-white);
+        position: absolute;
+        display: block;
+        left: 0;
+        transform: translateX(-100%);
+        pointer-events: none;
+        border-bottom: 1px solid var(--sdds-grey-300);
+
+        @media all and (max-width: $grid-sm) {
+          width: calc(100vw - 64px);
+        }
+      }
     }
   }
 
@@ -344,7 +372,7 @@
   .sdds-nav__searchbar-input {
     @include type-style("detail-02");
 
-    color: white;
+    color: var(--sdds-black);
     align-items: center;
     justify-content: flex-end;
     display: flex;
@@ -465,6 +493,7 @@
 
   .sdds-nav__app-searchbar-results-mgl-svg {
     margin-right: 24px;
+    transform: translateY(4px);
   }
 
   .sdds-nav__app-searchbar-results-x-btn {
@@ -522,9 +551,19 @@
     }
 
     .x-btn {
-      background-color: var(--sdds-blue-700);
+      background-color: var(--sdds-white);
       width: 64px;
       position: relative;
+
+      &:hover {
+        background-color: var(--sdds-grey-100);
+      }
+
+      .sdds-nav__app-searchbar-btn-svg {
+        path {
+          fill: var(--sdds-grey-958);
+        }
+      }
     }
 
     .sdds-nav__app-searchbar {
@@ -534,20 +573,30 @@
 
     .sdds-nav__searchbar-input {
       display: flex;
-      background-color: var(--sdds-blue-700);
+      background-color: var(--sdds-white);
       transform: scaleY(1);
       margin: 0;
       border: none;
     }
 
     .sdds-nav__searchbar-input::placeholder {
-      color: var(--sdds-white);
+      color: var(--sdds-grey-800);
     }
 
     .sdds-nav__searchbar-input-expanded {
       display: flex;
       width: 100%;
       position: relative;
+
+      &::after {
+        content: " ";
+        border-bottom: 1px solid var(--sdds-grey-300);
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
     }
 
     .sdds-nav__searchbar-menu {
@@ -835,7 +884,7 @@
 
       .sdds-nav__searchbar-input {
         background-color: var(--sdds-white);
-        color: var(--sdds-grey-800);
+        color: var(--sdds-black);
 
         &::placeholder {
           color: var(--sdds-grey-800);
@@ -843,7 +892,7 @@
       }
 
       .sdds-nav__searchbar-menu {
-        border-top: 1px solid var(--sdds-grey-300);
+        //border-top: 1px solid var(--sdds-grey-300);
       }
 
       .sdds-nav__app-searchbar-btn {
@@ -896,8 +945,10 @@
       transform-origin: top;
       transition: transform 250ms ease;
 
-      .sdds-nav__inline-menu {
-        margin-top: 68px;
+      &.sdds-nav__center-withsearch {
+        .sdds-nav__inline-menu {
+          margin-top: 68px;
+        }
       }
 
       .sdds-nav__inline-menu,
@@ -913,7 +964,7 @@
       }
 
       .sdds-nav__avatar-btn {
-        border-top: 1px solid var(--sdds-grey-300);
+        //border-top: 1px solid var(--sdds-grey-300);
         border-bottom: 1px solid var(--sdds-grey-300);
       }
 
@@ -928,13 +979,15 @@
       }
 
       .sdds-nav__toolbar-menu {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+        //position: absolute;
+        //bottom: 0;
+        //width: 100%;
+        margin-top: -1px;
+        border-top: 1px solid var(--sdds-grey-300);
 
         .sdds-nav__item-core {
           &:first-child {
-            border-top: 1px solid var(--sdds-grey-300);
+            //border-top: 1px solid var(--sdds-grey-300);
           }
         }
       }
@@ -1046,7 +1099,7 @@
     &.sdds-nav__mob-menu--opened {
       .sdds-nav__center {
         transform: scaleY(1);
-        justify-content: flex-start;
+        justify-content: space-between;
       }
     }
 
