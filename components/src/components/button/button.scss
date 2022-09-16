@@ -46,7 +46,7 @@ $props: (background, border-color, color, outline-color);
   }
 
   .sdds-btn-icon {
-    margin-left: var(--sdds-spacing-element-32);
+    margin-left: 28px;
     width: 16px;
     height: 16px;
     line-height: 0;
@@ -70,7 +70,7 @@ $props: (background, border-color, color, outline-color);
     }
 
     .sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-24);
+      margin-left: 16px;
     }
   }
 
@@ -83,7 +83,7 @@ $props: (background, border-color, color, outline-color);
     }
 
     .sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-24);
+      margin-left: 20px;
     }
   }
 
@@ -93,7 +93,7 @@ $props: (background, border-color, color, outline-color);
 
     .sdds-btn-icon,
     &.sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-8);
+      margin-left: 12px;
     }
   }
 
