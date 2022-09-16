@@ -144,11 +144,27 @@ $props: (background, border-color, color, outline-color);
   height: var(--sdds-spacing-element-16);
 }
 
+.sdds-btn-xs {
+  ::slotted([slot="icon"]) {
+    margin-left: 8px;
+  }
+}
+
+.sdds-btn-sm {
+  ::slotted([slot="icon"]) {
+    margin-left: 12px;
+  }
+}
+
+.sdds-btn-md {
+  ::slotted([slot="icon"]) {
+    margin-left: 16px;
+  }
+}
+
 .sdds-btn-only-icon {
   ::slotted([slot="icon"]) {
     margin-left: 0;
-    width: var(--sdds-spacing-element-16);
-    height: var(--sdds-spacing-element-16);
   }
 }
 
