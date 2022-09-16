@@ -14,7 +14,7 @@ export class Icon {
   @Prop({ reflect: true }) name: string = 'arrow_diagonal';
 
   /** Pass a size of icon as a string, for example: 32px, 1rem, 4em... */
-  @Prop({ reflect: true }) size: string = '32px';
+  @Prop({ reflect: true }) size: string = '16px';
 
   @State() icons_object: string = iconsCollection;
 

@@ -6,6 +6,7 @@
 $btn-default-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
+$btn-xs-height: 24px;
 $types: (primary, secondary, ghost, danger);
 $props: (background, border-color, color, outline-color);
 
@@ -49,6 +50,15 @@ $props: (background, border-color, color, outline-color);
     width: 16px;
     height: 16px;
     line-height: 0;
+  }
+
+  &.sdds-btn-xs {
+    padding: 4px 8px;
+    height: $btn-xs-height;
+
+    .sdds-btn-icon {
+      margin-left: 8px;
+    }
   }
 
   &.sdds-btn-sm {
@@ -132,6 +142,14 @@ $props: (background, border-color, color, outline-color);
   margin-left: var(--sdds-spacing-element-32);
   width: var(--sdds-spacing-element-16);
   height: var(--sdds-spacing-element-16);
+}
+
+.sdds-btn-only-icon {
+  ::slotted([slot="icon"]) {
+    margin-left: 0;
+    width: var(--sdds-spacing-element-16);
+    height: var(--sdds-spacing-element-16);
+  }
 }
 
 :host(sdds-button) {
