@@ -1,9 +1,0 @@
-:root,
-html {
-  --#{$prefix}-radio-button-color: #{get-colour(grey-958)};
-  --#{$prefix}-radio-button-interaction-01: #{get-colour(blue-800)};
-  --#{$prefix}-radio-button-interaction-02: #{get-colour(white)};
-  --#{$prefix}-radio-button-bg-hover: #{get-colour(blue-800)};
-  --#{$prefix}-radio-button-bg-focus: #{get-colour(blue-800)};
-  --#{$prefix}-radio-button-disabled: #{get-colour(grey-400)};
-}

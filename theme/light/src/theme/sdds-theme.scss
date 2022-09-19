@@ -4,29 +4,28 @@ This file is the main file for SDDS-theme component
 it contains all imports
 */
 
-@import '../core';
-@import '../reboot';
+@import "../core";
+@import "../reboot";
 
 // import font files
 // CDN variables can be changed in sdds/theme/core/_prefix
-@import url('#{$cdn}/fonts/scania-sans/1.0.0/scania-sans.css');
+@import url("#{$cdn}/fonts/scania-sans/1.0.0/scania-sans.css");
 
 // Components
-@import '../components/accordion';
-@import '../components/banner';
-@import '../components/breadcrumb';
-@import '../components/cards';
-@import '../components/checkbox';
-@import '../components/divider';
-@import '../components/modal';
-@import '../components/radio-button';
-@import '../components/link';
-@import '../components/textfields';
-@import '../components/toast';
-@import '../components/toggle';
-@import '../components/tooltip';
-@import '../components/slider';
-@import '../components/spinner';
-@import '../components/badges';
-@import '../components/side-menu';
-@import '../components/footer';
+@import "../components/accordion";
+@import "../components/banner";
+@import "../components/breadcrumb";
+@import "../components/cards";
+@import "../components/checkbox";
+@import "../components/divider";
+@import "../components/modal";
+@import "../components/link";
+@import "../components/textfields";
+@import "../components/toast";
+@import "../components/toggle";
+@import "../components/tooltip";
+@import "../components/slider";
+@import "../components/spinner";
+@import "../components/badges";
+@import "../components/side-menu";
+@import "../components/footer";
