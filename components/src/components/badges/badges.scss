@@ -1,7 +1,7 @@
 :root,
 html {
-  --sdds-badges-bg-color: #{get-colour(red-500)};
-  --sdds-badges-color-text: #{get-colour(white)};
+  --sdds-badges-bg-color: var(--sdds-red-500);
+  --sdds-badges-color-text: var(--sdds-white);
   --sdds-badges-size-text: 12px;
   --sdds-badges-border-radius: 12px;
   --sdds-badges-default-width: 20px;
