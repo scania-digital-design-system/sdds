@@ -36,49 +36,49 @@ export class Slider {
   supposedValueSlot: number = -1;
 
   /** Text for label */
-  @Prop() label = '';
+  @Prop() label: string = '';
 
   /** Initial value */
-  @Prop() value = '0';
+  @Prop() value: string = '0';
 
   /** Minimum value */
-  @Prop() min = '0';
+  @Prop() min: string = '0';
 
   /** Maximum value */
-  @Prop() max = '100';
+  @Prop() max: string = '100';
 
   /** Number of tick markers (tick for min- and max-value will be added automatically) */
-  @Prop() ticks = '0';
+  @Prop() ticks: string = '0';
 
   /** Decide to show numbers above the tick markers or not  */
-  @Prop() showTickNumbers = false;
+  @Prop() showTickNumbers: boolean = false;
 
   /** Decide to show the tooltip or not */
-  @Prop() tooltip = null;
+  @Prop() tooltip: any = null;
 
   /** Sets the disabled state for the whole component  */
-  @Prop() disabled = null;
+  @Prop() disabled: any = null;
 
   /** Decide to show the controls or not */
-  @Prop() controls = null;
+  @Prop() controls: any = null;
 
   /** Decide to show the input field or not */
-  @Prop() input = null;
+  @Prop() input: any = null;
 
   /** Defines how much to increment/decrement the value when using controls */
-  @Prop() step = '1';
+  @Prop() step: string = '1';
 
   /** Name property (will be inherited by the native slider component) */
-  @Prop() name = '';
+  @Prop() name: string = '';
 
   /** @DEPRECATED Decide to use the small variant or not */
-  @Prop() small = null;
+  @Prop() small: any = null;
 
   /** Sets the size of the scrubber */
   @Prop() size: 'sm' | '' = '';
 
   /** Snap to the ticks grid */
-  @Prop() snap = null;
+  @Prop() snap: any = null;
 
   /** Change event for the textfield */
   @Event({
