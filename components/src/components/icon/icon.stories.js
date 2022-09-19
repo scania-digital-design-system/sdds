@@ -1,7 +1,7 @@
 import { iconsNames } from './iconsArray';
 
 export default {
-  title: 'component/Icons',
+  title: 'Component/Icons',
   parameters: {
     layout: 'centered',
   },
