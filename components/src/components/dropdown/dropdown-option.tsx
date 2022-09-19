@@ -54,7 +54,10 @@ export class DropdownOption {
       });
     }
   }
-
+  @Listen('click')
+  handleClick(ev) {
+    ev.stopPropagation();
+  }
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host
