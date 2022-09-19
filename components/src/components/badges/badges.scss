@@ -1,9 +1,21 @@
-@import "../../helpers/style-helpers.scss";
+:root,
+html {
+  --sdds-badges-bg-color: #{get-colour(red-500)};
+  --sdds-badges-color-text: #{get-colour(white)};
+  --sdds-badges-size-text: 12px;
+  --sdds-badges-border-radius: 12px;
+  --sdds-badges-default-width: 20px;
+  --sdds-badges-default-height: 20px;
+  --sdds-badges-pill-padding: 8px;
+  --sdds-badges-sm-width: 8px;
+  --sdds-badges-sm-height: 8px;
+}
 
 :host {
   display: block;
 }
-.#{$prefix}-badges {
+
+.sdds-badges {
   display: block;
   height: var(--sdds-badges-default-height);
   line-height: var(--sdds-badges-default-height);
@@ -12,25 +24,27 @@
   background-color: var(--sdds-badges-bg-color);
   text-align: center;
 
-  &.#{$prefix}-badges-pill {
+  &.sdds-badges-pill {
     display: inline-block;
     width: unset;
     padding-left: var(--sdds-badges-pill-padding);
     padding-right: var(--sdds-badges-pill-padding);
   }
-  &.#{$prefix}-badges-sm {
+
+  &.sdds-badges-sm {
     display: block;
     height: var(--sdds-badges-sm-height);
     width: var(--sdds-badges-sm-width);
     line-height: var(--sdds-badges-sm-height);
     text-align: center;
   }
-  &.#{$prefix}-badges-hidden {
+
+  &.sdds-badges-hidden {
     display: none;
   }
 }
 
-.#{$prefix}-badges-text {
+.sdds-badges-text {
   font-family: var(--sdds-font-family-semi-condensed-bold);
   font-size: var(--sdds-badges-size-text);
   color: var(--sdds-badges-color-text);
