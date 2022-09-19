@@ -291,6 +291,9 @@
 }
 
 .sdds-option-label {
+  margin: auto 0;
+  display: flex;
+  align-content: center;
   text-decoration: none;
   flex-grow: 2;
 }
@@ -338,8 +341,12 @@
   }
 
   ::slotted(sdds-dropdown-option) {
-    visibility: visible;
+    visibility: hidden;
     opacity: 1;
+  }
+
+  ::slotted(sdds-dropdown-option) label {
+    border: 1px solid red;
   }
 }
 
@@ -390,4 +397,8 @@
 
 .sdds-option-checkbox {
   margin-right: 8px;
+}
+
+.sdds-form-label {
+  display: flex;
 }
