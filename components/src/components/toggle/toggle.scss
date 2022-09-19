@@ -224,7 +224,7 @@
     }
 
     .#{$prefix}-toggle-label {
-      color: var(--sdds-grey-600);
+      color: var(--sdds-toggle-label-colour-disabled);
       pointer-events: none;
     }
     .#{$prefix}-toggle-switch {
@@ -233,7 +233,7 @@
       }
 
       &::after {
-        background-color: var(--sdds-grey-200);
+        background-color: var(--sdds-toggle-switch-disabled);
       }
     }
   }
