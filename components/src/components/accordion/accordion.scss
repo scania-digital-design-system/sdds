@@ -1,8 +1,23 @@
-@import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 @import "../divider/divider.scss";
 @import "../../helpers/components-shared.scss";
+
+:root,
+html {
+  --sdds-accordion-border: #{get-colour(grey-300)};
+  --sdds-accordion-bg: transparent;
+  --sdds-accordion-bg-hover: #{get-colour(white)};
+  --sdds-accordion-bg-focus: transparent;
+  --sdds-accordion-bg-active: #{get-colour(grey-100)};
+  --sdds-accordion-colour: #{get-colour(grey-958)};
+  --sdds-accordion-border-focus: #{get-colour(grey-500)};
+  --sdds-accordion-colour-disabled: #{get-colour(grey-400)};
+
+  .sdds-on-white-bg {
+    --sdds-accordion-bg-hover: #{get-colour(grey-50)};
+  }
+}
 
 @mixin disabledStyle {
   &,
@@ -10,8 +25,8 @@
     cursor: not-allowed;
   }
 
-  .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix {
+  .sdds-accordion-header-prefix,
+  .sdds-accordion-header-suffix {
     background-color: var(--sdds-accordion-bg);
     outline: none;
     pointer-events: none;
@@ -22,7 +37,7 @@
   }
 }
 
-.#{$prefix}-accordion-item {
+.sdds-accordion-item {
   list-style: none;
   color: var(--sdds-accordion-colour);
 
@@ -31,8 +46,8 @@
     box-sizing: border-box;
   }
 
-  .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix {
+  .sdds-accordion-header-prefix,
+  .sdds-accordion-header-suffix {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -42,18 +57,18 @@
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-bg);
 
-    .#{$prefix}-accordion-icon {
+    .sdds-accordion-icon {
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
       color: var(--sdds-accordion-colour);
     }
   }
 
-  .#{$prefix}-accordion-title {
+  .sdds-accordion-title {
     flex-grow: 2;
   }
 
-  .#{$prefix}-accordion-panel {
+  .sdds-accordion-panel {
     cursor: default;
     padding-top: var(--sdds-spacing-element-8);
     padding-bottom: var(--sdds-spacing-element-32);
@@ -73,32 +88,35 @@
     }
   }
 
-  .#{$prefix}-accordion-header-suffix {
-    .#{$prefix}-accordion-icon {
+  .sdds-accordion-header-suffix {
+    .sdds-accordion-icon {
       margin: 0 0 0 var(--sdds-spacing-element-32);
     }
   }
-  .#{$prefix}-accordion-header-prefix {
-    .#{$prefix}-accordion-title {
+
+  .sdds-accordion-header-prefix {
+    .sdds-accordion-title {
       order: 1;
     }
-    .#{$prefix}-accordion-icon {
+
+    .sdds-accordion-icon {
       order: 0;
       margin: 0 var(--sdds-spacing-element-16) 0 0;
     }
   }
 
   &:hover {
-    .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix {
+    .sdds-accordion-header-prefix,
+    .sdds-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-hover);
     }
   }
 
   &:focus {
     @include sdds-focus-state;
-    .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix {
+
+    .sdds-accordion-header-prefix,
+    .sdds-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
       outline: none;
     }
@@ -106,8 +124,8 @@
 
   &:active,
   &.active {
-    .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix {
+    .sdds-accordion-header-prefix,
+    .sdds-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-active);
       outline: none;
     }
@@ -115,13 +133,13 @@
 
   &.disabled {
     &,
-    .#{$prefix}-accordion-header-suffix,
-    .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-panel {
+    .sdds-accordion-header-suffix,
+    .sdds-accordion-header-prefix,
+    .sdds-accordion-panel {
       color: var(--sdds-accordion-colour-disabled);
       cursor: not-allowed;
 
-      .#{$prefix}-accordion-icon {
+      .sdds-accordion-icon {
         color: var(--sdds-accordion-colour-disabled);
       }
     }
@@ -135,20 +153,23 @@
   }
 
   &.expanded {
-    .#{$prefix}-accordion-panel {
+    .sdds-accordion-panel {
       display: block;
     }
-    .#{$prefix}-accordion-icon {
+
+    .sdds-accordion-icon {
       transform: rotate(180deg);
     }
-    .#{$prefix}-accordion-header-suffix {
-      .#{$prefix}-accordion-icon {
+
+    .sdds-accordion-header-suffix {
+      .sdds-accordion-icon {
         margin-right: 0;
         margin-left: var(--sdds-spacing-element-32);
       }
     }
-    .#{$prefix}-accordion-header-prefix {
-      .#{$prefix}-accordion-icon {
+
+    .sdds-accordion-header-prefix {
+      .sdds-accordion-icon {
         margin-left: 0;
         margin-right: var(--sdds-spacing-element-16);
       }
@@ -159,8 +180,8 @@
 :host {
   display: block;
 
-  .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix {
+  .sdds-accordion-header-prefix,
+  .sdds-accordion-header-suffix {
     position: relative;
 
     &::after {
@@ -198,9 +219,9 @@
 :host(:focus) {
   @include sdds-focus-state;
 
-  .#{$prefix}-accordion-item {
-    .#{$prefix}-accordion-header-prefix,
-    .#{$prefix}-accordion-header-suffix {
+  .sdds-accordion-item {
+    .sdds-accordion-header-prefix,
+    .sdds-accordion-header-suffix {
       background-color: var(--sdds-accordion-bg-focus);
       outline: none;
 
@@ -216,8 +237,8 @@
 }
 
 :host(:active) {
-  .#{$prefix}-accordion-header-prefix,
-  .#{$prefix}-accordion-header-suffix {
+  .sdds-accordion-header-prefix,
+  .sdds-accordion-header-suffix {
     background-color: var(--sdds-accordion-bg-active);
     outline: none;
   }
