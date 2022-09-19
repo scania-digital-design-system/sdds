@@ -39,7 +39,7 @@ export class SddsButton {
 
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
       >
-        {this.text}
+        <span>{this.text}</span>
         <slot name="icon" />
       </button>
     );

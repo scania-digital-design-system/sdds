@@ -94,7 +94,7 @@ const ButtonTemplate = ({
   }
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
-  const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
+  const onlyIconCss = onlyIcon ? 'sdds-btn-icon-only' : '';
 
   // chromatic snapshot requires icon to be sdds-icon instead of font
   return `
@@ -103,8 +103,13 @@ const ButtonTemplate = ({
   } ${onlyIconCss}" ${inlineStyle}>
     ${buttonText}
     ${
-      icon
-        ? "<span class='sdds-btn-icon'><sdds-icon name='chevron_right'></sdds-icon></span>"
+      icon && (size === 'lg' || size === 'md')
+        ? "<span class='sdds-btn-icon'><sdds-icon slot='icon' name='chevron_right' size='20px'></sdds-icon></span>"
+        : ''
+    } 
+    ${
+      icon && size === 'sm'
+        ? "<span class='sdds-btn-icon'><sdds-icon slot='icon' name='chevron_right'></sdds-icon></span>"
         : ''
     }
   </button>
@@ -145,11 +150,26 @@ const ComponentBtn = ({
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
 
   return `
-  <sdds-button type="${btnType}" size="${sizeValue}" ${
-    disabled ? 'disabled' : ''
-  } ${fullbleed ? 'fullbleed' : ''} text="${buttonText}" ${inlineStyle}> ${
-    icon ? "<sdds-icon slot='icon' name='chevron_right'></sdds-icon>" : ''
-  } </sdds-button>
+  <sdds-button 
+    type="${btnType}" 
+    size="${sizeValue}" 
+    disabled="${disabled}"
+    fullbleed="${fullbleed}" 
+    text="${buttonText}" 
+    ${inlineStyle}
+    > 
+      ${
+        icon && (size === 'lg' || size === 'md')
+          ? "<sdds-icon slot='icon' name='chevron_right' size='20px'></sdds-icon>"
+          : ''
+      } 
+      
+      ${
+        icon && size === 'sm'
+          ? "<sdds-icon slot='icon' name='chevron_right' ></sdds-icon>"
+          : ''
+      }
+  </sdds-button>
   `;
 };
 
@@ -160,12 +180,13 @@ const ComponentBtn = ({
 export const Native = ButtonTemplate.bind({});
 Native.args = {
   buttonText: 'Button',
+  size: 'lg',
 };
 
 export const NativeOnlyIcon = ButtonTemplate.bind({});
 NativeOnlyIcon.args = {
-  buttonText: "<sdds-icon name='cross'></sdds-icon>",
-  size: 'small',
+  buttonText: "<sdds-icon slot='icon' name='chevron_right'></sdds-icon>",
+  size: 'lg',
   onlyIcon: true,
 };
 
@@ -173,4 +194,5 @@ NativeOnlyIcon.args = {
 export const WebComponent = ComponentBtn.bind({});
 WebComponent.args = {
   buttonText: 'Button',
+  size: 'lg',
 };
