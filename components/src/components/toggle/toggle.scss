@@ -1,17 +1,18 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 @mixin activeState {
   + .#{$prefix}-toggle-switch {
-    &:before {
+    &::before {
       background-color: var(--sdds-toggle-off-slider-pressed);
       border: 1px solid var(--sdds-toggle-off-slider-pressed);
     }
   }
+
   &:checked {
     + .#{$prefix}-toggle-switch {
-      &:before {
+      &::before {
         background-color: var(--sdds-toggle-on-slider-pressed);
         border: 1px solid var(--sdds-toggle-on-slider-pressed);
       }
@@ -24,13 +25,15 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
   &,
   * {
     box-sizing: border-box;
   }
 
   .#{$prefix}-toggle-headline {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
+
     color: var(--sdds-toggle-headline);
     flex: 1 100%;
     margin-bottom: 3rem;
@@ -53,15 +56,16 @@
     height: var(--sdds-toggle-slider-height);
     position: relative;
     display: block;
-    &:after,
-    &:before {
-      content: '';
+
+    &::after,
+    &::before {
+      content: "";
       position: absolute;
       box-sizing: border-box;
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
-    &:before {
+    &::before {
       // slider
       width: var(--sdds-toggle-slider-width);
       height: var(--sdds-toggle-slider-height);
@@ -70,7 +74,7 @@
       left: 0;
     }
 
-    &:after {
+    &::after {
       // switch
       width: 16px;
       height: 16px;
@@ -82,18 +86,21 @@
   }
 
   .#{$prefix}-toggle-label {
-    @include type-style('detail-01');
+    @include type-style("detail-01");
+
     color: var(--sdds-toggle-label-colour);
     padding-left: var(--sdds-spacing-element-8);
   }
 
   .#{$prefix}-toggle-input:checked {
     + .#{$prefix}-toggle-switch {
-      &:before {
+      &::before {
         background-color: var(--sdds-toggle-on-slider);
       }
-      &:after {
-        left: calc(
+
+      &::after {
+        left:
+ calc(
           var(--sdds-toggle-slider-width) - 20px
         ); // slider width - switch width - padding
       }
@@ -102,14 +109,15 @@
 
   .#{$prefix}-toggle-input:focus {
     + .#{$prefix}-toggle-switch {
-      &:before {
+      &::before {
         background-color: var(--sdds-toggle-off-slider-focus);
         border: 1px solid var(--sdds-toggle-off-border-focus);
       }
     }
+
     &:checked {
       + .#{$prefix}-toggle-switch {
-        &:before {
+        &::before {
           background-color: var(--sdds-toggle-on-slider-focus);
           border: 1px solid var(--sdds-toggle-on-border-focus);
         }
@@ -118,7 +126,7 @@
   }
 
   .#{$prefix}-toggle-input:active {
-    @include activeState();
+    @include activeState;
   }
 
   // Size small
@@ -126,24 +134,26 @@
   &.#{$prefix}-toggle-sm {
     .#{$prefix}-toggle-switch {
       &,
-      &:before {
+      &::before {
         width: var(--sdds-toggle-slider-sm-width);
         height: var(--sdds-toggle-slider-sm-height);
       }
-      &:after {
+
+      &::after {
         width: 8px;
         height: 8px;
       }
     }
 
     .#{$prefix}-toggle-label {
-      @include type-style('detail-02');
+      @include type-style("detail-02");
     }
 
     .#{$prefix}-toggle-input:checked {
       + .#{$prefix}-toggle-switch {
-        &:after {
-          left: calc(
+        &::after {
+          left:
+ calc(
             var(--sdds-toggle-slider-sm-width) - 12px
           ); // slider width - switch width - padding
         }
@@ -154,14 +164,14 @@
   // Hover states
   &:hover {
     .#{$prefix}-toggle-switch {
-      &:before {
+      &::before {
         background-color: var(--sdds-toggle-off-slider-hover);
       }
     }
 
     .#{$prefix}-toggle-input:checked {
       + .#{$prefix}-toggle-switch {
-        &:before {
+        &::before {
           background-color: var(--sdds-toggle-on-slider-hover);
         }
       }
@@ -174,8 +184,9 @@
 
   &:active {
     .#{$prefix}-toggle-input {
-      @include activeState();
+      @include activeState;
     }
+
     // .#{$prefix}-toggle-switch{
     //   &:before{
     //     background-color: var(--sdds-toggle-off-slider-pressed);
@@ -200,7 +211,7 @@
       &:checked:focus,
       &:focus {
         + .#{$prefix}-toggle-switch {
-          &:before {
+          &::before {
             background-color: var(--sdds-toggle-slider-disabled);
             border: 0;
           }
@@ -217,10 +228,11 @@
       pointer-events: none;
     }
     .#{$prefix}-toggle-switch {
-      &:before {
+      &::before {
         background-color: var(--sdds-toggle-slider-disabled);
       }
-      &:after {
+
+      &::after {
         background-color: var(--sdds-toggle-switch-disabled);
       }
     }
