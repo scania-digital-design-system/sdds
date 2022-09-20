@@ -107,15 +107,6 @@ export class Slider {
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
 
-  /** Change event for the textfield */
-  @Event({
-    eventName: 'sliderChange',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sliderChangeEmitter: EventEmitter<any>;
-
   @Listen('keydown')
   handleKeydown(event) {
     switch (event.key) {
