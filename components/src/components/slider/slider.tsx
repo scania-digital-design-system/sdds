@@ -257,6 +257,16 @@ export class Slider {
     return trackRect.right - trackRect.left;
   }
 
+  grabScrubber(xOffset, yOffset) {
+    this.scrubberGrabPos = {
+      x: xOffset,
+      y: yOffset,
+    };
+
+    this.scrubberGrabbed = true;
+    this.scrubberInnerElement.classList.add('pressed');
+  }
+
   calculateScrubberLeftFromValue(value) {
     const initValue = value;
     const trackWidth = this.getTrackWidth();
@@ -282,13 +292,6 @@ export class Slider {
     this.scrubberElement.addEventListener('mousedown', (event) => {
       event.preventDefault();
       this.grabScrubber(event.offsetX, event.offsetY);
-    });
-
-    this.scrubberElement.addEventListener('touchstart', (event) => {
-      const rect = this.scrubberElement.getBoundingClientRect();
-      const x = event.targetTouches[0].pageX - rect.left;
-      const y = event.targetTouches[0].pageY - rect.top;
-      this.grabScrubber(x, y);
     });
 
     this.scrubberElement.addEventListener('touchstart', (event) => {
