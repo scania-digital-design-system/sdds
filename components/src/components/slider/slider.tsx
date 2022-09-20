@@ -78,7 +78,7 @@ export class Slider {
   @Prop() size: 'sm' | '' = '';
 
   /** Snap to the ticks grid */
-  @Prop() snap: any = null;
+  @Prop() snap: boolean = null;
 
   /** Change event for the textfield */
   @Event({
