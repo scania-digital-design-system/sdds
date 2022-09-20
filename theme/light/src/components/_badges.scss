@@ -1,0 +1,12 @@
+:root,
+html {
+  --#{$prefix}-badges-bg-color: #{get-colour(red-500)};
+  --#{$prefix}-badges-color-text: #{get-colour(white)};
+  --#{$prefix}-badges-size-text: 12px;
+  --#{$prefix}-badges-border-radius: 12px;
+  --#{$prefix}-badges-default-width: 20px;
+  --#{$prefix}-badges-default-height: 20px;
+  --#{$prefix}-badges-pill-padding: 8px;
+  --#{$prefix}-badges-sm-width: 8px;
+  --#{$prefix}-badges-sm-height: 8px;
+}
