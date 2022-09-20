@@ -54,16 +54,16 @@ export class Slider {
   @Prop() showTickNumbers: boolean = false;
 
   /** Decide to show the tooltip or not */
-  @Prop() tooltip: any = null;
+  @Prop() tooltip: boolean = null;
 
   /** Sets the disabled state for the whole component  */
-  @Prop() disabled: any = null;
+  @Prop() disabled: boolean = null;
 
   /** Decide to show the controls or not */
-  @Prop() controls: any = null;
+  @Prop() controls: boolean = null;
 
   /** Decide to show the input field or not */
-  @Prop() input: any = null;
+  @Prop() input: boolean = null;
 
   /** Defines how much to increment/decrement the value when using controls */
   @Prop() step: string = '1';
@@ -72,7 +72,7 @@ export class Slider {
   @Prop() name: string = '';
 
   /** @DEPRECATED Decide to use the small variant or not */
-  @Prop() small: any = null;
+  @Prop() small: boolean = null;
 
   /** Sets the size of the scrubber */
   @Prop() size: 'sm' | '' = '';
