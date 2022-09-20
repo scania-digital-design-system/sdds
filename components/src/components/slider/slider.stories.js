@@ -171,6 +171,7 @@ const ComponentSlider = ({ ...Basic }) => {
         ${Basic.showInput && 'input'} 
         ${Basic.disabled && 'disabled'} 
         ${Basic.small && 'size="sm"'}
+        ${Basic.readonly && 'readonly'} 
         >
 
       </sdds-slider>
@@ -184,6 +185,8 @@ ready(function () {
   if (sliderStoryLoaded) {
     return;
   }
+
+  console.log('hello');
 
   sliderStoryLoaded = true;
 
