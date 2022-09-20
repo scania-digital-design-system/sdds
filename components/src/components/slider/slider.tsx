@@ -291,6 +291,13 @@ export class Slider {
       this.grabScrubber(x, y);
     });
 
+    this.scrubberElement.addEventListener('touchstart', (event) => {
+      const rect = this.scrubberElement.getBoundingClientRect();
+      const x = event.targetTouches[0].pageX - rect.left;
+      const y = event.targetTouches[0].pageY - rect.top;
+      this.grabScrubber(x, y);
+    });
+
     if (this.useControls) {
       this.minusElement.addEventListener('click', () => {
         this.stepLeft();
