@@ -2,12 +2,6 @@
 html {
   --sdds-badges-bg-color: var(--sdds-red-500);
   --sdds-badges-color-text: var(--sdds-white);
-  --sdds-badges-size-text: 12px;
-  --sdds-badges-border-radius: 12px;
-  --sdds-badges-default-width: 20px;
-  --sdds-badges-default-height: 20px;
-  --sdds-badges-pill-padding: 8px;
-  --sdds-badges-sm-width: 8px;
   --sdds-badges-sm-height: 8px;
 }
 
@@ -17,25 +11,25 @@ html {
 
 .sdds-badges {
   display: block;
-  height: var(--sdds-badges-default-height);
-  line-height: var(--sdds-badges-default-height);
-  width: var(--sdds-badges-default-height);
-  border-radius: var(--sdds-badges-border-radius);
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+  border-radius: 12px;
   background-color: var(--sdds-badges-bg-color);
   text-align: center;
 
   &.sdds-badges-pill {
     display: inline-block;
     width: unset;
-    padding-left: var(--sdds-badges-pill-padding);
-    padding-right: var(--sdds-badges-pill-padding);
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   &.sdds-badges-sm {
     display: block;
-    height: var(--sdds-badges-sm-height);
-    width: var(--sdds-badges-sm-width);
-    line-height: var(--sdds-badges-sm-height);
+    height: 8px;
+    width: 8px;
+    line-height: 8px;
     text-align: center;
   }
 
@@ -46,7 +40,7 @@ html {
 
 .sdds-badges-text {
   font-family: var(--sdds-font-family-semi-condensed-bold);
-  font-size: var(--sdds-badges-size-text);
+  font-size: 12px;
   color: var(--sdds-badges-color-text);
   font-weight: bold;
 }
