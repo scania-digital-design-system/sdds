@@ -124,6 +124,9 @@ export class Textfield {
 
           <div class="sdds-textfield-input-container">
             <input
+              onFocus={() => {
+                this.focusInput = true;
+              }}
               onBlur={() => {
                 this.focusInput = false;
               }}

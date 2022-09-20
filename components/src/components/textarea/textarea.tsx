@@ -105,6 +105,9 @@ export class Textarea {
         )}
         <div class="sdds-textarea-wrapper">
           <textarea
+            onFocus={() => {
+              this.focusInput = true;
+            }}
             onBlur={() => {
               this.focusInput = false;
             }}
