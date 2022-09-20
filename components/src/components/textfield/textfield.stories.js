@@ -141,21 +141,6 @@ const textfieldTemplate = ({
       break;
   }
 
-  console.log('type', type);
-  console.log('placeholderText', placeholderText);
-  console.log('size', size);
-  console.log('minWidth', minWidth);
-  console.log('disabled', disabled);
-  console.log('readonly', readonly);
-  console.log('label', label);
-  console.log('labelplacement', labelplacement);
-  console.log('state', state);
-  console.log('helper', helper);
-  console.log('prefix', prefix);
-  console.log('suffix', suffix);
-  console.log('icon', icon);
-  console.log('textcounter', textcounter);
-
   return `
   <div style="width: 208px">
     <sdds-textfield

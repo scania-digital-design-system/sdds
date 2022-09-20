@@ -93,7 +93,7 @@ export class Textfield {
         class={`
         ${this.nominwidth ? 'sdds-form-textfield-nomin' : ''}
         ${
-          this.focusInput
+          this.focusInput && !this.disabled
             ? 'sdds-form-textfield sdds-textfield-focus'
             : ' sdds-form-textfield'
         }

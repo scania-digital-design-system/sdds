@@ -23,6 +23,18 @@ const Template = () => `
           value="username"
         ></sdds-textfield>
 
+        <sdds-textfield disabled
+          name="another"
+          type="text"
+          value="another"
+        ></sdds-textfield>
+
+        <sdds-textfield
+          name="the third"
+          type="text"
+          value="the third"
+        ></sdds-textfield>
+
         <sdds-textfield
           name="pw"
           type="password"
