@@ -43,6 +43,8 @@ export class Slider {
 
   disabledState: boolean = false;
 
+  readonlyState: boolean = false;
+  
   useControls: boolean = false;
 
   useInput: boolean = false;
@@ -85,6 +87,9 @@ export class Slider {
 
   /** Sets the disabled state for the whole component  */
   @Prop() disabled: boolean = null;
+
+  /** Sets the read only state for the whole component  */
+  @Prop() readonly: boolean = null;
 
   /** Decide to show the controls or not */
   @Prop() controls: boolean = null;
@@ -258,6 +263,10 @@ export class Slider {
   }
 
   grabScrubber(xOffset, yOffset) {
+    if (this.readonlyState) {
+      return;
+    }
+
     this.scrubberGrabPos = {
       x: xOffset,
       y: yOffset,
@@ -353,6 +362,10 @@ export class Slider {
   }
 
   controlsStep(delta) {
+    if (this.readonlyState) {
+      return;
+    }
+
     const trackWidth = this.getTrackWidth();
     const percentage = this.scrubberLeft / trackWidth;
     const numTicks = parseInt(this.ticks);
@@ -412,6 +425,10 @@ export class Slider {
 
     if (this.disabled !== null) {
       this.disabledState = true;
+    }
+
+    if (this.readonly !== null) {
+      this.readonlyState = true;
     }
 
     if (this.controls !== null) {
@@ -563,6 +580,12 @@ export class Slider {
               </div>
               <div class="sdds-slider__input-field-wrapper">
                 <input
+                  onFocus={(e) => {
+                    if (this.readonlyState) {
+                      e.preventDefault();
+                      this.inputElement.blur();
+                    }
+                  }}
                   size={this.calculateInputSizeFromMax()}
                   class="sdds-slider__input-field"
                   value={this.value}

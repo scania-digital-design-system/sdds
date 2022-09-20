@@ -126,6 +126,13 @@ export default {
         type: 'boolean',
       },
     },
+    readonly: {
+      name: 'Read Only',
+      description: 'Put control in read-only state',
+      control: {
+        type: 'boolean',
+      },
+    },
     small: {
       name: 'Small',
       description: 'Use small variant',
@@ -214,4 +221,5 @@ Basic.args = {
   disabled: false,
   small: false,
   snapToTicks: false,
+  readonly: false,
 };
