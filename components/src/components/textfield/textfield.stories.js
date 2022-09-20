@@ -141,6 +141,21 @@ const textfieldTemplate = ({
       break;
   }
 
+  console.log('type', type);
+  console.log('placeholderText', placeholderText);
+  console.log('size', size);
+  console.log('minWidth', minWidth);
+  console.log('disabled', disabled);
+  console.log('readonly', readonly);
+  console.log('label', label);
+  console.log('labelplacement', labelplacement);
+  console.log('state', state);
+  console.log('helper', helper);
+  console.log('prefix', prefix);
+  console.log('suffix', suffix);
+  console.log('icon', icon);
+  console.log('textcounter', textcounter);
+
   return `
   <div style="width: 208px">
     <sdds-textfield
@@ -153,15 +168,15 @@ const textfieldTemplate = ({
       ${readonly ? 'readonly' : ''}
       ${minWidthValue ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
-        ${prefix}
+        ${prefix ? `${prefix}` : ''}
         ${
           label && !labelplacement
             ? `<label slot='sdds-label'>${label}</label>`
             : ''
         }
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix}
-        ${icon}
+        ${suffix ? `${suffix}` : ''}
+        ${icon ? `${icon}` : ''}
     </sdds-textfield>
   </div>
   `;
