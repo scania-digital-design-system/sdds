@@ -1,14 +1,35 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
-.#{$prefix}-card {
+:root,
+html {
+  --sdds-card-bg: var(--sdds-white);
+  --sdds-card-box:
+ 0 3px 3px rgb(0 0 0 / 15%),
+    0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-card-box-hover:
+ 0 -1px 1px rgb(0 0 0 / 5%),
+    0 3px 3px rgb(0 0 0 / 20%);
+  --sdds-card-box-pressed:
+ 0 -1px 1px rgb(0 0 0 / 5%),
+    0 1px 3px rgb(0 0 0 / 20%);
+  --sdds-card-headline: var(--sdds-grey-958);
+  --sdds-card-sub-headline: var(--sdds-grey-600);
+
+  .sdds-on-white-bg {
+    --sdds-card-box:
+ 0 3px 3px rgb(0 0 0 / 10%),
+      0 -1px 1px rgb(0 0 0 / 5%);
+  }
+}
+
+.sdds-card {
   background-color: var(--sdds-card-bg);
   border-radius: 1rem;
   box-shadow: var(--sdds-card-box);
 
   //Clickable state on card
-  &.#{$prefix}-clickable {
+  &.sdds-clickable {
     cursor: pointer;
 
     &:hover {
@@ -21,10 +42,10 @@
   }
 
   //FIXME: WIP img-left
-  &.#{$prefix}-card-img-left {
+  &.sdds-card-img-left {
     display: flex;
 
-    .#{$prefix}-card-img {
+    .sdds-card-img {
       height: auto;
       width: auto;
       border-radius: 1rem 0 0 1rem;
@@ -32,33 +53,35 @@
   }
 
   //header
-  .#{$prefix}-card-header,
-  .#{$prefix}-card-header-avatar {
+  .sdds-card-header,
+  .sdds-card-header-avatar {
     padding: var(--sdds-spacing-element-16);
 
-    & + .#{$prefix}-card-body {
+    & + .sdds-card-body {
       padding-top: 0;
     }
 
-    & + .#{$prefix}-card-img {
+    & + .sdds-card-img {
       border-radius: 0;
     }
   }
 
   //avatar
-  .#{$prefix}-card-header-avatar {
+  .sdds-card-header-avatar {
     display: flex;
 
-    .#{$prefix}-card-headlines,
-    .#{$prefix}-card-avatar {
+    .sdds-card-headlines,
+    .sdds-card-avatar {
       vertical-align: top;
     }
-    .#{$prefix}-card-avatar {
+
+    .sdds-card-avatar {
       margin-right: 16px;
       overflow: hidden;
       height: 36px;
       width: 36px;
       border-radius: 50%;
+
       img,
       svg {
         height: 100%;
@@ -67,38 +90,39 @@
     }
   }
 
-  .#{$prefix}-card-headline,
-  .#{$prefix}-card-sub-headline {
+  .sdds-card-headline,
+  .sdds-card-sub-headline {
     margin: 0;
   }
 
-  .#{$prefix}-card-headline {
+  .sdds-card-headline {
     color: var(--sdds-card-headline);
     margin-bottom: var(--sdds-spacing-element-4);
   }
 
-  .#{$prefix}-card-sub-headline {
+  .sdds-card-sub-headline {
     color: var(--sdds-card-sub-headline);
   }
 
   //divider
-  .#{$prefix}-divider-light-border-top {
+  .sdds-divider-light-border-top {
     margin: 0 var(--sdds-spacing-element-16);
   }
 
   //card image
-  .#{$prefix}-card-img {
+  .sdds-card-img {
     height: 100%;
     width: 100%;
     border-radius: 1rem 1rem 0 0;
   }
 
-  .#{$prefix}-card-body {
-    @include type-style('detail-03');
+  .sdds-card-body {
+    @include type-style("detail-03");
+
     padding: var(--sdds-spacing-element-16);
   }
 
-  .#{$prefix}-card-footer {
+  .sdds-card-footer {
     padding: var(--sdds-spacing-element-16);
 
     //Add possibility to move icon to the right when button is present
