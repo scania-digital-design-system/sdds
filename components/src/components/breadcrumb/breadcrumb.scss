@@ -1,21 +1,28 @@
-@import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 @import "../../helpers/components-shared.scss";
 
-.#{$prefix}-breadcrumb {
+:root,
+html {
+  --sdds-breadcrumb-color: var(--sdds-grey-900);
+  --sdds-breadcrumb-color-hover: var(--sdds-grey-700);
+  --sdds-breadcrumb-color-focus: var(--sdds-grey-700);
+  --sdds-breadcrumb-color-disabled: var(--sdds-grey-500);
+  --sdds-breadcrumb-separator-color: var(--sdds-grey-500);
+}
+
+.sdds-breadcrumb {
   @include type-style("detail-02");
 
   display: flex;
   flex-wrap: wrap;
 
-  .#{$prefix}-breadcrumb-item {
+  .sdds-breadcrumb-item {
     color: var(--sdds-breadcrumb-color);
 
     &::after {
       content: "";
       background-color: var(--sdds-breadcrumb-separator-color);
-      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='8' viewBox='0 0 4 8' fill='currentColor'><path d='M2.548 4.178L0.602 0.985999H1.82L3.78 4.178L1.82 7.37H0.602L2.548 4.178Z' fill='currentColor'/></svg>");
       mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='8' viewBox='0 0 4 8' fill='currentColor'><path d='M2.548 4.178L0.602 0.985999H1.82L3.78 4.178L1.82 7.37H0.602L2.548 4.178Z' fill='currentColor'/></svg>");
       margin-right: 1rem;
       margin-left: 1rem;
@@ -42,10 +49,11 @@
 
       @include sdds-focus-state;
     }
+
     &:disabled,
     &.disabled,
-    &.#{$prefix}-breadcrumb-item-current,
-    [aria-current='page'] {
+    &.sdds-breadcrumb-item-current,
+    [aria-current="page"] {
       color: var(--sdds-breadcrumb-color-disabled);
 
       a {
