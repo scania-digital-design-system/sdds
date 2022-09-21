@@ -1,6 +1,12 @@
 @import "./modal-core";
 @import "../../helpers/components-shared";
 
+:root,
+html {
+  --sdds-modal-backdrop: rgba(0 0 0 / 40%);
+  --sdds-modal-bg: var(--sdds-white);
+}
+
 :host {
   @include modal-host;
 
@@ -22,14 +28,14 @@
   display: none;
 }
 
-slot[name='#{$prefix}-modal-headline']::slotted(*) {
+slot[name="sdds-modal-headline"]::slotted(*) {
   @include modal-headline;
 }
 
-slot[name='#{$prefix}-modal-body']::slotted(*) {
+slot[name="sdds-modal-body"]::slotted(*) {
   @include modal-body;
 }
 
-slot[name='#{$prefix}-modal-actions']::slotted(*) {
+slot[name="sdds-modal-actions"]::slotted(*) {
   @include modal-actions;
 }

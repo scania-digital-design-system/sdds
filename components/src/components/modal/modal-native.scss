@@ -1,12 +1,12 @@
-@import './modal-core';
+@import "./modal-core";
 
-.#{$prefix}-modal-body {
+.sdds-modal-body {
   & > * {
     @include modal-body;
   }
 }
 
-.#{$prefix}-modal-headline {
+.sdds-modal-headline {
   display: contents;
 
   & > * {
@@ -14,12 +14,12 @@
   }
 }
 
-.#{$prefix}-modal-actions {
+.sdds-modal-actions {
   & > * {
     @include modal-actions;
   }
 }
 
-.#{$prefix}-modal-backdrop {
+.sdds-modal-backdrop {
   @include modal-host;
 }
