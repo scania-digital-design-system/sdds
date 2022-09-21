@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -29,6 +36,7 @@ const FilteringTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
 }) => `
   <h3>Filtering example</h3>
    <sdds-table 
@@ -36,6 +44,7 @@ const FilteringTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
+       enable-responsive="${responsiveDesign}"
    >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>

@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     column_1_width: {
       name: 'Column 1 width',
       type: 'string',
@@ -49,6 +56,7 @@ const CustomWidthTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
   column_1_width,
   column_2_width,
   column_3_width,
@@ -62,6 +70,7 @@ const CustomWidthTemplate = ({
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
       no-min-width   
+      enable-responsive="${responsiveDesign}"
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' custom-width="${column_1_width}"></sdds-header-cell>

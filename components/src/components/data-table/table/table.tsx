@@ -37,6 +37,9 @@ export class Table {
   /** Enables extended row feature of data-table */
   @Prop({ reflect: true }) enableExpandableRows: boolean = false;
 
+  /** Enables table to take 100% available width with equal spacing of columns */
+  @Prop({ reflect: true }) enableResponsive: boolean = false;
+
   @State() uniqueTableIdentifier: string = '';
 
   @Element() host: HTMLElement;
@@ -92,7 +95,7 @@ export class Table {
 
   render() {
     return (
-      <Host>
+      <Host class={{ 'sdds-table--responsive': this.enableResponsive }}>
         <table
           class={{
             'sdds-table': true,
@@ -100,6 +103,7 @@ export class Table {
             'sdds-table--divider': this.verticalDividers,
             'sdds-table--no-min-width': this.noMinWidth,
             'sdds-table--on-white-bg': this.whiteBackground,
+            'sdds-table--responsive': this.enableResponsive,
           }}
         >
           <slot />
