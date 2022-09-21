@@ -217,7 +217,7 @@ export class Dropdown {
 
   @Listen('selectOption')
   selectOptionHandler(event: CustomEvent<any>) {
-    this.type === 'multiselect' ? (this.open = true) : (this.open = false);
+    this.open = this.type === 'multiselect';
     if (this.type !== 'multiselect') {
       this.selectedLabel = event.detail.label;
       this.selectedValue = event.detail.value;
