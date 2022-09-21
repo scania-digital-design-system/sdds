@@ -1,22 +1,31 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
-.#{$prefix}-banner {
+:root,
+html {
+  --sdds-banner-bg-default: var(--sdds-grey-50);
+  --sdds-banner-bg-info: var(--sdds-grey-300);
+  --sdds-banner-bg-error: var(--sdds-red-100);
+  --sdds-banner-prefix-default-color: var(--sdds-grey-700);
+  --sdds-banner-prefix-info-color: var(--sdds-blue-400);
+  --sdds-banner-prefix-error-color: var(--sdds-red-500);
+}
+
+.sdds-banner {
   background-color: var(--sdds-banner-bg-default);
   padding: var(--sdds-spacing-element-16);
   display: flex;
 
-  &.#{$prefix}-banner-info {
+  &.sdds-banner-info {
     background-color: var(--sdds-banner-bg-info);
   }
 
-  &.#{$prefix}-banner-error {
+  &.sdds-banner-error {
     background-color: var(--sdds-banner-bg-error);
   }
 }
 
-.#{$prefix}-banner-prefix {
+.sdds-banner-prefix {
   display: inline-flex;
   flex-basis: 16px;
   height: 16px;
@@ -25,20 +34,21 @@
   font-size: 4rem;
   color: var(--sdds-banner-prefix-default-color);
 
-  .#{$prefix}-banner-info & {
+  .sdds-banner-info & {
     color: var(--sdds-banner-prefix-info-color);
   }
-  .#{$prefix}-banner-error & {
+
+  .sdds-banner-error & {
     color: var(--sdds-banner-prefix-error-color);
   }
 }
 
-.#{$prefix}-banner-body {
+.sdds-banner-body {
   flex-grow: 1;
   padding-right: 24px;
 }
 
-.#{$prefix}-banner-close {
+.sdds-banner-close {
   flex-basis: 16px;
   height: 16px;
   width: 16px;
@@ -48,23 +58,25 @@
   cursor: pointer;
 }
 
-.#{$prefix}-banner-header {
+.sdds-banner-header {
   margin: 0;
 
-  + .#{$prefix}-banner-link,
-  + .#{$prefix}-banner-subheader {
+  + .sdds-banner-link,
+  + .sdds-banner-subheader {
     margin-top: 4px;
   }
 }
 
-.#{$prefix}-banner-subheader {
-  @include type-style('detail-02');
-  + .#{$prefix}-banner-link {
+.sdds-banner-subheader {
+  @include type-style("detail-02");
+
+  + .sdds-banner-link {
     margin-top: var(--sdds-spacing-element-16);
   }
 }
 
-.#{$prefix}-banner-link {
+.sdds-banner-link {
   display: block;
-  @include type-style('detail-03');
+
+  @include type-style("detail-03");
 }
