@@ -1,6 +1,10 @@
-@import "../../helpers/style-helpers.scss";
-
 ///////////////////////////////////LINEAR///////////////////////////////////
+:root,
+html {
+  --sdds-spinner-background: var(--sdds-blue-500);
+  --sdds-spinner-border-color: var(--sdds-grey-400);
+  --sdds-spinner-rect-width: 50px;
+}
 
 :host {
   display: block;
@@ -28,16 +32,16 @@ $number-rect: 5;
   animation: spinner-linear 1.3s infinite ease-in-out;
 }
 
-.#{$prefix}-spinner-linear,
-.#{$prefix}-spinner-linear-md {
-  width: var(--sdds-spinner-rect-width);
-  height: var(--sdds-spinner-rect-height);
+.sdds-spinner-linear,
+.sdds-spinner-linear-md {
+  width: 50px;
+  height: 40px;
 
   @include rect;
 
-  &.#{$prefix}-spinner-linear-sm {
-    width: calc(var(--sdds-spinner-rect-width) / 2);
-    height: calc(var(--sdds-spinner-rect-height) / 2);
+  &.sdds-spinner-linear-sm {
+    width: calc(50px / 2);
+    height: calc(40px / 2);
   }
 }
 
@@ -70,20 +74,22 @@ $number-rect: 5;
 ///////////////////////////////////CIRCULAR///////////////////////////////////
 
 %spinner-circular {
-  min-width: var(--sdds-spinner-length);
-  min-height: var(--sdds-spinner-length);
+  min-width: 40px;
+  min-height: 40px;
   border: 0.25em solid var(--sdds-spinner-border-color);
   border-right: 0.25em solid var(--sdds-spinner-background);
   border-radius: 50%;
   animation: spinner-circular 0.6s linear infinite;
   animation: spinner-circular 0.6s linear infinite;
 }
-.#{$prefix}-spinner-circular,
-.#{$prefix}-spinner-circular-md {
+
+.sdds-spinner-circular,
+.sdds-spinner-circular-md {
   @extend %spinner-circular;
-  &.#{$prefix}-spinner-circular-sm {
-    min-width: calc(var(--sdds-spinner-length) / 2);
-    min-height: calc(var(--sdds-spinner-length) / 2);
+
+  &.sdds-spinner-circular-sm {
+    min-width: 20px;
+    min-height: 20px;
     border: 0.2em solid var(--sdds-spinner-border-color);
     border-right: 0.2em solid var(--sdds-spinner-background);
   }
@@ -121,14 +127,14 @@ $number-rect: 5;
   animation: spinner 1.3s infinite ease-in-out;
 }
 
-.#{$prefix}-spinner-cube,
-.#{$prefix}-spinner-cube-md {
-  width: var(--sdds-spinner-length);
-  height: var(--sdds-spinner-length);
+.sdds-spinner-cube,
+.sdds-spinner-cube-md {
+  width: 40px;
+  height: 40px;
 
-  &.#{$prefix}-spinner-cube-sm {
-    width: calc(var(--sdds-spinner-length) / 2);
-    height: calc(var(--sdds-spinner-length) / 2);
+  &.sdds-spinner-cube-sm {
+    width: 20px;
+    height: 20px;
   }
 }
 
