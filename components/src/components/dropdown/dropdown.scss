@@ -341,12 +341,8 @@
   }
 
   ::slotted(sdds-dropdown-option) {
-    visibility: hidden;
+    visibility: visible;
     opacity: 1;
-  }
-
-  ::slotted(sdds-dropdown-option) label {
-    border: 1px solid red;
   }
 }
 

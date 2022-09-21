@@ -312,7 +312,7 @@ export class Dropdown {
             ref={(node) => (this.node = node)}
           >
             <span class="sdds-dropdown-label">
-              {this.type === 'filter' && (
+              {this.type === 'filter' ? (
                 <input
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
                   disabled={this.disabled}
@@ -327,8 +327,7 @@ export class Dropdown {
                   onInput={(event) => this.handleSearch(event)}
                   autoComplete="off"
                 />
-              )}
-              {this.type !== 'filter' && (
+              ) : (
                 <span
                   class={{
                     'sdds-dropdown-label-container': true,
