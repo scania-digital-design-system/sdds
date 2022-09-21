@@ -1,9 +1,29 @@
-@import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
+:root,
+html {
+  --sdds-toggle-switch: var(--sdds-white);
+  --sdds-toggle-switch-disabled: var(--sdds-grey-200);
+  --sdds-toggle-headline: var(--sdds-grey-700);
+  --sdds-toggle-headline-disabled: var(--sdds-grey-400);
+  --sdds-toggle-on-slider: var(--sdds-positive);
+  --sdds-toggle-on-slider-hover: var(--sdds-positive);
+  --sdds-toggle-on-slider-focus: var(--sdds-positive);
+  --sdds-toggle-on-slider-pressed: var(--sdds-positive);
+  --sdds-toggle-on-border-focus: var(--sdds-positive);
+  --sdds-toggle-slider-disabled: var(--sdds-grey-400);
+  --sdds-toggle-label-colour: var(--sdds-grey-900);
+  --sdds-toggle-label-colour-disabled: var(--sdds-grey-600);
+  --sdds-toggle-off-slider: #{get-colour(grey-500)};
+  --sdds-toggle-off-slider-hover: var(--sdds-grey-600);
+  --sdds-toggle-off-slider-focus: var(--sdds-grey-600);
+  --sdds-toggle-off-slider-pressed: var(--sdds-grey-700);
+  --sdds-toggle-off-border-focus: var(--sdds-grey-800);
+}
+
 @mixin activeState {
-  + .#{$prefix}-toggle-switch {
+  + .sdds-toggle-switch {
     &::before {
       background-color: var(--sdds-toggle-off-slider-pressed);
       border: 1px solid var(--sdds-toggle-off-slider-pressed);
@@ -11,7 +31,7 @@
   }
 
   &:checked {
-    + .#{$prefix}-toggle-switch {
+    + .sdds-toggle-switch {
       &::before {
         background-color: var(--sdds-toggle-on-slider-pressed);
         border: 1px solid var(--sdds-toggle-on-slider-pressed);
@@ -20,7 +40,7 @@
   }
 }
 
-.#{$prefix}-toggle {
+.sdds-toggle {
   position: relative;
   display: flex;
   align-items: center;
@@ -31,7 +51,7 @@
     box-sizing: border-box;
   }
 
-  .#{$prefix}-toggle-headline {
+  .sdds-toggle-headline {
     @include type-style("detail-02");
 
     color: var(--sdds-toggle-headline);
@@ -39,7 +59,7 @@
     margin-bottom: 3rem;
   }
 
-  .#{$prefix}-toggle-input {
+  .sdds-toggle-input {
     margin: 0;
     padding: 0;
     position: absolute;
@@ -51,9 +71,9 @@
     cursor: pointer;
   }
 
-  .#{$prefix}-toggle-switch {
-    width: var(--sdds-toggle-slider-width);
-    height: var(--sdds-toggle-slider-height);
+  .sdds-toggle-switch {
+    width: 44px;
+    height: 24px;
     position: relative;
     display: block;
 
@@ -67,9 +87,9 @@
 
     &::before {
       // slider
-      width: var(--sdds-toggle-slider-width);
-      height: var(--sdds-toggle-slider-height);
-      border-radius: var(--sdds-toggle-slider-border-radius);
+      width: 44px;
+      height: 24px;
+      border-radius: 16px;
       background-color: var(--sdds-toggle-off-slider);
       left: 0;
     }
@@ -85,30 +105,27 @@
     }
   }
 
-  .#{$prefix}-toggle-label {
+  .sdds-toggle-label {
     @include type-style("detail-01");
 
     color: var(--sdds-toggle-label-colour);
     padding-left: var(--sdds-spacing-element-8);
   }
 
-  .#{$prefix}-toggle-input:checked {
-    + .#{$prefix}-toggle-switch {
+  .sdds-toggle-input:checked {
+    + .sdds-toggle-switch {
       &::before {
         background-color: var(--sdds-toggle-on-slider);
       }
 
       &::after {
-        left:
- calc(
-          var(--sdds-toggle-slider-width) - 20px
-        ); // slider width - switch width - padding
+        left: calc(44px - 20px); // slider width - switch width - padding
       }
     }
   }
 
-  .#{$prefix}-toggle-input:focus {
-    + .#{$prefix}-toggle-switch {
+  .sdds-toggle-input:focus {
+    + .sdds-toggle-switch {
       &::before {
         background-color: var(--sdds-toggle-off-slider-focus);
         border: 1px solid var(--sdds-toggle-off-border-focus);
@@ -116,7 +133,7 @@
     }
 
     &:checked {
-      + .#{$prefix}-toggle-switch {
+      + .sdds-toggle-switch {
         &::before {
           background-color: var(--sdds-toggle-on-slider-focus);
           border: 1px solid var(--sdds-toggle-on-border-focus);
@@ -125,18 +142,18 @@
     }
   }
 
-  .#{$prefix}-toggle-input:active {
+  .sdds-toggle-input:active {
     @include activeState;
   }
 
   // Size small
 
-  &.#{$prefix}-toggle-sm {
-    .#{$prefix}-toggle-switch {
+  &.sdds-toggle-sm {
+    .sdds-toggle-switch {
       &,
       &::before {
-        width: var(--sdds-toggle-slider-sm-width);
-        height: var(--sdds-toggle-slider-sm-height);
+        width: 28px;
+        height: 16px;
       }
 
       &::after {
@@ -145,17 +162,14 @@
       }
     }
 
-    .#{$prefix}-toggle-label {
+    .sdds-toggle-label {
       @include type-style("detail-02");
     }
 
-    .#{$prefix}-toggle-input:checked {
-      + .#{$prefix}-toggle-switch {
+    .sdds-toggle-input:checked {
+      + .sdds-toggle-switch {
         &::after {
-          left:
- calc(
-            var(--sdds-toggle-slider-sm-width) - 12px
-          ); // slider width - switch width - padding
+          left: calc(28px - 12px); // slider width - switch width - padding
         }
       }
     }
@@ -163,14 +177,14 @@
 
   // Hover states
   &:hover {
-    .#{$prefix}-toggle-switch {
+    .sdds-toggle-switch {
       &::before {
         background-color: var(--sdds-toggle-off-slider-hover);
       }
     }
 
-    .#{$prefix}-toggle-input:checked {
-      + .#{$prefix}-toggle-switch {
+    .sdds-toggle-input:checked {
+      + .sdds-toggle-switch {
         &::before {
           background-color: var(--sdds-toggle-on-slider-hover);
         }
@@ -183,17 +197,17 @@
   }
 
   &:active {
-    .#{$prefix}-toggle-input {
+    .sdds-toggle-input {
       @include activeState;
     }
 
-    // .#{$prefix}-toggle-switch{
+    // .sdds-toggle-switch{
     //   &:before{
     //     background-color: var(--sdds-toggle-off-slider-pressed);
     //   }
     // }
-    // .#{$prefix}-toggle-input:checked {
-    //   + .#{$prefix}-toggle-switch{
+    // .sdds-toggle-input:checked {
+    //   + .sdds-toggle-switch{
     //     &:before{
     //       background-color: var(--sdds-toggle-on-slider-pressed);
     //     }
@@ -203,14 +217,15 @@
 
   &.disabled {
     cursor: not-allowed;
-    .#{$prefix}-toggle-input {
+
+    .sdds-toggle-input {
       pointer-events: none;
 
       &,
       &:checked,
       &:checked:focus,
       &:focus {
-        + .#{$prefix}-toggle-switch {
+        + .sdds-toggle-switch {
           &::before {
             background-color: var(--sdds-toggle-slider-disabled);
             border: 0;
@@ -219,15 +234,16 @@
       }
     }
 
-    .#{$prefix}-toggle-headline {
+    .sdds-toggle-headline {
       color: var(--sdds-toggle-headline-disabled);
     }
 
-    .#{$prefix}-toggle-label {
+    .sdds-toggle-label {
       color: var(--sdds-toggle-label-colour-disabled);
       pointer-events: none;
     }
-    .#{$prefix}-toggle-switch {
+
+    .sdds-toggle-switch {
       &::before {
         background-color: var(--sdds-toggle-slider-disabled);
       }
