@@ -1,23 +1,40 @@
-@import '../../helpers/style-helpers.scss';
+$types: (
+  "light": var(--sdds-grey-300),
+  "dark": var(--sdds-grey-868),
+  "coloured": var(--sdds-blue-600),
+);
+$border-types: top, right, bottom, left;
+
+:root {
+  @each $type, $value in $types {
+    --sdds-divider-#{$type}: #{$value};
+    --sdds-divider-#{$type}-vertical: #{$value};
+
+    @each $border-type in $border-types {
+      --sdds-divider-#{$type}-border-#{$border-type}: #{$value};
+    }
+  }
+}
 
 $types: light, dark, coloured;
 $border-types: top, right, bottom, left;
 
 @each $type in $types {
-  .#{$prefix}-divider-#{$type} {
+  .sdds-divider-#{$type} {
     background-color: var(--sdds-divider-#{$type});
     height: 1px;
   }
 
-  .#{$prefix}-divider-#{$type}-vertical {
+  .sdds-divider-#{$type}-vertical {
     background-color: var(--sdds-divider-#{$type}-vertical);
     height: 100%;
     width: 1px;
   }
 
   @each $border-type in $border-types {
-    .#{$prefix}-divider-#{$type}-border-#{$border-type} {
-      border-#{$border-type}: 1px
+    .sdds-divider-#{$type}-border-#{$border-type} {
+      border-#{$border-type}:
+ 1px
         solid
         var(--sdds-divider-#{$type}-border-#{$border-type});
     }
