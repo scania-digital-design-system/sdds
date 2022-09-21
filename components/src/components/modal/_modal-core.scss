@@ -1,6 +1,7 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
 // @import '@scania/grid/dist/scss/grid';
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
@@ -55,6 +56,11 @@ $modals: (
   background-color: var(--sdds-modal-backdrop);
   padding: 0 16px;
 
+  .sdds-modal {
+    height: 200px;
+    overflow-y: auto;
+  }
+
   @media (max-width: $screen-s) {
     padding: 0;
   }
@@ -69,7 +75,8 @@ $modals: (
 }
 
 @mixin modal-body {
-  @include type-style('body-01');
+  @include type-style("body-01");
+
   padding-bottom: 40px;
   margin: 0;
 
@@ -94,6 +101,27 @@ $modals: (
   position: relative;
   border-radius: 1rem;
   padding: 16px;
+
+  /* SCROLL STUFF */
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--sdds-grey-300);
+    border-radius: 0 1em 1em 0;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background-color: var(--sdds-grey-300);
+    border-radius: 0 1em 1em 0;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--sdds-grey-500);
+    border-radius: 0 1em 1em 0;
+  }
 }
 
 //Width of modals in different breakpoints
@@ -122,6 +150,21 @@ $modals: (
 .#{$prefix}-modal-header {
   display: flex;
   padding-bottom: var(--sdds-spacing-element-16);
+
+  //padding-top: var(--sdds-spacing-element-16);
+  position: sticky;
+  top: 0;
+  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-bg);
+
+  &::before {
+    content: " ";
+    position: absolute;
+    height: 16px;
+    top: -16px;
+    width: 100%;
+    background-color: var(--sdds-modal-bg);
+  }
 }
 
 .#{$prefix}-modal-btn {
@@ -135,6 +178,7 @@ $modals: (
   @media (min-width: $screen-s) {
     margin-left: var(--sdds-spacing-element-16);
   }
+
   @media (min-width: $screen-l) {
     margin-left: var(--sdds-spacing-element-48);
   }
