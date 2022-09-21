@@ -20,6 +20,9 @@ export class TableBodyCell {
   /** Passing same cell key for all body cells which is used in head cell enables features of text align and hovering */
   @Prop({ reflect: true }) cellKey: any;
 
+  /** Disables internal padding. Useful when passing other components to cell. */
+  @Prop({ reflect: true }) disablePadding: boolean = false;
+
   @State() textAlignState: string;
 
   @State() activeSorting: boolean = false;
@@ -91,6 +94,7 @@ export class TableBodyCell {
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
+          'sdds-table__body-cell--no-padding': this.disablePadding,
         }}
         style={{ textAlign: this.textAlignState }}
       >
