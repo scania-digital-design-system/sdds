@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -29,6 +36,7 @@ const EventListenersTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
 }) => {
   window.addEventListener('tableFilteringTerm', (e) => {
     document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
@@ -54,6 +62,7 @@ const EventListenersTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
+      enable-responsive="${responsiveDesign}"
    >
           <sdds-table-toolbar table-title="Disabled functionalities table" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>

@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     column_1_sortable: {
       name: 'Column 1 is sortable',
       control: {
@@ -57,6 +64,7 @@ const SortingTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
   column_1_sortable,
   column_2_sortable,
   column_3_sortable,
@@ -68,6 +76,7 @@ const SortingTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
+      enable-responsive="${responsiveDesign}"
       > 
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column_1_sortable}"></sdds-header-cell>

@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     batchArea: {
       name: 'Batch code',
       control: {
@@ -38,6 +45,7 @@ const BatchActionTemplate = ({
   compactDesign,
   onWhiteBackground,
   batchArea,
+  responsiveDesign,
 }) => `
   <h3>Batch action</h3>
    <sdds-table 
@@ -46,6 +54,7 @@ const BatchActionTemplate = ({
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"   
         white-background="${onWhiteBackground}"
+        enable-responsive="${responsiveDesign}"
       >
           <sdds-table-toolbar table-title="Users buttons - actionbar">   
           ${batchArea}       

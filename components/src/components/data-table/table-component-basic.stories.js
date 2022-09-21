@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -29,6 +36,7 @@ const BasicTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
 }) => `
   <h3>Basic table</h3>
   
@@ -37,6 +45,7 @@ const BasicTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"
+      enable-responsive="${responsiveDesign}"
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' ></sdds-header-cell>

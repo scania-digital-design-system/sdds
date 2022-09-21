@@ -22,6 +22,13 @@ export default {
       },
       defaultValue: false,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -29,6 +36,7 @@ const MultiselectTemplate = ({
   verticalDivider,
   compactDesign,
   onWhiteBackground,
+  responsiveDesign,
 }) => {
   function getValue() {
     const element = document.querySelector(
@@ -62,6 +70,7 @@ const MultiselectTemplate = ({
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"   
         white-background="${onWhiteBackground}"
+         enable-responsive="${responsiveDesign}"
         >          
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>

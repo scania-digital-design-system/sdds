@@ -29,6 +29,13 @@ export default {
       },
       defaultValue: 4,
     },
+    responsiveDesign: {
+      name: 'Responsive design',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -37,6 +44,7 @@ const PaginationTemplate = ({
   compactDesign,
   onWhiteBackground,
   rowsPerPageControl,
+  responsiveDesign,
 }) => `
   <h3>Pagination</h3>
    <sdds-table 
@@ -44,6 +52,7 @@ const PaginationTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"   
       white-background="${onWhiteBackground}"   
+      enable-responsive="${responsiveDesign}"
    >          
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
