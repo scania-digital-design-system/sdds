@@ -1,0 +1,8 @@
+:root,
+html {
+  --#{$prefix}-breadcrumb-color: #{get-colour(grey-900)};
+  --#{$prefix}-breadcrumb-color-hover: #{get-colour(grey-700)};
+  --#{$prefix}-breadcrumb-color-focus: #{get-colour(grey-700)};
+  --#{$prefix}-breadcrumb-color-disabled: #{get-colour(grey-500)};
+  --#{$prefix}-breadcrumb-separator-color: #{get-colour(grey-500)};
+}
