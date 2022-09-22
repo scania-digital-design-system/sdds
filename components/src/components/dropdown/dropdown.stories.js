@@ -23,9 +23,9 @@ export default {
       name: 'Size',
       control: {
         type: 'radio',
-        options: ['large', 'medium', 'small'],
+        options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      defaultValue: 'large',
+      defaultValue: 'lg',
       description: 'Size of the dropdown',
     },
     placeholder: {
@@ -44,16 +44,23 @@ export default {
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['no-label', 'inside', 'outside'],
+        options: {
+          'No default': 'no-default',
+          Inside: 'inside',
+          Outside: 'outside',
+        },
       },
-      defaultValue: 'no-label',
+      defaultValue: 'no-default',
       description: 'Label text position',
     },
     state: {
       name: 'Error',
       control: {
         type: 'radio',
-        options: ['default', 'error'],
+      },
+      options: {
+        Default: 'default',
+        Error: 'error',
       },
       defaultValue: 'default',
       description: 'Support error state',
@@ -69,7 +76,24 @@ export default {
       name: 'Default option',
       control: {
         type: 'radio',
-        options: ['no-default', 'option-1', 'option-2', 'option-3'],
+        options: {
+          'No default': 'no-default',
+          'Option 1': 'option-1',
+          'Option 2': 'option-2',
+          'Option 3': 'option-3',
+        },
+      },
+      defaultValue: 'no-default',
+    },
+    multiDefaultOption: {
+      name: 'Default options',
+      control: {
+        type: 'check',
+        options: {
+          'Option 1': 'option-1',
+          'Option 2': 'option-2',
+          'Option 3': 'option-3',
+        },
       },
     },
     width: {
@@ -121,7 +145,7 @@ const Template = ({
           helper="${helper}"
           state="${state}"
           type="${type}"
-          default-option="${defaultOption}">     
+          default-option="${defaultOption}" >     
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
@@ -130,10 +154,17 @@ const Template = ({
       </div>
   `;
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   disabled: false,
   defaultOption: 'option-1',
+};
+Default.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 export const LabelInside = Template.bind({});
@@ -142,6 +173,13 @@ LabelInside.args = {
   labelPosition: 'inside',
   label: 'Label text',
 };
+LabelInside.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 export const LabelOutside = Template.bind({});
 LabelOutside.args = {
@@ -149,17 +187,38 @@ LabelOutside.args = {
   labelPosition: 'outside',
   label: 'Label text',
 };
+LabelOutside.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 export const Helper = Template.bind({});
 Helper.args = {
   disabled: false,
   helper: 'Helper text',
 };
+Helper.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 export const Error = Template.bind({});
 Error.args = {
   state: 'error',
   helper: 'Error message',
+};
+Error.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 const FilterTemplate = ({
@@ -177,7 +236,7 @@ const FilterTemplate = ({
         placeholder="${placeholder}"
         disabled="${disabled}"
         helper="${helper}"
-        default-option="${defaultOption}"       
+        default-option="${defaultOption}"      
         data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
         ></sdds-dropdown-filter>
       </div>
@@ -186,6 +245,11 @@ const FilterTemplate = ({
 export const Filter = FilterTemplate.bind({});
 Filter.args = {};
 Filter.argTypes = {
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
   labelPosition: {
     table: {
       disable: true,
@@ -201,8 +265,61 @@ Filter.argTypes = {
       disable: true,
     },
   },
+  extraDropdownOptions: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
+const MultiselectTemplate = ({
+  size,
+  disabled = false,
+  helper = '',
+  placeholder,
+  multiDefaultOption,
+  width,
+  labelPosition,
+  label,
+}) => `
+    <div style="width:${width}px">
+        <sdds-dropdown
+         id="sdds-dropdown-multiselect" 
+        size="${size}"
+        placeholder="${placeholder}"
+        disabled="${disabled}"
+        helper="${helper}"
+        default-option='${multiDefaultOption}'
+        type="multiselect"   
+        label-position="${labelPosition}"
+        label="${label}"   
+        >
+          <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-3" tabindex="0">Option 3 Longer</sdds-dropdown-option>
+          </sdds-dropdown>
+      </div>
+  `;
+
+export const Multiselect = MultiselectTemplate.bind({});
+Multiselect.args = {};
+Multiselect.argTypes = {
+  state: {
+    table: {
+      disable: true,
+    },
+  },
+  defaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+  extraDropdownOptions: {
+    table: {
+      disable: true,
+    },
+  },
+};
 const NativeTemplate = ({
   size,
   helper = 'Helper text',
@@ -212,7 +329,7 @@ const NativeTemplate = ({
 }) => `
     <div style="width:${width}px">
         <div class="sdds-dropdown ${
-          size !== 'large' ? `sdds-dropdown-${size}` : ''
+          size !== 'lg' ? `sdds-dropdown-${size}` : ''
         } ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
@@ -238,7 +355,22 @@ NativeSelect.argTypes = {
       disable: true,
     },
   },
+  extraDropdownOptions: {
+    table: {
+      disable: true,
+    },
+  },
   defaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+  multiDefaultOption: {
+    table: {
+      disable: true,
+    },
+  },
+  size: {
     table: {
       disable: true,
     },
