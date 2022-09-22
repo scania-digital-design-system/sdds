@@ -44,16 +44,23 @@ export default {
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['no-label', 'inside', 'outside'],
+        options: {
+          'No default': 'no-default',
+          Inside: 'inside',
+          Outside: 'outside',
+        },
       },
-      defaultValue: 'no-label',
+      defaultValue: 'no-default',
       description: 'Label text position',
     },
     state: {
       name: 'Error',
       control: {
         type: 'radio',
-        options: ['default', 'error'],
+      },
+      options: {
+        Default: 'default',
+        Error: 'error',
       },
       defaultValue: 'default',
       description: 'Support error state',
@@ -76,6 +83,7 @@ export default {
           'Option 3': 'option-3',
         },
       },
+      defaultValue: 'no-default',
     },
     multiDefaultOption: {
       name: 'Default options',
