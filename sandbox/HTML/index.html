@@ -10,9 +10,26 @@
   <script src="node_modules/@scania/theme-light/dist/light-theme.js"></script>
   <script src="node_modules/@scania/components/dist/core.js"></script>
   <script>
+    function multiselectedoption() {
+      const multiDropdownComp = document.getElementById('multiselectid');
+      multiDropdownComp.setAttribute("selected-option", "['option-1','option-3']")
+    }
+
+    function multiselectedreset() {
+      const multiDropdownComp = document.getElementById('multiselectid');
+      multiDropdownComp.resetOption();
+
+    }
+
+    function selectedoption() {
+      const dropdownComp = document.getElementById('selectid');
+      dropdownComp.setAttribute("selected-option", "['option-1','option-7']")
+    }
+
     function reset() {
-      const dropdownComp = document.getElementById('dropdownTest');
+      const dropdownComp = document.getElementById('selectid');
       dropdownComp.resetOption();
+
     }
   </script>
 </head>
@@ -53,28 +70,61 @@
 
       <div class="section-wrapper sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-12">
         <h4>Components</h4>
+        <div class="sbs-margin-top-8">
+          <h5>Multiselect dropdown</h5>
+          <sdds-dropdown id="multiselectid" size="m" placeholder="Multiselect" type="multiselect" label="Label text"
+          label-position="inside"
+            default-option="['option-1', 'option-1', 'option-5','option-2']">
+            <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-3" tabindex="0">Option 3 Longer</sdds-dropdown-option>
+          </sdds-dropdown>
 
+        </div>
+        <div>
+          <button onclick="multiselectedreset()" id="multiselectedresetdropdown" class="sdds-btn sdds-btn-primary">
+            Reset
+          </button>
+          <button onclick="multiselectedoption()" id="multiselectedresetdropdown" class="sdds-btn sdds-btn-primary">
+            Select Option
+          </button>
+        </div>
+        <h5>Regular dropdown</h5>
 
         <div class="sbs-margin-top-8">
+          <sdds-dropdown id="selectid" placeholder="Select option" default-option="option-2" label="Label text"
+            label-position="inside">
+            <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          </sdds-dropdown>
+        </div>
+        <div>
+          <button onclick="reset()" id="multiselectedresetdropdown" class="sdds-btn sdds-btn-primary">
+            Reset
+          </button>
+          <button onclick="selectedoption()" id="multiselectedresetdropdown" class="sdds-btn sdds-btn-primary">
+            Selected Option
+          </button>
+        </div>
+        <div class="sbs-margin-top-8">
           <sdds-dropdown-filter placeholder="Select option"
-          data='[{"value":"opt-1","label":"Jakarta"},{"value":"opt-2","label":"Stockholm"},{"value":"opt-3","label":"Barcelona"}]'>
-        </sdds-dropdown-filter>
-        <sdds-dropdown placeholder="Select option" default-option="option-2" label="Label text"
-          label-position="inside">
+            data='[{"value":"opt-1","label":"Jakarta"},{"value":"opt-2","label":"Stockholm"},{"value":"opt-3","label":"Barcelona"}]'>
+          </sdds-dropdown-filter>
+          <sdds-dropdown placeholder="Select option" default-option="option-2" label="Label text"
+            label-position="inside">
+            <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          </sdds-dropdown>
+        </div>
+        <sdds-dropdown placeholder="Select optionn" id="dropdownTest" label="Label text" selected-option="option-1">
           <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
         </sdds-dropdown>
-      </div>
-      <sdds-dropdown placeholder="Select option" id="dropdownTest" label="Label text">
-          <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
-        </sdds-dropdown>
-        
-      <button onclick="reset()" id="resetdropdown" class="sdds-btn sdds-btn-primary">
-        Reset
-      </button>
+
+
         <div style='background-color:white' class="component-wrapper">
 
           <h5 class="sdds-headline-05">Modal</h5>
