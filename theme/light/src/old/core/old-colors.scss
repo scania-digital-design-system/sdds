@@ -35,8 +35,8 @@ $pagination-bg-color: transparent;
 // List-groups
 $border-radius-list-group: $border-radius;
 
-// Bootstrap components colours
-// TODO: When adding more components, need to remove these colours below
+// Bootstrap components-old colours
+// TODO: When adding more components-old, need to remove these colours below
 $primary: #041e42;
 $secondary: #fff;
 $success: #89b691;
@@ -45,6 +45,7 @@ $warning: #386e44;
 $danger: #de2b36;
 $light: #82848a;
 $dark: #515257;
+
 // All colours
 $global-colors: (
   'blue': #041e42,
@@ -54,7 +55,6 @@ $global-colors: (
   'white': white,
   'black': #2b2c2f,
 );
-
 $interaction-colors: (
   'primary': #16417f,
   'secondary': white,
@@ -63,53 +63,45 @@ $interaction-colors: (
   'warning': #fa6e23,
   'danger': #de2b36,
 );
-
 $extra-colors: (
   'light': #c5c6c9,
   'dark': #515257,
 );
-
 $success-colors: (
   'success-01': #f1f8f2,
   'success-02': #caebd0,
   'success-03': #a6d1ad,
   'success-04': #386e44,
 );
-
 $info-colors: (
   'info-01': #f6f6f9,
   'info-02': #e0e2eb,
   'info-03': #9ca5c2,
   'info-04': #2058a8,
 );
-
 $warning-colors: (
   'warning-01': #fdf5f3,
   'warning-02': #fbe3df,
   'warning-03': #f9cac0,
   'warning-04': #c65416,
 );
-
 $danger-colors: (
   'danger-01': #fdf4f5,
   'danger-02': #fadbdc,
   'danger-03': #f8b6b7,
   'danger-04': #950a16,
 );
-
 $light-colors: (
   'light-01': #f6f6f7,
   'light-02': #e2e2e4,
   'light-03': #c5c6c9,
   'light-04': #a4a6ab,
 );
-
 $dark-colors: (
   'dark-01': #82848a,
   'dark-02': #696a70,
   'dark-03': #2b2c2f,
 );
-
 $link-options: (
   'link-color': $link-color,
   'link-color-hover': $link-color-hover,
@@ -120,7 +112,6 @@ $link-options: (
   'link-decoration': $link-decoration,
   'link-decoration-hover': $link-decoration-hover,
 );
-
 $all-colors: (
   'global': $global-colors,
   'success': $success-colors,
@@ -134,6 +125,7 @@ $all-colors: (
   'link': $link-options,
 );
 $theme-colors-bs: ();
+
 // Merge all colors in to theme-colors and
 // let "root.scss" render the css variables
 @each $name, $type in $all-colors {
@@ -144,7 +136,6 @@ $theme-colors-bs: ();
 $interaction-types: success, info, warning, danger;
 $interaction-types2: secondary, light;
 $interaction-types3: primary, dark;
-
 $types: join(
   join($interaction-types, $interaction-types2),
   $interaction-types3

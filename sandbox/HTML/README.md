@@ -13,7 +13,7 @@ For more information about how to use SDDS, go to [digitaldesign.scania.com/gett
   Navigate to your project folder
 
   ```shell
-  > npm install @scania/components --save-dev
+  > npm install @scania/components-old --save-dev
   > npm install @scania/theme-light --save-dev
   ```
 
