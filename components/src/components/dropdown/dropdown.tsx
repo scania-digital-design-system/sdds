@@ -373,7 +373,6 @@ export class Dropdown {
                       this.placeholder}
 
                     {!this.selectedLabel &&
-                      this.size === 'sm' &&
                       this.labelPosition === 'inside' &&
                       this.placeholder}
                   </span>
