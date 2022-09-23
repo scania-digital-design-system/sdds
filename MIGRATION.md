@@ -18,7 +18,7 @@ We provide a css file that can help you maintain the UI of the components that h
 1. Install sdds components and theme (Installation process is the same as Corporate UI 4)
    
    ```shell
-   npm i @scania/components @scania/theme-light --save
+   npm i @scania/components-old @scania/theme-light --save
    ```
 
 2. Remove corporate ui from your package dependency
