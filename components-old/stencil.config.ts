@@ -8,7 +8,7 @@ const fb = () => ({});
 const dep = fs.existsSync('./.env') ? dotenvPlugin : fb;
 
 export const config: Config = {
-  namespace: 'sdds-tegel-old',
+  namespace: 'sdds-components',
   globalScript: 'src/global.ts',
   enableCache: false,
   hashFileNames: false,

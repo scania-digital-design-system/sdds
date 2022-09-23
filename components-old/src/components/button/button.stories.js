@@ -38,7 +38,7 @@ export default {
       name: 'Enable fullbleed',
       type: 'boolean',
       defaultValue: false,
-      description: 'Fluid width in certain tegel-old',
+      description: 'Fluid width in certain tegel',
     },
     disabled: {
       name: 'Disabled state',

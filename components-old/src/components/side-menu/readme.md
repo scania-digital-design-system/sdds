@@ -1,5 +1,5 @@
 # Introduction
-To use the side menu you need to use the basic structural setup with a [functional header](/components/header) and then a side menu and content area nested in a container with the class `'sdds-push'`. Note that the header should have a `'sdds-nav__mob-menu-btn'` in it so you have something from where to trigger the side-menus open state on lower breakpoints.
+To use the side menu you need to use the basic structural setup with a [functional header](/components-old/header) and then a side menu and content area nested in a container with the class `'sdds-push'`. Note that the header should have a `'sdds-nav__mob-menu-btn'` in it so you have something from where to trigger the side-menus open state on lower breakpoints.
 
 <div style="background-color: var(--sdds-information); padding: 14px; font-weight: bold; font-size: 14px; border-radius: 4px;">This documentation applies to side menu component found in sdds version 3.*</div>
 

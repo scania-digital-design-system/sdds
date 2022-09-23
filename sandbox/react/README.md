@@ -27,7 +27,7 @@ To include components in React application, follow these steps:
 1. Install `components` and `scania-theme` package from NPM in your project folder
 
 ```bash
-npm i @scania/tegel-old --save-dev
+npm i @scania/components --save-dev
 npm i @scania/theme-light --save-dev
 npm i @scania/icons --save-dev
 ```
