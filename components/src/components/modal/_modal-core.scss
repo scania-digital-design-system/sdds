@@ -1,6 +1,6 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
 // @import '@scania/grid/dist/scss/grid';
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
@@ -69,7 +69,8 @@ $modals: (
 }
 
 @mixin modal-body {
-  @include type-style('body-01');
+  @include type-style("body-01");
+
   padding-bottom: 40px;
   margin: 0;
 
@@ -87,7 +88,7 @@ $modals: (
   margin-right: var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-modal {
+.sdds-modal {
   background-color: var(--sdds-modal-bg);
   z-index: 4;
   margin: auto;
@@ -100,7 +101,7 @@ $modals: (
 @each $screen, $modals in $modals {
   @media (min-width: $screen) {
     @each $modal, $value in $modals {
-      .#{$prefix}-modal-#{$modal} {
+      .sdds-modal-#{$modal} {
         width: $value;
       }
     }
@@ -108,23 +109,23 @@ $modals: (
 }
 
 @media (max-width: $screen-s) {
-  .#{$prefix}-modal-md,
-  .#{$prefix}-modal-lg,
-  .#{$prefix}-modal-sm {
+  .sdds-modal-md,
+  .sdds-modal-lg,
+  .sdds-modal-sm {
     height: 100%;
 
-    slot[name='#{$prefix}-modal-actions']::slotted(*) {
+    slot[name="sdds-modal-actions"]::slotted(*) {
       display: flex;
     }
   }
 }
 
-.#{$prefix}-modal-header {
+.sdds-modal-header {
   display: flex;
   padding-bottom: var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-modal-btn {
+.sdds-modal-btn {
   display: inline-block;
   width: 16px;
   height: auto;
@@ -135,6 +136,7 @@ $modals: (
   @media (min-width: $screen-s) {
     margin-left: var(--sdds-spacing-element-16);
   }
+
   @media (min-width: $screen-l) {
     margin-left: var(--sdds-spacing-element-48);
   }

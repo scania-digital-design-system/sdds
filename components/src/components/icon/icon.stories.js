@@ -1,5 +1,5 @@
 export default {
-  title: 'component/Icons',
+  title: 'Component/Icons',
   argTypes: {
     icon: { control: { type: 'text' } },
     size: {
