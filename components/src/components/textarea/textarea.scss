@@ -6,7 +6,7 @@
 
   height: auto;
   width: 100%;
-  min-width: 208px;
+  min-width: var(--sdds-textarea-min-width);
   display: inline-flex;
   background-color: transparent;
   flex-flow: row wrap;
