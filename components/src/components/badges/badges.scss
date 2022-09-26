@@ -1,38 +1,45 @@
-@import "../../helpers/style-helpers.scss";
+:root,
+html {
+  --sdds-badges-bg-color: var(--sdds-red-500);
+  --sdds-badges-color-text: var(--sdds-white);
+}
 
 :host {
   display: block;
 }
-.#{$prefix}-badges {
+
+.sdds-badges {
   display: block;
-  height: var(--sdds-badges-default-height);
-  line-height: var(--sdds-badges-default-height);
-  width: var(--sdds-badges-default-height);
-  border-radius: var(--sdds-badges-border-radius);
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+  border-radius: 12px;
   background-color: var(--sdds-badges-bg-color);
   text-align: center;
 
-  &.#{$prefix}-badges-pill {
+  &.sdds-badges-pill {
     display: inline-block;
     width: unset;
-    padding-left: var(--sdds-badges-pill-padding);
-    padding-right: var(--sdds-badges-pill-padding);
+    padding-left: 8px;
+    padding-right: 8px;
   }
-  &.#{$prefix}-badges-sm {
+
+  &.sdds-badges-sm {
     display: block;
-    height: var(--sdds-badges-sm-height);
-    width: var(--sdds-badges-sm-width);
-    line-height: var(--sdds-badges-sm-height);
+    height: 8px;
+    width: 8px;
+    line-height: 8px;
     text-align: center;
   }
-  &.#{$prefix}-badges-hidden {
+
+  &.sdds-badges-hidden {
     display: none;
   }
 }
 
-.#{$prefix}-badges-text {
+.sdds-badges-text {
   font-family: var(--sdds-font-family-semi-condensed-bold);
-  font-size: var(--sdds-badges-size-text);
+  font-size: 12px;
   color: var(--sdds-badges-color-text);
   font-weight: bold;
 }

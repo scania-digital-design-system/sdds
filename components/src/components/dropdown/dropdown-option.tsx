@@ -34,10 +34,15 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
+  isMultiSelectOption: boolean;
 
   @Listen('mouseover')
   changeFocusHandler() {
     this.host.focus();
+  }
+  @Listen('mouseout')
+  removeFocusHandler() {
+    this.host.blur();
   }
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
@@ -49,19 +54,37 @@ export class DropdownOption {
       });
     }
   }
-
+  @Listen('click')
+  handleClick(ev) {
+    ev.stopPropagation();
+  }
   componentWillLoad() {
     this.innerValue = this.value;
+    this.isMultiSelectOption = this.host
+      .closest('sdds-dropdown')
+      .classList.contains('sdds-dropdown-multiselect');
   }
 
   selectOptionHandler(value) {
     const listOptions = value.parent.childNodes;
     this.selectOption.emit(value);
-
-    listOptions.forEach((optionEl) => {
-      optionEl.selected = false;
-    });
-    this.selected = true;
+    if (!this.isMultiSelectOption) {
+      listOptions.forEach((optionEl) => {
+        optionEl.selected = false;
+      });
+    }
+    var optionCheckbox = this.host.shadowRoot.querySelector('input');
+    if (this.selected) {
+      this.selected = false;
+      if (optionCheckbox) {
+        optionCheckbox.checked = false;
+      }
+    } else {
+      this.selected = true;
+      if (optionCheckbox) {
+        optionCheckbox.checked = true;
+      }
+    }
   }
 
   render() {
@@ -79,26 +102,39 @@ export class DropdownOption {
         }}
         tabindex="-1"
       >
+        {this.isMultiSelectOption && (
+          <div class="sdds-checkbox-item sdds-option-checkbox">
+            <label class="sdds-form-label">
+              <input
+                class="sdds-form-input"
+                type="checkbox"
+                checked={this.selected}
+              />
+            </label>
+          </div>
+        )}
         <span class="sdds-option-label">
           <slot />
         </span>
-        <span class="sdds-option-checkmark">
-          <svg
-            width="10"
-            height="7"
-            viewBox="0 0 10 7"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 3L4 6L9 1"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
+        {!this.isMultiSelectOption && (
+          <span class="sdds-option-checkmark">
+            <svg
+              width="10"
+              height="7"
+              viewBox="0 0 10 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 3L4 6L9 1"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        )}
       </Host>
     );
   }

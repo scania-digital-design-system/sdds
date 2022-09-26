@@ -1,5 +1,5 @@
 export default {
-  title: 'component/Modal',
+  title: 'Component/Modal',
   argTypes: {
     preventBackdrop: {
       name: 'Prevent backdrop',
