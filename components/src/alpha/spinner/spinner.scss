@@ -3,7 +3,6 @@
 html {
   --sdds-spinner-background: var(--sdds-blue-500);
   --sdds-spinner-border-color: var(--sdds-grey-400);
-  --sdds-spinner-rect-width: 50px;
 }
 
 :host {
@@ -28,7 +27,6 @@ $number-rect: 5;
   width: 12%;
   margin-right: 2px;
   display: inline-block;
-  animation: spinner-linear 1.3s infinite ease-in-out;
   animation: spinner-linear 1.3s infinite ease-in-out;
 }
 
@@ -62,11 +60,9 @@ $number-rect: 5;
   40%,
   100% {
     transform: scaleY(0.4);
-    transform: scaleY(0.4);
   }
 
   20% {
-    transform: scaleY(1);
     transform: scaleY(1);
   }
 }
@@ -79,7 +75,6 @@ $number-rect: 5;
   border: 0.25em solid var(--sdds-spinner-border-color);
   border-right: 0.25em solid var(--sdds-spinner-background);
   border-radius: 50%;
-  animation: spinner-circular 0.6s linear infinite;
   animation: spinner-circular 0.6s linear infinite;
 }
 
@@ -108,11 +103,9 @@ $number-rect: 5;
 @keyframes spinner-circular {
   from {
     transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -123,7 +116,6 @@ $number-rect: 5;
   height: 33%;
   background-color: var(--sdds-spinner-background);
   float: left;
-  animation: spinner 1.3s infinite ease-in-out;
   animation: spinner 1.3s infinite ease-in-out;
 }
 
@@ -144,14 +136,12 @@ $number-rect: 5;
   @extend %spinner-cube;
 
   animation-delay: 0.2s;
-  animation-delay: 0.2s;
 }
 
 .cube2,
 .cube6 {
   @extend %spinner-cube;
 
-  animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 
@@ -160,13 +150,11 @@ $number-rect: 5;
   @extend %spinner-cube;
 
   animation-delay: 0.1s;
-  animation-delay: 0.1s;
 }
 
 .cube3 {
   @extend %spinner-cube;
 
-  animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 
@@ -174,7 +162,6 @@ $number-rect: 5;
   @extend %spinner-cube;
 
   animation-delay: 0s;
-  animation-delay: 0s;
 }
 
 @keyframes spinner {
@@ -182,11 +169,9 @@ $number-rect: 5;
   70%,
   100% {
     transform: scale(1, 1);
-    transform: scale(1, 1);
   }
 
   35% {
-    transform: scale(0, 0);
     transform: scale(0, 0);
   }
 }
@@ -196,11 +181,9 @@ $number-rect: 5;
   70%,
   100% {
     transform: scale(1, 1);
-    transform: scale(1, 1);
   }
 
   35% {
-    transform: scale(0, 0);
     transform: scale(0, 0);
   }
 }
