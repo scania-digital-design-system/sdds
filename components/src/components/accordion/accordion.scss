@@ -5,17 +5,17 @@
 
 :root,
 html {
-  --sdds-accordion-border: #{get-colour(grey-300)};
+  --sdds-accordion-border: var(--sdds-grey-300);
   --sdds-accordion-bg: transparent;
-  --sdds-accordion-bg-hover: #{get-colour(white)};
+  --sdds-accordion-bg-hover: var(--sdds-white);
   --sdds-accordion-bg-focus: transparent;
-  --sdds-accordion-bg-active: #{get-colour(grey-100)};
-  --sdds-accordion-colour: #{get-colour(grey-958)};
-  --sdds-accordion-border-focus: #{get-colour(grey-500)};
-  --sdds-accordion-colour-disabled: #{get-colour(grey-400)};
+  --sdds-accordion-bg-active: var(--sdds-grey-100);
+  --sdds-accordion-colour: var(--sdds-grey-958);
+  --sdds-accordion-border-focus: var(--sdds-grey-500);
+  --sdds-accordion-colour-disabled: var(--sdds-grey-400);
 
   .sdds-on-white-bg {
-    --sdds-accordion-bg-hover: #{get-colour(grey-50)};
+    --sdds-accordion-bg-hover: var(--sdds-grey-50);
   }
 }
 

@@ -1,14 +1,21 @@
-@import '../../helpers/style-helpers.scss';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
-.#{$prefix}-toast {
+:root,
+html {
+  --sdds-toast-background-color: var(--sdds-grey-958);
+  --sdds-toast-headline-color: var(--sdds-grey-50);
+  --sdds-toast-subheadline-color: var(--sdds-grey-50);
+  --sdds-toast-link-color: var(--sdds-blue-300);
+}
+
+.sdds-toast {
   display: flex;
   flex-direction: row;
   background: var(--sdds-toast-background-color);
   border-radius: var(--sdds-spacing-element-4);
   border-left: 4px solid white;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15), 0px -1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 10%);
   width: 88rem;
   min-height: var(--sdds-spacing-element-48);
 
@@ -18,26 +25,32 @@
 
   &-success {
     border-left-color: var(--sdds-positive);
-    .#{$prefix}-toast-icon svg {
+
+    .sdds-toast-icon svg {
       background: var(--sdds-positive);
     }
   }
+
   &-info {
     border-left-color: var(--sdds-information);
-    .#{$prefix}-toast-icon svg {
+
+    .sdds-toast-icon svg {
       background: var(--sdds-information);
     }
   }
 
   &-warning {
     border-left-color: var(--sdds-warning);
-    .#{$prefix}-toast-icon svg {
+
+    .sdds-toast-icon svg {
       background: var(--sdds-warning);
     }
   }
+
   &-error {
     border-left-color: var(--sdds-negative);
-    .#{$prefix}-toast-icon svg {
+
+    .sdds-toast-icon svg {
       background: var(--sdds-negative);
     }
   }
@@ -54,7 +67,8 @@
   }
 
   &-headline {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
+
     color: var(--sdds-toast-headline-color);
     width: 63rem;
     float: left;
@@ -76,7 +90,8 @@
   }
 
   &-subheadline {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
+
     color: var(--sdds-toast-subheadline-color);
   }
 
@@ -87,6 +102,7 @@
   &-link {
     height: var(--sdds-spacing-element-16);
     color: var(--sdds-toast-link-color);
-    @include type-style('detail-02');
+
+    @include type-style("detail-02");
   }
 }
