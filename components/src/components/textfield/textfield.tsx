@@ -1,12 +1,4 @@
-import {
-  Component,
-  h,
-  State,
-  Prop,
-  /* Listen ,*/
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-textfield',
