@@ -2,6 +2,62 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
+:root,
+html {
+  --sdds-textfield-color: var(--sdds-grey-868);
+  --sdds-textfield-bg: var(--sdds-white);
+  --sdds-textfield-border-bottom: var(--sdds-grey-400);
+  --sdds-textfield-placeholder: var(--sdds-grey-500);
+  --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
+
+  //Disabled
+  --sdds-textfield-disabled-bg: var(--sdds-white);
+  --sdds-textfield-disabled-color: var(--sdds-grey-400);
+  --sdds-textfield-disabled-placeholder: var(--sdds-grey-400);
+  --sdds-textfield-disabled-label: var(--sdds-grey-400);
+  --sdds-textfield-disabled-ps-color: var(--sdds-grey-400);
+
+  //Label
+  --sdds-textfield-label-color: var(--sdds-grey-958);
+  --sdds-textfield-label-inside-color: var(--sdds-grey-700);
+  --sdds-textfield-placeholder-focus-color: var(--sdds-grey-500);
+
+  //Highlight bar
+  --sdds-textfield-bar: var(--sdds-blue-400);
+
+  //helper
+  --sdds-textfield-helper: var(--sdds-grey-700);
+
+  //success
+  --sdds-textfield-border-bottom-success: var(--sdds-grey-800);
+
+  //error
+  --sdds-textfield-border-bottom-error: var(--sdds-red-500);
+  --sdds-textfield-helper-error: var(--sdds-red-500);
+  --sdds-textfield-bar-error: var(--sdds-red-500);
+  --sdds-textfield-icon-error: var(--sdds-red-500);
+
+  //Textcounter
+  --sdds-textfield-textcounter: var(--sdds-grey-700);
+  --sdds-textfield-textcounter-divider: var(--sdds-grey-500);
+
+  //Prefix and Suffix
+  --sdds-textfield-ps-color: var(--sdds-grey-600);
+
+  // Textarea resize icon
+  --sdds-textfield-resize-icon: var(--sdds-grey-500);
+
+  // --sdds-textarea-min-width: 208px;
+  // --sdds-textarea-height: 112px;
+  --sdds-textarea-border-bottom: var(--sdds-grey-400);
+  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
+
+  //White background
+  .sdds-on-white-bg {
+    --sdds-textfield-bg: var(--sdds-grey-50);
+  }
+}
+
 @mixin textfield-base {
   border-radius: 1rem 1rem 0 0;
   width: 100%;
@@ -37,21 +93,21 @@
 }
 
 //Sizes
-.#{$prefix}-textfield-input {
+.sdds-textfield-input {
   @include textfield-base;
   @include type-style("detail-02");
 
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-textfield-input-md {
+.sdds-textfield-input-md {
   @include textfield-base;
   @include type-style("detail-02");
 
   padding: var(--sdds-spacing-element-16);
 }
 
-.#{$prefix}-textfield-input-sm {
+.sdds-textfield-input-sm {
   @include textfield-base;
   @include type-style("detail-02");
 
@@ -59,7 +115,7 @@
 }
 
 //Container for input field and prefix/suffix
-.#{$prefix}-textfield-container {
+.sdds-textfield-container {
   border-radius: 1rem 1rem 0 0;
   display: flex;
   position: relative;
@@ -73,16 +129,16 @@
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
-  .#{$prefix}-form-textfield-md & {
+  .sdds-form-textfield-md & {
     height: 48px;
   }
 
-  .#{$prefix}-form-textfield-sm & {
+  .sdds-form-textfield-sm & {
     height: 40px;
   }
 }
 
-.#{$prefix}-textfield-input-container {
+.sdds-textfield-input-container {
   position: relative;
   width: 100%;
 }
@@ -96,7 +152,7 @@ slot[name="sdds-label"]::slotted(*) {
   color: var(--sdds-textfield-label-color);
 }
 
-.#{$prefix}-textfield-label-inside {
+.sdds-textfield-label-inside {
   @include type-style("detail-02");
 
   position: absolute;
@@ -136,7 +192,7 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Form control
-.#{$prefix}-form-textfield {
+.sdds-form-textfield {
   display: block;
   min-width: 208px;
 
@@ -147,55 +203,57 @@ slot[name="sdds-label"]::slotted(*) {
 
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
-.#{$prefix}-form-textfield.sdds-textfield-container-label-inside {
-  .#{$prefix}-textfield-input {
+.sdds-form-textfield.sdds-textfield-container-label-inside {
+  .sdds-textfield-input {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: 15px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-textfield-label-inside {
       top: 20px;
     }
 
     @include placeholder-label;
   }
 
-  .#{$prefix}-textfield-input-md {
+  .sdds-textfield-input-md {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  .#{$prefix}-textfield-input-sm {
+  .sdds-textfield-input-sm {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .#{$prefix}-textfield-label-inside {
+    ~ .sdds-textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  &.#{$prefix}-textfield-focus,
-  &.#{$prefix}-textfield-data {
-    .#{$prefix}-textfield-input-sm ~ .#{$prefix}-textfield-label-inside {
+  &.sdds-textfield-focus,
+  &.sdds-textfield-data {
+    .sdds-textfield-input-sm ~ .sdds-textfield-label-inside {
       @include type-style("detail-07");
       @include label-inside-transition;
 
       top: 8px;
     }
-    .#{$prefix}-textfield-input-md ~ .#{$prefix}-textfield-label-inside {
+
+    .sdds-textfield-input-md ~ .sdds-textfield-label-inside {
       @include type-style("detail-07");
       @include label-inside-transition;
 
       top: 8px;
     }
-    .#{$prefix}-textfield-input ~ .#{$prefix}-textfield-label-inside {
+
+    .sdds-textfield-input ~ .sdds-textfield-label-inside {
       @include type-style("detail-07");
       @include label-inside-transition;
 
@@ -205,7 +263,7 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Textfield bottom bar when in focus
-.#{$prefix}-textfield-bar {
+.sdds-textfield-bar {
   position: absolute;
   width: 100%;
 
@@ -221,11 +279,11 @@ slot[name="sdds-label"]::slotted(*) {
     transition: 0.35s ease all;
     transition: 0.35s ease all;
 
-    .#{$prefix}-form-textfield-md & {
+    .sdds-form-textfield-md & {
       top: 46px;
     }
 
-    .#{$prefix}-form-textfield-sm & {
+    .sdds-form-textfield-sm & {
       top: 40px;
     }
   }
@@ -237,14 +295,15 @@ slot[name="sdds-label"]::slotted(*) {
   &::after {
     right: 50%;
   }
-  .#{$prefix}-textfield-focus &:before,
-  .#{$prefix}-textfield-focus &:after {
+
+  .sdds-textfield-focus &::before,
+  .sdds-textfield-focus &::after {
     width: 50%;
   }
 }
 
 //Helper text
-.#{$prefix}-textfield-helper {
+.sdds-textfield-helper {
   @include type-style("detail-05");
 
   display: block;
@@ -254,8 +313,8 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 //Disabled state
-.#{$prefix}-form-textfield-disabled {
-  .#{$prefix}-textfield-container {
+.sdds-form-textfield-disabled {
+  .sdds-textfield-container {
     border-bottom-color: transparent;
   }
 
@@ -271,7 +330,7 @@ slot[name="sdds-label"]::slotted(*) {
 
 //Read only state
 
-.#{$prefix}-textfield-icon__readonly {
+.sdds-textfield-icon__readonly {
   display: none;
   position: absolute;
   right: 18px;
@@ -294,47 +353,47 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-.#{$prefix}-form-textfield-readonly {
+.sdds-form-textfield-readonly {
   pointer-events: none;
 
-  .#{$prefix}-textfield-icon__readonly {
+  .sdds-textfield-icon__readonly {
     display: block;
 
     &:hover {
-      ~ .#{$prefix}-textfield-icon__readonly-label {
+      ~ .sdds-textfield-icon__readonly-label {
         display: block;
       }
     }
   }
 
-  .#{$prefix}-textfield-input {
+  .sdds-textfield-input {
     padding-right: 54px;
     background-color: transparent;
   }
 
-  .#{$prefix}-textfield-container {
+  .sdds-textfield-container {
     background-color: transparent;
   }
 }
 
 //Success state
-.#{$prefix}-form-textfield-success {
-  .#{$prefix}-textfield-container {
+.sdds-form-textfield-success {
+  .sdds-textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
 //Error State
-.#{$prefix}-form-textfield-error {
-  .#{$prefix}-textfield-helper {
+.sdds-form-textfield-error {
+  .sdds-textfield-helper {
     color: var(--sdds-textfield-helper-error);
   }
 
-  .#{$prefix}-textfield-container {
+  .sdds-textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
-  .#{$prefix}-textfield-bar {
+  .sdds-textfield-bar {
     &::before,
     &::after {
       background: var(--sdds-textfield-bar-error);
@@ -347,13 +406,13 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-.#{$prefix}-textfield-textcounter {
+.sdds-textfield-textcounter {
   @include type-style("detail-05");
 
   color: var(--sdds-textfield-textcounter);
   float: right;
 
-  & .#{$prefix}-textfield-textcounter-divider {
+  & .sdds-textfield-textcounter-divider {
     // @include type-style('detail-05');
     color: var(--sdds-textfield-textcounter-divider);
   }
@@ -378,7 +437,7 @@ slot[name="sdds-suffix"]::slotted(sdds-icon) {
 slot[name="sdds-prefix"]::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .#{$prefix}-textfield-input  {
+  & ~ .sdds-textfield-input  {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
