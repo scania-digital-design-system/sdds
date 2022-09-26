@@ -1,0 +1,8 @@
+:root,
+html {
+  --#{$prefix}-spinner-background: #{get-colour(blue-500)};
+  --#{$prefix}-spinner-border-color: #{get-colour(grey-400)};
+  --#{$prefix}-spinner-length: 40px;
+  --#{$prefix}-spinner-rect-height: 40px;
+  --#{$prefix}-spinner-rect-width: 50px;
+}
