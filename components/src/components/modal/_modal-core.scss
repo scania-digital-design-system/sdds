@@ -46,6 +46,29 @@ $modals: (
   ),
 );
 
+@mixin modal-scroll {
+  /* SCROLL STUFF */
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--sdds-grey-300);
+    border-radius: 0 1em 1em 0;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background-color: var(--sdds-grey-300);
+    border-radius: 0 1em 1em 0;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--sdds-grey-500);
+    border-radius: 0 1em 1em 0;
+  }
+}
+
 @mixin modal-host {
   left: 0;
   top: 0;
@@ -57,7 +80,8 @@ $modals: (
   padding: 0 16px;
 
   .sdds-modal {
-    max-height: 60vh;
+    @include modal-scroll max-height: 60vh;
+
     overflow-y: auto;
   }
 
@@ -101,27 +125,6 @@ $modals: (
   position: relative;
   border-radius: 1rem;
   padding: 16px;
-
-  /* SCROLL STUFF */
-
-  /* width */
-  &::-webkit-scrollbar {
-    width: 5px;
-    background-color: var(--sdds-grey-300);
-    border-radius: 0 1em 1em 0;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background-color: var(--sdds-grey-300);
-    border-radius: 0 1em 1em 0;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--sdds-grey-500);
-    border-radius: 0 1em 1em 0;
-  }
 }
 
 //Width of modals in different breakpoints
