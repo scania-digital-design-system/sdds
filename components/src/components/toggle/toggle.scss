@@ -15,7 +15,7 @@ html {
   --sdds-toggle-slider-disabled: var(--sdds-grey-400);
   --sdds-toggle-label-colour: var(--sdds-grey-900);
   --sdds-toggle-label-colour-disabled: var(--sdds-grey-600);
-  --sdds-toggle-off-slider: #{get-colour(grey-500)};
+  --sdds-toggle-off-slider: var(--sdds-grey-500);
   --sdds-toggle-off-slider-hover: var(--sdds-grey-600);
   --sdds-toggle-off-slider-focus: var(--sdds-grey-600);
   --sdds-toggle-off-slider-pressed: var(--sdds-grey-700);
