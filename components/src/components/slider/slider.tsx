@@ -1,4 +1,12 @@
-import { Component, Prop, Listen, Host, h } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  EventEmitter,
+  Event,
+  Listen,
+  Host,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -28,46 +36,58 @@ export class Slider {
   supposedValueSlot: number = -1;
 
   /** Text for label */
-  @Prop() label = '';
+  @Prop() label: string = '';
 
   /** Initial value */
-  @Prop() value = '0';
+  @Prop() value: string = '0';
 
   /** Minimum value */
-  @Prop() min = '0';
+  @Prop() min: string = '0';
 
   /** Maximum value */
-  @Prop() max = '100';
+  @Prop() max: string = '100';
 
   /** Number of tick markers (tick for min- and max-value will be added automatically) */
-  @Prop() ticks = '0';
+  @Prop() ticks: string = '0';
 
   /** Decide to show numbers above the tick markers or not  */
-  @Prop() showTickNumbers = false;
+  @Prop() showTickNumbers: boolean = false;
 
   /** Decide to show the tooltip or not */
-  @Prop() tooltip = null;
+  @Prop() tooltip: boolean = null;
 
   /** Sets the disabled state for the whole component  */
-  @Prop() disabled = null;
+  @Prop() disabled: boolean = null;
 
   /** Decide to show the controls or not */
-  @Prop() controls = null;
+  @Prop() controls: boolean = null;
 
   /** Decide to show the input field or not */
-  @Prop() input = null;
+  @Prop() input: boolean = null;
 
   /** Defines how much to increment/decrement the value when using controls */
-  @Prop() step = '1';
+  @Prop() step: string = '1';
 
   /** Name property (will be inherited by the native slider component) */
-  @Prop() name = '';
+  @Prop() name: string = '';
 
-  /** Decide to use the small variant or not */
-  @Prop() small = null;
+  /** @DEPRECATED Decide to use the small variant or not */
+  @Prop() small: boolean = null;
+
+  /** Sets the size of the scrubber */
+  @Prop() size: 'sm' | '' = '';
 
   /** Snap to the ticks grid */
-  @Prop() snap = null;
+  @Prop() snap: boolean = null;
+
+  /** Change event for the textfield */
+  @Event({
+    eventName: 'sliderChange',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sliderChangeEmitter: EventEmitter<any>;
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -87,6 +107,19 @@ export class Slider {
 
   @Listen('mouseup', { target: 'window' })
   handleMouseUp() {
+    if (!this.scrubberGrabbed) {
+      return;
+    }
+
+    this.scrubberGrabbed = false;
+    this.scrubberInnerElement.classList.remove('pressed');
+    this.updateValue();
+
+    this.trackElement.focus();
+  }
+
+  @Listen('touchend', { target: 'window' })
+  handleTouchEnd() {
     if (!this.scrubberGrabbed) {
       return;
     }
@@ -123,11 +156,43 @@ export class Slider {
     this.updateTrack();
   }
 
+  @Listen('touchmove', { target: 'window' })
+  handleTouchMove(event) {
+    event.preventDefault();
+
+    if (!this.scrubberGrabbed) {
+      return;
+    }
+
+    const numTicks = parseInt(this.ticks);
+    const trackRect = this.trackElement.getBoundingClientRect();
+    let localLeft = event.touches[0].clientX - trackRect.left;
+
+    this.supposedValueSlot = -1;
+
+    if (this.useSnapping && numTicks > 0) {
+      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
+      localLeft = Math.round(localLeft / v) * v;
+
+      this.supposedValueSlot = Math.round(localLeft / v);
+    }
+
+    this.scrubberLeft = this.constrainScrubber(localLeft);
+    this.scrubberElement.style.left = `${this.scrubberLeft}px`;
+
+    this.updateValue();
+    this.updateTrack();
+  }
+
   updateTrack() {
     const trackWidth = this.getTrackWidth();
     const percentageFilled = (this.scrubberLeft / trackWidth) * 100;
 
     this.trackFillElement.style.width = `${percentageFilled}%`;
+  }
+
+  dispatchChangeEvent() {
+    this.sliderChangeEmitter.emit({ value: this.value });
   }
 
   updateValue() {
@@ -145,6 +210,8 @@ export class Slider {
           this.getMin() + percentage * (this.getMax() - this.getMin())
         );
     }
+
+    this.dispatchChangeEvent();
   }
 
   getMin() {
@@ -198,14 +265,14 @@ export class Slider {
 
     this.scrubberElement.addEventListener('mousedown', (event) => {
       event.preventDefault();
+      this.grabScrubber(event.offsetX, event.offsetY);
+    });
 
-      this.scrubberGrabPos = {
-        x: event.offsetX,
-        y: event.offsetY,
-      };
-
-      this.scrubberGrabbed = true;
-      this.scrubberInnerElement.classList.add('pressed');
+    this.scrubberElement.addEventListener('touchstart', (event) => {
+      const rect = this.scrubberElement.getBoundingClientRect();
+      const x = event.targetTouches[0].pageX - rect.left;
+      const y = event.targetTouches[0].pageY - rect.top;
+      this.grabScrubber(x, y);
     });
 
     if (this.useControls) {
@@ -243,6 +310,16 @@ export class Slider {
 
     this.calculateScrubberLeftFromValue(this.value);
     this.updateTrack();
+  }
+
+  grabScrubber(xOffset, yOffset) {
+    this.scrubberGrabPos = {
+      x: xOffset,
+      y: yOffset,
+    };
+
+    this.scrubberGrabbed = true;
+    this.scrubberInnerElement.classList.add('pressed');
   }
 
   calculateInputSizeFromMax() {
@@ -317,7 +394,7 @@ export class Slider {
       this.useInput = true;
     }
 
-    if (this.small !== null) {
+    if (this.small !== null || this.size === 'sm') {
       this.useSmall = true;
     }
 
