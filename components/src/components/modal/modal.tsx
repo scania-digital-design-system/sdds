@@ -97,7 +97,7 @@ export class Modal {
             <button class="sdds-modal-btn"></button>
           </div>
           <slot name="sdds-modal-body"></slot>
-          <div class="sdds-modal-actions">
+          <div class="sdds-modal-actions sdds-modal-actions__sticky">
             <slot name="sdds-modal-actions"></slot>
           </div>
         </div>

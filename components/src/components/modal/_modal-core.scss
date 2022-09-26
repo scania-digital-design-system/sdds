@@ -57,7 +57,7 @@ $modals: (
   padding: 0 16px;
 
   .sdds-modal {
-    height: 200px;
+    max-height: 60vh;
     overflow-y: auto;
   }
 
@@ -150,11 +150,8 @@ $modals: (
 .#{$prefix}-modal-header {
   display: flex;
   padding-bottom: var(--sdds-spacing-element-16);
-
-  //padding-top: var(--sdds-spacing-element-16);
   position: sticky;
   top: 0;
-  background-color: var(--sdds-modal-bg);
   background-color: var(--sdds-modal-bg);
 
   &::before {
@@ -164,6 +161,25 @@ $modals: (
     top: -16px;
     width: 100%;
     background-color: var(--sdds-modal-bg);
+  }
+}
+
+.#{$prefix}-modal-actions {
+  &__sticky {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--sdds-modal-bg);
+    padding-top: var(--sdds-spacing-element-16);
+
+    &::after {
+      content: " ";
+      position: absolute;
+      height: 16px;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      background-color: var(--sdds-modal-bg);
+    }
   }
 }
 
