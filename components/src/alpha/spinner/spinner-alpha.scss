@@ -1,0 +1,200 @@
+@import "../../helpers/style-helpers.scss";
+
+///////////////////////////////////LINEAR///////////////////////////////////
+
+:host {
+  display: block;
+}
+
+$number-rect: 5;
+
+@mixin rect {
+  @for $variable from 1 through $number-rect {
+    .rect#{$variable} {
+      @extend %spinner-alpha-rect;
+
+      animation-delay: calc((#{$variable} / 10) * 1s - 1.3s);
+    }
+  }
+}
+
+%spinner-alpha-rect {
+  background-color: var(--sdds-spinner-alpha-background);
+  height: 100%;
+  width: 12%;
+  margin-right: 2px;
+  display: inline-block;
+  animation: spinner-alpha-linear 1.3s infinite ease-in-out;
+  animation: spinner-alpha-linear 1.3s infinite ease-in-out;
+}
+
+.#{$prefix}-spinner-alpha-linear,
+.#{$prefix}-spinner-alpha-linear-md {
+  width: var(--sdds-spinner-alpha-rect-width);
+  height: var(--sdds-spinner-alpha-rect-height);
+
+  @include rect;
+
+  &.#{$prefix}-spinner-alpha-linear-sm {
+    width: calc(var(--sdds-spinner-alpha-rect-width) / 2);
+    height: calc(var(--sdds-spinner-alpha-rect-height) / 2);
+  }
+}
+
+@keyframes spinner-alpha-linear {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes spinner-alpha-linear {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+///////////////////////////////////CIRCULAR///////////////////////////////////
+
+%spinner-alpha-circular {
+  min-width: var(--sdds-spinner-alpha-length);
+  min-height: var(--sdds-spinner-alpha-length);
+  border: 0.25em solid var(--sdds-spinner-alpha-border-color);
+  border-right: 0.25em solid var(--sdds-spinner-alpha-background);
+  border-radius: 50%;
+  animation: spinner-alpha-circular 0.6s linear infinite;
+  animation: spinner-alpha-circular 0.6s linear infinite;
+}
+.#{$prefix}-spinner-alpha-circular,
+.#{$prefix}-spinner-alpha-circular-md {
+  @extend %spinner-alpha-circular;
+  &.#{$prefix}-spinner-alpha-circular-sm {
+    min-width: calc(var(--sdds-spinner-alpha-length) / 2);
+    min-height: calc(var(--sdds-spinner-alpha-length) / 2);
+    border: 0.2em solid var(--sdds-spinner-alpha-border-color);
+    border-right: 0.2em solid var(--sdds-spinner-alpha-background);
+  }
+}
+
+@keyframes spinner-alpha-circular {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-alpha-circular {
+  from {
+    transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+///////////////////////////////////CUBIC///////////////////////////////////
+%spinner-alpha-cube {
+  width: 33%;
+  height: 33%;
+  background-color: var(--sdds-spinner-alpha-background);
+  float: left;
+  animation: spinner-alpha 1.3s infinite ease-in-out;
+  animation: spinner-alpha 1.3s infinite ease-in-out;
+}
+
+.#{$prefix}-spinner-alpha-cube,
+.#{$prefix}-spinner-alpha-cube-md {
+  width: var(--sdds-spinner-alpha-length);
+  height: var(--sdds-spinner-alpha-length);
+
+  &.#{$prefix}-spinner-alpha-cube-sm {
+    width: calc(var(--sdds-spinner-alpha-length) / 2);
+    height: calc(var(--sdds-spinner-alpha-length) / 2);
+  }
+}
+
+.cube1,
+.cube5,
+.cube9 {
+  @extend %spinner-alpha-cube;
+
+  animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.cube2,
+.cube6 {
+  @extend %spinner-alpha-cube;
+
+  animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.cube4,
+.cube8 {
+  @extend %spinner-alpha-cube;
+
+  animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.cube3 {
+  @extend %spinner-alpha-cube;
+
+  animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.cube7 {
+  @extend %spinner-alpha-cube;
+
+  animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes spinner-alpha {
+  0%,
+  70%,
+  100% {
+    transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  35% {
+    transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes spinner-alpha {
+  0%,
+  70%,
+  100% {
+    transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  35% {
+    transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+}
