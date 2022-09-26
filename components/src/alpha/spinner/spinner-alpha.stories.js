@@ -50,8 +50,8 @@ const Template = ({ size, type }) => {
   return `
   ${style}
   <div class="demo">
-  <sdds-spinner size="${sizeValue}" type="${type}">
-  </sdds-spinner>
+  <sdds-spinner-alpha size="${sizeValue}" type="${type}">
+  </sdds-spinner-alpha>
   </div>
 
   `;
