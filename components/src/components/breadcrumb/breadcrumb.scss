@@ -3,13 +3,22 @@
 @import "@scania/typography/dist/scss/tokens";
 @import "../../helpers/components-shared.scss";
 
-.#{$prefix}-breadcrumb {
+:root,
+html {
+  --sdds-breadcrumb-color: var(--sdds-grey-900);
+  --sdds-breadcrumb-color-hover: var(--sdds-grey-700);
+  --sdds-breadcrumb-color-focus: var(--sdds-grey-700);
+  --sdds-breadcrumb-color-disabled: var(--sdds-grey-500);
+  --sdds-breadcrumb-separator-color: var(--sdds-grey-500);
+}
+
+.sdds-breadcrumb {
   @include type-style("detail-02");
 
   display: flex;
   flex-wrap: wrap;
 
-  .#{$prefix}-breadcrumb-item {
+  .sdds-breadcrumb-item {
     color: var(--sdds-breadcrumb-color);
 
     &::after {
@@ -41,10 +50,11 @@
 
       @include sdds-focus-state;
     }
+
     &:disabled,
     &.disabled,
-    &.#{$prefix}-breadcrumb-item-current,
-    [aria-current='page'] {
+    &.sdds-breadcrumb-item-current,
+    [aria-current="page"] {
       color: var(--sdds-breadcrumb-color-disabled);
 
       a {
