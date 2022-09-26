@@ -2,6 +2,19 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
+:root,
+html {
+  --sdds-slider-width: 100px;
+  --sdds-slider-track-width: 100px;
+  --sdds-slider-track-height: 4px;
+  --sdds-slider-thumb-diameter: 16px;
+  --sdds-slider-thumb-diameter-hover: 21px;
+  --sdds-slider-track-color: var(--sdds-grey-100);
+  --sdds-slider-fill-color: var(--sdds-blue-800);
+  --sdds-slider-span-color: var(--sdds-green-800);
+  --sdds-slider-error-red-color: var(--sdds-red-500);
+}
+
 :host {
   display: block;
 }
