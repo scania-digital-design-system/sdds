@@ -1,7 +1,14 @@
-@import "../../helpers/style-helpers.scss";
 @import "../../helpers/components-shared";
 
-.#{$prefix}-link {
+:root {
+  --sdds-link: var(--sdds-blue-500);
+  --sdds-link-hover: var(--sdds-blue-400);
+  --sdds-link-focus: var(--sdds-blue-400);
+  --sdds-link-visited: var(--sdds-blue-400);
+  --sdds-link-disabled: var(--sdds-grey-400);
+}
+
+.sdds-link {
   cursor: pointer;
   outline: none;
 
@@ -9,13 +16,13 @@
   &.active,
   &:active {
     color: var(--sdds-link);
-    text-decoration: var(--sdds-link-text-decoration);
+    text-decoration: underline;
     text-decoration-color: var(--sdds-link);
   }
 
   &:hover {
     color: var(--sdds-link-hover);
-    text-decoration: var(--sdds-link-text-decoration);
+    text-decoration: underline;
     text-decoration-color: var(--sdds-link-hover);
   }
 
