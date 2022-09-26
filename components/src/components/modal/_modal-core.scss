@@ -80,8 +80,9 @@ $modals: (
   padding: 0 16px;
 
   .sdds-modal {
-    @include modal-scroll max-height: 60vh;
+    @include modal-scroll;
 
+    max-height: 60vh;
     overflow-y: auto;
   }
 
