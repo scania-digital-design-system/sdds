@@ -7,20 +7,27 @@ import { Component, Host, State, Element, h } from '@stencil/core';
 })
 export class InlineTabsFullbleed {
   @Element() host: HTMLElement;
+
   @State() tabs: Array<any> = []; // array with metadata for slotted children
+
   @State() showLeftScroll: boolean = false;
+
   @State() showRightScroll: boolean = false;
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+
   componentWidth: number = 0; // visible width of this component
+
   buttonsWidth: number = 0; // total width of all nav items combined
+
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
       console.log('resizeObserver ...');
-      for (let entry of entries) {
+      for (const entry of entries) {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
 
@@ -113,12 +120,11 @@ export class InlineTabsFullbleed {
           </div>
           <div class="sdds-inline-tabs-fullbleed-navigation">
             <button
-              class={
-                'sdds-inline-tabs-fullbleed--forward ' +
-                (this.showRightScroll
+              class={`sdds-inline-tabs-fullbleed--forward ${
+                this.showRightScroll
                   ? 'sdds-inline-tabs-fullbleed--back__show'
-                  : '')
-              }
+                  : ''
+              }`}
               onClick={() => this._scrollRight()}
             >
               <svg
@@ -137,12 +143,11 @@ export class InlineTabsFullbleed {
               </svg>
             </button>
             <button
-              class={
-                'sdds-inline-tabs-fullbleed--back ' +
-                (this.showLeftScroll
+              class={`sdds-inline-tabs-fullbleed--back ${
+                this.showLeftScroll
                   ? 'sdds-inline-tabs-fullbleed--back__show'
-                  : '')
-              }
+                  : ''
+              }`}
               onClick={() => this._scrollLeft()}
             >
               <svg
