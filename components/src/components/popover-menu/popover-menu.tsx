@@ -19,7 +19,7 @@ export class PopoverMenu {
   @Element() popoverMenuElement!: HTMLElement;
 
   /** The CSS-selector that will trigger this Popover Menu */
-  @Prop() selector = '';
+  @Prop() selector: string = '';
 
   /** Decides if the Popover Menu should be visible from the start */
   @Prop() show: boolean = false;
