@@ -15,24 +15,43 @@ import {
 })
 export class Slider {
   wrapperElement: HTMLElement = null;
+
   scrubberElement: HTMLElement = null;
+
   scrubberInnerElement: HTMLElement = null;
+
   dividersElement: HTMLElement = null;
+
   trackElement: HTMLElement = null;
+
   trackFillElement: HTMLElement = null;
+
   minusElement: HTMLElement = null;
+
   plusElement: HTMLElement = null;
+
   inputElement: HTMLInputElement = null;
+
   nativeRangeInputElement: HTMLInputElement = null;
+
   scrubberGrabPos: object = { x: 0, y: 0 };
+
   scrubberGrabbed: boolean = false;
+
   scrubberLeft: number = 0;
+
   tickValues: Array<number> = [];
+
   disabledState: boolean = false;
+
   useControls: boolean = false;
+
   useInput: boolean = false;
+
   useSmall: boolean = false;
+
   useSnapping: boolean = false;
+
   supposedValueSlot: number = -1;
 
   /** Text for label */
@@ -201,14 +220,12 @@ export class Slider {
     /* if snapping (supposedValueSlot > 0) is enabled, make sure we display the supposed value (instead of maybe getting a -1/+1 depending on rounding)  */
     if (this.supposedValueSlot > 0) {
       const supposedValue = this.tickValues[this.supposedValueSlot];
-      this.value = '' + supposedValue;
+      this.value = `${supposedValue}`;
     } else {
       const percentage = this.scrubberLeft / trackWidth;
-      this.value =
-        '' +
-        Math.trunc(
-          this.getMin() + percentage * (this.getMax() - this.getMin())
-        );
+      this.value = `${Math.trunc(
+        this.getMin() + percentage * (this.getMax() - this.getMin())
+      )}`;
     }
 
     this.dispatchChangeEvent();
@@ -256,7 +273,7 @@ export class Slider {
   }
 
   componentDidLoad() {
-    const resizeObserver = new ResizeObserver((/*entries*/) => {
+    const resizeObserver = new ResizeObserver((/* entries */) => {
       this.calculateScrubberLeftFromValue(this.value);
       this.updateTrack();
     });
@@ -289,7 +306,7 @@ export class Slider {
       this.inputElement.addEventListener('keydown', (event) => {
         event.stopPropagation();
 
-        if (event.key == 'Enter') {
+        if (event.key === 'Enter') {
           let newValue = parseInt(this.inputElement.value);
 
           if (newValue < this.getMin()) {
@@ -342,7 +359,7 @@ export class Slider {
       currentValue = this.getMax();
     }
 
-    this.value = '' + currentValue;
+    this.value = `${currentValue}`;
 
     /* if snapping is enabled, instead just increment or decrement the current "fixed" value from our ticknumber array */
     if (this.useSnapping && numTicks > 0) {
@@ -426,12 +443,9 @@ export class Slider {
         ></input>
 
         <div
-          class={
-            'sdds-slider ' +
-            (this.disabledState ? 'disabled' : '') +
-            ' ' +
-            (this.useSmall ? 'sdds-slider-small' : '')
-          }
+          class={`sdds-slider ${this.disabledState ? 'disabled' : ''} ${
+            this.useSmall ? 'sdds-slider-small' : ''
+          }`}
           ref={(el) => (this.wrapperElement = el as HTMLElement)}
         >
           {this.useInput && (
@@ -480,13 +494,11 @@ export class Slider {
                   ref={(el) => (this.dividersElement = el as HTMLElement)}
                   class="sdds-slider__value-dividers"
                 >
-                  {this.tickValues.map((value) => {
-                    return (
-                      <div class="sdds-slider__value-divider">
-                        {this.showTickNumbers && <span>{value}</span>}
-                      </div>
-                    );
-                  })}
+                  {this.tickValues.map((value) => (
+                    <div class="sdds-slider__value-divider">
+                      {this.showTickNumbers && <span>{value}</span>}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
