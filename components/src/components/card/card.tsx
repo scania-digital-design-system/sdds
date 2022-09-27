@@ -1,3 +1,6 @@
+// TODO: Make a proper web component out of this one?
+// It is not published as web component on our web site, so no stress of breaking changes etc...
+
 import { Component, h } from '@stencil/core';
 
 @Component({
