@@ -6,16 +6,16 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
   shadow: true,
 })
 export class SddsBadges {
-  /**Value shown in badge*/
+  /** Value shown in badge */
   @Prop() value: string = '';
 
-  /**Changes visibility of badge*/
+  /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
 
-  /** !!Deprecated!! Use size prop instead. Changes badge from default to small size*/
+  /** !!Deprecated!! Use size prop instead. Changes badge from default to small size */
   @Prop() isSmall: boolean = false;
 
-  /**Component is avaible in size default and small (small dot). Default size is default*/
+  /** Component is available in size default and small (small dot). Default size is default */
   @Prop() size: 'default' | 'sm' = 'default';
 
   @State() shape: string = '';
@@ -29,6 +29,7 @@ export class SddsBadges {
   watchProps() {
     this.checkProps();
   }
+
   componentWillLoad() {
     this.checkProps();
     if (this.isSmall) {
