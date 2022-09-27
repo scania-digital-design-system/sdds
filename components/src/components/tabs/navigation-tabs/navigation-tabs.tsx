@@ -7,19 +7,26 @@ import { Component, Host, State, Element, h } from '@stencil/core';
 })
 export class NavigationTabs {
   @Element() host: HTMLElement;
+
   @State() tabs: Array<any> = []; // array with metadata for slotted children
+
   @State() showLeftScroll: boolean = false;
+
   @State() showRightScroll: boolean = false;
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+
   componentWidth: number = 0; // visible width of this component
+
   buttonsWidth: number = 0; // total width of all nav items combined
+
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
 
@@ -112,12 +119,11 @@ export class NavigationTabs {
           </div>
           <div class="sdds-navigation-tabs-navigation">
             <button
-              class={
-                'sdds-navigation-tabs--forward ' +
-                (this.showRightScroll
+              class={`sdds-navigation-tabs--forward ${
+                this.showRightScroll
                   ? 'sdds-navigation-tabs--forward__show'
-                  : '')
-              }
+                  : ''
+              }`}
               onClick={() => this._scrollRight()}
             >
               <svg
@@ -136,10 +142,9 @@ export class NavigationTabs {
               </svg>
             </button>
             <button
-              class={
-                'sdds-navigation-tabs--back ' +
-                (this.showLeftScroll ? 'sdds-navigation-tabs--back__show' : '')
-              }
+              class={`sdds-navigation-tabs--back ${
+                this.showLeftScroll ? 'sdds-navigation-tabs--back__show' : ''
+              }`}
               onClick={() => this._scrollLeft()}
             >
               <svg
