@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-spinner',
@@ -10,28 +10,16 @@ export class Spinner {
 
   @Prop() type = '';
 
-  @State() cubes = 9;
-
-  @State() rects = 5;
-
-  renderElements(num, className) {
-    const elems = [];
-    for (let i = 1; i <= num; i++) {
-      elems.push(<div class={className + i}></div>);
-    }
-    return elems;
-  }
-
   render() {
     return (
-      <div
-        class={`sdds-spinner-${this.type} sdds-spinner-${this.type}-${
-          this.size == 'sm' || this.size == 'md' ? this.size : ''
-        } `}
-      >
-        {this.type === 'cube' && this.renderElements(this.cubes, 'cube')}
-        {this.type === 'linear' && this.renderElements(this.rects, 'rect')}
-      </div>
+      <host>
+        <svg class="sdds-spinner-svg">
+          <path
+            class="sdds-spinner-path"
+            d="M120 28.3 m0 -25 a25 25 0 1 0 0 50 a25 25 0 1 0 0 -50"
+          />
+        </svg>
+      </host>
     );
   }
 }

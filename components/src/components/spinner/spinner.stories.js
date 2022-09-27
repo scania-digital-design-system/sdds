@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Spinner',
+  title: 'Component/Spinner',
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
   },
@@ -30,6 +30,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: #F6F6F7; 
+width: auto;
+height: auto;
+
 }
 </style>`;
 const Template = ({ size, type }) => {
@@ -48,11 +51,8 @@ const Template = ({ size, type }) => {
   }
 
   return `
-  ${style}
-  <div class="demo">
-  <sdds-spinner size="${sizeValue}" type="${type}">
+  <sdds-spinner>
   </sdds-spinner>
-  </div>
 
   `;
 };
