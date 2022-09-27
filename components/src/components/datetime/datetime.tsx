@@ -35,6 +35,7 @@ export class Datetime {
   /** Name property */
   @Prop() name = '';
 
+  // TODO: This one needs better naming
   /** Error state of input */
   @Prop() state: string;
 
@@ -82,10 +83,10 @@ export class Datetime {
   render() {
     let className = ' sdds-datetime-input';
     if (this.size === 'md') {
-      className += className + '-md';
+      className += `${className}-md`;
     }
     if (this.size === 'sm') {
-      className += className + '-sm';
+      className += `${className}-sm`;
     }
     return (
       <div
