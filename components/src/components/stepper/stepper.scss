@@ -1,4 +1,5 @@
-@import "../../helpers/style-helpers.scss";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-stepper {
   @include type-style("detail-02");
