@@ -1,10 +1,9 @@
-:root,
-html {
+:host {
+  // Variables
   --sdds-badges-bg-color: var(--sdds-red-500);
   --sdds-badges-color-text: var(--sdds-white);
-}
 
-:host {
+  // Styling
   display: block;
 }
 
