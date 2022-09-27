@@ -1,8 +1,8 @@
-@import "../../helpers/style-helpers.scss";
+//TODO: Remove dependencies on textfield!!!
 @import "../textfield/textfield.scss";
 
-.#{$prefix}-textarea-container {
-  @extend .#{$prefix}-textfield-container;
+.sdds-textarea-container {
+  @extend .sdds-textfield-container;
 
   height: auto;
   width: 100%;
@@ -13,8 +13,8 @@
   border-bottom: 0;
 }
 
-.#{$prefix}-textarea-wrapper {
-  @extend .#{$prefix}-textfield-bar;
+.sdds-textarea-wrapper {
+  @extend .sdds-textfield-bar;
 
   position: relative;
   width: unset;
@@ -25,9 +25,10 @@
     top: calc(100% - 2px);
   }
 }
-.#{$prefix}-textarea-input {
+
+.sdds-textarea-input {
   @include textfield-base;
-  @extend .#{$prefix}-textfield-input;
+  @extend .sdds-textfield-input;
 
   display: block;
   resize: vertical;
@@ -45,7 +46,7 @@
 }
 
 // Need to override default resizer in FF & Safari
-.#{$prefix}-textarea-resizer-icon {
+.sdds-textarea-resizer-icon {
   color: var(--sdds-textfield-resize-icon);
   position: absolute;
   display: block;
@@ -61,7 +62,7 @@
   }
 }
 
-.#{$prefix}-textarea-label {
+.sdds-textarea-label {
   @include type-style("detail-05");
 
   display: block;
@@ -70,9 +71,9 @@
   color: var(--sdds-textfield-label-color);
 }
 
-.#{$prefix}-textarea-container {
-  &.#{$prefix}-textarea-label-inside {
-    .#{$prefix}-textarea-label {
+.sdds-textarea-container {
+  &.sdds-textarea-label-inside {
+    .sdds-textarea-label {
       @include type-style("detail-02");
       @include label-inside-transition;
 
@@ -82,20 +83,21 @@
       left: var(--sdds-spacing-element-16);
     }
 
-    .#{$prefix}-textarea-input {
+    .sdds-textarea-input {
       @include placeholder-label;
     }
   }
 
-  &.#{$prefix}-textarea-focus {
-    &.#{$prefix}-textarea-label-inside {
-      .#{$prefix}-textarea-label {
+  &.sdds-textarea-focus {
+    &.sdds-textarea-label-inside {
+      .sdds-textarea-label {
         @include type-style("detail-07");
 
         top: var(--sdds-spacing-element-8);
       }
     }
-    .#{$prefix}-textarea-wrapper {
+
+    .sdds-textarea-wrapper {
       &::before,
       &::after {
         width: 50%;
@@ -103,9 +105,9 @@
     }
   }
 
-  &.#{$prefix}-textarea-data {
-    &.#{$prefix}-textarea-label-inside {
-      .#{$prefix}-textarea-label {
+  &.sdds-textarea-data {
+    &.sdds-textarea-label-inside {
+      .sdds-textarea-label {
         @include type-style("detail-07");
 
         top: var(--sdds-spacing-element-8);
@@ -114,60 +116,64 @@
   }
 }
 
-.#{$prefix}-textarea-textcounter {
-  @extend .#{$prefix}-textfield-textcounter;
+.sdds-textarea-textcounter {
+  @extend .sdds-textfield-textcounter;
 
   flex-basis: 100%;
   text-align: right;
   padding-top: var(--sdds-spacing-element-4);
 }
 
-.#{$prefix}-textarea-helper {
-  @extend .#{$prefix}-textfield-helper;
+.sdds-textarea-helper {
+  @extend .sdds-textfield-helper;
 
   flex-grow: 2;
   flex-basis: auto;
-  ~ .#{$prefix}-textarea-textcounter {
+
+  ~ .sdds-textarea-textcounter {
     flex-basis: auto;
   }
 }
 
 // Different state
 
-.#{$prefix}-textarea-success {
-  .#{$prefix}-textarea-input {
+.sdds-textarea-success {
+  .sdds-textarea-input {
     border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
-.#{$prefix}-textarea-error {
-  .#{$prefix}-textarea-input {
+.sdds-textarea-error {
+  .sdds-textarea-input {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
-  .#{$prefix}-textarea-wrapper {
+
+  .sdds-textarea-wrapper {
     &::after,
     &::before {
       background: var(--sdds-textfield-bar-error);
     }
   }
-  .#{$prefix}-textarea-helper {
+
+  .sdds-textarea-helper {
     color: var(--sdds-textfield-helper-error);
   }
 }
 
 //Disabled state
-.#{$prefix}-textarea-disabled {
-  .#{$prefix}-textarea-input {
+.sdds-textarea-disabled {
+  .sdds-textarea-input {
     border-bottom-color: transparent;
   }
-  .#{$prefix}-textarea-label {
+
+  .sdds-textarea-label {
     color: var(--sdds-textfield-disabled-label);
   }
 }
 
 //Read only state
 
-.#{$prefix}-textarea-icon__readonly {
+.sdds-textarea-icon__readonly {
   display: none;
   position: absolute;
   right: 18px;
@@ -189,25 +195,25 @@
   }
 }
 
-.#{$prefix}-textarea-readonly {
+.sdds-textarea-readonly {
   pointer-events: none;
 
-  .#{$prefix}-textarea-icon__readonly {
+  .sdds-textarea-icon__readonly {
     display: block;
 
     &:hover {
-      ~ .#{$prefix}-textarea-icon__readonly-label {
+      ~ .sdds-textarea-icon__readonly-label {
         display: block;
       }
     }
   }
 
-  .#{$prefix}-textarea-input {
+  .sdds-textarea-input {
     padding-right: 54px;
     background-color: transparent;
   }
 
-  .#{$prefix}-textfield-container {
+  .sdds-textfield-container {
     background-color: transparent;
   }
 }
