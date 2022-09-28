@@ -1,11 +1,8 @@
-// ///////////////////////////////////LINEAR///////////////////////////////////
 :root,
 html,
 :host {
-  --sdds-spinner-background: var(--sdds-blue-500);
-  --sdds-spinner-border-color: var(--sdds-grey-400);
-  --sdds-spinner-stroke-dash: 157;
-  --sdds-spinner-stroke-dash-negative: -157;
+  --sdds-spinner-background: var(--sdds-blue-400);
+  --sdds-spinner-background-inverted: var(--sdds-white);
 }
 
 :host {
@@ -13,35 +10,47 @@ html,
 }
 
 .sdds-spinner-svg {
-  width: 200px;
-  height: 200px;
+  transform: scale(-1, 1) rotate(-90deg);
 }
 
-.sdds-spinner-path {
-  stroke: var(--sdds-spinner-background);
-  stroke-width: 6px;
+.sdds-spinner-circle {
   stroke-dasharray: var(--sdds-spinner-stroke-dash);
-  stroke-dashoffset: var(--sdds-spinner-stroke-dash-negative);
-  animation: dash 4s linear infinite;
-  fill-opacity: 0;
+  animation:
+ dash var(--sdds-spinner-animation-speed)
+    cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+
+  &-xs {
+    --sdds-spinner-stroke-dash: 60px;
+    --sdds-spinner-animation-speed: 1.3s;
+  }
+
+  &-sm {
+    --sdds-spinner-stroke-dash: 130px;
+    --sdds-spinner-animation-speed: 1.5s;
+  }
+
+  &-md {
+    --sdds-spinner-stroke-dash: 160px;
+    --sdds-spinner-animation-speed: 1.8s;
+  }
+
+  &-lg {
+    --sdds-spinner-stroke-dash: 260px;
+    --sdds-spinner-animation-speed: 2s;
+  }
+
+  &-standard {
+    stroke: var(--sdds-spinner-background);
+  }
+
+  &-inverted {
+    stroke: var(--sdds-spinner-background-inverted);
+  }
 }
 
 @keyframes dash {
-  // to { stroke-dashoffset:var(--sdds-spinner-stroke-dash); }
   0% {
-    stroke-dashoffset: var(--sdds-spinner-stroke-dash-negative);
-  }
-
-  45% {
-    stroke-dashoffset: -50;
-  }
-
-  50% {
-    stroke-dashoffset: 0;
-  }
-
-  90% {
-    stroke-dashoffset: 50;
+    stroke-dashoffset: calc(-1 * var(--sdds-spinner-stroke-dash));
   }
 
   100% {
