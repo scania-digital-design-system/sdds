@@ -8,23 +8,28 @@ import type { Placement } from '@popperjs/core';
   shadow: true,
 })
 export class Tooltip {
-  @Prop() text = '';
+  /** In case tooltip contains only text, no HTML, text can be passed by this prop */
+  @Prop() text: string = '';
 
-  @Prop() border: string;
+  /** CSS selector of element on which tooltip is used on.  */
+  @Prop() selector: string = '';
 
-  @Prop() selector = '';
-
+  /** Allow mouse over tooltip. Useful when tooltip contains clickable elements like link or button. */
   @Prop() mouseOverTooltip: boolean = false;
 
-  @Prop() show: boolean = false;
+  /** Prop in control of showing and hiding prop */
+  @Prop({ mutable: true }) show: boolean = false;
 
+  /** Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end. */
   @Prop() placement: Placement = 'bottom';
 
-  @Prop() offsetSkidding: number = 0;
-
-  @Prop() offsetDistance: number = 8;
-
   @State() target: any;
+
+  border: string;
+
+  offsetSkidding: number = 0;
+
+  offsetDistance: number = 8;
 
   tooltip!: HTMLInputElement;
 

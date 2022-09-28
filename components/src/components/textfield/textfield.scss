@@ -1,4 +1,3 @@
-@import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
@@ -187,8 +186,6 @@ slot[name="sdds-label"]::slotted(*) {
 
 @mixin label-inside-transition {
   transition: 0.1s ease all;
-  transition: 0.1s ease all;
-  transition: 0.1s ease all;
 }
 
 //Form control
@@ -275,8 +272,6 @@ slot[name="sdds-label"]::slotted(*) {
     width: 0;
     position: absolute;
     background: var(--sdds-textfield-bar);
-    transition: 0.35s ease all;
-    transition: 0.35s ease all;
     transition: 0.35s ease all;
 
     .sdds-form-textfield-md & {

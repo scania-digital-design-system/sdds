@@ -253,8 +253,6 @@ slot[name="sdds-label"]::slotted(*) {
     position: absolute;
     background: var(--sdds-textfield-bar);
     transition: 0.35s ease all;
-    transition: 0.35s ease all;
-    transition: 0.35s ease all;
 
     .sdds-form-datetime-md & {
       top: 46px;

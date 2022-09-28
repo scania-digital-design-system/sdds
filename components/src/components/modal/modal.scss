@@ -1,12 +1,6 @@
 @import "./modal-core";
 @import "../../helpers/components-shared";
 
-:root,
-html {
-  --sdds-modal-backdrop: rgba(0 0 0 / 40%);
-  --sdds-modal-bg: var(--sdds-white);
-}
-
 :host {
   @include modal-host;
 

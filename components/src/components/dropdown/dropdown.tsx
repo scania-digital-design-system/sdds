@@ -32,7 +32,7 @@ export class Dropdown {
   /** Set to true for disabled states */
   @Prop() disabled: boolean;
 
-  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values*/
+  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
@@ -106,6 +106,7 @@ export class Dropdown {
       console.warn('size="large" is deprecated, use size="lg" instead');
     }
   }
+
   setOptionFromOutside(optionValue) {
     if (optionValue) {
       this.deselectAll();
@@ -125,6 +126,7 @@ export class Dropdown {
       }
     }
   }
+
   @Watch('selectedOption')
   changeSelectedOption() {
     if (this.selectedValuesArray.includes(this.selectedOption)) {
@@ -143,6 +145,7 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
+      // TODO: Maybe can be this.open = !this.open ?
       this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
@@ -191,6 +194,7 @@ export class Dropdown {
       }
     }
   }
+
   handleClick() {
     this.open = this.open === false;
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
@@ -224,14 +228,14 @@ export class Dropdown {
       this.tabbingLabelReset();
     } else {
       if (this.selectedValuesArray.includes(event.detail.value)) {
-        var index = this.selectedValuesArray.indexOf(event.detail.value);
+        const index = this.selectedValuesArray.indexOf(event.detail.value);
         this.selectedValuesArray.splice(index, 1);
         this.selectedLabelsArray.splice(index, 1);
       } else {
         this.selectedValuesArray.push(event.detail.value);
         this.selectedLabelsArray.push(event.detail.label);
       }
-      //sorting array to keep selected in same order as user input
+      // sorting array to keep selected in same order as user input
       this.selectedValuesArray = this.optionValues.filter((word) =>
         this.selectedValuesArray.includes(word)
       );
@@ -254,6 +258,7 @@ export class Dropdown {
     this.inputSearch.emit(searchTerm);
     this.open = true;
   }
+
   deselectAll() {
     this.selectedLabel = '';
     this.selectedValue = '';
@@ -263,6 +268,7 @@ export class Dropdown {
       optionItem.selected = false;
     });
   }
+
   @Method() async resetOption() {
     this.deselectAll();
     this.open = false;
@@ -271,6 +277,7 @@ export class Dropdown {
       this.setOptionFromOutside(this.defaultOption);
     }
   }
+
   render() {
     return (
       <Host

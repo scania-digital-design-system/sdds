@@ -1,7 +1,7 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
-:root {
+:host {
   --sdds-tooltip-background: var(--sdds-grey-800);
   --sdds-tooltip-colour: var(--sdds-white);
 }
