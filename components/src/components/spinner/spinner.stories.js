@@ -39,7 +39,7 @@ const Template = ({ size, mode }) => {
   return `
   ${
     mode === 'inverted'
-      ? '<div style="    background-color: #dbdfe6; display: flex; width: 300px; height: 300px; justify-content: center; align-items: center;">'
+      ? '<div style="    background-color: #0f3263; display: flex; width: 300px; height: 300px; justify-content: center; align-items: center;">'
       : ''
   }
   <sdds-spinner size="${size}" mode="${mode}">
