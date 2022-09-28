@@ -78,9 +78,7 @@
   "license": "MIT",
   "dependencies": {
     "@storybook/theming": "^6.5.8",
-    "concurrently": "^5.3.0",
-    "fsevents": "^2.3.2",
-    "rollup": "^2.79.1"
+    "concurrently": "^5.3.0"
   },
   "gitHead": "1505a7b86fa0bd0da28551adfbf46eb059ccb509"
 }
