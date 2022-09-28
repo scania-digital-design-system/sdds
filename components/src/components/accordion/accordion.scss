@@ -3,8 +3,8 @@
 @import "../divider/divider.scss";
 @import "../../helpers/components-shared.scss";
 
-:root,
-html {
+:host {
+  // Variables
   --sdds-accordion-border: var(--sdds-grey-300);
   --sdds-accordion-bg: transparent;
   --sdds-accordion-bg-hover: var(--sdds-white);
@@ -14,6 +14,7 @@ html {
   --sdds-accordion-border-focus: var(--sdds-grey-500);
   --sdds-accordion-colour-disabled: var(--sdds-grey-400);
 
+  // Styling
   .sdds-on-white-bg {
     --sdds-accordion-bg-hover: var(--sdds-grey-50);
   }
@@ -70,10 +71,9 @@ html {
 
   .sdds-accordion-panel {
     cursor: default;
-    padding-top: var(--sdds-spacing-element-8);
-    padding-bottom: var(--sdds-spacing-element-32);
-    padding-left: var(--sdds-spacing-element-16);
-    padding-right: var(--sdds-spacing-layout-64);
+    padding:
+ var(--sdds-spacing-element-8) var(--sdds-spacing-layout-64)
+      var(--sdds-spacing-element-32) var(--sdds-spacing-element-16);
     display: none;
 
     @include type-style("detail-03");

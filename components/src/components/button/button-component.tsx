@@ -6,15 +6,21 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SddsButton {
-  @Prop() text: string;
+  // TODO: Make this mandatory prop. Send warning to user if empty and it is not icon only version of button.
+  /** Text inside a button */
+  @Prop() text: string = '';
 
-  @Prop() type: string;
+  /** Type of button */
+  @Prop() type: 'primary' | 'secondary' | 'ghost' | 'danger' = 'primary';
 
+  /** Size of button */
   @Prop() size: 'sm' | 'md' | '' = '';
 
-  @Prop() disabled: boolean;
+  /** Control for disabled state of component */
+  @Prop() disabled: boolean = false;
 
-  @Prop() fullbleed: boolean;
+  /** When enabled, makes button take 100% width */
+  @Prop() fullbleed: boolean = false;
 
   render() {
     return (

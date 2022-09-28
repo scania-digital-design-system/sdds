@@ -15,26 +15,44 @@ import {
 })
 export class InlineTabs {
   @Element() host: HTMLElement;
-  @Prop() defaultTab: string = ''; // either use this (default-tab="...") or read attribute "default" from one of the slotted children.
-  @Prop() autoHeight: boolean = false; // different height settings. right now only supports "auto", otherwise ignored
-  @State() tabs: Array<any> = []; // array with metadata for slotted children
-  @State() buttonWidth: number = 0; // current calculated width of each nav button (calculated from the largest one)
-  @State() tabHeight: number = 0; // current calculated tab height (calculated from the one with the most height)
+
+  /** either use this (default-tab="...") or read attribute "default" from one of the slotted children. */
+  @Prop() defaultTab: string = '';
+
+  /** different height settings. right now only supports "auto", otherwise ignored */
+  @Prop() autoHeight: boolean = false;
+
+  /** array with metadata for slotted children */
+  @State() tabs: Array<any> = [];
+
+  /** current calculated width of each nav button (calculated from the largest one) */
+  @State() buttonWidth: number = 0;
+
+  /** current calculated tab height (calculated from the one with the most height) */
+  @State() tabHeight: number = 0;
+
   @State() showLeftScroll: boolean = false;
+
   @State() showRightScroll: boolean = false;
 
-  // public method for switching to a tab programatically
+  // public method for switching to a tab programmatically
   @Method()
   async showTab(key: string) {
     this.switchToTab(key);
   }
 
   startingTab: string = null; // name of the tab to show by default (infered from either "default-tab"-prop (on component) or "default"-prop (on a slotted child)
+
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+
   tabWrapperElement: HTMLElement = null; // reference to container with slotted children
+
   componentWidth: number = 0; // visible width of this component
+
   buttonsWidth: number = 0; // total width of all nav items combined
+
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+
   useAutoHeight: boolean = false; // set height for slotted children or not
 
   _generateKeyFromName(name: string) {
@@ -56,7 +74,7 @@ export class InlineTabs {
     }
 
     Array.from(this.host.children).map((item: HTMLElement, index) => {
-      let name = item.getAttribute('name') || 'Tab ' + (index + 1);
+      const name = item.getAttribute('name') || `Tab ${index + 1}`;
 
       let key = item.getAttribute('tab-key');
       if (!key) {
@@ -73,10 +91,10 @@ export class InlineTabs {
       }
 
       this.tabs.push({
-        name: name,
-        key: key,
+        name,
+        key,
         element: item,
-        disabled: disabled,
+        disabled,
         visible: true,
         initialDisplay: window.getComputedStyle(item).display,
       });
@@ -122,16 +140,18 @@ export class InlineTabs {
   }
 
   componentDidLoad() {
-    const mutationObserver = new MutationObserver((/*mutations, observer*/) => {
-      const visibleTab = this.tabs.find((tab) => tab.visible);
-      this._initComponent(false);
-      this._calculateTabHeight();
-      this._calculateButtonWidth();
-      visibleTab && this.switchToTab(visibleTab.key);
-    });
+    const mutationObserver = new MutationObserver(
+      (/* mutations, observer */) => {
+        const visibleTab = this.tabs.find((tab) => tab.visible);
+        this._initComponent(false);
+        this._calculateTabHeight();
+        this._calculateButtonWidth();
+        visibleTab && this.switchToTab(visibleTab.key);
+      }
+    );
 
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
 
@@ -239,9 +259,9 @@ export class InlineTabs {
   }
 
   render() {
-    let heightStyle = {};
+    const heightStyle = {};
     if (this.useAutoHeight) {
-      heightStyle['height'] = this.tabHeight + 'px';
+      heightStyle['height'] = `${this.tabHeight}px`;
     }
 
     return (
@@ -252,28 +272,24 @@ export class InlineTabs {
               ref={(el) => (this.navWrapperElement = el as HTMLElement)}
               class="sdds-inline-tabs-wrapper"
             >
-              {this.tabs.map((tab) => {
-                return (
-                  <button
-                    style={{ width: this.buttonWidth + 'px' }}
-                    disabled={tab.disabled}
-                    class={
-                      'sdds-inline-tabs--tab ' +
-                      (tab.visible ? 'sdds-inline-tabs--tab__active' : '')
-                    }
-                    onClick={() => this.switchToTab(tab.key)}
-                  >
-                    <span>{tab.name}</span>
-                  </button>
-                );
-              })}
+              {this.tabs.map((tab) => (
+                <button
+                  style={{ width: `${this.buttonWidth}px` }}
+                  disabled={tab.disabled}
+                  class={`sdds-inline-tabs--tab ${
+                    tab.visible ? 'sdds-inline-tabs--tab__active' : ''
+                  }`}
+                  onClick={() => this.switchToTab(tab.key)}
+                >
+                  <span>{tab.name}</span>
+                </button>
+              ))}
             </div>
             <div class="sdds-inline-tabs-header-navigation">
               <button
-                class={
-                  'sdds-inline-tabs--forward ' +
-                  (this.showRightScroll ? 'sdds-inline-tabs--back__show' : '')
-                }
+                class={`sdds-inline-tabs--forward ${
+                  this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''
+                }`}
                 onClick={() => this._scrollRight()}
               >
                 <svg
@@ -292,10 +308,9 @@ export class InlineTabs {
                 </svg>
               </button>
               <button
-                class={
-                  'sdds-inline-tabs--back ' +
-                  (this.showLeftScroll ? 'sdds-inline-tabs--back__show' : '')
-                }
+                class={`sdds-inline-tabs--back ${
+                  this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''
+                }`}
                 onClick={() => this._scrollLeft()}
               >
                 <svg

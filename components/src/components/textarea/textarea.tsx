@@ -53,6 +53,7 @@ export class Textarea {
   /** Max length of input */
   @Prop() maxlength: number;
 
+  /** Control of autofocus */
   @Prop() autofocus: boolean = false;
 
   /** Listen to the focus state of the input */

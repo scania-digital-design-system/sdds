@@ -1,18 +1,15 @@
-@import "../../helpers/style-helpers.scss";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
-:root,
-html {
-  --sdds-slider-inputfield-bg: var(--sdds-white);
-}
-
-:root .sdds-on-white-bg,
-html .sdds-on-white-bg {
-  --sdds-slider-inputfield-bg: var(--sdds-grey-50);
-}
-
 :host {
+  // Variables
+  --sdds-slider-inputfield-bg: var(--sdds-white);
+
+  .sdds-on-white-bg {
+    --sdds-slider-inputfield-bg: var(--sdds-grey-50);
+  }
+
+  // Styling
   width: 100%;
 
   input[type="range"].sdds-slider-native-element {
@@ -40,13 +37,11 @@ html .sdds-on-white-bg {
       cursor: pointer;
 
       &.sdds-slider__control-minus {
-        padding: 18px;
-        padding-left: 0;
+        padding: 18px 18px 18px 0;
       }
 
       &.sdds-slider__control-plus {
-        padding: 18px;
-        padding-right: 0;
+        padding: 18px 0 18px 18px;
       }
     }
   }

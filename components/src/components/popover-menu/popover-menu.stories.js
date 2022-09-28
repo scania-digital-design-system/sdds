@@ -31,7 +31,6 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
-      if: {},
     },
   },
 };
@@ -204,7 +203,6 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
   if (Basic.withIcons) {
     return withIcons;
   }
-
   return withoutIcons;
 };
 

@@ -1,7 +1,11 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
-// @import '@scania/grid/dist/scss/grid';
+:root,
+html {
+  --sdds-modal-backdrop: rgba(0 0 0 / 40%);
+  --sdds-modal-bg: var(--sdds-white);
+}
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
 //Media rules doesn't calculate correct with using rem
