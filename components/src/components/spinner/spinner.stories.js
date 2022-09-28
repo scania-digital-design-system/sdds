@@ -4,21 +4,21 @@ export default {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
   },
   argTypes: {
+    mode: {
+      control: {
+        type: 'radio',
+        options: { Standard: 'standard', Inverted: 'inverted' },
+      },
+      defaultValue: 'standard',
+      description: 'Mode of the spinner',
+    },
     size: {
       control: {
         type: 'radio',
-        options: ['default', 'small', 'medium'],
+        options: { Large: 'lg', Medium: 'md', Small: 'sm', XSmall: 'xs' },
       },
-      defaultValue: 'default',
-      description: 'Size of the button',
-    },
-    type: {
-      control: {
-        type: 'radio',
-        options: ['default', 'circular', 'cube', 'linear'],
-      },
-      defaultValue: 'default',
-      description: 'Size of the button',
+      defaultValue: 'lg',
+      description: 'Size of the spinner',
     },
   },
 };
@@ -35,24 +35,16 @@ height: auto;
 
 }
 </style>`;
-const Template = ({ size, type }) => {
-  type = type === 'default' ? 'circular' : type;
-  let sizeValue = '';
-  switch (size) {
-    case 'small':
-      sizeValue = 'sm';
-      break;
-    case 'medium':
-      sizeValue = 'md';
-      break;
-    default:
-      sizeValue = '';
-      break;
-  }
-
+const Template = ({ size, mode }) => {
   return `
-  <sdds-spinner>
+  ${
+    mode === 'inverted'
+      ? '<div style="    background-color: #dbdfe6; display: flex; width: 300px; height: 300px; justify-content: center; align-items: center;">'
+      : ''
+  }
+  <sdds-spinner size="${size}" mode="${mode}">
   </sdds-spinner>
+  ${mode === 'inverted' ? '</div>' : ''}
 
   `;
 };
