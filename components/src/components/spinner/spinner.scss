@@ -3,6 +3,8 @@ html,
 :host {
   --sdds-spinner-background: var(--sdds-blue-400);
   --sdds-spinner-background-inverted: var(--sdds-white);
+  --sdds-spinner-speed: 1.8s;
+  --sdds-spinner-speed-lg: 2s;
 }
 
 :host {
@@ -21,22 +23,22 @@ html,
 
   &-xs {
     --sdds-spinner-stroke-dash: 60px;
-    --sdds-spinner-animation-speed: 1.8s;
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-sm {
     --sdds-spinner-stroke-dash: 130px;
-    --sdds-spinner-animation-speed: 1.8s;
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-md {
     --sdds-spinner-stroke-dash: 160px;
-    --sdds-spinner-animation-speed: 1.8s;
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-lg {
     --sdds-spinner-stroke-dash: 260px;
-    --sdds-spinner-animation-speed: 2s;
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed-lg);
   }
 
   &-standard {
