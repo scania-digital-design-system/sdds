@@ -2,6 +2,23 @@ export default {
   title: 'Component/Spinner',
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
+    backgrounds: {
+      default: 'Light grey',
+      values: [
+        {
+          name: 'White',
+          value: '#FFFFFF',
+        },
+        {
+          name: 'Light grey',
+          value: '#F9FAFB',
+        },
+        {
+          name: 'Dark-grey',
+          value: '#868fa2',
+        },
+      ],
+    },
   },
   argTypes: {
     mode: {
@@ -23,30 +40,22 @@ export default {
   },
 };
 
-const style = `<style>
-  
-.demo {
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #F6F6F7; 
-width: auto;
-height: auto;
-
-}
-</style>`;
 const Template = ({ size, mode }) => {
   return `
-  ${
-    mode === 'inverted'
-      ? '<div style="    background-color: #0f3263; display: flex; width: 300px; height: 300px; justify-content: center; align-items: center;">'
-      : ''
-  }
   <sdds-spinner size="${size}" mode="${mode}">
   </sdds-spinner>
-  ${mode === 'inverted' ? '</div>' : ''}
-
   `;
 };
 
-export const Basic = Template.bind({});
+export const Standard = Template.bind({});
+Standard.args = {
+  mode: 'standard',
+};
+
+export const Inverted = Template.bind({});
+Inverted.args = {
+  mode: 'inverted',
+};
+Inverted.parameters = {
+  backgrounds: { default: 'Dark-grey' },
+};
