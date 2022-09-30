@@ -20,7 +20,6 @@
 
 | Event                       | Description                                                                                                                                                | Type               |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `columnsNumberEvent`        | Sends unique table identifier and column number to the expandable rows and sdds-table-footer components                                                    | `CustomEvent<any>` |
 | `sortingSwitcherEvent`      | Event that sends unique table identifier and enable/disable status for sorting functionality                                                               | `CustomEvent<any>` |
 | `tableToFooterEvent`        | Sends unique table identifier, columns number, number of pages and temporarily disable state of pagination to the sdds-table-footer component              | `CustomEvent<any>` |
 | `updateBodyCheckboxesEvent` | Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled                                                      | `CustomEvent<any>` |

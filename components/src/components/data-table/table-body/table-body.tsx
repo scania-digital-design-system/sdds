@@ -135,7 +135,6 @@ export class TableBody {
       this.columnsNumber = headerColumnsNo;
     }
 
-    this.sendColumnsNumber();
     this.sendDataToFooter();
 
     if (this.enablePaginationTableBody) {
@@ -184,22 +183,6 @@ export class TableBody {
       this.columnsNumber,
       this.numberOfPages,
       this.tempPaginationDisable,
-    ]);
-  }
-
-  /** Sends unique table identifier and column number to the expandable rows and sdds-table-footer components */
-  @Event({
-    eventName: 'columnsNumberEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  columnsNumberEvent: EventEmitter<any>;
-
-  sendColumnsNumber() {
-    this.columnsNumberEvent.emit([
-      this.uniqueTableIdentifier,
-      this.columnsNumber,
     ]);
   }
 
