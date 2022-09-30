@@ -1,5 +1,5 @@
 :host {
   display: block;
-  background: lightblue;
+  background: var(--johnny-red);
   padding: 16px;
 }
