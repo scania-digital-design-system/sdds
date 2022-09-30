@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Listen,
+  Prop,
   State,
 } from '@stencil/core';
 
@@ -15,11 +16,14 @@ import {
   shadow: true,
 })
 export class TableBodyRowExpandable {
+  /** In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too */
+  @Prop() clientSetColumnsNumber: number = null;
+
   @State() isExpanded: boolean = false;
 
   @State() uniqueTableIdentifier: string = '';
 
-  @State() columnsNumber: number = 0;
+  @State() columnsNumber: number = null;
 
   @State() verticalDividers: boolean = false;
 
@@ -46,10 +50,15 @@ export class TableBodyRowExpandable {
       .getAttribute('id');
   }
 
-  @Listen('columnsNumberEvent', { target: 'body' })
-  columnsNumberEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.columnsNumber = event.detail[1];
+  componentWillRender() {
+    if (this.clientSetColumnsNumber !== null) {
+      this.columnsNumber = this.clientSetColumnsNumber;
+    } else {
+      this.columnsNumber =
+        this.host.parentElement
+          .closest('sdds-table')
+          .querySelector('sdds-table-header').childElementCount + 1;
+    }
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })
