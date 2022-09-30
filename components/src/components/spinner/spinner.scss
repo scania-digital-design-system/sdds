@@ -5,6 +5,8 @@ html,
   --sdds-spinner-background-inverted: var(--sdds-white);
   --sdds-spinner-speed: 1.8s;
   --sdds-spinner-speed-lg: 2s;
+  --sdds-spinner-radius: 42px;
+  --PI: 3.14159265358979;
 }
 
 :host {
@@ -16,28 +18,34 @@ html,
 }
 
 .sdds-spinner-circle {
+  //Calculation for lenght of dash
+  --sdds-spinner-stroke-dash:
+ calc(
+    (2 * var(--PI)) * var(--sdds-spinner-radius)
+  );
+
   stroke-dasharray: var(--sdds-spinner-stroke-dash);
   animation:
  dash var(--sdds-spinner-animation-speed)
     cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
 
   &-xs {
-    --sdds-spinner-stroke-dash: 60px;
+    --sdds-spinner-radius: 8px;
     --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-sm {
-    --sdds-spinner-stroke-dash: 130px;
+    --sdds-spinner-radius: 12px;
     --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-md {
-    --sdds-spinner-stroke-dash: 160px;
+    --sdds-spinner-radius: 26px;
     --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
   }
 
   &-lg {
-    --sdds-spinner-stroke-dash: 260px;
+    --sdds-spinner-radius: 42px;
     --sdds-spinner-animation-speed: var(--sdds-spinner-speed-lg);
   }
 
@@ -51,11 +59,11 @@ html,
 }
 
 @keyframes dash {
-  0% {
+  from {
     stroke-dashoffset: calc(-1 * var(--sdds-spinner-stroke-dash));
   }
 
-  100% {
+  to {
     stroke-dashoffset: var(--sdds-spinner-stroke-dash);
   }
 }
