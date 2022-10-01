@@ -1,6 +1,10 @@
-@import "../../helpers/style-helpers.scss";
-
 ///////////////////////////////////LINEAR///////////////////////////////////
+:root,
+html,
+:host {
+  --sdds-spinner-alpha-background: var(--sdds-blue-500);
+  --sdds-spinner-alpha-border-color: var(--sdds-grey-400);
+}
 
 :host {
   display: block;
@@ -25,19 +29,18 @@ $number-rect: 5;
   margin-right: 2px;
   display: inline-block;
   animation: spinner-alpha-linear 1.3s infinite ease-in-out;
-  animation: spinner-alpha-linear 1.3s infinite ease-in-out;
 }
 
-.#{$prefix}-spinner-alpha-linear,
-.#{$prefix}-spinner-alpha-linear-md {
-  width: var(--sdds-spinner-alpha-rect-width);
-  height: var(--sdds-spinner-alpha-rect-height);
+.sdds-spinner-alpha-linear,
+.sdds-spinner-alpha-linear-md {
+  width: 50px;
+  height: 40px;
 
   @include rect;
 
-  &.#{$prefix}-spinner-alpha-linear-sm {
-    width: calc(var(--sdds-spinner-alpha-rect-width) / 2);
-    height: calc(var(--sdds-spinner-alpha-rect-height) / 2);
+  &.sdds-spinner-alpha-linear-sm {
+    width: calc(50px / 2);
+    height: calc(40px / 2);
   }
 }
 
@@ -58,11 +61,9 @@ $number-rect: 5;
   40%,
   100% {
     transform: scaleY(0.4);
-    transform: scaleY(0.4);
   }
 
   20% {
-    transform: scaleY(1);
     transform: scaleY(1);
   }
 }
@@ -70,20 +71,21 @@ $number-rect: 5;
 ///////////////////////////////////CIRCULAR///////////////////////////////////
 
 %spinner-alpha-circular {
-  min-width: var(--sdds-spinner-alpha-length);
-  min-height: var(--sdds-spinner-alpha-length);
+  min-width: 40px;
+  min-height: 40px;
   border: 0.25em solid var(--sdds-spinner-alpha-border-color);
   border-right: 0.25em solid var(--sdds-spinner-alpha-background);
   border-radius: 50%;
   animation: spinner-alpha-circular 0.6s linear infinite;
-  animation: spinner-alpha-circular 0.6s linear infinite;
 }
-.#{$prefix}-spinner-alpha-circular,
-.#{$prefix}-spinner-alpha-circular-md {
+
+.sdds-spinner-alpha-circular,
+.sdds-spinner-alpha-circular-md {
   @extend %spinner-alpha-circular;
-  &.#{$prefix}-spinner-alpha-circular-sm {
-    min-width: calc(var(--sdds-spinner-alpha-length) / 2);
-    min-height: calc(var(--sdds-spinner-alpha-length) / 2);
+
+  &.sdds-spinner-alpha-circular-sm {
+    min-width: 20px;
+    min-height: 20px;
     border: 0.2em solid var(--sdds-spinner-alpha-border-color);
     border-right: 0.2em solid var(--sdds-spinner-alpha-background);
   }
@@ -102,11 +104,9 @@ $number-rect: 5;
 @keyframes spinner-alpha-circular {
   from {
     transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -118,17 +118,16 @@ $number-rect: 5;
   background-color: var(--sdds-spinner-alpha-background);
   float: left;
   animation: spinner-alpha 1.3s infinite ease-in-out;
-  animation: spinner-alpha 1.3s infinite ease-in-out;
 }
 
-.#{$prefix}-spinner-alpha-cube,
-.#{$prefix}-spinner-alpha-cube-md {
-  width: var(--sdds-spinner-alpha-length);
-  height: var(--sdds-spinner-alpha-length);
+.sdds-spinner-alpha-cube,
+.sdds-spinner-alpha-cube-md {
+  width: 40px;
+  height: 40px;
 
-  &.#{$prefix}-spinner-alpha-cube-sm {
-    width: calc(var(--sdds-spinner-alpha-length) / 2);
-    height: calc(var(--sdds-spinner-alpha-length) / 2);
+  &.sdds-spinner-alpha-cube-sm {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -138,14 +137,12 @@ $number-rect: 5;
   @extend %spinner-alpha-cube;
 
   animation-delay: 0.2s;
-  animation-delay: 0.2s;
 }
 
 .cube2,
 .cube6 {
   @extend %spinner-alpha-cube;
 
-  animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 
@@ -154,13 +151,11 @@ $number-rect: 5;
   @extend %spinner-alpha-cube;
 
   animation-delay: 0.1s;
-  animation-delay: 0.1s;
 }
 
 .cube3 {
   @extend %spinner-alpha-cube;
 
-  animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 
@@ -168,7 +163,6 @@ $number-rect: 5;
   @extend %spinner-alpha-cube;
 
   animation-delay: 0s;
-  animation-delay: 0s;
 }
 
 @keyframes spinner-alpha {
@@ -176,11 +170,9 @@ $number-rect: 5;
   70%,
   100% {
     transform: scale(1, 1);
-    transform: scale(1, 1);
   }
 
   35% {
-    transform: scale(0, 0);
     transform: scale(0, 0);
   }
 }
@@ -190,11 +182,9 @@ $number-rect: 5;
   70%,
   100% {
     transform: scale(1, 1);
-    transform: scale(1, 1);
   }
 
   35% {
-    transform: scale(0, 0);
     transform: scale(0, 0);
   }
 }
