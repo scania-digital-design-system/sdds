@@ -1,5 +1,10 @@
+import readme from './readme.md';
+
 export default {
   title: 'Components/MyComponent',
+  parameters: {
+    notes: readme,
+  },
 };
 
 const Template = args => `<my-component first="${args.first}" middle="${args.middle}" last="${args.last}"></my-component>`;
