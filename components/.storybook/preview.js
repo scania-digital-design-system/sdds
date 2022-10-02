@@ -1,6 +1,9 @@
 import { defineCustomElements } from '../loader';
 
-defineCustomElements();
+// https://github.com/storybookjs/storybook/issues/6364  - Look for: sarangk-hotstar commented on 23 Jun 2021
+// Test below one in Netlify/Amplify build
+
+import '../www/build/tegel.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,3 +14,5 @@ export const parameters = {
     },
   },
 };
+
+defineCustomElements();
