@@ -39,6 +39,7 @@
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-notes": "^5.3.21",
     "@storybook/builder-webpack4": "^6.5.12",
     "@storybook/html": "^6.5.12",
     "@storybook/manager-webpack4": "^6.5.12",
