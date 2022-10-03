@@ -26,7 +26,7 @@
     "arrow-body-style": "warn", // TODO: turn on
     "prefer-template": "warn", // TODO: turn on
     "import/no-extraneous-dependencies": "off", // TODO: Turn this rule on
-    "import/prefer-default-export": "warn",
+    "import/prefer-default-export": "off",
     "arrow-parens": "warn", // TODO: Turn on
     "no-underscore-dangle": "warn", // TODO: turn this rule on
     "import/no-unresolved": "warn", // TODO: check if we can use plugin for this rule
