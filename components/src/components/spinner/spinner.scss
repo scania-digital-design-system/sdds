@@ -5,7 +5,16 @@ html,
   --sdds-spinner-background-inverted: var(--sdds-white);
   --sdds-spinner-speed: 1.8s;
   --sdds-spinner-speed-lg: 2s;
-  --sdds-spinner-radius: 42px;
+  --sdds-spinner-radius-xs: 8px;
+  --sdds-spinner-radius-sm: 12px;
+  --sdds-spinner-radius-md: 26px;
+  --sdds-spinner-radius-lg: 42px;
+  --sdds-spinner-radius: var(--sdds-spinner-radius-lg);
+  --sdds-spinner-stroke-width-xs: 3px;
+  --sdds-spinner-stroke-width-sm: 4px;
+  --sdds-spinner-stroke-width-md: 6px;
+  --sdds-spinner-stroke-width-lg: 8px;
+  --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-lg);
   --PI: 3.14159265358979;
 }
 
@@ -14,10 +23,42 @@ html,
 }
 
 .sdds-spinner-svg {
+  width: calc(var(--sdds-spinner-radius) * 2);
+  height: calc(var(--sdds-spinner-radius) * 2);
   transform: scale(-1, 1) rotate(-90deg);
+
+  &-xs {
+    --sdds-spinner-radius: var(--sdds-spinner-radius-xs);
+    --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-xs);
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
+  }
+
+  &-sm {
+    --sdds-spinner-radius: var(--sdds-spinner-radius-sm);
+    --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-sm);
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
+  }
+
+  &-md {
+    --sdds-spinner-radius: var(--sdds-spinner-radius-md);
+    --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-md);
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
+  }
+
+  &-lg {
+    --sdds-spinner-radius: var(--sdds-spinner-radius-lg);
+    --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-lg);
+    --sdds-spinner-animation-speed: var(--sdds-spinner-speed-lg);
+  }
 }
 
 .sdds-spinner-circle {
+  cx: var(--sdds-spinner-radius);
+  cy: var(--sdds-spinner-radius);
+  r: calc(var(--sdds-spinner-radius) - (var(--sdds-spinner-stroke-width) / 2));
+  stroke-width: var(--sdds-spinner-stroke-width);
+  fill: none;
+
   //Calculation for lenght of dash
   --sdds-spinner-stroke-dash:
  calc(
@@ -25,29 +66,10 @@ html,
   );
 
   stroke-dasharray: var(--sdds-spinner-stroke-dash);
+  stroke-width: var(--sdds-spinner-stroke-width);
   animation:
  dash var(--sdds-spinner-animation-speed)
     cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
-
-  &-xs {
-    --sdds-spinner-radius: 8px;
-    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
-  }
-
-  &-sm {
-    --sdds-spinner-radius: 12px;
-    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
-  }
-
-  &-md {
-    --sdds-spinner-radius: 26px;
-    --sdds-spinner-animation-speed: var(--sdds-spinner-speed);
-  }
-
-  &-lg {
-    --sdds-spinner-radius: 42px;
-    --sdds-spinner-animation-speed: var(--sdds-spinner-speed-lg);
-  }
 
   &-standard {
     stroke: var(--sdds-spinner-background);
