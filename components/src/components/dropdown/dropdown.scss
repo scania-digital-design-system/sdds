@@ -49,6 +49,10 @@
 
     display: flex;
     align-items: center;
+
+    :has(.sdds-dropdown-label-inside) {
+      padding: 24px 0 13px;
+    }
   }
 
   .sdds-dropdown-toggle--selected:not(:focus) {
@@ -377,7 +381,7 @@
 
   .sdds-dropdown-label-inside {
     color: var(--sdds-grey-700);
-    transform: translate(0, -17.8px);
+    transform: translate(0, -16.8px);
     font-size: calc(2.5rem);
     width: calc(100% - 64px);
     overflow: hidden;
