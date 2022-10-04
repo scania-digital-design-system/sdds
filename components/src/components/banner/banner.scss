@@ -1,5 +1,5 @@
-:root,
-html {
+:host,
+:root {
   --sdds-banner-bg-default: var(--sdds-grey-50);
   --sdds-banner-bg-info: var(--sdds-grey-300);
   --sdds-banner-bg-error: var(--sdds-red-100);
@@ -30,8 +30,6 @@ html {
   margin-right: var(--sdds-spacing-element-12);
   font-size: 4rem;
   color: var(--sdds-banner-prefix-default-color);
-  margin-top: -2px;
-  padding-left: 4px;
 
   .sdds-banner-info & {
     color: var(--sdds-banner-prefix-info-color);
@@ -48,14 +46,13 @@ html {
 }
 
 .sdds-banner-close {
-  flex-basis: 20px;
-  height: 20px;
-  width: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.40533 2.34321C3.11244 2.05031 2.63756 2.05031 2.34467 2.34321C2.05178 2.6361 2.05178 3.11097 2.34467 3.40387L6.94093 8.00012L2.34478 12.5963C2.05189 12.8892 2.05189 13.364 2.34478 13.6569C2.63768 13.9498 3.11255 13.9498 3.40544 13.6569L8.00159 9.06078L12.5977 13.6569C12.8906 13.9498 13.3655 13.9498 13.6584 13.6569C13.9513 13.364 13.9513 12.8891 13.6584 12.5963L9.06225 8.00012L13.6585 3.40388C13.9514 3.11098 13.9514 2.63611 13.6585 2.34322C13.3656 2.05032 12.8907 2.05032 12.5978 2.34322L8.00159 6.93946L3.40533 2.34321Z' fill='%23171719'/%3E%3C/svg%3E%0A");
+  flex-basis: 16px;
+  height: 16px;
+  width: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.40533 2.34321C3.11244 2.05031 2.63756 2.05031 2.34467 2.34321C2.05178 2.6361 2.05178 3.11097 2.34467 3.40387L6.94093 8.00012L2.34478 12.5963C2.05189 12.8892 2.05189 13.364 2.34478 13.6569C2.63768 13.9498 3.11255 13.9498 3.40544 13.6569L8.00159 9.06078L12.5977 13.6569C12.8906 13.9498 13.3655 13.9498 13.6584 13.6569C13.9513 13.364 13.9513 12.8891 13.6584 12.5963L9.06225 8.00012L13.6585 3.40388C13.9514 3.11098 13.9514 2.63611 13.6585 2.34322C13.3656 2.05032 12.8907 2.05032 12.5978 2.34322L8.00159 6.93946L3.40533 2.34321Z' fill='%23171719'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  margin-top: -2px;
 }
 
 .sdds-banner-header {
