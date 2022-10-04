@@ -290,6 +290,8 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 150ms ease;
+    box-shadow: var(--sdds-card-box);
+    border-radius: 0 0 4px 4px;
   }
 
   .sdds-nav__dropdown-item {
