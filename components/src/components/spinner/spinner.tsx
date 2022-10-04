@@ -14,11 +14,16 @@ export class Spinner {
 
   render() {
     return (
-      <svg class={`sdds-spinner-svg sdds-spinner-svg-${this.size}`}>
-        <circle
-          class={`sdds-spinner-circle sdds-spinner-circle-${this.mode}`}
-        />
-      </svg>
+      <div aria-live="assertive" role="status" aria-label="loading">
+        <svg
+          class={`sdds-spinner-svg sdds-spinner-svg-${this.size}`}
+          aria-hidden="true"
+        >
+          <circle
+            class={`sdds-spinner-circle sdds-spinner-circle-${this.mode}`}
+          />
+        </svg>
+      </div>
     );
   }
 }
