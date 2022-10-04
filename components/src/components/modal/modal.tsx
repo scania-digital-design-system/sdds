@@ -20,10 +20,13 @@ export class Modal {
   @Prop() selector: string = '';
 
   /** Disables closing modal on clicking on overlay area. */
-  @Prop() prevent: boolean = false;
+  @Prop() prevent: boolean;
 
   /** Size of modal. Accepted strings are: xs, sm, md, lg.  */
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
+
+  /** Hide the X-close button on modal */
+  @Prop() hideClose: boolean = false;
 
   @Element() el: HTMLElement;
 
@@ -94,7 +97,7 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <button class="sdds-modal-btn"></button>
+            {!this.hideClose && <button class="sdds-modal-btn"></button>}
           </div>
           <slot name="sdds-modal-body"></slot>
           <div class="sdds-modal-actions sdds-modal-actions__sticky">
