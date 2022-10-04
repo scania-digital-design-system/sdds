@@ -9,8 +9,8 @@ export class Spinner {
   /** Size of spinner. Accepted strings are: xs,sm, md, lg.*/
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'lg';
 
-  /** Mode of spinner. Accepted strings are: standard, inverted*/
-  @Prop() mode: 'standard' | 'inverted' = 'standard';
+  /** Variant of spinner. Accepted strings are: standard, inverted*/
+  @Prop() variant: 'standard' | 'inverted' = 'standard';
 
   render() {
     return (
@@ -20,7 +20,7 @@ export class Spinner {
           aria-hidden="true"
         >
           <circle
-            class={`sdds-spinner-circle sdds-spinner-circle-${this.mode}`}
+            class={`sdds-spinner-circle sdds-spinner-circle-${this.variant}`}
           />
         </svg>
       </div>

@@ -23,13 +23,13 @@ export default {
     },
   },
   argTypes: {
-    Mode: {
+    Variant: {
       control: {
         type: 'radio',
         options: { Standard: 'standard', Inverted: 'inverted' },
       },
       defaultValue: 'standard',
-      description: 'Mode of the spinner',
+      description: 'Variant of the spinner',
     },
     Size: {
       control: {
@@ -45,13 +45,13 @@ export default {
 let channel = addons.getChannel();
 
 const storyListener = (args) => {
-  if (args.args.Mode) {
-    let Mode = args.args.Mode;
+  if (args.args.Variant) {
+    let Variant = args.args.Variant;
     channel.emit(UPDATE_GLOBALS, {
       globals: {
-        theme: Mode,
+        theme: Variant,
         backgrounds:
-          Mode === 'inverted'
+          Variant === 'inverted'
             ? { name: 'Dark grey', value: '#868fa2' }
             : { name: 'Light grey', value: '#F9FAFB' },
       },
@@ -65,21 +65,21 @@ function setupBackgroundListener() {
 }
 
 setupBackgroundListener();
-const Template = ({ Size, Mode }) => {
+const Template = ({ Size, Variant }) => {
   return `
-  <sdds-spinner Size="${Size}" Mode="${Mode}">
+  <sdds-spinner Size="${Size}" Variant="${Variant}">
   </sdds-spinner>
   `;
 };
 
 export const Standard = Template.bind({});
 Standard.args = {
-  Mode: 'standard',
+  Variant: 'standard',
 };
 
 export const Inverted = Template.bind({});
 Inverted.args = {
-  Mode: 'inverted',
+  Variant: 'inverted',
 };
 Inverted.parameters = {
   backgrounds: { default: 'Dark grey' },
