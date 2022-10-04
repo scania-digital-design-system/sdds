@@ -311,7 +311,13 @@ export class Dropdown {
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
           >
-            <span class="sdds-dropdown-label">
+            <span
+              class={{
+                'sdds-dropdown-label': true,
+                'sdds-dropdown-label--label-inside':
+                  this.labelPosition === 'inside',
+              }}
+            >
               {this.type === 'filter' ? (
                 <input
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
