@@ -91,7 +91,7 @@ export class Textfield {
         }
         ${this.value.length > 0 ? 'sdds-textfield-data' : ''}
         ${
-          this.labelInside.length > 0
+          this.labelInside.length > 0 && this.size !== 'sm'
             ? 'sdds-textfield-container-label-inside'
             : ''
         }
@@ -140,7 +140,7 @@ export class Textfield {
               onChange={(e) => this.handleChange(e)}
             />
 
-            {this.labelInside.length > 0 && (
+            {this.labelInside.length > 0 && this.size !== 'sm' && (
               <label class="sdds-textfield-label-inside">
                 {this.labelInside}
               </label>
