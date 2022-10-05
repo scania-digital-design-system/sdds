@@ -117,6 +117,10 @@ const ModalTemplate = ({ ...Modal }) => `
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
     </sdds-modal>
   
+    </br>
+    </br>
+    <span> Modal with no top-right close button. </span>
+    </br>
     <button onclick="console.log('Open modal 3')" id="modal3" class="sdds-btn sdds-btn-primary">Open modal 3</button>
     `;
 
