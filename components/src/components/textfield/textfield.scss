@@ -402,6 +402,16 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 .sdds-textfield-textcounter {
+.sdds-textfield-helper-error-state {
+  display: flex;
+  flex-wrap: nowrap;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+
+.#{$prefix}-textfield-textcounter {
   @include type-style("detail-05");
 
   color: var(--sdds-textfield-textcounter);
