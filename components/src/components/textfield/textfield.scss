@@ -143,7 +143,17 @@ html {
 }
 
 //Textfield label
-slot[name="sdds-label"]::slotted(*) {
+
+/* slot[name="sdds-label"]::slotted(*) {
+  @include type-style("detail-05");
+
+  display: block;
+  margin-bottom: var(--sdds-spacing-element-8);
+  color: var(--sdds-textfield-label-color);
+} */
+
+//Textfield label
+.sdds-textfield-slot-wrap-label > * {
   @include type-style("detail-05");
 
   display: block;
@@ -313,14 +323,27 @@ slot[name="sdds-label"]::slotted(*) {
     border-bottom-color: transparent;
   }
 
-  slot[name="sdds-prefix"]::slotted(*),
+  .sdds-textfield-slot-wrap-prefix,
+  .sdds-textfield-slot-wrap-suffix {
+    > * {
+      color: var(--sdds-textfield-disabled-ps-color);
+    }
+  }
+
+  .sdds-textfield-slot-wrap-label {
+    > * {
+      color: var(--sdds-textfield-disabled-label);
+    }
+  }
+
+  /* slot[name="sdds-prefix"]::slotted(*),
   slot[name="sdds-suffix"]::slotted(*) {
     color: var(--sdds-textfield-disabled-ps-color);
   }
 
   slot[name="sdds-label"]::slotted(*) {
     color: var(--sdds-textfield-disabled-label);
-  }
+  } */
 }
 
 //Read only state
@@ -423,12 +446,38 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-slot[name="sdds-prefix"]::slotted(*),
+/* slot[name="sdds-prefix"]::slotted(*),
 slot[name="sdds-suffix"]::slotted(*) {
   @include type-style("detail-02");
 
   align-self: center;
   color: var(--sdds-textfield-ps-color);
+} */
+
+.sdds-textfield-slot-wrap-prefix {
+  align-self: center;
+
+  > * {
+    @include type-style("detail-02");
+
+    margin-left: 16px;
+
+    //align-self: center;
+    color: var(--sdds-textfield-ps-color);
+  }
+}
+
+.sdds-textfield-slot-wrap-suffix {
+  align-self: center;
+
+  > * {
+    @include type-style("detail-02");
+
+    margin-right: 16px;
+
+    //align-self: center;
+    color: var(--sdds-textfield-ps-color);
+  }
 }
 
 //TODO: When new icons are avaliable have a look at this one

@@ -106,13 +106,17 @@ export class Textfield {
         }
         `}
       >
-        <slot name="sdds-label" />
+        <div class="sdds-textfield-slot-wrap-label">
+          <slot name="sdds-label" />
+        </div>
 
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-textfield-container"
         >
-          <slot name="sdds-prefix" />
+          <div class="sdds-textfield-slot-wrap-prefix">
+            <slot name="sdds-prefix" />
+          </div>
 
           <div class="sdds-textfield-input-container">
             <input
@@ -148,7 +152,9 @@ export class Textfield {
           </div>
           <div class="sdds-textfield-bar"></div>
 
-          <slot name="sdds-suffix" />
+          <div class="sdds-textfield-slot-wrap-suffix">
+            <slot name="sdds-suffix" />
+          </div>
 
           <svg
             class="sdds-textfield-icon__readonly"
