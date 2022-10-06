@@ -1,6 +1,8 @@
 @import "./dropdown-core";
 
 .sdds-dropdown {
+  position: relative;
+
   select {
     @include dropdown-wrapper;
 
