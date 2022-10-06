@@ -13,6 +13,7 @@ html {
   --sdds-btn-primary-background-focus: var(--sdds-blue-400);
   --sdds-btn-primary-color-focus: var(--sdds-white);
   --sdds-btn-primary-border-color-focus: var(--sdds-blue-600);
+  --sdds-btn-primary-outline-color-focus: var(--sdds-blue-600);
   --sdds-btn-primary-background-disabled: var(--sdds-white);
   --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
   --sdds-btn-primary-border-color-disabled: transparent;
@@ -30,6 +31,7 @@ html {
   --sdds-btn-secondary-background-focus: transparent;
   --sdds-btn-secondary-color-focus: var(--sdds-black);
   --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
+  --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-300);
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
@@ -47,6 +49,7 @@ html {
   --sdds-btn-ghost-background-focus: transparent;
   --sdds-btn-ghost-color-focus: var(--sdds-black);
   --sdds-btn-ghost-border-color-focus: var(--sdds-blue-300);
+  --sdds-btn-ghost-outline-color-focus: var(--sdds-blue-300);
   --sdds-btn-ghost-background-disabled: transparent;
   --sdds-btn-ghost-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-ghost-border-color-disabled: transparent;
@@ -64,6 +67,7 @@ html {
   --sdds-btn-danger-background-focus: var(--sdds-red-400);
   --sdds-btn-danger-color-focus: var(--sdds-white);
   --sdds-btn-danger-border-color-focus: var(--sdds-red-700);
+  --sdds-btn-danger-outline-color-focus: var(--sdds-red-700);
   --sdds-btn-danger-background-disabled: var(--sdds-white);
   --sdds-btn-danger-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
