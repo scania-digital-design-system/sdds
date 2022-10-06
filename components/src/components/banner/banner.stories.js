@@ -61,7 +61,7 @@ export const Prefix = Template.bind({});
 
 Prefix.args = {
   prefix:
-    '<span class="sdds-banner-prefix"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>',
+    '<span class="sdds-banner-prefix"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="20" height="20"/> </svg></span>',
   subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
   link: '<a class="sdds-link sdds-banner-link">Link example</a>',
 };
