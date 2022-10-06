@@ -1,9 +1,10 @@
-@import "../../helpers/style-helpers.scss";
+@import "../../helpers/style-helpers";
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
 :root,
-html {
+html,
+:host {
   --sdds-slider-width: 100px;
   --sdds-slider-track-width: 100px;
   --sdds-slider-track-height: 4px;
