@@ -1,12 +1,4 @@
-import {
-  Component,
-  h,
-  /*Listen,*/
-  Prop,
-  State,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-textarea',
