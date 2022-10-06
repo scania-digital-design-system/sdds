@@ -232,7 +232,7 @@
   ::slotted(sdds-dropdown-option) {
     display: flex;
     padding: var(--sdds-spacing-element-16);
-    background-color: var(--sdds-white);
+    background-color: var(--sdds-dropdown-bg);
     border-top: 1px solid transparent;
     border-bottom: 1px solid var(--sdds-grey-100);
     opacity: 0;
@@ -249,11 +249,11 @@
 
   ::slotted(sdds-dropdown-option:hover),
   ::slotted(sdds-dropdown-option:focus) {
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-dropdown-bg-hover);
   }
 
   ::slotted(sdds-dropdown-option:hover:not(:focus):not(sdds-dropdown-option.selected)) {
-    background-color: var(--sdds-white);
+    background-color: var(--sdds-dropdown-bg-hover);
   }
 
   ::slotted(sdds-dropdown-option:hover:focus) {
