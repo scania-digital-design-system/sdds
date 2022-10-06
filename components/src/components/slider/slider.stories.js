@@ -126,6 +126,13 @@ export default {
         type: 'boolean',
       },
     },
+    readonly: {
+      name: 'Read Only',
+      description: 'Put control in read-only state',
+      control: {
+        type: 'boolean',
+      },
+    },
     small: {
       name: 'Small',
       description: 'Use small variant',
@@ -150,8 +157,7 @@ const ComponentSlider = ({ ...Basic }) => {
   return `
     ${style}
     <div class="storybook-slider-wrapper ${classes}">
-      <sdds-slider 
-        id="sdds-slider"
+      <sdds-slider id="sdds-slider"
         min="${Basic.min}" 
         max="${Basic.max}" 
         step="${Basic.step}" 
@@ -165,6 +171,7 @@ const ComponentSlider = ({ ...Basic }) => {
         ${Basic.showInput && 'input'} 
         ${Basic.disabled && 'disabled'} 
         ${Basic.small && 'size="sm"'}
+        ${Basic.readonly && 'readonly'} 
         >
 
       </sdds-slider>
@@ -223,4 +230,5 @@ Basic.args = {
   disabled: false,
   small: false,
   snapToTicks: false,
+  readonly: false,
 };

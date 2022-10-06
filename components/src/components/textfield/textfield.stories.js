@@ -153,15 +153,15 @@ const textfieldTemplate = ({
       ${readonly ? 'readonly' : ''}
       ${minWidthValue ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
-        ${prefix}
+        ${prefix ? `${prefix}` : ''}
         ${
           label && !labelplacement
             ? `<label slot='sdds-label'>${label}</label>`
             : ''
         }
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix}
-        ${icon}
+        ${suffix ? `${suffix}` : ''}
+        ${icon ? `${icon}` : ''}
     </sdds-textfield>
   </div>
   `;

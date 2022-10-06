@@ -1,17 +1,9 @@
-import {
-  Component,
-  Prop,
-  EventEmitter,
-  Event,
-  Listen,
-  Host,
-  h,
-} from '@stencil/core';
+import { Component, Prop, h, Listen, EventEmitter, Event } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
   styleUrl: 'slider.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Slider {
   wrapperElement: HTMLElement = null;
@@ -44,6 +36,8 @@ export class Slider {
 
   disabledState: boolean = false;
 
+  readonlyState: boolean = false;
+
   useControls: boolean = false;
 
   useInput: boolean = false;
@@ -53,6 +47,15 @@ export class Slider {
   useSnapping: boolean = false;
 
   supposedValueSlot: number = -1;
+
+  /** Change event for the textfield */
+  @Event({
+    eventName: 'sliderChange',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sliderChangeEmitter: EventEmitter<any>;
 
   /** Text for label */
   @Prop() label: string = '';
@@ -78,6 +81,9 @@ export class Slider {
   /** Sets the disabled state for the whole component  */
   @Prop() disabled: boolean = null;
 
+  /** Sets the read only state for the whole component  */
+  @Prop() readonly: boolean = null;
+
   /** Decide to show the controls or not */
   @Prop() controls: boolean = null;
 
@@ -98,15 +104,6 @@ export class Slider {
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
-
-  /** Change event for the textfield */
-  @Event({
-    eventName: 'sliderChange',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sliderChangeEmitter: EventEmitter<any>;
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -330,6 +327,10 @@ export class Slider {
   }
 
   grabScrubber(xOffset, yOffset) {
+    if (this.readonlyState) {
+      return;
+    }
+
     this.scrubberGrabPos = {
       x: xOffset,
       y: yOffset,
@@ -344,6 +345,10 @@ export class Slider {
   }
 
   controlsStep(delta) {
+    if (this.readonlyState) {
+      return;
+    }
+
     const trackWidth = this.getTrackWidth();
     const percentage = this.scrubberLeft / trackWidth;
     const numTicks = parseInt(this.ticks);
@@ -405,6 +410,10 @@ export class Slider {
       this.disabledState = true;
     }
 
+    if (this.readonly !== null) {
+      this.readonlyState = true;
+    }
+
     if (this.controls !== null) {
       this.useControls = true;
     } else if (this.input !== null) {
@@ -431,7 +440,7 @@ export class Slider {
 
   render() {
     return (
-      <Host value={this.value}>
+      <div class="sdds-slider-wrapper">
         <input
           ref={(el) => (this.nativeRangeInputElement = el as HTMLInputElement)}
           class="sdds-slider-native-element"
@@ -554,6 +563,12 @@ export class Slider {
               </div>
               <div class="sdds-slider__input-field-wrapper">
                 <input
+                  onFocus={(e) => {
+                    if (this.readonlyState) {
+                      e.preventDefault();
+                      this.inputElement.blur();
+                    }
+                  }}
                   size={this.calculateInputSizeFromMax()}
                   class="sdds-slider__input-field"
                   value={this.value}
@@ -587,7 +602,7 @@ export class Slider {
             </div>
           )}
         </div>
-      </Host>
+      </div>
     );
   }
 }
