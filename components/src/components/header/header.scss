@@ -8,6 +8,7 @@ html,
   --sdds-nav-dropdown-menu-box:
  0 3px 3px rgb(0 0 0 / 15%),
     0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-nav-dropdown-item-border-radius: 0 0 4px 4px;
 }
 
 @mixin sdds-nav__basic-element-style {
@@ -298,7 +299,7 @@ html,
     transform-origin: top;
     transition: transform 150ms ease;
     box-shadow: var(--sdds-nav-dropdown-menu-box);
-    border-radius: 0 0 4px 4px;
+    border-radius: var(--sdds-nav-dropdown-item-border-radius);
   }
 
   .sdds-nav__dropdown-item {
@@ -312,9 +313,9 @@ html,
       background-color: var(--sdds-grey-100);
     }
 
-    &:last-of-type {
-      border-bottom: none;
-      border-radius: 0 0 4px 4px;
+    &:last-of-type,
+    a {
+      border-radius: var(--sdds-nav-dropdown-item-border-radius);
     }
   }
 
@@ -646,10 +647,10 @@ html,
 
     //WHY WE NEED DOUBLE VALUES HERE TO MAKE IT WORK???
     &:last-child {
-      border-radius: 0 0 4px 4px;
+      border-radius: var(--sdds-nav-dropdown-item-border-radius);
 
       .sdds-nav__avatar-item-core {
-        border-radius: 0 0 4px 4px;
+        border-radius: var(--sdds-nav-dropdown-item-border-radius);
       }
     }
   }
