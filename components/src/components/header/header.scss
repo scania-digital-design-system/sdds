@@ -290,12 +290,14 @@ html,
 
     .sdds-nav__dropdown-menu {
       transform: scaleY(1);
+      opacity: 1;
     }
   }
 
   .sdds-nav__dropdown-menu {
     position: absolute;
     list-style-type: none;
+    opacity: 0;
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 150ms ease;
@@ -637,6 +639,7 @@ html,
     transition: transform 150ms ease;
     transform-origin: top;
     transform: scaleY(0);
+    opacity: 0;
   }
 
   .sdds-nav__avatar-item {
@@ -715,6 +718,7 @@ html,
 
     .sdds-nav__avatar-menu {
       transform: scaleY(1);
+      opacity: 1;
     }
   }
 
@@ -729,6 +733,7 @@ html,
     height: calc(100vh - 64px);
     padding-bottom: 32px;
     transform: scaleY(0);
+    opacity: 0;
     transform-origin: top;
     transition: transform 150ms ease;
   }
@@ -741,6 +746,7 @@ html,
 
     .sdds-nav__app-launcher-menu {
       transform: scaleY(1);
+      opacity: 1;
     }
   }
 
