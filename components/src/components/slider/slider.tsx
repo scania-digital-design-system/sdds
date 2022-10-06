@@ -1,11 +1,4 @@
-import {
-  Component,
-  Prop,
-  h,
-  Listen,
-  EventEmitter,
-  Event,
-} from '@stencil/core';
+import { Component, Prop, h, Listen, EventEmitter, Event } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -44,7 +37,7 @@ export class Slider {
   disabledState: boolean = false;
 
   readonlyState: boolean = false;
-  
+
   useControls: boolean = false;
 
   useInput: boolean = false;
@@ -262,20 +255,6 @@ export class Slider {
     return trackRect.right - trackRect.left;
   }
 
-  grabScrubber(xOffset, yOffset) {
-    if (this.readonlyState) {
-      return;
-    }
-
-    this.scrubberGrabPos = {
-      x: xOffset,
-      y: yOffset,
-    };
-
-    this.scrubberGrabbed = true;
-    this.scrubberInnerElement.classList.add('pressed');
-  }
-
   calculateScrubberLeftFromValue(value) {
     const initValue = value;
     const trackWidth = this.getTrackWidth();
@@ -348,6 +327,10 @@ export class Slider {
   }
 
   grabScrubber(xOffset, yOffset) {
+    if (this.readonlyState) {
+      return;
+    }
+
     this.scrubberGrabPos = {
       x: xOffset,
       y: yOffset,

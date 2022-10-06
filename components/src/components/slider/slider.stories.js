@@ -181,12 +181,18 @@ const ComponentSlider = ({ ...Basic }) => {
 
 let sliderStoryLoaded = false;
 
+function ready(fn) {
+  if (document.readyState !== 'loading') {
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
 ready(function () {
   if (sliderStoryLoaded) {
     return;
   }
-
-  console.log('hello');
 
   sliderStoryLoaded = true;
 
