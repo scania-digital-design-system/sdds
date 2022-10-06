@@ -3,6 +3,13 @@
 @import "../../../node_modules/@scania/grid/dist/scss/grid";
 @import "../../helpers/components-shared";
 
+html,
+:root {
+  --sdds-nav-dropdown-menu-box:
+ 0 3px 3px rgb(0 0 0 / 15%),
+    0 -1px 1px rgb(0 0 0 / 1%);
+}
+
 @mixin sdds-nav__basic-element-style {
   cursor: pointer;
   background-color: var(--sdds-blue-800);
@@ -290,7 +297,7 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 150ms ease;
-    box-shadow: var(--sdds-card-box);
+    box-shadow: var(--sdds-nav-dropdown-menu-box);
     border-radius: 0 0 4px 4px;
   }
 
