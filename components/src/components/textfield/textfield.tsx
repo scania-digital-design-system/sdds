@@ -1,17 +1,9 @@
-import {
-  Component,
-  h,
-  State,
-  Prop,
-  Listen,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-textfield',
   styleUrl: 'textfield.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Textfield {
   /** Textinput for focus state */
@@ -64,18 +56,6 @@ export class Textfield {
   })
   customChange: EventEmitter;
 
-  // Listener if input enters focus state
-  @Listen('focus')
-  handleFocusIn() {
-    this.focusInput = true;
-  }
-
-  // Listener if input leaves focus state
-  @Listen('focusout')
-  handleFocusOut() {
-    this.focusInput = false;
-  }
-
   // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
@@ -89,6 +69,7 @@ export class Textfield {
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
     this.textInput.focus();
+    this.focusInput = true;
   }
 
   render() {
@@ -104,13 +85,13 @@ export class Textfield {
         class={`
         ${this.nominwidth ? 'sdds-form-textfield-nomin' : ''}
         ${
-          this.focusInput
+          this.focusInput && !this.disabled
             ? 'sdds-form-textfield sdds-textfield-focus'
             : ' sdds-form-textfield'
         }
         ${this.value.length > 0 ? 'sdds-textfield-data' : ''}
         ${
-          this.labelInside.length > 0
+          this.labelInside.length > 0 && this.size !== 'sm'
             ? 'sdds-textfield-container-label-inside'
             : ''
         }
@@ -125,16 +106,31 @@ export class Textfield {
         }
         `}
       >
-        <slot name="sdds-label" />
+        <div class="sdds-textfield-slot-wrap-label">
+          <slot name="sdds-label" />
+        </div>
 
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-textfield-container"
         >
-          <slot name="sdds-prefix" />
+          <div class="sdds-textfield-slot-wrap-prefix">
+            <slot name="sdds-prefix" />
+          </div>
 
           <div class="sdds-textfield-input-container">
             <input
+              onFocus={(e) => {
+                if (this.readonly) {
+                  e.preventDefault();
+                  this.textInput.blur();
+                  return;
+                }
+                this.focusInput = true;
+              }}
+              onBlur={() => {
+                this.focusInput = false;
+              }}
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
               class={className}
               type={this.type}
@@ -148,7 +144,7 @@ export class Textfield {
               onChange={(e) => this.handleChange(e)}
             />
 
-            {this.labelInside.length > 0 && (
+            {this.labelInside.length > 0 && this.size !== 'sm' && (
               <label class="sdds-textfield-label-inside">
                 {this.labelInside}
               </label>
@@ -156,7 +152,9 @@ export class Textfield {
           </div>
           <div class="sdds-textfield-bar"></div>
 
-          <slot name="sdds-suffix" />
+          <div class="sdds-textfield-slot-wrap-suffix">
+            <slot name="sdds-suffix" />
+          </div>
 
           <svg
             class="sdds-textfield-icon__readonly"
@@ -190,7 +188,30 @@ export class Textfield {
         </div>
 
         <div class="sdds-textfield-helper">
-          <slot name="sdds-helper" />
+          {this.state === 'error' && (
+            <div class="sdds-textfield-helper-error-state">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8 2.00015C4.6853 2.00015 1.9982 4.68725 1.9982 8.00195C1.9982 11.3167 4.6853 14.0038 8 14.0038C11.3147 14.0038 14.0018 11.3167 14.0018 8.00195C14.0018 4.68725 11.3147 2.00015 8 2.00015ZM1 8.00195C1 4.13596 4.13401 1.00195 8 1.00195C11.866 1.00195 15 4.13596 15 8.00195C15 11.8679 11.866 15.002 8 15.002C4.13401 15.002 1 11.8679 1 8.00195Z"
+                  fill="#FF2340"
+                />
+                <path
+                  d="M7.4014 7.2352V5H8.5894V7.2352L8.4134 9.3824H7.5774L7.4014 7.2352ZM7.375 10.0512H8.6246V11.248H7.375V10.0512Z"
+                  fill="#FF2340"
+                />
+              </svg>
+              <slot name="sdds-helper" />
+            </div>
+          )}
+          {this.state !== 'error' && <slot name="sdds-helper" />}
 
           {this.maxlength > 0 && (
             <div class="sdds-textfield-textcounter">

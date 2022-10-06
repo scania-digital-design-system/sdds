@@ -1,20 +1,24 @@
 @import "@scania/typography/dist/scss/mixins";
 @import "@scania/typography/dist/scss/tokens";
 
-:host {
-  // Variables
-  --sdds-slider-inputfield-bg: var(--sdds-white);
-
-  .sdds-on-white-bg {
-    --sdds-slider-inputfield-bg: var(--sdds-grey-50);
-  }
-
-  // Styling
+sdds-slider {
   width: 100%;
+
+  --sdds-slider-inputfield-bg: var(--sdds-white);
 
   input[type="range"].sdds-slider-native-element {
     display: none;
   }
+}
+
+/* :root .sdds-on-white-bg,
+html .sdds-on-white-bg {
+  --sdds-slider-inputfield-bg: var(--sdds-grey-50);
+} */
+
+/* :host */
+.sdds-slider-wrapper {
+  width: 100%;
 }
 
 .sdds-slider {

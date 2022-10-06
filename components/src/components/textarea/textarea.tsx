@@ -1,17 +1,9 @@
-import {
-  Component,
-  h,
-  Listen,
-  Prop,
-  State,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-textarea',
   styleUrl: 'textarea.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Textarea {
   /** Textinput for focus state */
@@ -67,18 +59,6 @@ export class Textarea {
   })
   customChange: EventEmitter;
 
-  // Listener if input enters focus state
-  @Listen('focus')
-  handleFocusIn() {
-    this.focusInput = true;
-  }
-
-  // Listener if input leaves focus state
-  @Listen('focusout')
-  handleFocusOut() {
-    this.focusInput = false;
-  }
-
   // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
@@ -87,6 +67,7 @@ export class Textarea {
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocusClick(): void {
     this.textEl.focus();
+    this.focusInput = true;
   }
 
   handleChange(e): void {
@@ -116,6 +97,12 @@ export class Textarea {
         )}
         <div class="sdds-textarea-wrapper">
           <textarea
+            onFocus={() => {
+              this.focusInput = true;
+            }}
+            onBlur={() => {
+              this.focusInput = false;
+            }}
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}

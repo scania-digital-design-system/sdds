@@ -1,5 +1,5 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 :root,
 html {
@@ -94,21 +94,21 @@ html {
 //Sizes
 .sdds-textfield-input {
   @include textfield-base;
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 .sdds-textfield-input-md {
   @include textfield-base;
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-16);
 }
 
 .sdds-textfield-input-sm {
   @include textfield-base;
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   padding: var(--sdds-spacing-element-16);
 }
@@ -143,8 +143,18 @@ html {
 }
 
 //Textfield label
-slot[name="sdds-label"]::slotted(*) {
+
+/* slot[name="sdds-label"]::slotted(*) {
   @include type-style("detail-05");
+
+  display: block;
+  margin-bottom: var(--sdds-spacing-element-8);
+  color: var(--sdds-textfield-label-color);
+} */
+
+//Textfield label
+.sdds-textfield-slot-wrap-label > * {
+  @include type-style('detail-05');
 
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
@@ -152,7 +162,7 @@ slot[name="sdds-label"]::slotted(*) {
 }
 
 .sdds-textfield-label-inside {
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   position: absolute;
   pointer-events: none;
@@ -237,21 +247,21 @@ slot[name="sdds-label"]::slotted(*) {
   &.sdds-textfield-focus,
   &.sdds-textfield-data {
     .sdds-textfield-input-sm ~ .sdds-textfield-label-inside {
-      @include type-style("detail-07");
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-textfield-input-md ~ .sdds-textfield-label-inside {
-      @include type-style("detail-07");
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-textfield-input ~ .sdds-textfield-label-inside {
-      @include type-style("detail-07");
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 12px;
@@ -266,7 +276,7 @@ slot[name="sdds-label"]::slotted(*) {
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     height: 2px;
     top: 54px;
     width: 0;
@@ -299,7 +309,7 @@ slot[name="sdds-label"]::slotted(*) {
 
 //Helper text
 .sdds-textfield-helper {
-  @include type-style("detail-05");
+  @include type-style('detail-05');
 
   display: block;
   flex-basis: 100%;
@@ -313,14 +323,27 @@ slot[name="sdds-label"]::slotted(*) {
     border-bottom-color: transparent;
   }
 
-  slot[name="sdds-prefix"]::slotted(*),
+  .sdds-textfield-slot-wrap-prefix,
+  .sdds-textfield-slot-wrap-suffix {
+    > * {
+      color: var(--sdds-textfield-disabled-ps-color);
+    }
+  }
+
+  .sdds-textfield-slot-wrap-label {
+    > * {
+      color: var(--sdds-textfield-disabled-label);
+    }
+  }
+
+  /* slot[name="sdds-prefix"]::slotted(*),
   slot[name="sdds-suffix"]::slotted(*) {
     color: var(--sdds-textfield-disabled-ps-color);
   }
 
   slot[name="sdds-label"]::slotted(*) {
     color: var(--sdds-textfield-disabled-label);
-  }
+  } */
 }
 
 //Read only state
@@ -338,7 +361,7 @@ slot[name="sdds-label"]::slotted(*) {
     right: 18px;
     bottom: -24px;
 
-    @include type-style("detail-05");
+    @include type-style('detail-05');
 
     padding: 8px;
     color: var(--sdds-white);
@@ -395,14 +418,24 @@ slot[name="sdds-label"]::slotted(*) {
     }
   }
 
-  slot[name="sdds-prefix"]::slotted(sdds-icon),
-  slot[name="sdds-suffix"]::slotted(sdds-icon) {
+  slot[name='sdds-prefix']::slotted(sdds-icon),
+  slot[name='sdds-suffix']::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
 
+// .sdds-textfield-textcounter {
+.sdds-textfield-helper-error-state {
+  display: flex;
+  flex-wrap: nowrap;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+
 .sdds-textfield-textcounter {
-  @include type-style("detail-05");
+  @include type-style('detail-05');
 
   color: var(--sdds-textfield-textcounter);
   float: right;
@@ -413,23 +446,45 @@ slot[name="sdds-label"]::slotted(*) {
   }
 }
 
-slot[name="sdds-prefix"]::slotted(*),
+/* slot[name="sdds-prefix"]::slotted(*),
 slot[name="sdds-suffix"]::slotted(*) {
   @include type-style("detail-02");
 
   align-self: center;
   color: var(--sdds-textfield-ps-color);
+} */
+
+.sdds-textfield-slot-wrap-prefix {
+  align-self: center;
+
+  > * {
+    @include type-style('detail-02');
+
+    margin-left: 16px;
+    color: var(--sdds-textfield-ps-color);
+  }
+}
+
+.sdds-textfield-slot-wrap-suffix {
+  align-self: center;
+
+  > * {
+    @include type-style('detail-02');
+
+    margin-right: 16px;
+    color: var(--sdds-textfield-ps-color);
+  }
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name="sdds-prefix"]::slotted(sdds-icon),
-slot[name="sdds-suffix"]::slotted(sdds-icon) {
+slot[name='sdds-prefix']::slotted(sdds-icon),
+slot[name='sdds-suffix']::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }
 
 //Text gerenerated infront of the input field
-slot[name="sdds-prefix"]::slotted(*) {
+slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
   & ~ .sdds-textfield-input  {
@@ -438,6 +493,6 @@ slot[name="sdds-prefix"]::slotted(*) {
 }
 
 //Text generated after the input field
-slot[name="sdds-suffix"]::slotted(*) {
+slot[name='sdds-suffix']::slotted(*) {
   padding-right: var(--sdds-spacing-element-20);
 }
