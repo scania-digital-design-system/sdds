@@ -1,15 +1,16 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import './button-core';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "./button-core";
+@import "../../helpers/components-shared.scss";
 
 $btn-default-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
 $types: (primary, secondary, ghost, danger);
-$props: (background, border-color, color);
+$props: (background, border-color, color, outline-color);
 
 @mixin button-base {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   display: inline-block;
   border-radius: 1rem;
@@ -33,7 +34,7 @@ $props: (background, border-color, color);
   }
 
   &:focus {
-    outline: none;
+    @include sdds-focus-state;
   }
 
   .sdds-btn-icon,
@@ -54,6 +55,10 @@ $props: (background, border-color, color);
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
+    &:focus {
+      @include sdds-focus-state;
+    }
+
     .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
@@ -62,6 +67,10 @@ $props: (background, border-color, color);
   &.sdds-btn-md {
     padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
+
+    &:focus {
+      @include sdds-focus-state;
+    }
 
     .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
@@ -119,7 +128,7 @@ $props: (background, border-color, color);
   }
 }
 
-::slotted([slot='icon']) {
+::slotted([slot="icon"]) {
   margin-left: var(--sdds-spacing-element-32);
   width: var(--sdds-spacing-element-16);
   height: var(--sdds-spacing-element-16);
