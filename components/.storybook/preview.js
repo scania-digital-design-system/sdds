@@ -65,12 +65,12 @@ const customViewports = {
 
 const customBGvalues = [
   {
-    name: 'grey',
-    value: '#F9FAFB',
+    name: 'White',
+    value: '#FFFFFF',
   },
   {
-    name: 'white',
-    value: '#FFFFFF',
+    name: 'Light grey',
+    value: '#F9FAFB',
   },
 ];
 
@@ -87,7 +87,7 @@ export const parameters = {
   },
   backgrounds: {
     grid: { cellSize: 4 }, //TODO: correct gridcellsize
-    default: 'grey',
+    default: 'Light grey',
     values: customBGvalues,
   },
   layout: 'padded', // Adds extra padding around the component

@@ -1,8 +1,9 @@
 ///////////////////////////////////LINEAR///////////////////////////////////
 :root,
-html {
-  --sdds-spinner-background: var(--sdds-blue-500);
-  --sdds-spinner-border-color: var(--sdds-grey-400);
+html,
+:host {
+  --sdds-spinner-alpha-background: var(--sdds-blue-500);
+  --sdds-spinner-alpha-border-color: var(--sdds-grey-400);
 }
 
 :host {
@@ -14,36 +15,36 @@ $number-rect: 5;
 @mixin rect {
   @for $variable from 1 through $number-rect {
     .rect#{$variable} {
-      @extend %spinner-rect;
+      @extend %spinner-alpha-rect;
 
       animation-delay: calc((#{$variable} / 10) * 1s - 1.3s);
     }
   }
 }
 
-%spinner-rect {
-  background-color: var(--sdds-spinner-background);
+%spinner-alpha-rect {
+  background-color: var(--sdds-spinner-alpha-background);
   height: 100%;
   width: 12%;
   margin-right: 2px;
   display: inline-block;
-  animation: spinner-linear 1.3s infinite ease-in-out;
+  animation: spinner-alpha-linear 1.3s infinite ease-in-out;
 }
 
-.sdds-spinner-linear,
-.sdds-spinner-linear-md {
+.sdds-spinner-alpha-linear,
+.sdds-spinner-alpha-linear-md {
   width: 50px;
   height: 40px;
 
   @include rect;
 
-  &.sdds-spinner-linear-sm {
+  &.sdds-spinner-alpha-linear-sm {
     width: calc(50px / 2);
     height: calc(40px / 2);
   }
 }
 
-@keyframes spinner-linear {
+@keyframes spinner-alpha-linear {
   0%,
   40%,
   100% {
@@ -55,7 +56,7 @@ $number-rect: 5;
   }
 }
 
-@keyframes spinner-linear {
+@keyframes spinner-alpha-linear {
   0%,
   40%,
   100% {
@@ -69,28 +70,28 @@ $number-rect: 5;
 
 ///////////////////////////////////CIRCULAR///////////////////////////////////
 
-%spinner-circular {
+%spinner-alpha-circular {
   min-width: 40px;
   min-height: 40px;
-  border: 0.25em solid var(--sdds-spinner-border-color);
-  border-right: 0.25em solid var(--sdds-spinner-background);
+  border: 0.25em solid var(--sdds-spinner-alpha-border-color);
+  border-right: 0.25em solid var(--sdds-spinner-alpha-background);
   border-radius: 50%;
-  animation: spinner-circular 0.6s linear infinite;
+  animation: spinner-alpha-circular 0.6s linear infinite;
 }
 
-.sdds-spinner-circular,
-.sdds-spinner-circular-md {
-  @extend %spinner-circular;
+.sdds-spinner-alpha-circular,
+.sdds-spinner-alpha-circular-md {
+  @extend %spinner-alpha-circular;
 
-  &.sdds-spinner-circular-sm {
+  &.sdds-spinner-alpha-circular-sm {
     min-width: 20px;
     min-height: 20px;
-    border: 0.2em solid var(--sdds-spinner-border-color);
-    border-right: 0.2em solid var(--sdds-spinner-background);
+    border: 0.2em solid var(--sdds-spinner-alpha-border-color);
+    border-right: 0.2em solid var(--sdds-spinner-alpha-background);
   }
 }
 
-@keyframes spinner-circular {
+@keyframes spinner-alpha-circular {
   from {
     transform: rotate(0deg);
   }
@@ -100,7 +101,7 @@ $number-rect: 5;
   }
 }
 
-@keyframes spinner-circular {
+@keyframes spinner-alpha-circular {
   from {
     transform: rotate(0deg);
   }
@@ -111,20 +112,20 @@ $number-rect: 5;
 }
 
 ///////////////////////////////////CUBIC///////////////////////////////////
-%spinner-cube {
+%spinner-alpha-cube {
   width: 33%;
   height: 33%;
-  background-color: var(--sdds-spinner-background);
+  background-color: var(--sdds-spinner-alpha-background);
   float: left;
-  animation: spinner 1.3s infinite ease-in-out;
+  animation: spinner-alpha 1.3s infinite ease-in-out;
 }
 
-.sdds-spinner-cube,
-.sdds-spinner-cube-md {
+.sdds-spinner-alpha-cube,
+.sdds-spinner-alpha-cube-md {
   width: 40px;
   height: 40px;
 
-  &.sdds-spinner-cube-sm {
+  &.sdds-spinner-alpha-cube-sm {
     width: 20px;
     height: 20px;
   }
@@ -133,38 +134,38 @@ $number-rect: 5;
 .cube1,
 .cube5,
 .cube9 {
-  @extend %spinner-cube;
+  @extend %spinner-alpha-cube;
 
   animation-delay: 0.2s;
 }
 
 .cube2,
 .cube6 {
-  @extend %spinner-cube;
+  @extend %spinner-alpha-cube;
 
   animation-delay: 0.3s;
 }
 
 .cube4,
 .cube8 {
-  @extend %spinner-cube;
+  @extend %spinner-alpha-cube;
 
   animation-delay: 0.1s;
 }
 
 .cube3 {
-  @extend %spinner-cube;
+  @extend %spinner-alpha-cube;
 
   animation-delay: 0.4s;
 }
 
 .cube7 {
-  @extend %spinner-cube;
+  @extend %spinner-alpha-cube;
 
   animation-delay: 0s;
 }
 
-@keyframes spinner {
+@keyframes spinner-alpha {
   0%,
   70%,
   100% {
@@ -176,7 +177,7 @@ $number-rect: 5;
   }
 }
 
-@keyframes spinner {
+@keyframes spinner-alpha {
   0%,
   70%,
   100% {

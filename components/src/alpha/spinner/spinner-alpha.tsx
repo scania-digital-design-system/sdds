@@ -1,11 +1,11 @@
 import { Component, h, Prop, State } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-spinner',
-  styleUrl: 'spinner.scss',
+  tag: 'sdds-spinner-alpha',
+  styleUrl: 'spinner-alpha.scss',
   shadow: true,
 })
-export class Spinner {
+export class SpinnerAlpha {
   @Prop() size: 'sm' | 'md' | '' = '';
 
   @Prop() type = '';
@@ -25,9 +25,9 @@ export class Spinner {
   render() {
     return (
       <div
-        class={`sdds-spinner-${this.type} sdds-spinner-${this.type}-${
-          this.size == 'sm' || this.size == 'md' ? this.size : ''
-        } `}
+        class={`sdds-spinner-alpha-${this.type} sdds-spinner-alpha-${
+          this.type
+        }-${this.size == 'sm' || this.size == 'md' ? this.size : ''} `}
       >
         {this.type === 'cube' && this.renderElements(this.cubes, 'cube')}
         {this.type === 'linear' && this.renderElements(this.rects, 'rect')}
