@@ -169,6 +169,7 @@ html,
   }
 
   .sdds-nav__item {
+    position: relative;
     border-right: 1px solid var(--sdds-blue-700);
     border-top: none;
     border-bottom: none;
@@ -989,13 +990,13 @@ html,
         content: "";
         border-bottom: none;
         border-right: 4px solid var(--sdds-blue-400);
-        width: 100%;
+        width: 0;
         height: 100%;
         display: block;
         margin-left: 0;
-        bottom: 100%;
-        left: -100%;
-        position: relative;
+        top: 0;
+        left: 0;
+        position: absolute;
       }
 
       .sdds-nav__item-core,
