@@ -10,6 +10,7 @@ import {
   EventEmitter,
   Element,
   State,
+  Listen,
 } from '@stencil/core';
 
 @Component({
@@ -70,6 +71,19 @@ export class Table {
     composed: true,
   })
   enableExpandedRowsEvent: EventEmitter<any>;
+
+  @Listen('footerWillLoad', { target: 'body' })
+  subcomponentsWillLoadListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail) {
+      this.commonTableStyledEvent.emit([
+        this.uniqueTableIdentifier,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ]);
+    }
+  }
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');

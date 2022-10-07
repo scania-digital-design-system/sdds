@@ -123,7 +123,7 @@ export class TableBody {
     }
   }
 
-  componentDidRender() {
+  componentWillRender() {
     const headerColumnsNo =
       this.host.parentElement.querySelector('sdds-table-header').children
         .length;
@@ -134,8 +134,6 @@ export class TableBody {
     } else {
       this.columnsNumber = headerColumnsNo;
     }
-
-    this.sendDataToFooter();
 
     if (this.enablePaginationTableBody) {
       this.runPagination();
@@ -184,6 +182,14 @@ export class TableBody {
       this.numberOfPages,
       this.tempPaginationDisable,
     ]);
+  }
+
+  @Listen('footerWillLoad', { target: 'body' })
+  footerWillLoadListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail) {
+      console.log('Send info to the footer!');
+      this.sendDataToFooter();
+    }
   }
 
   @Listen('currentPageValueEvent', { target: 'body' })

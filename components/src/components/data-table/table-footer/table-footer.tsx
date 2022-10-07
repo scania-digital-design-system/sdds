@@ -31,6 +31,9 @@ export class TableFooter {
   /** Prop for client to set max number of pages */
   @Prop({ reflect: true }) clientMaxPages: number = 1;
 
+  /** In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too */
+  @Prop() clientSetColumnsNumber: number = null;
+
   /** State that memorize number of columns to display colSpan correctly - set from parent level */
   @State() columnsNumber: number = 0;
 
@@ -55,6 +58,15 @@ export class TableFooter {
 
   @Element() host: HTMLElement;
 
+  /** Event that footer sends out in order to receive other necessary information from other subcomponents */
+  @Event({
+    eventName: 'footerWillLoad',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  footerWillLoad: EventEmitter<any>;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -78,6 +90,8 @@ export class TableFooter {
       receivedTempPaginationDisabled,
     ] = event.detail;
 
+    console.log('I am listening to the table-body info');
+
     if (this.uniqueTableIdentifier === receivedID) {
       this.columnsNumber = receivedColumnsNUmber;
       this.numberOfPages = receivedNumberOfPages;
@@ -94,16 +108,28 @@ export class TableFooter {
   })
   enablePaginationData: EventEmitter<any>;
 
-  componentWillLoad() {
+  connectedCallback() {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
+    console.log('I will run first!');
+  }
 
+  componentWillLoad() {
     this.enablePaginationData.emit([
       this.uniqueTableIdentifier,
       this.enablePagination,
       this.rowsPerPage,
     ]);
+
+    this.footerWillLoad.emit(this.uniqueTableIdentifier);
+    console.log('Footer will load!');
+  }
+
+  componentWillRender() {
+    if (this.clientSetColumnsNumber !== null) {
+      this.columnsNumber = this.clientSetColumnsNumber;
+    }
   }
 
   /** Event to send current page value back to sdds-table-body component */
