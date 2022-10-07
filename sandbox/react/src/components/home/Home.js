@@ -34,8 +34,26 @@ const Home = () => {
         </p>
       </div>
 
+
       <div className="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
         <h4>Components</h4>
+
+        <div className="component-wrapper">
+          <h5 className="sdds-headline-05">Inline Tabs</h5>
+          
+          <sdds-inline-tabs auto-height>
+            <div name="Tab with a long name">
+              Content for tab this tab with a long name
+            </div>
+            <div default name="Another tab">
+              Content for this tab. This will be the initially visible tab because of the default-attribute.
+            </div>
+            <div disabled name="Tab 3">
+              This tab is disabled because of the disabled attribute and cannot be selected. Hence you will never get to read this text sadly.
+            </div>
+          </sdds-inline-tabs>
+
+        </div>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Accordion</h5>
