@@ -23,11 +23,8 @@ export class TableBody {
   /** Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting */
   @Prop() disableSortingFunction: boolean = false;
 
-  /** Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component */
-  @Prop() disablePaginationFunction: boolean = false;
-
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
-  @Prop({ reflect: true }) bodyData: any;
+  @Prop() bodyData: any;
 
   /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
   @Prop() enableDummyData: boolean = false;
@@ -134,10 +131,6 @@ export class TableBody {
     } else {
       this.columnsNumber = headerColumnsNo;
     }
-
-    if (this.enablePaginationTableBody) {
-      this.runPagination();
-    }
   }
 
   @Listen('enableExpandedRowsEvent', { target: 'body' })
@@ -151,80 +144,6 @@ export class TableBody {
     if (this.uniqueTableIdentifier === event.detail[0])
       this.enableMultiselectTableBody = event.detail[1];
   }
-
-  @Listen('enablePaginationData', { target: 'body' })
-  enablePaginationDataListener(event: CustomEvent<any>) {
-    const [receivedID, receivedPaginationStatus, receivedRowsPerPage] =
-      event.detail;
-
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.enablePaginationTableBody = receivedPaginationStatus;
-      this.rowsPerPage = receivedRowsPerPage;
-      this.numberOfPages = Math.ceil(
-        this.host.children.length / this.rowsPerPage
-      );
-    }
-  }
-
-  /** Sends unique table identifier, columns number, number of pages and temporarily disable state of pagination to the sdds-table-footer component */
-  @Event({
-    eventName: 'tableToFooterEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  tableToFooterEvent: EventEmitter<any>;
-
-  sendDataToFooter() {
-    this.tableToFooterEvent.emit([
-      this.uniqueTableIdentifier,
-      this.columnsNumber,
-      this.numberOfPages,
-      this.tempPaginationDisable,
-    ]);
-  }
-
-  @Listen('footerWillLoad', { target: 'body' })
-  footerWillLoadListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail) {
-      console.log('Send info to the footer!');
-      this.sendDataToFooter();
-    }
-  }
-
-  @Listen('currentPageValueEvent', { target: 'body' })
-  currentPageValueListener(event: CustomEvent<any>) {
-    const [receivedID, receivedPaginationValue] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.paginationValue = receivedPaginationValue;
-      this.runPagination();
-    }
-  }
-
-  runPagination = () => {
-    if (!this.disablePaginationFunction) {
-      // grab all rows in body
-      const dataRowsPagination = this.host.querySelectorAll('.sdds-table__row');
-
-      dataRowsPagination.forEach((item, i) => {
-        // for making logic easier 1st result, 2nd result...
-        const index = i + 1;
-
-        if (this.tempPaginationDisable) {
-          this.paginationValue = 1;
-        } else {
-          const lastResult = this.rowsPerPage * this.paginationValue;
-          const firstResult = lastResult - this.rowsPerPage;
-
-          if (index > firstResult && index <= lastResult) {
-            item.classList.remove('sdds-table__row--hidden');
-          } else {
-            item.classList.add('sdds-table__row--hidden');
-          }
-        }
-      });
-    }
-  };
 
   /** Event that sends unique table identifier and enable/disable status for sorting functionality */
   @Event({
@@ -453,7 +372,7 @@ export class TableBody {
 
         // Check if pagination is ON in order to prevent showing all rows
         if (this.enablePaginationTableBody) {
-          this.runPagination();
+          // TODO: EMIT PAGINATION
         } else {
           dataRowsFiltering.forEach((item) => {
             item.classList.remove('sdds-table__row--hidden');

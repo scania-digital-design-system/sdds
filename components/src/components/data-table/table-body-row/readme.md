@@ -7,9 +7,10 @@
 
 ## Events
 
-| Event            | Description                                                                                                             | Type                   |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `bodyRowToTable` | Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control | `CustomEvent<boolean>` |
+| Event                | Description                                                                                                             | Type                   |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `bodyRowToTable`     | Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control | `CustomEvent<boolean>` |
+| `runPaginationEvent` | Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run        | `CustomEvent<string>`  |
 
 
 ## Dependencies

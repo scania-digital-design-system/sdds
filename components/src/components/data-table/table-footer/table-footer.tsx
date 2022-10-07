@@ -34,6 +34,9 @@ export class TableFooter {
   /** In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too */
   @Prop() clientSetColumnsNumber: number = null;
 
+  /** Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component */
+  @Prop() disablePaginationFunction: boolean = false;
+
   /** State that memorize number of columns to display colSpan correctly - set from parent level */
   @State() columnsNumber: number = 0;
 
@@ -67,6 +70,15 @@ export class TableFooter {
   })
   footerWillLoad: EventEmitter<any>;
 
+  /** Event that footer sends out in order to receive other necessary information from other subcomponents */
+  @Event({
+    eventName: 'enablePaginationEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  enablePaginationEvent: EventEmitter<any>;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -80,69 +92,33 @@ export class TableFooter {
     }
   }
 
-  /** Listens to elementary pagination data made and sent by parent component */
-  @Listen('tableToFooterEvent', { target: 'body' })
-  tableToFooterEventListener(event: CustomEvent<any>) {
-    const [
-      receivedID,
-      receivedColumnsNUmber,
-      receivedNumberOfPages,
-      receivedTempPaginationDisabled,
-    ] = event.detail;
-
-    console.log('I am listening to the table-body info');
-
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.columnsNumber = receivedColumnsNUmber;
-      this.numberOfPages = receivedNumberOfPages;
-      this.tempPaginationDisable = receivedTempPaginationDisabled;
-    }
-  }
-
-  /** Event to send rowsPerPage value back to sdds-table-body component */
-  @Event({
-    eventName: 'enablePaginationData',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  enablePaginationData: EventEmitter<any>;
-
   connectedCallback() {
     this.uniqueTableIdentifier = this.host
       .closest('sdds-table')
       .getAttribute('id');
-    console.log('I will run first!');
   }
 
   componentWillLoad() {
-    this.enablePaginationData.emit([
-      this.uniqueTableIdentifier,
-      this.enablePagination,
-      this.rowsPerPage,
-    ]);
+    const numberOfRows =
+      this.host.parentElement.querySelector(
+        'sdds-table-body'
+      ).childElementCount;
 
-    this.footerWillLoad.emit(this.uniqueTableIdentifier);
-    console.log('Footer will load!');
-  }
+    const numberOfColumns =
+      this.host.parentElement.querySelector(
+        'sdds-table-header'
+      ).childElementCount;
 
-  componentWillRender() {
+    this.numberOfPages = Math.ceil(numberOfRows / this.rowsPerPage);
+
     if (this.clientSetColumnsNumber !== null) {
       this.columnsNumber = this.clientSetColumnsNumber;
+    } else {
+      this.columnsNumber = numberOfColumns;
     }
-  }
 
-  /** Event to send current page value back to sdds-table-body component */
-  @Event({
-    eventName: 'currentPageValueEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  currentPageValueEvent: EventEmitter<any>;
-
-  sendPaginationValue(value) {
-    this.currentPageValueEvent.emit([this.uniqueTableIdentifier, value]);
+    this.footerWillLoad.emit(this.uniqueTableIdentifier);
+    this.enablePaginationEvent.emit(this.uniqueTableIdentifier);
   }
 
   paginationPrev = (event) => {
@@ -150,7 +126,7 @@ export class TableFooter {
     // Enable lowering until 1st page
     if (this.paginationValue >= 2) {
       this.paginationValue--;
-      this.sendPaginationValue(this.paginationValue);
+      this.runPagination();
     }
   };
 
@@ -159,7 +135,7 @@ export class TableFooter {
     // Enable increasing until the max number of pages
     if (this.paginationValue <= this.numberOfPages) {
       this.paginationValue++;
-      this.sendPaginationValue(this.paginationValue);
+      this.runPagination();
     }
   };
 
@@ -173,14 +149,61 @@ export class TableFooter {
     } else {
       this.paginationValue = event.target.value;
     }
-    this.sendPaginationValue(this.paginationValue);
+    this.runPagination();
   }
 
-  removeShakeAnimation(event) {
+  removeShakeAnimation = (event) => {
     event.target.classList.remove('sdds-table__page-selector-input--shake');
+  };
+
+  @Listen('runPaginationEvent', { target: 'body' })
+  runPaginationEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail) {
+      this.runPagination();
+    }
   }
+
+  runPagination = () => {
+    if (!this.disablePaginationFunction) {
+      // grab all rows in body
+      const dataRowsPagination = this.host.parentNode
+        .querySelector('sdds-table-body')
+        .querySelectorAll('.sdds-table__row');
+
+      dataRowsPagination.forEach((item, i) => {
+        // for making logic easier 1st result, 2nd result...
+        const index = i + 1;
+
+        if (this.tempPaginationDisable) {
+          this.paginationValue = 1;
+        } else {
+          const lastResult = this.rowsPerPage * this.paginationValue;
+          const firstResult = lastResult - this.rowsPerPage;
+
+          if (index > firstResult && index <= lastResult) {
+            item.classList.remove('sdds-table__row--hidden');
+          } else {
+            item.classList.add('sdds-table__row--hidden');
+          }
+        }
+      });
+    }
+  };
 
   /* Client based functions below */
+
+  /** Event to send current page value back to sdds-table-body component */
+  @Event({
+    eventName: 'currentPageValueEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  currentPageValueEvent: EventEmitter<any>;
+
+  sendPaginationValue(value) {
+    this.currentPageValueEvent.emit([this.uniqueTableIdentifier, value]);
+  }
 
   clientPaginationPrev = (event) => {
     event.preventDefault();
@@ -218,7 +241,7 @@ export class TableFooter {
       <Host class={this.compactDesign ? 'sdds-table--compact' : ''}>
         <tr class="sdds-table__footer-row">
           <td class="sdds-table__footer-cell" colSpan={this.columnsNumber}>
-            {this.enablePagination && (
+            {this.enablePagination && !this.enableClientPagination && (
               <div class="sdds-table__pagination">
                 <div class="sdds-table__row-selector"></div>
                 <div class="sdds-table__page-selector">

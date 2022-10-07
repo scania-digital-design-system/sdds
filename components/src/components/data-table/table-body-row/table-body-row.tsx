@@ -39,6 +39,10 @@ export class TableBodyRow {
       .getAttribute('id');
   }
 
+  componentDidLoad() {
+    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -60,6 +64,15 @@ export class TableBodyRow {
     bubbles: true,
   })
   bodyRowToTable: EventEmitter<boolean>;
+
+  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  @Event({
+    eventName: 'runPaginationEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  runPaginationEvent: EventEmitter<string>;
 
   bodyCheckBoxClicked(event) {
     const row = this.host;

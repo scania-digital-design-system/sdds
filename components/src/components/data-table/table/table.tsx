@@ -83,6 +83,7 @@ export class Table {
         this.whiteBackground,
       ]);
     }
+    console.log('Sending info to the footer!');
   }
 
   componentWillLoad() {
