@@ -121,6 +121,12 @@
     }
   }
 
+  &:has(span.sdds-dropdown-label-outside) {
+    .sdds-dropdown-menu {
+      margin-bottom: -24px;
+    }
+  }
+
   .sdds-dropdown-menu {
     z-index: 10000;
 
