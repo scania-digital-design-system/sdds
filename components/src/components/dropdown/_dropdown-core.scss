@@ -78,7 +78,7 @@ html {
 .sdds-dropdown-label-outside {
   @include type-style("detail-05");
 
+  display: block;
   color: var(--sdds-grey-958);
-  position: absolute;
-  top: -16px;
+  margin-bottom: var(--sdds-spacing-element-8);
 }
