@@ -178,6 +178,12 @@
   }
 }
 
+:host(.sdds-dropdown--open-upwards[label-position="outside"]) {
+  span.sdds-dropdown-menu {
+    bottom: calc(100% - 24px);
+  }
+}
+
 :host([disabled="true"]) {
   cursor: not-allowed;
 
