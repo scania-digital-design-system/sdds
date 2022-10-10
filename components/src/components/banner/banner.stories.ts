@@ -7,6 +7,10 @@ export default {
     state: {
       name: 'State',
       description: 'Changes state of component',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+      },
       options: {
         Default: 'default',
         Error: 'error',
