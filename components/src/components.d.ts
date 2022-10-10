@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Placement } from "@popperjs/core";
 export namespace Components {
     interface MyComponent {
         /**
@@ -38,6 +39,50 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsPopoverCanvas {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance": number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding": number;
+        /**
+          * Decides the placement of the Popover Canvas
+         */
+        "placement": Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Canvas
+         */
+        "selector": string;
+        /**
+          * Decides if the Popover Canvas should be visible from the start
+         */
+        "show": boolean;
+    }
+    interface SddsPopoverMenu {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance": number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding": number;
+        /**
+          * Decides the placement of the Popover Menu
+         */
+        "placement": Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Menu
+         */
+        "selector": string;
+        /**
+          * Decides if the Popover Menu should be visible from the start
+         */
+        "show": boolean;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +97,23 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsPopoverCanvasElement extends Components.SddsPopoverCanvas, HTMLStencilElement {
+    }
+    var HTMLSddsPopoverCanvasElement: {
+        prototype: HTMLSddsPopoverCanvasElement;
+        new (): HTMLSddsPopoverCanvasElement;
+    };
+    interface HTMLSddsPopoverMenuElement extends Components.SddsPopoverMenu, HTMLStencilElement {
+    }
+    var HTMLSddsPopoverMenuElement: {
+        prototype: HTMLSddsPopoverMenuElement;
+        new (): HTMLSddsPopoverMenuElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-popover-canvas": HTMLSddsPopoverCanvasElement;
+        "sdds-popover-menu": HTMLSddsPopoverMenuElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +149,55 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsPopoverCanvas {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance"?: number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding"?: number;
+        /**
+          * Decides the placement of the Popover Canvas
+         */
+        "placement"?: Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Canvas
+         */
+        "selector"?: string;
+        /**
+          * Decides if the Popover Canvas should be visible from the start
+         */
+        "show"?: boolean;
+    }
+    interface SddsPopoverMenu {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance"?: number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding"?: number;
+        /**
+          * Decides the placement of the Popover Menu
+         */
+        "placement"?: Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Menu
+         */
+        "selector"?: string;
+        /**
+          * Decides if the Popover Menu should be visible from the start
+         */
+        "show"?: boolean;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-popover-canvas": SddsPopoverCanvas;
+        "sdds-popover-menu": SddsPopoverMenu;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +206,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-popover-canvas": LocalJSX.SddsPopoverCanvas & JSXBase.HTMLAttributes<HTMLSddsPopoverCanvasElement>;
+            "sdds-popover-menu": LocalJSX.SddsPopoverMenu & JSXBase.HTMLAttributes<HTMLSddsPopoverMenuElement>;
         }
     }
 }
