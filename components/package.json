@@ -27,10 +27,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-stencil:watch": "stencil build --docs-readme --watch",
-    "start-storybook": "start-storybook -p 6006 -s dist"
+    "start-storybook": "start-storybook -p 6006 -s dist",
+    "tegel": "concurrently \"npm run build-stencil:watch\" \"npm run start-storybook\""
   },
   "dependencies": {
-    "@stencil/core": "^2.13.0"
+    "@stencil/core": "^2.13.0",
+    "concurrently": "^7.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
