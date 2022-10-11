@@ -32,8 +32,8 @@ const basicTemplate = ({ value, visible }) => {
       </sdds-badges>
     `;
 };
-export const Basic = basicTemplate.bind({});
-Basic.args = {
+export const Default = basicTemplate.bind({});
+Default.args = {
   visible: true,
   value: 1,
 };
@@ -52,6 +52,7 @@ const style = `<style>
                       top: -5px;
                     }
               </style>`;
+
 const badgesTemplate = ({ value, visible }) => {
   const valueString = value != null ? value.toString() : ''; // convert to string
   return `
