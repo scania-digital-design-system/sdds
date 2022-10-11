@@ -20,6 +20,24 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface SddsBadges {
+        /**
+          * !!Deprecated!! Use size prop instead. Changes badge from default to small size
+         */
+        "isSmall": boolean;
+        /**
+          * Changes visibility of badge
+         */
+        "isVisible": boolean;
+        /**
+          * Component is available in size default and small (small dot). Default size is default
+         */
+        "size": 'default' | 'sm';
+        /**
+          * Value shown in badge
+         */
+        "value": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +46,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSddsBadgesElement extends Components.SddsBadges, HTMLStencilElement {
+    }
+    var HTMLSddsBadgesElement: {
+        prototype: HTMLSddsBadgesElement;
+        new (): HTMLSddsBadgesElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "sdds-badges": HTMLSddsBadgesElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +72,27 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface SddsBadges {
+        /**
+          * !!Deprecated!! Use size prop instead. Changes badge from default to small size
+         */
+        "isSmall"?: boolean;
+        /**
+          * Changes visibility of badge
+         */
+        "isVisible"?: boolean;
+        /**
+          * Component is available in size default and small (small dot). Default size is default
+         */
+        "size"?: 'default' | 'sm';
+        /**
+          * Value shown in badge
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "sdds-badges": SddsBadges;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +100,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
         }
     }
 }
