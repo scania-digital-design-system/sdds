@@ -66,7 +66,8 @@ export namespace Components {
          */
         "value": string;
     }
-    
+    interface SddsCard {
+    }
     interface SddsDatetime {
         /**
           * Autofocus for input
