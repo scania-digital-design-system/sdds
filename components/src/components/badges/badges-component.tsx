@@ -8,7 +8,6 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
 export class SddsBadges {
   /** Value shown in badge */
   @Prop() value: string = '';
-  // TODO: Make upper prop accepts numbers too ?
 
   /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
