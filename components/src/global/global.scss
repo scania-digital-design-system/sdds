@@ -3,11 +3,11 @@
 // https://stenciljs.com/docs/config#globalstyle
 
 // Logos
-@import "../theme/core/logotype/vars.scss";
+@import '../theme/core/logotype/vars.scss';
 
 // Colors
 // ONLY THIS ONE IS SUFFICIENT AS IT IMPORTS VARS AND TOKENS IN ALREADY
-@import "../theme/core/colour/colour";
+@import '../theme/core/colour/colour';
 
 // Typography
 @import "scania-fonts";
@@ -18,13 +18,14 @@
 //@import '../theme/core/typography/selectors';
 
 // Spacing
-@import "../theme/core/spacing/spacing-vars.scss";
+@import '../theme/core/spacing/spacing-vars.scss';
 
 // Tegel reset
-@import "../theme/light/src/_reboot.scss";
+@import '../theme/light/src/_reboot.scss';
 
 //CSS component
-@import "src/components/banner/banner";
+@import 'src/components/banner/banner';
+@import 'src/components/chips/chips';
 
 :root {
   --johnny-red: purple;
