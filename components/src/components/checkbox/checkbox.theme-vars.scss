@@ -1,0 +1,19 @@
+:host,
+:root,
+.sdds-theme-light {
+  --sdds-checkbox-color: var(--sdds-grey-900);
+  --sdds-checkbox-interaction-01: var(--sdds-blue-800);
+  --sdds-checkbox-interaction-02: var(--sdds-white);
+  --sdds-checkbox-bg-hover: var(--sdds-blue-800);
+  --sdds-checkbox-bg-focus: var(--sdds-blue-800);
+  --sdds-checkbox-disabled: var(--sdds-grey-400);
+
+  .sdds-theme-dark {
+    --sdds-checkbox-color: red;
+    --sdds-checkbox-interaction-01: red;
+    --sdds-checkbox-interaction-02: red;
+    --sdds-checkbox-bg-hover: red;
+    --sdds-checkbox-bg-focus: red;
+    --sdds-checkbox-disabled: red;
+  }
+}
