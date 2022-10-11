@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Chips',
+  title: 'Components/Chips/Native',
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
@@ -7,6 +7,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: 'Chip text',
     },
     icon: {
       name: 'Icon',
@@ -15,6 +16,7 @@ export default {
         type: 'radio',
         options: ['Icon left', 'Icon right', 'No icon'],
       },
+      defaultValue: 'No icon',
     },
     state: {
       name: 'State',
@@ -23,6 +25,7 @@ export default {
         type: 'radio',
         options: ['Default', 'Active'],
       },
+      defaultValue: 'Default',
     },
     size: {
       name: 'Size',
@@ -31,12 +34,8 @@ export default {
         type: 'radio',
         options: ['Default', 'Small'],
       },
+      defaultValue: 'Default',
     },
-  },
-  args: {
-    placeholderText: 'chip text',
-    icon: 'Icon left',
-    state: 'Deafult',
   },
 };
 
@@ -81,37 +80,14 @@ const Template = ({ icon, state, placeholderText, size }) => {
     `;
 
   return `
-  <div class="sdds-theme-dark">
     <div class="sdds-chip ${iconClass} ${stateClass} ${sizeClass}">
       ${iconClass && iconSvg}
       <span class="sdds-chip-text">${placeholderText}</span>
     </div>
-  </div>`;
+    `;
 };
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   icon: 'No icon',
-};
-
-export const Active = Template.bind({});
-Active.args = {
-  state: 'Active',
-  icon: 'No icon',
-};
-
-export const IconLeft = Template.bind({});
-IconLeft.args = {
-  icon: 'Icon left',
-};
-
-export const IconRight = Template.bind({});
-IconRight.args = {
-  icon: 'Icon right',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  icon: 'No icon',
-  size: 'Small',
 };
