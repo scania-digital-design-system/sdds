@@ -1,0 +1,17 @@
+:host,
+:root {
+  --sdds-block-bg-default: var(--sdds-grey-50);
+  --sdds-block-bg-default-nested: var(--sdds-white);
+  --sdds-block-bg-variant: var(--sdds-white);
+  --sdds-block-bg-variant-nested: var(--sdds-grey-50);
+}
+
+.sdds-dark-theme {
+  :host,
+  :root {
+    --sdds-block-bg-default: var(--sdds-grey-900);
+    --sdds-block-bg-default-nested: var(--sdds-grey-868);
+    --sdds-block-bg-variant: var(--sdds-grey-868);
+    --sdds-block-bg-variant-nested: var(--sdds-grey-846);
+  }
+}
