@@ -19,7 +19,7 @@ export default {
 
 const ComponentPopoverCanvas = ({ ...Basic }) =>
   `
-  <div class="sdds-theme-dark">
+  <div>
       <sdds-popover-canvas 
         placement="${Basic.canvasPosition}"
         selector="#trigger"> 
@@ -45,7 +45,6 @@ const ComponentPopoverCanvas = ({ ...Basic }) =>
         </div>
       </div>
       </div>
-
     `;
 export const Default = ComponentPopoverCanvas.bind({});
 Default.args = {

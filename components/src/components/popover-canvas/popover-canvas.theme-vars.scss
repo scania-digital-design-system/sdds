@@ -1,13 +1,8 @@
-:host,
 :root,
 .sdds-theme-light {
   --sdds-popover-bg-default: #fff;
+}
 
-  .sdds-theme-dark {
-    .sdds-popover-canvas {
-      --sdds-popover-bg-default: #000;
-
-      color: var(--sdds-white);
-    }
-  }
+.sdds-theme-dark {
+  --sdds-popover-bg-default: #000;
 }
