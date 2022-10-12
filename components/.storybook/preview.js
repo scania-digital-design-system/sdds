@@ -1,4 +1,3 @@
-import { themes } from '@storybook/theming';
 import { defineCustomElements } from '../loader';
 
 // https://github.com/storybookjs/storybook/issues/6364
