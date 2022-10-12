@@ -1,3 +1,4 @@
+import { themes } from '@storybook/theming';
 import { defineCustomElements } from '../loader';
 
 // https://github.com/storybookjs/storybook/issues/6364
@@ -13,6 +14,10 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  viewMode: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
   },
 };
 
