@@ -68,7 +68,8 @@
   },
   "dependencies": {
     "commitizen": "^4.2.4",
-    "commitlint": "^15.0.0"
+    "commitlint": "^15.0.0",
+    "html-format": "^1.0.2"
   },
   "config": {
     "commitizen": {
