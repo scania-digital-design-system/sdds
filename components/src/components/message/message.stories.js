@@ -2,6 +2,9 @@ import formatHtmlPreview from "../../utils/utils";
 
 export default {
   title: 'Components/Message/Native',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     messageType: {
       name: 'Message Type',
