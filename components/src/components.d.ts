@@ -38,6 +38,16 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsSpinner {
+        /**
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg';
+        /**
+          * Variant of spinner. Accepted strings are: standard, inverted
+         */
+        "variant": 'standard' | 'inverted';
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +62,16 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsSpinnerElement extends Components.SddsSpinner, HTMLStencilElement {
+    }
+    var HTMLSddsSpinnerElement: {
+        prototype: HTMLSddsSpinnerElement;
+        new (): HTMLSddsSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-spinner": HTMLSddsSpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +107,20 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsSpinner {
+        /**
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg';
+        /**
+          * Variant of spinner. Accepted strings are: standard, inverted
+         */
+        "variant"?: 'standard' | 'inverted';
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-spinner": SddsSpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +129,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-spinner": LocalJSX.SddsSpinner & JSXBase.HTMLAttributes<HTMLSddsSpinnerElement>;
         }
     }
 }
