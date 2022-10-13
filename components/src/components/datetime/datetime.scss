@@ -1,0 +1,437 @@
+@import "./datetime-theme-vars.scss";
+
+//TODO Do we want datetime to have its own vars or just use textfields?
+
+//TODO font family does not appear to be working
+//TODO get from global vars instead
+$font-family-semi-condensed: "Scania Sans Semi Condensed", "Scania Sans Condensed", arial, helvetica, sans-serif;
+$detail-02: (
+  font-family: $font-family-semi-condensed,
+  font-size: type-scale(3),
+  line-height: type-scale(4),
+  letter-spacing: -0.01em,
+);
+$detail-05: (
+  font-family: $font-family-semi-condensed,
+  font-size: type-scale(2),
+  line-height: type-scale(4),
+  letter-spacing: 0,
+);
+$detail-07: (
+  font-family: $font-family-semi-condensed,
+  font-size: type-scale(1),
+  line-height: 2rem,
+  letter-spacing: 0,
+);
+$typography-sets: (
+  detail-02: $detail-02,
+  detail-05: $detail-05,
+  detail-07: $detail-07,
+);
+
+//TODO Get from global mixins instead
+@mixin properties($map) {
+  @each $name, $value in $map {
+    #{$name}: $value;
+  }
+}
+
+// Mixin to get value from tokens
+@mixin type-style($name) {
+  $token: map-get($typography-sets, $name);
+
+  @include properties($token);
+}
+
+@mixin datetime-base {
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  outline: none;
+  height: 100%;
+  color: var(--sdds-datetime-color);
+  background-color: var(--sdds-datetime-bg);
+
+  &::placeholder {
+    opacity: 1;
+    color: var(--sdds-datetime-placeholder);
+  }
+
+  &:focus::placeholder {
+    color: var(--sdds-datetime-placeholder-focus-color);
+  }
+
+  &:disabled {
+    background-color: var(--sdds-datetime-disabled-bg);
+    color: var(--sdds-datetime-disabled-color);
+
+    &::placeholder {
+      color: var(--sdds-datetime-disabled-placeholder);
+    }
+
+    ~  .sdds-datetime-label-inside {
+      color: var(--sdds-datetime-disabled-label);
+    }
+  }
+}
+
+// icons
+
+.sdds-datetime-input,
+.sdds-datetime-input-md,
+.sdds-datetime-input-sm {
+  &[type="datetime-local"] {
+    ~ .icon-time {
+      display: none;
+    }
+  }
+
+  &[type="date"] {
+    ~ .icon-time {
+      display: none;
+    }
+  }
+
+  &[type="time"] {
+    ~ .icon-datetime-local {
+      display: none;
+    }
+  }
+}
+
+//Sizes
+.sdds-datetime-input {
+  @include datetime-base;
+  @include type-style("detail-02");
+
+  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
+}
+
+.sdds-datetime-input-md {
+  @include datetime-base;
+  @include type-style("detail-02");
+
+  padding: var(--sdds-spacing-element-16);
+}
+
+.sdds-datetime-input-sm {
+  @include datetime-base;
+  @include type-style("detail-02");
+
+  padding: var(--sdds-spacing-element-16);
+}
+
+//Container for input field and prefix/suffix
+.sdds-datetime-container {
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  position: relative;
+  height: 56px;
+  box-sizing: border-box;
+  background-color: var(--sdds-datetime-bg);
+  border-bottom: 1px solid var(--sdds-datetime-border-bottom);
+  transition: border-bottom-color 200ms ease;
+
+  &:hover {
+    border-bottom-color: var(--sdds-datetime-border-bottom-hover);
+  }
+
+  .sdds-form-datetime-md & {
+    height: 48px;
+  }
+
+  .sdds-form-datetime-sm & {
+    height: 40px;
+  }
+}
+
+.sdds-datetime-input-container {
+  position: relative;
+  width: 100%;
+
+  .datetime-icon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 18px;
+    pointer-events: none;
+  }
+}
+
+//datetime label
+slot[name="sdds-label"]::slotted(*) {
+  @include type-style("detail-05");
+
+  display: block;
+  margin-bottom: var(--sdds-spacing-element-8);
+  color: var(--sdds-datetime-label-color);
+}
+
+.sdds-datetime-label-inside {
+  @include type-style("detail-02");
+
+  position: absolute;
+  pointer-events: none;
+  color: var(--sdds-datetime-label-inside-color);
+  left: 16px;
+}
+
+@mixin placeholder-label {
+  &::placeholder {
+    color: transparent;
+  }
+
+  &::input-placeholder {
+    color: transparent;
+  }
+
+  &:placeholder {
+    color: transparent;
+  }
+
+  ::placeholder {
+    color: transparent;
+  }
+
+  //Input field in focus
+  &:focus::placeholder {
+    transition: color 0.35s ease;
+    color: var(--sdds-datetime-placeholder-focus-color);
+  }
+}
+
+@mixin label-inside-transition {
+  transition: 0.1s ease all;
+  transition: 0.1s ease all;
+  transition: 0.1s ease all;
+}
+
+//Form control
+.sdds-form-datetime {
+  display: block;
+  min-width: 208px;
+
+  &-nomin {
+    min-width: auto;
+  }
+}
+
+//datetime container with label inside
+//Handling position, focus and transition for label inside
+.sdds-form-datetime.sdds-datetime-container-label-inside {
+  .sdds-datetime-input {
+    padding-top: var(--sdds-spacing-element-24);
+    padding-bottom: 15px;
+
+    ~ .sdds-datetime-label-inside {
+      top: 20px;
+    }
+
+    @include placeholder-label;
+  }
+
+  .sdds-datetime-input-md {
+    padding-top: var(--sdds-spacing-element-20);
+    padding-bottom: 11px;
+
+    ~ .sdds-datetime-label-inside {
+      top: 16px;
+    }
+
+    @include placeholder-label;
+  }
+
+  .sdds-datetime-input-sm {
+    padding-top: var(--sdds-spacing-element-20);
+    padding-bottom: 11px;
+
+    ~ .sdds-datetime-label-inside {
+      top: 16px;
+    }
+
+    @include placeholder-label;
+  }
+
+  &.sdds-datetime-focus,
+  &.sdds-datetime-data {
+    .sdds-datetime-input-sm ~ .sdds-datetime-label-inside {
+      @include type-style("detail-07");
+      @include label-inside-transition;
+
+      top: 8px;
+    }
+
+    .sdds-datetime-input-md ~ .sdds-datetime-label-inside {
+      @include type-style("detail-07");
+      @include label-inside-transition;
+
+      top: 8px;
+    }
+
+    .sdds-datetime-input ~ .sdds-datetime-label-inside {
+      @include type-style("detail-07");
+      @include label-inside-transition;
+
+      top: 12px;
+    }
+  }
+}
+
+//datetime bottom bar when in focus
+.sdds-datetime-bar {
+  position: absolute;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 2px;
+    top: 54px;
+    width: 0;
+    position: absolute;
+    background: var(--sdds-datetime-bar);
+    transition: 0.35s ease all;
+
+    .sdds-form-datetime-md & {
+      top: 46px;
+    }
+
+    .sdds-form-datetime-sm & {
+      top: 40px;
+    }
+  }
+
+  &::before {
+    left: 50%;
+  }
+
+  &::after {
+    right: 50%;
+  }
+
+  .sdds-datetime-focus &::before,
+  .sdds-datetime-focus &::after {
+    width: 50%;
+  }
+}
+
+//Helper text
+.sdds-datetime-helper {
+  @include type-style("detail-05");
+
+  display: block;
+  flex-basis: 100%;
+  padding-top: var(--sdds-spacing-element-4);
+  color: var(--sdds-datetime-helper);
+}
+
+//Disabled state
+.sdds-form-datetime-disabled {
+  .sdds-datetime-container {
+    border-bottom-color: transparent;
+  }
+
+  .datetime-icon {
+    svg {
+      path {
+        fill: var(--sdds-datetime-disabled-color);
+      }
+    }
+  }
+
+  slot[name="sdds-label"]::slotted(*) {
+    color: var(--sdds-datetime-disabled-label);
+  }
+}
+
+//Success state
+.sdds-form-datetime-success {
+  .sdds-datetime-container {
+    border-bottom-color: var(--sdds-datetime-border-bottom-success);
+  }
+}
+
+//Error State
+.sdds-form-datetime-error {
+  .sdds-datetime-helper {
+    color: var(--sdds-datetime-helper-error);
+  }
+
+  .sdds-datetime-container {
+    border-bottom-color: var(--sdds-datetime-border-bottom-error);
+  }
+
+  .sdds-datetime-bar {
+    &::before,
+    &::after {
+      background: var(--sdds-datetime-bar-error);
+    }
+  }
+
+  slot[name="sdds-prefix"]::slotted(sdds-icon),
+  slot[name="sdds-suffix"]::slotted(sdds-icon) {
+    color: var(--sdds-datetime-icon-error);
+  }
+}
+
+.sdds-datetime-textcounter {
+  @include type-style("detail-05");
+
+  color: var(--sdds-datetime-textcounter);
+  float: right;
+
+  & .sdds-datetime-textcounter-divider {
+    // @include type-style('detail-05');
+    color: var(--sdds-datetime-textcounter-divider);
+  }
+}
+
+slot[name="sdds-prefix"]::slotted(*),
+slot[name="sdds-suffix"]::slotted(*) {
+  @include type-style("detail-02");
+
+  align-self: center;
+  color: var(--sdds-datetime-ps-color);
+}
+
+//TODO: When new icons are avaliable have a look at this one
+slot[name="sdds-prefix"]::slotted(sdds-icon),
+slot[name="sdds-suffix"]::slotted(sdds-icon) {
+  font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
+  line-height: 0;
+}
+
+//Text gerenerated infront of the input field
+slot[name="sdds-prefix"]::slotted(*) {
+  padding-left: var(--sdds-spacing-element-20);
+
+  & ~ .sdds-datetime-input  {
+    padding-left: var(--sdds-spacing-element-12);
+  }
+}
+
+//Text generated after the input field
+slot[name="sdds-suffix"]::slotted(*) {
+  padding-right: var(--sdds-spacing-element-20);
+}
+
+/* datetime picker icon remove testing */
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

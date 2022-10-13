@@ -38,6 +38,44 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsDatetime {
+        /**
+          * Autofocus for input
+         */
+        "autofocus": boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled": boolean;
+        /**
+          * Name property
+         */
+        "name": string;
+        /**
+          * With setting
+         */
+        "nominwidth": boolean;
+        /**
+          * Size of the input
+         */
+        "size": 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state": string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type": string;
+        /**
+          * Value of the input text
+         */
+        "value": string;
+    }
+}
+export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSddsDatetimeElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +90,16 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsDatetimeElement extends Components.SddsDatetime, HTMLStencilElement {
+    }
+    var HTMLSddsDatetimeElement: {
+        prototype: HTMLSddsDatetimeElement;
+        new (): HTMLSddsDatetimeElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-datetime": HTMLSddsDatetimeElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +135,48 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsDatetime {
+        /**
+          * Autofocus for input
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled"?: boolean;
+        /**
+          * Name property
+         */
+        "name"?: string;
+        /**
+          * With setting
+         */
+        "nominwidth"?: boolean;
+        /**
+          * Change event for the datetime
+         */
+        "onCustomChange"?: (event: SddsDatetimeCustomEvent<any>) => void;
+        /**
+          * Size of the input
+         */
+        "size"?: 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state"?: string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type"?: string;
+        /**
+          * Value of the input text
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-datetime": SddsDatetime;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +185,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-datetime": LocalJSX.SddsDatetime & JSXBase.HTMLAttributes<HTMLSddsDatetimeElement>;
         }
     }
 }
