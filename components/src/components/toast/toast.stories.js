@@ -5,11 +5,20 @@ export default {
   argTypes: {
     toastType: {
       name: 'Message type',
+      description: 'Changes the type of message',
       defaultValue: 'success',
       control: {
         type: 'radio',
         options: { Success: 'success', Info: 'info', Warning: 'warning', Error: 'error' },
       },
+    },
+    Subheader: {
+      name: 'Subheader',
+      description: 'Adds a subheader',
+    },
+    Link: {
+      name: 'Link',
+      description: 'Adds a CTA link',
     },
   },
   args: {
