@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Native/Radio Button',
+  title: 'Components/Radio Button/Native',
   parameters: {
     layout: 'centered',
   },
@@ -16,16 +16,16 @@ export default {
     disabled: {
       name: 'Disabled',
       description: 'Disables the radio button',
-      default: false,
-      controls: {
+      defaultValue: false,
+      control: {
         type: 'boolean',
       },
     },
     checked: {
       name: 'Checked',
       description: 'Marks the radio button as checked',
-      default: false,
-      controls: {
+      defaultValue: false,
+      control: {
         type: 'boolean',
       },
     },
@@ -34,21 +34,21 @@ export default {
 
 const Template = args => `
     <div class="sdds-radio-button-group">
-      <div class="sdds-radio-item">
-        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled && 'disabled'}>
-        <label class="sdds-form-label" for="rb-option-1">
-          ${args.label} 1
-        </label>
-      </div>
+    <div class="sdds-radio-item">
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled && 'disabled'}>
+      <label class="sdds-form-label" for="rb-option-1">
+        ${args.label} 1
+      </label>
     </div>
-    <div class="sdds-radio-button-group">
-      <div class="sdds-radio-item">
-        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked && 'checked="checked"'} >
-        <label class="sdds-form-label" for="rb-option-1">
-          ${args.label} 2
-        </label>
-      </div>
+  </div>
+  <div class="sdds-radio-button-group">
+    <div class="sdds-radio-item">
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked && 'checked="checked"'} >
+      <label class="sdds-form-label" for="rb-option-1">
+        ${args.label} 2
+      </label>
     </div>
+  </div>
     `;
 
 export const Default = Template.bind({});
