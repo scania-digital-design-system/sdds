@@ -108,6 +108,16 @@ export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
 export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSddsAccordionItemElement;
+    interface SddsSpinner {
+        /**
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg';
+        /**
+          * Variant of spinner. Accepted strings are: standard, inverted
+         */
+        "variant": 'standard' | 'inverted';
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -141,12 +151,19 @@ declare global {
         prototype: HTMLSddsDatetimeElement;
         new (): HTMLSddsDatetimeElement;
     };
+    interface HTMLSddsSpinnerElement extends Components.SddsSpinner, HTMLStencilElement {
+    }
+    var HTMLSddsSpinnerElement: {
+        prototype: HTMLSddsSpinnerElement;
+        new (): HTMLSddsSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-accordion": HTMLSddsAccordionElement;
         "sdds-accordion-item": HTMLSddsAccordionItemElement;
         "sdds-badges": HTMLSddsBadgesElement;
         "sdds-datetime": HTMLSddsDatetimeElement;
+        "sdds-spinner": HTMLSddsSpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -251,6 +268,15 @@ declare namespace LocalJSX {
           * Value of the input text
          */
         "value"?: string;
+    interface SddsSpinner {
+        /**
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg';
+        /**
+          * Variant of spinner. Accepted strings are: standard, inverted
+         */
+        "variant"?: 'standard' | 'inverted';
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
@@ -258,6 +284,7 @@ declare namespace LocalJSX {
         "sdds-accordion-item": SddsAccordionItem;
         "sdds-badges": SddsBadges;
         "sdds-datetime": SddsDatetime;
+        "sdds-spinner": SddsSpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -269,6 +296,7 @@ declare module "@stencil/core" {
             "sdds-accordion-item": LocalJSX.SddsAccordionItem & JSXBase.HTMLAttributes<HTMLSddsAccordionItemElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
             "sdds-datetime": LocalJSX.SddsDatetime & JSXBase.HTMLAttributes<HTMLSddsDatetimeElement>;
+            "sdds-spinner": LocalJSX.SddsSpinner & JSXBase.HTMLAttributes<HTMLSddsSpinnerElement>;
         }
     }
 }
