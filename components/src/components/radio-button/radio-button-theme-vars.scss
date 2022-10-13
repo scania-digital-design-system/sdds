@@ -1,0 +1,27 @@
+:root,
+html {
+  --sdds-radio-button-color: var(--sdds-grey-958);
+  --sdds-radio-button-interaction-01: var(--sdds-blue-800);
+  --sdds-radio-button-interaction-02: var(--sdds-white);
+  --sdds-radio-button-bg-hover: var(--sdds-blue-800);
+  --sdds-radio-button-bg-focus: var(--sdds-blue-800);
+  --sdds-radio-button-disabled: var(--sdds-grey-400);
+
+  .sdds-theme-light {
+    --sdds-radio-button-color: var(--sdds-grey-958);
+    --sdds-radio-button-interaction-01: var(--sdds-blue-800);
+    --sdds-radio-button-interaction-02: var(--sdds-white);
+    --sdds-radio-button-bg-hover: var(--sdds-blue-800);
+    --sdds-radio-button-bg-focus: var(--sdds-blue-800);
+    --sdds-radio-button-disabled: var(--sdds-grey-400);
+  }
+
+  .sdds-theme-dark {
+    --sdds-radio-button-color: var(--sdds-red);
+    --sdds-radio-button-interaction-01: var(--sdds-red);
+    --sdds-radio-button-interaction-02: var(--sdds-white);
+    --sdds-radio-button-bg-hover: var(--sdds-red);
+    --sdds-radio-button-bg-focus: var(--sdds-red);
+    --sdds-radio-button-disabled: var(--sdds-red);
+  }
+}

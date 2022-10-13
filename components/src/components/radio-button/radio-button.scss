@@ -1,12 +1,4 @@
-:root,
-html {
-  --sdds-radio-button-color: var(--sdds-grey-958);
-  --sdds-radio-button-interaction-01: var(--sdds-blue-800);
-  --sdds-radio-button-interaction-02: var(--sdds-white);
-  --sdds-radio-button-bg-hover: var(--sdds-blue-800);
-  --sdds-radio-button-bg-focus: var(--sdds-blue-800);
-  --sdds-radio-button-disabled: var(--sdds-grey-400);
-}
+@import "./radio-button-theme-vars.scss";
 
 .sdds-radio-button-group {
   @include type-style("detail-02");
