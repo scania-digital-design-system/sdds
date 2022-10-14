@@ -38,6 +38,8 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsCard {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +54,16 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsCardElement extends Components.SddsCard, HTMLStencilElement {
+    }
+    var HTMLSddsCardElement: {
+        prototype: HTMLSddsCardElement;
+        new (): HTMLSddsCardElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-card": HTMLSddsCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +99,12 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsCard {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-card": SddsCard;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +113,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-card": LocalJSX.SddsCard & JSXBase.HTMLAttributes<HTMLSddsCardElement>;
         }
     }
 }
