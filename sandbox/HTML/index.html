@@ -351,6 +351,27 @@
         </div>
 
         <div class="component-wrapper">
+          <h5 class="sdds-headline-05">Datetime</h5>
+          <div style="width: 208px">
+            <sdds-datetime
+              id="datetime"
+              type="datetime-local"
+              size="default"
+              state="default"
+            >
+              <label slot="sdds-label">Label text</label>
+              <span slot="sdds-helper">Helper text</span>
+            </sdds-datetime>
+            <script>
+              const datetimeEl = document.getElementById('datetime');
+              datetimeEl.addEventListener('customChange', (event) => {
+                console.log(event.target.value);
+              });
+            </script>
+          </div>
+        </div>
+
+        <div class="component-wrapper">
           <h5 class="sdds-headline-05">Toggle</h5>
           <div class="sdds-toggle" tabindex="0">
             <input type="checkbox" class="sdds-toggle-input" id="customSwitch1" />
