@@ -110,6 +110,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
     </sdds-datetime>
+    <!-- You can listen for the 'customChange' event to get value updates. -->
     <script>
       const datetimeEl = document.getElementById('datetime');
       datetimeEl.addEventListener('customChange', (event) => {
