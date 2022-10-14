@@ -1,0 +1,33 @@
+// What is this document for:
+// https://stenciljs.com/docs/styling#global-styles
+// https://stenciljs.com/docs/config#globalstyle
+
+// Logos
+@import "../theme/core/logotype/vars.scss";
+
+// Colors
+// ONLY THIS ONE IS SUFFICIENT AS IT IMPORTS VARS AND TOKENS IN ALREADY
+@import "../theme/core/colour/colour";
+
+// Typography
+@import "scania-fonts";
+@import "scania-fonts-vars";
+
+//FIXME: remove if not needed for component to work OK
+//@import '../theme/core/typography/typography-vars.scss';
+//@import '../theme/core/typography/selectors';
+
+// Spacing
+@import "../theme/core/spacing/spacing-vars.scss";
+
+// Tegel reset
+@import "../theme/light/src/_reboot.scss";
+
+//CSS component
+@import "src/components/banner/banner";
+@import "src/components/textfield/textfield";
+@import "src/components/textarea/textarea";
+
+:root {
+  --johnny-red: purple;
+}
