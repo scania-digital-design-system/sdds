@@ -3,7 +3,7 @@
 //TODO Do we want datetime to have its own vars or just use textfields?
 
 //TODO font family does not appear to be working
-//TODO get from global vars instead
+//TODO get from global instead somehow?
 $font-family-semi-condensed: "Scania Sans Semi Condensed", "Scania Sans Condensed", arial, helvetica, sans-serif;
 $detail-02: (
   font-family: $font-family-semi-condensed,
@@ -29,7 +29,6 @@ $typography-sets: (
   detail-07: $detail-07,
 );
 
-//TODO Get from global mixins instead
 @mixin properties($map) {
   @each $name, $value in $map {
     #{$name}: $value;
