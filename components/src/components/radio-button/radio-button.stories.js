@@ -13,7 +13,6 @@ export default {
       controls: {
         type: 'string',
       },
-      type: { summary: 'string' },
     },
     disabled: {
       name: 'Disabled',
