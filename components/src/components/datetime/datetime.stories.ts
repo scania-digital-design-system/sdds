@@ -68,8 +68,8 @@ export default {
     minWidth: 'Default',
     disabled: false,
     state: 'default',
-    label: '',
-    helper: '',
+    label: 'Label text',
+    helper: 'Helper text',
   },
 };
 
@@ -101,6 +101,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     `
   <div style="width: 208px">
     <sdds-datetime
+    id="datetime"
       type="${type}"
       size="${sizeValue}"
       state="${state}"
@@ -109,8 +110,13 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
     </sdds-datetime>
-  </div>
-  `,
+    <script>
+      const datetimeEl = document.getElementById('datetime');
+      datetimeEl.addEventListener('customChange', (event) => {
+        console.log(event.target.value);
+      });
+    </script>
+  </div>`,
   );
 };
 
@@ -118,16 +124,9 @@ export const Basic = datetimeTemplate.bind({});
 
 Basic.args = {};
 
-export const LabelsAndHelperText = datetimeTemplate.bind({});
+export const ErrorState = datetimeTemplate.bind({});
 
-LabelsAndHelperText.args = {
-  label: 'Label text',
-  helper: 'Helper text',
-};
-
-export const State = datetimeTemplate.bind({});
-
-State.args = {
+ErrorState.args = {
   state: 'error',
   helper: 'Helper text',
   label: 'Label text',
