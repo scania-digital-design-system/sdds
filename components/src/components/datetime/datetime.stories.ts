@@ -82,9 +82,6 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     case 'Medium':
       sizeValue = 'md';
       break;
-    case 'Large':
-      sizeValue = 'default';
-      break;
     default:
       break;
   }
@@ -103,7 +100,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     <sdds-datetime
     id="datetime"
       type="${type}"
-      size="${sizeValue}"
+      ${sizeValue ? `size="${sizeValue}"` : ''}
       state="${state}"
       ${disabled ? 'disabled' : ''}
       ${minWidthValue ? 'noMinWidth' : ''} >
