@@ -121,9 +121,9 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
   );
 };
 
-export const Basic = datetimeTemplate.bind({});
+export const Default = datetimeTemplate.bind({});
 
-Basic.args = {};
+Default.args = {};
 
 export const ErrorState = datetimeTemplate.bind({});
 
