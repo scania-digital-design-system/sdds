@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Radio Button/Native',
   parameters: {
@@ -32,10 +34,11 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = args =>
+  formatHtmlPreview(`
     <div class="sdds-radio-button-group">
     <div class="sdds-radio-item">
-      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled && 'disabled'}>
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled ? 'disabled' : ''}>
       <label class="sdds-form-label" for="rb-option-1">
         ${args.label} 1
       </label>
@@ -43,18 +46,19 @@ const Template = args => `
   </div>
   <div class="sdds-radio-button-group">
     <div class="sdds-radio-item">
-      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked && 'checked="checked"'} >
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked ? 'checked="checked"' : ''} >
       <label class="sdds-form-label" for="rb-option-1">
         ${args.label} 2
       </label>
     </div>
   </div>
-`;
+`);
 
-const DisabledTemplate = args => `
+const DisabledTemplate = args =>
+  formatHtmlPreview(`
     <div class="sdds-radio-button-group">
     <div class="sdds-radio-item">
-      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled && 'disabled'}>
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.disabled ? 'disabled' : ''}>
       <label class="sdds-form-label" for="rb-option-1">
         ${args.label} 1
       </label>
@@ -62,13 +66,13 @@ const DisabledTemplate = args => `
   </div>
   <div class="sdds-radio-button-group">
     <div class="sdds-radio-item">
-      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked && 'checked="checked"'} ${args.disabled && 'disabled'} >
+      <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked ? 'checked="checked"' : ''} ${args.disabled ? 'disabled' : ''} >
       <label class="sdds-form-label" for="rb-option-1">
         ${args.label} 2
       </label>
     </div>
   </div>
-`;
+`);
 
 export const Default = Template.bind({});
 Default.args = {
