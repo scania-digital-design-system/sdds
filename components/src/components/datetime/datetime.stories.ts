@@ -20,7 +20,7 @@ export default {
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
-        options: ['Default', 'Medium', 'Small'],
+        options: ['Large', 'Medium', 'Small'],
       },
     },
     minWidth: {
@@ -64,7 +64,7 @@ export default {
   },
   args: {
     type: 'datetime-local',
-    size: 'Default',
+    size: 'Large',
     minWidth: 'Default',
     disabled: false,
     state: 'default',
@@ -82,7 +82,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     case 'Medium':
       sizeValue = 'md';
       break;
-    case 'Default':
+    case 'Large':
       sizeValue = 'default';
       break;
     default:
