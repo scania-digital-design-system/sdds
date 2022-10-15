@@ -1,5 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
+// FIXME: CMS: Change state to type in Code tab of component
+
 export default {
   title: 'Components/Banner',
   parameters: {
@@ -7,12 +9,8 @@ export default {
   },
   argTypes: {
     state: {
-      name: 'State',
-      description: 'Changes state of component',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'default' },
-      },
+      name: 'Type',
+      description: 'Changes type of component',
       options: {
         Default: 'default',
         Error: 'error',
@@ -44,7 +42,7 @@ export default {
       },
     },
     prefix: {
-      name: 'Icon',
+      name: 'Show icon',
       description: 'Icon to display in link section',
       control: {
         type: 'boolean',
@@ -86,37 +84,11 @@ const Template = args =>
     </div>
   `);
 
-export const Native = Template.bind({});
-Native.args = {
-  state: 'default',
+export const Default = Template.bind({});
+Default.args = {
+  state: 'info',
   header: 'This is a header text area',
   subheader: 'SubHeader text area',
   link: 'Learn more',
   prefix: true,
 };
-
-/*
-
-export const Subheader = Template.bind({});
-
-Subheader.args = {
-  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: '',
-};
-
-export const Link = Template.bind({});
-
-Link.args = {
-  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: '<a class="sdds-link sdds-banner-link">Link example</a>',
-};
-
-export const Prefix = Template.bind({});
-
-Prefix.args = {
-  prefix:
-    '<span class="sdds-banner-prefix"><svg width="16" height="17" viewBox="0 0 16 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect y="0.334473" width="16" height="16"/> </svg></span>',
-  subheader: '<div class="sdds-banner-subheader">Short subheader</div>',
-  link: '<a class="sdds-link sdds-banner-link">Link example</a>',
-};
-*/
