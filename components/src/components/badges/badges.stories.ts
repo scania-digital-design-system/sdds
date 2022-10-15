@@ -1,3 +1,4 @@
+import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
@@ -22,81 +23,44 @@ export default {
       },
       if: { arg: 'value' || 'visible', truthy: true },
     },
+    size: {
+      name: 'Size',
+      description: 'Size of the component',
+      options: {
+        Default: 'default',
+        Small: 'sm',
+      },
+      control: {
+        type: 'radio',
+      },
+    },
   },
 };
 
-const basicTemplate = ({ value, visible }) => {
-  const valueString = value != null ? value.toString() : ''; // convert to string
-  return `
-      <sdds-badges value=${valueString} is-visible = ${visible}>
-      </sdds-badges>
-    `;
+const Template = args => {
+  const valueString = args.value != null ? args.value.toString() : ''; // convert to string
+  return formatHtmlPreview(`<sdds-badges value=${valueString} is-visible=${args.visible} size="${args.size}">
+      </sdds-badges>`);
 };
-export const Default = basicTemplate.bind({});
+export const Default = Template.bind({});
 Default.args = {
   visible: true,
   value: 1,
+  size: 'default',
 };
 
-const style = `<style>
-                    .demo {
-                      margin:5px;
-                      height: 32px;
-                      width: 32px;
-                      position: relative;
-                      background-color: #C4C4C4;
-                    }
-                    .demo-badges{
-                      position: absolute;
-                      left: 16px;
-                      top: -5px;
-                    }
-              </style>`;
-
-const badgesTemplate = ({ value, visible }) => {
-  const valueString = value != null ? value.toString() : ''; // convert to string
-  return `
-    ${style}
-      <div class="demo">
-      <sdds-badges class="demo-badges" value='${valueString}' is-visible = ${visible}>
+const demoTemplate = args => {
+  const valueString = args.value != null ? args.value.toString() : ''; // convert to string
+  return formatHtmlPreview(`
+      <div class="badges-demo-box">
+      <sdds-badges class="${args.size === 'sm' ? 'badges-demo--small' : 'badges-demo--default'}" value='${valueString}' is-visible=${args.visible} size="${args.size}" >
       </sdds-badges>
-      </div>
-    `;
+      </div>`);
 };
 
-const smallBadgeStyle = `<style>
-                    .demo {
-                      margin:5px;
-                      height: 32px;
-                      width: 32px;
-                      position: relative;
-                      background-color: #C4C4C4;
-                    }
-                    .demo-badges{
-                      position: absolute;
-                      left: 26px;
-                      top: -2px;
-                    }
-              </style>`;
-const smallBadgeTemplate = ({ visible }) => `
-    ${smallBadgeStyle}
-      <div class="demo">
-      <sdds-badges class="demo-badges" value='0' size='sm' is-visible = ${visible}>
-      </sdds-badges>
-      </div>
-    `;
-
-export const Rounded = badgesTemplate.bind({});
-Rounded.args = {
+export const WithDemoComponent = demoTemplate.bind({});
+WithDemoComponent.args = {
   visible: true,
   value: 2,
-};
-export const Pill = badgesTemplate.bind({});
-Pill.args = {
-  visible: true,
-  value: 100,
-};
-export const Small = smallBadgeTemplate.bind({});
-Small.args = {
-  visible: true,
+  size: 'default',
 };
