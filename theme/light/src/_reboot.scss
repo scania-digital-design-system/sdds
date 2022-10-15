@@ -1,23 +1,33 @@
 :root,
 html {
-  font-size: $base-unit;
+  font-size: 4px;
 }
+
 // Output rules
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   display: flex;
   flex-direction: column;
   visibility: visible;
 }
+
 html {
   height: 100%;
 }
+
 body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-family:
+ "Scania Sans Semi Condensed",
+ "Scania Sans Condensed",
+ Arial,
+    Helvetica,
+ sans-serif;
+
+  //TODO: Double test and check if "font-size: $font-size-base;" was needed here
   color: var(--sdds-grey-958);
   margin: 0;
   flex: 1;
