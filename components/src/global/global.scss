@@ -10,8 +10,12 @@
 @import "../theme/core/colour/colour";
 
 // Typography
-@import "../theme/core/typography/typography-vars.scss";
-@import "../theme/core/typography/selectors";
+@import "scania-fonts";
+@import "scania-fonts-vars";
+
+//FIXME: remove if not needed for component to work OK
+//@import '../theme/core/typography/typography-vars.scss';
+//@import '../theme/core/typography/selectors';
 
 // Spacing
 @import "../theme/core/spacing/spacing-vars.scss";
@@ -23,5 +27,5 @@
 @import "src/components/banner/banner";
 
 :root {
-  --johnny-red: lightgreen;
+  --johnny-red: purple;
 }
