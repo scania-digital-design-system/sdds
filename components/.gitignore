@@ -24,3 +24,26 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+
+# OLD ONES BELOW
+# TODO: Clean up section below
+
+# Compiled from Stencil
+
+.build/
+.www/
+.data/
+# src/**/**.md
+
+# Compiled theme
+src/themes.built/
+
+
+# Compiled from storybook
+storybook-static/
+
+*.d.ts
+
+.npmrc
+
