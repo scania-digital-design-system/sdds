@@ -1,8 +1,8 @@
 @import "./radio-button-theme-vars.scss";
 
 .sdds-radio-button-group {
-  @include type-style("detail-02");
-
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-radio-button-color);
 
   .sdds-radio-item {
