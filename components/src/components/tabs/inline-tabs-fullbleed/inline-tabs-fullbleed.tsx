@@ -24,9 +24,12 @@ export class InlineTabsFullbleed {
 
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
+  componentDidRender() {
+    this._calculateButtonWidth();
+  }
+
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
-      console.log('resizeObserver ...');
       for (const entry of entries) {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
