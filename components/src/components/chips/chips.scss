@@ -1,4 +1,4 @@
-@import "./chips-theme-vars.scss";
+@import './chips-theme-vars.scss';
 
 .sdds-chip {
   color: var(--sdds-chips-color);
@@ -12,7 +12,8 @@
   position: relative;
 
   &-text {
-    @include type-style("detail-02");
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
   }
 
   &:hover {
