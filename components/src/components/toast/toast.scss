@@ -1,4 +1,5 @@
 @import "./toast-theme-vars.scss";
+@import "../../global/scania-fonts-vars.scss";
 
 .sdds-toast {
   display: flex;
@@ -57,8 +58,8 @@
   }
 
   &-headline {
-    @include type-style("headline-07");
-
+    font: var(--sdds-headline-ex-07);
+    letter-spacing: var(--sdds-headline-ex-07-ls);
     color: var(--sdds-toast-headline-color);
     width: 63rem;
     float: left;
@@ -80,8 +81,8 @@
   }
 
   &-subheadline {
-    @include type-style("detail-02");
-
+    font: var(--sdds-detail-ex-02);
+    letter-spacing: var(--sdds-detail-ex-02-ls);
     color: var(--sdds-toast-subheadline-color);
   }
 
@@ -92,7 +93,7 @@
   &-link {
     height: var(--sdds-spacing-element-16);
     color: var(--sdds-toast-link-color);
-
-    @include type-style("detail-02");
+    font: var(--sdds-detail-ex-02);
+    letter-spacing: var(--sdds-detail-ex-02-ls);
   }
 }

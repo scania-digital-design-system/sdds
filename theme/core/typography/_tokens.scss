@@ -1,4 +1,5 @@
-@import './vars';
+@import "./vars";
+
 // Typography tokens
 // FUNCTIONAL TYPE
 $headline-01: (
@@ -6,7 +7,7 @@ $headline-01: (
   font-weight: bold,
   font-size: type-scale(9),
   line-height: type-scale(9),
-  letter-spacing: 0em,
+  letter-spacing: 0,
 );
 $headline-02: (
   font-family: $font-family-bold,
@@ -43,14 +44,13 @@ $headline-06: (
   line-height: type-scale(4),
   letter-spacing: -0.02em,
 );
-$headline-07: (
+$: (
   font-family: $font-family-semi-condensed-bold,
   font-weight: bold,
   font-size: type-scale(3),
   line-height: type-scale(4),
   letter-spacing: -0.01em,
 );
-
 $paragraph-01: (
   font-family: $font-family-regular,
   font-size: type-scale(6),
@@ -105,7 +105,7 @@ $detail-05: (
   font-family: $font-family-semi-condensed,
   font-size: type-scale(2),
   line-height: type-scale(4),
-  letter-spacing: 0em,
+  letter-spacing: 0,
 );
 $detail-06: (
   font-family: $font-family-bold,
@@ -128,16 +128,15 @@ $expressive-headline-01: (
   font-weight: bold,
   font-size: type-scale(14),
   line-height: type-scale(14),
-  letter-spacing: 0em,
+  letter-spacing: 0,
 );
 $expressive-headline-02: (
   font-family: $font-family-headline-bold,
   font-weight: bold,
   font-size: type-scale(11),
   line-height: type-scale(11),
-  letter-spacing: 0em,
+  letter-spacing: 0,
 );
-
 $typography-sets: (
   headline-01: $headline-01,
   headline-02: $headline-02,
@@ -145,7 +144,7 @@ $typography-sets: (
   headline-04: $headline-04,
   headline-05: $headline-05,
   headline-06: $headline-06,
-  headline-07: $headline-07,
+  : $,
   paragraph-01: $paragraph-01,
   paragraph-02: $paragraph-02,
   body-01: $body-01,

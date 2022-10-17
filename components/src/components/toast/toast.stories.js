@@ -44,7 +44,7 @@ const ToastTemplate = args => {
       args.Subheader || args.Link
         ? `\n<div class="sdds-toast-body">\
         ${args.Subheader ? `\n<span class="sdds-toast-subheadline">Short subheader</span>` : ''}\
-         ${args.Link ? `\n<a class="sdds-toast-link" href="#">Link examplee</a>` : ''}
+         ${args.Link ? `\n<a class="sdds-toast-link" href="#">Link example</a>` : ''}
         </div> `
         : ''
     }
