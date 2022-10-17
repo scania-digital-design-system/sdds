@@ -54,5 +54,19 @@ const ToastTemplate = args => {
   );
 };
 
-export const Default = ToastTemplate.bind({});
-Default.argTypes = {};
+export const Success = ToastTemplate.bind({});
+Success.args = {
+  toastType: 'success',
+};
+export const Info = ToastTemplate.bind({});
+Info.args = {
+  toastType: 'info',
+};
+export const Warning = ToastTemplate.bind({});
+Warning.args = {
+  toastType: 'warning',
+};
+export const Error = ToastTemplate.bind({});
+Error.args = {
+  toastType: 'error',
+};
