@@ -20,13 +20,8 @@ ul.sdds-popover-menu-wrapper {
   padding: 0;
 
   li {
-    // TODO should be mixin
-    font-family: var(--sdds-font-family-semi-condensed);
-    font-size: type-scale(3);
-    line-height: type-scale(4);
-    letter-spacing: -0.01em;
-
-    //
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     color: var(--sdds-grey-958);
     margin-bottom: 16px;
     position: relative;
