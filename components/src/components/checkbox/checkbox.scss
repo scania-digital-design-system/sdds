@@ -1,14 +1,14 @@
-@import "./checkbox-theme-vars.scss";
+@import './checkbox-theme-vars.scss';
 
 .sdds-checkbox-item {
-  @include type-style("detail-02");
-
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-checkbox-text);
   display: flex;
   align-items: center;
   margin-left: -1rem;
 
-  .sdds-form-input[type="checkbox"] {
+  .sdds-form-input[type='checkbox'] {
     appearance: none;
     outline: none;
     margin: 0;
@@ -28,7 +28,7 @@
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       box-sizing: border-box;
       border-radius: 2px;
@@ -87,7 +87,7 @@
   }
 }
 
-.sdds-form-input[type="checkbox"]:checked {
+.sdds-form-input[type='checkbox']:checked {
   &::after {
     background-color: var(--sdds-checkbox-interaction-01);
     background-image: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='white' stroke-linecap='round' stroke-linejoin='round'/></svg>");
