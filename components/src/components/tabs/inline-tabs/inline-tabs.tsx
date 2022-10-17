@@ -139,6 +139,11 @@ export class InlineTabs {
     this.tabHeight = best;
   }
 
+  componentDidRender() {
+    this._calculateTabHeight();
+    this._calculateButtonWidth();
+  }
+
   componentDidLoad() {
     const mutationObserver = new MutationObserver(
       (/* mutations, observer */) => {

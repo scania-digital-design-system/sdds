@@ -24,6 +24,10 @@ export class NavigationTabs {
 
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
+  componentDidRender() {
+    this._calculateButtonWidth();
+  }
+
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
