@@ -1,4 +1,4 @@
-@import "./message-theme-vars.scss";
+@import './message-theme-vars.scss';
 
 .sdds-message {
   display: block;
@@ -11,23 +11,23 @@
   margin-bottom: 12px;
 
   &-single {
-    @include type-style("headline-07");
-
+    font: var(--sdds-headline-07);
+    letter-spacing: var(--sdds-headline-07-ls);
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     max-width: 486px;
   }
 
   &-extended {
-    @include type-style("detail-02");
-
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     margin-top: 4px !important;
     margin-bottom: 0 !important;
     max-width: 486px;
   }
 
   &::before {
-    content: " ";
+    content: ' ';
     display: block;
     position: absolute;
     width: 4px;
@@ -77,7 +77,7 @@
     }
 
     .sdds-message-single {
-      @include type-style("detail-02");
+      //@include type-style("detail-02");
 
       font-weight: normal;
       padding-left: 8px;
