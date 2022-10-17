@@ -1,4 +1,4 @@
-@import "./textfield-theme-vars.scss";
+@import './textfield-theme-vars.scss';
 
 @mixin textfield-base {
   border-radius: 1rem 1rem 0 0;
@@ -38,33 +38,24 @@
 .sdds-textfield-input {
   @include textfield-base;
 
-  //@include type-style('detail-02');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(3);
-  line-height: type-scale(4);
-  letter-spacing: -0.01em;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 .sdds-textfield-input-md {
   @include textfield-base;
 
-  //@include type-style('detail-02');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(3);
-  line-height: type-scale(4);
-  letter-spacing: -0.01em;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-16);
 }
 
 .sdds-textfield-input-sm {
   @include textfield-base;
 
-  //@include type-style('detail-02');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(3);
-  line-height: type-scale(4);
-  letter-spacing: -0.01em;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-16);
 }
 
@@ -109,22 +100,16 @@
 
 //Textfield label
 .sdds-textfield-slot-wrap-label > * {
-  //@include type-style('detail-05');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(2);
-  line-height: type-scale(4);
-  letter-spacing: 0;
+  font: var(--sdds-detail-05);
+  letter-spacing: var(--sdds-detail-05-ls);
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
   color: var(--sdds-textfield-label-color);
 }
 
 .sdds-textfield-label-inside {
-  //@include type-style('detail-02');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(3);
-  line-height: type-scale(4);
-  letter-spacing: -0.01em;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   position: absolute;
   pointer-events: none;
   color: var(--sdds-textfield-label-inside-color);
@@ -208,11 +193,8 @@
   &.sdds-textfield-focus,
   &.sdds-textfield-data {
     .sdds-textfield-input-sm ~ .sdds-textfield-label-inside {
-      //@include type-style('detail-07');
-      font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-      font-size: type-scale(1);
-      line-height: 2rem;
-      letter-spacing: 0;
+      font: var(--sdds-detail-07);
+      letter-spacing: var(--sdds-detail-07-ls);
 
       @include label-inside-transition;
 
@@ -220,11 +202,8 @@
     }
 
     .sdds-textfield-input-md ~ .sdds-textfield-label-inside {
-      //@include type-style('detail-07');
-      font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-      font-size: type-scale(1);
-      line-height: 2rem;
-      letter-spacing: 0;
+      font: var(--sdds-detail-07);
+      letter-spacing: var(--sdds-detail-07-ls);
 
       @include label-inside-transition;
 
@@ -232,11 +211,8 @@
     }
 
     .sdds-textfield-input ~ .sdds-textfield-label-inside {
-      //@include type-style('detail-07');
-      font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-      font-size: type-scale(1);
-      line-height: 2rem;
-      letter-spacing: 0;
+      font: var(--sdds-detail-07);
+      letter-spacing: var(--sdds-detail-07-ls);
 
       @include label-inside-transition;
 
@@ -252,7 +228,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     height: 2px;
     top: 54px;
     width: 0;
@@ -285,11 +261,8 @@
 
 //Helper text
 .sdds-textfield-helper {
-  //@include type-style('detail-05');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(2);
-  line-height: type-scale(4);
-  letter-spacing: 0;
+  font: var(--sdds-detail-05);
+  letter-spacing: var(--sdds-detail-05-ls);
   display: block;
   flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
@@ -339,12 +312,8 @@
     position: absolute;
     right: 18px;
     bottom: -24px;
-
-    //@include type-style('detail-05');
-    font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-    font-size: type-scale(2);
-    line-height: type-scale(4);
-    letter-spacing: 0;
+    font: var(--sdds-detail-05);
+    letter-spacing: var(--sdds-detail-05-ls);
     padding: 8px;
     color: var(--sdds-white);
     background-color: var(--sdds-grey-800);
@@ -400,8 +369,8 @@
     }
   }
 
-  slot[name="sdds-prefix"]::slotted(sdds-icon),
-  slot[name="sdds-suffix"]::slotted(sdds-icon) {
+  slot[name='sdds-prefix']::slotted(sdds-icon),
+  slot[name='sdds-suffix']::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
@@ -417,11 +386,8 @@
 }
 
 .sdds-textfield-textcounter {
-  //@include type-style('detail-05');
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-  font-size: type-scale(2);
-  line-height: type-scale(4);
-  letter-spacing: 0;
+  font: var(--sdds-detail-05);
+  letter-spacing: var(--sdds-detail-05-ls);
   color: var(--sdds-textfield-textcounter);
   float: right;
 
@@ -443,11 +409,8 @@ slot[name="sdds-suffix"]::slotted(*) {
   align-self: center;
 
   > * {
-    //@include type-style('detail-02');
-    font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-    font-size: type-scale(3);
-    line-height: type-scale(4);
-    letter-spacing: -0.01em;
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     margin-left: 16px;
     color: var(--sdds-textfield-ps-color);
   }
@@ -457,25 +420,22 @@ slot[name="sdds-suffix"]::slotted(*) {
   align-self: center;
 
   > * {
-    //@include type-style('detail-02');
-    font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-    font-size: type-scale(3);
-    line-height: type-scale(4);
-    letter-spacing: -0.01em;
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     margin-right: 16px;
     color: var(--sdds-textfield-ps-color);
   }
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name="sdds-prefix"]::slotted(sdds-icon),
-slot[name="sdds-suffix"]::slotted(sdds-icon) {
+slot[name='sdds-prefix']::slotted(sdds-icon),
+slot[name='sdds-suffix']::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }
 
 //Text gerenerated infront of the input field
-slot[name="sdds-prefix"]::slotted(*) {
+slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
   & ~ .sdds-textfield-input  {
@@ -484,6 +444,6 @@ slot[name="sdds-prefix"]::slotted(*) {
 }
 
 //Text generated after the input field
-slot[name="sdds-suffix"]::slotted(*) {
+slot[name='sdds-suffix']::slotted(*) {
   padding-right: var(--sdds-spacing-element-20);
 }
