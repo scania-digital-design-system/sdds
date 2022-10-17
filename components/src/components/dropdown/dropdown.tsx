@@ -402,8 +402,7 @@ export class Dropdown {
             >
               <path
                 d="M1 1L6 6L11 1"
-                stroke="currentColor"
-                stroke-width="1.25"
+                stroke-width="1"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
