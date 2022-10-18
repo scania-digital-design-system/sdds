@@ -110,7 +110,7 @@ export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
     target: HTMLSddsAccordionItemElement;
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+          * Size of spinner. Accepted strings are: xs, sm, md, lg.
          */
         "size": 'xs' | 'sm' | 'md' | 'lg';
         /**
@@ -270,7 +270,7 @@ declare namespace LocalJSX {
         "value"?: string;
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs,sm, md, lg.
+          * Size of spinner. Accepted strings are: xs, sm, md, lg.
          */
         "size"?: 'xs' | 'sm' | 'md' | 'lg';
         /**
