@@ -1,4 +1,4 @@
-@import "./card-theme-vars.scss";
+@import './card-theme-vars.scss';
 
 .sdds-card {
   background-color: var(--sdds-card-bg);
@@ -70,6 +70,11 @@
   .sdds-card-headline,
   .sdds-card-sub-headline {
     margin: 0;
+    font-family: 'Scania Sans', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: calc(((14 / 4)) * 1rem);
+    line-height: calc(((14 / 4)) * 1rem);
+    letter-spacing: -0.01em;
   }
 
   .sdds-card-headline {
@@ -94,13 +99,8 @@
   }
 
   .sdds-card-body {
-    //@include type-style("detail-03");
-    font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif;
-    font-size: type-scale(3);
-    line-height: type-scale(5);
-    letter-spacing: -0.01em;
-
-    //@include end
+    font: var(--sdds-detail-03);
+    letter-spacing: var(--sdds-detail-03-ls);
     padding: var(--sdds-spacing-element-16);
   }
 
