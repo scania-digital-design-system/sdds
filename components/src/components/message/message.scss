@@ -77,8 +77,8 @@
     }
 
     .sdds-message-single {
-      //@include type-style("detail-02");
-
+      font: var(--sdds-detail-02);
+      letter-spacing: var(--sdds-detail-02-ls);
       font-weight: normal;
       padding-left: 8px;
     }
