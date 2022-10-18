@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Chips/Native',
+  title: 'Components/Chips',
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
