@@ -1,12 +1,13 @@
 import { addons } from '@storybook/addons';
 import { UPDATE_GLOBALS, STORY_ARGS_UPDATED } from '@storybook/core-events';
 import format from 'html-format';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Spinner',
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
-    notes: 'readme',
+    notes: readme,
     backgrounds: {
       default: 'Light grey',
       values: [
