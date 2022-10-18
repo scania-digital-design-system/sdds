@@ -91,19 +91,17 @@ Border.argTypes = {
     name: 'Height',
     description: 'Height of the divider in pixels.',
     control: {
-      type: 'range',
-      min: 100,
-      max: 800,
+      type: 'number',
     },
+    defaultValue: 100,
   },
   width: {
     name: 'Width',
     description: 'Width of the divider in pixels.',
     control: {
-      type: 'range',
-      min: 100,
-      max: 800,
+      type: 'number',
     },
+    defaultValue: 100,
   },
 };
 
