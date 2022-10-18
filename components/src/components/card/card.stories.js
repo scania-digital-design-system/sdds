@@ -26,6 +26,7 @@ export default {
     footer: {
       name: 'Footer',
       description: 'The footer of the card',
+      // TODO - Is dependant on font component
       defaultValue: '<sdds-icon style="font-size: 20px;" name="scania-arrow"></sdds-icon>',
       control: {
         type: 'text',
@@ -110,7 +111,12 @@ Image.args = {
 const AvatarTemplate = ({ headline, subheadline, footer, clickable, text, divider, imageTop, avatar }) =>
   formatHtmlPreview(
     `  
-    <div class="sdds-storybook-wrapper">
+    <style> 
+  .demo-wrapper {
+    width: 300px;
+  }
+</style>
+    <div class="demo-wrapper">
       <div class="sdds-card ${clickable ? 'sdds-clickable' : ''}">
       ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ''}
       <div class="sdds-card-header-avatar">
