@@ -70,11 +70,9 @@
   .sdds-card-headline,
   .sdds-card-sub-headline {
     margin: 0;
-    font-family: 'Scania Sans', Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: calc(((14 / 4)) * 1rem);
-    line-height: calc(((14 / 4)) * 1rem);
-    letter-spacing: -0.01em;
+    font: var(--sdds-headline-06);
+    letter-spacing: var(--sdds-headline-06-ls);
+    line-height: 16px;
   }
 
   .sdds-card-headline {
