@@ -5,7 +5,25 @@ $types: (
 );
 $border-types: top, right, bottom, left;
 
-:root {
+:root,
+.sdds-theme-light {
+  @each $type, $value in $types {
+    --sdds-divider-#{$type}: #{$value};
+    --sdds-divider-#{$type}-vertical: #{$value};
+
+    @each $border-type in $border-types {
+      --sdds-divider-#{$type}-border-#{$border-type}: #{$value};
+    }
+  }
+}
+
+.sdds-theme-dark {
+  $types: (
+    'light': var(--sdds-white),
+    'dark': var(--sdds-grey-300),
+    'coloured': var(--sdds-blue-200),
+  );
+
   @each $type, $value in $types {
     --sdds-divider-#{$type}: #{$value};
     --sdds-divider-#{$type}-vertical: #{$value};
