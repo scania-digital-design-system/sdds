@@ -58,8 +58,10 @@
   }
 
   &-headline {
-    font: var(--sdds-headline-ex-07);
-    letter-spacing: var(--sdds-headline-ex-07-ls);
+    font-family: "Scania Sans Semi Condensed", arial, helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: -0.01em;
     color: var(--sdds-toast-headline-color);
     width: 63rem;
     float: left;
@@ -81,8 +83,9 @@
   }
 
   &-subheadline {
-    font: var(--sdds-detail-ex-02);
-    letter-spacing: var(--sdds-detail-ex-02-ls);
+    font-family: "Scania Sans Semi Condensed", arial, helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: -0.01em;
     color: var(--sdds-toast-subheadline-color);
   }
 
@@ -93,7 +96,8 @@
   &-link {
     height: var(--sdds-spacing-element-16);
     color: var(--sdds-toast-link-color);
-    font: var(--sdds-detail-ex-02);
-    letter-spacing: var(--sdds-detail-ex-02-ls);
+    font-family: "Scania Sans Semi Condensed", arial, helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: -0.01em;
   }
 }

@@ -1,7 +1,7 @@
 import format from 'html-format';
 
 export default {
-  title: 'Components/Toast/Native',
+  title: 'Components/Toast',
   argTypes: {
     toastType: {
       name: 'Message type',
