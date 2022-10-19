@@ -85,6 +85,7 @@ export class PopoverMenu {
   render() {
     return (
       <Host class={`sdds-popover-menu ${this.show ? 'sdds-popover-menu-show' : ''}`}>
+        {/* TODO - Investigate whether or not this could be webcomponents (popover-menu-item) */}
         <slot></slot>
       </Host>
     );
