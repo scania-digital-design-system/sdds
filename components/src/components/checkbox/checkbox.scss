@@ -71,7 +71,7 @@
       cursor: default;
 
       &::after {
-        border-color: var(--sdds-grey-500);
+        border-color: var(--sdds-checkbox-border-color-disabled-after);
       }
 
       + label {
@@ -105,13 +105,13 @@
       height: 4rem;
       left: 1rem;
       top: 1rem;
-      border: 1px solid var(--sdds-grey-500);
+      border: 1px solid #b0b7c4;
     }
 
     &::after {
+      background-image: var(--sdds-checkbox-bg-img-disabled);
       background-color: var(--sdds-checkbox-interaction-02);
-      color: var(--sdds-grey-500);
-      background-image: var(--sdds-checkbox-bg-img);
+      color: var(--sdds-checkbox-color-disabled-after);
     }
   }
 }
