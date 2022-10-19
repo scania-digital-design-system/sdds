@@ -1,5 +1,5 @@
-:host,
-:host-context(.sdds-theme-light) {
+:root,
+.sdds-theme-light {
   --sdds-datetime-color: var(--sdds-grey-868);
   --sdds-datetime-bg: var(--sdds-white);
   --sdds-datetime-border-bottom: var(--sdds-grey-400);
@@ -40,7 +40,7 @@
   --sdds-datetime-ps-color: var(--sdds-grey-600);
 }
 
-:host-context(.sdds-theme-dark) {
+.sdds-theme-dark {
   --sdds-datetime-color: var(--sdds-white);
   --sdds-datetime-bg: var(--sdds-black);
   --sdds-datetime-border-bottom: var(--sdds-grey-400);
