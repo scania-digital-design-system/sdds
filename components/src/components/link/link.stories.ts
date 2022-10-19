@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/html';
-import format from 'html-format';
 import clsx from 'clsx';
+import { formatHtmlPreview } from '../../utils/utils';
 
 const defaultArgs = {
   disabled: false,
@@ -28,28 +28,21 @@ export default {
 } as Meta<Args>;
 
 const Template: StoryFn<Args> = args => {
-  return format(
+  return formatHtmlPreview(
     `
-    <a class="${clsx('sdds-link', args.disabled && 'disabled', args.noUnderline && 'sdds-link--no-underline')}" href="#">
-      This is a link.
-    </a>
+      <style>
+        /* The demo-text class is only for demonstration purposes. */
+        .demo-text {
+          font-size: 36px;
+        }
+      </style>
+      <a class="${clsx('demo-text sdds-link', args.disabled && 'disabled', args.noUnderline && 'sdds-link--no-underline')}" href="#">
+        This is a link.
+      </a>
+   
   `,
   );
 };
 export const Default = Template.bind({});
 
 Default.args = defaultArgs;
-
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-  ...Default.args,
-  disabled: true,
-};
-
-export const NoUnderline = Template.bind({});
-
-NoUnderline.args = {
-  ...Default.args,
-  noUnderline: true,
-};
