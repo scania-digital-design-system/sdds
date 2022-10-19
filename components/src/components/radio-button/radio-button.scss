@@ -74,7 +74,8 @@
       cursor: default;
 
       &::after {
-        border-color: var(--sdds-grey-500);
+        border-color: var(--sdds-radio-button-border-color-disabled-after);
+        background-color: var(--sdds-radio-button-interaction-02);
       }
 
       + label {
@@ -105,13 +106,13 @@
         height: 4rem;
         left: 1rem;
         top: 1rem;
-        border: 1px solid var(--sdds-grey-500);
+        border: 1px solid var(--sdds-radio-button-color-disabled-before);
         box-sizing: content-box;
       }
 
       &::after {
         border: 4px solid var(--sdds-radio-button-interaction-02);
-        background-color: var(--sdds-grey-500);
+        background-color: var(--sdds-radio-button-color-disabled-after);
         left: calc(1rem + 1px);
         top: calc(1rem + 1px);
       }
