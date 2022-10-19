@@ -20,6 +20,7 @@
     cursor: pointer;
 
     + label {
+      color: var(--sdds-checkbox-color);
       padding-left: var(--sdds-spacing-element-8);
       padding-top: var(--sdds-spacing-element-4);
       padding-bottom: var(--sdds-spacing-element-4);
@@ -89,8 +90,8 @@
 
 .sdds-form-input[type='checkbox']:checked {
   &::after {
+    background-image: var(--sdds-checkbox-bg-img);
     background-color: var(--sdds-checkbox-interaction-01);
-    background-image: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='white' stroke-linecap='round' stroke-linejoin='round'/></svg>");
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -110,7 +111,7 @@
     &::after {
       background-color: var(--sdds-checkbox-interaction-02);
       color: var(--sdds-grey-500);
-      background-image: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='%23b1b7c4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-image: var(--sdds-checkbox-bg-img);
     }
   }
 }

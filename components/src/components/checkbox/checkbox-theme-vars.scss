@@ -1,4 +1,3 @@
-:host,
 :root,
 .sdds-theme-light {
   --sdds-checkbox-color: var(--sdds-grey-900);
@@ -7,14 +6,16 @@
   --sdds-checkbox-bg-hover: var(--sdds-blue-800);
   --sdds-checkbox-bg-focus: var(--sdds-blue-800);
   --sdds-checkbox-disabled: var(--sdds-grey-400);
+  --sdds-checkbox-bg-img: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='white' stroke-linecap='round' stroke-linejoin='round'/></svg>");
 
   // TODO - Add correct colors for dark theme
   .sdds-theme-dark {
-    --sdds-checkbox-color: red;
-    --sdds-checkbox-interaction-01: red;
-    --sdds-checkbox-interaction-02: red;
-    --sdds-checkbox-bg-hover: red;
-    --sdds-checkbox-bg-focus: red;
-    --sdds-checkbox-disabled: red;
+    --sdds-checkbox-color: var(--sdds-white);
+    --sdds-checkbox-interaction-01: var(--sdds-white);
+    --sdds-checkbox-interaction-02: var(--sdds-grey-958);
+    --sdds-checkbox-bg-hover: white;
+    --sdds-checkbox-bg-focus: white;
+    --sdds-checkbox-disabled: white;
+    --sdds-checkbox-bg-img: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='black' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
 }

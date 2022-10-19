@@ -30,9 +30,13 @@ export default {
 };
 
 const Template = args => `
+        <div class="sdds-theme-light">
+        <div class="sdds-theme-dark">
         <div class="sdds-checkbox-item">
-          <input class="sdds-form-input" type="checkbox" ${args.checked && `checked="checked"`}  ${args.disabled && 'disabled'}>
-          ${args.label && `<label class="sdds-form-label" for="cb-option-2" ${args.disabled && 'disabled'}>  ${args.label} </label>`}
+        <input class="sdds-form-input" type="checkbox" ${args.checked && `checked="checked"`}  ${args.disabled && 'disabled'}>
+        ${args.label && `<label class="sdds-form-label" for="cb-option-2" ${args.disabled && 'disabled'}>  ${args.label} </label>`}
+      </div>
+        </div>
         </div>
       `;
 
