@@ -31,8 +31,8 @@ export default {
 
 const Template = args => `
         <div class="sdds-checkbox-item">
-          ${args.label && `<label class="sdds-form-label" for="cb-option-2">  ${args.label} </label>`}
           <input class="sdds-form-input" type="checkbox" ${args.checked && `checked="checked"`}  ${args.disabled && 'disabled'}>
+          ${args.label && `<label class="sdds-form-label" for="cb-option-2">  ${args.label} </label>`}
         </div>
       `;
 
@@ -46,9 +46,4 @@ Disabled.args = {
 export const Checked = Template.bind({});
 Checked.args = {
   checked: true,
-};
-
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  label: 'Label',
 };
