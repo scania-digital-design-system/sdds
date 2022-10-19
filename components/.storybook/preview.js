@@ -14,6 +14,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
+  },
 };
 
 defineCustomElements();
