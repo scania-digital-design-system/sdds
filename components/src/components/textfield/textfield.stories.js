@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Textfield/WebComponent',
+  title: 'Components/Textfield',
   parameters: {
     notes: readme,
     layout: 'centered',
