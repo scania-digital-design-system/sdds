@@ -38,7 +38,6 @@ export default {
 };
 
 const Template = args => {
-  console.log(args);
   return formatHtmlPreview(`
     <div class="sdds-checkbox-item">
       <input class="sdds-form-input" type="checkbox" id="${args.id}" ${args.checked ? 'checked="checked"' : ''}  ${args.disabled ? 'disabled' : ''}>
