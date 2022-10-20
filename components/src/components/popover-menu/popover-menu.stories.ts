@@ -203,6 +203,3 @@ const ComponentPopoverMenu = ({ ...Default }) => {
 
 export const Default = ComponentPopoverMenu.bind({});
 Default.args = { withIcons: false, menuPosition: 'right-start' };
-
-export const WithIcons = ComponentPopoverMenu.bind({});
-WithIcons.args = { withIcons: true, menuPosition: 'right-start' };
