@@ -12,13 +12,13 @@
 
   // TODO - Define dark-theme
   .sdds-theme-dark {
-    --sdds-chips-color: pink;
-    --sdds-chips-color-active: pink;
-    --sdds-chips-bg: red;
-    --sdds-chips-bg-active: red;
-    --sdds-chips-bg-active-hover: yellow;
-    --sdds-chips-bg-hover: yellow;
-    --sdds-chips-icon-fill: aqua;
-    --sdds-chips-icon-fill-active: aqua;
+    --sdds-chips-color: var(--sdds-white);
+    --sdds-chips-color-active: var(--sdds-white);
+    --sdds-chips-bg: var(--sdds-grey-200);
+    --sdds-chips-bg-active: var(--sdds-blue-500);
+    --sdds-chips-bg-active-hover: var(--sdds-blue-600);
+    --sdds-chips-bg-hover: var(--sdds-grey-400);
+    --sdds-chips-icon-fill: var(--sdds-white);
+    --sdds-chips-icon-fill-active: var(--sdds-white);
   }
 }
