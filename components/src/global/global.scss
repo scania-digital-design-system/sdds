@@ -27,6 +27,11 @@
 @import 'src/components/banner/banner';
 
 //Web component theme variables
+@import 'src/components/toggle/toggle';
+@import 'src/components/link/link';
+
+//Web Component variables
+@import 'src/components/accordion/accordion-theme-vars';
 @import 'src/components/datetime/datetime-theme-vars';
 
 :root {
