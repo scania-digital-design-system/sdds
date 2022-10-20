@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Popover-canvas/WebComponent',
+  title: 'Components/Popover-canvas',
   parameters: {
     layout: 'centered',
   },
