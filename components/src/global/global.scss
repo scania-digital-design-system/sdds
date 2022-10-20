@@ -10,17 +10,12 @@
 @import '../theme/core/colour/colour';
 
 // Typography
-<<<<<<< HEAD
 @import 'scania-fonts';
 @import 'scania-fonts-vars';
 
 //FIXME: remove if not needed for component to work OK
 //@import '../theme/core/typography/typography-vars.scss';
 //@import '../theme/core/typography/selectors';
-=======
-@import '../theme/core/typography/typography-vars.scss';
-@import '../theme/core/typography/selectors';
->>>>>>> 591b375 (chore: (block) migrating block)
 
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
@@ -30,25 +25,22 @@
 
 //CSS component
 @import 'src/components/banner/banner';
-<<<<<<< HEAD
 @import 'src/components/stepper/stepper';
 @import 'src/components/divider/divider';
-@import "src/components/banner/banner";
-@import "src/components/card/card";
-@import "src/components/message/message";
-@import "src/components/radio-button/radio-button";
-@import "src/components/checkbox/checkbox";
+@import 'src/components/banner/banner';
+@import 'src/components/card/card';
+@import 'src/components/message/message';
+@import 'src/components/radio-button/radio-button';
+@import 'src/components/checkbox/checkbox';
 @import 'src/components/chips/chips';
 @import 'src/components/link/link';
 @import 'src/components/toggle/toggle';
-@import "src/components/toast/toast";
+@import 'src/components/toast/toast';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-theme-vars';
 @import 'src/components/datetime/datetime-theme-vars';
-=======
 @import 'src/components/block/block';
->>>>>>> 591b375 (chore: (block) migrating block)
 
 :root {
   --johnny-red: purple;
