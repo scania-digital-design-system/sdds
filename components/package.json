@@ -52,7 +52,8 @@
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "prettier": "^2.7.1",
-    "puppeteer": "^10.0.0"
+    "puppeteer": "^10.0.0",
+    "storybook-dark-mode": "^1.1.2"
   },
   "license": "MIT"
 }
