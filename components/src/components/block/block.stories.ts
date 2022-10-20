@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Block/Native',
+  title: 'Components/Block',
   parameters: {
     backgrounds: {
       default: 'white',
@@ -15,7 +15,7 @@ export default {
       description: 'Pick variant',
       defaultValue: 'default',
       control: {
-        type: 'select',
+        type: 'radio',
         options: ['default', 'variant'],
         labels: {
           default: 'Default',
