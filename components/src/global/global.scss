@@ -24,8 +24,11 @@
 @import '../theme/light/src/_reboot.scss';
 
 //CSS component
+@import 'src/components/banner/banner';
+@import 'src/components/divider/divider';
 @import "src/components/banner/banner";
-@import "src/components/card/card";@import "src/components/message/message";
+@import "src/components/card/card";
+@import "src/components/message/message";
 @import "src/components/radio-button/radio-button";
 @import "src/components/checkbox/checkbox";
 @import 'src/components/chips/chips';
