@@ -66,6 +66,8 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsCard {
+    }
     interface SddsDatetime {
         /**
           * Autofocus for input
@@ -101,13 +103,13 @@ export namespace Components {
         "value": string;
     }
 }
-export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSddsDatetimeElement;
-}
 export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSddsAccordionItemElement;
+}
+export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSddsDatetimeElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -134,7 +136,12 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
-
+    interface HTMLSddsCardElement extends Components.SddsCard, HTMLStencilElement {
+    }
+    var HTMLSddsCardElement: {
+        prototype: HTMLSddsCardElement;
+        new (): HTMLSddsCardElement;
+    };
     interface HTMLSddsDatetimeElement extends Components.SddsDatetime, HTMLStencilElement {
     }
     var HTMLSddsDatetimeElement: {
@@ -146,6 +153,7 @@ declare global {
         "sdds-accordion": HTMLSddsAccordionElement;
         "sdds-accordion-item": HTMLSddsAccordionItemElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-card": HTMLSddsCardElement;
         "sdds-datetime": HTMLSddsDatetimeElement;
     }
 }
@@ -214,6 +222,8 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsCard {
+    }
     interface SddsDatetime {
         /**
           * Autofocus for input
@@ -257,6 +267,7 @@ declare namespace LocalJSX {
         "sdds-accordion": SddsAccordion;
         "sdds-accordion-item": SddsAccordionItem;
         "sdds-badges": SddsBadges;
+        "sdds-card": SddsCard;
         "sdds-datetime": SddsDatetime;
     }
 }
@@ -268,6 +279,7 @@ declare module "@stencil/core" {
             "sdds-accordion": LocalJSX.SddsAccordion & JSXBase.HTMLAttributes<HTMLSddsAccordionElement>;
             "sdds-accordion-item": LocalJSX.SddsAccordionItem & JSXBase.HTMLAttributes<HTMLSddsAccordionItemElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-card": LocalJSX.SddsCard & JSXBase.HTMLAttributes<HTMLSddsCardElement>;
             "sdds-datetime": LocalJSX.SddsDatetime & JSXBase.HTMLAttributes<HTMLSddsDatetimeElement>;
         }
     }
