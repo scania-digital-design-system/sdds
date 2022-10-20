@@ -110,12 +110,9 @@
 .sdds-textarea-input {
   @include textfield-base;
 
-  //@extend .sdds-textfield-input;
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
-
-  //@extend end
-
+  padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
   display: block;
   resize: vertical;
   border-bottom: 1px solid var(--sdds-textarea-border-bottom);
@@ -312,7 +309,7 @@
     }
   }
 
-  .sdds-textarea-input {
+  .sdds-textfield-input {
     padding-right: 54px;
     background-color: transparent;
   }
