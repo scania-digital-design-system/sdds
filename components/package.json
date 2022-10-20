@@ -49,10 +49,12 @@
     "@types/jest": "^27.0.3",
     "babel-loader": "^8.2.5",
     "eslint-config-prettier": "^8.5.0",
+    "clsx": "^1.2.1",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "prettier": "^2.7.1",
-    "puppeteer": "^10.0.0"
+    "puppeteer": "^10.0.0",
+    "storybook-dark-mode": "^1.1.2"
   },
   "license": "MIT"
 }
