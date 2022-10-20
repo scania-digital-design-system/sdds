@@ -20,6 +20,34 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface SddsAccordion {
+        /**
+          * Enable or disable divider lines between items
+         */
+        "divider": boolean;
+    }
+    interface SddsAccordionItem {
+        /**
+          * Icon can be placed after or before accordion header. Values accepted: `prefix` or `suffix` Default value is `suffix`
+         */
+        "affix": 'prefix' | 'suffix';
+        /**
+          * Disabled option in `boolean`.
+         */
+        "disabled": boolean;
+        /**
+          * Set to true to expand panel open
+         */
+        "expanded": boolean;
+        /**
+          * The header gives users the context about the additional information available inside the panel
+         */
+        "header": string;
+        /**
+          * When true 16px on right padding instead of 64px
+         */
+        "paddingReset": boolean;
+    }
     interface SddsBadges {
         /**
           * !!Deprecated!! Use size prop instead. Changes badge from default to small size
@@ -38,6 +66,48 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsDatetime {
+        /**
+          * Autofocus for input
+         */
+        "autofocus": boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled": boolean;
+        /**
+          * Name property
+         */
+        "name": string;
+        /**
+          * With setting
+         */
+        "nominwidth": boolean;
+        /**
+          * Size of the input
+         */
+        "size": 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state": string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type": string;
+        /**
+          * Value of the input text
+         */
+        "value": string;
+    }
+}
+export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSddsDatetimeElement;
+}
+export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSddsAccordionItemElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -46,15 +116,37 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSddsAccordionElement extends Components.SddsAccordion, HTMLStencilElement {
+    }
+    var HTMLSddsAccordionElement: {
+        prototype: HTMLSddsAccordionElement;
+        new (): HTMLSddsAccordionElement;
+    };
+    interface HTMLSddsAccordionItemElement extends Components.SddsAccordionItem, HTMLStencilElement {
+    }
+    var HTMLSddsAccordionItemElement: {
+        prototype: HTMLSddsAccordionItemElement;
+        new (): HTMLSddsAccordionItemElement;
+    };
     interface HTMLSddsBadgesElement extends Components.SddsBadges, HTMLStencilElement {
     }
     var HTMLSddsBadgesElement: {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+
+    interface HTMLSddsDatetimeElement extends Components.SddsDatetime, HTMLStencilElement {
+    }
+    var HTMLSddsDatetimeElement: {
+        prototype: HTMLSddsDatetimeElement;
+        new (): HTMLSddsDatetimeElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "sdds-accordion": HTMLSddsAccordionElement;
+        "sdds-accordion-item": HTMLSddsAccordionItemElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-datetime": HTMLSddsDatetimeElement;
     }
 }
 declare namespace LocalJSX {
@@ -71,6 +163,38 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface SddsAccordion {
+        /**
+          * Enable or disable divider lines between items
+         */
+        "divider"?: boolean;
+    }
+    interface SddsAccordionItem {
+        /**
+          * Icon can be placed after or before accordion header. Values accepted: `prefix` or `suffix` Default value is `suffix`
+         */
+        "affix"?: 'prefix' | 'suffix';
+        /**
+          * Disabled option in `boolean`.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to true to expand panel open
+         */
+        "expanded"?: boolean;
+        /**
+          * The header gives users the context about the additional information available inside the panel
+         */
+        "header"?: string;
+        /**
+          * Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion
+         */
+        "onAccordionItemToggle"?: (event: SddsAccordionItemCustomEvent<boolean>) => void;
+        /**
+          * When true 16px on right padding instead of 64px
+         */
+        "paddingReset"?: boolean;
     }
     interface SddsBadges {
         /**
@@ -90,9 +214,50 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsDatetime {
+        /**
+          * Autofocus for input
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled"?: boolean;
+        /**
+          * Name property
+         */
+        "name"?: string;
+        /**
+          * With setting
+         */
+        "nominwidth"?: boolean;
+        /**
+          * Change event for the datetime
+         */
+        "onCustomChange"?: (event: SddsDatetimeCustomEvent<any>) => void;
+        /**
+          * Size of the input
+         */
+        "size"?: 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state"?: string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type"?: string;
+        /**
+          * Value of the input text
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "sdds-accordion": SddsAccordion;
+        "sdds-accordion-item": SddsAccordionItem;
         "sdds-badges": SddsBadges;
+        "sdds-datetime": SddsDatetime;
     }
 }
 export { LocalJSX as JSX };
@@ -100,7 +265,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "sdds-accordion": LocalJSX.SddsAccordion & JSXBase.HTMLAttributes<HTMLSddsAccordionElement>;
+            "sdds-accordion-item": LocalJSX.SddsAccordionItem & JSXBase.HTMLAttributes<HTMLSddsAccordionItemElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-datetime": LocalJSX.SddsDatetime & JSXBase.HTMLAttributes<HTMLSddsDatetimeElement>;
         }
     }
 }
