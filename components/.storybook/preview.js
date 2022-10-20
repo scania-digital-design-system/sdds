@@ -47,6 +47,11 @@ export const parameters = {
     lightClass: 'sdds-theme-light',
     stylePreview: true,
   },
+  docs: {
+    source: {
+      state: 'open',
+    },
+  },
 };
 
 defineCustomElements();
