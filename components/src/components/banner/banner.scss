@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-@import "banner-theme-vars";
-=======
+@import 'banner-theme-vars';
+
 :host,
 :root {
   --sdds-banner-bg-default: var(--sdds-grey-50);
@@ -10,7 +9,6 @@
   --sdds-banner-prefix-info-color: var(--sdds-blue-400);
   --sdds-banner-prefix-error-color: var(--sdds-red-500);
 }
->>>>>>> 591b375 (chore: (block) migrating block)
 
 .sdds-banner {
   background-color: var(--sdds-banner-bg-default);
@@ -57,7 +55,7 @@
   cursor: pointer;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 16px;
     height: 16px;
