@@ -42,11 +42,3 @@ Default.args = {};
 Default.parameters = {
   backgrounds: { default: 'white' },
 };
-
-export const Variant = Template.bind({});
-Variant.args = {
-  type: 'variant',
-};
-Variant.parameters = {
-  backgrounds: { default: 'grey' },
-};
