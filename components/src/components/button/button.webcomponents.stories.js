@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Button/WebComponent',
+  title: 'Components/Button/WebComponent',
   parameters: {
     layout: 'padded',
     chromatic: {

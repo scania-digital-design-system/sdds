@@ -1,7 +1,7 @@
 /* Default controls */
 
 export default {
-  title: 'Component/Button',
+  title: 'Components/Button',
   parameters: {
     layout: 'padded',
     chromatic: {
@@ -54,12 +54,6 @@ export default {
     },
   },
 };
-
-/**
- * Basic template
- * @param {*} param0
- * @returns Button HTML element
- */
 
 const ButtonTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
   let sizeValue = '';
