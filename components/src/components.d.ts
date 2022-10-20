@@ -102,10 +102,6 @@ export namespace Components {
          */
         "value": string;
     }
-}
-export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSddsAccordionItemElement;
     interface SddsSpinner {
         /**
           * Size of spinner. Accepted strings are: xs, sm, md, lg.
@@ -116,6 +112,10 @@ export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
          */
         "variant": 'standard' | 'inverted';
     }
+}
+export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSddsAccordionItemElement;
 }
 export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -278,6 +278,7 @@ declare namespace LocalJSX {
           * Value of the input text
          */
         "value"?: string;
+    }
     interface SddsSpinner {
         /**
           * Size of spinner. Accepted strings are: xs, sm, md, lg.
