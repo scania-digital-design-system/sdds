@@ -28,7 +28,7 @@ export default {
   },
   argTypes: {
     variant: {
-      name: 'variant',
+      name: 'Variant',
       control: {
         type: 'radio',
         options: { Standard: 'standard', Inverted: 'inverted' },
@@ -37,7 +37,7 @@ export default {
       description: 'Variant of the spinner',
     },
     size: {
-      name: 'size',
+      name: 'Size',
       control: {
         type: 'radio',
         options: { Large: 'lg', Medium: 'md', Small: 'sm', XSmall: 'xs' },
@@ -71,7 +71,9 @@ setupBackgroundListener();
 const Template = ({ size, variant }) => {
   return format(
     `
-  <sdds-spinner size="${size}"  variant="${variant}">
+  <sdds-spinner 
+    size="${size}"  
+    variant="${variant}">
   </sdds-spinner>
   `,
   );

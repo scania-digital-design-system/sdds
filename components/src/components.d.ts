@@ -104,11 +104,11 @@ export namespace Components {
     }
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs, sm, md, lg.
+          * Size of spinner. Accepted strings are: xs, sm, md and lg.
          */
         "size": 'xs' | 'sm' | 'md' | 'lg';
         /**
-          * Variant of spinner. Accepted strings are: standard, inverted
+          * Variant of spinner. Accepted strings are: standard and inverted
          */
         "variant": 'standard' | 'inverted';
     }
@@ -281,11 +281,11 @@ declare namespace LocalJSX {
     }
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs, sm, md, lg.
+          * Size of spinner. Accepted strings are: xs, sm, md and lg.
          */
         "size"?: 'xs' | 'sm' | 'md' | 'lg';
         /**
-          * Variant of spinner. Accepted strings are: standard, inverted
+          * Variant of spinner. Accepted strings are: standard and inverted
          */
         "variant"?: 'standard' | 'inverted';
     }
