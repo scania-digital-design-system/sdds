@@ -14,14 +14,6 @@ export default {
         options: ['information', 'error', 'warning', 'success'],
       },
     },
-    theme: {
-      name: 'Theme',
-      description: 'Switch between different sizes',
-      control: {
-        type: 'radio',
-        options: ['On Grey', 'On White', 'Minimal'],
-      },
-    },
     icon: {
       name: 'Icon',
       description: 'Switch between showing or hiding icon',
@@ -38,12 +30,6 @@ export default {
         options: ['Show Extended Message', 'Hide Extended Message'],
       },
     },
-  },
-  args: {
-    messageType: 'information',
-    theme: 'On Grey',
-    icon: 'Show Icon',
-    extendedMessage: 'Show Extended Message',
   },
 };
 
@@ -143,7 +129,6 @@ const Template = ({ messageType, theme, icon, extendedMessage }) => {
 export const Information = Template.bind({});
 Information.args = {
   messageType: 'information',
-  theme: 'On Grey',
   icon: 'Show Icon',
   extendedMessage: 'Show Extended Message',
 };
@@ -151,7 +136,6 @@ Information.args = {
 export const Error = Template.bind({});
 Error.args = {
   messageType: 'error',
-  theme: 'On Grey',
   icon: 'Show Icon',
   extendedMessage: 'Show Extended Message',
 };
@@ -159,7 +143,6 @@ Error.args = {
 export const Warning = Template.bind({});
 Warning.args = {
   messageType: 'warning',
-  theme: 'On Grey',
   icon: 'Show Icon',
   extendedMessage: 'Show Extended Message',
 };
@@ -167,7 +150,6 @@ Warning.args = {
 export const Success = Template.bind({});
 Success.args = {
   messageType: 'success',
-  theme: 'On Grey',
   icon: 'Show Icon',
   extendedMessage: 'Show Extended Message',
 };
