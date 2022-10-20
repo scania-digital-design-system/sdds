@@ -2,7 +2,7 @@ import CardImage from '../../stories/assets/image/card-img.png';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Card/Native',
+  title: 'Components/Card',
   parameters: {
     layout: 'centered',
   },
