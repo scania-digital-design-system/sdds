@@ -10,8 +10,8 @@
 @import '../theme/core/colour/colour';
 
 // Typography
-@import "scania-fonts";
-@import "scania-fonts-vars";
+@import 'scania-fonts';
+@import 'scania-fonts-vars';
 
 //FIXME: remove if not needed for component to work OK
 //@import '../theme/core/typography/typography-vars.scss';
@@ -26,6 +26,12 @@
 //CSS component
 @import 'src/components/banner/banner';
 @import 'src/components/chips/chips';
+@import 'src/components/link/link';
+@import 'src/components/toggle/toggle';
+
+//Web component theme variables
+@import 'src/components/accordion/accordion-theme-vars';
+@import 'src/components/datetime/datetime-theme-vars';
 
 :root {
   --johnny-red: purple;
