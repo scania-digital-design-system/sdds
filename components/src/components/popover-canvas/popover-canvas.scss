@@ -1,6 +1,6 @@
-@import "./popover-canvas-theme-vars.scss";
+@import './popover-canvas-theme-vars.scss';
 
-.sdds-popover-canvas {
+:host {
   min-width: 160px;
   min-height: 160px;
   background-color: var(--sdds-popover-bg-default);
@@ -11,7 +11,7 @@
   display: none;
 }
 
-.sdds-popover-canvas-show {
+:host(.sdds-popover-canvas-show) {
   opacity: 1;
   display: block;
 }
