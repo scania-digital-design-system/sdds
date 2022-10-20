@@ -38,6 +38,28 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsButton {
+        /**
+          * Control for disabled state of component
+         */
+        "disabled": boolean;
+        /**
+          * When enabled, makes button take 100% width
+         */
+        "fullbleed": boolean;
+        /**
+          * Size of button
+         */
+        "size": 'sm' | 'md' | '';
+        /**
+          * Text inside a button
+         */
+        "text": string;
+        /**
+          * Type of button
+         */
+        "type": 'primary' | 'secondary' | 'ghost' | 'danger';
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +74,16 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsButtonElement extends Components.SddsButton, HTMLStencilElement {
+    }
+    var HTMLSddsButtonElement: {
+        prototype: HTMLSddsButtonElement;
+        new (): HTMLSddsButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-button": HTMLSddsButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +119,32 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsButton {
+        /**
+          * Control for disabled state of component
+         */
+        "disabled"?: boolean;
+        /**
+          * When enabled, makes button take 100% width
+         */
+        "fullbleed"?: boolean;
+        /**
+          * Size of button
+         */
+        "size"?: 'sm' | 'md' | '';
+        /**
+          * Text inside a button
+         */
+        "text"?: string;
+        /**
+          * Type of button
+         */
+        "type"?: 'primary' | 'secondary' | 'ghost' | 'danger';
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-button": SddsButton;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +153,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-button": LocalJSX.SddsButton & JSXBase.HTMLAttributes<HTMLSddsButtonElement>;
         }
     }
 }
