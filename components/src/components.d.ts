@@ -134,6 +134,7 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+
     interface HTMLSddsDatetimeElement extends Components.SddsDatetime, HTMLStencilElement {
     }
     var HTMLSddsDatetimeElement: {
