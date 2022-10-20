@@ -20,6 +20,7 @@ export default {
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
+// todo: make consistent with other sizes, for example 'xs', 'sm', etc
         options: ['Large', 'Medium', 'Small'],
       },
     },
