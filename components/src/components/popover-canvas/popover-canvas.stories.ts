@@ -1,7 +1,10 @@
+import readme from './readme.md';
+
 export default {
   title: 'Components/Popover-canvas',
   parameters: {
     layout: 'centered',
+    notes: readme,
   },
   argTypes: {
     canvasPosition: {
