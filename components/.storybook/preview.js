@@ -36,6 +36,9 @@ export const parameters = {
 
       return React.createElement(DocsContainer, props);
     },
+    source: {
+      state: 'open',
+    },
   },
   darkMode: {
     current: 'light',
@@ -46,11 +49,6 @@ export const parameters = {
     darkClass: 'sdds-theme-dark',
     lightClass: 'sdds-theme-light',
     stylePreview: true,
-  },
-  docs: {
-    source: {
-      state: 'open',
-    },
   },
 };
 
