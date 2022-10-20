@@ -38,6 +38,25 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsModal {
+        /**
+          * Sticky or Static Actions
+         */
+        "actions": 'sticky' | 'static';
+        "openModal": () => Promise<void>;
+        /**
+          * Disables closing modal on clicking on overlay area.
+         */
+        "prevent": boolean;
+        /**
+          * Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1"
+         */
+        "selector": string;
+        /**
+          * Size of modal. Accepted strings are: xs, sm, md, lg.
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg';
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,9 +71,16 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsModalElement extends Components.SddsModal, HTMLStencilElement {
+    }
+    var HTMLSddsModalElement: {
+        prototype: HTMLSddsModalElement;
+        new (): HTMLSddsModalElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-modal": HTMLSddsModalElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,9 +116,28 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsModal {
+        /**
+          * Sticky or Static Actions
+         */
+        "actions"?: 'sticky' | 'static';
+        /**
+          * Disables closing modal on clicking on overlay area.
+         */
+        "prevent"?: boolean;
+        /**
+          * Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1"
+         */
+        "selector"?: string;
+        /**
+          * Size of modal. Accepted strings are: xs, sm, md, lg.
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg';
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sdds-badges": SddsBadges;
+        "sdds-modal": SddsModal;
     }
 }
 export { LocalJSX as JSX };
@@ -101,6 +146,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-modal": LocalJSX.SddsModal & JSXBase.HTMLAttributes<HTMLSddsModalElement>;
         }
     }
 }
