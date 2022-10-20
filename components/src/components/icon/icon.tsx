@@ -1,4 +1,8 @@
-import { Component, h, Prop, State, Watch } from '@stencil/core';
+// Check status of webFont solution
+
+import { Component, h, Prop, State, Host } from '@stencil/core';
+
+import { iconsCollection } from './iconsArray';
 
 @Component({
   tag: 'sdds-icon',
@@ -6,52 +10,48 @@ import { Component, h, Prop, State, Watch } from '@stencil/core';
   shadow: true,
 })
 export class Icon {
-  @Prop() name = 'scania-truck';
+  /** Pass a name of the icon. For icon names, refer to https://digitaldesign.scania.com/foundations/icons/icon-library or storybook */
+  @Prop({ reflect: true }) name: string = 'arrow_diagonal';
 
-  @State() icon: any;
+  /** Pass a size of icon as a string, for example: 32px, 1rem, 4em... */
+  @Prop({ reflect: true }) size: string = '16px';
 
-  @Watch('name')
-  async loadIcon() {
-    try {
-      // dynamic import icon from @scania/icons
-      this.icon = await import(`@scania/icons/dist/${this.name}.js`);
-    } catch (err) {
-      this.name = 'scania-truck'; // If icon not found, display a truck icon
-    }
-  }
+  @State() icons_object: string = iconsCollection;
+
+  @State() arrayOfIcons = [];
 
   componentWillLoad() {
-    this.loadIcon();
+    this.arrayDataWatcher(this.icons_object);
   }
 
-  generateViewBox() {
-    // viewbox = minX minY width height
-    let viewbox = '0 0 0 0';
-    if (this.icon !== undefined) {
-      // If icons has transform: translate attributes, add it to the viewbox.
-      viewbox = `${
-        this.icon.default.hasOwnProperty('transform')
-          ? this.getTransformViewBox()
-          : '0 0'
-      } ${this.icon.default.width} ${this.icon.default.height}`;
+  arrayDataWatcher(newValue: string) {
+    if (typeof newValue === 'string') {
+      this.arrayOfIcons = JSON.parse(newValue);
+    } else {
+      this.arrayOfIcons = newValue;
     }
-    return viewbox;
+    this.arrayOfIcons = [...this.arrayOfIcons];
   }
 
-  getTransformViewBox() {
-    const minX = parseFloat(this.icon.default.transform[0]) * -1;
-    const minY = parseFloat(this.icon.default.transform[1]) * -1;
-    return `${minX} ${minY}`;
-  }
+  setIcons = () =>
+    this.arrayOfIcons.map((element) => {
+      if (element.name === this.name) {
+        return (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            aria-labelledby={`icon ${element.name}`}
+            role="img"
+            style={{ fontSize: this.size }}
+          >
+            <title>{`icon ${element.name}`}</title>
+            <path fill="currentColor" d={element.definition} />
+          </svg>
+        );
+      }
+    });
 
   render() {
-    return [
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox={this.generateViewBox()}>
-        <path
-          fill="currentColor"
-          d={this.icon ? this.icon.default.definition : ''}
-        />
-      </svg>,
-    ];
+    return <Host>{this.setIcons()}</Host>;
   }
 }
