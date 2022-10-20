@@ -24,7 +24,8 @@
 @import '../theme/light/src/_reboot.scss';
 
 //CSS component
-@import 'src/components/banner/banner';
+@import "src/components/banner/banner";
+@import "src/components/checkbox/checkbox";
 @import 'src/components/chips/chips';
 @import 'src/components/link/link';
 @import 'src/components/toggle/toggle';
