@@ -39,6 +39,7 @@ export class PopoverMenu {
     const _this = this;
     createPopper(this.target, this.popoverMenuElement, {
       placement: _this.placement,
+      strategy: 'fixed',
       modifiers: [
         {
           name: 'positionCalc',
