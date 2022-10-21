@@ -30,6 +30,14 @@ export default {
         options: ['Show Extended Message', 'Hide Extended Message'],
       },
     },
+    theme: {
+      name: 'Theme',
+      description: 'Switch between different themes based on the background color',
+      control: {
+        type: 'radio',
+        options: ['On Grey', 'On White', 'Minimal'],
+      },
+    },
   },
 };
 
