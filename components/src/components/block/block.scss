@@ -1,19 +1,36 @@
-@import "block-theme-vars";
-
 .sdds-block {
   border-radius: 4px;
   padding: 16px;
-  background-color: var(--sdds-block-bg-default);
 
-  .sdds-block {
-    background-color: var(--sdds-block-bg-default-nested);
-  }
-
-  &__variant {
-    background-color: var(--sdds-block-bg-variant);
+  &__onwhite {
+    background-color: var(--sdds-grey-50);
 
     .sdds-block {
-      background-color: var(--sdds-block-bg-variant-nested);
+      background-color: var(--sdds-white);
+    }
+  }
+
+  &__ongrey {
+    background-color: var(--sdds-white);
+
+    .sdds-block {
+      background-color: var(--sdds-grey-50);
+    }
+  }
+
+  &__ongrey958 {
+    background-color: var(--sdds-grey-900);
+
+    .sdds-block {
+      background-color: var(--sdds-grey-868);
+    }
+  }
+
+  &__ongrey900 {
+    background-color: var(--sdds-grey-868);
+
+    .sdds-block {
+      background-color: var(--sdds-grey-846);
     }
   }
 }

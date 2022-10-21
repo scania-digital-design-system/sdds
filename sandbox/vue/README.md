@@ -29,7 +29,7 @@ Install `components` and `scania-theme` as devDependencies package from NPM in y
 
    ```bash
    cd sandbox/vue
-   npm i @scania/components-old --save-dev
+   npm i @scania/tegel-old --save-dev
    npm i @scania/theme-light --save-dev
    npm i @scania/icons --save-dev
    ```

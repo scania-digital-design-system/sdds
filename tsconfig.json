@@ -16,9 +16,9 @@
     "jsxFactory": "h"
   },
   "include": [
-    "components-old/src",
-    "components-old/types/jsx.d.ts",
-    "components-old/node_modules/@types/jest/index.d.ts"
+    "components/src",
+    "components/types/jsx.d.ts",
+    "components/node_modules/@types/jest/index.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

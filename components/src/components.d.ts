@@ -5,20 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Placement } from "@popperjs/core";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface CCodeSample {
+        "type": string;
     }
     interface SddsAccordion {
         /**
@@ -66,7 +56,51 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsBodyCell {
+        /**
+          * Passing same cell key for all body cells which is used in head cell enables features of text align and hovering
+         */
+        "cellKey": any;
+        /**
+          * Value that will be presented as text inside a cell
+         */
+        "cellValue": string | number;
+        /**
+          * Disables internal padding. Useful when passing other tegel to cell.
+         */
+        "disablePadding": boolean;
+    }
+    interface SddsButton {
+        /**
+          * Control for disabled state of component
+         */
+        "disabled": boolean;
+        /**
+          * When enabled, makes button take 100% width
+         */
+        "fullbleed": boolean;
+        "size": 'sm' | 'md' | '';
+        /**
+          * Text inside a button
+         */
+        "text": string;
+        "type": string;
+    }
     interface SddsCard {
+    }
+    interface SddsContinousvalueSlider {
+        /**
+          * Maximum value of input
+         */
+        "max": string;
+        /**
+          * Minmum value of input
+         */
+        "min": string;
+        /**
+          * value of input
+         */
+        "value": string;
     }
     interface SddsDatetime {
         /**
@@ -102,31 +136,559 @@ export namespace Components {
          */
         "value": string;
     }
+    interface SddsDropdown {
+        /**
+          * Add the value of the option as string to set it as default
+         */
+        "defaultOption": string;
+        /**
+          * Set to true for disabled states
+         */
+        "disabled": boolean;
+        /**
+          * Add helper text in the bottom of dropdown
+         */
+        "helper": string;
+        /**
+          * Set to true to make the width following the label text length
+         */
+        "inline": boolean;
+        /**
+          * Label text for label inside & outside
+         */
+        "label": string;
+        /**
+          * Controls position of label
+         */
+        "labelPosition": 'no-label' | 'inside' | 'outside';
+        /**
+          * Placeholder text for dropdown with no selectedLabel item
+         */
+        "placeholder": string;
+        "resetOption": () => Promise<void>;
+        /**
+          * Add the value of the option as string to set it as new selected value
+         */
+        "selectedOption": string;
+        /**
+          * Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated
+         */
+        "size": 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large';
+        /**
+          * Support `error` state
+         */
+        "state": string;
+        /**
+          * `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values
+         */
+        "type": 'default' | 'multiselect' | 'filter';
+    }
+    interface SddsDropdownFilter {
+        /**
+          * Data is an array of objects that contains label and value `data = [{label:'Option 1', value:'opt-1'},{label:'Option 2', value:'opt-2'}]`
+         */
+        "data": string;
+        /**
+          * Add the value of the option to set it as default
+         */
+        "defaultOption": string;
+        /**
+          * Add the value of the option to set it as default
+         */
+        "disabled": boolean;
+        /**
+          * Add helper text in the bottom of dropdown
+         */
+        "helper": string;
+        /**
+          * Set to true to make the width following the label text length
+         */
+        "inline": boolean;
+        /**
+          * Label for dropdown with no selected item
+         */
+        "label": string;
+        /**
+          * Position of label: `no-label` (default), `inside`, `outside`
+         */
+        "labelPosition": 'no-label' | 'inside' | 'outside';
+        /**
+          * Placeholder text for dropdown with no selected item
+         */
+        "placeholder": string;
+        "resetOption": () => Promise<void>;
+        /**
+          * Add the value of the option as string to set it as new selected value
+         */
+        "selectedOption": string;
+        /**
+          * Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated
+         */
+        "size": 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large';
+        /**
+          * Support `error` state
+         */
+        "state": string;
+    }
+    interface SddsDropdownOption {
+        /**
+          * Selected set to true if selected
+         */
+        "selected": boolean;
+        /**
+          * Value is a unique string that will be used for application logic
+         */
+        "value": string;
+    }
+    interface SddsDualPointSlider {
+        /**
+          * Maximum value of input
+         */
+        "max": string;
+        /**
+          * Minmum value of input
+         */
+        "min": string;
+        /**
+          * value of range one
+         */
+        "value": string;
+        /**
+          * value of range two
+         */
+        "value2": string;
+    }
+    interface SddsHeaderCell {
+        /**
+          * Value of column key, usually comes from JSON, needed for sorting
+         */
+        "columnKey": string;
+        /**
+          * Text that displays in column cell
+         */
+        "columnTitle": string;
+        /**
+          * In case noMinWidth setting, user has to specify width value for each column, for example "150px"
+         */
+        "customWidth": string;
+        /**
+          * If passed as prop, enables sorting on that column
+         */
+        "sortable": boolean;
+        /**
+          * Setting for text align, default is left, but user can pass "right" as string - useful for numeric values
+         */
+        "textAlign": string;
+    }
+    interface SddsIcon {
+        /**
+          * Pass a name of the icon. For icon names, refer to https://digitaldesign.scania.com/foundations/icons/icon-library or storybook
+         */
+        "name": string;
+        /**
+          * Pass a size of icon as a string, for example: 32px, 1rem, 4em...
+         */
+        "size": string;
+    }
+    interface SddsInlineTabs {
+        /**
+          * different height settings. right now only supports "auto", otherwise ignored
+         */
+        "autoHeight": boolean;
+        /**
+          * either use this (default-tab="...") or read attribute "default" from one of the slotted children.
+         */
+        "defaultTab": string;
+        "showTab": (key: string) => Promise<void>;
+    }
+    interface SddsInlineTabsFullbleed {
+    }
+    interface SddsModal {
+        "openModal": () => Promise<void>;
+        /**
+          * Disables closing modal on clicking on overlay area.
+         */
+        "prevent": boolean;
+        /**
+          * Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1"
+         */
+        "selector": string;
+        /**
+          * Size of modal. Accepted strings are: xs, sm, md, lg.
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg';
+    }
+    interface SddsNavigationTabs {
+    }
+    interface SddsPopoverCanvas {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance": number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding": number;
+        /**
+          * Decides the placement of the Popover Canvas
+         */
+        "placement": Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Canvas
+         */
+        "selector": string;
+        /**
+          * Decides if the Popover Canvas should be visible from the start
+         */
+        "show": boolean;
+    }
+    interface SddsPopoverMenu {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance": number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding": number;
+        /**
+          * Decides the placement of the Popover Menu
+         */
+        "placement": Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Menu
+         */
+        "selector": string;
+        /**
+          * Decides if the Popover Menu should be visible from the start
+         */
+        "show": boolean;
+    }
+    interface SddsSlider {
+        /**
+          * Decide to show the controls or not
+         */
+        "controls": boolean;
+        /**
+          * Sets the disabled state for the whole component
+         */
+        "disabled": boolean;
+        /**
+          * Decide to show the input field or not
+         */
+        "input": boolean;
+        /**
+          * Text for label
+         */
+        "label": string;
+        /**
+          * Maximum value
+         */
+        "max": string;
+        /**
+          * Minimum value
+         */
+        "min": string;
+        /**
+          * Name property (will be inherited by the native slider component)
+         */
+        "name": string;
+        /**
+          * Sets the read only state for the whole component
+         */
+        "readonly": boolean;
+        /**
+          * Decide to show numbers above the tick markers or not
+         */
+        "showTickNumbers": boolean;
+        /**
+          * Sets the size of the scrubber
+         */
+        "size": 'sm' | '';
+        /**
+          * @DEPRECATED Decide to use the small variant or not
+         */
+        "small": boolean;
+        /**
+          * Snap to the ticks grid
+         */
+        "snap": boolean;
+        /**
+          * Defines how much to increment/decrement the value when using controls
+         */
+        "step": string;
+        /**
+          * Number of tick markers (tick for min- and max-value will be added automatically)
+         */
+        "ticks": string;
+        /**
+          * Decide to show the tooltip or not
+         */
+        "tooltip": boolean;
+        /**
+          * Initial value
+         */
+        "value": string;
+    }
+    interface SddsSliderAlpha {
+        "max": string;
+        "min": string;
+        "type": string;
+        "value": string;
+        "valueTwo": string;
+    }
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs, sm, md and lg.
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
          */
         "size": 'xs' | 'sm' | 'md' | 'lg';
         /**
-          * Variant of spinner. Accepted strings are: standard and inverted
+          * Variant of spinner. Accepted strings are: standard, inverted
          */
         "variant": 'standard' | 'inverted';
     }
-}
-export interface SddsAccordionItemCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSddsAccordionItemElement;
-}
-export interface SddsDatetimeCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSddsDatetimeElement;
+    interface SddsSpinnerAlpha {
+        "size": 'sm' | 'md' | '';
+        "type": string;
+    }
+    interface SddsTable {
+        /**
+          * Enables style where data-table toolbar, rows and footer are less high
+         */
+        "compactDesign": boolean;
+        /**
+          * Enables extended row feature of data-table
+         */
+        "enableExpandableRows": boolean;
+        /**
+          * Enables multiselect feature of data-table
+         */
+        "enableMultiselect": boolean;
+        /**
+          * Enables table to take 100% available width with equal spacing of columns
+         */
+        "enableResponsive": boolean;
+        /**
+          * Enables to customise width on data-table columns
+         */
+        "noMinWidth": boolean;
+        /**
+          * Enables style with vertical dividers between columns
+         */
+        "verticalDividers": boolean;
+        /**
+          * Changes a colors of data data-table when used on white background
+         */
+        "whiteBackground": boolean;
+    }
+    interface SddsTableBody {
+        /**
+          * Prop to pass JSON string which enables automatic rendering of table rows and cells
+         */
+        "bodyData": any;
+        /**
+          * Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term
+         */
+        "disableFilteringFunction": boolean;
+        /**
+          * Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting
+         */
+        "disableSortingFunction": boolean;
+        /**
+          * Prop for showcase of rendering JSON in body-data, just for presentation purposes
+         */
+        "enableDummyData": boolean;
+    }
+    interface SddsTableBodyRow {
+    }
+    interface SddsTableBodyRowExpandable {
+        /**
+          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
+         */
+        "clientSetColumnsNumber": number;
+    }
+    interface SddsTableFooter {
+        /**
+          * Prop for client to set max number of pages
+         */
+        "clientMaxPages": number;
+        /**
+          * Prop for client to set current page number
+         */
+        "clientPaginationValue": number;
+        /**
+          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
+         */
+        "clientSetColumnsNumber": number;
+        /**
+          * Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component
+         */
+        "disablePaginationFunction": boolean;
+        /**
+          * Prop to enable client controlled pagination
+         */
+        "enableClientPagination": boolean;
+        /**
+          * Enable pagination and show pagination controls
+         */
+        "enablePagination": boolean;
+        /**
+          * Sets how many rows to display when pagination is enabled
+         */
+        "rowsPerPage": number;
+    }
+    interface SddsTableHeader {
+    }
+    interface SddsTableToolbar {
+        /**
+          * Enables preview of searchbar
+         */
+        "enableFiltering": boolean;
+        /**
+          * Adds title to the data-table
+         */
+        "tableTitle": string;
+    }
+    interface SddsTextarea {
+        /**
+          * Control of autofocus
+         */
+        "autofocus": boolean;
+        /**
+          * Textarea cols attribute
+         */
+        "cols": number;
+        /**
+          * Set input in disabled state
+         */
+        "disabled": boolean;
+        /**
+          * Helper text
+         */
+        "helper": string;
+        /**
+          * Label text
+         */
+        "label": string;
+        /**
+          * Label position: `no-label` (default), `inside`, `outside`
+         */
+        "labelPosition": string;
+        /**
+          * Max length of input
+         */
+        "maxlength": number;
+        /**
+          * Name attribute
+         */
+        "name": string;
+        /**
+          * Placeholder text
+         */
+        "placeholder": string;
+        /**
+          * Set input in readonly state
+         */
+        "readonly": boolean;
+        /**
+          * Textarea rows attribute
+         */
+        "rows": number;
+        /**
+          * Error state of input
+         */
+        "state": string;
+        /**
+          * Value of the input text
+         */
+        "value": string;
+    }
+    interface SddsTextfield {
+        /**
+          * Autofocus for input
+         */
+        "autofocus": boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled": boolean;
+        /**
+          * Label that will be put inside the input
+         */
+        "labelInside": string;
+        /**
+          * Max length of input
+         */
+        "maxlength": number;
+        /**
+          * Name property
+         */
+        "name": string;
+        /**
+          * With setting
+         */
+        "nominwidth": boolean;
+        /**
+          * Placeholder text
+         */
+        "placeholder": string;
+        /**
+          * Set input in readonly state
+         */
+        "readonly": boolean;
+        /**
+          * Size of the input
+         */
+        "size": 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state": string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type": string;
+        /**
+          * Value of the input text
+         */
+        "value": string;
+    }
+    interface SddsTheme {
+        "mode": string;
+        /**
+          * Set the brand name that will set the theme styling for the page.
+         */
+        "name": string;
+    }
+    interface SddsTooltip {
+        /**
+          * Allow mouse over tooltip. Useful when tooltip contains clickable elements like link or button.
+         */
+        "mouseOverTooltip": boolean;
+        /**
+          * Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end.
+         */
+        "placement": Placement;
+        /**
+          * CSS selector of element on which tooltip is used on.
+         */
+        "selector": string;
+        /**
+          * Prop in control of showing and hiding prop
+         */
+        "show": boolean;
+        /**
+          * In case tooltip contains only text, no HTML, text can be passed by this prop
+         */
+        "text": string;
+    }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLCCodeSampleElement extends Components.CCodeSample, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLCCodeSampleElement: {
+        prototype: HTMLCCodeSampleElement;
+        new (): HTMLCCodeSampleElement;
     };
     interface HTMLSddsAccordionElement extends Components.SddsAccordion, HTMLStencilElement {
     }
@@ -146,11 +708,29 @@ declare global {
         prototype: HTMLSddsBadgesElement;
         new (): HTMLSddsBadgesElement;
     };
+    interface HTMLSddsBodyCellElement extends Components.SddsBodyCell, HTMLStencilElement {
+    }
+    var HTMLSddsBodyCellElement: {
+        prototype: HTMLSddsBodyCellElement;
+        new (): HTMLSddsBodyCellElement;
+    };
+    interface HTMLSddsButtonElement extends Components.SddsButton, HTMLStencilElement {
+    }
+    var HTMLSddsButtonElement: {
+        prototype: HTMLSddsButtonElement;
+        new (): HTMLSddsButtonElement;
+    };
     interface HTMLSddsCardElement extends Components.SddsCard, HTMLStencilElement {
     }
     var HTMLSddsCardElement: {
         prototype: HTMLSddsCardElement;
         new (): HTMLSddsCardElement;
+    };
+    interface HTMLSddsContinousvalueSliderElement extends Components.SddsContinousvalueSlider, HTMLStencilElement {
+    }
+    var HTMLSddsContinousvalueSliderElement: {
+        prototype: HTMLSddsContinousvalueSliderElement;
+        new (): HTMLSddsContinousvalueSliderElement;
     };
     interface HTMLSddsDatetimeElement extends Components.SddsDatetime, HTMLStencilElement {
     }
@@ -158,36 +738,210 @@ declare global {
         prototype: HTMLSddsDatetimeElement;
         new (): HTMLSddsDatetimeElement;
     };
+    interface HTMLSddsDropdownElement extends Components.SddsDropdown, HTMLStencilElement {
+    }
+    var HTMLSddsDropdownElement: {
+        prototype: HTMLSddsDropdownElement;
+        new (): HTMLSddsDropdownElement;
+    };
+    interface HTMLSddsDropdownFilterElement extends Components.SddsDropdownFilter, HTMLStencilElement {
+    }
+    var HTMLSddsDropdownFilterElement: {
+        prototype: HTMLSddsDropdownFilterElement;
+        new (): HTMLSddsDropdownFilterElement;
+    };
+    interface HTMLSddsDropdownOptionElement extends Components.SddsDropdownOption, HTMLStencilElement {
+    }
+    var HTMLSddsDropdownOptionElement: {
+        prototype: HTMLSddsDropdownOptionElement;
+        new (): HTMLSddsDropdownOptionElement;
+    };
+    interface HTMLSddsDualPointSliderElement extends Components.SddsDualPointSlider, HTMLStencilElement {
+    }
+    var HTMLSddsDualPointSliderElement: {
+        prototype: HTMLSddsDualPointSliderElement;
+        new (): HTMLSddsDualPointSliderElement;
+    };
+    interface HTMLSddsHeaderCellElement extends Components.SddsHeaderCell, HTMLStencilElement {
+    }
+    var HTMLSddsHeaderCellElement: {
+        prototype: HTMLSddsHeaderCellElement;
+        new (): HTMLSddsHeaderCellElement;
+    };
+    interface HTMLSddsIconElement extends Components.SddsIcon, HTMLStencilElement {
+    }
+    var HTMLSddsIconElement: {
+        prototype: HTMLSddsIconElement;
+        new (): HTMLSddsIconElement;
+    };
+    interface HTMLSddsInlineTabsElement extends Components.SddsInlineTabs, HTMLStencilElement {
+    }
+    var HTMLSddsInlineTabsElement: {
+        prototype: HTMLSddsInlineTabsElement;
+        new (): HTMLSddsInlineTabsElement;
+    };
+    interface HTMLSddsInlineTabsFullbleedElement extends Components.SddsInlineTabsFullbleed, HTMLStencilElement {
+    }
+    var HTMLSddsInlineTabsFullbleedElement: {
+        prototype: HTMLSddsInlineTabsFullbleedElement;
+        new (): HTMLSddsInlineTabsFullbleedElement;
+    };
+    interface HTMLSddsModalElement extends Components.SddsModal, HTMLStencilElement {
+    }
+    var HTMLSddsModalElement: {
+        prototype: HTMLSddsModalElement;
+        new (): HTMLSddsModalElement;
+    };
+    interface HTMLSddsNavigationTabsElement extends Components.SddsNavigationTabs, HTMLStencilElement {
+    }
+    var HTMLSddsNavigationTabsElement: {
+        prototype: HTMLSddsNavigationTabsElement;
+        new (): HTMLSddsNavigationTabsElement;
+    };
+    interface HTMLSddsPopoverCanvasElement extends Components.SddsPopoverCanvas, HTMLStencilElement {
+    }
+    var HTMLSddsPopoverCanvasElement: {
+        prototype: HTMLSddsPopoverCanvasElement;
+        new (): HTMLSddsPopoverCanvasElement;
+    };
+    interface HTMLSddsPopoverMenuElement extends Components.SddsPopoverMenu, HTMLStencilElement {
+    }
+    var HTMLSddsPopoverMenuElement: {
+        prototype: HTMLSddsPopoverMenuElement;
+        new (): HTMLSddsPopoverMenuElement;
+    };
+    interface HTMLSddsSliderElement extends Components.SddsSlider, HTMLStencilElement {
+    }
+    var HTMLSddsSliderElement: {
+        prototype: HTMLSddsSliderElement;
+        new (): HTMLSddsSliderElement;
+    };
+    interface HTMLSddsSliderAlphaElement extends Components.SddsSliderAlpha, HTMLStencilElement {
+    }
+    var HTMLSddsSliderAlphaElement: {
+        prototype: HTMLSddsSliderAlphaElement;
+        new (): HTMLSddsSliderAlphaElement;
+    };
     interface HTMLSddsSpinnerElement extends Components.SddsSpinner, HTMLStencilElement {
     }
     var HTMLSddsSpinnerElement: {
         prototype: HTMLSddsSpinnerElement;
         new (): HTMLSddsSpinnerElement;
     };
+    interface HTMLSddsSpinnerAlphaElement extends Components.SddsSpinnerAlpha, HTMLStencilElement {
+    }
+    var HTMLSddsSpinnerAlphaElement: {
+        prototype: HTMLSddsSpinnerAlphaElement;
+        new (): HTMLSddsSpinnerAlphaElement;
+    };
+    interface HTMLSddsTableElement extends Components.SddsTable, HTMLStencilElement {
+    }
+    var HTMLSddsTableElement: {
+        prototype: HTMLSddsTableElement;
+        new (): HTMLSddsTableElement;
+    };
+    interface HTMLSddsTableBodyElement extends Components.SddsTableBody, HTMLStencilElement {
+    }
+    var HTMLSddsTableBodyElement: {
+        prototype: HTMLSddsTableBodyElement;
+        new (): HTMLSddsTableBodyElement;
+    };
+    interface HTMLSddsTableBodyRowElement extends Components.SddsTableBodyRow, HTMLStencilElement {
+    }
+    var HTMLSddsTableBodyRowElement: {
+        prototype: HTMLSddsTableBodyRowElement;
+        new (): HTMLSddsTableBodyRowElement;
+    };
+    interface HTMLSddsTableBodyRowExpandableElement extends Components.SddsTableBodyRowExpandable, HTMLStencilElement {
+    }
+    var HTMLSddsTableBodyRowExpandableElement: {
+        prototype: HTMLSddsTableBodyRowExpandableElement;
+        new (): HTMLSddsTableBodyRowExpandableElement;
+    };
+    interface HTMLSddsTableFooterElement extends Components.SddsTableFooter, HTMLStencilElement {
+    }
+    var HTMLSddsTableFooterElement: {
+        prototype: HTMLSddsTableFooterElement;
+        new (): HTMLSddsTableFooterElement;
+    };
+    interface HTMLSddsTableHeaderElement extends Components.SddsTableHeader, HTMLStencilElement {
+    }
+    var HTMLSddsTableHeaderElement: {
+        prototype: HTMLSddsTableHeaderElement;
+        new (): HTMLSddsTableHeaderElement;
+    };
+    interface HTMLSddsTableToolbarElement extends Components.SddsTableToolbar, HTMLStencilElement {
+    }
+    var HTMLSddsTableToolbarElement: {
+        prototype: HTMLSddsTableToolbarElement;
+        new (): HTMLSddsTableToolbarElement;
+    };
+    interface HTMLSddsTextareaElement extends Components.SddsTextarea, HTMLStencilElement {
+    }
+    var HTMLSddsTextareaElement: {
+        prototype: HTMLSddsTextareaElement;
+        new (): HTMLSddsTextareaElement;
+    };
+    interface HTMLSddsTextfieldElement extends Components.SddsTextfield, HTMLStencilElement {
+    }
+    var HTMLSddsTextfieldElement: {
+        prototype: HTMLSddsTextfieldElement;
+        new (): HTMLSddsTextfieldElement;
+    };
+    interface HTMLSddsThemeElement extends Components.SddsTheme, HTMLStencilElement {
+    }
+    var HTMLSddsThemeElement: {
+        prototype: HTMLSddsThemeElement;
+        new (): HTMLSddsThemeElement;
+    };
+    interface HTMLSddsTooltipElement extends Components.SddsTooltip, HTMLStencilElement {
+    }
+    var HTMLSddsTooltipElement: {
+        prototype: HTMLSddsTooltipElement;
+        new (): HTMLSddsTooltipElement;
+    };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "c-code-sample": HTMLCCodeSampleElement;
         "sdds-accordion": HTMLSddsAccordionElement;
         "sdds-accordion-item": HTMLSddsAccordionItemElement;
         "sdds-badges": HTMLSddsBadgesElement;
+        "sdds-body-cell": HTMLSddsBodyCellElement;
+        "sdds-button": HTMLSddsButtonElement;
         "sdds-card": HTMLSddsCardElement;
+        "sdds-continousvalue-slider": HTMLSddsContinousvalueSliderElement;
         "sdds-datetime": HTMLSddsDatetimeElement;
+        "sdds-dropdown": HTMLSddsDropdownElement;
+        "sdds-dropdown-filter": HTMLSddsDropdownFilterElement;
+        "sdds-dropdown-option": HTMLSddsDropdownOptionElement;
+        "sdds-dual-point-slider": HTMLSddsDualPointSliderElement;
+        "sdds-header-cell": HTMLSddsHeaderCellElement;
+        "sdds-icon": HTMLSddsIconElement;
+        "sdds-inline-tabs": HTMLSddsInlineTabsElement;
+        "sdds-inline-tabs-fullbleed": HTMLSddsInlineTabsFullbleedElement;
+        "sdds-modal": HTMLSddsModalElement;
+        "sdds-navigation-tabs": HTMLSddsNavigationTabsElement;
+        "sdds-popover-canvas": HTMLSddsPopoverCanvasElement;
+        "sdds-popover-menu": HTMLSddsPopoverMenuElement;
+        "sdds-slider": HTMLSddsSliderElement;
+        "sdds-slider-alpha": HTMLSddsSliderAlphaElement;
         "sdds-spinner": HTMLSddsSpinnerElement;
+        "sdds-spinner-alpha": HTMLSddsSpinnerAlphaElement;
+        "sdds-table": HTMLSddsTableElement;
+        "sdds-table-body": HTMLSddsTableBodyElement;
+        "sdds-table-body-row": HTMLSddsTableBodyRowElement;
+        "sdds-table-body-row-expandable": HTMLSddsTableBodyRowExpandableElement;
+        "sdds-table-footer": HTMLSddsTableFooterElement;
+        "sdds-table-header": HTMLSddsTableHeaderElement;
+        "sdds-table-toolbar": HTMLSddsTableToolbarElement;
+        "sdds-textarea": HTMLSddsTextareaElement;
+        "sdds-textfield": HTMLSddsTextfieldElement;
+        "sdds-theme": HTMLSddsThemeElement;
+        "sdds-tooltip": HTMLSddsTooltipElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface CCodeSample {
+        "type"?: string;
     }
     interface SddsAccordion {
         /**
@@ -215,7 +969,7 @@ declare namespace LocalJSX {
         /**
           * Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion
          */
-        "onAccordionItemToggle"?: (event: SddsAccordionItemCustomEvent<boolean>) => void;
+        "onAccordionItemToggle"?: (event: CustomEvent<boolean>) => void;
         /**
           * When true 16px on right padding instead of 64px
          */
@@ -239,7 +993,51 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsBodyCell {
+        /**
+          * Passing same cell key for all body cells which is used in head cell enables features of text align and hovering
+         */
+        "cellKey"?: any;
+        /**
+          * Value that will be presented as text inside a cell
+         */
+        "cellValue"?: string | number;
+        /**
+          * Disables internal padding. Useful when passing other tegel to cell.
+         */
+        "disablePadding"?: boolean;
+    }
+    interface SddsButton {
+        /**
+          * Control for disabled state of component
+         */
+        "disabled"?: boolean;
+        /**
+          * When enabled, makes button take 100% width
+         */
+        "fullbleed"?: boolean;
+        "size"?: 'sm' | 'md' | '';
+        /**
+          * Text inside a button
+         */
+        "text"?: string;
+        "type"?: string;
+    }
     interface SddsCard {
+    }
+    interface SddsContinousvalueSlider {
+        /**
+          * Maximum value of input
+         */
+        "max"?: string;
+        /**
+          * Minmum value of input
+         */
+        "min"?: string;
+        /**
+          * value of input
+         */
+        "value"?: string;
     }
     interface SddsDatetime {
         /**
@@ -261,7 +1059,7 @@ declare namespace LocalJSX {
         /**
           * Change event for the datetime
          */
-        "onCustomChange"?: (event: SddsDatetimeCustomEvent<any>) => void;
+        "onCustomChange"?: (event: CustomEvent<any>) => void;
         /**
           * Size of the input
          */
@@ -279,37 +1077,713 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface SddsDropdown {
+        /**
+          * Add the value of the option as string to set it as default
+         */
+        "defaultOption"?: string;
+        /**
+          * Set to true for disabled states
+         */
+        "disabled"?: boolean;
+        /**
+          * Add helper text in the bottom of dropdown
+         */
+        "helper"?: string;
+        /**
+          * Set to true to make the width following the label text length
+         */
+        "inline"?: boolean;
+        /**
+          * Label text for label inside & outside
+         */
+        "label"?: string;
+        /**
+          * Controls position of label
+         */
+        "labelPosition"?: 'no-label' | 'inside' | 'outside';
+        "onInputSearch"?: (event: CustomEvent<any>) => void;
+        /**
+          * Placeholder text for dropdown with no selectedLabel item
+         */
+        "placeholder"?: string;
+        /**
+          * Add the value of the option as string to set it as new selected value
+         */
+        "selectedOption"?: string;
+        /**
+          * Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated
+         */
+        "size"?: 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large';
+        /**
+          * Support `error` state
+         */
+        "state"?: string;
+        /**
+          * `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values
+         */
+        "type"?: 'default' | 'multiselect' | 'filter';
+    }
+    interface SddsDropdownFilter {
+        /**
+          * Data is an array of objects that contains label and value `data = [{label:'Option 1', value:'opt-1'},{label:'Option 2', value:'opt-2'}]`
+         */
+        "data"?: string;
+        /**
+          * Add the value of the option to set it as default
+         */
+        "defaultOption"?: string;
+        /**
+          * Add the value of the option to set it as default
+         */
+        "disabled"?: boolean;
+        /**
+          * Add helper text in the bottom of dropdown
+         */
+        "helper"?: string;
+        /**
+          * Set to true to make the width following the label text length
+         */
+        "inline"?: boolean;
+        /**
+          * Label for dropdown with no selected item
+         */
+        "label"?: string;
+        /**
+          * Position of label: `no-label` (default), `inside`, `outside`
+         */
+        "labelPosition"?: 'no-label' | 'inside' | 'outside';
+        /**
+          * Placeholder text for dropdown with no selected item
+         */
+        "placeholder"?: string;
+        /**
+          * Add the value of the option as string to set it as new selected value
+         */
+        "selectedOption"?: string;
+        /**
+          * Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated
+         */
+        "size"?: 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large';
+        /**
+          * Support `error` state
+         */
+        "state"?: string;
+    }
+    interface SddsDropdownOption {
+        "onSelectOption"?: (event: CustomEvent<any>) => void;
+        /**
+          * Selected set to true if selected
+         */
+        "selected"?: boolean;
+        /**
+          * Value is a unique string that will be used for application logic
+         */
+        "value"?: string;
+    }
+    interface SddsDualPointSlider {
+        /**
+          * Maximum value of input
+         */
+        "max"?: string;
+        /**
+          * Minmum value of input
+         */
+        "min"?: string;
+        /**
+          * value of range one
+         */
+        "value"?: string;
+        /**
+          * value of range two
+         */
+        "value2"?: string;
+    }
+    interface SddsHeaderCell {
+        /**
+          * Value of column key, usually comes from JSON, needed for sorting
+         */
+        "columnKey"?: string;
+        /**
+          * Text that displays in column cell
+         */
+        "columnTitle"?: string;
+        /**
+          * In case noMinWidth setting, user has to specify width value for each column, for example "150px"
+         */
+        "customWidth"?: string;
+        /**
+          * Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell
+         */
+        "onHeadCellHoverEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends unique table identifier,column key and sorting direction to the sdds-table-body component
+         */
+        "onSortColumnDataEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell
+         */
+        "onTextAlignEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * If passed as prop, enables sorting on that column
+         */
+        "sortable"?: boolean;
+        /**
+          * Setting for text align, default is left, but user can pass "right" as string - useful for numeric values
+         */
+        "textAlign"?: string;
+    }
+    interface SddsIcon {
+        /**
+          * Pass a name of the icon. For icon names, refer to https://digitaldesign.scania.com/foundations/icons/icon-library or storybook
+         */
+        "name"?: string;
+        /**
+          * Pass a size of icon as a string, for example: 32px, 1rem, 4em...
+         */
+        "size"?: string;
+    }
+    interface SddsInlineTabs {
+        /**
+          * different height settings. right now only supports "auto", otherwise ignored
+         */
+        "autoHeight"?: boolean;
+        /**
+          * either use this (default-tab="...") or read attribute "default" from one of the slotted children.
+         */
+        "defaultTab"?: string;
+    }
+    interface SddsInlineTabsFullbleed {
+    }
+    interface SddsModal {
+        /**
+          * Disables closing modal on clicking on overlay area.
+         */
+        "prevent"?: boolean;
+        /**
+          * Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1"
+         */
+        "selector"?: string;
+        /**
+          * Size of modal. Accepted strings are: xs, sm, md, lg.
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg';
+    }
+    interface SddsNavigationTabs {
+    }
+    interface SddsPopoverCanvas {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance"?: number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding"?: number;
+        /**
+          * Decides the placement of the Popover Canvas
+         */
+        "placement"?: Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Canvas
+         */
+        "selector"?: string;
+        /**
+          * Decides if the Popover Canvas should be visible from the start
+         */
+        "show"?: boolean;
+    }
+    interface SddsPopoverMenu {
+        /**
+          * Sets the offset distance
+         */
+        "offsetDistance"?: number;
+        /**
+          * Sets the offset skidding
+         */
+        "offsetSkidding"?: number;
+        /**
+          * Decides the placement of the Popover Menu
+         */
+        "placement"?: Placement;
+        /**
+          * The CSS-selector that will trigger this Popover Menu
+         */
+        "selector"?: string;
+        /**
+          * Decides if the Popover Menu should be visible from the start
+         */
+        "show"?: boolean;
+    }
+    interface SddsSlider {
+        /**
+          * Decide to show the controls or not
+         */
+        "controls"?: boolean;
+        /**
+          * Sets the disabled state for the whole component
+         */
+        "disabled"?: boolean;
+        /**
+          * Decide to show the input field or not
+         */
+        "input"?: boolean;
+        /**
+          * Text for label
+         */
+        "label"?: string;
+        /**
+          * Maximum value
+         */
+        "max"?: string;
+        /**
+          * Minimum value
+         */
+        "min"?: string;
+        /**
+          * Name property (will be inherited by the native slider component)
+         */
+        "name"?: string;
+        /**
+          * Change event for the textfield
+         */
+        "onSliderChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sets the read only state for the whole component
+         */
+        "readonly"?: boolean;
+        /**
+          * Decide to show numbers above the tick markers or not
+         */
+        "showTickNumbers"?: boolean;
+        /**
+          * Sets the size of the scrubber
+         */
+        "size"?: 'sm' | '';
+        /**
+          * @DEPRECATED Decide to use the small variant or not
+         */
+        "small"?: boolean;
+        /**
+          * Snap to the ticks grid
+         */
+        "snap"?: boolean;
+        /**
+          * Defines how much to increment/decrement the value when using controls
+         */
+        "step"?: string;
+        /**
+          * Number of tick markers (tick for min- and max-value will be added automatically)
+         */
+        "ticks"?: string;
+        /**
+          * Decide to show the tooltip or not
+         */
+        "tooltip"?: boolean;
+        /**
+          * Initial value
+         */
+        "value"?: string;
+    }
+    interface SddsSliderAlpha {
+        "max"?: string;
+        "min"?: string;
+        "type"?: string;
+        "value"?: string;
+        "valueTwo"?: string;
+    }
     interface SddsSpinner {
         /**
-          * Size of spinner. Accepted strings are: xs, sm, md and lg.
+          * Size of spinner. Accepted strings are: xs,sm, md, lg.
          */
         "size"?: 'xs' | 'sm' | 'md' | 'lg';
         /**
-          * Variant of spinner. Accepted strings are: standard and inverted
+          * Variant of spinner. Accepted strings are: standard, inverted
          */
         "variant"?: 'standard' | 'inverted';
     }
+    interface SddsSpinnerAlpha {
+        "size"?: 'sm' | 'md' | '';
+        "type"?: string;
+    }
+    interface SddsTable {
+        /**
+          * Enables style where data-table toolbar, rows and footer are less high
+         */
+        "compactDesign"?: boolean;
+        /**
+          * Enables extended row feature of data-table
+         */
+        "enableExpandableRows"?: boolean;
+        /**
+          * Enables multiselect feature of data-table
+         */
+        "enableMultiselect"?: boolean;
+        /**
+          * Enables table to take 100% available width with equal spacing of columns
+         */
+        "enableResponsive"?: boolean;
+        /**
+          * Enables to customise width on data-table columns
+         */
+        "noMinWidth"?: boolean;
+        /**
+          * Sends out status of different general styling changes to children tegel
+         */
+        "onCommonTableStylesEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends out status of multiselect feature to children tegel
+         */
+        "onEnableExpandedRowsEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends out status of multiselect feature to children tegel
+         */
+        "onEnableMultiselectEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Enables style with vertical dividers between columns
+         */
+        "verticalDividers"?: boolean;
+        /**
+          * Changes a colors of data data-table when used on white background
+         */
+        "whiteBackground"?: boolean;
+    }
+    interface SddsTableBody {
+        /**
+          * Prop to pass JSON string which enables automatic rendering of table rows and cells
+         */
+        "bodyData"?: any;
+        /**
+          * Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term
+         */
+        "disableFilteringFunction"?: boolean;
+        /**
+          * Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting
+         */
+        "disableSortingFunction"?: boolean;
+        /**
+          * Prop for showcase of rendering JSON in body-data, just for presentation purposes
+         */
+        "enableDummyData"?: boolean;
+        /**
+          * Event that sends unique table identifier and enable/disable status for sorting functionality
+         */
+        "onSortingSwitcherEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled
+         */
+        "onUpdateBodyCheckboxesEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used
+         */
+        "onUpdateMainCheckboxEvent"?: (event: CustomEvent<any>) => void;
+    }
+    interface SddsTableBodyRow {
+        /**
+          * Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control
+         */
+        "onBodyRowToTable"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run
+         */
+        "onRunPaginationEvent"?: (event: CustomEvent<string>) => void;
+    }
+    interface SddsTableBodyRowExpandable {
+        /**
+          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
+         */
+        "clientSetColumnsNumber"?: number;
+        /**
+          * Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run
+         */
+        "onRunPaginationEvent"?: (event: CustomEvent<string>) => void;
+        /**
+          * Sends out status of itw own expended status feature to table header component
+         */
+        "onSingleRowExpandedEvent"?: (event: CustomEvent<any>) => void;
+    }
+    interface SddsTableFooter {
+        /**
+          * Prop for client to set max number of pages
+         */
+        "clientMaxPages"?: number;
+        /**
+          * Prop for client to set current page number
+         */
+        "clientPaginationValue"?: number;
+        /**
+          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
+         */
+        "clientSetColumnsNumber"?: number;
+        /**
+          * Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component
+         */
+        "disablePaginationFunction"?: boolean;
+        /**
+          * Prop to enable client controlled pagination
+         */
+        "enableClientPagination"?: boolean;
+        /**
+          * Enable pagination and show pagination controls
+         */
+        "enablePagination"?: boolean;
+        /**
+          * Event to send current page value back to sdds-table-body component
+         */
+        "onCurrentPageValueEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Event that footer sends out in order to receive other necessary information from other subcomponents
+         */
+        "onEnablePaginationEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Event that footer sends out in order to receive other necessary information from other subcomponents
+         */
+        "onFooterWillLoad"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sets how many rows to display when pagination is enabled
+         */
+        "rowsPerPage"?: number;
+    }
+    interface SddsTableHeader {
+        /**
+          * Send status of main checkbox in header to the parent, sdds-table component
+         */
+        "onMainCheckboxSelectedEvent"?: (event: CustomEvent<any>) => void;
+    }
+    interface SddsTableToolbar {
+        /**
+          * Enables preview of searchbar
+         */
+        "enableFiltering"?: boolean;
+        /**
+          * Used for sending users input to main parent <sdds-table> component
+         */
+        "onTableFilteringTerm"?: (event: CustomEvent<any>) => void;
+        /**
+          * Adds title to the data-table
+         */
+        "tableTitle"?: string;
+    }
+    interface SddsTextarea {
+        /**
+          * Control of autofocus
+         */
+        "autofocus"?: boolean;
+        /**
+          * Textarea cols attribute
+         */
+        "cols"?: number;
+        /**
+          * Set input in disabled state
+         */
+        "disabled"?: boolean;
+        /**
+          * Helper text
+         */
+        "helper"?: string;
+        /**
+          * Label text
+         */
+        "label"?: string;
+        /**
+          * Label position: `no-label` (default), `inside`, `outside`
+         */
+        "labelPosition"?: string;
+        /**
+          * Max length of input
+         */
+        "maxlength"?: number;
+        /**
+          * Name attribute
+         */
+        "name"?: string;
+        /**
+          * Change event for the textarea
+         */
+        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Set input in readonly state
+         */
+        "readonly"?: boolean;
+        /**
+          * Textarea rows attribute
+         */
+        "rows"?: number;
+        /**
+          * Error state of input
+         */
+        "state"?: string;
+        /**
+          * Value of the input text
+         */
+        "value"?: string;
+    }
+    interface SddsTextfield {
+        /**
+          * Autofocus for input
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set input in disabled state
+         */
+        "disabled"?: boolean;
+        /**
+          * Label that will be put inside the input
+         */
+        "labelInside"?: string;
+        /**
+          * Max length of input
+         */
+        "maxlength"?: number;
+        /**
+          * Name property
+         */
+        "name"?: string;
+        /**
+          * With setting
+         */
+        "nominwidth"?: boolean;
+        /**
+          * Change event for the textfield
+         */
+        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Set input in readonly state
+         */
+        "readonly"?: boolean;
+        /**
+          * Size of the input
+         */
+        "size"?: 'sm' | 'md' | '';
+        /**
+          * Error state of input
+         */
+        "state"?: string;
+        /**
+          * Which input type, text, password or similar
+         */
+        "type"?: string;
+        /**
+          * Value of the input text
+         */
+        "value"?: string;
+    }
+    interface SddsTheme {
+        "mode"?: string;
+        /**
+          * Set the brand name that will set the theme styling for the page.
+         */
+        "name"?: string;
+    }
+    interface SddsTooltip {
+        /**
+          * Allow mouse over tooltip. Useful when tooltip contains clickable elements like link or button.
+         */
+        "mouseOverTooltip"?: boolean;
+        /**
+          * Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end.
+         */
+        "placement"?: Placement;
+        /**
+          * CSS selector of element on which tooltip is used on.
+         */
+        "selector"?: string;
+        /**
+          * Prop in control of showing and hiding prop
+         */
+        "show"?: boolean;
+        /**
+          * In case tooltip contains only text, no HTML, text can be passed by this prop
+         */
+        "text"?: string;
+    }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "c-code-sample": CCodeSample;
         "sdds-accordion": SddsAccordion;
         "sdds-accordion-item": SddsAccordionItem;
         "sdds-badges": SddsBadges;
+        "sdds-body-cell": SddsBodyCell;
+        "sdds-button": SddsButton;
         "sdds-card": SddsCard;
+        "sdds-continousvalue-slider": SddsContinousvalueSlider;
         "sdds-datetime": SddsDatetime;
+        "sdds-dropdown": SddsDropdown;
+        "sdds-dropdown-filter": SddsDropdownFilter;
+        "sdds-dropdown-option": SddsDropdownOption;
+        "sdds-dual-point-slider": SddsDualPointSlider;
+        "sdds-header-cell": SddsHeaderCell;
+        "sdds-icon": SddsIcon;
+        "sdds-inline-tabs": SddsInlineTabs;
+        "sdds-inline-tabs-fullbleed": SddsInlineTabsFullbleed;
+        "sdds-modal": SddsModal;
+        "sdds-navigation-tabs": SddsNavigationTabs;
+        "sdds-popover-canvas": SddsPopoverCanvas;
+        "sdds-popover-menu": SddsPopoverMenu;
+        "sdds-slider": SddsSlider;
+        "sdds-slider-alpha": SddsSliderAlpha;
         "sdds-spinner": SddsSpinner;
+        "sdds-spinner-alpha": SddsSpinnerAlpha;
+        "sdds-table": SddsTable;
+        "sdds-table-body": SddsTableBody;
+        "sdds-table-body-row": SddsTableBodyRow;
+        "sdds-table-body-row-expandable": SddsTableBodyRowExpandable;
+        "sdds-table-footer": SddsTableFooter;
+        "sdds-table-header": SddsTableHeader;
+        "sdds-table-toolbar": SddsTableToolbar;
+        "sdds-textarea": SddsTextarea;
+        "sdds-textfield": SddsTextfield;
+        "sdds-theme": SddsTheme;
+        "sdds-tooltip": SddsTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "c-code-sample": LocalJSX.CCodeSample & JSXBase.HTMLAttributes<HTMLCCodeSampleElement>;
             "sdds-accordion": LocalJSX.SddsAccordion & JSXBase.HTMLAttributes<HTMLSddsAccordionElement>;
             "sdds-accordion-item": LocalJSX.SddsAccordionItem & JSXBase.HTMLAttributes<HTMLSddsAccordionItemElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
+            "sdds-body-cell": LocalJSX.SddsBodyCell & JSXBase.HTMLAttributes<HTMLSddsBodyCellElement>;
+            "sdds-button": LocalJSX.SddsButton & JSXBase.HTMLAttributes<HTMLSddsButtonElement>;
             "sdds-card": LocalJSX.SddsCard & JSXBase.HTMLAttributes<HTMLSddsCardElement>;
+            "sdds-continousvalue-slider": LocalJSX.SddsContinousvalueSlider & JSXBase.HTMLAttributes<HTMLSddsContinousvalueSliderElement>;
             "sdds-datetime": LocalJSX.SddsDatetime & JSXBase.HTMLAttributes<HTMLSddsDatetimeElement>;
+            "sdds-dropdown": LocalJSX.SddsDropdown & JSXBase.HTMLAttributes<HTMLSddsDropdownElement>;
+            "sdds-dropdown-filter": LocalJSX.SddsDropdownFilter & JSXBase.HTMLAttributes<HTMLSddsDropdownFilterElement>;
+            "sdds-dropdown-option": LocalJSX.SddsDropdownOption & JSXBase.HTMLAttributes<HTMLSddsDropdownOptionElement>;
+            "sdds-dual-point-slider": LocalJSX.SddsDualPointSlider & JSXBase.HTMLAttributes<HTMLSddsDualPointSliderElement>;
+            "sdds-header-cell": LocalJSX.SddsHeaderCell & JSXBase.HTMLAttributes<HTMLSddsHeaderCellElement>;
+            "sdds-icon": LocalJSX.SddsIcon & JSXBase.HTMLAttributes<HTMLSddsIconElement>;
+            "sdds-inline-tabs": LocalJSX.SddsInlineTabs & JSXBase.HTMLAttributes<HTMLSddsInlineTabsElement>;
+            "sdds-inline-tabs-fullbleed": LocalJSX.SddsInlineTabsFullbleed & JSXBase.HTMLAttributes<HTMLSddsInlineTabsFullbleedElement>;
+            "sdds-modal": LocalJSX.SddsModal & JSXBase.HTMLAttributes<HTMLSddsModalElement>;
+            "sdds-navigation-tabs": LocalJSX.SddsNavigationTabs & JSXBase.HTMLAttributes<HTMLSddsNavigationTabsElement>;
+            "sdds-popover-canvas": LocalJSX.SddsPopoverCanvas & JSXBase.HTMLAttributes<HTMLSddsPopoverCanvasElement>;
+            "sdds-popover-menu": LocalJSX.SddsPopoverMenu & JSXBase.HTMLAttributes<HTMLSddsPopoverMenuElement>;
+            "sdds-slider": LocalJSX.SddsSlider & JSXBase.HTMLAttributes<HTMLSddsSliderElement>;
+            "sdds-slider-alpha": LocalJSX.SddsSliderAlpha & JSXBase.HTMLAttributes<HTMLSddsSliderAlphaElement>;
             "sdds-spinner": LocalJSX.SddsSpinner & JSXBase.HTMLAttributes<HTMLSddsSpinnerElement>;
+            "sdds-spinner-alpha": LocalJSX.SddsSpinnerAlpha & JSXBase.HTMLAttributes<HTMLSddsSpinnerAlphaElement>;
+            "sdds-table": LocalJSX.SddsTable & JSXBase.HTMLAttributes<HTMLSddsTableElement>;
+            "sdds-table-body": LocalJSX.SddsTableBody & JSXBase.HTMLAttributes<HTMLSddsTableBodyElement>;
+            "sdds-table-body-row": LocalJSX.SddsTableBodyRow & JSXBase.HTMLAttributes<HTMLSddsTableBodyRowElement>;
+            "sdds-table-body-row-expandable": LocalJSX.SddsTableBodyRowExpandable & JSXBase.HTMLAttributes<HTMLSddsTableBodyRowExpandableElement>;
+            "sdds-table-footer": LocalJSX.SddsTableFooter & JSXBase.HTMLAttributes<HTMLSddsTableFooterElement>;
+            "sdds-table-header": LocalJSX.SddsTableHeader & JSXBase.HTMLAttributes<HTMLSddsTableHeaderElement>;
+            "sdds-table-toolbar": LocalJSX.SddsTableToolbar & JSXBase.HTMLAttributes<HTMLSddsTableToolbarElement>;
+            "sdds-textarea": LocalJSX.SddsTextarea & JSXBase.HTMLAttributes<HTMLSddsTextareaElement>;
+            "sdds-textfield": LocalJSX.SddsTextfield & JSXBase.HTMLAttributes<HTMLSddsTextfieldElement>;
+            "sdds-theme": LocalJSX.SddsTheme & JSXBase.HTMLAttributes<HTMLSddsThemeElement>;
+            "sdds-tooltip": LocalJSX.SddsTooltip & JSXBase.HTMLAttributes<HTMLSddsTooltipElement>;
         }
     }
 }

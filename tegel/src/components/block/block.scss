@@ -1,0 +1,19 @@
+@import 'block-theme-vars';
+
+.sdds-block {
+  border-radius: 4px;
+  padding: 16px;
+  background-color: var(--sdds-block-bg-default);
+
+  .sdds-block {
+    background-color: var(--sdds-block-bg-default-nested);
+  }
+
+  &__variant {
+    background-color: var(--sdds-block-bg-variant);
+
+    .sdds-block {
+      background-color: var(--sdds-block-bg-variant-nested);
+    }
+  }
+}

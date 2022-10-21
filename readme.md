@@ -33,7 +33,7 @@ You can also install a standalone package for different part. These are availabl
 
 | Package Name                                    | Description                                         |
 | ----------------------------------------------- | --------------------------------------------------- |
-| [`@scania/components`](./components-old)            | Scania reusable web components built with StencilJS |
+| [`@scania/components`](./components)            | Scania reusable web components built with StencilJS |
 | [`@scania/theme-light`](./theme/light)          | Scania default theming                              |
 | [`@scania/typography`](./theme/core/typography) | Scania official typography styling package          |
 | [`@scania/colour`](./theme/core/colour)         | Scania official colour scale package                |

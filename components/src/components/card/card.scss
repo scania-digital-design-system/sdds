@@ -1,4 +1,20 @@
-@import './card-theme-vars.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
+:root,
+html {
+  --sdds-card-bg: var(--sdds-white);
+  --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
+  --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%),
+    0 1px 3px rgb(0 0 0 / 20%);
+  --sdds-card-headline: var(--sdds-grey-958);
+  --sdds-card-sub-headline: var(--sdds-grey-600);
+
+  .sdds-on-white-bg {
+    --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+  }
+}
 
 .sdds-card {
   background-color: var(--sdds-card-bg);
@@ -70,9 +86,6 @@
   .sdds-card-headline,
   .sdds-card-sub-headline {
     margin: 0;
-    font: var(--sdds-headline-06);
-    letter-spacing: var(--sdds-headline-06-ls);
-    line-height: 16px;
   }
 
   .sdds-card-headline {
@@ -97,8 +110,8 @@
   }
 
   .sdds-card-body {
-    font: var(--sdds-detail-03);
-    letter-spacing: var(--sdds-detail-03-ls);
+    @include type-style('detail-03');
+
     padding: var(--sdds-spacing-element-16);
   }
 

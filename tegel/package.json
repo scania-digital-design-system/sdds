@@ -1,0 +1,62 @@
+{
+  "name": "components",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/components/components.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build-stencil:watch": "stencil build --docs-readme --watch",
+    "start-storybook": "start-storybook -p 6006 -s dist",
+    "tegel": "concurrently \"npm run build-stencil:watch\" \"npm run start-storybook\""
+  },
+  "dependencies": {
+    "@stencil/core": "^2.13.0",
+    "clsx": "^1.2.1",
+    "concurrently": "^7.4.0",
+    "html-format": "^1.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@stencil/sass": "^2.0.0",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-notes": "^5.3.21",
+    "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/html": "^6.5.12",
+    "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/jest": "^27.0.3",
+    "babel-loader": "^8.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "clsx": "^1.2.1",
+    "jest": "^27.4.5",
+    "jest-cli": "^27.4.5",
+    "prettier": "^2.7.1",
+    "puppeteer": "^10.0.0",
+    "storybook-dark-mode": "^1.1.2"
+  },
+  "license": "MIT"
+}

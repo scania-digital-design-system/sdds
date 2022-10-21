@@ -1,8 +1,6 @@
-@import './chips-theme-vars.scss';
-
 .sdds-chip {
-  color: var(--sdds-chips-color);
-  background-color: var(--sdds-chips-bg);
+  color: var(--sdds-grey-958);
+  background-color: var(--sdds-grey-200);
   display: inline-flex;
   padding: 8px 16px;
   border-radius: 100px;
@@ -12,12 +10,11 @@
   position: relative;
 
   &-text {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
+    @include type-style('detail-02');
   }
 
   &:hover {
-    background-color: var(--sdds-chips-bg-hover);
+    background-color: var(--sdds-grey-400);
   }
 
   &-icon {
@@ -26,21 +23,22 @@
     position: absolute;
 
     path {
-      fill: var(--sdds-chips-icon-fill);
+      fill: var(--sdds-grey-958);
     }
   }
 
   &__active {
-    color: var(--sdds-chips-color-active);
-    background-color: var(--sdds-chips-bg-active);
+    color: var(--sdds-white);
+    background-color: var(--sdds-blue-500);
 
     .sdds-chip-icon {
       path {
-        fill: var(--sdds-chips-icon-fill-active);
+        fill: var(--sdds-white);
       }
     }
 
     &:hover {
+      color: var(--sdds-white);
       background-color: var(--sdds-blue-600);
     }
   }

@@ -1,10 +1,5 @@
-import { formatHtmlPreview } from '../../utils/utils';
-
 export default {
-  title: 'Components/Stepper',
-  parameters: {
-    layout: 'centered',
-  },
+  title: 'Component/Stepper',
   argTypes: {
     size: {
       name: 'Size',
@@ -13,7 +8,6 @@ export default {
         type: 'radio',
         options: ['Default', 'Small'],
       },
-      defaultValue: 'Default',
     },
     style: {
       name: 'Style',
@@ -22,7 +16,6 @@ export default {
         type: 'radio',
         options: ['Default', 'Text on side', 'Vertical'],
       },
-      defaultValue: 'Default',
     },
     label: {
       name: 'Label',
@@ -31,7 +24,6 @@ export default {
         type: 'radio',
         options: ['Show', 'Hide'],
       },
-      defaultValue: 'Show',
     },
   },
   args: {},
@@ -69,8 +61,7 @@ const Template = ({ size, style, label }) => {
       break;
   }
 
-  return formatHtmlPreview(
-    `
+  return `
   <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleClass}">
       
@@ -89,7 +80,11 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step value</label>' : ''}
+        ${
+          showLabel
+            ? '<label class="sdds-stepper__step_label">Step value</label>'
+            : ''
+        }
           
         
       </div>
@@ -109,7 +104,11 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
+        ${
+          showLabel
+            ? '<label class="sdds-stepper__step_label">Step warning</label>'
+            : ''
+        }
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--inactive">
@@ -127,7 +126,11 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
+        ${
+          showLabel
+            ? '<label class="sdds-stepper__step_label">Step inactive</label>'
+            : ''
+        }
       </div>
       
       <div class="sdds-stepper__step sdds-stepper__step--success">
@@ -145,38 +148,17 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step success</label>' : ''}
+        ${
+          showLabel
+            ? '<label class="sdds-stepper__step_label">Step success</label>'
+            : ''
+        }
       </div>
 
     </div>
   </div>
-    `,
-  );
+    `;
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'Small',
-};
-
-export const TextOnSide = Template.bind({});
-TextOnSide.args = {
-  size: 'Default',
-  style: 'Text on side',
-};
-
-export const Vertical = Template.bind({});
-Vertical.args = {
-  size: 'Default',
-  style: 'Vertical',
-};
-
-export const HideLabel = Template.bind({});
-HideLabel.args = {
-  size: 'Default',
-  style: 'Default',
-  label: 'Hide',
-};
+export const Basic = Template.bind({});
+Basic.args = {};
