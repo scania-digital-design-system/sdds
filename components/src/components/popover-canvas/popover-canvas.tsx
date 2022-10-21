@@ -39,6 +39,7 @@ export class PopoverCanvas {
     const _this = this;
     createPopper(this.target, this.popoverCanvasElement, {
       placement: _this.placement,
+      strategy: 'fixed',
       modifiers: [
         {
           name: 'positionCalc',
