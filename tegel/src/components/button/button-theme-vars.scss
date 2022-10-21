@@ -73,12 +73,6 @@ html,
   --sdds-btn-danger-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
 
-  .sdds-on-white-bg {
-    //Primary
-    --sdds-btn-primary-background-disabled: var(--sdds-grey-50);
-    --sdds-btn-danger-background-disabled: var(--sdds-grey-50);
-  }
-
   .sdds-theme-dark {
     //Primary
     --sdds-btn-primary-background: var(--sdds-blue-600);
@@ -151,11 +145,5 @@ html,
     --sdds-btn-danger-background-disabled: var(--sdds-grey-868);
     --sdds-btn-danger-color-disabled: rgb(255 255 255 / 38%);
     --sdds-btn-danger-border-color-disabled: transparent;
-
-    .sdds-on-white-bg {
-      //Primary
-      --sdds-btn-primary-background-disabled: var(--sdds-grey-50);
-      --sdds-btn-danger-background-disabled: var(--sdds-grey-50);
-    }
   }
 }
