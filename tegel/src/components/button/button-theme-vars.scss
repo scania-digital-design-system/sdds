@@ -19,6 +19,10 @@ html,
   --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
   --sdds-btn-primary-border-color-disabled: transparent;
 
+  //Primary - On white
+  --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
+  --sdds-btn-danger-on-white-background-disabled: var(--sdds-grey-50);
+
   //Secondary
   --sdds-btn-secondary-background: transparent;
   --sdds-btn-secondary-color: var(--sdds-black);
@@ -91,6 +95,10 @@ html,
     --sdds-btn-primary-background-disabled: var(--sdds-white);
     --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
     --sdds-btn-primary-border-color-disabled: transparent;
+
+    //Primary - On white
+    --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
+    --sdds-btn-danger-on-white-background-disabled: var(--sdds-grey-50);
 
     //Secondary
     --sdds-btn-secondary-background: transparent;
