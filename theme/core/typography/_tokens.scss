@@ -1,4 +1,4 @@
-@import "./vars";
+@import './vars';
 
 // Typography tokens
 // FUNCTIONAL TYPE
@@ -44,7 +44,7 @@ $headline-06: (
   line-height: type-scale(4),
   letter-spacing: -0.02em,
 );
-$: (
+$headline-07: (
   font-family: $font-family-semi-condensed-bold,
   font-weight: bold,
   font-size: type-scale(3),
@@ -144,7 +144,7 @@ $typography-sets: (
   headline-04: $headline-04,
   headline-05: $headline-05,
   headline-06: $headline-06,
-  : $,
+  headline-07: $headline-07,
   paragraph-01: $paragraph-01,
   paragraph-02: $paragraph-02,
   body-01: $body-01,
