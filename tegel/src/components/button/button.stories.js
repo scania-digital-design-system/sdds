@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Button',
   parameters: {
@@ -72,12 +74,14 @@ const ButtonTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   // chromatic snapshot requires icon to be sdds-icon instead of font
-  return `
+  return formatHtmlPreview(
+    `
   <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     <span>${text}</span>
     ${icon ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>" : ''}
   </button>
-  `;
+  `,
+  );
 };
 
 /**
@@ -86,7 +90,7 @@ const ButtonTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
  * @returns Button as a web component
  */
 
-const ComponentBtn = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+const WebComponentButtonTemplate = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
   let sizeValue = '';
   switch (size) {
     default:
@@ -102,11 +106,13 @@ const ComponentBtn = ({ size, btnType, fullbleed, disabled, icon, text = 'Button
 
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
 
-  return `
+  return formatHtmlPreview(
+    `
   <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${
-    icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
-  } </sdds-button>
-  `;
+      icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
+    } </sdds-button>
+  `,
+  );
 };
 
 /** Stories exported to Storybook */
@@ -144,13 +150,13 @@ Disabled.args = {
 
 /** Variants of button. Shown only on primary button */
 
-export const withIcon = ButtonTemplate.bind({});
+export const WithIcon = ButtonTemplate.bind({});
 withIcon.args = {
   text: 'Button',
   icon: true,
 };
 
-export const onlyIcon = ButtonTemplate.bind({});
+export const OnlyIcon = ButtonTemplate.bind({});
 onlyIcon.args = {
   text: "<sdds-icon name='scania-cross'></sdds-icon>",
   onlyIcon: true,
@@ -186,7 +192,7 @@ Fullbleed.args = {
 };
 
 /** Button as web component */
-export const sddsButton = ComponentBtn.bind({});
+export const sddsButton = WebComponentButtonTemplate.bind({});
 sddsButton.args = {
   text: 'Button',
 };
