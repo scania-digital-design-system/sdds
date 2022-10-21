@@ -75,35 +75,37 @@
   border-bottom: 0;
 }
 
-.sdds-textarea-wrapper {
-  //@extend .sdds-textfield-bar;
-  &::before,
-  &::after {
-    content: '';
-    height: 2px;
-    width: 0;
-    position: absolute;
-    background: var(--sdds-textarea-bar);
-    transition: 0.35s ease all;
-  }
+.sdds-textarea-container:not(.sdds-textarea-disabled) {
+  .sdds-textarea-wrapper {
+    //@extend .sdds-textfield-bar;
+    &::before,
+    &::after {
+      content: '';
+      height: 2px;
+      width: 0;
+      position: absolute;
+      background: var(--sdds-textarea-bar);
+      transition: 0.35s ease all;
+    }
 
-  &::before {
-    left: 50%;
-  }
+    &::before {
+      left: 50%;
+    }
 
-  &::after {
-    right: 50%;
-  }
+    &::after {
+      right: 50%;
+    }
 
-  //@extend end
+    //@extend end
 
-  position: relative;
-  width: unset;
-  min-width: 100%;
+    position: relative;
+    width: unset;
+    min-width: 100%;
 
-  &::after,
-  &::before {
-    top: calc(100% - 2px);
+    &::after,
+    &::before {
+      top: calc(100% - 2px);
+    }
   }
 }
 
