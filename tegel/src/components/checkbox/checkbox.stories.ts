@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Checkbox/Native',
+  title: 'Components/Checkbox',
   parameters: {
     layout: 'centered',
   },
