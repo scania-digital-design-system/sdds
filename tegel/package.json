@@ -26,6 +26,7 @@
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "deploy-storybook": "npm install && npm run build && npm run build-storybook",
     "build-stencil:watch": "stencil build --docs-readme --watch",
     "start-storybook": "start-storybook -p 6006 -s dist",
     "tegel": "concurrently \"npm run build-stencil:watch\" \"npm run start-storybook\""
