@@ -18,6 +18,7 @@ www/
 *.lock
 *.tmp
 *.tmp.*
+*.d.ts
 log.txt
 *.sublime-project
 *.sublime-workspace
