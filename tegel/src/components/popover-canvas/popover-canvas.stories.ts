@@ -1,4 +1,3 @@
-// @ts-ignore: md file and not a module
 import readme from './readme.md';
 
 export default {
