@@ -45,17 +45,34 @@ export class AccordionItem {
         ${this.expanded ? 'expanded' : ''}
         `}
       >
-        <div class={`sdds-accordion-header-${this.affix}`} onClick={() => this.openAccordion()}>
+        <div
+          class={`sdds-accordion-header-${this.affix}`}
+          onClick={() => this.openAccordion()}
+        >
           <div class="sdds-accordion-title">{this.header}</div>
           <div class="sdds-accordion-icon">
-            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <svg
+              width="12"
+              height="7"
+              viewBox="0 0 12 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L6 6L11 1"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
         </div>
         <div
           class={`sdds-accordion-panel 
-            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
+            ${
+              this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''
+            }         
             `}
         >
           <slot></slot>

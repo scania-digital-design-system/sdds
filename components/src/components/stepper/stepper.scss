@@ -1,9 +1,10 @@
-@import './stepper-theme-vars.scss';
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 .sdds-stepper {
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
-  color: var(--sdds-stepper-color);
+  @include type-style('detail-02');
+
+  color: var(--sdds-grey-958);
   display: inline-flex;
 
   &--sidetext {
@@ -21,7 +22,7 @@
           content: ' ';
           position: absolute;
           height: 1px;
-          background-color: var(--sdds-stepper-icon-sidetext-bg-before);
+          background-color: var(--sdds-blue-900);
           opacity: 0.16;
           right: auto;
           left: -12px;
@@ -56,7 +57,7 @@
           content: ' ';
           position: absolute;
           height: 45px;
-          background-color: var(--sdds-stepper-icon-sidetext-bg-before);
+          background-color: var(--sdds-blue-900);
           opacity: 0.16;
           top: 39px;
           left: 31px;
@@ -96,7 +97,7 @@
       height: 32px;
       width: 32px;
       border-radius: 100px;
-      border: 1px solid var(--sdds-stepper-icon-bg);
+      border: 1px solid var(--sdds-grey-958);
       margin-bottom: 8px;
       display: flex;
       justify-content: center;
@@ -106,7 +107,7 @@
         content: ' ';
         position: absolute;
         height: 1px;
-        background-color: var(--sdds-stepper-icon-step-bg-before);
+        background-color: var(--sdds-blue-900);
         opacity: 0.16;
         left: 0;
         right: calc(50% + 16px + 8px);
@@ -116,7 +117,7 @@
         content: ' ';
         position: absolute;
         height: 1px;
-        background-color: var(--sdds-stepper-icon-step-bg-after);
+        background-color: var(--sdds-blue-900);
         opacity: 0.16;
         left: calc(50% + 16px + 8px);
         right: 0;
@@ -162,7 +163,7 @@
 
     &--warning {
       .sdds-stepper__step-icon {
-        border-color: var(--sdds-stepper-icon-step-border-color-warning);
+        border-color: var(--sdds-negative);
       }
 
       .sdds-stepper__step-icon-success {
@@ -198,8 +199,8 @@
 
     &--success {
       .sdds-stepper__step-icon {
-        background-color: var(--sdds-stepper-icon-step-bg-success);
-        border-color: var(--sdds-stepper-icon-step-border-color-success);
+        background-color: var(--sdds-positive);
+        border-color: var(--sdds-positive);
       }
 
       .sdds-stepper__step-icon-warning {
@@ -238,29 +239,29 @@
   }
 
   &--inverted {
-    color: var(--sdds-stepper-color--inverted);
+    color: var(--sdds-white);
 
     .sdds-stepper__step-icon {
-      border: 1px solid var(--sdds-stepper-border-color--inverted);
+      border: 1px solid var(--sdds-white);
 
       &::before {
-        background-color: var(--sdds-stepper-bg--inverted-before);
+        background-color: var(--sdds-white);
       }
 
       &::after {
-        background-color: var(--sdds-stepper-bg--inverted-after);
+        background-color: var(--sdds-white);
       }
     }
 
     .sdds-stepper__step--warning {
       .sdds-stepper__step-icon {
-        border: 1px solid var(--sdds-stepper-icon-border-color-waring--inverted);
+        border: 1px solid var(--sdds-negative);
       }
     }
 
     .sdds-stepper__step--success {
       .sdds-stepper__step-icon {
-        border: 1px solid var(--sdds-stepper-icon-border-color-success-after--inverted);
+        border: 1px solid var(--sdds-positive);
       }
     }
 

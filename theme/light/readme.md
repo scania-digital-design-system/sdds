@@ -13,7 +13,7 @@ Scania theme is a package to style Scania looks and feel in the [Tegel Design Sy
 Install package by running the command below.
 
 ```shell
-npm i @scania/components-old -D
+npm i @scania/tegel-old -D
 npm i @scania/theme-light -D
 ```
 

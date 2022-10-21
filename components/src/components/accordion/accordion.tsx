@@ -11,7 +11,9 @@ export class Accordion {
 
   render() {
     return (
-      <div class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''}`}>
+      <div
+        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''}`}
+      >
         <slot></slot>
       </div>
     );

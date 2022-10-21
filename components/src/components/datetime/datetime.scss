@@ -1,3 +1,6 @@
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+
 @mixin datetime-base {
   border-radius: 1rem 1rem 0 0;
   width: 100%;
@@ -6,28 +9,28 @@
   border: none;
   outline: none;
   height: 100%;
-  color: var(--sdds-datetime-color);
-  background-color: var(--sdds-datetime-bg);
+  color: var(--sdds-textfield-color);
+  background-color: var(--sdds-textfield-bg);
 
   &::placeholder {
     opacity: 1;
-    color: var(--sdds-datetime-placeholder);
+    color: var(--sdds-textfield-placeholder);
   }
 
   &:focus::placeholder {
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-textfield-placeholder-focus-color);
   }
 
   &:disabled {
-    background-color: var(--sdds-datetime-disabled-bg);
-    color: var(--sdds-datetime-disabled-color);
+    background-color: var(--sdds-textfield-disabled-bg);
+    color: var(--sdds-textfield-disabled-color);
 
     &::placeholder {
-      color: var(--sdds-datetime-disabled-placeholder);
+      color: var(--sdds-textfield-disabled-placeholder);
     }
 
     ~  .sdds-datetime-label-inside {
-      color: var(--sdds-datetime-disabled-label);
+      color: var(--sdds-textfield-disabled-label);
     }
   }
 }
@@ -59,25 +62,22 @@
 //Sizes
 .sdds-datetime-input {
   @include datetime-base;
+  @include type-style('detail-02');
 
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 .sdds-datetime-input-md {
   @include datetime-base;
+  @include type-style('detail-02');
 
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-16);
 }
 
 .sdds-datetime-input-sm {
   @include datetime-base;
+  @include type-style('detail-02');
 
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
   padding: var(--sdds-spacing-element-16);
 }
 
@@ -88,12 +88,12 @@
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  background-color: var(--sdds-datetime-bg);
-  border-bottom: 1px solid var(--sdds-datetime-border-bottom);
+  background-color: var(--sdds-textfield-bg);
+  border-bottom: 1px solid var(--sdds-textfield-border-bottom);
   transition: border-bottom-color 200ms ease;
 
   &:hover {
-    border-bottom-color: var(--sdds-datetime-border-bottom-hover);
+    border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
   .sdds-form-datetime-md & {
@@ -122,19 +122,19 @@
 
 //datetime label
 slot[name='sdds-label']::slotted(*) {
-  font: var(--sdds-detail-05);
-  letter-spacing: var(--sdds-detail-05-ls);
+  @include type-style('detail-05');
+
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
-  color: var(--sdds-datetime-label-color);
+  color: var(--sdds-textfield-label-color);
 }
 
 .sdds-datetime-label-inside {
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
+  @include type-style('detail-02');
+
   position: absolute;
   pointer-events: none;
-  color: var(--sdds-datetime-label-inside-color);
+  color: var(--sdds-textfield-label-inside-color);
   left: 16px;
 }
 
@@ -158,7 +158,7 @@ slot[name='sdds-label']::slotted(*) {
   //Input field in focus
   &:focus::placeholder {
     transition: color 0.35s ease;
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-textfield-placeholder-focus-color);
   }
 }
 
@@ -217,24 +217,21 @@ slot[name='sdds-label']::slotted(*) {
   &.sdds-datetime-focus,
   &.sdds-datetime-data {
     .sdds-datetime-input-sm ~ .sdds-datetime-label-inside {
-      font: var(--sdds-detail-07);
-      letter-spacing: var(--sdds-detail-07-ls);
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-datetime-input-md ~ .sdds-datetime-label-inside {
-      font: var(--sdds-detail-07);
-      letter-spacing: var(--sdds-detail-07-ls);
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-datetime-input ~ .sdds-datetime-label-inside {
-      font: var(--sdds-detail-07);
-      letter-spacing: var(--sdds-detail-07-ls);
+      @include type-style('detail-07');
       @include label-inside-transition;
 
       top: 12px;
@@ -254,7 +251,7 @@ slot[name='sdds-label']::slotted(*) {
     top: 54px;
     width: 0;
     position: absolute;
-    background: var(--sdds-datetime-bar);
+    background: var(--sdds-textfield-bar);
     transition: 0.35s ease all;
 
     .sdds-form-datetime-md & {
@@ -282,12 +279,12 @@ slot[name='sdds-label']::slotted(*) {
 
 //Helper text
 .sdds-datetime-helper {
-  font: var(--sdds-detail-05);
-  letter-spacing: var(--sdds-detail-05-ls);
+  @include type-style('detail-05');
+
   display: block;
   flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
-  color: var(--sdds-datetime-helper);
+  color: var(--sdds-textfield-helper);
 }
 
 //Disabled state
@@ -299,65 +296,64 @@ slot[name='sdds-label']::slotted(*) {
   .datetime-icon {
     svg {
       path {
-        fill: var(--sdds-datetime-disabled-color);
+        fill: var(--sdds-textfield-disabled-color);
       }
     }
   }
 
   slot[name='sdds-label']::slotted(*) {
-    color: var(--sdds-datetime-disabled-label);
+    color: var(--sdds-textfield-disabled-label);
   }
 }
 
 //Success state
 .sdds-form-datetime-success {
   .sdds-datetime-container {
-    border-bottom-color: var(--sdds-datetime-border-bottom-success);
+    border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
 //Error State
 .sdds-form-datetime-error {
   .sdds-datetime-helper {
-    color: var(--sdds-datetime-helper-error);
+    color: var(--sdds-textfield-helper-error);
   }
 
   .sdds-datetime-container {
-    border-bottom-color: var(--sdds-datetime-border-bottom-error);
+    border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
   .sdds-datetime-bar {
     &::before,
     &::after {
-      background: var(--sdds-datetime-bar-error);
+      background: var(--sdds-textfield-bar-error);
     }
   }
 
   slot[name='sdds-prefix']::slotted(sdds-icon),
   slot[name='sdds-suffix']::slotted(sdds-icon) {
-    color: var(--sdds-datetime-icon-error);
+    color: var(--sdds-textfield-icon-error);
   }
 }
 
 .sdds-datetime-textcounter {
-  font: var(--sdds-detail-05);
-  letter-spacing: var(--sdds-detail-05-ls);
-  color: var(--sdds-datetime-textcounter);
+  @include type-style('detail-05');
+
+  color: var(--sdds-textfield-textcounter);
   float: right;
 
   & .sdds-datetime-textcounter-divider {
-    // font: var(--sdds-detail-05);
-    letter-spacing: var(--sdds-detail-05-ls);
-    color: var(--sdds-datetime-textcounter-divider);
+    // @include type-style('detail-05');
+    color: var(--sdds-textfield-textcounter-divider);
   }
 }
 
 slot[name='sdds-prefix']::slotted(*),
 slot[name='sdds-suffix']::slotted(*) {
-  font: var(--sdds-detail-02);
-  letter-spacing: var(--sdds-detail-02-ls);
+  @include type-style('detail-02');
+
   align-self: center;
-  color: var(--sdds-datetime-ps-color);
+  color: var(--sdds-textfield-ps-color);
 }
 
 //TODO: When new icons are avaliable have a look at this one

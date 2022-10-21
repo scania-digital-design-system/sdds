@@ -1,0 +1,25 @@
+@import './modal-core';
+
+.sdds-modal-body {
+  & > * {
+    @include modal-body;
+  }
+}
+
+.sdds-modal-headline {
+  display: contents;
+
+  & > * {
+    @include modal-headline;
+  }
+}
+
+.sdds-modal-actions {
+  & > * {
+    @include modal-actions;
+  }
+}
+
+.sdds-modal-backdrop {
+  @include modal-host;
+}

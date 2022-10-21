@@ -1,5 +1,35 @@
 # sdds-accordion-item
 
+```html
+<sdds-accordion>
+  <sdds-accordion-item header="First item" affix="prefix" tabindex="1">
+    This is the panel, which contains associated information with the header.
+    Usually it contains text, set in the same size as the header. Lorem ipsum
+    doler sit amet.
+  </sdds-accordion-item>
+  <sdds-accordion-item
+    header="Second item"
+    affix="suffix"
+    expanded="true"
+    tabindex="2"
+  >
+    This is the panel, which contains associated information with the header.
+    Usually it contains text, set in the same size as the header. Lorem ipsum
+    doler sit amet.
+  </sdds-accordion-item>
+  <sdds-accordion-item
+    header="Disabled item"
+    affix="suffix"
+    disabled="true"
+    expanded="true"
+    tabindex="-1"
+  >
+    This is the disabled panel, which contains associated information with the
+    header. Usually it contains text, set in the same size as the header. Lorem
+    ipsum doler sit amet.
+  </sdds-accordion-item>
+</sdds-accordion>
+```
 
 <!-- Auto Generated Below -->
 

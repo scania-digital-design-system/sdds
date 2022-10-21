@@ -1,6 +1,20 @@
+# Compiled from Stencil
+.stencil/
+.build/
+.www/
+.data/
+# src/**/**.md
+
+# Compiled theme
+src/themes.built/
+
+# Compiled from gulpfile.babel.js
+# .storybook/
 dist/
 www/
-loader/
+
+# Compiled from storybook
+storybook-static/
 
 *~
 *.sw[mnpcod]
@@ -11,8 +25,8 @@ loader/
 log.txt
 *.sublime-project
 *.sublime-workspace
+*.d.ts
 
-.stencil/
 .idea/
 .vscode/
 .sass-cache/
@@ -24,26 +38,4 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
-
-
-# OLD ONES BELOW
-# TODO: Clean up section below
-
-# Compiled from Stencil
-
-.build/
-.www/
-.data/
-# src/**/**.md
-
-# Compiled theme
-src/themes.built/
-
-
-# Compiled from storybook
-storybook-static/
-
-*.d.ts
-
 .npmrc
-

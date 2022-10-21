@@ -1,14 +1,8 @@
-import { formatHtmlPreview } from '../../utils/utils';
-
 export default {
-  title: 'Components/Divider',
-  parameters: {
-    layout: 'centered',
-  },
+  title: 'Component/Divider',
   argTypes: {
     type: {
       name: 'Type',
-      descripton: 'The type of divider',
       control: {
         type: 'select',
         options: ['light', 'dark', 'coloured'],
@@ -17,46 +11,53 @@ export default {
   },
 };
 
-const Template = ({ ...Default }) =>
-  formatHtmlPreview(
-    `
-    <div style="width: ${Default.width}px;" class="sdds-divider-${Default.type}"></div>
-  `,
-  );
+const style = `<style>
+.demo {
+  margin: auto;
+  margin-top: 50px;
+}
+</style>`;
 
-export const Default = Template.bind({});
+const dividerTemplate = ({ ...Basic }) => `
+  ${style}
+    <div style="width: ${Basic.width}px;" class="sdds-divider-${Basic.type}"></div>
+  `;
 
-Default.args = {
+export const Basic = dividerTemplate.bind({});
+
+Basic.args = {
   type: 'dark',
   width: 400,
 };
 
-Default.argTypes = {
+Basic.argTypes = {
   width: {
     name: 'Width',
-    description: 'Width of the divider in pixels.',
     control: {
-      type: 'number',
+      type: 'range',
+      min: 100,
+      max: 800,
+      step: 100,
     },
-    defaultValue: 100,
   },
 };
 
-const VerticalTemplate = ({ ...Vertical }) =>
-  formatHtmlPreview(`
+const dividerVerticalTemplate = ({ ...Vertical }) => `
+  ${style}
     <div style="height:${Vertical.height}px;" class="sdds-divider-${Vertical.type}-vertical"></div>
-  `);
+  `;
 
-export const Vertical = VerticalTemplate.bind({});
+export const Vertical = dividerVerticalTemplate.bind({});
 
 Vertical.argTypes = {
   height: {
     name: 'Height',
-    description: 'Height of the divider in pixels.',
     control: {
-      type: 'number',
+      type: 'range',
+      min: 100,
+      max: 800,
+      step: 100,
     },
-    defaultValue: 100,
   },
 };
 
@@ -65,17 +66,16 @@ Vertical.args = {
   height: 200,
 };
 
-const BorderTemplate = ({ ...Border }) =>
-  formatHtmlPreview(`
+const dividerBorderTemplate = ({ ...Border }) => `
+  ${style}
       <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="divider-border-demo sdds-divider-${Border.type}-border-${Border.direction}">Demo</div>
-    `);
+    `;
 
-export const Border = BorderTemplate.bind({});
+export const Border = dividerBorderTemplate.bind({});
 
 Border.argTypes = {
   direction: {
     name: 'Direction',
-    discription: 'The direction of the divider',
     control: {
       type: 'select',
       options: ['top', 'right', 'bottom', 'left'],
@@ -89,19 +89,19 @@ Border.argTypes = {
   },
   height: {
     name: 'Height',
-    description: 'Height of the divider in pixels.',
     control: {
-      type: 'number',
+      type: 'range',
+      min: 100,
+      max: 800,
     },
-    defaultValue: 100,
   },
   width: {
     name: 'Width',
-    description: 'Width of the divider in pixels.',
     control: {
-      type: 'number',
+      type: 'range',
+      min: 100,
+      max: 800,
     },
-    defaultValue: 100,
   },
 };
 

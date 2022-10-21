@@ -129,7 +129,7 @@ async function generateIcons() {
   // write file into dist folder for testing/debugging purposes
   fs.writeFileSync(`${outputFolder}/iconsArrays.js`, icons);
 
-  // write icons into /components/icons folder for component and story usage
+  // write icons into /tegel/icons folder for component and story usage
   fs.writeFileSync(`${iconComponentFolder}/iconsArray.js`, icons);
 }
 

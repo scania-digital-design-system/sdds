@@ -1,13 +1,23 @@
-:host {
-  .sdds-on-white-bg {
-    --sdds-accordion-bg-hover: var(--sdds-accordion-bg-hover-on-white);
-  }
-}
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import '../divider/divider.scss';
+@import '../../helpers/components-shared.scss';
 
-// TODO question: should we not share this like before?
-@mixin sdds-focus-state {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
+:host {
+  // Variables
+  --sdds-accordion-border: var(--sdds-grey-300);
+  --sdds-accordion-bg: transparent;
+  --sdds-accordion-bg-hover: var(--sdds-white);
+  --sdds-accordion-bg-focus: transparent;
+  --sdds-accordion-bg-active: var(--sdds-grey-100);
+  --sdds-accordion-colour: var(--sdds-grey-958);
+  --sdds-accordion-border-focus: var(--sdds-grey-500);
+  --sdds-accordion-colour-disabled: var(--sdds-grey-400);
+
+  // Styling
+  .sdds-on-white-bg {
+    --sdds-accordion-bg-hover: var(--sdds-grey-50);
+  }
 }
 
 @mixin disabledStyle {
@@ -43,9 +53,8 @@
     display: flex;
     align-items: center;
 
-    // fixme: wrong line-height compared to production
-    font: var(--sdds-headline-07);
-    letter-spacing: var(--sdds-headline-07-ls);
+    @include type-style('headline-07');
+
     padding: var(--sdds-spacing-element-16);
     background-color: var(--sdds-accordion-bg);
 
@@ -62,10 +71,11 @@
 
   .sdds-accordion-panel {
     cursor: default;
-    padding: var(--sdds-spacing-element-8) var(--sdds-spacing-layout-64) var(--sdds-spacing-element-32) var(--sdds-spacing-element-16);
+    padding: var(--sdds-spacing-element-8) var(--sdds-spacing-layout-64)
+      var(--sdds-spacing-element-32) var(--sdds-spacing-element-16);
     display: none;
-    font: var(--sdds-detail-03);
-    letter-spacing: var(--sdds-detail-03-ls);
+
+    @include type-style('detail-03');
 
     p {
       margin: 0;

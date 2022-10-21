@@ -8,7 +8,6 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
 export class SddsBadges {
   /** Value shown in badge */
   @Prop() value: string = '';
-  // TODO: Make upper prop accepts numbers too ?
 
   /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
@@ -44,15 +43,24 @@ export class SddsBadges {
     if (!isNaN(valueAsNumber) && this.size !== 'sm') {
       this.shape = this.value.toString().length >= 2 ? 'pill' : '';
       this.size = 'default';
-      this.text = valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
+      this.text =
+        valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
     } else {
-      this.value !== '' && this.size !== 'sm' ? console.warn('The provided value is either empty or string, please provide value as number.') : '';
+      this.value !== '' && this.size !== 'sm'
+        ? console.warn(
+            'The provided value is either empty or string, please provide value as number.'
+          )
+        : '';
     }
   }
 
   render() {
     return (
-      <host class={`sdds-badges sdds-badges-${this.size} ${this.shape === 'pill' ? 'sdds-badges-pill' : ''} ${this.isVisible ? '' : 'sdds-badges-hidden'}`}>
+      <host
+        class={`sdds-badges sdds-badges-${this.size} ${
+          this.shape === 'pill' ? 'sdds-badges-pill' : ''
+        } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+      >
         <div class="sdds-badges-text">{this.text}</div>
       </host>
     );

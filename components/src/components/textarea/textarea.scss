@@ -1,0 +1,219 @@
+//TODO: Remove dependencies on textfield!!!
+@import '../textfield/textfield.scss';
+
+.sdds-textarea-container {
+  @extend .sdds-textfield-container;
+
+  height: auto;
+  width: 100%;
+  min-width: 208px;
+  display: inline-flex;
+  background-color: transparent;
+  flex-flow: row wrap;
+  border-bottom: 0;
+}
+
+.sdds-textarea-wrapper {
+  @extend .sdds-textfield-bar;
+
+  position: relative;
+  width: unset;
+  min-width: 100%;
+
+  &::after,
+  &::before {
+    top: calc(100% - 2px);
+  }
+}
+
+.sdds-textarea-input {
+  @include textfield-base;
+  @extend .sdds-textfield-input;
+
+  display: block;
+  resize: vertical;
+  border-bottom: 1px solid var(--sdds-textarea-border-bottom);
+  transition: border-bottom-color 200ms ease;
+
+  // Display none only works in Chrome
+  &::-webkit-resizer {
+    display: none;
+  }
+
+  &:hover {
+    border-bottom-color: var(--sdds-textarea-border-bottom-hover);
+  }
+}
+
+// Need to override default resizer in FF & Safari
+.sdds-textarea-resizer-icon {
+  color: var(--sdds-textfield-resize-icon);
+  position: absolute;
+  display: block;
+  bottom: 2px;
+  right: 1px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  pointer-events: none;
+  background-color: var(--sdds-textfield-bg);
+
+  svg {
+    display: block;
+  }
+}
+
+.sdds-textarea-label {
+  @include type-style('detail-05');
+
+  display: block;
+  z-index: 2;
+  margin-bottom: var(--sdds-spacing-element-8);
+  color: var(--sdds-textfield-label-color);
+}
+
+.sdds-textarea-container {
+  &.sdds-textarea-label-inside {
+    .sdds-textarea-label {
+      @include type-style('detail-02');
+      @include label-inside-transition;
+
+      color: var(--sdds-textfield-label-inside-color);
+      position: absolute;
+      top: var(--sdds-spacing-element-20);
+      left: var(--sdds-spacing-element-16);
+    }
+
+    .sdds-textarea-input {
+      @include placeholder-label;
+    }
+  }
+
+  &.sdds-textarea-focus {
+    &.sdds-textarea-label-inside {
+      .sdds-textarea-label {
+        @include type-style('detail-07');
+
+        top: var(--sdds-spacing-element-8);
+      }
+    }
+
+    .sdds-textarea-wrapper {
+      &::before,
+      &::after {
+        width: 50%;
+      }
+    }
+  }
+
+  &.sdds-textarea-data {
+    &.sdds-textarea-label-inside {
+      .sdds-textarea-label {
+        @include type-style('detail-07');
+
+        top: var(--sdds-spacing-element-8);
+      }
+    }
+  }
+}
+
+.sdds-textarea-textcounter {
+  @extend .sdds-textfield-textcounter;
+
+  flex-basis: 100%;
+  text-align: right;
+  padding-top: var(--sdds-spacing-element-4);
+}
+
+.sdds-textarea-helper {
+  @extend .sdds-textfield-helper;
+
+  flex-grow: 2;
+  flex-basis: auto;
+
+  ~ .sdds-textarea-textcounter {
+    flex-basis: auto;
+  }
+}
+
+// Different state
+
+.sdds-textarea-success {
+  .sdds-textarea-input {
+    border-bottom-color: var(--sdds-textfield-border-bottom-success);
+  }
+}
+
+.sdds-textarea-error {
+  .sdds-textarea-input {
+    border-bottom-color: var(--sdds-textfield-border-bottom-error);
+  }
+
+  .sdds-textarea-wrapper {
+    &::after,
+    &::before {
+      background: var(--sdds-textfield-bar-error);
+    }
+  }
+
+  .sdds-textarea-helper {
+    color: var(--sdds-textfield-helper-error);
+  }
+}
+
+//Disabled state
+.sdds-textarea-disabled {
+  .sdds-textarea-input {
+    border-bottom-color: transparent;
+  }
+
+  .sdds-textarea-label {
+    color: var(--sdds-textfield-disabled-label);
+  }
+}
+
+//Read only state
+
+.sdds-textarea-icon__readonly {
+  display: none;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+
+  &-label {
+    display: none;
+    position: absolute;
+    right: 18px;
+    top: 48px;
+
+    @include type-style('detail-05');
+
+    padding: 8px;
+    color: var(--sdds-white);
+    background-color: var(--sdds-grey-800);
+    white-space: nowrap;
+    border-radius: 4px 0 4px 4px;
+  }
+}
+
+.sdds-textarea-readonly {
+  pointer-events: none;
+
+  .sdds-textarea-icon__readonly {
+    display: block;
+
+    &:hover {
+      ~ .sdds-textarea-icon__readonly-label {
+        display: block;
+      }
+    }
+  }
+
+  .sdds-textarea-input {
+    padding-right: 54px;
+    background-color: transparent;
+  }
+
+  .sdds-textfield-container {
+    background-color: transparent;
+  }
+}

@@ -29,7 +29,7 @@ body:
       multiple: true
       description: 'Which package(s) contains the bug? See all avaliable packages at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
       options:
-        - '@scania/components-old'
+        - '@scania/tegel-old'
         - '@scania/theme-light'
         - '@scania/colour'
         - '@scania/grid'
@@ -41,7 +41,7 @@ body:
     attributes:
       label: Package versions
       description: 'What version do you use? You can find it in package.json, see all avaliable versions at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
-      placeholder: '@scania/components-old 1.5.3, @scania/theme-light 3.5.3'
+      placeholder: '@scania/tegel-old 1.5.3, @scania/theme-light 3.5.3'
     validations:
       required: true
   - type: dropdown

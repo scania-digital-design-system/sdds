@@ -1,4 +1,22 @@
-@import "./spinner-theme-vars.scss";
+:root,
+html,
+:host {
+  --sdds-spinner-background: var(--sdds-blue-400);
+  --sdds-spinner-background-inverted: var(--sdds-white);
+  --sdds-spinner-speed: 1.8s;
+  --sdds-spinner-speed-lg: 2s;
+  --sdds-spinner-radius-xs: 8px;
+  --sdds-spinner-radius-sm: 12px;
+  --sdds-spinner-radius-md: 26px;
+  --sdds-spinner-radius-lg: 42px;
+  --sdds-spinner-radius: var(--sdds-spinner-radius-lg);
+  --sdds-spinner-stroke-width-xs: 3px;
+  --sdds-spinner-stroke-width-sm: 4px;
+  --sdds-spinner-stroke-width-md: 6px;
+  --sdds-spinner-stroke-width-lg: 8px;
+  --sdds-spinner-stroke-width: var(--sdds-spinner-stroke-width-lg);
+  --PI: 3.14159265358979;
+}
 
 :host {
   display: block;
@@ -42,11 +60,14 @@
   fill: none;
 
   //Calculation for lenght of dash
-  --sdds-spinner-stroke-dash: calc((2 * var(--PI)) * var(--sdds-spinner-radius));
+  --sdds-spinner-stroke-dash: calc(
+    (2 * var(--PI)) * var(--sdds-spinner-radius)
+  );
 
   stroke-dasharray: var(--sdds-spinner-stroke-dash);
   stroke-width: var(--sdds-spinner-stroke-width);
-  animation: dash var(--sdds-spinner-animation-speed) cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+  animation: dash var(--sdds-spinner-animation-speed)
+    cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
 
   &-standard {
     stroke: var(--sdds-spinner-background);

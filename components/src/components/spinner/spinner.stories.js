@@ -1,13 +1,9 @@
 import { addons } from '@storybook/addons';
 import { UPDATE_GLOBALS, STORY_ARGS_UPDATED } from '@storybook/core-events';
-import format from 'html-format';
-import readme from './readme.md';
-
 export default {
-  title: 'Components/Spinner',
+  title: 'Component/Spinner',
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
-    notes: readme,
     backgrounds: {
       default: 'Light grey',
       values: [
@@ -27,8 +23,7 @@ export default {
     },
   },
   argTypes: {
-    variant: {
-      name: 'Variant',
+    Variant: {
       control: {
         type: 'radio',
         options: { Standard: 'standard', Inverted: 'inverted' },
@@ -36,8 +31,7 @@ export default {
       defaultValue: 'standard',
       description: 'Variant of the spinner',
     },
-    size: {
-      name: 'Size',
+    Size: {
       control: {
         type: 'radio',
         options: { Large: 'lg', Medium: 'md', Small: 'sm', XSmall: 'xs' },
@@ -50,13 +44,16 @@ export default {
 
 let channel = addons.getChannel();
 
-const storyListener = args => {
-  if (args.args.variant) {
-    let variant = args.args.variant;
+const storyListener = (args) => {
+  if (args.args.Variant) {
+    let Variant = args.args.Variant;
     channel.emit(UPDATE_GLOBALS, {
       globals: {
-        theme: variant,
-        backgrounds: variant === 'inverted' ? { name: 'Dark grey', value: '#868fa2' } : { name: 'Light grey', value: '#F9FAFB' },
+        theme: Variant,
+        backgrounds:
+          Variant === 'inverted'
+            ? { name: 'Dark grey', value: '#868fa2' }
+            : { name: 'Light grey', value: '#F9FAFB' },
       },
     });
   }
@@ -68,25 +65,21 @@ function setupBackgroundListener() {
 }
 
 setupBackgroundListener();
-const Template = ({ size, variant }) => {
-  return format(
-    `
-  <sdds-spinner 
-    size="${size}"  
-    variant="${variant}">
+const Template = ({ Size, Variant }) => {
+  return `
+  <sdds-spinner Size="${Size}" Variant="${Variant}">
   </sdds-spinner>
-  `,
-  );
+  `;
 };
 
 export const Standard = Template.bind({});
 Standard.args = {
-  variant: 'standard',
+  Variant: 'standard',
 };
 
 export const Inverted = Template.bind({});
 Inverted.args = {
-  variant: 'inverted',
+  Variant: 'inverted',
 };
 Inverted.parameters = {
   backgrounds: { default: 'Dark grey' },
