@@ -1,3 +1,4 @@
+import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
@@ -21,7 +22,15 @@ export default {
 };
 
 const ComponentPopoverCanvas = ({ ...Basic }) =>
-  `
+  formatHtmlPreview(
+    `
+    <style>
+      .demo-wrapper {
+        display: flex;
+        flex-wrap; nowrap;
+        align-items: center;
+      }
+    </style>
   <div>
       <sdds-popover-canvas 
         placement="${Basic.canvasPosition}"
@@ -36,7 +45,7 @@ const ComponentPopoverCanvas = ({ ...Basic }) =>
           </p>
         </div>
       </sdds-popover-canvas>
-      <div style="display: flex; flex-wrap: nowrap; align-items: center;">
+      <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
         <div style="cursor: pointer; display: flex; align-items: center;" id="trigger">
           <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +56,8 @@ const ComponentPopoverCanvas = ({ ...Basic }) =>
         </div>
       </div>
       </div>
-    `;
+    `,
+  );
 
 export const Default = ComponentPopoverCanvas.bind({});
 Default.args = {
