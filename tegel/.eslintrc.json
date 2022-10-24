@@ -12,6 +12,13 @@
       "jsx": true
     }
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "plugins": ["@typescript-eslint"],
   "rules": {
     // "prettier/prettier": "warn" // TODO: See if this can be turned on after rest is done,
