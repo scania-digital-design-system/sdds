@@ -43,7 +43,7 @@ src/themes.built/
 # Compiled from storybook
 storybook-static/
 
-*.d.ts
+components.d.ts
 
 .npmrc
 
