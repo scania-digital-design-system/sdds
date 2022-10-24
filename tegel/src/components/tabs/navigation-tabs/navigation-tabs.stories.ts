@@ -1,11 +1,12 @@
+import { formatHtmlPreview } from '../../../utils/utils';
+
 export default {
   title: 'Components/Tabs/Navigation Tabs',
-  parameters: {
-    layout: 'fullpage',
-  },
+  parameters: {},
 };
 
-const Template = () => `
+const Template = () =>
+  formatHtmlPreview(`
     <sdds-navigation-tabs id="navigation-tabs-example">
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
@@ -13,7 +14,7 @@ const Template = () => `
       <a href="#">Tab name</a>
       <a href="#" class="sdds-navigation-tabs--tab__disabled">Disabled tab</a>
     </sdds-navigation-tabs>
-    `;
+    `);
 
 export const Basic = Template.bind({});
 Basic.args = {};
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('glick');
       e.preventDefault();
       console.log(e.target);
-      e.target.classList.toggle('sdds-navigation-tabs--tab__active');
+      (e.target as HTMLElement).classList.toggle('sdds-navigation-tabs--tab__active');
     });
   });
 });
