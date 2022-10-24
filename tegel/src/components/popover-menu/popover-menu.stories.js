@@ -26,9 +26,16 @@ export default {
   },
 };
 
-const ComponentPopoverMenu = ({ ...Basic }) => {
+const Template = ({ ...Basic }) => {
   const withoutIcons = formatHtmlPreview(
     `
+    <style>
+      .demo-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        alignt-items: center;
+      }
+    </style>
     <sdds-popover-menu
         placement="${Basic.menuPosition}"
         selector="#trigger"> 
@@ -54,7 +61,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
         </ul>        
       </sdds-popover-menu>
 
-      <div style="display: flex; flex-wrap: nowrap; align-items: center;">
+      <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
         <div style="cursor: pointer; display: flex; align-items: center;" id="trigger">
           <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,6 +76,13 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
 
   const withIcons = formatHtmlPreview(
     `
+    <style>
+    .demo-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      alignt-items: center;
+    }
+  </style>
   <sdds-popover-menu
     placement="${Basic.menuPosition}"
     selector="#trigger"> 
@@ -182,7 +196,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
     </ul>        
   </sdds-popover-menu>
 
-  <div style="display: flex; flex-wrap: nowrap; align-items: center;">
+  <div calss="demo-wrapper">
     <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
     <div style="cursor: pointer; display: flex; align-items: center;" id="trigger">
       <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -201,8 +215,8 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
   return withoutIcons;
 };
 
-export const Basic = ComponentPopoverMenu.bind({});
-Basic.args = { withIcons: false };
+export const Default = Template.bind({});
+Default.args = { withIcons: false };
 
-export const WithIcons = ComponentPopoverMenu.bind({});
+export const WithIcons = Template.bind({});
 WithIcons.args = { withIcons: true };
