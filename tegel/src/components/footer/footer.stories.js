@@ -60,9 +60,6 @@ const Template = ({ topPart = false }) =>
               <li><a href="#">Legal link</a></li>
             </ul>
           </div>
-
-          
-          
         </div>
       </div>
       `
