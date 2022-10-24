@@ -7,7 +7,7 @@ export default {
 
 const Template = () =>
   formatHtmlPreview(`
-    <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example">
+    <sdds-inline-tabs-fullbleed>
       <a href="#">Tab name</a>
       <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Tab name</a>
       <a href="#">Tab name</a>
