@@ -156,14 +156,14 @@ OnlyIcon.argTypes = {
 
 export const Medium_Size_W_Icon = NativeTemplate.bind({});
 Medium_Size_W_Icon.args = {
-  size: 'medium',
+  size: 'md',
   text: 'Button',
   icon: true,
 };
 
 export const Small_Size_W_Icon = NativeTemplate.bind({});
 Small_Size_W_Icon.args = {
-  size: 'small',
+  size: 'sm',
   text: 'Button',
   icon: true,
 };
