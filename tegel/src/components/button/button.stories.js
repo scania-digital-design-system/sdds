@@ -21,9 +21,9 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: ['large', 'medium', 'small'],
+        options: ['md', 'sm'],
       },
-      defaultValue: 'large',
+      defaultValue: 'md',
       description: 'Size of the button',
     },
     fullbleed: {
@@ -50,19 +50,13 @@ export default {
   },
 };
 
-/**
- * Basic template
- * @param {*} param0
- * @returns Button HTML element
- */
-
-const ButtonTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
+const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
   let sizeValue = '';
   switch (size) {
-    case 'small':
+    case 'sm':
       sizeValue = 'sdds-btn-sm';
       break;
-    case 'medium':
+    case 'md':
       sizeValue = 'sdds-btn-md';
       break;
     default:
@@ -84,22 +78,16 @@ const ButtonTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
   );
 };
 
-/**
- * Basic template
- * @param {*} param0
- * @returns Button as a web component
- */
-
-const WebComponentButtonTemplate = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+const WebComponentTemplate = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
   let sizeValue = '';
   switch (size) {
     default:
       sizeValue = '';
       break;
-    case 'medium':
+    case 'md':
       sizeValue = 'md';
       break;
-    case 'small':
+    case 'sm':
       sizeValue = 'sm';
       break;
   }
@@ -115,34 +103,30 @@ const WebComponentButtonTemplate = ({ size, btnType, fullbleed, disabled, icon, 
   );
 };
 
-/** Stories exported to Storybook */
-
-/** Button type representatives (equivalence classes) */
-
-export const Primary = ButtonTemplate.bind({});
+export const Primary = NativeTemplate.bind({});
 Primary.args = {
   text: 'Button',
 };
 
-export const Secondary = ButtonTemplate.bind({});
+export const Secondary = NativeTemplate.bind({});
 Secondary.args = {
   btnType: 'secondary',
   text: 'Button',
 };
 
-export const Ghost = ButtonTemplate.bind({});
+export const Ghost = NativeTemplate.bind({});
 Ghost.args = {
   btnType: 'ghost',
   text: 'Button',
 };
 
-export const Danger = ButtonTemplate.bind({});
+export const Danger = NativeTemplate.bind({});
 Danger.args = {
   btnType: 'danger',
   text: 'Button',
 };
 
-export const Disabled = ButtonTemplate.bind({});
+export const Disabled = NativeTemplate.bind({});
 Disabled.args = {
   disabled: 'disabled',
   text: 'Button',
@@ -150,19 +134,19 @@ Disabled.args = {
 
 /** Variants of button. Shown only on primary button */
 
-export const WithIcon = ButtonTemplate.bind({});
-withIcon.args = {
+export const WithIcon = NativeTemplate.bind({});
+WithIcon.args = {
   text: 'Button',
   icon: true,
 };
 
-export const OnlyIcon = ButtonTemplate.bind({});
-onlyIcon.args = {
+export const OnlyIcon = NativeTemplate.bind({});
+OnlyIcon.args = {
   text: "<sdds-icon name='scania-cross'></sdds-icon>",
   onlyIcon: true,
 };
 
-onlyIcon.argTypes = {
+OnlyIcon.argTypes = {
   icon: {
     table: {
       disable: true,
@@ -170,21 +154,21 @@ onlyIcon.argTypes = {
   },
 };
 
-export const Medium_Size_W_Icon = ButtonTemplate.bind({});
+export const Medium_Size_W_Icon = NativeTemplate.bind({});
 Medium_Size_W_Icon.args = {
   size: 'medium',
   text: 'Button',
   icon: true,
 };
 
-export const Small_Size_W_Icon = ButtonTemplate.bind({});
+export const Small_Size_W_Icon = NativeTemplate.bind({});
 Small_Size_W_Icon.args = {
   size: 'small',
   text: 'Button',
   icon: true,
 };
 
-export const Fullbleed = ButtonTemplate.bind({});
+export const Fullbleed = NativeTemplate.bind({});
 Fullbleed.args = {
   text: 'Button',
   fullbleed: true,
@@ -192,7 +176,7 @@ Fullbleed.args = {
 };
 
 /** Button as web component */
-export const sddsButton = WebComponentButtonTemplate.bind({});
-sddsButton.args = {
+export const SddsButton = WebComponentTemplate.bind({});
+SddsButton.args = {
   text: 'Button',
 };
