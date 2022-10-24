@@ -1,0 +1,176 @@
+// TODO question: should we not share this like before?
+@mixin sdds-focus-state {
+  outline: 2px solid var(--sdds-blue-400);
+  outline-offset: -2px;
+}
+
+.sdds-navigation-tabs {
+  background-color: var(--sdds-white);
+  position: relative;
+  display: flex;
+
+  &::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid var(--sdds-grey-300);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &--forward {
+    cursor: pointer;
+    width: 48px;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--sdds-grey-50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &__show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: var(--sdds-grey-400);
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+  }
+
+  &--back {
+    cursor: pointer;
+    width: 48px;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--sdds-grey-50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &__show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+    }
+
+    &:active {
+      background-color: var(--sdds-grey-400);
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+  }
+
+  &--tab {
+    font: var(--sdds-headline-07);
+    letter-spacing: var(--sdds-headline-07-ls);
+    color: rgb(0 21 51 / 60%);
+    padding: 26px 0;
+    margin-right: 32px;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: color 0.15s ease-in-out;
+    white-space: nowrap;
+
+    &:first-child {
+      margin-left: 32px;
+    }
+
+    &:last-child {
+      margin-right: 32px;
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-left: auto;
+      width: 0;
+      margin-right: auto;
+      height: 2px;
+      background-color: var(--sdds-grey-300);
+      transition: width 0.15s ease-in-out;
+      z-index: 10;
+    }
+
+    /* states */
+
+    &:hover {
+      color: var(--sdds-blue-958);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+
+      color: var(--sdds-grey-958);
+
+      &::after {
+        width: 0;
+      }
+    }
+
+    &__active {
+      color: var(--sdds-blue-958);
+
+      &::after {
+        width: 100%;
+        background-color: var(--sdds-blue-400);
+      }
+
+      &:focus {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    &__disabled {
+      color: rgb(0 21 51 / 60%);
+      pointer-events: none;
+    }
+  }
+}
