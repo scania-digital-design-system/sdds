@@ -49,9 +49,7 @@
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
 
   //White background
-  .sdds-on-white-bg {
-    --sdds-textfield-bg: var(--sdds-grey-50);
-  }
+  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
 }
 
 .sdds-theme-dark {
@@ -104,7 +102,5 @@
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
 
   //White background
-  .sdds-on-white-bg {
-    --sdds-textfield-bg: var(--sdds-grey-50);
-  }
+  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
 }
