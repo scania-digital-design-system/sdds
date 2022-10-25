@@ -45,6 +45,7 @@
 @import 'src/components/toast/toast';
 @import 'src/components/footer/footer';
 @import 'src/components/header/header';
+@import 'src/components/block/block';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-theme-vars';
@@ -60,6 +61,7 @@
 @import 'src/components/spinner/spinner';
 @import 'src/components/dropdown/dropdown-theme-vars';
 @import 'src/components/dropdown/dropdown-select';
+@import 'src/components/modal/modal';
 
 :root {
   --johnny-red: purple;
