@@ -11,7 +11,7 @@
 | `fullbleed` | `fullbleed` | When enabled, makes button take 100% width | `boolean`              | `false`     |
 | `size`      | `size`      |                                            | `"lg" \| "md" \| "sm"` | `'lg'`      |
 | `text`      | `text`      | Text inside a button                       | `string`               | `''`        |
-| `type`      | `type`      |                                            | `string`               | `undefined` |
+| `type`      | `type`      | Type of button                             | `string`               | `undefined` |
 
 
 ----------------------------------------------
