@@ -8,7 +8,7 @@ export default {
 const Template = () =>
   formatHtmlPreview(`
     <sdds-navigation-tabs id="navigation-tabs-example">
-      <a href="#">Tab name</a>
+      <a href="#" class="sdds-navigation-tabs--tab__active">Tab name</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>

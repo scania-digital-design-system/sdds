@@ -98,7 +98,9 @@
     }
   }
 
-  &--tab {
+  /* tab */
+  ::slotted(&--tab) {
+    //fixme: headline-07 has a line-height that is not matching old storybook
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     color: rgb(0 21 51 / 60%);
@@ -110,14 +112,6 @@
     transition: color 0.15s ease-in-out;
     white-space: nowrap;
 
-    &:first-child {
-      margin-left: 32px;
-    }
-
-    &:last-child {
-      margin-right: 32px;
-    }
-
     &::after {
       content: ' ';
       position: absolute;
@@ -128,49 +122,54 @@
       width: 0;
       margin-right: auto;
       height: 2px;
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-grey-400);
       transition: width 0.15s ease-in-out;
       z-index: 10;
     }
+  }
 
-    /* states */
+  ::slotted(&--tab:first-child) {
+    margin-left: 32px;
+  }
 
-    &:hover {
-      color: var(--sdds-blue-958);
+  ::slotted(&--tab:last-child) {
+    margin-right: 32px;
+  }
 
-      &::after {
-        width: 100%;
-      }
+  /* tab states */
+  ::slotted(&--tab:hover) {
+    color: var(--sdds-blue-958);
+
+    &::after {
+      width: 100%;
     }
+  }
 
-    &:focus {
-      @include sdds-focus-state;
+  ::slotted(&--tab:focus) {
+    @include sdds-focus-state;
 
-      color: var(--sdds-grey-958);
+    color: var(--sdds-grey-958);
 
-      &::after {
-        width: 0;
-      }
+    &::after {
+      width: 0;
     }
+  }
 
-    &__active {
-      color: var(--sdds-blue-958);
+  ::slotted(&--tab__active) {
+    color: var(--sdds-blue-958);
 
-      &::after {
-        width: 100%;
-        background-color: var(--sdds-blue-400);
-      }
-
-      &:focus {
-        &::after {
-          width: 100%;
-        }
-      }
+    &::after {
+      width: 100%;
+      background-color: var(--sdds-blue-400);
     }
+  }
 
-    &__disabled {
-      color: rgb(0 21 51 / 60%);
-      pointer-events: none;
-    }
+  ::slotted(&--tab__active:focus)::after {
+    width: 100%;
+  }
+
+  ::slotted(&--tab__disabled) {
+    color: rgb(0 21 51 / 38%);
+    pointer-events: none;
   }
 }
