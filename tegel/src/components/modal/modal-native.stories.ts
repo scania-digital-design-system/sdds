@@ -1,14 +1,6 @@
 export default {
   title: 'Components/Modal/Native',
   argTypes: {
-    preventBackdrop: {
-      name: 'Prevent backdrop',
-      description: 'Toggle visibility of backdrop',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
     size: {
       name: 'Size',
       description: 'Size of modal',
