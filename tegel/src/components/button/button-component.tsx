@@ -12,7 +12,10 @@ export class SddsButton {
 
   //TODO: Should this have prmary, danger, warning etc?
   /** Type of button */
-  @Prop() type: string;
+  @Prop() type: 'primary' | 'secondary' | 'ghost' | 'danger' = 'primary';
+
+  // Button variant
+  @Prop() variant: 'default' | 'variant' = 'default';
 
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
@@ -33,8 +36,11 @@ export class SddsButton {
   render() {
     return (
       <button
-        class={`sdds-btn sdds-btn-${this.type} ${`sdds-btn-${this.size}`} ${this.disabled ? 'disabled' : ''} ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
-
+        class={`sdds-btn sdds-btn-${this.type}
+        ${`sdds-btn-${this.size}`}
+        ${this.disabled ? 'disabled' : ''}
+        ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
+        ${this.variant === 'variant' ? 'sdds-on-white-bg' : ''}
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
       >
         <span>{this.text}</span>

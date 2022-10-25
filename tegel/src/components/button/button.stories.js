@@ -26,6 +26,15 @@ export default {
       defaultValue: 'Large',
       description: 'Size of the button',
     },
+    variant: {
+      name: 'Variant',
+      control: {
+        type: 'radio',
+        options: ['Default', 'Variant'],
+      },
+      defaultValue: 'Default',
+      description: 'Button variant.',
+    },
     fullbleed: {
       type: 'boolean',
       defaultValue: false,
@@ -50,7 +59,7 @@ export default {
   },
 };
 
-const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
+const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
   let sizeValue = '';
   switch (size) {
     case 'Large':
@@ -66,6 +75,7 @@ const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
       sizeValue = 'lg';
       break;
   }
+
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
@@ -73,7 +83,9 @@ const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
   // chromatic snapshot requires icon to be sdds-icon instead of font
   return formatHtmlPreview(
     `
-  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
+  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
+      variant === 'Variant' ? 'sdds-on-white-bg' : ''
+    }" ${inlineStyle}>
     <span>${text}</span>
     ${icon ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>" : ''}
   </button>
@@ -81,7 +93,7 @@ const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
   );
 };
 
-const WebComponentTemplate = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+const WebComponentTemplate = ({ size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
   let sizeValue = '';
   switch (size) {
     case 'Large':
@@ -99,10 +111,10 @@ const WebComponentTemplate = ({ size, btnType, fullbleed, disabled, icon, text =
   }
 
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
-
+  const variantValue = variant === 'Variant' ? 'variant' : 'default';
   return formatHtmlPreview(
     `
-  <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle}> ${
+  <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle} variant="${variantValue}" > ${
       icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
     } </sdds-button>
   `,
