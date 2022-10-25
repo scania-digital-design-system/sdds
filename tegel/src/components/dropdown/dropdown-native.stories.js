@@ -1,9 +1,11 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Dropdown/Native',
   parameters: {
     layout: 'centered',
+    notes: readme,
     backgrounds: {
       default: 'light',
     },
