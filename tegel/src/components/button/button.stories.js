@@ -21,9 +21,9 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: ['md', 'sm'],
+        options: ['Large', 'Medium', 'Small'],
       },
-      defaultValue: 'md',
+      defaultValue: 'Large',
       description: 'Size of the button',
     },
     fullbleed: {
@@ -53,14 +53,17 @@ export default {
 const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
   let sizeValue = '';
   switch (size) {
-    case 'sm':
-      sizeValue = 'sdds-btn-sm';
+    case 'Large':
+      sizeValue = 'lg';
       break;
-    case 'md':
-      sizeValue = 'sdds-btn-md';
+    case 'Medium':
+      sizeValue = 'md';
+      break;
+    case 'Small':
+      sizeValue = 'sm';
       break;
     default:
-      sizeValue = '';
+      sizeValue = 'lg';
       break;
   }
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
@@ -70,7 +73,7 @@ const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
   // chromatic snapshot requires icon to be sdds-icon instead of font
   return formatHtmlPreview(
     `
-  <button class="sdds-btn sdds-btn-${btnType} ${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
+  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}" ${inlineStyle}>
     <span>${text}</span>
     ${icon ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>" : ''}
   </button>
@@ -81,14 +84,17 @@ const NativeTemplate = ({ size, btnType, fullbleed, text = 'Button', disabled = 
 const WebComponentTemplate = ({ size, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
   let sizeValue = '';
   switch (size) {
-    default:
-      sizeValue = '';
+    case 'Large':
+      sizeValue = 'lg';
       break;
-    case 'md':
+    case 'Medium':
       sizeValue = 'md';
       break;
-    case 'sm':
+    case 'Small':
       sizeValue = 'sm';
+      break;
+    default:
+      sizeValue = 'lg';
       break;
   }
 
@@ -156,14 +162,14 @@ OnlyIcon.argTypes = {
 
 export const Medium_Size_W_Icon = NativeTemplate.bind({});
 Medium_Size_W_Icon.args = {
-  size: 'md',
+  size: 'Medium',
   text: 'Button',
   icon: true,
 };
 
 export const Small_Size_W_Icon = NativeTemplate.bind({});
 Small_Size_W_Icon.args = {
-  size: 'sm',
+  size: 'Small',
   text: 'Button',
   icon: true,
 };

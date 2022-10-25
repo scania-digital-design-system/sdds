@@ -10,9 +10,11 @@ export class SddsButton {
   /** Text inside a button */
   @Prop() text: string = '';
 
+  //TODO: Should this have prmary, danger, warning etc?
+  /** Type of button */
   @Prop() type: string;
 
-  @Prop() size: 'sm' | 'md' | '' = '';
+  @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Control for disabled state of component */
   @Prop() disabled: boolean = false;
@@ -31,7 +33,7 @@ export class SddsButton {
   render() {
     return (
       <button
-        class={`sdds-btn sdds-btn-${this.type} ${this.size !== '' ? `sdds-btn-${this.size}` : ''} ${this.disabled ? 'disabled' : ''} ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
+        class={`sdds-btn sdds-btn-${this.type} ${`sdds-btn-${this.size}`} ${this.disabled ? 'disabled' : ''} ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
 
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
       >

@@ -5,7 +5,7 @@
   --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-on-white-background-disabled);
 }
 
-$btn-default-height: 14rem;
+$btn-lg-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
 $types: (primary, secondary, ghost, danger);
@@ -26,7 +26,7 @@ $props: (background, border-color, color, outline-color);
 .sdds-btn {
   @include button-base;
 
-  height: $btn-default-height;
+  height: $btn-lg-height;
   padding: var(--sdds-spacing-element-20);
   border: 1px solid;
 
@@ -82,6 +82,21 @@ $props: (background, border-color, color, outline-color);
 
     .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
+    }
+  }
+
+  &.sdds-btn-lg {
+    padding: var(--sdds-spacing-element-20);
+    height: $btn-lg-height;
+
+    &:focus {
+      // TODO: decide on what tod o with these @include sdds-focus-state;
+      outline: 2px solid var(--sdds-blue-400);
+      outline-offset: -2px;
+    }
+
+    .sdds-btn-icon {
+      margin-left: var(--sdds-spacing-element-32);
     }
   }
 
