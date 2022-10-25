@@ -28,7 +28,7 @@ export class Textfield {
   @Prop() readonly: boolean = false;
 
   /** Size of the input */
-  @Prop() size: 'sm' | 'md' | '' = '';
+  @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Variant of the textfield */
   @Prop() variant: 'default' | 'variant' = 'default';
@@ -93,9 +93,9 @@ export class Textfield {
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
         ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
-        ${this.size == 'md' ? 'sdds-form-textfield-md' : ''}
-        ${this.size == 'sm' ? 'sdds-form-textfield-sm' : ''}
-        ${this.state == 'error' || this.state == 'success' ? `sdds-form-textfield-${this.state}` : ''}
+        ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
+        ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
+        ${this.state === 'error' || this.state === 'success' ? `sdds-form-textfield-${this.state}` : ''}
         `}
       >
         <div class="sdds-textfield-slot-wrap-label">

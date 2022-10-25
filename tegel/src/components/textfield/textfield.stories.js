@@ -14,6 +14,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: 'Placeholder',
     },
     type: {
       name: 'Type',
@@ -22,14 +23,16 @@ export default {
         type: 'radio',
         options: ['password', 'text'],
       },
+      defaultValue: 'text',
     },
     size: {
       name: 'Size',
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
-        options: ['Default', 'Medium', 'Small'],
+        options: ['Large', 'Medium', 'Small'],
       },
+      defaultValue: 'Large',
     },
     minWidth: {
       name: 'Min width',
@@ -38,6 +41,7 @@ export default {
         type: 'radio',
         options: ['Default', 'No min width'],
       },
+      defaultValue: 'Default',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -45,6 +49,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      defaultValue: false,
     },
     readonly: {
       description: 'Set textfield to read only',
@@ -52,6 +57,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      defaultValue: false,
     },
     label: {
       description: 'Label text for specific textfield',
@@ -59,6 +65,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: '',
     },
     labelplacement: {
       description: 'Label can be placed inside the textfield',
@@ -66,6 +73,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      defaultValue: false,
     },
     helper: {
       name: 'Helper text',
@@ -73,6 +81,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: '',
     },
     textcounter: {
       name: 'Text counter',
@@ -80,13 +89,14 @@ export default {
       control: {
         type: 'number',
       },
+      defaultValue: 0,
     },
     state: {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['none', 'success', 'error'],
+        options: ['None', 'Success', 'Error'],
       },
       defaultValue: 'none',
     },
@@ -100,22 +110,13 @@ export default {
       defaultValue: 'Default',
     },
   },
-  args: {
-    placeholderText: 'Placeholder',
-    type: 'text',
-    size: 'Default',
-    minWidth: 'Default',
-    disabled: false,
-    readonly: false,
-    state: 'none',
-    label: '',
-    labelplacement: false,
-    textcounter: 0,
-    helper: '',
-  },
 };
 
 const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, label, labelplacement, state, variant, helper, prefix, suffix, icon, textcounter }) => {
+  const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
+  const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const stateValue = state.toLowerCase();
+
   let sizeValue;
   switch (size) {
     case 'Small':
@@ -124,10 +125,11 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
     case 'Medium':
       sizeValue = 'md';
       break;
-    case 'Default':
-      sizeValue = 'default';
+    case 'Large':
+      sizeValue = 'lg';
       break;
     default:
+      sizeValue = 'lg';
       break;
   }
   let minWidthValue = false;
@@ -138,8 +140,6 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
     default:
       break;
   }
-  const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
 
   return formatHtmlPreview(
     `
@@ -147,7 +147,7 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
     <sdds-textfield
       type="${type}"
       size="${sizeValue}"
-      state="${state}"
+      state="${stateValue}"
       variant="${variantValue}"
       ${maxlength}
       ${label && labelplacement ? `label-inside="${label}"` : ''}

@@ -15,7 +15,7 @@
 | `nominwidth`  | `nominwidth`   | With setting                                | `boolean`                | `false`     |
 | `placeholder` | `placeholder`  | Placeholder text                            | `string`                 | `''`        |
 | `readonly`    | `readonly`     | Set input in readonly state                 | `boolean`                | `false`     |
-| `size`        | `size`         | Size of the input                           | `"" \| "md" \| "sm"`     | `''`        |
+| `size`        | `size`         | Size of the input                           | `"lg" \| "md" \| "sm"`   | `'lg'`      |
 | `state`       | `state`        | Error state of input                        | `string`                 | `undefined` |
 | `type`        | `type`         | Which input type, text, password or similar | `string`                 | `'text'`    |
 | `value`       | `value`        | Value of the input text                     | `string`                 | `''`        |

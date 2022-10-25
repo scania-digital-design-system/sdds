@@ -14,6 +14,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: 'Placeholder',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -21,6 +22,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      defaultValue: false,
     },
     readonly: {
       description: 'Set textfield to disabled state',
@@ -28,6 +30,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      defaultValue: false,
     },
     label: {
       description: 'Label text for specific textfield',
@@ -35,14 +38,16 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: '',
     },
     labelPosition: {
       description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['no-label', 'inside', 'outside'],
+        options: ['No label', 'Inside', 'Outside'],
       },
+      defaultValue: 'No label',
     },
     helper: {
       name: 'Helper text',
@@ -50,6 +55,7 @@ export default {
       control: {
         type: 'text',
       },
+      defaultValue: '',
     },
     textcounter: {
       name: 'Text counter',
@@ -57,6 +63,7 @@ export default {
       control: {
         type: 'number',
       },
+      defaultValue: 0,
     },
     rows: {
       name: 'Rows',
@@ -64,15 +71,16 @@ export default {
       control: {
         type: 'number',
       },
+      defaultValue: 5,
     },
     state: {
       name: 'State',
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['none', 'success', 'error'],
+        options: ['None', 'Success', 'Error'],
       },
-      defaultValue: 'none',
+      defaultValue: 'None',
     },
     variant: {
       name: 'Variant',
@@ -84,22 +92,26 @@ export default {
       defaultValue: 'Default',
     },
   },
-  args: {
-    placeholder: 'Placeholder',
-    disabled: false,
-    readonly: false,
-    state: 'none',
-    label: '',
-    labelPosition: 'no-label',
-    helper: '',
-    textcounter: 0,
-    rows: 5,
-  },
 };
 
 const Template = ({ placeholder, disabled, readonly, label, labelPosition, state, helper, textcounter, rows, variant }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const stateValue = state.toLowerCase();
+  let labelPositionValue;
+  switch (labelPosition) {
+    case 'No label':
+      labelPositionValue = 'no-label';
+      break;
+    case 'Inside':
+      labelPositionValue = 'inside';
+      break;
+    case 'Outside':
+      labelPositionValue = 'outside';
+      break;
+    default:
+      labelPositionValue = 'no-label';
+  }
   return formatHtmlPreview(`
   <style>
     .demo-wrapper {
@@ -109,11 +121,11 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
   <div class="demo-wrapper">
         <sdds-textarea
           rows="${rows}"
-          state="${state}"
+          state="${stateValue}"
           label="${label}"
           variant="${variantValue}"
           helper="${helper}"
-          label-position="${labelPosition}"
+          label-position="${labelPositionValue}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'readonly' : ''}
           placeholder="${placeholder}"
@@ -145,14 +157,14 @@ export const LabelInside = Template.bind({});
 
 LabelInside.args = {
   label: 'Label text',
-  labelPosition: 'inside',
+  labelPosition: 'Inside',
 };
 
 export const LabelOutside = Template.bind({});
 
 LabelOutside.args = {
   label: 'Label text',
-  labelPosition: 'outside',
+  labelPosition: 'Outside',
 };
 
 export const Helper = Template.bind({});
