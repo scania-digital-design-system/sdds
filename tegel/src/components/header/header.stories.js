@@ -20,14 +20,21 @@ export default {
 const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
+    <style>
+      .demo-wrapper {
+        font-size: 14px;
+      }
+    </style>
+  <div class="demo-wrapper">
   <nav class='sdds-nav'>     
-    <div class='sdds-nav__left'>
-      <div class='sdds-nav__app-name'>${siteName}</div>
-    </div>  
-    <div class='sdds-nav__right'>  
-      <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
-    </div> 
-  </nav>
+  <div class='sdds-nav__left'>
+    <div class='sdds-nav__app-name'>${siteName}</div>
+  </div>  
+  <div class='sdds-nav__right'>  
+    <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+  </div> 
+</nav>
+  </div>
   `,
   );
 
@@ -73,6 +80,12 @@ const InlineMenuTemplate = args => {
 
   return formatHtmlPreview(
     `
+    <style>
+    .demo-wrapper {
+      font-size: 14px;
+    }
+  </style>
+<div class="demo-wrapper">
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
      '>     
@@ -125,6 +138,7 @@ const InlineMenuTemplate = args => {
         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
       </div> 
   </nav>
+  </div>
   `,
   );
 };
@@ -217,6 +231,12 @@ const ToolbarMenuTemplate = args => {
 
   return formatHtmlPreview(
     `
+    <style>
+    .demo-wrapper {
+      font-size: 14px;
+    }
+  </style>
+<div class="demo-wrapper">
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
     ${openAvatarMenu && 'sdds-nav__avatar--opened'}
@@ -351,6 +371,7 @@ const ToolbarMenuTemplate = args => {
         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
       </div> 
   </nav>
+  </div>
   `,
   );
 };
@@ -454,6 +475,12 @@ const SearchbarMenuTemplate = args => {
   };
 
   return `
+  <style>
+  .demo-wrapper {
+    font-size: 14px;
+  }
+</style>
+<div class="demo-wrapper">
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
     ${openAvatarMenu && 'sdds-nav__avatar--opened'}
@@ -651,7 +678,7 @@ const SearchbarMenuTemplate = args => {
         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
       </div> 
   </nav>
-  `;
+  </div>`;
 };
 
 export const SearchbarMenu = SearchbarMenuTemplate.bind({});
@@ -756,6 +783,12 @@ const AllMenusTemplate = args => {
 
   return formatHtmlPreview(
     `
+    <style>
+    .demo-wrapper {
+      font-size: 14px;
+    }
+  </style>
+<div class="demo-wrapper">
   <nav class='sdds-nav  
     ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
     ${openAvatarMenu && 'sdds-nav__avatar--opened'}
@@ -895,6 +928,7 @@ const AllMenusTemplate = args => {
         <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
       </div> 
   </nav>
+  </div>
   `,
   );
 };
