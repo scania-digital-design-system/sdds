@@ -38,9 +38,9 @@ const IconFontTemplate = args =>
   <i class="sdds-icon ${args.icon}"></i>
   `);
 
-export const FontWay = IconFontTemplate.bind({});
+export const Native = IconFontTemplate.bind({});
 
-FontWay.args = {
+Native.args = {
   icon: 'truck',
   size: 32,
 };

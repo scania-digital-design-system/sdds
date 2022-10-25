@@ -33,9 +33,9 @@ const IconTemplate = args =>
   <sdds-icon name="${args.icon}" size="${`${args.size.toString()}px`}" />
   `);
 
-export const ComponentWay = IconTemplate.bind({});
+export const WebComponent = IconTemplate.bind({});
 
-ComponentWay.args = {
+WebComponent.args = {
   size: 32,
   icon: 'truck',
 };
