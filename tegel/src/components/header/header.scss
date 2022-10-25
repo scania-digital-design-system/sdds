@@ -1,3 +1,5 @@
+@import './header-theme-vars.scss';
+
 html,
 :root {
   --sdds-nav-dropdown-menu-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
@@ -165,7 +167,7 @@ html,
 
     font-family: var(--sdds-font-family-headline);
     font-weight: normal;
-    color: var(---sdds-header-app-name-color);
+    color: var(--sdds-header-app-name-color);
     padding: 0 24px;
     white-space: nowrap;
   }
@@ -601,7 +603,7 @@ html,
 
       .sdds-nav__app-searchbar-btn-svg {
         path {
-          fill: var(--sdds-header-searchbar-btn-svf-fill);
+          fill: var(--sdds-header-searchbar-btn-svg-fill);
         }
       }
     }
@@ -674,8 +676,8 @@ html,
   .sdds-nav__avatar-item {
     width: 320px;
     height: 64px;
-    background-color: var(--sdds-white);
-    border-bottom: 1px solid var(--sdds-grey-300);
+    background-color: var(--sdds-header-avatar-item-bg);
+    border-bottom: 1px solid var(--sdds-header-avatar-item-border-color);
     box-shadow: 0 3px 3px rgb(0 0 0 / 15%);
 
     //WHY WE NEED DOUBLE VALUES HERE TO MAKE IT WORK???
@@ -715,7 +717,7 @@ html,
 
   .sdds-nav__avatar-subtitle {
     padding-top: 4px;
-    color: var(--sdds-grey-500);
+    color: var(--sdds-header-avatar-subtitle-color);
   }
 
   .sdds-nav__avatar-item-core,
@@ -730,21 +732,21 @@ html,
     padding: 0 16px;
     height: 100%;
     width: 100%;
-    background-color: var(--sdds-white);
-    color: var(--sdds-grey-700);
+    background-color: var(--sdds-header-avatar-item-bg);
+    color: var(--sdds-header-avatar-item-color);
     transition: background-color 150ms ease;
     border: none;
     cursor: pointer;
 
     &:hover {
       text-decoration: none;
-      background-color: var(--sdds-grey-100);
+      background-color: var(--sdds-header-avatar-item-bg-hover);
     }
   }
 
   &.sdds-nav__avatar--opened {
     .sdds-nav__avatar-btn {
-      background-color: var(--sdds-white);
+      background-color: var(--sdds-header-avatar-item-btn-bg);
     }
 
     .sdds-nav__avatar-menu {
@@ -758,7 +760,7 @@ html,
 
     overflow-y: auto;
     list-style-type: none;
-    background-color: var(--sdds-white);
+    background-color: var(--sdds-header-app-launcher-menu-bg);
     position: absolute;
     right: 0;
     height: calc(100vh - 64px);
@@ -771,8 +773,8 @@ html,
 
   &.sdds-nav__app-launcher--opened {
     .sdds-nav__app-launcher-btn {
-      background-color: var(--sdds-white);
-      color: var(--sdds-black);
+      background-color: var(--sdds-header-app-launcher-btn-bg);
+      color: var(--sdds-header-app-launcher-btn-color);
     }
 
     .sdds-nav__app-launcher-menu {
@@ -784,7 +786,7 @@ html,
   .sdds-nav__app-launcher-item {
     width: 320px;
     height: 64px;
-    border-bottom: 1px solid var(--sdds-grey-300);
+    border-bottom: 1px solid var(--sdds-header-app-launcher-item-border-color);
   }
 
   .sdds-nav__app-launcher-item--category {
@@ -800,8 +802,8 @@ html,
     height: 100%;
     width: 100%;
     padding: 0 16px;
-    background-color: var(--sdds-white);
-    color: var(--sdds-grey-500);
+    background-color: var(--sdds-header-app-launcher-category-title-bg);
+    color: var(--sdds-header-app-launcher-category-title-color);
   }
 
   .sdds-nav__app-launcher-item-core,
@@ -816,15 +818,15 @@ html,
     padding: 0 16px;
     height: 100%;
     width: 100%;
-    background-color: var(--sdds-white);
-    color: var(--sdds-grey-700);
+    background-color: var(--sdds-header-app-launcher-item-bg);
+    color: var(--sdds-header-app-launcher-item-color);
     transition: background-color 150ms ease;
     border: none;
     cursor: pointer;
 
     &:hover {
       text-decoration: none;
-      background-color: var(--sdds-grey-100);
+      background-color: var(--sdds-header-app-launcher-item-bg-hover);
     }
   }
 
@@ -837,7 +839,7 @@ html,
       position: absolute;
       top: 0;
       height: 68px;
-      border-bottom: 1px solid var(--sdds-grey-300);
+      border-bottom: 1px solid var(--sdds-header-mobile-searchbar-container-border-color);
     }
 
     .sdds-nav__app-searchbar {
@@ -920,7 +922,7 @@ html,
         &::before {
           content: ' ';
           height: 500px;
-          background-color: var(--sdds-white);
+          background-color: var(--sdds-header-mobile-searchbar-input-expanded-before-bg);
           display: block;
           position: absolute;
           top: 0;
@@ -931,35 +933,35 @@ html,
       }
 
       .sdds-nav__searchbar-input {
-        background-color: var(--sdds-white);
-        color: var(--sdds-black);
+        background-color: var(--sdds-header-mobile-searchbar-input-bg);
+        color: var(--sdds-header-mobile-searchbar-input-color);
 
         &::placeholder {
-          color: var(--sdds-grey-800);
+          color: var(--sdds-header-mobile-searchbar-input-placeholder-color);
         }
       }
 
       .sdds-nav__app-searchbar-btn {
-        background-color: var(--sdds-white);
+        background-color: var(--sdds-header-mobile-searchbar-open-btn-bg);
 
         &:active {
           width: 64px;
         }
 
         &:hover {
-          background-color: var(--sdds-grey-100);
+          background-color: var(--sdds-header-mobile-searchbar-open-btn-bg-hover);
         }
 
         .sdds-nav__app-searchbar-btn-svg {
           path {
-            fill: var(--sdds-grey-958);
+            fill: var(--sdds-header-mobile-searchbar-btn-svg-fill);
           }
         }
       }
     }
 
     .sdds-nav__app-searchbar-btn:hover {
-      background-color: var(--sdds-grey-100);
+      background-color: var(--sdds-header-mobile-searchbar-btn-bg-hover);
     }
 
     .sdds-nav__app-searchbar {
@@ -984,7 +986,7 @@ html,
       width: 272px;
       height: calc(100vh - 64px);
       flex-direction: column;
-      background-color: var(--sdds-white);
+      background-color: var(--sdds-header-mobile-nav-center-bg);
       transform: scaleY(0);
       transform-origin: top;
       transition: transform 250ms ease;
@@ -1008,7 +1010,7 @@ html,
       }
 
       .sdds-nav__avatar-btn {
-        border-bottom: 1px solid var(--sdds-grey-300);
+        border-bottom: 1px solid var(--sdds-header-mobile-avatar-btn-border-color);
       }
 
       .sdds-nav__item {
@@ -1018,18 +1020,18 @@ html,
       }
 
       .sdds-nav__item-core {
-        border-bottom: 1px solid var(--sdds-grey-300);
+        border-bottom: 1px solid var(--sdds-header-mobile-nav-center-item-border-color);
       }
 
       .sdds-nav__toolbar-menu {
         margin-top: -1px;
-        border-top: 1px solid var(--sdds-grey-300);
+        border-top: 1px solid var(--sdds-header-mobile-nav-toolbar-border-color);
       }
 
       .sdds-nav__item--active::after {
         content: '';
         border-bottom: none;
-        border-right: 4px solid var(--sdds-blue-400);
+        border-right: 4px solid var(--sdds-header-mobile-nav-center-item-border-color-active-after);
         width: 0;
         height: 100%;
         display: block;
@@ -1041,11 +1043,11 @@ html,
 
       .sdds-nav__item-core,
       .sdds-nav__avatar-btn {
-        background-color: var(--sdds-white);
-        color: var(--sdds-grey-958);
+        background-color: var(--sdds-header-mobile-avatar-btn-bg);
+        color: var(--sdds-header-mobile-avatar-btn-border-color);
 
         &:hover {
-          background-color: var(--sdds-grey-100);
+          background-color: var(--sdds-header-mobile-avatar-btn-bg);
         }
       }
 
@@ -1065,7 +1067,7 @@ html,
 
             &:last-of-type {
               border-radius: 0;
-              border-bottom: 1px solid var(--sdds-grey-300);
+              border-bottom: 1px solid var(--sdds-header-mobile-nav-center-dropdown-item--last-border-color);
             }
           }
         }
