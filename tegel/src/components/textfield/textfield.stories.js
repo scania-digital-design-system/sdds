@@ -90,6 +90,15 @@ export default {
       },
       defaultValue: 'none',
     },
+    variant: {
+      name: 'Variant',
+      description: 'The variant of the textarea',
+      control: {
+        type: 'radio',
+        options: ['Default', 'Variant'],
+      },
+      defaultValue: 'Default',
+    },
   },
   args: {
     placeholderText: 'Placeholder',
@@ -106,7 +115,7 @@ export default {
   },
 };
 
-const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, label, labelplacement, state, helper, prefix, suffix, icon, textcounter }) => {
+const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, label, labelplacement, state, variant, helper, prefix, suffix, icon, textcounter }) => {
   let sizeValue;
   switch (size) {
     case 'Small':
@@ -130,6 +139,7 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
       break;
   }
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
+  const variantValue = variant === 'Variant' ? 'variant' : 'default';
 
   return formatHtmlPreview(
     `
@@ -138,6 +148,7 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
       type="${type}"
       size="${sizeValue}"
       state="${state}"
+      variant="${variantValue}"
       ${maxlength}
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}

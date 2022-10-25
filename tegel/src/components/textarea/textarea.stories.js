@@ -74,6 +74,15 @@ export default {
       },
       defaultValue: 'none',
     },
+    variant: {
+      name: 'Variant',
+      description: 'The variant of the textarea',
+      control: {
+        type: 'radio',
+        options: ['Default', 'Variant'],
+      },
+      defaultValue: 'Default',
+    },
   },
   args: {
     placeholder: 'Placeholder',
@@ -88,8 +97,9 @@ export default {
   },
 };
 
-const Template = ({ placeholder, disabled, readonly, label, labelPosition, state, helper, textcounter, rows }) => {
+const Template = ({ placeholder, disabled, readonly, label, labelPosition, state, helper, textcounter, rows, variant }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
+  const variantValue = variant === 'Variant' ? 'variant' : 'default';
   return formatHtmlPreview(`
   <style>
     .demo-wrapper {
@@ -101,6 +111,7 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
           rows="${rows}"
           state="${state}"
           label="${label}"
+          variant="${variantValue}"
           helper="${helper}"
           label-position="${labelPosition}"
           ${disabled ? 'disabled' : ''}
