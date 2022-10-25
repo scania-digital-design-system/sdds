@@ -17,7 +17,7 @@ export class SddsButton {
   // Button variant
   @Prop() variant: 'default' | 'variant' = 'default';
 
-  @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
+  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'lg';
 
   /** Control for disabled state of component */
   @Prop() disabled: boolean = false;

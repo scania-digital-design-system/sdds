@@ -9,19 +9,28 @@ export default {
     },
   },
   argTypes: {
+    text: {
+      name: 'Text',
+      description: 'The text to be displayed on the button',
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Button',
+    },
     btnType: {
-      name: 'type',
-      defaultValue: 'primary',
+      name: 'Type',
       description: 'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
         type: 'radio',
-        options: ['primary', 'secondary', 'ghost', 'danger'],
+        options: ['Primary', 'Secondary', 'Ghost', 'Danger'],
       },
+      defaultValue: 'Primary',
     },
     size: {
+      name: 'Soze',
       control: {
         type: 'radio',
-        options: ['Large', 'Medium', 'Small'],
+        options: ['Large', 'Medium', 'Small', 'Extra Small'],
       },
       defaultValue: 'Large',
       description: 'Size of the button',
@@ -36,11 +45,13 @@ export default {
       description: 'Button variant.',
     },
     fullbleed: {
+      name: 'Fullbleed',
       type: 'boolean',
       defaultValue: false,
       description: 'Fluid width in certain components-old',
     },
     disabled: {
+      name: 'Disabled',
       type: 'boolean',
       defaultValue: false,
       description: 'Choose to disable the button',
@@ -52,9 +63,14 @@ export default {
       },
     },
     icon: {
+      name: 'Icon',
       type: 'boolean',
       defaultValue: false,
       description: 'Include icon',
+      control: {
+        type: 'boolean',
+      },
+      if: { arg: 'size', neq: 'Extra Small' },
     },
   },
 };
@@ -71,6 +87,9 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
     case 'Small':
       sizeValue = 'sm';
       break;
+    case 'Extra Small':
+      sizeValue = 'xs';
+      break;
     default:
       sizeValue = 'lg';
       break;
@@ -79,11 +98,12 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
+  const btnTypeValue = btnType.toLowerCase();
 
   // chromatic snapshot requires icon to be sdds-icon instead of font
   return formatHtmlPreview(
     `
-  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
+  <button class="sdds-btn sdds-btn-${btnTypeValue} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
       variant === 'Variant' ? 'sdds-on-white-bg' : ''
     }" ${inlineStyle}>
     <span>${text}</span>
@@ -104,6 +124,9 @@ const WebComponentTemplate = ({ size, variant, btnType, fullbleed, disabled, ico
       break;
     case 'Small':
       sizeValue = 'sm';
+      break;
+    case 'Extra Small':
+      sizeValue = 'xs';
       break;
     default:
       sizeValue = 'lg';
@@ -126,45 +149,19 @@ Primary.args = {
   text: 'Button',
 };
 
-export const Secondary = NativeTemplate.bind({});
-Secondary.args = {
-  btnType: 'secondary',
-  text: 'Button',
-};
-
-export const Ghost = NativeTemplate.bind({});
-Ghost.args = {
-  btnType: 'ghost',
-  text: 'Button',
-};
-
-export const Danger = NativeTemplate.bind({});
-Danger.args = {
-  btnType: 'danger',
-  text: 'Button',
-};
-
-export const Disabled = NativeTemplate.bind({});
-Disabled.args = {
-  disabled: 'disabled',
-  text: 'Button',
-};
-
-/** Variants of button. Shown only on primary button */
-
-export const WithIcon = NativeTemplate.bind({});
-WithIcon.args = {
+export const NativeWithIcon = NativeTemplate.bind({});
+NativeWithIcon.args = {
   text: 'Button',
   icon: true,
 };
 
-export const OnlyIcon = NativeTemplate.bind({});
-OnlyIcon.args = {
+export const NativeOnlyIcon = NativeTemplate.bind({});
+NativeOnlyIcon.args = {
   text: "<sdds-icon name='scania-cross'></sdds-icon>",
   onlyIcon: true,
 };
 
-OnlyIcon.argTypes = {
+NativeOnlyIcon.argTypes = {
   icon: {
     table: {
       disable: true,
@@ -172,29 +169,8 @@ OnlyIcon.argTypes = {
   },
 };
 
-export const Medium_Size_W_Icon = NativeTemplate.bind({});
-Medium_Size_W_Icon.args = {
-  size: 'Medium',
-  text: 'Button',
-  icon: true,
-};
-
-export const Small_Size_W_Icon = NativeTemplate.bind({});
-Small_Size_W_Icon.args = {
-  size: 'Small',
-  text: 'Button',
-  icon: true,
-};
-
-export const Fullbleed = NativeTemplate.bind({});
-Fullbleed.args = {
-  text: 'Button',
-  fullbleed: true,
-  icon: true,
-};
-
 /** Button as web component */
-export const SddsButton = WebComponentTemplate.bind({});
-SddsButton.args = {
+export const WebComponent = WebComponentTemplate.bind({});
+WebComponent.args = {
   text: 'Button',
 };

@@ -9,7 +9,7 @@
 | ----------- | ----------- | ------------------------------------------ | ------------------------------------------------- | ----------- |
 | `disabled`  | `disabled`  | Control for disabled state of component    | `boolean`                                         | `false`     |
 | `fullbleed` | `fullbleed` | When enabled, makes button take 100% width | `boolean`                                         | `false`     |
-| `size`      | `size`      |                                            | `"lg" \| "md" \| "sm"`                            | `'lg'`      |
+| `size`      | `size`      |                                            | `"lg" \| "md" \| "sm" \| "xs"`                    | `'lg'`      |
 | `text`      | `text`      | Text inside a button                       | `string`                                          | `''`        |
 | `type`      | `type`      | Type of button                             | `"danger" \| "ghost" \| "primary" \| "secondary"` | `'primary'` |
 | `variant`   | `variant`   |                                            | `"default" \| "variant"`                          | `'default'` |
