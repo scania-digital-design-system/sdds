@@ -1,0 +1,35 @@
+:root,
+.sdds-theme-light {
+  --sdds-header-bg: var(--sdds-blue-800);
+  --sdds-header-overlay: var(--sdds-black);
+  --sdds-header-app-name-color: var(--sdds-white);
+  --sdds-header-mob-menu-color: var(--sdds-white);
+  --sdds-header-mob-menu-open-color: var(--sdds-grey-958);
+  --sdds-header-mob-menu-open-bg: var(--sdds-white);
+  --sdds-header-mob-menu-open-border: var(--sdds-grey-300);
+  --sdds-nav-item-bg: var(--sdds-white);
+  --sdds-nav-item-bg-hover: var(--sdds-grey-100);
+  --sdds-nav-item-border-color: var(--sdds-grey-300);
+  --sdds-nav-item-border-color-active: var(--sdds-grey-400);
+  --sdds-nav-item-core-bg-hover: var(--sdds-grey-100);
+  --sdds-nav-item-core-color-active: var(--sdds-grey-800);
+  --sdds-nav-item-core-border-color: var(--sdds-blue-700);
+  --sdds-nav-item-core-border-color-after: var(--sdds-blue-400);
+  --sdds-header-nav-item-color: var(--sdds-white);
+  --sdds-header-nav-item-bg-active: var(--sdds-blue-700);
+  --sdds-header-nav-item-dropdown-opened-bg: var(--sdds-white);
+  --sdds-header-nav-item-dropdown-opened-color: var(--sdds-grey-958);
+
+  // sdds-nav__basic-element-style
+  --sdds-header--basic-element-bg: var(--sdds-blue-800);
+  --sdds-header--basic-element-bg-hover: var(--sdds-blue-700);
+  --sdds-header-app-launcher-btn-color: var(--sdds-white);
+  --sdds-header-searchbar-input-color: var(--sdds-black);
+  --sdds-header-searchbar-border-color: var(--sdds-blue-700);
+  --sdds-header-searchbar-btn-active: var(--sdds-white);
+  --sdds-header-searchbar-result-category-border-color: var(--sdds-grey-300);
+}
+
+:root,
+.sdds-theme-dark {
+}

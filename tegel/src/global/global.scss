@@ -20,7 +20,7 @@
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
 
-//Grid
+// Grid
 @import '../theme/core/grid/grid';
 
 // Tegel reset
@@ -40,6 +40,7 @@
 @import 'src/components/toggle/toggle';
 @import 'src/components/toast/toast';
 @import 'src/components/footer/footer';
+@import 'src/components/header/header';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-theme-vars';
