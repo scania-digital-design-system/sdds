@@ -83,7 +83,7 @@ export class Textarea {
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readonly ? 'sdds-textarea-readonly' : ''}
-        ${this.value.length > 0 ? 'sdds-textarea-data' : ''}
+        ${this.value?.length > 0 ? 'sdds-textarea-data' : ''}
         ${
           this.state == 'error' || this.state == 'success'
             ? `sdds-textarea-${this.state}`
@@ -169,7 +169,7 @@ export class Textarea {
         )}
         {this.maxlength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
-            {this.value.length}{' '}
+            {this.value?.length}{' '}
             <span class="sdds-textfield-textcounter-divider"> / </span>{' '}
             {this.maxlength}
           </div>
