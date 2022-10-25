@@ -12,6 +12,7 @@ const outputFolder = 'dist';
 const iconFolder = './src/svg/*.svg';
 const tempFolder = 'temp';
 const iconComponentFolder = '../components/src/components/icon/';
+const iconComponentFolderTegel = '../tegel/src/components/icon/';
 
 const runTimestamp = Math.round(Date.now() / 1000);
 const fontName = 'sdds-icons';
@@ -129,8 +130,11 @@ async function generateIcons() {
   // write file into dist folder for testing/debugging purposes
   fs.writeFileSync(`${outputFolder}/iconsArrays.js`, icons);
 
-  // write icons into /tegel/icons folder for component and story usage
+  // write icons into /component/icons folder for component and story usage
   fs.writeFileSync(`${iconComponentFolder}/iconsArray.js`, icons);
+
+  // write icons into /tegel/icons folder for component and story usage
+  fs.writeFileSync(`${iconComponentFolderTegel}/iconsArray.js`, icons);
 }
 
 // create icon fonts from cleaned svgs
