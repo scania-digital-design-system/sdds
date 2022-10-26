@@ -141,7 +141,7 @@
 
   /* tab states */
   ::slotted(&--tab:hover) {
-    color: var(--sdds-blue-958);
+    color: var(--sdds-grey-958);
 
     &::after {
       width: 100%;
@@ -159,7 +159,7 @@
   }
 
   ::slotted(&--tab__active) {
-    color: var(--sdds-blue-958);
+    color: var(--sdds-grey-958);
 
     &::after {
       width: 100%;
