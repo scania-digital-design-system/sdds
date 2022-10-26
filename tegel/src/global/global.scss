@@ -20,6 +20,9 @@
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
 
+//Grid
+@import '../theme/core/grid/grid';
+
 // Tegel reset
 @import '../theme/light/src/_reboot.scss';
 
@@ -36,6 +39,7 @@
 @import 'src/components/link/link';
 @import 'src/components/toggle/toggle';
 @import 'src/components/toast/toast';
+@import 'src/components/footer/footer';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-theme-vars';
