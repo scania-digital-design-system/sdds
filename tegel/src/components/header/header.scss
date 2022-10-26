@@ -333,8 +333,8 @@ html,
   .sdds-nav__dropdown-item {
     width: 190px;
     height: 48px;
-    background-color: var(--sdds-nav-item-bg);
-    border-bottom: 1px solid var(--sdds-nav-item-border-color);
+    background-color: var(--sdds-nav-dropdown-item-bg);
+    border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
     transition: background-color 150ms ease;
 
     &:hover {
@@ -1044,11 +1044,11 @@ html,
 
       .sdds-nav__item-core,
       .sdds-nav__avatar-btn {
-        background-color: var(--sdds-header-mobile-avatar-btn-bg);
-        color: var(--sdds-header-mobile-avatar-btn-border-color);
+        background-color: var(--sdds-header-mobile-avatar--item-btn-bg);
+        color: var(--sdds-header-mobile-avatar--iten-btn-border-color);
 
         &:hover {
-          background-color: var(--sdds-header-mobile-avatar-btn-bg);
+          background-color: var(--sdds-header-mobile-avatar--item-btn-bg-hover);
         }
       }
 
