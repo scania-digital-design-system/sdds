@@ -35,12 +35,6 @@ export default {
       defaultValue: 'Placeholder',
       description: 'Placeholder text when no option is selected',
     },
-    label: {
-      name: 'Label',
-      type: 'string',
-      defaultValue: 'Label text',
-      description: 'Label text helps to describe what the dropdown contains',
-    },
     labelPosition: {
       name: 'Label position',
       control: {
@@ -75,13 +69,12 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      control: {
-        type: 'text',
-      },
-      defaultValue: '',
+      control: 'boolean',
+      defaultValue: false,
       description: 'Helper text assists the user with additional information about the dropdown',
     },
     defaultOption: {
+      if: { arg: 'type', neq: 'multiselect' },
       description: 'Sets a pre-selected option and replaces placeholder',
       name: 'Default option',
       control: {
@@ -97,6 +90,8 @@ export default {
     },
     multiDefaultOption: {
       name: 'Default options',
+      if: { arg: 'type', neq: 'default' },
+
       control: {
         type: 'check',
         options: {
@@ -109,7 +104,7 @@ export default {
   },
 };
 
-const Template = ({ size, type, label, disabled = false, labelPosition, helper = '', state = 'default', placeholder, defaultOption }) => {
+const Template = ({ size, type, disabled = false, labelPosition, helper, state = 'default', placeholder, defaultOption }) => {
   return formatHtmlPreview(`
     <div class="demo-wrapper">
         <sdds-dropdown   
@@ -118,8 +113,8 @@ const Template = ({ size, type, label, disabled = false, labelPosition, helper =
           placeholder="${placeholder}"
           disabled="${disabled}"
           label-position="${labelPosition}"
-          ${labelPosition !== 'no-default' ? `label="${label}"` : ''} 
-          ${helper ? `helper="${helper}"` : ''} 
+          ${labelPosition !== 'no-default' ? `label="Label text"` : ''} 
+          ${helper ? `helper="Helper text"` : ''} 
           state="${state}"
           type="${type}"
           default-option="${defaultOption}" >     
@@ -144,18 +139,11 @@ Default.args = {
   size: 'lg',
   label: 'Label text',
   labelPosition: 'no-default',
-  helper: 'Helper text',
+  helper: false,
   disabled: false,
 };
-Default.argTypes = {
-  multiDefaultOption: {
-    table: {
-      disable: true,
-    },
-  },
-};
 
-const MultiselectTemplate = ({ size, disabled = false, type = 'multiselect', helper = '', placeholder, multiDefaultOption, labelPosition }) => {
+const MultiselectTemplate = ({ size, disabled = false, type = 'multiselect', helper, placeholder, multiDefaultOption, labelPosition }) => {
   return formatHtmlPreview(`
     <div class="demo-wrapper">
         <sdds-dropdown
@@ -163,11 +151,11 @@ const MultiselectTemplate = ({ size, disabled = false, type = 'multiselect', hel
         size="${size}"
         placeholder="${placeholder}"
         disabled="${disabled}"
-        ${helper ? `helper="${helper}"` : ''} 
+        ${helper ? `helper="Helper text"` : ''} 
         default-option='${multiDefaultOption}'
         type='${type}'
         label-position="${labelPosition}"
-        ${labelPosition !== 'no-default' ? `label="${label}"` : ''}   
+        ${labelPosition !== 'no-default' ? `label="Label text"` : ''}   
         >
           <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
@@ -189,11 +177,6 @@ Multiselect.argTypes = {
 };
 Multiselect.argTypes = {
   state: {
-    table: {
-      disable: true,
-    },
-  },
-  defaultOption: {
     table: {
       disable: true,
     },
