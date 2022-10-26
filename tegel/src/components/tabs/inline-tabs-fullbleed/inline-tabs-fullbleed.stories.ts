@@ -1,7 +1,11 @@
 import { formatHtmlPreview } from '../../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Tabs/Inline Tabs (full bleed)',
+  parameters: {
+    notes: readme,
+  },
 };
 
 const Template = () =>
