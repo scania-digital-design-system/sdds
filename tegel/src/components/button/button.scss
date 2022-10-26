@@ -15,7 +15,8 @@ $props: (background, border-color, color, outline-color);
 @mixin button-base {
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border-radius: 1rem;
   border: none;
   box-shadow: none;
@@ -49,8 +50,8 @@ $props: (background, border-color, color, outline-color);
     font-size: 4rem; //16px
   }
 
-  .sdds-btn-icon {
-    margin-left: var(--sdds-spacing-element-32);
+  span + .sdds-btn-icon {
+    margin-left: var(--sdds-spacing-element-16);
     width: 16px;
     height: 16px;
     line-height: 0;
@@ -65,10 +66,6 @@ $props: (background, border-color, color, outline-color);
       outline: 2px solid var(--sdds-blue-400);
       outline-offset: -2px;
     }
-
-    .sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-24);
-    }
   }
 
   &.sdds-btn-sm {
@@ -81,7 +78,7 @@ $props: (background, border-color, color, outline-color);
       outline-offset: -2px;
     }
 
-    .sdds-btn-icon {
+    span + .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
     }
   }
@@ -96,8 +93,8 @@ $props: (background, border-color, color, outline-color);
       outline-offset: -2px;
     }
 
-    .sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-24);
+    span + .sdds-btn-icon {
+      margin-left: var(--sdds-spacing-element-20);
     }
   }
 
@@ -111,8 +108,8 @@ $props: (background, border-color, color, outline-color);
       outline-offset: -2px;
     }
 
-    .sdds-btn-icon {
-      margin-left: var(--sdds-spacing-element-32);
+    span + .sdds-btn-icon {
+      margin-left: 7rem;
     }
   }
 
@@ -124,6 +121,10 @@ $props: (background, border-color, color, outline-color);
     &.sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-8);
     }
+  }
+
+  span {
+    align-self: baseline;
   }
 
   @each $type in $types {
@@ -167,12 +168,41 @@ $props: (background, border-color, color, outline-color);
   }
 }
 
-::slotted([slot='icon']) {
-  margin-left: var(--sdds-spacing-element-32);
-  width: var(--sdds-spacing-element-16);
-  height: var(--sdds-spacing-element-16);
+:host(sdds-button) {
+  display: flex;
+  align-items: center;
+
+  ::slotted([slot='icon']) {
+    width: var(--sdds-spacing-element-16);
+    height: var(--sdds-spacing-element-16);
+  }
 }
 
-:host(sdds-button) {
-  display: inline-block;
+:host(sdds-button[onlyIcon='false']) {
+  display: flex;
+  align-items: center;
+
+  .sdds-btn-sm {
+    ::slotted([slot='icon']) {
+      margin-left: var(--sdds-spacing-element-24);
+      width: var(--sdds-spacing-element-16);
+      height: var(--sdds-spacing-element-16);
+    }
+  }
+
+  .sdds-btn-md {
+    ::slotted([slot='icon']) {
+      margin-left: var(--sdds-spacing-element-20);
+      width: var(--sdds-spacing-element-16);
+      height: var(--sdds-spacing-element-16);
+    }
+  }
+
+  .sdds-btn-lg {
+    ::slotted([slot='icon']) {
+      margin-left: 7rem;
+      width: var(--sdds-spacing-element-16);
+      height: var(--sdds-spacing-element-16);
+    }
+  }
 }

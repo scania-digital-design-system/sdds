@@ -1,4 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import { iconsNames } from '../icon/iconsArray.js';
 
 export default {
   title: 'Components/Button',
@@ -64,11 +65,10 @@ export default {
     },
     icon: {
       name: 'Icon',
-      type: 'boolean',
-      defaultValue: false,
       description: 'Include icon',
       control: {
-        type: 'boolean',
+        type: 'select',
+        options: [...iconsNames, 'none'],
       },
       if: { arg: 'size', neq: 'Extra Small' },
     },
@@ -106,14 +106,14 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   <button class="sdds-btn sdds-btn-${btnTypeValue} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
       variant === 'Variant' ? 'sdds-on-white-bg' : ''
     }" ${inlineStyle}>
-    <span>${text}</span>
-    ${icon ? "<span class='sdds-btn-icon'><sdds-icon name='scania-cross'></sdds-icon></span>" : ''}
+    ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
+    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='16px' name='${icon}'></sdds-icon>` : ''}
   </button>
   `,
   );
 };
 
-const WebComponentTemplate = ({ size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
   let sizeValue = '';
   switch (size) {
     case 'Large':
@@ -135,11 +135,13 @@ const WebComponentTemplate = ({ size, variant, btnType, fullbleed, disabled, ico
 
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
+
+  const btnTypeValue = btnType.toLowerCase();
   return formatHtmlPreview(
     `
-  <sdds-button type="${btnType}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${text}" ${inlineStyle} variant="${variantValue}" > ${
-      icon ? "<sdds-icon slot='icon' name='scania-cross'></sdds-icon>" : ''
-    } </sdds-button>
+  <sdds-button onlyIcon="${onlyIcon}" type="${btnTypeValue}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${
+      fullbleed ? 'fullbleed' : ''
+    } text="${text}" ${inlineStyle} variant="${variantValue}" > ${onlyIcon || icon ? `<sdds-icon slot='icon' size='16px' name=${icon}></sdds-icon>` : ''} </sdds-button>
   `,
   );
 };
@@ -152,25 +154,32 @@ Primary.args = {
 export const NativeWithIcon = NativeTemplate.bind({});
 NativeWithIcon.args = {
   text: 'Button',
-  icon: true,
+  icon: 'truck',
 };
 
 export const NativeOnlyIcon = NativeTemplate.bind({});
 NativeOnlyIcon.args = {
-  text: "<sdds-icon name='scania-cross'></sdds-icon>",
   onlyIcon: true,
+  icon: 'truck',
 };
 
-NativeOnlyIcon.argTypes = {
-  icon: {
-    table: {
-      disable: true,
-    },
-  },
-};
+NativeOnlyIcon.argTypes = {};
 
 /** Button as web component */
 export const WebComponent = WebComponentTemplate.bind({});
 WebComponent.args = {
   text: 'Button',
+};
+
+export const WebComponentWithButton = WebComponentTemplate.bind({});
+WebComponentWithButton.args = {
+  text: 'Button',
+  icon: 'truck',
+};
+
+export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
+WebComponentOnlyIcon.args = {
+  text: '',
+  onlyIcon: true,
+  icon: 'truck',
 };
