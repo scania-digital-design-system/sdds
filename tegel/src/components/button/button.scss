@@ -52,8 +52,8 @@ $props: (background, border-color, color, outline-color);
 
   span + .sdds-btn-icon {
     margin-left: var(--sdds-spacing-element-16);
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     line-height: 0;
   }
 
@@ -80,6 +80,8 @@ $props: (background, border-color, color, outline-color);
 
     span + .sdds-btn-icon {
       margin-left: var(--sdds-spacing-element-24);
+      width: 16px;
+      height: 16px;
     }
   }
 
@@ -173,8 +175,15 @@ $props: (background, border-color, color, outline-color);
   align-items: center;
 
   ::slotted([slot='icon']) {
-    width: var(--sdds-spacing-element-16);
-    height: var(--sdds-spacing-element-16);
+    width: var(--sdds-spacing-element-20);
+    height: var(--sdds-spacing-element-20);
+  }
+
+  .sdds-btn-sm {
+    ::slotted([slot='icon']) {
+      width: var(--sdds-spacing-element-16);
+      height: var(--sdds-spacing-element-16);
+    }
   }
 }
 
@@ -193,16 +202,17 @@ $props: (background, border-color, color, outline-color);
   .sdds-btn-md {
     ::slotted([slot='icon']) {
       margin-left: var(--sdds-spacing-element-20);
-      width: var(--sdds-spacing-element-16);
-      height: var(--sdds-spacing-element-16);
+      width: var(--sdds-spacing-element-20);
+      height: var(--sdds-spacing-element-20);
     }
   }
 
   .sdds-btn-lg {
     ::slotted([slot='icon']) {
+      // TODO - This should be a var value
       margin-left: 7rem;
-      width: var(--sdds-spacing-element-16);
-      height: var(--sdds-spacing-element-16);
+      width: var(--sdds-spacing-element-20);
+      height: var(--sdds-spacing-element-20);
     }
   }
 }
