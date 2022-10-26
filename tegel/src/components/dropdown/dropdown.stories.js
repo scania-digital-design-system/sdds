@@ -35,12 +35,6 @@ export default {
       defaultValue: 'Placeholder',
       description: 'Placeholder text when no option is selected',
     },
-    label: {
-      name: 'Label',
-      type: 'string',
-      defaultValue: 'Label text',
-      description: 'Label text helps to describe what the dropdown contains',
-    },
     labelPosition: {
       name: 'Label position',
       control: {
