@@ -65,11 +65,12 @@ export default {
     },
     icon: {
       name: 'Icon',
-      description: 'Include icon',
+      description: 'Icon to display on the button. Choose "none" to exclude the icon.',
       control: {
         type: 'select',
-        options: [...iconsNames, 'none'],
+        options: ['none', ...iconsNames],
       },
+      defaultValue: 'none',
       if: { arg: 'size', neq: 'Extra Small' },
     },
   },
