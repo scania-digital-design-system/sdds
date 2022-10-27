@@ -61,6 +61,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    image: {
+      name: 'Image',
+      description: 'Image on card',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
     imageTop: {
       name: 'Image on top',
       description: 'Sets the image on top',
@@ -71,6 +79,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
+      if: { arg: 'image', eq: true },
     },
   },
 };
@@ -81,6 +90,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 <style> 
   .demo-wrapper {
     width: 300px;
+    font-size: 14px;
   }
 </style>
     <div class="demo-wrapper">
