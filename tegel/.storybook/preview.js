@@ -17,6 +17,7 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+    expanded: true,
   },
   viewMode: 'docs',
   previewTabs: {
@@ -49,6 +50,12 @@ export const parameters = {
     darkClass: 'sdds-theme-dark',
     lightClass: 'sdds-theme-light',
     stylePreview: true,
+  },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
+    },
   },
 };
 
