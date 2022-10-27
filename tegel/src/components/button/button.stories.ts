@@ -82,6 +82,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
+      if: { arg: 'size', neq: 'xs' },
     },
     icon: {
       name: 'Icon',
@@ -91,7 +92,7 @@ export default {
         options: ['none', ...iconsNames],
       },
       defaultValue: 'none',
-      if: { arg: 'size', neq: 'Extra Small' },
+      if: { arg: 'size', neq: 'xs' },
     },
   },
 };
