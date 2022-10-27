@@ -51,7 +51,7 @@ export default {
       defaultValue: 'on-dark',
       description: 'Button variant.',
       table: {
-        defaultValue: { summary: 'on-light' },
+        defaultValue: { summary: 'on-dark' },
       },
     },
     fullbleed: {
