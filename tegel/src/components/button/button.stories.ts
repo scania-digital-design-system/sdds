@@ -23,44 +23,64 @@ export default {
       description: 'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
         type: 'radio',
-        options: ['Primary', 'Secondary', 'Ghost', 'Danger'],
+        options: { Primary: 'primary', Secondary: 'secondary', Ghost: 'ghost', Danger: 'danger' },
       },
-      defaultValue: 'Primary',
+      defaultValue: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
     size: {
-      name: 'Soze',
+      name: 'Size',
       control: {
         type: 'radio',
-        options: ['Large', 'Medium', 'Small', 'Extra Small'],
+        options: { Large: 'lg', Medium: 'md', Small: 'sm', ExtraSmall: 'xs' },
       },
-      defaultValue: 'Large',
+      defaultValue: 'lg',
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
       description: 'Size of the button',
     },
     variant: {
       name: 'Variant',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
+        options: { 'On light': 'on-light', 'On dark': 'on-dark' },
       },
-      defaultValue: 'Default',
+      defaultValue: 'on-dark',
       description: 'Button variant.',
+      table: {
+        defaultValue: { summary: 'on-light' },
+      },
     },
     fullbleed: {
       name: 'Fullbleed',
       type: 'boolean',
       defaultValue: false,
       description: 'Fluid width in certain components-old',
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     disabled: {
       name: 'Disabled',
       type: 'boolean',
       defaultValue: false,
       description: 'Choose to disable the button',
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     onlyIcon: {
+      name: 'Only Icon',
+      description: 'Displays only the icon and excludes any text from the button',
+      control: {
+        type: 'boolean',
+      },
       defaultValue: false,
       table: {
-        disable: true,
+        defaultValue: { summary: false },
       },
     },
     icon: {
@@ -77,35 +97,14 @@ export default {
 };
 
 const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
-  let sizeValue = '';
-  switch (size) {
-    case 'Large':
-      sizeValue = 'lg';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Extra Small':
-      sizeValue = 'xs';
-      break;
-    default:
-      sizeValue = 'lg';
-      break;
-  }
-
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
-  const btnTypeValue = btnType.toLowerCase();
 
-  // chromatic snapshot requires icon to be sdds-icon instead of font
   return formatHtmlPreview(
     `
-  <button class="sdds-btn sdds-btn-${btnTypeValue} sdds-btn-${sizeValue} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
-      variant === 'Variant' ? 'sdds-on-white-bg' : ''
+  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${size} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
+      variant === 'on-light' ? 'sdds-on-white-bg' : ''
     }" ${inlineStyle}>
     ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
     ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${size == 'Small' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
@@ -115,36 +114,15 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
 };
 
 const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
-  let sizeValue = '';
-  switch (size) {
-    case 'Large':
-      sizeValue = 'lg';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Extra Small':
-      sizeValue = 'xs';
-      break;
-    default:
-      sizeValue = 'lg';
-      break;
-  }
-
   const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
-
-  const btnTypeValue = btnType.toLowerCase();
   return formatHtmlPreview(
     `
-  <sdds-button onlyIcon="${onlyIcon}" type="${btnTypeValue}" size="${sizeValue}" ${disabled ? 'disabled' : ''} ${
+  <sdds-button onlyIcon="${onlyIcon}" type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${
       fullbleed ? 'fullbleed' : ''
-    } text="${text}" ${inlineStyle} variant="${variantValue}" > ${
-      onlyIcon || icon ? `<sdds-icon slot='icon' size='${size == 'Small' ? '16px' : '20px'}' name=${icon}></sdds-icon>` : ''
-    } </sdds-button>
+    } text="${text}" ${inlineStyle} variant="${variantValue}" >
+    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'Small' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
+  </sdds-button>
   `,
   );
 };
