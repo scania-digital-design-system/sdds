@@ -31,7 +31,7 @@ export class Textfield {
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Variant of the textfield */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  @Prop() variant: 'on-light' | 'on-dark' = 'on-light';
 
   /** With setting */
   @Prop() nominwidth: boolean = false;
@@ -92,7 +92,7 @@ export class Textfield {
         ${this.labelInside.length > 0 && this.size !== 'sm' ? 'sdds-textfield-container-label-inside' : ''}
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.variant === 'on-light' ? 'sdds-on-white-bg' : ''}
         ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${this.state === 'error' || this.state === 'success' ? `sdds-form-textfield-${this.state}` : ''}

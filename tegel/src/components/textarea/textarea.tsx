@@ -46,7 +46,7 @@ export class Textarea {
   @Prop() maxlength: number;
 
   /** Variant of the textarea */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  @Prop() variant: 'on-light' | 'on-dark' = 'on-light';
 
   /** Control of autofocus */
   @Prop() autofocus: boolean = false;
@@ -86,7 +86,7 @@ export class Textarea {
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readonly ? 'sdds-textarea-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.variant === 'on-light' ? '' : 'sdds-on-white-bg'}
         ${this.value.length > 0 ? 'sdds-textarea-data' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
         `}

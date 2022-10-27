@@ -45,9 +45,9 @@ export default {
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['No label', 'Inside', 'Outside'],
+        options: { 'No label': 'no-label', 'Inside': 'inside', 'Outside': 'outside' },
       },
-      defaultValue: 'No label',
+      defaultValue: 'no-label',
     },
     helper: {
       name: 'Helper text',
@@ -78,40 +78,25 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
+        options: { None: 'none', Success: 'success', Error: 'error' },
       },
-      defaultValue: 'None',
+      defaultValue: 'none',
     },
     variant: {
       name: 'Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
+        options: { 'On light': 'on-light', 'On dark': 'on-dark' },
       },
-      defaultValue: 'Default',
+      defaultValue: 'on-light',
     },
   },
 };
 
 const Template = ({ placeholder, disabled, readonly, label, labelPosition, state, helper, textcounter, rows, variant }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
-  const stateValue = state.toLowerCase();
-  let labelPositionValue;
-  switch (labelPosition) {
-    case 'No label':
-      labelPositionValue = 'no-label';
-      break;
-    case 'Inside':
-      labelPositionValue = 'inside';
-      break;
-    case 'Outside':
-      labelPositionValue = 'outside';
-      break;
-    default:
-      labelPositionValue = 'no-label';
-  }
+
   return formatHtmlPreview(`
   <style>
     .demo-wrapper {
@@ -121,11 +106,11 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
   <div class="demo-wrapper">
         <sdds-textarea
           rows="${rows}"
-          state="${stateValue}"
+          state="${state}"
           label="${label}"
-          variant="${variantValue}"
+          variant="${variant}"
           helper="${helper}"
-          label-position="${labelPositionValue}"
+          label-position="${labelPosition}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'readonly' : ''}
           placeholder="${placeholder}"

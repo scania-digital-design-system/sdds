@@ -30,7 +30,7 @@ export default {
       description: 'Switch between different sizes',
       control: {
         type: 'radio',
-        options: ['Large', 'Medium', 'Small'],
+        options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
       defaultValue: 'Large',
     },
@@ -39,9 +39,9 @@ export default {
       description: 'Toggle min width',
       control: {
         type: 'radio',
-        options: ['Default', 'No min width'],
+        options: { 'Default': 'default', 'No min width': 'nomin' },
       },
-      defaultValue: 'Default',
+      defaultValue: 'default',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -96,7 +96,7 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
+        options: { None: 'none', Success: 'success', Error: 'error' },
       },
       defaultValue: 'none',
     },
@@ -105,55 +105,35 @@ export default {
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
+        options: { 'On light': 'on-light', 'On dark': 'on-dark' },
       },
-      defaultValue: 'Default',
+      defaultValue: 'on-light',
     },
   },
 };
 
 const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, label, labelplacement, state, variant, helper, prefix, suffix, icon, textcounter }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
-  const stateValue = state.toLowerCase();
-
-  let sizeValue;
-  switch (size) {
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    case 'Large':
-      sizeValue = 'lg';
-      break;
-    default:
-      sizeValue = 'lg';
-      break;
-  }
-  let minWidthValue = false;
-  switch (minWidth) {
-    case 'No min width':
-      minWidthValue = true;
-      break;
-    default:
-      break;
-  }
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+    <style>
+      .demo-wrapper {
+        width: 200px;
+      }
+
+    </style>
+  <div class="demo-wrapper">
     <sdds-textfield
       type="${type}"
-      size="${sizeValue}"
-      state="${stateValue}"
-      variant="${variantValue}"
+      size="${size}"
+      state="${state}"
+      variant="${variant}"
       ${maxlength}
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidthValue ? 'noMinWidth' : ''}
+      ${minWidth === 'nomin' ? 'nominwidth="true"' : ''}
       placeholder="${placeholderText}" >
         ${prefix ? `${prefix}` : ''}
         ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
