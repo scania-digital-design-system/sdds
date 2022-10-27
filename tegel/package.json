@@ -1,7 +1,14 @@
 {
-  "name": "components",
+  "name": "@scania/tegel",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Tegel - Scania's Digital Design System",
+  "keywords": [
+    "tegel", "scania", "design", "system"
+  ],
+  "homepage": "https://digitaldesign.scania.com/home",
+  "bugs": {
+    "url": "https://github.com/scania-digital-design-system/sdds/issues"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -12,12 +19,15 @@
   "unpkg": "dist/components/components.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "git+https://github.com/scania-digital-design-system/sdds.git"
   },
   "files": [
     "dist/",
     "loader/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
@@ -61,5 +71,8 @@
     "puppeteer": "^10.0.0",
     "storybook-dark-mode": "^1.1.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.8"
+  }
 }
