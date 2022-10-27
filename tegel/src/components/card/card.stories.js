@@ -45,7 +45,7 @@ export default {
     footer: {
       name: 'Footer',
       description: 'The footer of the card',
-      defaultValue: '<sdds-icon style="font-size: 20px;" name="scania-arrow"></sdds-icon>',
+      defaultValue: '<sdds-icon style="font-size: 20px;" name="arrow_left"></sdds-icon>',
       control: {
         type: 'text',
       },
