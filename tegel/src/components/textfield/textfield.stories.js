@@ -74,6 +74,42 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      if: { arg: 'label', neq: '' },
+    },
+    prefix: {
+      name: 'Prefix',
+      description: 'Add prefix symbol/text before the textfield',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
+      if: { arg: 'icon', eq: false },
+    },
+    suffix: {
+      name: 'Suffix',
+      description: 'Add suffix symbol/text after the textfield',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    icon: {
+      name: 'Icon',
+      description: 'Add icon before or after the textfield',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      if: { arg: 'prefix', eq: false },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     helper: {
       name: 'Helper text',
@@ -155,11 +191,11 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
       ${readonly ? 'readonly' : ''}
       ${minWidthValue ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
-        ${prefix ? `${prefix}` : ''}
+        ${prefix ? '<span slot="sdds-prefix">$</span>' : ''}
         ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix ? `${suffix}` : ''}
-        ${icon ? `${icon}` : ''}
+        ${suffix ? '<span slot="sdds-suffix">$</span>' : ''}
+        ${icon ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
     </sdds-textfield>
   </div>
   `,
@@ -169,86 +205,3 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
 export const Default = Template.bind({});
 
 Default.args = {};
-
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-  disabled: true,
-  placeholderText: 'Disabled',
-};
-
-export const Labels = Template.bind({});
-
-Labels.args = {
-  label: 'Label text',
-};
-
-export const Helper = Template.bind({});
-
-Helper.args = {
-  helper: 'Helper text',
-  label: 'Label text',
-};
-
-export const State = Template.bind({});
-
-State.args = {
-  state: 'error',
-  helper: 'Helper text',
-  label: 'Label text',
-};
-
-export const Prefix = Template.bind({});
-
-Prefix.argTypes = {
-  prefix: {
-    name: 'Prefix',
-    description: 'Add prefix symbol/text before the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Prefix.args = {
-  helper: '',
-  label: 'Label text',
-  prefix: '<span slot="sdds-prefix">$</span>',
-};
-
-export const Suffix = Template.bind({});
-
-Suffix.argTypes = {
-  suffix: {
-    name: 'Suffix',
-    description: 'Add suffix symbol/text after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Suffix.args = {
-  helper: '',
-  label: 'Label text',
-  suffix: '<span slot="sdds-suffix">$</span>',
-};
-
-// TODO - Dependant on icon component
-export const Icon = Template.bind({});
-
-Icon.argTypes = {
-  icon: {
-    name: 'Icon',
-    description: 'Add icon before or after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Icon.args = {
-  helper: '',
-  label: 'Label text',
-  icon: '<sdds-icon name="scania-cross" slot="sdds-prefix"></sdds-icon>',
-};
