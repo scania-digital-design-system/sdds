@@ -22,6 +22,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
       defaultValue: false,
     },
     readonly: {
@@ -29,6 +32,9 @@ export default {
       name: 'Read only',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
       defaultValue: false,
     },
@@ -90,6 +96,9 @@ export default {
         options: { 'On light': 'on-light', 'On dark': 'on-dark' },
       },
       defaultValue: 'on-light',
+      table: {
+        defaultValue: { summary: 'on-light' },
+      },
     },
   },
 };

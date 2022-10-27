@@ -24,6 +24,9 @@ export default {
         options: { Password: 'password', Text: 'text' },
       },
       defaultValue: 'text',
+      table: {
+        defaultValue: { summary: 'text' },
+      },
     },
     size: {
       name: 'Size',
@@ -33,6 +36,9 @@ export default {
         options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
       defaultValue: 'lg',
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     minWidth: {
       name: 'Min width',
@@ -50,6 +56,9 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     readonly: {
       description: 'Set textfield to read only',
@@ -58,6 +67,9 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     label: {
       description: 'Label text for specific textfield',
@@ -74,6 +86,9 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     helper: {
       name: 'Helper text',
