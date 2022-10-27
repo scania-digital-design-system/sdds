@@ -21,7 +21,7 @@ export default {
       description: 'Which type of textfield',
       control: {
         type: 'radio',
-        options: ['password', 'text'],
+        options: { Password: 'password', Text: 'text' },
       },
       defaultValue: 'text',
     },
@@ -32,7 +32,7 @@ export default {
         type: 'radio',
         options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      defaultValue: 'Large',
+      defaultValue: 'lg',
     },
     minWidth: {
       name: 'Min width',
