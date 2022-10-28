@@ -7,9 +7,18 @@ export default {
     notes: readme,
     layout: 'fullscreen',
   },
+  argTypes: {
+    topPart: {
+      name: 'Top part',
+      description: 'Adds top part of the footer with more links',
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
 
-const Template = ({ topPart = false }) =>
+const Template = ({ topPart }) =>
   formatHtmlPreview(
     `
   <div class="sdds-footer">
@@ -76,8 +85,6 @@ const Template = ({ topPart = false }) =>
   );
 
 export const Default = Template.bind({});
-
-export const TopPart = Template.bind({});
-TopPart.args = {
-  topPart: true,
+Default.args = {
+  topPart: false,
 };
