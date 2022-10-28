@@ -2,6 +2,9 @@ import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Toggle',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     size: {
       name: 'Size',
@@ -43,7 +46,7 @@ const Template = ({ size, disabled = false, headline = '' }) => {
 
   const headlineDiv = headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>` : '';
 
-  return formatHtmlPreview(`  
+  return formatHtmlPreview(`
       <div class="sdds-toggle ${sizeValue} ${disabled ? 'disabled' : ''}" tabindex="0">
         ${headlineDiv}
         <input type="checkbox" class="sdds-toggle-input" id="customSwitch1">

@@ -11,6 +11,9 @@ type Args = typeof defaultArgs;
 
 export default {
   title: 'Components/Link',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     disabled: {
       name: 'Disabled',

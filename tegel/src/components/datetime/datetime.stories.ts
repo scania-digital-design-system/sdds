@@ -4,6 +4,7 @@ import { formatHtmlPreview } from '../../utils/utils';
 export default {
   title: 'Components/Datetime',
   parameters: {
+    layout: 'centered',
     notes: readme,
   },
   argTypes: {
