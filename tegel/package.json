@@ -38,7 +38,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook --docs",
     "deploy-storybook": "npm install && npm run build && npm run build-storybook",
     "build-stencil:watch": "stencil build --docs-readme --watch",
     "start-storybook": "start-storybook -p 6006 -s dist",
