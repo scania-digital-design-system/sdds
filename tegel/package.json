@@ -65,6 +65,7 @@
     "@storybook/html": "^6.5.12",
     "@storybook/manager-webpack4": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
+    "@types/highlight.js": "^10.1.0",
     "@types/jest": "^27.0.3",
     "babel-loader": "^8.2.5",
     "clsx": "^1.2.1",
