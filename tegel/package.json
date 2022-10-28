@@ -8,7 +8,7 @@
     "design",
     "system"
   ],
-  "homepage": "https://digitaldesign.scania.com/home",
+  "homepage": "https://tegel.scania.com",
   "bugs": {
     "url": "https://github.com/scania-digital-design-system/sdds/issues"
   },
@@ -47,7 +47,6 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@stencil/core": "^2.13.0",
-    "clsx": "^1.2.1",
     "concurrently": "^7.4.0",
     "highlight.js": "^11.6.0",
     "html-format": "^1.0.2"
@@ -59,6 +58,7 @@
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-measure": "^6.5.13",
     "@storybook/addon-notes": "^5.3.21",
     "@storybook/addons": "^6.5.13",
     "@storybook/builder-webpack4": "^6.5.12",
@@ -77,6 +77,6 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16.8"
+    "node": ">=16.10"
   }
 }
