@@ -27,22 +27,14 @@ export default {
   },
 } as Meta<Args>;
 
-const Template: StoryFn<Args> = args => {
-  return formatHtmlPreview(
+const Template: StoryFn<Args> = args =>
+  formatHtmlPreview(
     `
-      <style>
-        /* The demo-text class is only for demonstration purposes. */
-        .demo-text {
-          font-size: 36px;
-        }
-      </style>
       <a class="${clsx('demo-text sdds-link', args.disabled && 'disabled', args.noUnderline && 'sdds-link--no-underline')}" href="#">
         This is a link.
       </a>
-   
   `,
   );
-};
 export const Default = Template.bind({});
 
 Default.args = defaultArgs;
