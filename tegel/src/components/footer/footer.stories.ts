@@ -12,15 +12,6 @@ export default {
 const Template = ({ topPart = false }) =>
   formatHtmlPreview(
     `
-  <style>
-  .demo-wrapper {
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-  }
-  </style>
-  
-  <div class="demo-wrapper">
   <div class="sdds-footer">
     ${
       topPart
@@ -80,7 +71,6 @@ const Template = ({ topPart = false }) =>
         <p>Copyright &copy; 2022 Scania</p>
       </div>
     </div>
-  </div>
   </div>
   `,
   );
