@@ -8,6 +8,15 @@ export default {
     layout: 'centered',
   },
   argTypes: {
+    variant: {
+      name: 'Variant',
+      description: 'The variant of the textarea',
+      control: {
+        type: 'radio',
+        options: { Primary: 'primary', Secondary: 'secondary' },
+      },
+      defaultValue: 'primary',
+    },
     placeholderText: {
       name: 'Placeholder',
       description: 'Placeholder text',
@@ -100,21 +109,11 @@ export default {
       },
       defaultValue: 'none',
     },
-    variant: {
-      name: 'Variant',
-      description: 'The variant of the textarea',
-      control: {
-        type: 'radio',
-        options: ['Default', 'Variant'],
-      },
-      defaultValue: 'Default',
-    },
   },
 };
 
 const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, label, labelplacement, state, variant, helper, prefix, suffix, icon, textcounter }) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
 
   let sizeValue;
@@ -148,7 +147,7 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
       type="${type}"
       size="${sizeValue}"
       state="${stateValue}"
-      variant="${variantValue}"
+      variant="${variant}"
       ${maxlength}
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
@@ -169,86 +168,3 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
 export const Default = Template.bind({});
 
 Default.args = {};
-
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-  disabled: true,
-  placeholderText: 'Disabled',
-};
-
-export const Labels = Template.bind({});
-
-Labels.args = {
-  label: 'Label text',
-};
-
-export const Helper = Template.bind({});
-
-Helper.args = {
-  helper: 'Helper text',
-  label: 'Label text',
-};
-
-export const State = Template.bind({});
-
-State.args = {
-  state: 'error',
-  helper: 'Helper text',
-  label: 'Label text',
-};
-
-export const Prefix = Template.bind({});
-
-Prefix.argTypes = {
-  prefix: {
-    name: 'Prefix',
-    description: 'Add prefix symbol/text before the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Prefix.args = {
-  helper: '',
-  label: 'Label text',
-  prefix: '<span slot="sdds-prefix">$</span>',
-};
-
-export const Suffix = Template.bind({});
-
-Suffix.argTypes = {
-  suffix: {
-    name: 'Suffix',
-    description: 'Add suffix symbol/text after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Suffix.args = {
-  helper: '',
-  label: 'Label text',
-  suffix: '<span slot="sdds-suffix">$</span>',
-};
-
-// TODO - Dependant on icon component
-export const Icon = Template.bind({});
-
-Icon.argTypes = {
-  icon: {
-    name: 'Icon',
-    description: 'Add icon before or after the textfield',
-    control: {
-      type: 'text',
-    },
-  },
-};
-
-Icon.args = {
-  helper: '',
-  label: 'Label text',
-  icon: '<sdds-icon name="scania-cross" slot="sdds-prefix"></sdds-icon>',
-};

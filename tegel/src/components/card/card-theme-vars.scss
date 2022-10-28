@@ -1,27 +1,41 @@
-:root,
-.sdds-theme-light {
-  --sdds-card-bg: var(--sdds-white);
-  --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
-  --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
-  --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
-  --sdds-card-headline: var(--sdds-grey-958);
-  --sdds-card-sub-headline: var(--sdds-grey-600);
-
-  .sdds-on-white-bg {
-    --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
-  }
-
-  // TODO Define dark theme
-  .sdds-theme-dark {
-    --sdds-card-bg: red;
+:root {
+  .sdds-theme-light {
+    --sdds-card-bg: var(--sdds-white);
     --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
     --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
     --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
     --sdds-card-headline: var(--sdds-grey-958);
     --sdds-card-sub-headline: var(--sdds-grey-600);
 
-    .sdds-on-white-bg {
-      --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+    .sdds-card {
+      &-primary {
+        --sdds-card-bg: var(--sdds-white);
+      }
+
+      &-secondary {
+        --sdds-card-bg: var(--sdds-grey-50);
+      }
+    }
+  }
+
+  .sdds-theme-dark {
+    --sdds-card-bg: var(--sdds-grey-900);
+    --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+    --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
+    --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
+    --sdds-card-headline: var(--sdds-white);
+    --sdds-card-sub-headline: var(--sdds-grey-400);
+    --sdds-card-primary: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+    --sdds-card-secondary: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+
+    .sdds-card {
+      &-primary {
+        --sdds-card-bg: var(--sdds-grey-900);
+      }
+
+      &-secondary {
+        --sdds-card-bg: var(--sdds-grey-700);
+      }
     }
   }
 }

@@ -48,13 +48,20 @@
   --sdds-textarea-border-bottom: var(--sdds-grey-400);
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
 
-  //White background
-  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
+  .sdds-textfield {
+    &-primary {
+      --sdds-textfield-bg: var(--sdds-grey-50);
+    }
+
+    &-secondary {
+      --sdds-textfield-bg: var(--sdds-white);
+    }
+  }
 }
 
 .sdds-theme-dark {
   --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-bg: var(--sdds-red);
+  --sdds-textfield-bg: var(--sdds-grey-900);
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
@@ -103,4 +110,14 @@
 
   //White background
   --sdds-textfield-on-white-bg: var(--sdds-grey-50);
+
+  .sdds-textfield {
+    &-primary {
+      --sdds-textfield-bg: var(--sdds-grey-900);
+    }
+
+    &-secondary {
+      --sdds-textfield-bg: var(--sdds-grey-868);
+    }
+  }
 }
