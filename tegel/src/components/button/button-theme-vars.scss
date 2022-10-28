@@ -49,6 +49,14 @@ html,
   --sdds-btn-icon-secondary-fill: var(--sdds-black);
   --sdds-btn-icon-secondary-color: var(--sdds-black);
 
+  /* ICON HOVER */
+  --sdds-btn-icon-secondary-fill-hover: var(--sdds-grey-50);
+  --sdds-btn-icon-secondary-color-hover: var(--sdds-grey-50);
+
+  /* ICON FOCUS */
+  --sdds-btn-icon-secondary-fill-focus: var(--sdds-black);
+  --sdds-btn-icon-secondary-color-focus: var(--sdds-black);
+
   //Ghost
   --sdds-btn-ghost-background: transparent;
   --sdds-btn-ghost-color: var(--sdds-black);
