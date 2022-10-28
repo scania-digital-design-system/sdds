@@ -19,6 +19,10 @@ html,
   --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
   --sdds-btn-primary-border-color-disabled: transparent;
 
+  /* ICON */
+  --sdds-btn-icon-primary-fill: var(--sdds-grey-50);
+  --sdds-btn-icon-primary-color: var(--sdds-grey-50);
+
   //Primary - On white
   --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
   --sdds-btn-danger-on-white-background-disabled: var(--sdds-grey-50);
@@ -41,6 +45,10 @@ html,
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
 
+  /* ICON */
+  --sdds-btn-icon-secondary-fill: var(--sdds-black);
+  --sdds-btn-icon-secondary-color: var(--sdds-black);
+
   //Ghost
   --sdds-btn-ghost-background: transparent;
   --sdds-btn-ghost-color: var(--sdds-black);
@@ -58,6 +66,10 @@ html,
   --sdds-btn-ghost-background-disabled: transparent;
   --sdds-btn-ghost-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-ghost-border-color-disabled: transparent;
+
+  /* ICON */
+  --sdds-btn-icon-ghost-fill: var(--sdds-black);
+  --sdds-btn-icon-ghost-color: var(--sdds-black);
 
   //Danger
   --sdds-btn-danger-background: var(--sdds-red-600);
@@ -77,6 +89,10 @@ html,
   --sdds-btn-danger-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
 
+  /* ICON */
+  --sdds-btn-icon-danger-fill: var(--sdds-black);
+  --sdds-btn-icon-danger-color: var(--sdds-black);
+
   .sdds-theme-dark {
     //Primary
     --sdds-btn-primary-background: var(--sdds-blue-600);
@@ -95,6 +111,10 @@ html,
     --sdds-btn-primary-background-disabled: var(--sdds-white);
     --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
     --sdds-btn-primary-border-color-disabled: transparent;
+
+    /* ICON */
+    --sdds-btn-icon-primary-fill: var(--sdds-grey-50);
+    --sdds-btn-icon-primary-color: var(--sdds-grey-50);
 
     //Primary - On white
     --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
@@ -118,6 +138,10 @@ html,
     --sdds-btn-secondary-color-disabled: rgb(255 255 255 / 38%);
     --sdds-btn-secondary-border-color-disabled: rgb(255 255 255 / 38%);
 
+    /* ICON */
+    --sdds-btn-icon-secondary-fill: var(--sdds-black);
+    --sdds-btn-icon-secondary-color: var(--sdds-black);
+
     //Ghost
     --sdds-btn-ghost-background: transparent;
     --sdds-btn-ghost-color: var(--sdds-white);
@@ -136,6 +160,10 @@ html,
     --sdds-btn-ghost-color-disabled: rgb(255 255 255/ 38%);
     --sdds-btn-ghost-border-color-disabled: transparent;
 
+    /* ICON */
+    --sdds-btn-icon-ghost-fill: var(--sdds-black);
+    --sdds-btn-icon-ghost-color: var(--sdds-black);
+
     //Danger
     --sdds-btn-danger-background: var(--sdds-red-600);
     --sdds-btn-danger-color: var(--sdds-white);
@@ -153,5 +181,9 @@ html,
     --sdds-btn-danger-background-disabled: var(--sdds-grey-868);
     --sdds-btn-danger-color-disabled: rgb(255 255 255 / 38%);
     --sdds-btn-danger-border-color-disabled: transparent;
+
+    /* ICON */
+    --sdds-btn-icon-danger-fill: var(--sdds-black);
+    --sdds-btn-icon-danger-color: var(--sdds-black);
   }
 }
