@@ -108,7 +108,7 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
       variant === 'on-light' ? 'sdds-on-white-bg' : ''
     }" ${inlineStyle}>
     ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
-    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${size == 'Small' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
+    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
   </button>
   `,
   );
@@ -122,7 +122,7 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
   <sdds-button onlyIcon="${onlyIcon}" type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${
       fullbleed ? 'fullbleed' : ''
     } text="${text}" ${inlineStyle} variant="${variantValue}" >
-    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'Small' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
+    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
   </sdds-button>
   `,
   );
