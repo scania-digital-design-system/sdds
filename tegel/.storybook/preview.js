@@ -105,6 +105,23 @@ export const parameters = {
     lightClass: 'sdds-theme-light',
     stylePreview: true,
   },
+  backgrounds: {
+    default: 'grey',
+    values: [
+      {
+        name: 'grey',
+        value: '#F9FAFB',
+      },
+      {
+        name: 'white',
+        value: '#FFFFFF',
+      },
+      {
+        name: 'black',
+        value: '#000000',
+      },
+    ],
+  },
   options: {
     storySort: {
       method: 'alphabetical',
