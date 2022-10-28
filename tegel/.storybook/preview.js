@@ -46,8 +46,8 @@ export const parameters = {
     dark: { ...themes.dark, appBg: 'black' },
     // Override the default light theme
     // light: { appBg: 'red' },
-    darkClass: 'sdds-theme-dark',
-    lightClass: 'sdds-theme-light',
+    darkClass: 'sdds-mode-dark',
+    lightClass: 'sdds-mode-light',
     stylePreview: true,
   },
 };
