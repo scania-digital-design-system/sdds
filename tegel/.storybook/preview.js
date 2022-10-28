@@ -18,6 +18,7 @@ export const parameters = {
       date: /Date$/,
     },
     expanded: true,
+    sort: 'alpha',
   },
   viewMode: 'docs',
   previewTabs: {
