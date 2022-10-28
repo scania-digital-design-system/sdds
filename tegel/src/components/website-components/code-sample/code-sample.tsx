@@ -1,15 +1,13 @@
+/*
 import { Component, h, Prop, State, Element } from '@stencil/core';
+
 
 // import hljs from 'highlight.js';
 // Highlight JS is not supported in IE 11, fallback provided in the code-sample.scss
-
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/highlight.min.js';
-
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { js, xml, css } from 'https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/go.min.js';
+import hljs from 'highlight.js/lib/highlight';
+import js from 'highlight.js/lib/languages/javascript';
+import xml from 'highlight.js/lib/languages/xml';
+import css from 'highlight.js/lib/languages/css';
 
 @Component({
   tag: 'c-code-sample',
@@ -55,3 +53,5 @@ export class Field {
     ];
   }
 }
+
+*/
