@@ -43,7 +43,7 @@ export class SddsButton {
         ${this.variant === 'variant' ? 'sdds-on-white-bg' : ''}
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
       >
-        <span>{this.text}</span>
+        <span class="sdds-btn-text">{this.text}</span>
         <slot name="icon" />
       </button>
     );
