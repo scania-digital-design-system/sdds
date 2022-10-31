@@ -4,7 +4,7 @@ import readme from './readme.md';
 export default {
   title: 'Components/Tabs/Inline Tabs',
   parameters: {
-    layout: 'fullscreen',
+    // layout: 'fullscreen',
     notes: readme,
   },
   argTypes: {
@@ -26,7 +26,17 @@ export default {
     },
   },
 };
-
+// .demo-wrapper {
+//   padding: 30px 20px;
+//   font-size: 14px;
+//   background-color: ${altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-50') : 'white'};
+// }
+// .sdds-theme-dark .demo-wrapper {
+//   color: white;
+//   background-color: ${
+//     altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-958') : getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-900')
+//   };
+// }
 // eslint-disable-next-line arrow-body-style
 const Template = ({ autoHeight = false, altBgColor = false }) => {
   // TODO: change background color of stories globally with dark theme plugin instead
@@ -34,15 +44,7 @@ const Template = ({ autoHeight = false, altBgColor = false }) => {
   <style>
     /* .demo-wrapper is only added here for demonstration purposes. */
     .demo-wrapper {
-      padding: 30px 20px;
       font-size: 14px;
-      background-color: ${altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-50') : 'white'};
-    }
-    .sdds-theme-dark .demo-wrapper {
-      color: white;
-      background-color: ${
-        altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-958') : getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-900')
-      };
     }
   </style>
 
