@@ -106,10 +106,9 @@ export const parameters = {
     stylePreview: true,
   },
   backgrounds: {
-    default: 'grey',
     values: [
       {
-        name: 'grey',
+        name: 'grey-50',
         value: '#F9FAFB',
       },
       {
@@ -117,8 +116,12 @@ export const parameters = {
         value: '#FFFFFF',
       },
       {
-        name: 'black',
-        value: '#000000',
+        name: 'grey-900',
+        value: '#1d2229',
+      },
+      {
+        name: 'grey-958',
+        value: '#0d0f13',
       },
     ],
   },
