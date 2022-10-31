@@ -113,6 +113,7 @@ export class Slider {
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
 
+  /** Public method to re-initialise the slider if some configuration props are changed */
   @Method() async reset() {
     this.componentWillLoad();
   }
@@ -242,18 +243,6 @@ export class Slider {
 
   updateValueForced(value) {
     this.value = value;
-    // const trackWidth = this.getTrackWidth();
-
-    /*if (this.supposedValueSlot > 0) {
-      const supposedValue = this.tickValues[this.supposedValueSlot];
-      this.value = `${supposedValue}`;
-    } else {
-      const percentage = this.scrubberLeft / trackWidth;
-      this.value = `${Math.trunc(
-        this.getMin() + percentage * (this.getMax() - this.getMin())
-      )}`;
-    }*/
-
     this.dispatchChangeEvent();
   }
 

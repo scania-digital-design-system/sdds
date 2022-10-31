@@ -38,7 +38,7 @@
 
 ### `reset() => Promise<void>`
 
-
+Public method to re-initialise the slider if some configuration props are changed
 
 #### Returns
 
