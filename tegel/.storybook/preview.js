@@ -156,7 +156,6 @@ if (!window.SDDS_DID_SUBSCRIBE_DARK_BG) {
   });
   channel.on('DARK_MODE', isDarkMode => {
     if ((isDarkMode && !window.SDDS_DARK_BG) || (!isDarkMode && window.SDDS_DARK_BG)) {
-      debugger;
       channel.emit(UPDATE_GLOBALS, {
         globals: { backgrounds: { value: isDarkMode ? darkModeBgColor : lightModeBgColor } },
       });
