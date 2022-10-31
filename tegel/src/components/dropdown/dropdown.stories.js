@@ -143,7 +143,7 @@ Default.args = {
   disabled: false,
 };
 
-const MultiselectTemplate = ({ size, disabled = false, type = 'multiselect', helper, placeholder, multiDefaultOption, labelPosition }) => {
+const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder, multiDefaultOption, labelPosition }) => {
   return formatHtmlPreview(`
     <div class="demo-wrapper">
         <sdds-dropdown
@@ -172,7 +172,7 @@ const MultiselectTemplate = ({ size, disabled = false, type = 'multiselect', hel
 };
 
 export const Multiselect = MultiselectTemplate.bind({});
-Multiselect.argTypes = {
+Multiselect.args = {
   type: 'multiselect',
 };
 Multiselect.argTypes = {
