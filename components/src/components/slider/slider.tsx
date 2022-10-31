@@ -1,5 +1,6 @@
 import {
   Component,
+  h,
   Prop,
   Listen,
   EventEmitter,
@@ -239,6 +240,23 @@ export class Slider {
     this.dispatchChangeEvent();
   }
 
+  updateValueForced(value) {
+    this.value = value;
+    // const trackWidth = this.getTrackWidth();
+
+    /*if (this.supposedValueSlot > 0) {
+      const supposedValue = this.tickValues[this.supposedValueSlot];
+      this.value = `${supposedValue}`;
+    } else {
+      const percentage = this.scrubberLeft / trackWidth;
+      this.value = `${Math.trunc(
+        this.getMin() + percentage * (this.getMax() - this.getMin())
+      )}`;
+    }*/
+
+    this.dispatchChangeEvent();
+  }
+
   getMin() {
     return parseFloat(this.min);
   }
@@ -324,7 +342,7 @@ export class Slider {
           }
 
           this.calculateScrubberLeftFromValue(newValue);
-          this.updateValue();
+          this.updateValueForced(newValue);
           this.updateTrack();
 
           this.inputElement.blur();
