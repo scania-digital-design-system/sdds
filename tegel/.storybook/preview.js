@@ -2,13 +2,14 @@ import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
 import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
-import { lightTheme, darkTheme } from './themes';
 
 // https://github.com/storybookjs/storybook/issues/6364
 // - Look for: sarangk-hotstar commented on 23 Jun 2021
 // - Look for: Cochonours commented on 14 May
 // Test below one in Netlify/Amplify build
 import '../www/build/tegel.css';
+import ScaniaThemeDark from './ScaniaThemeDark';
+import ScaniaThemeLight from './ScaniaThemeLight';
 
 const customViewports = {
   xs: {
@@ -87,7 +88,7 @@ export const parameters = {
       const {
         parameters: { docs = {} },
       } = storyById(storyId);
-      docs.theme = isDark ? darkTheme : lightTheme;
+      docs.theme = isDark ? ScaniaThemeDark : ScaniaThemeLight;
 
       return React.createElement(DocsContainer, props);
     },
@@ -95,12 +96,13 @@ export const parameters = {
       state: 'open',
     },
   },
+  // storybook-dark-mode plugin
   darkMode: {
     current: 'light',
     // Override the default dark theme
-    dark: darkTheme,
+    dark: ScaniaThemeDark,
     // Override the default light theme
-    light: lightTheme,
+    light: ScaniaThemeLight,
     darkClass: 'sdds-theme-dark',
     lightClass: 'sdds-theme-light',
     stylePreview: true,
