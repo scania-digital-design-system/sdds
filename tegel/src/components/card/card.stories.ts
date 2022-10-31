@@ -10,7 +10,6 @@ export default {
     headline: {
       name: 'Header text',
       description: 'The header text',
-      defaultValue: 'Header text',
       control: {
         type: 'text',
       },
@@ -18,7 +17,6 @@ export default {
     subheadline: {
       name: 'Subheader text',
       description: 'The subheader text',
-      defaultValue: 'Subheader text',
       control: {
         type: 'text',
       },
@@ -26,7 +24,6 @@ export default {
     text: {
       name: 'Body text',
       description: 'The body text for the card',
-      defaultValue: '',
       control: {
         type: 'text',
       },
@@ -34,7 +31,6 @@ export default {
     divider: {
       name: 'Divider',
       description: 'Add a divider to the card',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -45,7 +41,6 @@ export default {
     footer: {
       name: 'Footer',
       description: 'The footer of the card',
-      defaultValue: '<sdds-icon style="font-size: 20px;" name="arrow_left"></sdds-icon>',
       control: {
         type: 'text',
       },
@@ -56,7 +51,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -67,7 +61,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     imageTop: {
       name: 'Image on top',
@@ -75,7 +68,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -87,7 +79,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
   },
 };
@@ -138,19 +129,34 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
   `,
   );
 
-export const Default = Template.bind({});
+const defaultArgs = {
+  headline: 'Header text',
+  subheadline: 'Subheader text',
+  text: '',
+  divider: false,
+  footer: '<sdds-icon style="font-size: 20px;" name="arrow_left"></sdds-icon>',
+  clickable: false,
+  image: false,
+  imageTop: false,
+  avatar: false,
+};
 
-Default.args = {};
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultArgs,
+};
 
 export const SupportText = Template.bind({});
 
 SupportText.args = {
+  ...defaultArgs,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
 
 export const Divider = Template.bind({});
 
 Divider.args = {
+  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
@@ -158,6 +164,7 @@ Divider.args = {
 export const link = Template.bind({});
 
 link.args = {
+  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
@@ -166,6 +173,7 @@ link.args = {
 export const button = Template.bind({});
 
 button.args = {
+  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Button text</button>',
@@ -174,6 +182,7 @@ button.args = {
 export const Image = Template.bind({});
 
 Image.args = {
+  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   image: true,
@@ -183,6 +192,7 @@ Image.args = {
 export const Avatar = Template.bind({});
 
 Avatar.args = {
+  ...defaultArgs,
   avatar: true,
   divider: false,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
