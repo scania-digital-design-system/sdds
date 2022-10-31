@@ -31,6 +31,49 @@
       dropdownComp.resetOption();
 
     }
+
+    (function() {
+
+
+    function docReady(fn) {
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+          setTimeout(fn, 1);
+      } else {
+          document.addEventListener("DOMContentLoaded", fn);
+      }
+    }    
+
+    docReady(
+      function() {
+
+        const sliderEl = document.getElementById('my-slider');
+        const mySliderResetEl = document.getElementById('my-slider-reset');
+
+        mySliderResetEl.addEventListener('click', 
+          function(e){
+            e.preventDefault();
+
+              sliderEl.setAttribute('min', 0);
+              sliderEl.setAttribute('max', 50);
+              sliderEl.setAttribute('value', 25);
+              sliderEl.setAttribute('ticks', "4");
+
+              sliderEl.reset();
+
+          }
+        )
+
+        console.log(sliderEl);
+        console.log(sliderEl.getAttribute('min') );
+        console.log(sliderEl.getAttribute('max') );
+        console.log(sliderEl.getAttribute('value') );
+
+      }
+    );
+
+
+    })();
+
   </script>
 </head>
 
@@ -147,6 +190,23 @@
           <sdds-textarea placeholder="Enter some text" label="My label" label-position="inside">
           </sdds-textarea>
         </div>
+
+      <div class="component-wrapper">
+        <h5 class="sdds-headline-05">Slider</h5>
+        <sdds-slider id="my-slider" 
+          label="Label" 
+          min="0" 
+          max="100" 
+          value="50" 
+          tooltip
+          show-tick-numbers
+          ticks="9"
+          
+          >
+        </sdds-slider>
+
+        <a id="my-slider-reset" href="#">Reset slider</a>
+      </div>
 
         <div class="component-wrapper">
           <h5 class="sdds-headline-05">Accordion</h5>
