@@ -18,7 +18,7 @@
 | `size`        | `size`         | Size of the input                           | `"" \| "md" \| "sm"` | `''`        |
 | `state`       | `state`        | Error state of input                        | `string`             | `undefined` |
 | `type`        | `type`         | Which input type, text, password or similar | `string`             | `'text'`    |
-| `value`       | `value`        | Value of the input text                     | `string`             | `''`        |
+| `value`       | `value`        | Value of the input text                     | `number \| string`   | `null`      |
 
 
 ## Events

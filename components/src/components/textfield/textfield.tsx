@@ -19,7 +19,7 @@ export class Textfield {
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop({ reflect: true }) value = '';
+  @Prop({ reflect: true }) value: string | number = null;
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -89,7 +89,7 @@ export class Textfield {
             ? 'sdds-form-textfield sdds-textfield-focus'
             : ' sdds-form-textfield'
         }
-        ${this.value?.length > 0 ? 'sdds-textfield-data' : ''}
+        ${this.value ? 'sdds-textfield-data' : ''}
         ${
           this.labelInside.length > 0 && this.size !== 'sm'
             ? 'sdds-textfield-container-label-inside'
@@ -215,7 +215,7 @@ export class Textfield {
 
           {this.maxlength > 0 && (
             <div class="sdds-textfield-textcounter">
-              {this.value?.length}
+              {this.value}
               <span class="sdds-textfield-textcounter-divider"> / </span>
               {this.maxlength}
             </div>
