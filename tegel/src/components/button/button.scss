@@ -78,7 +78,13 @@ $iconProps: (fill, color);
       outline-offset: -2px;
     }
 
+    // This is to deal with different padding of text/icon
+    .sdds-btn-icon {
+      margin: -3px;
+    }
+
     span.sdds-btn-text + .sdds-btn-icon {
+      margin: unset;
       margin-left: var(--sdds-spacing-element-24);
       width: 16px;
       height: 16px;
