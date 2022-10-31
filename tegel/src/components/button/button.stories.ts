@@ -153,8 +153,8 @@ WebComponent.args = {
   text: 'Button',
 };
 
-export const WebComponentWithButton = WebComponentTemplate.bind({});
-WebComponentWithButton.args = {
+export const WebComponentWithIcon = WebComponentTemplate.bind({});
+WebComponentWithIcon.args = {
   text: 'Button',
   icon: 'truck',
 };
