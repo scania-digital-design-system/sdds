@@ -10,6 +10,58 @@ import { useDarkMode } from 'storybook-dark-mode';
 // Test below one in Netlify/Amplify build
 import '../www/build/tegel.css';
 
+const customViewports = {
+  xs: {
+    name: 'grid-xs',
+    styles: {
+      width: '607px',
+      height: '963px',
+    },
+  },
+  sm: {
+    name: 'grid-sm',
+    styles: {
+      width: '608px',
+      height: '963px',
+    },
+  },
+  md: {
+    name: 'grid-md',
+    styles: {
+      width: '800px',
+      height: '801px',
+    },
+  },
+  lg: {
+    name: 'grid-lg',
+    styles: {
+      width: '992px',
+      height: '1200px',
+    },
+  },
+  xlg: {
+    name: 'grid-xlg',
+    styles: {
+      width: '1184px',
+      height: '1400px',
+    },
+  },
+  xxlg: {
+    name: 'grid-xxlg',
+    styles: {
+      width: '1367px',
+      height: '1600px',
+    },
+  },
+  max: {
+    name: 'grid-max',
+    styles: {
+      width: '1584px',
+      height: '1680px',
+    },
+  },
+};
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -17,12 +69,15 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+    expanded: true,
+    sort: 'alpha',
   },
   viewMode: 'docs',
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
     // https://storybook.js.org/addons/storybook-dark-mode#:~:text=%5D%0A%7D%3B-,Configuration,-Configure%20the%20dark
   },
+  viewport: { viewports: customViewports },
   docs: {
     // Fix for dark mode not working on docs tab
     container: props => {
@@ -50,6 +105,30 @@ export const parameters = {
     lightClass: 'sdds-theme-light',
     stylePreview: true,
   },
+  backgrounds: {
+    default: 'grey',
+    values: [
+      {
+        name: 'grey',
+        value: '#F9FAFB',
+      },
+      {
+        name: 'white',
+        value: '#FFFFFF',
+      },
+      {
+        name: 'black',
+        value: '#000000',
+      },
+    ],
+  },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
+    },
+  },
+  layout: 'padded',
 };
 
 defineCustomElements();

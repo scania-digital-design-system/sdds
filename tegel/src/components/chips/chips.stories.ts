@@ -2,6 +2,9 @@ import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Chips',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     placeholderText: {
       name: 'Placeholder',

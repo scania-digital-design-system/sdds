@@ -7,20 +7,20 @@ export default {
     notes: readme,
     layout: 'fullscreen',
   },
+  argTypes: {
+    topPart: {
+      name: 'Top part',
+      description: 'Adds top part of the footer with more links',
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
 
-const Template = ({ topPart = false }) =>
+const Template = ({ topPart }) =>
   formatHtmlPreview(
     `
-  <style>
-  .demo-wrapper {
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-  }
-  </style>
-  
-  <div class="demo-wrapper">
   <div class="sdds-footer">
     ${
       topPart
@@ -81,13 +81,10 @@ const Template = ({ topPart = false }) =>
       </div>
     </div>
   </div>
-  </div>
   `,
   );
 
 export const Default = Template.bind({});
-
-export const TopPart = Template.bind({});
-TopPart.args = {
-  topPart: true,
+Default.args = {
+  topPart: false,
 };
