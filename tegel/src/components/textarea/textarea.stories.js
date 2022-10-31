@@ -23,6 +23,9 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     readonly: {
       description: 'Set textfield to disabled state',
@@ -31,6 +34,9 @@ export default {
         type: 'boolean',
       },
       defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     label: {
       description: 'Label text for specific textfield',
@@ -48,6 +54,7 @@ export default {
         options: ['No label', 'Inside', 'Outside'],
       },
       defaultValue: 'No label',
+      if: { arg: 'label', neq: '' },
     },
     helper: {
       name: 'Helper text',
@@ -138,52 +145,3 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
 export const Default = Template.bind({});
 
 Default.args = {};
-
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-  disabled: true,
-  placeholderText: 'Disabled',
-};
-
-export const ReadOnly = Template.bind({});
-
-ReadOnly.args = {
-  readonly: true,
-  placeholderText: 'Read only',
-};
-
-export const LabelInside = Template.bind({});
-
-LabelInside.args = {
-  label: 'Label text',
-  labelPosition: 'Inside',
-};
-
-export const LabelOutside = Template.bind({});
-
-LabelOutside.args = {
-  label: 'Label text',
-  labelPosition: 'Outside',
-};
-
-export const Helper = Template.bind({});
-
-Helper.args = {
-  helper: 'Helper text',
-  label: 'Label text',
-};
-
-export const State = Template.bind({});
-
-State.args = {
-  state: 'error',
-  helper: 'Helper message',
-  label: 'Label text',
-};
-
-export const TextCounter = Template.bind({});
-
-TextCounter.args = {
-  textcounter: 10,
-};
