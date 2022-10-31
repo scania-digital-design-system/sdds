@@ -26,6 +26,9 @@
 // Tegel reset
 @import '../theme/light/src/_reboot.scss';
 
+// Utility classes
+@import 'utility-classes';
+
 //CSS component
 @import 'src/components/banner/banner';
 @import 'src/components/stepper/stepper';
