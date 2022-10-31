@@ -116,6 +116,7 @@ export class Slider {
   /** Public method to re-initialise the slider if some configuration props are changed */
   @Method() async reset() {
     this.componentWillLoad();
+    this.componentDidLoad();
   }
 
   @Listen('keydown')
@@ -426,11 +427,18 @@ export class Slider {
 
     if (this.disabled !== null) {
       this.disabledState = true;
+    } else {
+      this.disabledState = false;
     }
 
     if (this.readonly !== null) {
       this.readonlyState = true;
+    } else {
+      this.readonlyState = false;
     }
+
+    this.useInput = false;
+    this.useControls = false;
 
     if (this.controls !== null) {
       this.useControls = true;
@@ -438,9 +446,13 @@ export class Slider {
       this.useInput = true;
     }
 
+    this.useSmall = false;
+
     if (this.small !== null || this.size === 'sm') {
       this.useSmall = true;
     }
+
+    this.useSnapping = false;
 
     if (this.snap !== null) {
       this.useSnapping = true;
@@ -453,6 +465,7 @@ export class Slider {
       console.warn(
         'min-prop must have a higher value than max-prop for the component to work correctly.'
       );
+      this.disabledState = true;
     }
   }
 
