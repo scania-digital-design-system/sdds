@@ -4,6 +4,7 @@ import readme from './readme.md';
 export default {
   title: 'Components/Badges',
   parameters: {
+    layout: 'centered',
     notes: readme,
   },
   argTypes: {

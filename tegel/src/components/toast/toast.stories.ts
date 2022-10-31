@@ -2,6 +2,9 @@ import format from 'html-format';
 
 export default {
   title: 'Components/Toast',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     toastType: {
       name: 'Message type',
@@ -9,7 +12,12 @@ export default {
       defaultValue: 'success',
       control: {
         type: 'radio',
-        options: { Success: 'success', Info: 'info', Warning: 'warning', Error: 'error' },
+        options: {
+          Success: 'success',
+          Info: 'info',
+          Warning: 'warning',
+          Error: 'error',
+        },
       },
     },
     Subheader: {
@@ -28,8 +36,8 @@ export default {
   },
 };
 
-const ToastTemplate = args => {
-  return format(
+const ToastTemplate = args =>
+  format(
     `
   <div class="sdds-toast sdds-toast-${args.toastType}">
     <div class="sdds-toast-icon">
@@ -43,8 +51,8 @@ const ToastTemplate = args => {
     ${
       args.Subheader || args.Link
         ? `\n<div class="sdds-toast-body">\
-        ${args.Subheader ? `\n<span class="sdds-toast-subheadline">Short subheader</span>` : ''}\
-         ${args.Link ? `\n<a class="sdds-toast-link" href="#">Link example</a>` : ''}
+        ${args.Subheader ? '\n<span class="sdds-toast-subheadline">Short subheader</span>' : ''}\
+         ${args.Link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
         </div> `
         : ''
     }
@@ -52,7 +60,6 @@ const ToastTemplate = args => {
   </div>
   `,
   );
-};
 
 export const Success = ToastTemplate.bind({});
 Success.args = {
