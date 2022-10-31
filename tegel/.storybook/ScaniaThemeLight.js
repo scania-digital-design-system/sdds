@@ -14,8 +14,8 @@ export default create({
 
   // UI
 
-  appBg: '#f9fafb', // --sdds-grey-50
-  appContentBg: '#ffffff', // --sdds-white
+  appBg: '#fff', // --sdds-white
+  appContentBg: '#f9fafb', // --sdds-grey-50
   appBorderColor: '#edeff3', // --sdds-grey-100
 
   // Text colors
