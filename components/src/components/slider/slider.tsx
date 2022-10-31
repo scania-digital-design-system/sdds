@@ -1,4 +1,11 @@
-import { Component, Prop, h, Listen, EventEmitter, Event } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  Listen,
+  EventEmitter,
+  Event,
+  Method,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -104,6 +111,10 @@ export class Slider {
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
+
+  @Method() async reset() {
+    this.componentWillLoad();
+  }
 
   @Listen('keydown')
   handleKeydown(event) {
