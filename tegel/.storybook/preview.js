@@ -1,8 +1,8 @@
 import React from 'react';
-import { themes } from '@storybook/theming';
 import { DocsContainer } from '@storybook/addon-docs';
 import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
+import { lightTheme, darkTheme } from './themes';
 
 // https://github.com/storybookjs/storybook/issues/6364
 // - Look for: sarangk-hotstar commented on 23 Jun 2021
@@ -87,7 +87,7 @@ export const parameters = {
       const {
         parameters: { docs = {} },
       } = storyById(storyId);
-      docs.theme = isDark ? themes.dark : themes.light;
+      docs.theme = isDark ? darkTheme : lightTheme;
 
       return React.createElement(DocsContainer, props);
     },
@@ -98,9 +98,9 @@ export const parameters = {
   darkMode: {
     current: 'light',
     // Override the default dark theme
-    dark: { ...themes.dark, appBg: 'black' },
+    dark: darkTheme,
     // Override the default light theme
-    // light: { appBg: 'red' },
+    light: lightTheme,
     darkClass: 'sdds-theme-dark',
     lightClass: 'sdds-theme-light',
     stylePreview: true,
