@@ -26,17 +26,6 @@ export default {
     },
   },
 };
-// .demo-wrapper {
-//   padding: 30px 20px;
-//   font-size: 14px;
-//   background-color: ${altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-50') : 'white'};
-// }
-// .sdds-theme-dark .demo-wrapper {
-//   color: white;
-//   background-color: ${
-//     altBgColor ? getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-958') : getComputedStyle(document.documentElement).getPropertyValue('--sdds-grey-900')
-//   };
-// }
 // eslint-disable-next-line arrow-body-style
 const Template = ({ autoHeight = false, altBgColor = false }) => {
   // TODO: change background color of stories globally with dark theme plugin instead
