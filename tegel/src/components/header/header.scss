@@ -775,7 +775,7 @@ html,
   &.sdds-nav__app-launcher--opened {
     .sdds-nav__app-launcher-btn {
       background-color: var(--sdds-header-app-launcher-btn-bg);
-      color: var(--sdds-header-app-launcher-btn-color);
+      color: var(--sdds-header-app-launcher-open-btn-color);
     }
 
     .sdds-nav__app-launcher-menu {
