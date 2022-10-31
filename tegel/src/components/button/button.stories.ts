@@ -128,8 +128,8 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
   );
 };
 
-export const Primary = NativeTemplate.bind({});
-Primary.args = {
+export const Native = NativeTemplate.bind({});
+Native.args = {
   text: 'Button',
 };
 
