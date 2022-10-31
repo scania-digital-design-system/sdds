@@ -237,6 +237,7 @@ html,
         left: auto;
         right: 0;
         border-right: none;
+        z-index: 1;
       }
 
       &::before {
