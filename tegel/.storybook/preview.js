@@ -3,6 +3,10 @@ import { DocsContainer } from '@storybook/addon-docs';
 import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
 
+import { addons } from '@storybook/addons';
+import { globals } from '@storybook/api';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
+
 // https://github.com/storybookjs/storybook/issues/6364
 // - Look for: sarangk-hotstar commented on 23 Jun 2021
 // - Look for: Cochonours commented on 14 May
@@ -108,6 +112,7 @@ export const parameters = {
     stylePreview: true,
   },
   backgrounds: {
+    default: 'white',
     values: [
       {
         name: 'grey-50',
@@ -135,5 +140,28 @@ export const parameters = {
   },
   layout: 'padded',
 };
+
+// Below is some hacky code that changes selected background when the theme changes
+// Inspiration links:
+// https://github.com/storybookjs/storybook/issues/12982#issuecomment-865304427
+// https://github.com/storybookjs/storybook/blob/9eeb6ddfdd09a64c554843380187d27a41a8a235/addons/backgrounds/src/containers/BackgroundSelector.tsx#L100
+// https://github.com/hipstersmoothie/storybook-dark-mode/blob/bdb64ee8302bb95c23ebc2709ed3fe88431072f3/src/index.tsx
+if (!window.SDDS_DID_SUBSCRIBE_DARK_BG) {
+  window.SDDS_DID_SUBSCRIBE_DARK_BG = true;
+  const darkModeBgColor = parameters.backgrounds.values.find(({ name }) => name === 'grey-900').value;
+  const lightModeBgColor = parameters.backgrounds.values.find(({ name }) => name === 'white').value;
+  const channel = addons.getChannel();
+  channel.emit(UPDATE_GLOBALS, {
+    globals: { backgrounds: { value: lightModeBgColor } },
+  });
+  channel.on('DARK_MODE', isDarkMode => {
+    if ((isDarkMode && !window.SDDS_DARK_BG) || (!isDarkMode && window.SDDS_DARK_BG)) {
+      channel.emit(UPDATE_GLOBALS, {
+        globals: { backgrounds: { value: isDarkMode ? darkModeBgColor : lightModeBgColor } },
+      });
+      window.SDDS_DARK_BG = isDarkMode;
+    }
+  });
+}
 
 defineCustomElements();
