@@ -2,6 +2,7 @@ import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
 import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
+import { lightTheme, darkTheme } from './themes';
 
 import { addons } from '@storybook/addons';
 import { globals } from '@storybook/api';
