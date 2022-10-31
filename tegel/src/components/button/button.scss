@@ -214,19 +214,25 @@ $iconProps: (fill, color);
     height: var(--sdds-spacing-element-20);
   }
 
-  &[onlyIcon='true'] {
-    .sdds-btn-lg,
-    .sdds-btn-md {
-      ::slotted([slot='icon']) {
-        margin: -3px;
-      }
+  .sdds-btn-sm {
+    ::slotted([slot='icon']) {
+      width: var(--sdds-spacing-element-16);
+      height: var(--sdds-spacing-element-16);
     }
+  }
+}
 
-    .sdds-btn-sm {
-      ::slotted([slot='icon']) {
-        width: var(--sdds-spacing-element-16);
-        height: var(--sdds-spacing-element-16);
-      }
+:host(sdds-button[onlyIcon='true']) {
+  .sdds-btn-md,
+  .sdds-btn-lg {
+    ::slotted([slot='icon']) {
+      margin: -3px;
+    }
+  }
+
+  .sdds-btn-sm {
+    ::slotted([slot='icon']) {
+      margin: -1px;
     }
   }
 }
