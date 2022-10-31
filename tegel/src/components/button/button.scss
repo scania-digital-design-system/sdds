@@ -260,7 +260,7 @@ $iconProps: (fill, color);
   .sdds-btn-lg {
     ::slotted([slot='icon']) {
       // TODO - This should be a var value
-      margin-left: 7rem;
+      margin-left: 28px;
       width: var(--sdds-spacing-element-20);
       height: var(--sdds-spacing-element-20);
     }
