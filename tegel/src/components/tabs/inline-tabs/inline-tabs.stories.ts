@@ -6,7 +6,7 @@ export default {
   parameters: {
     // layout: 'fullscreen',
     notes: readme,
-    backgrounds: { default: 'white' },
+    backgrounds: { hidden: true, default: 'white' },
   },
   argTypes: {
     autoHeight: {
@@ -23,6 +23,11 @@ export default {
       defaultValue: false,
       control: {
         type: 'boolean',
+      },
+    },
+    backgrounds: {
+      table: {
+        disable: true,
       },
     },
   },
@@ -58,6 +63,4 @@ const Template = ({ autoHeight = false, altBgColor = false }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  backgrounds: { default: 'white' },
-};
+Default.args = {};
