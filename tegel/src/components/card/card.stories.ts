@@ -176,6 +176,7 @@ export const Image = Template.bind({});
 Image.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
+  image: true,
   imageTop: true,
 };
 
