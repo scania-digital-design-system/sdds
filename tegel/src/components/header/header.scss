@@ -566,6 +566,10 @@ html,
     &:visited {
       background-color: var(--sdds-header-searchbar-all-result-item-bg-visited);
     }
+
+    .sdds-nav__app-searchbar-results-mgl-svg {
+      vertical-align: unset;
+    }
   }
 
   .sdds-nav__searchbar-results-item-core {
