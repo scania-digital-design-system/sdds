@@ -12,8 +12,8 @@ $btn-xs-height: 8rem;
 $types: (primary, secondary, ghost, danger);
 $props: (background, border-color, color, outline-color);
 $iconProps: (fill, color);
-$onlyIconPaddingMd: 14px;
-$onlyIconPaddingLg: 18px;
+$onlyIconPaddingMd: 13px;
+$onlyIconPaddingLg: 17px;
 
 @mixin button-base {
   font: var(--sdds-detail-02);
@@ -35,19 +35,11 @@ $onlyIconPaddingLg: 18px;
 }
 
 .sdds-btn {
-  &.sdds-btn-secondary,
-  &.sdds-btn-ghost:hover {
-    outline: 1px solid;
-  }
-}
-
-.sdds-btn {
   @include button-base;
 
   height: $btn-lg-height;
   padding: var(--sdds-spacing-element-20);
-
-  //border: 1px solid;
+  border: 1px solid;
 
   &:disabled,
   &.disabled {
