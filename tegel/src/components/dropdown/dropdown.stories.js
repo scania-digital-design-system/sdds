@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Dropdown/Web component',
+  title: 'Components/Dropdown',
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -104,20 +104,20 @@ export default {
   },
 };
 
-const Template = ({ size, type, disabled = false, labelPosition, helper, state = 'default', placeholder, defaultOption }) => {
-  return formatHtmlPreview(`
+const Template = ({ size, type, disabled = false, labelPosition, helper, state = 'default', placeholder, defaultOption }) =>
+  formatHtmlPreview(`
     <div class="demo-wrapper">
-        <sdds-dropdown   
-          id="sdds-dropdown-reg"        
+        <sdds-dropdown
+          id="sdds-dropdown-reg"
           size="${size}"
           placeholder="${placeholder}"
           disabled="${disabled}"
           label-position="${labelPosition}"
-          ${labelPosition !== 'no-default' ? `label="Label text"` : ''} 
-          ${helper ? `helper="Helper text"` : ''} 
+          ${labelPosition !== 'no-default' ? 'label="Label text"' : ''}
+          ${helper ? 'helper="Helper text"' : ''}
           state="${state}"
           type="${type}"
-          default-option="${defaultOption}" >     
+          default-option="${defaultOption}" >
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>
@@ -131,10 +131,9 @@ const Template = ({ size, type, disabled = false, labelPosition, helper, state =
   }
 </style>
   `);
-};
 
-export const Default = Template.bind({});
-Default.args = {
+export const WebComponent = Template.bind({});
+WebComponent.args = {
   type: 'default',
   size: 'lg',
   label: 'Label text',
@@ -143,19 +142,19 @@ Default.args = {
   disabled: false,
 };
 
-const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder, multiDefaultOption, labelPosition }) => {
-  return formatHtmlPreview(`
+const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder, multiDefaultOption, labelPosition }) =>
+  formatHtmlPreview(`
     <div class="demo-wrapper">
         <sdds-dropdown
-         id="sdds-dropdown-multiselect" 
+         id="sdds-dropdown-multiselect"
         size="${size}"
         placeholder="${placeholder}"
         disabled="${disabled}"
-        ${helper ? `helper="Helper text"` : ''} 
+        ${helper ? 'helper="Helper text"' : ''}
         default-option='${multiDefaultOption}'
         type='${type}'
         label-position="${labelPosition}"
-        ${labelPosition !== 'no-default' ? `label="Label text"` : ''}   
+        ${labelPosition !== 'no-default' ? 'label="Label text"' : ''}
         >
           <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
@@ -169,13 +168,12 @@ const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder
     height:200px;}
 </style>
   `);
-};
 
-export const Multiselect = MultiselectTemplate.bind({});
-Multiselect.args = {
+export const WebComponentMultiselect = MultiselectTemplate.bind({});
+WebComponentMultiselect.args = {
   type: 'multiselect',
 };
-Multiselect.argTypes = {
+WebComponentMultiselect.argTypes = {
   state: {
     table: {
       disable: true,

@@ -8,7 +8,7 @@ import { Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter, 
 export class Dropdown {
   textInput?: HTMLInputElement;
 
-  /** Placeholder text for dropdown with no selectedLabel item */
+  /** Placeholder text for dropdown with no selectedLabel item 2 */
   @Prop() placeholder: string;
 
   /** Add the value of the option as string to set it as default */
