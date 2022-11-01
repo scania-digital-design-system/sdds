@@ -35,6 +35,13 @@ $onlyIconPaddingLg: 18px;
 }
 
 .sdds-btn {
+  &.sdds-btn-secondary,
+  &.sdds-btn-ghost:hover {
+    outline: 1px solid;
+  }
+}
+
+.sdds-btn {
   @include button-base;
 
   height: $btn-lg-height;

@@ -40,7 +40,7 @@ html,
   --sdds-btn-secondary-background-focus: transparent;
   --sdds-btn-secondary-color-focus: var(--sdds-black);
   --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
-  --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-300);
+  --sdds-btn-secondary-outline-color: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
@@ -64,6 +64,7 @@ html,
   --sdds-btn-ghost-background-hover: transparent;
   --sdds-btn-ghost-color-hover: var(--sdds-black);
   --sdds-btn-ghost-border-color-hover: rgb(0 0 0 / 60%);
+  --sdds-btn-ghost-outline-color-hover: rgb(0 0 0 / 60%);
   --sdds-btn-ghost-background-active: transparent;
   --sdds-btn-ghost-color-active: var(--sdds-black);
   --sdds-btn-ghost-border-color-active: rgb(0 0 0 / 87%);
@@ -141,6 +142,7 @@ html,
     --sdds-btn-secondary-background-focus: transparent;
     --sdds-btn-secondary-color-focus: var(--sdds-white);
     --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
+    --sdds-btn-secondary-outline-color: var(--sdds-white);
     --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-300);
     --sdds-btn-secondary-background-disabled: transparent;
     --sdds-btn-secondary-color-disabled: rgb(255 255 255 / 38%);
@@ -157,6 +159,7 @@ html,
     --sdds-btn-ghost-background-hover: transparent;
     --sdds-btn-ghost-color-hover: var(--sdds-white);
     --sdds-btn-ghost-border-color-hover: rgb(255 255 255 / 41%);
+    --sdds-btn-ghost-outline-color-hover: rgb(255 255 255 / 41%);
     --sdds-btn-ghost-background-active: transparent;
     --sdds-btn-ghost-color-active: var(--sdds-white);
     --sdds-btn-ghost-border-color-active: rgb(255 255 255 / 87%);
