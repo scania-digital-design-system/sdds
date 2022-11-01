@@ -14,8 +14,8 @@ const Template = args => {
     html, body, #root, #storybook-addon-themes {
       height: 100%;
       padding:0;
-      //overflow: hidden;
       position: relative;
+      font-size: 14px;
     }
     .sdds-demo-container {
       align-items: stretch;
