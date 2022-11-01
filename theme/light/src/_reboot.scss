@@ -23,7 +23,15 @@ body {
   font-family: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial,
     Helvetica, sans-serif;
   font-size: 14px;
-  color: var(--sdds-grey-958);
   margin: 0;
   flex: 1;
+}
+
+html,
+.sdds-theme-light {
+  color: var(--sdds-grey-958);
+}
+
+.sdds-theme-dark {
+  color: var(--sdds-white);
 }
