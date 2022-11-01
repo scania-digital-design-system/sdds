@@ -159,7 +159,7 @@ $modals: (
   position: relative;
   border-radius: 1rem;
   padding: 16px;
-  max-height: 60vh;
+  max-height: 85vh;
   overflow-y: auto;
   @include modal-scroll-outer;
 
@@ -170,7 +170,7 @@ $modals: (
       font: var(--sdds-body-01);
       padding-bottom: 40px;
       margin: 0 -16px 0 0;
-      max-height: calc(60vh - 36px);
+      max-height: calc(85vh - 36px);
       overflow-y: auto;
     }
 
