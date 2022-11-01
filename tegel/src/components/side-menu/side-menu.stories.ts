@@ -5,7 +5,7 @@ export default {
   },
 };
 
-const Template = args => {
+const Template = (args) => {
   const { icon = true, collapsible = false } = args;
   const icons = icon ? 'icons-enabled' : 'icons-disabled';
 
@@ -15,7 +15,6 @@ const Template = args => {
       height: 100%;
       padding:0;
       position: relative;
-      font-size: 14px;
     }
     .sdds-demo-container {
       align-items: stretch;
@@ -39,30 +38,33 @@ const Template = args => {
 
     const sidebarElement = document.querySelector('.sdds-sidebar.side-menu');
     const sidebarElementToggle = sidebarElement.querySelector('.sdds-sidebar-toggle');
-    sidebarElementToggle &&
-      sidebarElementToggle.addEventListener('click', e => {
+    if (sidebarElementToggle) {
+      sidebarElementToggle.addEventListener('click', (e) => {
         e.preventDefault();
         sidebarElement.classList.toggle('collapsed');
       });
+    }
 
     const menuElementOpen = document.querySelector('.sdds-nav__mob-menu-btn');
-    menuElementOpen &&
-      menuElementOpen.addEventListener('click', e => {
+    if (menuElementOpen) {
+      menuElementOpen.addEventListener('click', (e) => {
         e.preventDefault();
         sidebarElement.classList.add('mobile-menu-open');
       });
+    }
 
     const menuElementClose = document.querySelector('.sdds-sidebar-mheader__close');
-    menuElementClose &&
-      menuElementClose.addEventListener('click', e => {
+    if (menuElementClose) {
+      menuElementClose.addEventListener('click', (e) => {
         e.preventDefault();
         sidebarElement.classList.remove('mobile-menu-open');
       });
+    }
 
     const submenus = sidebarElement.querySelectorAll('.sdds-sidebar-nav__extended');
     if (submenus) {
-      submenus.forEach(submenuEl => {
-        submenuEl.addEventListener('click', e => {
+      submenus.forEach((submenuEl) => {
+        submenuEl.addEventListener('click', (e) => {
           e.preventDefault();
           submenuEl.classList.toggle('subnav-open');
         });
