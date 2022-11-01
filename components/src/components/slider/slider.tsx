@@ -1,4 +1,12 @@
-import { Component, Prop, h, Listen, EventEmitter, Event } from '@stencil/core';
+import {
+  Component,
+  h,
+  Prop,
+  Listen,
+  EventEmitter,
+  Event,
+  Method,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -104,6 +112,12 @@ export class Slider {
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
+
+  /** Public method to re-initialise the slider if some configuration props are changed */
+  @Method() async reset() {
+    this.componentWillLoad();
+    this.componentDidLoad();
+  }
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -228,6 +242,11 @@ export class Slider {
     this.dispatchChangeEvent();
   }
 
+  updateValueForced(value) {
+    this.value = value;
+    this.dispatchChangeEvent();
+  }
+
   getMin() {
     return parseFloat(this.min);
   }
@@ -313,7 +332,7 @@ export class Slider {
           }
 
           this.calculateScrubberLeftFromValue(newValue);
-          this.updateValue();
+          this.updateValueForced(newValue);
           this.updateTrack();
 
           this.inputElement.blur();
@@ -408,11 +427,18 @@ export class Slider {
 
     if (this.disabled !== null) {
       this.disabledState = true;
+    } else {
+      this.disabledState = false;
     }
 
     if (this.readonly !== null) {
       this.readonlyState = true;
+    } else {
+      this.readonlyState = false;
     }
+
+    this.useInput = false;
+    this.useControls = false;
 
     if (this.controls !== null) {
       this.useControls = true;
@@ -420,9 +446,13 @@ export class Slider {
       this.useInput = true;
     }
 
+    this.useSmall = false;
+
     if (this.small !== null || this.size === 'sm') {
       this.useSmall = true;
     }
+
+    this.useSnapping = false;
 
     if (this.snap !== null) {
       this.useSnapping = true;
@@ -435,6 +465,7 @@ export class Slider {
       console.warn(
         'min-prop must have a higher value than max-prop for the component to work correctly.'
       );
+      this.disabledState = true;
     }
   }
 
