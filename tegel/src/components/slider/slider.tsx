@@ -96,9 +96,6 @@ export class Slider {
   /** Name property (will be inherited by the native slider component) */
   @Prop() name: string = '';
 
-  /** @DEPRECATED Decide to use the small variant or not */
-  @Prop() small: boolean = null;
-
   /** Sets the size of the scrubber */
   @Prop() size: 'sm' | '' = '';
 
@@ -437,7 +434,7 @@ export class Slider {
 
     this.useSmall = false;
 
-    if (this.small !== null || this.size === 'sm') {
+    if (this.size === 'sm') {
       this.useSmall = true;
     }
 
