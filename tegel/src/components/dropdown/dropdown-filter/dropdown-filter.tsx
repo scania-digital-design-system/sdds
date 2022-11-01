@@ -3,7 +3,7 @@ import { Component, h, Host, Listen, Method, Prop, State, Watch } from '@stencil
 @Component({
   tag: 'sdds-dropdown-filter',
   shadow: true,
-  styleUrl: 'dropdown.scss',
+  styleUrl: './../dropdown.scss',
 })
 export class DropdownFilter {
   @State() dataOptions = [];
@@ -93,7 +93,7 @@ export class DropdownFilter {
     this.filteredContent = this.dataOptions.filter(option => {
       if (option.label) {
         const listItem = option.label.toLowerCase();
-        let searchResultList = listItem.match(searchAsRegEx);
+        const searchResultList = listItem.match(searchAsRegEx);
         if (searchResultList) {
           return searchResultList;
         }
@@ -120,6 +120,7 @@ export class DropdownFilter {
     );
   }
 
+  /** This method is use if reset of values is needed */
   @Method() async resetOption() {
     await this.dropdownRef?.resetOption();
   }

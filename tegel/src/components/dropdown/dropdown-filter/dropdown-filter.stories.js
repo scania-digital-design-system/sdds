@@ -1,5 +1,5 @@
-import { formatHtmlPreview } from '../../utils/utils';
-import readme from './readme_filter.md';
+import { formatHtmlPreview } from '../../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Dropdown-filter',
@@ -61,13 +61,13 @@ export default {
 const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defaultOption }) => `
 <div class="demo-wrapper">
   <sdds-dropdown-filter
-    id="sdds-dropdown-filter" 
+    id="sdds-dropdown-filter"
     size="${size}"
     placeholder="${placeholder}"
     disabled="${disabled}"\
-    ${helper !== '' ? `\n    helper="${helper}"` : ''} 
-    default-option="${defaultOption}"      
-    data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
+    ${helper !== '' ? `\n    helper="${helper}"` : ''}
+    default-option="${defaultOption}"
+    data=${'[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'}
   >
   </sdds-dropdown-filter>
 </div>

@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Dropdown/Native',
+  title: 'Components/Dropdown',
   parameters: {
     layout: 'centered',
     backgrounds: {
@@ -51,11 +51,11 @@ export default {
   },
 };
 
-const NativeTemplate = ({ size, helper = '', label, state, labelNative }) => {
-  return formatHtmlPreview(`
+const NativeTemplate = ({ size, helper = '', label, state, labelNative }) =>
+  formatHtmlPreview(`
     <div style="width:300px">
         <div class="sdds-dropdown ${size !== 'lg' ? `sdds-dropdown-${size}` : ''} ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
-        ${labelNative ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''} 
+        ${labelNative ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
         <select name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>
             <option value="bus">Bus</option>
@@ -65,6 +65,5 @@ const NativeTemplate = ({ size, helper = '', label, state, labelNative }) => {
         </div>
       </div>
   `);
-};
 
-export const NativeSelect = NativeTemplate.bind({});
+export const Native = NativeTemplate.bind({});

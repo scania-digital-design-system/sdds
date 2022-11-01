@@ -2,7 +2,7 @@ import { Component, h, Prop, State, Element, Host, Event, EventEmitter, Listen }
 
 @Component({
   tag: 'sdds-dropdown-option',
-  styleUrl: 'dropdown.scss',
+  styleUrl: './../dropdown.scss',
   shadow: true,
 })
 export class DropdownOption {
@@ -24,16 +24,19 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
+
   isMultiSelectOption: boolean;
 
   @Listen('mouseover')
   changeFocusHandler() {
     this.host.focus();
   }
+
   @Listen('mouseout')
   removeFocusHandler() {
     this.host.blur();
   }
+
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
     if (event.code === 'Enter') {
@@ -44,10 +47,12 @@ export class DropdownOption {
       });
     }
   }
+
   @Listen('click')
   handleClick(ev) {
     ev.stopPropagation();
   }
+
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host.closest('sdds-dropdown').classList.contains('sdds-dropdown-multiselect');
@@ -61,7 +66,7 @@ export class DropdownOption {
         optionEl.selected = false;
       });
     }
-    var optionCheckbox = this.host.shadowRoot.querySelector('input');
+    const optionCheckbox = this.host.shadowRoot.querySelector('input');
     if (this.selected) {
       this.selected = false;
       if (optionCheckbox) {
