@@ -4,9 +4,8 @@ import readme from './readme.md';
 export default {
   title: 'Components/Tabs/Inline Tabs',
   parameters: {
-    // layout: 'fullscreen',
     notes: readme,
-    backgrounds: { hidden: true, default: 'white' },
+    backgrounds: { default: 'white' },
   },
   argTypes: {
     autoHeight: {
@@ -34,17 +33,7 @@ export default {
 };
 // eslint-disable-next-line arrow-body-style
 const Template = ({ autoHeight = false, altBgColor = false }) => {
-  // TODO: change background color of stories globally with dark theme plugin instead
   return formatHtmlPreview(`
-  <style>
-    /* .demo-wrapper is only added here for demonstration purposes. */
-    .demo-wrapper {
-      font-size: 14px;
-    }
-  </style>
-
-  <div class="demo-wrapper">
-
     <sdds-inline-tabs ${autoHeight ? 'auto-height' : ''} ${altBgColor ? 'color-variant="on-grey"' : ''}>
       <div name="Tab with tall content">
         Tab panel 1
@@ -56,9 +45,7 @@ const Template = ({ autoHeight = false, altBgColor = false }) => {
       <div name="Disabled tab" disabled>
         Tab panel 3
       </div>
-
     </sdds-inline-tabs>
-  </div>
 `);
 };
 
