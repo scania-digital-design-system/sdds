@@ -248,7 +248,12 @@ sdds-slider {
   }
 
   &.disabled {
-    pointer-events: none;
+    // pointer-events: none;
+    cursor: not-allowed;
+
+    > * {
+      pointer-events: none;
+    }
 
     label {
       color: var(--sdds-grey-400);
