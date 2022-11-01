@@ -10,7 +10,7 @@ export class Textfield {
   textInput?: HTMLInputElement;
 
   /** Which input type, text, password or similar */
-  @Prop({ reflect: true }) type: string = 'text';
+  @Prop({ reflect: true }) type: 'text' | 'password' = 'text';
 
   /** Label that will be put inside the input */
   @Prop() labelInside: string = '';
@@ -19,7 +19,7 @@ export class Textfield {
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop({ reflect: true }) value: string | number = null;
+  @Prop({ reflect: true }) value: string = null;
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
