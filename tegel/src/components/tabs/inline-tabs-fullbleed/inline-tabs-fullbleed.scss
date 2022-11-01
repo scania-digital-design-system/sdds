@@ -11,7 +11,7 @@
   &::after {
     content: ' ';
     display: block;
-    border-bottom: 1px solid var(--sdds-grey-300);
+    border-bottom: 1px solid var(--sdds-inline-tabs-fullbleed-horizontal-divider-bg);
     left: 0;
     right: 0;
     bottom: 0;
@@ -38,7 +38,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,11 +51,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-hover-bg);
     }
 
     &:active {
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-active-bg);
     }
 
     &:focus {
@@ -71,7 +71,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,11 +84,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-hover-bg);
     }
 
     &:active {
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-active-bg);
     }
 
     &:focus {
@@ -125,7 +125,7 @@
       width: 0;
       margin-right: auto;
       height: 2px;
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-hover-indicator-bg);
       transition: width 0.15s ease-in-out;
       z-index: 10;
     }
@@ -141,7 +141,7 @@
 
   /* tab states */
   ::slotted(&--tab:hover) {
-    color: var(--sdds-grey-958);
+    color: var(--sdds-inline-tabs-fullbleed-tab-hover-color);
 
     &::after {
       width: 100%;
@@ -151,7 +151,7 @@
   ::slotted(&--tab:focus) {
     @include sdds-focus-state;
 
-    color: var(--sdds-grey-958);
+    color: var(--sdds-inline-tabs-fullbleed-tab-focus-color);
 
     &::after {
       width: 0;
@@ -159,11 +159,11 @@
   }
 
   ::slotted(&--tab__active) {
-    color: var(--sdds-grey-958);
+    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
 
     &::after {
       width: 100%;
-      background-color: var(--sdds-blue-400);
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-active-indicator-bg);
     }
   }
 
@@ -172,31 +172,8 @@
   }
 
   ::slotted(&--tab__disabled) {
-    color: rgb(0 21 51 / 38%);
+    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
     pointer-events: none;
-  }
-}
-
-.sdds-inline-tabs-fullbleed__onwhite {
-  background-color: var(--sdds-white);
-
-  .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-white);
-  }
-
-  .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-white);
-  }
-}
-
-.sdds-inline-tabs-fullbleed__ongrey50 {
-  background-color: var(--sdds-grey-50);
-
-  .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-grey-50);
-  }
-
-  .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-grey-50);
+    opacity: 0.16;
   }
 }

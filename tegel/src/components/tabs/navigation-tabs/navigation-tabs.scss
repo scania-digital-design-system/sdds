@@ -5,14 +5,14 @@
 }
 
 .sdds-navigation-tabs {
-  background-color: var(--sdds-white);
+  background-color: var(--sdds-navigation-tabs-bg);
   position: relative;
   display: flex;
 
   &::after {
     content: ' ';
     display: block;
-    border-bottom: 1px solid var(--sdds-grey-300);
+    border-bottom: 1px solid var(--sdds-navigation-tabs-horizontal-divider-bg);
     left: 0;
     right: 0;
     bottom: 0;
@@ -39,7 +39,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-navigation-tabs-scroll-btn-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,12 +52,12 @@
     }
 
     &:hover {
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-hover-bg);
       text-decoration: none;
     }
 
     &:active {
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-active-bg);
     }
 
     &:focus {
@@ -73,7 +73,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-navigation-tabs-scroll-btn-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,11 +86,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-hover-bg);
     }
 
     &:active {
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-active-bg);
     }
 
     &:focus {
@@ -111,6 +111,8 @@
     position: relative;
     transition: color 0.15s ease-in-out;
     white-space: nowrap;
+    background-color: transparent;
+    border: 0;
 
     &::after {
       content: ' ';
@@ -122,7 +124,7 @@
       width: 0;
       margin-right: auto;
       height: 2px;
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-navigation-tabs-tab-hover-indicator-bg);
       transition: width 0.15s ease-in-out;
       z-index: 10;
     }
@@ -138,7 +140,7 @@
 
   /* tab states */
   ::slotted(&--tab:hover) {
-    color: var(--sdds-grey-958);
+    color: var(--sdds-navigation-tabs-tab-hover-color);
 
     &::after {
       width: 100%;
@@ -148,7 +150,7 @@
   ::slotted(&--tab:focus) {
     @include sdds-focus-state;
 
-    color: var(--sdds-grey-958);
+    color: var(--sdds-navigation-tabs-tab-focus-color);
 
     &::after {
       width: 0;
@@ -156,11 +158,14 @@
   }
 
   ::slotted(&--tab__active) {
-    color: var(--sdds-grey-958);
+    color: var(--sdds-navigation-tabs-tab-active-color);
 
     &::after {
       width: 100%;
-      background-color: var(--sdds-blue-400);
+
+      --sdds-navigation-tabs-tab-active-indicator-bg: var(--sdds-blue-400);
+
+      background-color: var(--sdds-navigation-tabs-tab-active-indicator-bg);
     }
   }
 
@@ -169,7 +174,8 @@
   }
 
   ::slotted(&--tab__disabled) {
-    color: rgb(0 21 51 / 38%);
+    color: var(--sdds-navigation-tabs-tab-active-color);
+    opacity: 0.16;
     pointer-events: none;
   }
 }
