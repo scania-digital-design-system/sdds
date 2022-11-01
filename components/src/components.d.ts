@@ -398,6 +398,10 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
+          * Public method to re-initialise the slider if some configuration props are changed
+         */
+        "reset": () => Promise<void>;
+        /**
           * Decide to show numbers above the tick markers or not
          */
         "showTickNumbers": boolean;
