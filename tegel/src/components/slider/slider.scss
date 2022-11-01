@@ -10,6 +10,10 @@ sdds-slider {
 
 .sdds-slider-wrapper {
   width: 100%;
+
+  &.read-only {
+    pointer-events: none;
+  }
 }
 
 .sdds-slider {

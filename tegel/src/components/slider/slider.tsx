@@ -82,7 +82,7 @@ export class Slider {
   @Prop() disabled: boolean = null;
 
   /** Sets the read only state for the whole component  */
-  @Prop() readonly: boolean = null;
+  @Prop() readOnly: boolean = null;
 
   /** Decide to show the controls or not */
   @Prop() controls: boolean = null;
@@ -420,7 +420,7 @@ export class Slider {
       this.disabledState = false;
     }
 
-    if (this.readonly !== null) {
+    if (this.readOnly !== null) {
       this.readonlyState = true;
     } else {
       this.readonlyState = false;
@@ -458,7 +458,7 @@ export class Slider {
 
   render() {
     return (
-      <div class="sdds-slider-wrapper">
+      <div class={'sdds-slider-wrapper ' + (this.readonlyState && 'read-only')}>
         <input
           ref={el => (this.nativeRangeInputElement = el as HTMLInputElement)}
           class="sdds-slider-native-element"
