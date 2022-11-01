@@ -94,9 +94,9 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   return formatHtmlPreview(
     `
-  <sdds-button onlyIcon="${onlyIcon}" type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${
-      fullbleed ? 'fullbleed' : ''
-    } text="${text}" ${inlineStyle} variant="${variantValue}" >
+  <sdds-button onlyIcon="${onlyIcon}" type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
+      onlyIcon ? '' : text
+    }" ${inlineStyle} variant="${variantValue}" >
     ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
   </sdds-button>
   `,
