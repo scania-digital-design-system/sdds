@@ -15,6 +15,7 @@ const Template = (args) => {
       height: 100%;
       padding:0;
       position: relative;
+      font-size: 14px;
     }
     .sdds-demo-container {
       align-items: stretch;
