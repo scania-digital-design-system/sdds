@@ -1,24 +1,6 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
-const style = `
-  <style>
-    .demo-wrapper {
-      width: 80%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding-top: 100px;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-    .demo-wrapper.sdds-on-white-bg {
-      background-color: #fff;
-    }
-  </style>
-`;
-
 export default {
   title: 'Components/Slider',
   argTypes: {
@@ -153,6 +135,24 @@ export default {
   },
 };
 
+const style = `
+  <style>
+    .demo-wrapper {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding-top: 100px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .demo-wrapper.sdds-on-white-bg {
+      background-color: #fff;
+    }
+  </style>
+`;
+
 const Template = ({
   initialValue,
   min,
@@ -232,8 +232,11 @@ ready(() => {
   /*
     @ATTENTION
     Keep in mind that storybook does stuff, so if any story control is changed,
-    the page has to be reloaded for this event listener to work!!
+    the page has to be reloaded for this event listener to work. Also it will only
+    work in the Canvas-tab
   */
+
+  console.log('adding slider event');
 
   slider.addEventListener('sliderChange', event => {
     console.log('Got a sliderChange event', event['detail'].value);
