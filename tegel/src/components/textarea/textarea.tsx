@@ -31,7 +31,7 @@ export class Textarea {
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop() value = '';
+  @Prop() value: string = null;
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -87,7 +87,7 @@ export class Textarea {
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readonly ? 'sdds-textarea-readonly' : ''}
         ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
-        ${this.value.length > 0 ? 'sdds-textarea-data' : ''}
+        ${this.value ? 'sdds-textarea-data' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
         onClick={() => this.handleFocusClick()}
@@ -150,7 +150,7 @@ export class Textarea {
         {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
         {this.maxlength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
-            {this.value.length} <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
+            {this.value?.length} <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
           </div>
         )}
       </div>
