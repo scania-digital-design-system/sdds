@@ -9,11 +9,12 @@ $btn-lg-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
 $btn-xs-height: 8rem;
+$btn-sm-only-icon-padding: 11px;
+$btn-md-only-icon-padding: 13px;
+$btn-lg-only-icon-padding: 17px;
 $types: (primary, secondary, ghost, danger);
 $props: (background, border-color, color, outline-color);
 $iconProps: (fill, color);
-$onlyIconPaddingMd: 13px;
-$onlyIconPaddingLg: 17px;
 
 @mixin button-base {
   font: var(--sdds-detail-02);
@@ -70,9 +71,14 @@ $onlyIconPaddingLg: 17px;
     }
   }
 
-  &.sdds-btn-sm {
+  &.sdds-btn-sm,
+  &.sdds-btn-sm span.sdds-btn-text + .sdds-btn-icon {
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
+
+    &.sdds-btn-icon {
+      padding: $btn-sm-only-icon-padding;
+    }
 
     &:focus {
       // TODO: decide on what tod o with these @include sdds-focus-state;
@@ -94,7 +100,7 @@ $onlyIconPaddingLg: 17px;
     height: $btn-md-height;
 
     &.sdds-btn-icon {
-      padding: $onlyIconPaddingMd;
+      padding: $btn-md-only-icon-padding;
     }
 
     &:focus {
@@ -115,7 +121,7 @@ $onlyIconPaddingLg: 17px;
     height: $btn-lg-height;
 
     &.sdds-btn-icon {
-      padding: $onlyIconPaddingLg;
+      padding: $btn-lg-only-icon-padding;
     }
 
     &:focus {
@@ -225,17 +231,21 @@ $onlyIconPaddingLg: 17px;
   }
 }
 
-:host(sdds-button[onlyIcon='true']) {
+:host(sdds-button[onlyIcon]) {
+  .sdds-btn-sm {
+    padding: $btn-sm-only-icon-padding;
+  }
+
   .sdds-btn-md {
-    padding: $onlyIconPaddingMd;
+    padding: $btn-md-only-icon-padding;
   }
 
   .sdds-btn-lg {
-    padding: $onlyIconPaddingLg;
+    padding: $btn-lg-only-icon-padding;
   }
 }
 
-:host(sdds-button[onlyIcon='false']) {
+:host(sdds-button:not([onlyIcon])) {
   display: flex;
   align-items: center;
 
