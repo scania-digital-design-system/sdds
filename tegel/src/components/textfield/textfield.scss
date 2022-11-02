@@ -266,7 +266,8 @@
 .sdds-textfield-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
-  display: block;
+  display: flex;
+  justify-content: space-between;
   flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textfield-helper);
