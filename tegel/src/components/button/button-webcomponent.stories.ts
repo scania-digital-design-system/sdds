@@ -57,6 +57,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     disabled: {
       name: 'Disabled',
