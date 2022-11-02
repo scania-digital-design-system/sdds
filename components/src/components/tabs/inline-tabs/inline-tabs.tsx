@@ -81,7 +81,8 @@ export class InlineTabs {
         key = this._generateKeyFromName(name);
       }
 
-      if (item.dataset.default !== null) {
+      //TODO - why doesn't dataset.default work here?
+      if (item.getAttribute('data-default') !== null) {
         this.startingTab = key;
       }
 
