@@ -4,25 +4,17 @@ export default {
   title: 'Components/Dropdown',
   parameters: {
     layout: 'centered',
-    backgrounds: {
-      default: 'light',
-    },
   },
   argTypes: {
-    labelNative: {
-      name: 'Label native',
-      control: 'boolean',
-      defaultValue: false,
-      description: 'Label text helps to describe what the dropdown contains',
-    },
     label: {
       name: 'Label',
       type: 'string',
-      defaultValue: 'Label text',
       description: 'Label text helps to describe what the dropdown contains',
+      defaultValue: '',
     },
     disabled: {
       name: 'Disabled',
+      description: 'Disables the component',
       control: {
         type: 'boolean',
       },
@@ -51,17 +43,20 @@ export default {
   },
 };
 
-const NativeTemplate = ({ size, helper = '', label, state, labelNative }) =>
+const NativeTemplate = ({ disabled, size, helper, label, state }) =>
   formatHtmlPreview(`
     <div style="width:300px">
         <div class="sdds-dropdown ${size !== 'lg' ? `sdds-dropdown-${size}` : ''} ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
-        ${labelNative ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
-        <select name="nativeDropdown" id="mySelect">
+        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
+        <select 
+        name="nativeDropdown" 
+        id="mySelect"
+        ${disabled ? `disabled` : ''} >
             <option value="truck">Truck</option>
             <option value="bus">Bus</option>
             <option value="car">Car</option>
           </select>
-          <span class="sdds-dropdown-helper">${helper}</span>
+          ${helper !== '' ? `<span class="sdds-dropdown-helper">${helper}</span>` : ''}
         </div>
       </div>
   `);

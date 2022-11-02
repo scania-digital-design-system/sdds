@@ -15,8 +15,8 @@
   --sdds-link: var(--sdds-grey-958);
   --sdds-link-text-decoration: none;
 
-  font: var(--sdds-detail-ex-02);
-  letter-spacing: var(--sdds-detail-ex-02-ls);
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-grey-958);
   box-sizing: border-box;
 }
@@ -102,8 +102,8 @@
   .sdds-dropdown-filter {
     border: 0;
     outline: none;
-    font: var(--sdds-detail-ex-02);
-    letter-spacing: var(--sdds-detail-ex-02-ls);
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     color: var(--sdds-grey-958);
     width: 100%;
     background: transparent;
@@ -369,8 +369,8 @@
 }
 
 .sdds-dropdown-label-inside {
-  font: var(--sdds-detail-ex-02);
-  letter-spacing: var(--sdds-detail-ex-02-ls);
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-grey-958);
   position: absolute;
   transform: scaleY(1) translate(0, -6px);

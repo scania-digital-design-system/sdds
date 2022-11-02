@@ -1,14 +1,13 @@
 import readme from './readme.md';
+import readmeOption from './dropdown-option/readme.md';
+
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Dropdown',
   parameters: {
     layout: 'centered',
-    notes: readme,
-    backgrounds: {
-      default: 'light',
-    },
+    notes: { 'Dropdown': readme, 'Dropdown option': readmeOption },
   },
   argTypes: {
     type: {
@@ -40,9 +39,9 @@ export default {
       control: {
         type: 'radio',
         options: {
-          'No default': 'no-default',
-          'Inside': 'inside',
-          'Outside': 'outside',
+          None: 'no-default',
+          Inside: 'inside',
+          Outside: 'outside',
         },
       },
       defaultValue: 'no-default',
@@ -73,6 +72,12 @@ export default {
       defaultValue: false,
       description: 'Helper text assists the user with additional information about the dropdown',
     },
+    label: {
+      name: 'Label text',
+      type: 'string',
+      defaultValue: 'Label text',
+      description: 'Label text helps to describe what the dropdown contains',
+    },
     defaultOption: {
       if: { arg: 'type', neq: 'multiselect' },
       description: 'Sets a pre-selected option and replaces placeholder',
@@ -95,11 +100,13 @@ export default {
       control: {
         type: 'check',
         options: {
+          'No default': 'no-default',
           'Option 1': 'option-1',
           'Option 2': 'option-2',
           'Option 3': 'option-3',
         },
       },
+      defaultValue: 'no-default',
     },
   },
 };
@@ -136,7 +143,6 @@ export const WebComponent = Template.bind({});
 WebComponent.args = {
   type: 'default',
   size: 'lg',
-  label: 'Label text',
   labelPosition: 'no-default',
   helper: false,
   disabled: false,

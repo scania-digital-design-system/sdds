@@ -20,7 +20,7 @@ export class Dropdown {
   /** Set to true for disabled states */
   @Prop() disabled: boolean;
 
-  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
+  /** Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
@@ -251,7 +251,7 @@ export class Dropdown {
       optionItem.selected = false;
     });
   }
-
+  /**Use this method to reset the dropdown. Then it will go back to its initial state.*/
   @Method() async resetOption() {
     this.deselectAll();
     this.open = false;

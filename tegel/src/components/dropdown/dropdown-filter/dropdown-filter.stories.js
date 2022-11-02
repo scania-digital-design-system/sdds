@@ -6,9 +6,6 @@ export default {
   parameters: {
     layout: 'centered',
     notes: readme,
-    backgrounds: {
-      default: 'light',
-    },
   },
   argTypes: {
     size: {

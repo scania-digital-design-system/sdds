@@ -120,7 +120,7 @@ export class DropdownFilter {
     );
   }
 
-  /** This method is use if reset of values is needed */
+  /** Use this method to reset the dropdown. Then it will go back to its initial state. */
   @Method() async resetOption() {
     await this.dropdownRef?.resetOption();
   }
