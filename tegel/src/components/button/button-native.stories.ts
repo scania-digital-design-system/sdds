@@ -92,17 +92,24 @@ export default {
 
 const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
-  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
 
   return formatHtmlPreview(
     `
-  <button class="sdds-btn sdds-btn-${btnType} sdds-btn-${size} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
-      variant === 'on-light' ? 'sdds-on-white-bg' : ''
-    }" ${inlineStyle}>
-    ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
-    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
-  </button>
+  <style>
+    .demo-wrapper{
+      width: 100%;
+    }
+  </style>
+
+  <div class="demo-wrapper">
+<button class="sdds-btn sdds-btn-${btnType} sdds-btn-${size} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${variant === 'on-light' ? 'sdds-on-white-bg' : ''}  ${
+      onlyIcon ? 'sdds-btn-only-icon' : ''
+    }">
+  ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
+  ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
+</button>
+  </div>
   `,
   );
 };

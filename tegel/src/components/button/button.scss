@@ -71,12 +71,11 @@ $iconProps: (fill, color);
     }
   }
 
-  &.sdds-btn-sm,
-  &.sdds-btn-sm span.sdds-btn-text + .sdds-btn-icon {
+  &.sdds-btn-sm {
     padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
-    &.sdds-btn-icon {
+    &.sdds-btn-only-icon {
       padding: $btn-sm-only-icon-padding;
     }
 
@@ -94,12 +93,11 @@ $iconProps: (fill, color);
     }
   }
 
-  &.sdds-btn-md,
-  &.sdds-btn-md span.sdds-btn-text + .sdds-btn-icon {
+  &.sdds-btn-md {
     padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
 
-    &.sdds-btn-icon {
+    &.sdds-btn-only-icon {
       padding: $btn-md-only-icon-padding;
     }
 
@@ -115,12 +113,11 @@ $iconProps: (fill, color);
     }
   }
 
-  &.sdds-btn-lg,
-  &.sdds-btn-lg span.sdds-btn-text + .sdds-btn-icon {
+  &.sdds-btn-lg {
     padding: var(--sdds-spacing-element-20);
     height: $btn-lg-height;
 
-    &.sdds-btn-icon {
+    &.sdds-btn-only-icon {
       padding: $btn-lg-only-icon-padding;
     }
 
@@ -138,7 +135,8 @@ $iconProps: (fill, color);
 
   &.sdds-btn-fullbleed {
     width: inherit;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     .sdds-btn-icon,
     &.sdds-btn-icon {
@@ -229,6 +227,11 @@ $iconProps: (fill, color);
       height: var(--sdds-spacing-element-16);
     }
   }
+}
+
+:host(sdds-button[fullbleed]) {
+  width: inherit;
+  justify-content: center;
 }
 
 :host(sdds-button[onlyIcon]) {

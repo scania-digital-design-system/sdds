@@ -90,15 +90,20 @@ export default {
 };
 
 const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
-  const inlineStyle = fullbleed ? 'style="width:100%;"' : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
   return formatHtmlPreview(
     `
+    <style>
+    .demo-wrapper{
+      width: 100%;
+    }
+  </style>
+  <div class="demo-wrapper">
   <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
-    }" ${inlineStyle} variant="${variantValue}" >
-    ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
-  </sdds-button>
+    }" variant="${variant}" >
+  ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
+</sdds-button>
+  </div>
   `,
   );
 };
