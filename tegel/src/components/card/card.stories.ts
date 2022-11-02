@@ -89,7 +89,6 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 <style> 
   .demo-wrapper {
     width: 300px;
-    font-size: 14px;
   }
 </style>
     <div class="demo-wrapper">
