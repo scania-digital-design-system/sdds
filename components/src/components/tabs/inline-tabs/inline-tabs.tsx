@@ -87,18 +87,18 @@ export class InlineTabs {
 
       //TODO - why doesn't dataset.default work here?
       if (
-        item.getAttribute('data-default')
+        (item.getAttribute('data-default')
           ? item.getAttribute('data-default')
-          : item.getAttribute('default') !== null
+          : item.getAttribute('default')) !== null
       ) {
         this.startingTab = key;
       }
 
       let disabled = false;
       if (
-        item.getAttribute('aria-disabled')
+        (item.getAttribute('aria-disabled')
           ? item.getAttribute('data-disabled')
-          : item.getAttribute('disabled') !== null
+          : item.getAttribute('disabled')) !== null
       ) {
         disabled = true;
       }
