@@ -4,7 +4,7 @@ export default {
     layout: 'fullscreen',
     docs: {
       source: {
-        code: 'closed',
+        state: 'closed',
       },
     },
   },
