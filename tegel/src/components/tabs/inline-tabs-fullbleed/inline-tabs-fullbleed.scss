@@ -1,8 +1,4 @@
-// TODO question: should we not share this like before?
-@mixin sdds-focus-state {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
-}
+@import '../../../mixins/focus-state';
 
 .sdds-inline-tabs-fullbleed {
   display: flex;
