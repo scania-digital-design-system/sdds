@@ -30,7 +30,7 @@ export class InlineTabs {
 
   @State() showRightScroll: boolean = false;
 
-  // public method for switching to a tab programmatically
+  /** used for switching to a tab programmatically */
   @Method()
   async showTab(key: string) {
     this.switchToTab(key);
