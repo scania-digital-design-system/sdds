@@ -21,7 +21,7 @@ const Template = ({ colour = 'grey' }) => {
 
   picked.forEach(num => {
     div += `<div id="test" class="demo-wrapper" style="background-color: var(--sdds-${colour}-${num})">
-      <span>${colour}-${num}</span>
+      <span>--sdds-${colour}-${num}</span>
       </div>`;
   });
 
