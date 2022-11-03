@@ -17,7 +17,7 @@ When integrating in own solution, please consider making own classes for correct
 | `isSmall`   | `is-small`   | !!Deprecated!! Use size prop instead. Changes badge from default to small size        | `boolean`           | `false`     |
 | `isVisible` | `is-visible` | Changes visibility of badge                                                           | `boolean`           | `true`      |
 | `size`      | `size`       | Component is available in size default and small (small dot). Default size is default | `"default" \| "sm"` | `'default'` |
-| `value`     | `value`      | Value shown in badge                                                                  | `string`            | `''`        |
+| `value`     | `value`      | Value shown in badge                                                                  | `number \| string`  | `0`         |
 
 
 ----------------------------------------------

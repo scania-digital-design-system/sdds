@@ -7,8 +7,7 @@ import { Component, h, Prop, Watch, State } from '@stencil/core';
 })
 export class SddsBadges {
   /** Value shown in badge */
-  @Prop() value: string = '';
-  // TODO: Make upper prop accepts numbers too ?
+  @Prop() value: string | number = 0;
 
   /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
@@ -19,9 +18,11 @@ export class SddsBadges {
   /** Component is available in size default and small (small dot). Default size is default */
   @Prop() size: 'default' | 'sm' = 'default';
 
-  @State() shape: string = '';
+  @State() pillShape: boolean = false;
 
-  @State() text: string = '';
+  @State() text: string = null;
+
+  @State() innerValue: string = null;
 
   @Watch('value')
   @Watch('isVisible')
@@ -35,24 +36,33 @@ export class SddsBadges {
     this.checkProps();
     if (this.isSmall) {
       this.size = 'sm';
-      console.warn('Prop isSmall is deprecated. Use size"small" instead');
+      console.warn('Prop isSmall of sdds-badge component is deprecated. Use size "small" instead');
     }
   }
 
   checkProps() {
-    const valueAsNumber = parseInt(this.value);
-    if (!isNaN(valueAsNumber) && this.size !== 'sm') {
-      this.shape = this.value.toString().length >= 2 ? 'pill' : '';
-      this.size = 'default';
-      this.text = valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
+    if (this.value === '' && this.size !== 'sm') {
+      this.text = '0';
+      console.warn('Please assign value to badge component');
+    }
+
+    if (typeof this.value === 'number') {
+      this.innerValue = this.value.toString();
+    } else if (typeof this.value === 'string') {
+      this.innerValue = parseInt(this.value).toString();
     } else {
-      this.value !== '' && this.size !== 'sm' ? console.warn('The provided value is either empty or string, please provide value as number.') : '';
+      console.warn('Component can only accepts string or number value');
+    }
+
+    if (this.size !== 'sm') {
+      this.pillShape = this.innerValue.length >= 2;
+      this.text = this.innerValue.length >= 3 ? '99+' : this.innerValue;
     }
   }
 
   render() {
     return (
-      <host class={`sdds-badges sdds-badges-${this.size} ${this.shape === 'pill' ? 'sdds-badges-pill' : ''} ${this.isVisible ? '' : 'sdds-badges-hidden'}`}>
+      <host class={`sdds-badges sdds-badges-${this.size} ${this.pillShape && 'sdds-badges-pill'} ${!this.isVisible && 'sdds-badges-hidden'}`}>
         <div class="sdds-badges-text">{this.text}</div>
       </host>
     );
