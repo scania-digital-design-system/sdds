@@ -64,6 +64,7 @@ $iconProps: (fill, color);
     padding: var(--sdds-spacing-element-4) var(--sdds-spacing-element-8);
     height: $btn-xs-height;
     font-size: 12px;
+    border-radius: 2px;
 
     &:focus {
       // TODO: decide on what tod o with these @include sdds-focus-state;
