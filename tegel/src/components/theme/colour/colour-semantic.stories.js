@@ -19,7 +19,7 @@ const Template = () => `
   }
 </style>
   <div class="demo-wrapper" style="background-color: var(--sdds-positive)">
-    <span>positive</span>
+    <span>--sdds-positive</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-warning)">
     <span>warning</span>
