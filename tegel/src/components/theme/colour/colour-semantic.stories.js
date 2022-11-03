@@ -22,13 +22,13 @@ const Template = () => `
     <span>--sdds-positive</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-warning)">
-    <span>warning</span>
+    <span>--sdds-warning</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-negative)">
-    <span>negative</span>
+    <span>--sdds-negative</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-information)">
-    <span>information</span>
+    <span>--sdds-information</span>
   </div>`;
 
 export const Sematic = Template.bind({});

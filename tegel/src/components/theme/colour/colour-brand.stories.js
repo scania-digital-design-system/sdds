@@ -22,10 +22,10 @@ const Template = () => `
     <span>--sdds-black</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-white)">
-    <span>white</span>
+    <span>--sdds-white</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-blue)">
-    <span>blue</span>
+    <span>--sdds-blue</span>
   </div>
   `;
 
