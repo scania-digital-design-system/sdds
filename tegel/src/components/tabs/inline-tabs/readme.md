@@ -18,7 +18,7 @@
 
 ### `showTab(key: string) => Promise<void>`
 
-
+used for switching to a tab programmatically
 
 #### Returns
 
