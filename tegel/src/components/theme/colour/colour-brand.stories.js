@@ -19,7 +19,7 @@ const Template = () => `
   }
 </style>
   <div class="demo-wrapper" style="background-color: var(--sdds-black)">
-    <span>black</span>
+    <span>--sdds-black</span>
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-white)">
     <span>white</span>
