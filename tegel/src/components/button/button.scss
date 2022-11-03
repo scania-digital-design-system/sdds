@@ -8,7 +8,7 @@
 $btn-lg-height: 14rem;
 $btn-md-height: 12rem;
 $btn-sm-height: 10rem;
-$btn-xs-height: 8rem;
+$btn-xs-height: 6rem;
 $btn-sm-only-icon-padding: 11px;
 $btn-md-only-icon-padding: 13px;
 $btn-lg-only-icon-padding: 17px;
@@ -61,8 +61,9 @@ $iconProps: (fill, color);
   }
 
   &.sdds-btn-xs {
-    padding: var(--sdds-spacing-element-8);
+    padding: var(--sdds-spacing-element-4) var(--sdds-spacing-element-8);
     height: $btn-xs-height;
+    font-size: 12px;
 
     &:focus {
       // TODO: decide on what tod o with these @include sdds-focus-state;
@@ -91,6 +92,13 @@ $iconProps: (fill, color);
       width: 16px;
       height: 16px;
     }
+
+    &.sdds-btn-fullbleed {
+      span.sdds-btn-text + .sdds-btn-icon {
+        margin: unset;
+        margin-left: var(--sdds-spacing-element-12);
+      }
+    }
   }
 
   &.sdds-btn-md {
@@ -111,6 +119,12 @@ $iconProps: (fill, color);
       margin: unset;
       margin-left: var(--sdds-spacing-element-20);
     }
+
+    &.sdds-btn-fullbleed {
+      span.sdds-btn-text + .sdds-btn-icon {
+        margin-left: var(--sdds-spacing-element-16);
+      }
+    }
   }
 
   &.sdds-btn-lg {
@@ -130,6 +144,12 @@ $iconProps: (fill, color);
     span.sdds-btn-text + .sdds-btn-icon {
       margin: unset;
       margin-left: 7rem;
+    }
+
+    &.sdds-btn-fullbleed {
+      span.sdds-btn-text + .sdds-btn-icon {
+        margin-left: var(--sdds-spacing-element-16);
+      }
     }
   }
 
@@ -258,6 +278,12 @@ $iconProps: (fill, color);
       width: var(--sdds-spacing-element-16);
       height: var(--sdds-spacing-element-16);
     }
+
+    &.sdds-btn-fullbleed {
+      ::slotted([slot='icon']) {
+        margin-left: var(--sdds-spacing-element-12);
+      }
+    }
   }
 
   .sdds-btn-md {
@@ -265,6 +291,12 @@ $iconProps: (fill, color);
       margin-left: var(--sdds-spacing-element-20);
       width: var(--sdds-spacing-element-20);
       height: var(--sdds-spacing-element-20);
+    }
+
+    &.sdds-btn-fullbleed {
+      ::slotted([slot='icon']) {
+        margin-left: var(--sdds-spacing-element-16);
+      }
     }
   }
 
@@ -274,6 +306,12 @@ $iconProps: (fill, color);
       margin-left: 28px;
       width: var(--sdds-spacing-element-20);
       height: var(--sdds-spacing-element-20);
+    }
+
+    &.sdds-btn-fullbleed {
+      ::slotted([slot='icon']) {
+        margin-left: var(--sdds-spacing-element-16);
+      }
     }
   }
 }
