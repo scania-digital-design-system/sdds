@@ -78,7 +78,9 @@ export class InlineTabs {
         ? item.dataset.name
         : item.getAttribute('name') || `Tab ${index + 1}`;
 
-      let key = item.dataset.tabKey;
+      let key = item.dataset.tabKey
+        ? item.dataset.tabKey
+        : item.getAttribute('tab-key');
       if (!key) {
         key = this._generateKeyFromName(name);
       }
