@@ -2,6 +2,11 @@ export default {
   title: 'Foundations/Colour',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        code: 'closed',
+      },
+    },
   },
 };
 
@@ -31,6 +36,7 @@ const Template = ({ colour = 'grey' }) => {
     background-color: black;
     border: 1px solid white;
     padding: 4px;
+    position: absolute;
   }
   </style>
     ${div}

@@ -15,6 +15,7 @@ const Template = () => `
     background-color: black;
     border: 1px solid white;
     padding: 4px;
+    position: absolute;
   }
 </style>
   <div class="demo-wrapper" style="background-color: var(--sdds-black)">
