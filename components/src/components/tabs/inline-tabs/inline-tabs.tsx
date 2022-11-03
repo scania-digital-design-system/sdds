@@ -74,7 +74,9 @@ export class InlineTabs {
     }
 
     Array.from(this.host.children).map((item: HTMLElement, index) => {
-      const name = item.dataset.name || `Tab ${index + 1}`;
+      const name = item.dataset.name
+        ? item.dataset.name
+        : item.getAttribute('name') || `Tab ${index + 1}`;
 
       let key = item.dataset.tabKey;
       if (!key) {
@@ -82,12 +84,20 @@ export class InlineTabs {
       }
 
       //TODO - why doesn't dataset.default work here?
-      if (item.getAttribute('data-default') !== null) {
+      if (
+        item.getAttribute('data-default')
+          ? item.getAttribute('data-default')
+          : item.getAttribute('default') !== null
+      ) {
         this.startingTab = key;
       }
 
       let disabled = false;
-      if (item.getAttribute('aria-disabled') !== null) {
+      if (
+        item.getAttribute('aria-disabled')
+          ? item.getAttribute('data-disabled')
+          : item.getAttribute('disabled') !== null
+      ) {
         disabled = true;
       }
 
