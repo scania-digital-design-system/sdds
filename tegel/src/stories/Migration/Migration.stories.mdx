@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs';
+import './migration.css';
+
+<Meta title="Intro/Migration" />
+
+
+# Migration Docs
+
+Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
+
+---
+
+### Button 
+<div>
+    <a  href="/docs/components-button--native/">Native</a>
+</div>
+<div>
+    <a  href="/docs/components-button--native/">Webcomponent</a>
+</div>
+<div class="container">
+    <br/>
+    <h3>'sdds-btn-text'</h3>
+    <h5> What changed? </h5>
+    <p>We added a 'sdds-btn-text' class for the span containing the text of the button in order to align the children of the button better.</p>
+    <h5> What action is required? </h5>
+    <p>If the child of the native 'sdds-btn' is a text it will need a class of 'sdds-btn-text'</p>
+</div>
