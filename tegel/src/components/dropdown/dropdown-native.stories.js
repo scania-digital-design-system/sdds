@@ -12,6 +12,15 @@ export default {
       description: 'Label text helps to describe what the dropdown contains',
       defaultValue: '',
     },
+    size: {
+      name: 'Size',
+      control: {
+        type: 'radio',
+        options: { Large: 'large', Medium: 'medium', Small: 'small' },
+      },
+      defaultValue: 'large',
+      description: 'Size of the dropdown',
+    },
     disabled: {
       name: 'Disabled',
       description: 'Disables the component',
