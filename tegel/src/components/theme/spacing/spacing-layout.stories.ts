@@ -23,6 +23,10 @@ const Template = () =>
     table th, table td {
       padding: 2rem;
     }
+    th:last-child,
+    td:last-child {
+      text-align: left;
+    }
   </style>
   <table>
     <tr>

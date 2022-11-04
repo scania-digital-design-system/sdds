@@ -22,7 +22,16 @@ const Template = () =>
     }
     table th, table td {
       padding: 2rem;
-    }s
+      text-align: center;
+    }
+
+    th:last-child {
+        text-align: left;
+    }
+    th:last-child,
+    td:last-child {
+      text-align: left;
+    }
   </style>
   <h4>Spacing Element</h4>
   <table>
