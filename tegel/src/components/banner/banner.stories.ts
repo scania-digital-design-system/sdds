@@ -46,7 +46,7 @@ export default {
     },
     prefix: {
       name: 'Show icon',
-      description: 'Icon to display in link section. For default type "truck" is preselected, but it is up to user needs to select appropriate icon.',
+      description: 'If an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
       control: {
         type: 'boolean',
       },
