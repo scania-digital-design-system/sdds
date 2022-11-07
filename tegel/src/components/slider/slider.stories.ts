@@ -38,6 +38,10 @@ export default {
       control: {
         type: 'text',
       },
+      if: {
+        arg: 'showLabel',
+        truthy: true,
+      },
     },
     showTooltip: {
       name: 'Show tooltip',
@@ -59,6 +63,10 @@ export default {
       control: {
         type: 'text',
       },
+      if: {
+        arg: 'showTicks',
+        truthy: true,
+      },
     },
     snapToTicks: {
       name: 'Snap to ticks',
@@ -66,12 +74,20 @@ export default {
       control: {
         type: 'boolean',
       },
+      if: {
+        arg: 'showTicks',
+        truthy: true,
+      },
     },
     showTickNumbers: {
       name: 'Show tick numbers',
       description: 'Show or hide tick numbers',
       control: {
         type: 'boolean',
+      },
+      if: {
+        arg: 'showTicks',
+        truthy: true,
       },
     },
     showControls: {
@@ -87,6 +103,10 @@ export default {
       control: {
         type: 'text',
       },
+      if: {
+        arg: 'showControls',
+        truthy: true,
+      },
     },
     showInput: {
       name: 'Show value input field (not compatible with controls)',
@@ -94,13 +114,9 @@ export default {
       control: {
         type: 'boolean',
       },
-    },
-    colorTheme: {
-      name: 'Color theme',
-      description: 'Display a different color theme',
-      control: {
-        type: 'radio',
-        options: ['On-grey', 'On-white'],
+      if: {
+        arg: 'showControls',
+        truthy: false,
       },
     },
     disabled: {
@@ -146,10 +162,7 @@ const style = `
       padding-top: 100px;
       padding-left: 40px;
       padding-right: 40px;
-    }
-    .demo-wrapper.sdds-on-white-bg {
-      background-color: #fff;
-    }
+    }    
   </style>
 `;
 
@@ -167,28 +180,17 @@ const Template = ({
   showControls,
   step,
   showInput,
-  colorTheme,
   disabled,
   readonly,
   small,
 }) => {
-  let classes = '';
-
-  switch (colorTheme) {
-    case 'On-white':
-      classes = 'sdds-on-white-bg';
-      break;
-    default:
-      break;
-  }
-
   return formatHtmlPreview(`
     ${style}
-    <div class="demo-wrapper ${classes}">
+    <div class="demo-wrapper">
       <sdds-slider id="sdds-slider"
         min="${min}" 
         max="${max}" 
-        step="${step}" 
+        ${showControls && step ? 'step="' + step + '"' : ''}
         value="${initialValue}" 
         ${showTicks ? 'ticks="' + numTicks + '"' : ''} 
         ${showTickNumbers ? 'show-tick-numbers' : ''} 
@@ -257,7 +259,6 @@ Default.args = {
   min: '0',
   max: '100',
   step: '1',
-  colorTheme: 'On-grey',
   disabled: false,
   small: false,
   snapToTicks: false,
