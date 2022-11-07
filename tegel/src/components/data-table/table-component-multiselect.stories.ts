@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Data Table/Web Component',
+  title: 'Components/Data Table/Web Component',
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
@@ -57,21 +57,21 @@ const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
 
   return `
   <h3>Multiselect</h3>
-   <sdds-table 
-        id="multiselect-table" 
+   <sdds-table
+        id="multiselect-table"
         enable-multiselect
         vertical-dividers="${verticalDivider}"
-        compact-design="${compactDesign}"   
+        compact-design="${compactDesign}"
         white-background="${onWhiteBackground}"
          enable-responsive="${responsiveDesign}"
-        >          
+        >
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country'></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell> 
-          </sdds-table-header>       
-          <sdds-table-body enable-dummy-data>                      
+              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
+          </sdds-table-header>
+          <sdds-table-body enable-dummy-data>
           </sdds-table-body>
   </sdds-table>
   <br>
@@ -80,7 +80,7 @@ const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
     <h6 class="sdds-u-pb0 sdds-u-mb0">Selected rows data</h6>
     <small>Values here are values found in data-selected-rows attribute of sdds-table-body element. They are shown here just for presentation purposes.</small>
     <br>
-    <textarea id="selected-rows-value-textarea" rows="5" cols="50" readonly></textarea> 
+    <textarea id="selected-rows-value-textarea" rows="5" cols="50" readonly></textarea>
   </div>`;
 };
 

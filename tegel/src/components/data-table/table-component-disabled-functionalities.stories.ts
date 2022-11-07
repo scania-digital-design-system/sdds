@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Data Table/Web Component',
+  title: 'Components/Data Table/Web Component',
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
@@ -50,10 +50,10 @@ const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackgro
 
   return `
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
-   <sdds-table 
+   <sdds-table
       id="disabled-functionality-table"
       vertical-dividers="${verticalDivider}"
-      compact-design="${compactDesign}"   
+      compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
       enable-responsive="${responsiveDesign}"
    >
@@ -62,20 +62,20 @@ const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackgro
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right'></sdds-header-cell> 
-          </sdds-table-header>       
-          <sdds-table-body disable-pagination-function disable-filtering-function disable-sorting-function enable-dummy-data>  
+              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable text-align='right'></sdds-header-cell>
+          </sdds-table-header>
+          <sdds-table-body disable-pagination-function disable-filtering-function disable-sorting-function enable-dummy-data>
               <sdds-table-body-row>
                   <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
                   <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>           
-              </sdds-table-body-row>       
+                  <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
+              </sdds-table-body-row>
           </sdds-table-body>
         <sdds-table-footer enable-client-pagination client-max-pages="10"></sdds-table-footer>
-  </sdds-table> 
+  </sdds-table>
   <br>
-  
+
   <div style="width: 500px; background-color: lightblue; padding: 16px;">
     <h5>Event test box</h5>
     <h6 class="sdds-u-pb0 sdds-u-mb0">Event name:</h6>
@@ -83,7 +83,7 @@ const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackgro
     <h6 class="sdds-u-pb0 sdds-u-mb0">Events value (aka detail)</h6>
     <small>Event always sent an array of items, where first one is always an ID of tabel where event is emitted from</small>
     <br>
-    <textarea id="event-value-textarea" rows="1" cols="50" readonly></textarea> 
+    <textarea id="event-value-textarea" rows="1" cols="50" readonly></textarea>
   </div>`;
 };
 

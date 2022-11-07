@@ -1,5 +1,5 @@
 export default {
-  title: 'Component/Data Table/HTML&CSS',
+  title: 'Components/Data Table/HTML&CSS',
   argTypes: {
     tableTitle: {
       name: 'Table title',
@@ -63,14 +63,14 @@ const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, c
 <h3>Native HTML & CSS table</h3>
 
     <table class="
-        sdds-table 
-        ${isCompact ? 'sdds-table--compact' : ''} 
+        sdds-table
+        ${isCompact ? 'sdds-table--compact' : ''}
         ${dividers ? 'sdds-table--divider' : ''}
         ${onWhiteBG ? 'sdds-table--on-white-bg' : ''}
         ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
     ">
     ${tableTitle && `<caption class="sdds-table__title">${tableTitle}</caption>`}
-          
+
     <thead class="sdds-table__header">
       <tr class="sdds-table__row">
         <th class="sdds-table__header-cell" style="width: ${column_1_width};">Header</th>
