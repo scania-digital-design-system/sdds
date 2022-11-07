@@ -1,7 +1,10 @@
+import readme from './readme.md';
+
 export default {
   title: 'Components/Tooltip',
   parameters: {
     layout: 'centered',
+    notes: readme,
     // docs: { inlineStories: false, iframeHeight: 250 },
   },
 
