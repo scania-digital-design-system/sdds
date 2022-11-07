@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -60,7 +62,8 @@ export default {
   },
 };
 
-const SortingTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign, column_1_sortable, column_2_sortable, column_3_sortable, column_4_sortable }) => `
+const SortingTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign, column_1_sortable, column_2_sortable, column_3_sortable, column_4_sortable }) =>
+  formatHtmlPreview(`
   <h3>Sorting example</h3>
    <sdds-table
       id="sorting-table"
@@ -77,7 +80,7 @@ const SortingTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, re
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const Sorting = SortingTemplate.bind({});
 Sorting.args = {};

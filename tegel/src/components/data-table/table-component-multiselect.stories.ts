@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -32,7 +34,11 @@ export default {
   },
 };
 
-const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) => {
+const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+  formatHtmlPreview(`
+
+<script>
+
   function getValue() {
     const element = document.querySelector('#multiselect-table > sdds-table-body');
 
@@ -55,7 +61,8 @@ const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
     getValue();
   });
 
-  return `
+</script>
+
   <h3>Multiselect</h3>
    <sdds-table
         id="multiselect-table"
@@ -81,8 +88,7 @@ const MultiselectTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
     <small>Values here are values found in data-selected-rows attribute of sdds-table-body element. They are shown here just for presentation purposes.</small>
     <br>
     <textarea id="selected-rows-value-textarea" rows="5" cols="50" readonly></textarea>
-  </div>`;
-};
+  </div>`);
 
 export const Multiselect = MultiselectTemplate.bind({});
 Multiselect.args = {};

@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -52,7 +54,8 @@ export default {
   },
 };
 
-const CustomWidthTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign, column_1_width, column_2_width, column_3_width, column_4_width }) => `
+const CustomWidthTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign, column_1_width, column_2_width, column_3_width, column_4_width }) =>
+  formatHtmlPreview(`
   <h3>Custom width table</h3>
 
   <sdds-table
@@ -107,7 +110,7 @@ const CustomWidthTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
               <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
           </sdds-table-body-row>
       </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const CustomWidth = CustomWidthTemplate.bind({});
 CustomWidth.args = {};

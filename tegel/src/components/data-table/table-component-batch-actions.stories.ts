@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -40,8 +42,8 @@ export default {
   },
 };
 
-const BatchActionTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, batchArea, responsiveDesign }) => `
-  <h3>Batch action</h3>
+const BatchActionTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, batchArea, responsiveDesign }) =>
+  formatHtmlPreview(`
    <sdds-table
         id="actionbar-table"
         enable-multiselect
@@ -50,9 +52,8 @@ const BatchActionTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
         white-background="${onWhiteBackground}"
         enable-responsive="${responsiveDesign}"
       >
-          <sdds-table-toolbar table-title="Users buttons - actionbar">
+          <sdds-table-toolbar table-title="Batch action">
           ${batchArea}
-
         </sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
@@ -62,7 +63,7 @@ const BatchActionTemplate = ({ verticalDivider, compactDesign, onWhiteBackground
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const BatchAction = BatchActionTemplate.bind({});
 BatchAction.args = {};

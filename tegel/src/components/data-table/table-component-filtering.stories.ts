@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -32,7 +34,8 @@ export default {
   },
 };
 
-const FilteringTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) => `
+const FilteringTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+  formatHtmlPreview(`
   <h3>Filtering example</h3>
    <sdds-table
       id="filtering-table"
@@ -50,7 +53,7 @@ const FilteringTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, 
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const Filtering = FilteringTemplate.bind({});
 Filtering.args = {};

@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -32,9 +34,8 @@ export default {
   },
 };
 
-const BasicTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) => `
-  <h3>Basic table</h3>
-
+const BasicTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+  formatHtmlPreview(`
   <sdds-table
       id="basic-table"
       vertical-dividers="${verticalDivider}"
@@ -86,7 +87,7 @@ const BasicTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, resp
               <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
           </sdds-table-body-row>
       </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const Basic = BasicTemplate.bind({});
 Basic.args = {};

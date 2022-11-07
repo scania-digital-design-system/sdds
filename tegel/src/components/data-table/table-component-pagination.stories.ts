@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -39,7 +41,8 @@ export default {
   },
 };
 
-const PaginationTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, rowsPerPageControl, responsiveDesign }) => `
+const PaginationTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, rowsPerPageControl, responsiveDesign }) =>
+  formatHtmlPreview(`
   <h3>Pagination</h3>
    <sdds-table
       id="pagination-table"
@@ -57,7 +60,7 @@ const PaginationTemplate = ({ verticalDivider, compactDesign, onWhiteBackground,
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
           <sdds-table-footer enable-pagination rows-per-page="${rowsPerPageControl}"></sdds-table-footer>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const Pagination = PaginationTemplate.bind({});
 Pagination.args = {};

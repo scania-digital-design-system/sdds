@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/Web Component',
   argTypes: {
@@ -32,7 +34,8 @@ export default {
   },
 };
 
-const ExpandableRowTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) => `
+const ExpandableRowTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+  formatHtmlPreview(`
   <h3>Expandable rows</h3>
   <sdds-table
     id="expendable-rows-table"
@@ -71,7 +74,7 @@ const ExpandableRowTemplate = ({ verticalDivider, compactDesign, onWhiteBackgrou
           <div slot="expand-row"><sdds-button type="primary" text="Call to action"></sdds-button></div>
         </sdds-table-body-row-expandable>
       </sdds-table-body>
-  </sdds-table>`;
+  </sdds-table>`);
 
 export const ExpandableRows = ExpandableRowTemplate.bind({});
 ExpandableRows.args = {};

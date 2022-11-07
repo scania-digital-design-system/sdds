@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Data Table/HTML&CSS',
   argTypes: {
@@ -58,10 +60,8 @@ export default {
     },
   },
 };
-const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, column_1_width, column_2_width, column_3_width, column_4_width }) => `
-
-<h3>Native HTML & CSS table</h3>
-
+const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, column_1_width, column_2_width, column_3_width, column_4_width }) =>
+  formatHtmlPreview(`
     <table class="
         sdds-table
         ${isCompact ? 'sdds-table--compact' : ''}
@@ -70,7 +70,6 @@ const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, c
         ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
     ">
     ${tableTitle && `<caption class="sdds-table__title">${tableTitle}</caption>`}
-
     <thead class="sdds-table__header">
       <tr class="sdds-table__row">
         <th class="sdds-table__header-cell" style="width: ${column_1_width};">Header</th>
@@ -106,7 +105,7 @@ const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, c
       </tr>
     </tbody>
   </table>
-    `;
+    `);
 
 export const NativeTable = Template.bind({});
 NativeTable.args = {};
