@@ -7,9 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Placement } from "@popperjs/core";
 export namespace Components {
-    interface CCodeSample {
-        "type": string;
-    }
     interface SddsAccordion {
         /**
           * Enable or disable divider lines between items
@@ -684,12 +681,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLCCodeSampleElement extends Components.CCodeSample, HTMLStencilElement {
-    }
-    var HTMLCCodeSampleElement: {
-        prototype: HTMLCCodeSampleElement;
-        new (): HTMLCCodeSampleElement;
-    };
     interface HTMLSddsAccordionElement extends Components.SddsAccordion, HTMLStencilElement {
     }
     var HTMLSddsAccordionElement: {
@@ -901,7 +892,6 @@ declare global {
         new (): HTMLSddsTooltipElement;
     };
     interface HTMLElementTagNameMap {
-        "c-code-sample": HTMLCCodeSampleElement;
         "sdds-accordion": HTMLSddsAccordionElement;
         "sdds-accordion-item": HTMLSddsAccordionItemElement;
         "sdds-badges": HTMLSddsBadgesElement;
@@ -940,9 +930,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface CCodeSample {
-        "type"?: string;
-    }
     interface SddsAccordion {
         /**
           * Enable or disable divider lines between items
@@ -1706,7 +1693,6 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface IntrinsicElements {
-        "c-code-sample": CCodeSample;
         "sdds-accordion": SddsAccordion;
         "sdds-accordion-item": SddsAccordionItem;
         "sdds-badges": SddsBadges;
@@ -1748,7 +1734,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "c-code-sample": LocalJSX.CCodeSample & JSXBase.HTMLAttributes<HTMLCCodeSampleElement>;
             "sdds-accordion": LocalJSX.SddsAccordion & JSXBase.HTMLAttributes<HTMLSddsAccordionElement>;
             "sdds-accordion-item": LocalJSX.SddsAccordionItem & JSXBase.HTMLAttributes<HTMLSddsAccordionItemElement>;
             "sdds-badges": LocalJSX.SddsBadges & JSXBase.HTMLAttributes<HTMLSddsBadgesElement>;
