@@ -59,7 +59,7 @@ const Template = ({ icon, state, placeholderText, size }) => {
 
   switch (size) {
     case 'Small':
-      sizeClass = 'sdds-chip__small';
+      sizeClass = 'sdds-chip-sm';
       break;
     default:
       break;
