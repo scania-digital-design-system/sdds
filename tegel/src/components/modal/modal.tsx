@@ -20,7 +20,7 @@ export class Modal {
 
   @Element() el: HTMLElement;
 
-  // State when modal should be shown
+  //** State when modal should be shown */
   @State() show: boolean = false;
 
   @Method()
