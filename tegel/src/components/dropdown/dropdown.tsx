@@ -133,8 +133,8 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      // TODO: Maybe can be this.open = !this.open ?
-      this.open ? !this.open : this.open;
+      //Remove if it works
+      //this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
       this.open = false;
