@@ -5,7 +5,11 @@ export default {
   parameters: {
     layout: 'centered',
     notes: readme,
-    // docs: { inlineStories: false, iframeHeight: 250 },
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
 
   argTypes: {
@@ -48,15 +52,25 @@ export default {
   },
 };
 
-const ComponentTooltip = ({ ...Default }) => `
+const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text }) => `
+   <div class='demo-wrapper'>
    <sdds-tooltip 
-      placement="${Default.tooltipPosition}" 
+      placement="${tooltipPosition}" 
       selector="#button-1" 
-      text="${Default.text}" 
-      mouse-over-tooltip="${Default.mouseOverTooltip}"/>
-      <p>Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too.</p>
+      text="${text}" 
+      mouse-over-tooltip="${mouseOverTooltip}">
+      <p> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>
     </sdds-tooltip>
-    <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button>
+    <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button></div>
+
+    <style> 
+    .demo-wrapper{ 
+      height: 200px; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+    } 
+    </style>
   `;
 
 export const Default = ComponentTooltip.bind({});
