@@ -130,12 +130,14 @@ $modals: (
 
 @mixin modal-headline {
   font: var(--sdds-headline-05);
+  letter-spacing: var(--sdds-headline-05-ls);
   margin: 0;
   flex: 1;
 }
 
 @mixin modal-body {
   font: var(--sdds-body-01);
+  letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
   margin: 0 -16px 0 0;
   overflow-y: visible;
@@ -168,6 +170,7 @@ $modals: (
 
     .sdds-modal-body {
       font: var(--sdds-body-01);
+      letter-spacing: var(--sdds-body-01-ls);
       padding-bottom: 40px;
       margin: 0 -16px 0 0;
       max-height: calc(85vh - 36px);
@@ -181,12 +184,14 @@ $modals: (
       right: 0;
       background-color: var(--sdds-modal-bg);
       padding: var(--sdds-spacing-element-16);
+      display: flex;
     }
   }
 
   &__actions-static {
     .sdds-modal-actions {
       background-color: var(--sdds-modal-bg);
+      display: flex;
     }
   }
 }
