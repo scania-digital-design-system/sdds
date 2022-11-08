@@ -1,81 +1,148 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Data Table/HTML&CSS',
+  title: 'Components/Data Table/Native',
   argTypes: {
     tableTitle: {
       name: 'Table title',
+      description: 'Text that appears in table caption area.',
       control: {
         type: 'text',
       },
-      defaultValue: 'Native table',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
     },
     isCompact: {
       name: 'Compact design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     dividers: {
       name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     onWhiteBG: {
       name: 'On white background',
+      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    responsiveTable: {
+      name: 'Responsive table',
+      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     noMinWidthArg: {
       name: 'No minimum width',
+      description: 'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
-    column_1_width: {
+    column1Width: {
       name: 'Column 1 width',
+      description:
+        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
       type: 'string',
-      defaultValue: '150px',
+      table: {
+        defaultValue: {
+          summary: '192px',
+        },
+      },
+      if: { arg: 'noMinWidthArg', eq: true },
     },
-    column_2_width: {
+    column2Width: {
       name: 'Column 2 width',
+      description:
+        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
       type: 'string',
-      defaultValue: '150px',
+      table: {
+        defaultValue: {
+          summary: '192px',
+        },
+      },
+      if: { arg: 'noMinWidthArg', eq: true },
     },
-    column_3_width: {
+    column3Width: {
       name: 'Column 3 width',
+      description:
+        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
       type: 'string',
-      defaultValue: '150px',
+      table: {
+        defaultValue: {
+          summary: '192px',
+        },
+      },
+      if: { arg: 'noMinWidthArg', eq: true },
     },
-    column_4_width: {
+    column4Width: {
       name: 'Column 4 width',
+      description:
+        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
       type: 'string',
-      defaultValue: '150px',
+      table: {
+        defaultValue: {
+          summary: '192px',
+        },
+      },
+      if: { arg: 'noMinWidthArg', eq: true },
     },
   },
 };
-const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, column_1_width, column_2_width, column_3_width, column_4_width }) =>
+
+const Template = args =>
   formatHtmlPreview(`
     <table class="
         sdds-table
-        ${isCompact ? 'sdds-table--compact' : ''}
-        ${dividers ? 'sdds-table--divider' : ''}
-        ${onWhiteBG ? 'sdds-table--on-white-bg' : ''}
-        ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
-    ">
-    ${tableTitle && `<caption class="sdds-table__title">${tableTitle}</caption>`}
+        ${args.isCompact ? 'sdds-table--compact' : ''}
+        ${args.dividers ? 'sdds-table--divider' : ''}
+        ${args.onWhiteBG ? 'sdds-table--on-white-bg' : ''}
+        ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${args.responsiveTable ? 'sdds-table--responsive' : ''}
+    " >
+    ${args.tableTitle && `<caption class="sdds-table__title">${args.tableTitle}</caption>`}
     <thead class="sdds-table__header">
       <tr class="sdds-table__row">
-        <th class="sdds-table__header-cell" style="width: ${column_1_width};">Header</th>
-        <th class="sdds-table__header-cell" style="width: ${column_2_width};">Header</th>
-        <th class="sdds-table__header-cell" style="width: ${column_3_width};">Header</th>
-        <th class="sdds-table__header-cell" style="width: ${column_4_width};">Header</th>
+        <th class="sdds-table__header-cell" ${args.column1Width ? `style="width: ${args.column1Width};"` : ''}>Header</th>
+        <th class="sdds-table__header-cell" ${args.column2Width ? `style="width: ${args.column2Width};"` : ''}>Header</th>
+        <th class="sdds-table__header-cell" ${args.column3Width ? `style="width: ${args.column3Width};"` : ''}>Header</th>
+        <th class="sdds-table__header-cell" ${args.column4Width ? `style="width: ${args.column4Width};"` : ''}>Header</th>
       </tr>
     </thead>
      <tbody class="sdds-table__body">
@@ -107,5 +174,16 @@ const Template = ({ tableTitle, isCompact, dividers, onWhiteBG, noMinWidthArg, c
   </table>
     `);
 
-export const NativeTable = Template.bind({});
-NativeTable.args = {};
+export const Default = Template.bind({});
+Default.args = {
+  tableTitle: 'Native table',
+  isCompact: false,
+  dividers: false,
+  onWhiteBG: false,
+  noMinWidthArg: false,
+  responsiveTable: false,
+  column1Width: '',
+  column2Width: '',
+  column3Width: '',
+  column4Width: '',
+};
