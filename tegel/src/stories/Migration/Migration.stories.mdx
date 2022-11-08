@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs';
 import './migration.css';
 
-<Meta title="Intro/Migration" />
+<Meta title="Intro/Migrating from components&nbsp;v4" />
 
 # Migration Docs
 
@@ -55,23 +55,47 @@ If the button is one with only an icon it needs the class 'sdds-btn-only-icon'.
 <button
     class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon"
   >
-    <sdds-icon
-      class="sdds-btn-icon"
-      size="20px"
-      name="arrow_diagonal"
-    ></sdds-icon>
-  </button>
+  <sdds-icon
+    class="sdds-btn-icon"
+    size="20px"
+    name="arrow_diagonal"
+  ></sdds-icon>
+</button>
 
 // New ✅
 <button
     class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon sdds-btn-only-icon"
   >
-    <sdds-icon
-      class="sdds-btn-icon"
-      size="20px"
-      name="arrow_diagonal"
-    ></sdds-icon>
-  </button>
+  <sdds-icon
+    class="sdds-btn-icon"
+    size="20px"
+    name="arrow_diagonal"
+  ></sdds-icon>
+</button>
+```
+
+## Chips
+
+[Native](/docs/components-chips--default)
+
+#### Renamed class to `sdds-chips-sm`
+
+The class `sdds-chips__small` was changed to `sdds-chips-sm` to comform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-chips__small` to `sdds-chips-sm`.
+
+```jsx
+// Old ❌
+<div class="sdds-chip sdds-chip__small">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
+
+// New ✅
+<div class="sdds-chip sdds-chip-sm">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
 ```
 
 ## Dropdown
@@ -99,5 +123,29 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
   <select name="nativeDropdown">
     // ...
   </select>
+</div>
+```
+
+## Stepper
+
+[Native](/docs/components-stepper--default)
+
+#### Renamed class to `sdds-stepper-sm`
+
+The class `sdds-stepper--small` was changed to `sdds-stepper-sm` to comform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
+
+```jsx
+// Old ❌
+<div class="sdds-stepper sdds-stepper--small">
+  // ...
+</div>
+
+// New ✅
+<div class="sdds-stepper sdds-stepper-sm">
+  // ...
 </div>
 ```
