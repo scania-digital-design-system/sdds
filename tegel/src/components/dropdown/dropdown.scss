@@ -1,16 +1,22 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
 @import './dropdown-core';
-@import '../../helpers/components-shared.scss';
+@import './dropdown-theme-vars.scss';
+@import '../../global/scania-fonts-vars.scss';
+
 @import '../checkbox/checkbox.scss';
+
+:host,
+::slotted(*) {
+  color: var(--sdds-grey-958);
+  box-sizing: border-box;
+}
 
 :host,
 ::slotted(*) {
   --sdds-link: var(--sdds-grey-958);
   --sdds-link-text-decoration: none;
 
-  @include type-style('detail-02');
-
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-grey-958);
   box-sizing: border-box;
 }
@@ -49,6 +55,10 @@
 
     display: flex;
     align-items: center;
+
+    :has(.sdds-dropdown-label-inside) {
+      padding: 24px 0 13px;
+    }
   }
 
   .sdds-dropdown-toggle--selected:not(:focus) {
@@ -92,9 +102,8 @@
   .sdds-dropdown-filter {
     border: 0;
     outline: none;
-
-    @include type-style('detail-02');
-
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
     color: var(--sdds-grey-958);
     width: 100%;
     background: transparent;
@@ -238,7 +247,7 @@
   ::slotted(sdds-dropdown-option) {
     display: flex;
     padding: var(--sdds-spacing-element-16);
-    background-color: var(--sdds-dropdown-bg);
+    background-color: var(--sdds-white);
     border-top: 1px solid transparent;
     border-bottom: 1px solid var(--sdds-grey-100);
     opacity: 0;
@@ -267,7 +276,8 @@
   }
 
   ::slotted(sdds-dropdown-option:focus) {
-    @include sdds-focus-state;
+    outline: 2px solid var(--sdds-blue-400);
+    outline-offset: -2px;
   }
 
   ::slotted(sdds-dropdown-option.sdds-dropdown--selected),
@@ -359,8 +369,8 @@
 }
 
 .sdds-dropdown-label-inside {
-  @include type-style('detail-02');
-
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-grey-958);
   position: absolute;
   transform: scaleY(1) translate(0, -6px);
@@ -377,7 +387,7 @@
 
   .sdds-dropdown-label-inside {
     color: var(--sdds-grey-700);
-    transform: translate(0, -17.8px);
+    transform: translate(0, -16.8px);
     font-size: calc(2.5rem);
     width: calc(100% - 64px);
     overflow: hidden;

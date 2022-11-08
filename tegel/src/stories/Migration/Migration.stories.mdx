@@ -13,7 +13,7 @@ Here is where we document all the breaking changes that we are introducing while
 
 https://www.markdownguide.org/cheat-sheet/
 
-### Button
+## Button
 
 [Native](/docs/components-button--native/)
 
@@ -72,4 +72,32 @@ If the button is one with only an icon it needs the class 'sdds-btn-only-icon'.
       name="arrow_diagonal"
     ></sdds-icon>
   </button>
+```
+
+## Dropdown
+
+[Native](/docs/components-stepper--default)
+
+#### Renamed size classes to `sdds-dropdown-sm`, and `sdds-dropdown-md`
+
+The classes was changed from `sdds-dropdown-small` and `sdds-dropdown-medium` to comform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
+
+```jsx
+// Old ❌
+<div class="sdds-dropdown sdds-dropdown-medium">
+  <select name="nativeDropdown">
+    // ...
+  </select>
+</div>
+
+// New ✅
+<div class="sdds-dropdown sdds-dropdown-md">
+  <select name="nativeDropdown">
+    // ...
+  </select>
+</div>
 ```
