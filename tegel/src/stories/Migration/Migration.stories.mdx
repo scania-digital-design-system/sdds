@@ -3,7 +3,6 @@ import './migration.css';
 
 <Meta title="Intro/Migration" />
 
-
 # Migration Docs
 
 Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
@@ -11,22 +10,66 @@ Here is where we document all the breaking changes that we are introducing while
 ---
 
 ### MD cheatsheet
+
 https://www.markdownguide.org/cheat-sheet/
 
-### Button 
+### Button
+
 [Native](/docs/components-button--native/)
 
 [Webcomponent](/docs/components-button--native/)
 
+#### Added class `sdds-btn-text`
 
-### 'sdds-btn-text'
-##### What changed? 
-We added a 'sdds-btn-text' class for the span containing the text of the button in order to align the children of the button better.
+We added a `sdds-btn-text` class for the span containing the text of the button in order
+to align the children of the button better.
+
 ##### What action is required?
-If the child of the native 'sdds-btn' is a text it will need a class of 'sdds-btn-text'
 
-### 'sdds-btn-text'
-##### What changed?
+If the child of the native `sdds-btn` is a text it will need a class of `sdds-btn-text`
+
+```jsx
+// Old ❌
+<button class="sdds-btn">
+  Some text
+</button>
+
+// New ✅
+<button class="sdds-btn">
+  <span class="sdds-btn-text">
+    Some text
+  </span>
+</button>
+```
+
+#### Added class 'sdds-btn-only-icon'
+
 We added a class for only icon buttons on native button in order to style it correctly.
+
 ##### What action is required?
+
 If the button is one with only an icon it needs the class 'sdds-btn-only-icon'.
+
+```jsx
+// Old ❌
+<button
+    class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon"
+  >
+    <sdds-icon
+      class="sdds-btn-icon"
+      size="20px"
+      name="arrow_diagonal"
+    ></sdds-icon>
+  </button>
+
+// New ✅
+<button
+    class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon sdds-btn-only-icon"
+  >
+    <sdds-icon
+      class="sdds-btn-icon"
+      size="20px"
+      name="arrow_diagonal"
+    ></sdds-icon>
+  </button>
+```
