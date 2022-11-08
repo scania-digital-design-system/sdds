@@ -16,9 +16,9 @@ export default {
       name: 'Size',
       control: {
         type: 'radio',
-        options: { Large: 'large', Medium: 'medium', Small: 'small' },
+        options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      defaultValue: 'large',
+      defaultValue: 'lg',
       description: 'Size of the dropdown',
     },
     disabled: {

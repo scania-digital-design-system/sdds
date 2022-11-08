@@ -19,14 +19,16 @@
   }
 
   // Size medium
-  &.sdds-dropdown-medium {
+  &.sdds-dropdown-medium,
+  &.sdds-dropdown-md {
     select {
       padding: 4rem;
     }
   }
 
   // Size small
-  &.sdds-dropdown-small {
+  &.sdds-dropdown-small,
+  &.sdds-dropdown-sm {
     select {
       padding: 3rem 4rem;
     }
