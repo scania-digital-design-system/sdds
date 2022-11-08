@@ -44,6 +44,3 @@ src/themes.built/
 storybook-static/
 
 components.d.ts
-
-.npmrc
-
