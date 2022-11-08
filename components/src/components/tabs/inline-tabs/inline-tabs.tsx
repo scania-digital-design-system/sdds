@@ -97,7 +97,7 @@ export class InlineTabs {
       let disabled = false;
       if (
         (item.getAttribute('aria-disabled')
-          ? item.getAttribute('data-disabled')
+          ? item.getAttribute('aria-disabled')
           : item.getAttribute('disabled')) !== null
       ) {
         disabled = true;
