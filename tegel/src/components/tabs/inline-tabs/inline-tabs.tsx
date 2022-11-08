@@ -69,19 +69,19 @@ export class InlineTabs {
     }
 
     Array.from(this.host.children).map((item: HTMLElement, index) => {
-      const name = item.getAttribute('name') || `Tab ${index + 1}`;
+      const name = item.dataset.name ? item.dataset.name : item.getAttribute('name') || `Tab ${index + 1}`;
 
-      let key = item.getAttribute('tab-key');
+      let key = item.dataset.tabKey ? item.dataset.tabKey : item.getAttribute('tab-key');
       if (!key) {
         key = this._generateKeyFromName(name);
       }
 
-      if (item.getAttribute('default') !== null) {
+      if ((item.getAttribute('data-default') ? item.getAttribute('data-default') : item.getAttribute('default')) !== null) {
         this.startingTab = key;
       }
 
       let disabled = false;
-      if (item.getAttribute('disabled') !== null) {
+      if ((item.getAttribute('aria-disabled') ? item.getAttribute('aria-disabled') : item.getAttribute('disabled')) !== null) {
         disabled = true;
       }
 
