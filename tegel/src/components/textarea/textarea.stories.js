@@ -54,7 +54,6 @@ export default {
         options: ['No label', 'Inside', 'Outside'],
       },
       defaultValue: 'No label',
-      if: { arg: 'label', neq: '' },
     },
     helper: {
       name: 'Helper text',
@@ -105,20 +104,11 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
-  let labelPositionValue;
-  switch (labelPosition) {
-    case 'No label':
-      labelPositionValue = 'no-label';
-      break;
-    case 'Inside':
-      labelPositionValue = 'inside';
-      break;
-    case 'Outside':
-      labelPositionValue = 'outside';
-      break;
-    default:
-      labelPositionValue = 'no-label';
-  }
+  const labelPosLookup = {
+    'No label': 'no-label',
+    'Inside': 'inside',
+    'Outside': 'outside',
+  };
   return formatHtmlPreview(`
   <style>
     .demo-wrapper {
@@ -132,7 +122,7 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
           label="${label}"
           variant="${variantValue}"
           helper="${helper}"
-          label-position="${labelPositionValue}"
+          label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'readonly' : ''}
           placeholder="${placeholder}"
