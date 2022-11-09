@@ -8,7 +8,7 @@ import { Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter, 
 export class Dropdown {
   textInput?: HTMLInputElement;
 
-  /** Placeholder text for dropdown with no selectedLabel item 2 */
+  /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
   /** Add the value of the option as string to set it as default */
@@ -20,7 +20,7 @@ export class Dropdown {
   /** Set to true for disabled states */
   @Prop() disabled: boolean;
 
-  /** Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
+  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
@@ -133,8 +133,8 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      //Remove if it works
-      //this.open ? !this.open : this.open;
+      // TODO: Maybe can be this.open = !this.open ?
+      this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
       this.open = false;
@@ -251,7 +251,7 @@ export class Dropdown {
       optionItem.selected = false;
     });
   }
-  /**Use this method to reset the dropdown. Then it will go back to its initial state.*/
+
   @Method() async resetOption() {
     this.deselectAll();
     this.open = false;
@@ -271,7 +271,7 @@ export class Dropdown {
           'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position': this.labelPosition === 'inside',
+          'sdds-dropdown--label-inside-position': this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
@@ -291,12 +291,7 @@ export class Dropdown {
             onClick={() => this.handleClick()}
             ref={node => (this.node = node)}
           >
-            <span
-              class={{
-                'sdds-dropdown-label': true,
-                'sdds-dropdown-label--label-inside': this.labelPosition === 'inside',
-              }}
-            >
+            <span class="sdds-dropdown-label">
               {this.type === 'filter' ? (
                 <input
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
@@ -314,10 +309,12 @@ export class Dropdown {
                 <span
                   class={{
                     'sdds-dropdown-label-container': true,
-                    'sdds-dropdown-label-container--label-inside': this.labelPosition === 'inside',
+                    'sdds-dropdown-label-container--label-inside': this.labelPosition === 'inside' && this.selectedLabel.length > 0,
                   }}
                 >
-                  {this.size !== 'sm' && this.labelPosition === 'inside' && this.label.length > 0 && <span class="sdds-dropdown-label-inside">{this.label}</span>}
+                  {this.size !== 'sm' && this.selectedLabel.length > 0 && this.labelPosition === 'inside' && this.label.length > 0 && (
+                    <span class="sdds-dropdown-label-inside">{this.label}</span>
+                  )}
                   <span
                     class={`sdds-dropdown-label-main ${
                       (this.selectedLabel.length === 0 || (this.labelPosition === 'inside' && this.label.length > 0)) && 'sdds-dropdown-placeholder'
@@ -331,6 +328,7 @@ export class Dropdown {
                         {this.selectedLabelsArray.toString().length > 0 && this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
+                    {!this.selectedLabel && this.labelPosition === 'inside' && this.label}
 
                     {!this.selectedLabel && this.type !== 'multiselect' && this.labelPosition !== 'inside' && this.placeholder}
 

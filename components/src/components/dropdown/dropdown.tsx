@@ -290,7 +290,7 @@ export class Dropdown {
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
           'sdds-dropdown--label-inside-position':
-            this.labelPosition === 'inside',
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
@@ -339,10 +339,11 @@ export class Dropdown {
                   class={{
                     'sdds-dropdown-label-container': true,
                     'sdds-dropdown-label-container--label-inside':
-                      this.labelPosition === 'inside',
+                      this.labelPosition === 'inside' && this.selectedLabel.length > 0,
                   }}
                 >
                   {this.size !== 'sm' &&
+                  this.selectedLabel.length > 0 &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
                       <span class="sdds-dropdown-label-inside">
@@ -373,6 +374,9 @@ export class Dropdown {
                             .join(', ')}
                       </span>
                     )}
+                    {!this.selectedLabel &&
+                      this.labelPosition === 'inside' &&
+                      this.label}
 
                     {!this.selectedLabel &&
                       this.type !== 'multiselect' &&
