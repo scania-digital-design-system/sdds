@@ -9,7 +9,6 @@ export default {
     type: {
       name: 'Type',
       description: 'Pick variant',
-      defaultValue: 'default',
       control: {
         type: 'radio',
       },
@@ -32,9 +31,6 @@ const Template = ({ type }) => {
     <div class="sdds-demo-block"> 
       <div class="${typeLookup[type] === 'variant' ? 'sdds-block sdds-block__variant' : 'sdds-block'}">
         <p>Content be here...</p>
-        <div class="sdds-block">
-          <p>Content be here...</p>
-        </div>
       </div>
     </div>
     `,
