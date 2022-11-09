@@ -1,0 +1,37 @@
+@import './tooltip-theme-vars.scss';
+
+.sdds-tooltip {
+  font: var(--sdds-detail-05);
+  letter-spacing: var(--sdds-detail-05-ls);
+  color: var(--sdds-tooltip-color);
+  background-color: var(--sdds-tooltip-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  word-wrap: break-word;
+  max-width: 48rem;
+  z-index: 20000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in, visibility 200ms ease-in;
+
+  &.sdds-tooltip-top-left {
+    border-radius: 0 1rem 1rem;
+  }
+
+  &.sdds-tooltip-top-right {
+    border-radius: 1rem 0 1rem 1rem;
+  }
+
+  &.sdds-tooltip-bottom-right {
+    border-radius: 1rem 1rem 0;
+  }
+
+  &.sdds-tooltip-bottom-left {
+    border-radius: 1rem 1rem 1rem 0;
+  }
+}
+
+.sdds-tooltip-show {
+  opacity: 1;
+  visibility: visible;
+}
