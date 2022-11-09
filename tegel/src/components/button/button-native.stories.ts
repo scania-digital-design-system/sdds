@@ -93,9 +93,9 @@ export default {
   },
   args: {
     text: 'Button',
-    btnType: 'primary',
-    size: 'lg',
-    variant: 'on-dark',
+    btnType: 'Primary',
+    size: 'Large',
+    variant: 'On dark',
     fullbleed: false,
     disabled: false,
     onlyIcon: false,

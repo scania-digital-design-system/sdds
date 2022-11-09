@@ -22,8 +22,8 @@ export default {
       description: 'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
         type: 'radio',
-        options: { Primary: 'primary', Secondary: 'secondary', Ghost: 'ghost', Danger: 'danger' },
       },
+      options: ['Primary', 'Secondary', 'Ghost', 'Danger'],
       table: {
         defaultValue: { summary: 'primary' },
       },
@@ -32,8 +32,8 @@ export default {
       name: 'Size',
       control: {
         type: 'radio',
-        options: { Large: 'lg', Medium: 'md', Small: 'sm', ExtraSmall: 'xs' },
       },
+      options: ['Large', 'Medium', 'Small', 'Extra small'],
       table: {
         defaultValue: { summary: 'lg' },
       },
@@ -43,8 +43,8 @@ export default {
       name: 'Variant',
       control: {
         type: 'radio',
-        options: { 'On light': 'on-light', 'On dark': 'on-dark' },
       },
+      options: ['On light', 'On dark'],
       description: 'Button variant.',
       table: {
         defaultValue: { summary: 'on-dark' },
@@ -90,9 +90,9 @@ export default {
   },
   args: {
     text: 'Button',
-    btnType: 'primary',
-    size: 'lg',
-    variant: 'on-dark',
+    btnType: 'Primary',
+    size: 'Large',
+    variant: 'On dark',
     fullbleed: false,
     disabled: false,
     onlyIcon: false,
@@ -101,6 +101,24 @@ export default {
 };
 
 const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+  const btnTypeLookUp = {
+    Primary: 'primary',
+    Secondary: 'secondary',
+    Ghost: 'ghost',
+    Danger: 'danger',
+  };
+  const sizeLookUp = {
+    'Large': 'lg',
+    'Medium': 'md',
+    'Small': 'sm',
+    'Extra small': 'xs',
+  };
+
+  const varaintLookup = {
+    'On light': 'on-light',
+    'On dark': 'on-dark',
+  };
+
   return formatHtmlPreview(
     `
     <style>
@@ -109,9 +127,9 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
     }
   </style>
   <div class="demo-wrapper">
-  <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnType}" size="${size}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
+  <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
-    }" variant="${variant}" >
+    }" variant="${varaintLookup[variant]}" >
   ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
 </sdds-button>
   </div>
