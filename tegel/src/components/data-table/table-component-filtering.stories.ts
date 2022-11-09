@@ -1,7 +1,29 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import sddsTable from './table/readme.md';
+import sddsTableToolbar from './table-toolbar/readme.md';
+import sddsHeader from './table-header/readme.md';
+import sddsHeaderCell from './table-header-cell/readme.md';
+import sddsTableBody from './table-body/readme.md';
+import sddsBodyRow from './table-body-row/readme.md';
+import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
+import sddsBodyCell from './table-body-cell/readme.md';
+import sddsTableFooter from './table-footer/readme.md';
 
 export default {
   title: 'Components/Data Table/Web Component',
+  parameters: {
+    notes: {
+      'sdds-table': sddsTable,
+      'sdds-table-toolbar': sddsTableToolbar,
+      'sdds-header': sddsHeader,
+      'sdds-header-cell': sddsHeaderCell,
+      'sdds-table-body': sddsTableBody,
+      'sdds-body-row': sddsBodyRow,
+      'sdds-body-row-expandable': sddsBodyRowExpandable,
+      'sdds-body-cell': sddsBodyCell,
+      'sdds-table-footer': sddsTableFooter,
+    },
+  },
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
