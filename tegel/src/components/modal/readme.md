@@ -17,7 +17,7 @@
 
 ### `openModal() => Promise<void>`
 
-
+Shows the modal
 
 #### Returns
 
