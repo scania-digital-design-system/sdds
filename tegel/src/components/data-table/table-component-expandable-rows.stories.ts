@@ -5,31 +5,51 @@ export default {
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     compactDesign: {
-      name: 'Compact Design',
+      name: 'Compact design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     onWhiteBackground: {
       name: 'On white background',
+      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     responsiveDesign: {
-      name: 'Responsive design',
+      name: 'Responsive table',
+      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
   },
 };
@@ -77,4 +97,9 @@ const ExpandableRowTemplate = ({ verticalDivider, compactDesign, onWhiteBackgrou
   </sdds-table>`);
 
 export const ExpandableRows = ExpandableRowTemplate.bind({});
-ExpandableRows.args = {};
+ExpandableRows.args = {
+  compactDesign: false,
+  onWhiteBackground: false,
+  verticalDivider: false,
+  responsiveDesign: false,
+};
