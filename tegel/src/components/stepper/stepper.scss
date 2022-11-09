@@ -70,6 +70,7 @@
       }
     }
 
+    &.sdds-stepper-sm,
     &.sdds-stepper--small {
       .sdds-stepper__step {
         margin-bottom: 34px;
@@ -212,6 +213,7 @@
     }
   }
 
+  &-sm,
   &--small {
     .sdds-stepper__step {
       &-icon {

@@ -44,7 +44,7 @@ const Template = ({ size, style, label }) => {
 
   switch (size) {
     case 'Small':
-      sizeClass = 'sdds-stepper--small';
+      sizeClass = 'sdds-stepper-sm';
       break;
     default:
       break;
