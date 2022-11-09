@@ -10,8 +10,8 @@ export default {
       name: 'Size',
       control: {
         type: 'radio',
-        options: ['default', 'small'],
       },
+      options: ['Default', 'Small'],
       defaultValue: 'radio',
       description: 'Size of the toggle',
     },
@@ -34,16 +34,7 @@ export default {
 };
 
 const Template = ({ size, disabled = false, headline = '' }) => {
-  let sizeValue = '';
-  switch (size) {
-    case 'small':
-      sizeValue = 'sdds-toggle-sm';
-      break;
-    default:
-      sizeValue = '';
-      break;
-  }
-
+  let sizeValue = size === 'Small' ? 'sdds-toggle-sm' : '';
   const headlineDiv = headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>` : '';
 
   return formatHtmlPreview(`
@@ -58,18 +49,3 @@ const Template = ({ size, disabled = false, headline = '' }) => {
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-};
-
-export const Headline = Template.bind({});
-Headline.args = {
-  headline: 'Headline',
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-};
