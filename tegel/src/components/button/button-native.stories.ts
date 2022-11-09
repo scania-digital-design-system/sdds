@@ -91,6 +91,16 @@ export default {
       if: { arg: 'size', neq: 'xs' },
     },
   },
+  args: {
+    text: 'Button',
+    btnType: 'primary',
+    size: 'lg',
+    variant: 'on-dark',
+    fullbleed: false,
+    disabled: false,
+    onlyIcon: false,
+    icon: 'none',
+  },
 };
 
 const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
@@ -134,31 +144,16 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   );
 };
 
-const defaultValues = {
-  text: 'Button',
-  btnType: 'Primary',
-  size: 'Large',
-  variant: 'on-dark',
-  fullbleed: false,
-  disabled: false,
-  onlyIcon: false,
-  icon: 'none',
-};
-
 export const Native = NativeTemplate.bind({});
-Native.args = {
-  ...defaultValues,
-};
+Native.args = {};
 
 export const NativeWithIcon = NativeTemplate.bind({});
 NativeWithIcon.args = {
-  ...defaultValues,
   icon: 'truck',
 };
 
 export const NativeOnlyIcon = NativeTemplate.bind({});
 NativeOnlyIcon.args = {
-  ...defaultValues,
   text: '',
   onlyIcon: true,
   icon: 'truck',

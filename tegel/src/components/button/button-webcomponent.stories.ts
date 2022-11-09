@@ -88,6 +88,16 @@ export default {
       if: { arg: 'size', neq: 'xs' },
     },
   },
+  args: {
+    text: 'Button',
+    btnType: 'primary',
+    size: 'lg',
+    variant: 'on-dark',
+    fullbleed: false,
+    disabled: false,
+    onlyIcon: false,
+    icon: 'none',
+  },
 };
 
 const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
@@ -109,32 +119,17 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
   );
 };
 
-const defaultValues = {
-  text: 'Button',
-  btnType: 'primary',
-  size: 'lg',
-  variant: 'on-dark',
-  fullbleed: false,
-  disabled: false,
-  onlyIcon: false,
-  icon: 'none',
-};
-
 /** Button as web component */
 export const WebComponent = WebComponentTemplate.bind({});
-WebComponent.args = {
-  ...defaultValues,
-};
+WebComponent.args = {};
 
 export const WebComponentWithIcon = WebComponentTemplate.bind({});
 WebComponentWithIcon.args = {
-  ...defaultValues,
   icon: 'truck',
 };
 
 export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
 WebComponentOnlyIcon.args = {
-  ...defaultValues,
   text: '',
   onlyIcon: true,
   icon: 'truck',
