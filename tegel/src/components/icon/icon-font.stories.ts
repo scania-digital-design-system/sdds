@@ -13,8 +13,8 @@ export default {
       name: 'Icon name',
       control: {
         type: 'select',
-        options: iconsNames,
       },
+      options: iconsNames,
     },
     size: {
       name: 'Size in pixels',
