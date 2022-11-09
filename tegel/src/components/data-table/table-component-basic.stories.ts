@@ -51,66 +51,6 @@ export default {
         },
       },
     },
-    noMinWidth: {
-      name: 'No minimum width',
-      description: 'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
-    column1Width: {
-      name: 'Column 1 width',
-      description:
-        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
-      if: { arg: 'noMinWidth', eq: true },
-    },
-    column2Width: {
-      name: 'Column 2 width',
-      description:
-        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
-      if: { arg: 'noMinWidth', eq: true },
-    },
-    column3Width: {
-      name: 'Column 3 width',
-      description:
-        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
-      if: { arg: 'noMinWidth', eq: true },
-    },
-    column4Width: {
-      name: 'Column 4 width',
-      description:
-        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
-      if: { arg: 'noMinWidth', eq: true },
-    },
   },
 };
 
@@ -122,13 +62,12 @@ const BasicTemplate = args =>
       compact-design="${args.compactDesign}"
       white-background="${args.onWhiteBackground}"
       enable-responsive="${args.responsiveDesign}"
-      no-min-width="${args.noMinWidth}"
             >
       <sdds-table-header>
-          <sdds-header-cell column-key='truck' column-title='Truck type' custom-width="${args.column1Width};" }></sdds-header-cell>
-          <sdds-header-cell column-key='driver' column-title='Driver name' custom-width="${args.column2Width};" }></sdds-header-cell>
-          <sdds-header-cell column-key='country' column-title='Country' custom-width="${args.column3Width};" }></sdds-header-cell>
-          <sdds-header-cell column-key='mileage' column-title='Mileage' custom-width="${args.column4Width};" text-align='right' }></sdds-header-cell>
+          <sdds-header-cell column-key='truck' column-title='Truck type' }></sdds-header-cell>
+          <sdds-header-cell column-key='driver' column-title='Driver name' }></sdds-header-cell>
+          <sdds-header-cell column-key='country' column-title='Country' }></sdds-header-cell>
+          <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right' }></sdds-header-cell>
       </sdds-table-header>
       <sdds-table-body>
           <sdds-table-body-row>
@@ -176,9 +115,4 @@ Default.args = {
   onWhiteBackground: false,
   verticalDivider: false,
   responsiveDesign: false,
-  noMinWidth: false,
-  column1Width: '',
-  column2Width: '',
-  column3Width: '',
-  column4Width: '',
 };
