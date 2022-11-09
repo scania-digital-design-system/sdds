@@ -152,44 +152,25 @@ const Template = ({ type, placeholderText, size, minWidth, disabled, readonly, l
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
-
-  let sizeValue;
-  switch (size) {
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    case 'Large':
-      sizeValue = 'lg';
-      break;
-    default:
-      sizeValue = 'lg';
-      break;
-  }
-  let minWidthValue = false;
-  switch (minWidth) {
-    case 'No min width':
-      minWidthValue = true;
-      break;
-    default:
-      break;
-  }
+  const sizeLookUp = {
+    Large: 'lg',
+    Medium: 'md',
+    Small: 'sm',
+  };
 
   return formatHtmlPreview(
     `
   <div style="width: 208px">
     <sdds-textfield
       type="${type}"
-      size="${sizeValue}"
+      size="${sizeLookUp[size]}"
       state="${stateValue}"
       variant="${variantValue}"
       ${maxlength}
       ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidthValue ? 'noMinWidth' : ''}
+      ${minWidth === 'No min width' ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
         ${prefix ? '<span slot="sdds-prefix">$</span>' : ''}
         ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
