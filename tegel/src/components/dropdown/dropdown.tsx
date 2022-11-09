@@ -77,7 +77,7 @@ export class Dropdown {
     this.listItemArray = Array.from(this.host.children);
     this.listItemArray.map(listItem => {
       this.optionValues.push(listItem.value);
-      this.optionLabels.push(listItem.innerText);
+      this.optionLabels.push(listItem.innerText.trim());
     });
     this.setOptionFromOutside(this.defaultOption);
 
@@ -327,14 +327,14 @@ export class Dropdown {
 
                     {this.type === 'multiselect' && (
                       <span class="sdds-dropdown-multiselect-result">
-                        {this.labelPosition !== 'inside' && this.selectedLabelsArray.toString().length < 1 && this.placeholder}
+                        {this.labelPosition !== 'inside' && this.selectedLabelsArray.length < 1 && this.placeholder}
                         {this.selectedLabelsArray.toString().length > 0 && this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
 
                     {!this.selectedLabel && this.type !== 'multiselect' && this.labelPosition !== 'inside' && this.placeholder}
 
-                    {!this.selectedLabel && this.labelPosition === 'inside' && this.placeholder}
+                    {!this.selectedLabel && this.labelPosition === 'inside' && this.selectedLabelsArray.length < 1 && this.placeholder}
                   </span>
                 </span>
               )}
