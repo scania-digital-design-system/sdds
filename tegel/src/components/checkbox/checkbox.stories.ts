@@ -9,7 +9,6 @@ export default {
     disabled: {
       name: 'Disabled',
       description: 'Disables the checkbox',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -17,7 +16,6 @@ export default {
     checked: {
       name: 'Checked',
       description: 'Checks the checkbox',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -25,7 +23,6 @@ export default {
     label: {
       name: 'Label text',
       description: 'The label of the component',
-      defaultValue: 'Label',
       type: 'string',
     },
     id: {
@@ -34,6 +31,11 @@ export default {
         disable: true,
       },
     },
+  },
+  args: {
+    disabled: false,
+    checked: false,
+    label: 'Label',
   },
 };
 
