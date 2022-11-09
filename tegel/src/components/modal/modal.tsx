@@ -23,6 +23,7 @@ export class Modal {
   /** State when modal should be shown */
   @State() show: boolean = false;
 
+  /** Shows the modal  */
   @Method()
   async openModal() {
     this.show = true;
