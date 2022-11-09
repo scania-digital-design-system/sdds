@@ -7,9 +7,9 @@ export default {
   },
   args: {
     label: '',
-    size: 'lg',
+    size: 'Large',
     disabled: false,
-    state: 'default',
+    state: 'Default',
     helper: '',
   },
   argTypes: {
@@ -20,11 +20,11 @@ export default {
     },
     size: {
       name: 'Size',
+      description: 'Size of the dropdown',
       control: {
         type: 'radio',
-        options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      description: 'Size of the dropdown',
+      options: ['Large', 'Medium', 'Small'],
     },
     disabled: {
       name: 'Disabled',
@@ -54,22 +54,25 @@ export default {
   },
 };
 
-const NativeTemplate = ({ disabled, size, helper, label, state }) =>
-  formatHtmlPreview(`
-    <div style="width:300px">
-        <div class="sdds-dropdown ${size !== 'lg' ? `sdds-dropdown-${size}` : ''} ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
-        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
-        <select 
-        name="nativeDropdown" 
-        id="mySelect"
-        ${disabled ? `disabled` : ''} >
-            <option value="truck">Truck</option>
-            <option value="bus">Bus</option>
-            <option value="car">Car</option>
-          </select>
-          ${helper !== '' ? `<span class="sdds-dropdown-helper">${helper}</span>` : ''}
-        </div>
-      </div>
-  `);
+const NativeTemplate = ({ disabled, size, helper, label, state }) => {
+  const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
+
+  return formatHtmlPreview(`
+   <div style="width:300px">
+       <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
+       ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
+       <select 
+       name="nativeDropdown" 
+       id="mySelect"
+       ${disabled ? `disabled` : ''} >
+           <option value="truck">Truck</option>
+           <option value="bus">Bus</option>
+           <option value="car">Car</option>
+         </select>
+         ${helper !== '' ? `<span class="sdds-dropdown-helper">${helper}</span>` : ''}
+       </div>
+     </div>
+ `);
+};
 
 export const Native = NativeTemplate.bind({});
