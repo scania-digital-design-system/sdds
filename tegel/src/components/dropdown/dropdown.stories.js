@@ -16,7 +16,6 @@ export default {
         type: 'radio',
         options: { Default: 'default', Multiselect: 'multiselect' },
       },
-      defaultValue: 'default',
       description: 'Size of the dropdown',
     },
     size: {
@@ -25,13 +24,11 @@ export default {
         type: 'radio',
         options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      defaultValue: 'lg',
       description: 'Size of the dropdown',
     },
     placeholder: {
       name: 'Placeholder',
       type: 'string',
-      defaultValue: 'Placeholder',
       description: 'Placeholder text when no option is selected',
     },
     labelPosition: {
@@ -44,7 +41,6 @@ export default {
           Outside: 'outside',
         },
       },
-      defaultValue: 'no-default',
       description: 'Label text position',
     },
     disabled: {
@@ -52,7 +48,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     state: {
       name: 'State',
@@ -63,19 +58,16 @@ export default {
         Default: 'default',
         Error: 'error',
       },
-      defaultValue: 'default',
       description: 'Support error state',
     },
     helper: {
       name: 'Helper text',
       control: 'boolean',
-      defaultValue: false,
       description: 'Helper text assists the user with additional information about the dropdown',
     },
     label: {
       name: 'Label text',
       type: 'string',
-      defaultValue: 'Label text',
       description: 'Label text helps to describe what the dropdown contains',
     },
     defaultOption: {
@@ -91,7 +83,6 @@ export default {
           'Option 3': 'option-3',
         },
       },
-      defaultValue: 'no-default',
     },
     multiDefaultOption: {
       name: 'Default options',
@@ -106,8 +97,19 @@ export default {
           'Option 3': 'option-3',
         },
       },
-      defaultValue: 'no-default',
     },
+  },
+  args: {
+    type: 'default',
+    size: 'lg',
+    placeholder: 'Placeholder',
+    labelPosition: 'no-default',
+    disabled: false,
+    state: 'default',
+    helper: false,
+    label: 'Label text',
+    defaultOption: 'no-default',
+    multiDefaultOption: 'no-default',
   },
 };
 

@@ -5,12 +5,18 @@ export default {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    label: '',
+    size: 'lg',
+    disabled: false,
+    state: 'default',
+    helper: '',
+  },
   argTypes: {
     label: {
       name: 'Label',
       type: 'string',
       description: 'Label text helps to describe what the dropdown contains',
-      defaultValue: '',
     },
     size: {
       name: 'Size',
@@ -18,7 +24,6 @@ export default {
         type: 'radio',
         options: { Large: 'lg', Medium: 'md', Small: 'sm' },
       },
-      defaultValue: 'lg',
       description: 'Size of the dropdown',
     },
     disabled: {
@@ -27,7 +32,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     state: {
       name: 'State',
@@ -38,7 +42,6 @@ export default {
         Default: 'default',
         Error: 'error',
       },
-      defaultValue: 'default',
       description: 'Support error state',
     },
     helper: {
@@ -46,7 +49,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
       description: 'Helper text assists the user with additional information about the dropdown',
     },
   },
