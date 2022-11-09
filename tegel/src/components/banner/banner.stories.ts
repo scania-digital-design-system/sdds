@@ -55,6 +55,13 @@ export default {
       },
     },
   },
+  args: {
+    state: 'info',
+    header: 'This is a header text area',
+    subheader: 'SubHeader text area',
+    link: 'Learn more',
+    prefix: true,
+  },
 };
 
 const Template = args =>
@@ -73,10 +80,4 @@ const Template = args =>
   `);
 
 export const Default = Template.bind({});
-Default.args = {
-  state: 'info',
-  header: 'This is a header text area',
-  subheader: 'SubHeader text area',
-  link: 'Learn more',
-  prefix: true,
-};
+Default.args = {};
