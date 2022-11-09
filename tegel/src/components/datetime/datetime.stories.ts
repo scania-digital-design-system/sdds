@@ -13,8 +13,8 @@ export default {
       description: 'Which type of textfield',
       control: {
         type: 'radio',
-        options: ['datetime-local', 'date', 'time'],
       },
+      options: ['datetime-local', 'date', 'time'],
     },
     size: {
       name: 'Size',
@@ -22,16 +22,16 @@ export default {
       control: {
         type: 'radio',
         // todo: make consistent with other sizes, for example 'xs', 'sm', etc
-        options: ['Large', 'Medium', 'Small'],
       },
+      options: ['Large', 'Medium', 'Small'],
     },
     minWidth: {
       name: 'Min width',
       description: 'Toggle min width',
       control: {
         type: 'radio',
-        options: ['Default', 'No min width'],
       },
+      options: ['Default', 'No min width'],
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -60,8 +60,8 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['none', 'success', 'error'],
       },
+      options: ['None', 'Success', 'Error'],
     },
   },
   args: {
@@ -69,32 +69,24 @@ export default {
     size: 'Large',
     minWidth: 'Default',
     disabled: false,
-    state: 'default',
+    state: 'None',
     label: 'Label text',
     helper: 'Helper text',
   },
 };
 
 const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
-  let sizeValue;
-  switch (size) {
-    case 'Small':
-      sizeValue = 'sm';
-      break;
-    case 'Medium':
-      sizeValue = 'md';
-      break;
-    default:
-      break;
-  }
-  let minWidthValue = false;
-  switch (minWidth) {
-    case 'No min width':
-      minWidthValue = true;
-      break;
-    default:
-      break;
-  }
+  let minWidthValue = minWidth === 'No min width' ? true : false;
+  const sizeLookup = {
+    Large: 'lg',
+    Medium: 'md',
+    Small: 'sm',
+  };
+  const stateLookup = {
+    None: 'none',
+    Success: 'success',
+    Error: 'error',
+  };
 
   return formatHtmlPreview(
     `
@@ -102,8 +94,8 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     <sdds-datetime
     id="datetime"
       type="${type}"
-      ${sizeValue ? `size="${sizeValue}"` : ''}
-      state="${state}"
+      size="${sizeLookup[size]}"
+      state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
       ${minWidthValue ? 'noMinWidth' : ''} >
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
@@ -127,7 +119,7 @@ Default.args = {};
 export const ErrorState = datetimeTemplate.bind({});
 
 ErrorState.args = {
-  state: 'error',
+  state: 'Error',
   helper: 'Helper text',
   label: 'Label text',
 };
