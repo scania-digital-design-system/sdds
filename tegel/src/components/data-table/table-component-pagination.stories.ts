@@ -5,38 +5,63 @@ export default {
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     compactDesign: {
-      name: 'Compact Design',
+      name: 'Compact design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     onWhiteBackground: {
       name: 'On white background',
+      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    responsiveDesign: {
+      name: 'Responsive table',
+      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     rowsPerPageControl: {
       name: 'Rows per page',
+      description: 'Specify how many rows per page user would like to see',
       control: {
         type: 'number',
       },
-      defaultValue: 4,
-    },
-    responsiveDesign: {
-      name: 'Responsive design',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: {
+          summary: 4,
+        },
       },
-      defaultValue: false,
     },
   },
 };
@@ -63,4 +88,10 @@ const PaginationTemplate = ({ verticalDivider, compactDesign, onWhiteBackground,
   </sdds-table>`);
 
 export const Pagination = PaginationTemplate.bind({});
-Pagination.args = {};
+Pagination.args = {
+  compactDesign: false,
+  onWhiteBackground: false,
+  verticalDivider: false,
+  responsiveDesign: false,
+  rowsPerPageControl: 4,
+};
