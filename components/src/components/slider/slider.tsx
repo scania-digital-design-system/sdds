@@ -1,4 +1,12 @@
-import { Component, Prop, h, Listen, EventEmitter, Event } from '@stencil/core';
+import {
+  Component,
+  h,
+  Prop,
+  Listen,
+  EventEmitter,
+  Event,
+  Method,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -47,6 +55,10 @@ export class Slider {
   useSnapping: boolean = false;
 
   supposedValueSlot: number = -1;
+
+  resizeObserverLoaded: boolean = false;
+
+  eventListenersAdded: boolean = false;
 
   /** Change event for the textfield */
   @Event({
@@ -104,6 +116,13 @@ export class Slider {
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = null;
+
+  /** Public method to re-initialise the slider if some configuration props are changed */
+  @Method() async reset() {
+    // @TODO: Maybe use watch-decorator (and a refactor) in the future
+    this.componentWillLoad();
+    this.componentDidLoad();
+  }
 
   @Listen('keydown')
   handleKeydown(event) {
@@ -228,6 +247,11 @@ export class Slider {
     this.dispatchChangeEvent();
   }
 
+  updateValueForced(value) {
+    this.value = value;
+    this.dispatchChangeEvent();
+  }
+
   getMin() {
     return parseFloat(this.min);
   }
@@ -270,56 +294,64 @@ export class Slider {
   }
 
   componentDidLoad() {
-    const resizeObserver = new ResizeObserver((/* entries */) => {
-      this.calculateScrubberLeftFromValue(this.value);
-      this.updateTrack();
-    });
+    if (!this.resizeObserverLoaded) {
+      this.resizeObserverLoaded = true;
 
-    resizeObserver.observe(this.wrapperElement);
-
-    this.scrubberElement.addEventListener('mousedown', (event) => {
-      event.preventDefault();
-      this.grabScrubber(event.offsetX, event.offsetY);
-    });
-
-    this.scrubberElement.addEventListener('touchstart', (event) => {
-      const rect = this.scrubberElement.getBoundingClientRect();
-      const x = event.targetTouches[0].pageX - rect.left;
-      const y = event.targetTouches[0].pageY - rect.top;
-      this.grabScrubber(x, y);
-    });
-
-    if (this.useControls) {
-      this.minusElement.addEventListener('click', () => {
-        this.stepLeft();
+      const resizeObserver = new ResizeObserver((/* entries */) => {
+        this.calculateScrubberLeftFromValue(this.value);
+        this.updateTrack();
       });
 
-      this.plusElement.addEventListener('click', () => {
-        this.stepRight();
-      });
+      resizeObserver.observe(this.wrapperElement);
     }
 
-    if (this.inputElement) {
-      this.inputElement.addEventListener('keydown', (event) => {
-        event.stopPropagation();
+    if (!this.eventListenersAdded) {
+      this.eventListenersAdded = true;
 
-        if (event.key === 'Enter') {
-          let newValue = parseInt(this.inputElement.value);
-
-          if (newValue < this.getMin()) {
-            newValue = this.getMin();
-          } else if (newValue > this.getMax()) {
-            newValue = this.getMax();
-          }
-
-          this.calculateScrubberLeftFromValue(newValue);
-          this.updateValue();
-          this.updateTrack();
-
-          this.inputElement.blur();
-          this.wrapperElement.focus();
-        }
+      this.scrubberElement.addEventListener('mousedown', (event) => {
+        event.preventDefault();
+        this.grabScrubber(event.offsetX, event.offsetY);
       });
+
+      this.scrubberElement.addEventListener('touchstart', (event) => {
+        const rect = this.scrubberElement.getBoundingClientRect();
+        const x = event.targetTouches[0].pageX - rect.left;
+        const y = event.targetTouches[0].pageY - rect.top;
+        this.grabScrubber(x, y);
+      });
+
+      if (this.useControls) {
+        this.minusElement.addEventListener('click', () => {
+          this.stepLeft();
+        });
+
+        this.plusElement.addEventListener('click', () => {
+          this.stepRight();
+        });
+      }
+
+      if (this.inputElement) {
+        this.inputElement.addEventListener('keydown', (event) => {
+          event.stopPropagation();
+
+          if (event.key === 'Enter') {
+            let newValue = parseInt(this.inputElement.value);
+
+            if (newValue < this.getMin()) {
+              newValue = this.getMin();
+            } else if (newValue > this.getMax()) {
+              newValue = this.getMax();
+            }
+
+            this.calculateScrubberLeftFromValue(newValue);
+            this.updateValueForced(newValue);
+            this.updateTrack();
+
+            this.inputElement.blur();
+            this.wrapperElement.focus();
+          }
+        });
+      }
     }
 
     this.calculateScrubberLeftFromValue(this.value);
@@ -408,11 +440,18 @@ export class Slider {
 
     if (this.disabled !== null) {
       this.disabledState = true;
+    } else {
+      this.disabledState = false;
     }
 
     if (this.readonly !== null) {
       this.readonlyState = true;
+    } else {
+      this.readonlyState = false;
     }
+
+    this.useInput = false;
+    this.useControls = false;
 
     if (this.controls !== null) {
       this.useControls = true;
@@ -420,9 +459,13 @@ export class Slider {
       this.useInput = true;
     }
 
+    this.useSmall = false;
+
     if (this.small !== null || this.size === 'sm') {
       this.useSmall = true;
     }
+
+    this.useSnapping = false;
 
     if (this.snap !== null) {
       this.useSnapping = true;
@@ -435,6 +478,7 @@ export class Slider {
       console.warn(
         'min-prop must have a higher value than max-prop for the component to work correctly.'
       );
+      this.disabledState = true;
     }
   }
 
