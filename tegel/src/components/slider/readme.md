@@ -19,7 +19,6 @@
 | `readOnly`        | `read-only`         | Sets the read only state for the whole component                                 | `boolean`    | `null`  |
 | `showTickNumbers` | `show-tick-numbers` | Decide to show numbers above the tick markers or not                             | `boolean`    | `false` |
 | `size`            | `size`              | Sets the size of the scrubber                                                    | `"" \| "sm"` | `''`    |
-| `small`           | `small`             |                                                                                  | `boolean`    | `null`  |
 | `snap`            | `snap`              | Snap to the ticks grid                                                           | `boolean`    | `null`  |
 | `step`            | `step`              | Defines how much to increment/decrement the value when using controls            | `string`     | `'1'`   |
 | `ticks`           | `ticks`             | Number of tick markers (tick for min- and max-value will be added automatically) | `string`     | `'0'`   |

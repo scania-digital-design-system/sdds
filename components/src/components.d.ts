@@ -393,7 +393,11 @@ export namespace Components {
         /**
           * Sets the read only state for the whole component
          */
-        "readonly": boolean;
+        "readOnly": boolean;
+        /**
+          * Public method to re-initialise the slider if some configuration props are changed
+         */
+        "reset": () => Promise<void>;
         /**
           * Decide to show numbers above the tick markers or not
          */
@@ -1338,7 +1342,7 @@ declare namespace LocalJSX {
         /**
           * Sets the read only state for the whole component
          */
-        "readonly"?: boolean;
+        "readOnly"?: boolean;
         /**
           * Decide to show numbers above the tick markers or not
          */
