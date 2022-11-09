@@ -81,6 +81,17 @@ export default {
       },
     },
   },
+  args: {
+    headline: 'Header text',
+    subheadline: 'Subheader text',
+    text: '',
+    divider: false,
+    footer: '<sdds-icon style="font-size: 20px;" name="arrow_left"></sdds-icon>',
+    clickable: false,
+    image: false,
+    imageTop: false,
+    avatar: false,
+  },
 };
 
 const Template = ({ headline, subheadline, footer, clickable, text, divider, imageTop, avatar }) =>
@@ -128,34 +139,18 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
   `,
   );
 
-const defaultArgs = {
-  headline: 'Header text',
-  subheadline: 'Subheader text',
-  text: '',
-  divider: false,
-  footer: '<sdds-icon style="font-size: 20px;" name="arrow_left"></sdds-icon>',
-  clickable: false,
-  image: false,
-  imageTop: false,
-  avatar: false,
-};
-
 export const Default = Template.bind({});
-Default.args = {
-  ...defaultArgs,
-};
+Default.args = {};
 
 export const SupportText = Template.bind({});
 
 SupportText.args = {
-  ...defaultArgs,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
 
 export const Divider = Template.bind({});
 
 Divider.args = {
-  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
@@ -163,7 +158,6 @@ Divider.args = {
 export const link = Template.bind({});
 
 link.args = {
-  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
@@ -172,7 +166,6 @@ link.args = {
 export const button = Template.bind({});
 
 button.args = {
-  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Button text</button>',
@@ -181,7 +174,6 @@ button.args = {
 export const Image = Template.bind({});
 
 Image.args = {
-  ...defaultArgs,
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   image: true,
@@ -191,7 +183,6 @@ Image.args = {
 export const Avatar = Template.bind({});
 
 Avatar.args = {
-  ...defaultArgs,
   avatar: true,
   divider: false,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
