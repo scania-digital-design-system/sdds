@@ -11,23 +11,39 @@ export default {
       descripton: 'The type of divider',
       control: {
         type: 'select',
-        options: ['light', 'dark', 'coloured'],
       },
+      options: ['Light', 'Dark', 'Coloured'],
     },
   },
+  args: {
+    type: 'Dark',
+  },
+};
+
+const typeLookup = {
+  Light: 'light',
+  Dark: 'dark',
+  Coloured: 'coloured',
+};
+
+const directionLookup = {
+  Top: 'top',
+  Right: 'right',
+  Bottom: 'bottom',
+  Left: 'left',
 };
 
 const Template = ({ ...Default }) =>
   formatHtmlPreview(
     `
-    <div style="width: ${Default.width}px;" class="sdds-divider-${Default.type}"></div>
+    <div style="width: ${Default.width}px;" class="sdds-divider-${typeLookup[Default.type]}"></div>
   `,
   );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  type: 'dark',
+  type: 'Dark',
   width: 400,
 };
 
@@ -44,7 +60,7 @@ Default.argTypes = {
 
 const VerticalTemplate = ({ ...Vertical }) =>
   formatHtmlPreview(`
-    <div style="height:${Vertical.height}px;" class="sdds-divider-${Vertical.type}-vertical"></div>
+    <div style="height:${Vertical.height}px;" class="sdds-divider-${typeLookup[Vertical.type]}-vertical"></div>
   `);
 
 export const Vertical = VerticalTemplate.bind({});
@@ -61,13 +77,15 @@ Vertical.argTypes = {
 };
 
 Vertical.args = {
-  type: 'dark',
+  type: 'Dark',
   height: 200,
 };
 
 const BorderTemplate = ({ ...Border }) =>
   formatHtmlPreview(`
-      <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="divider-border-demo sdds-divider-${Border.type}-border-${Border.direction}">Demo</div>
+      <div style="width: ${Border.width}px; background-color: ${Border.bgColor}; height:${Border.height}px;" class="divider-border-demo sdds-divider-${
+    typeLookup[Border.type]
+  }-border-${directionLookup[Border.direction]}">Demo</div>
     `);
 
 export const Border = BorderTemplate.bind({});
@@ -78,8 +96,8 @@ Border.argTypes = {
     discription: 'The direction of the divider',
     control: {
       type: 'select',
-      options: ['top', 'right', 'bottom', 'left'],
     },
+    options: ['Top', 'Right', 'Bottom', 'Left'],
   },
   bgColor: {
     name: 'Content background',
@@ -106,8 +124,8 @@ Border.argTypes = {
 };
 
 Border.args = {
-  direction: 'top',
-  type: 'dark',
+  direction: 'Top',
+  type: 'Dark',
   bgColor: '#E5E5E5',
   width: 400,
   height: 200,
