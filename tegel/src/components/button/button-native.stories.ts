@@ -109,6 +109,7 @@ export default {
     disabled: false,
     onlyIcon: false,
     icon: 'none',
+    iconType: 'Native',
   },
 };
 
@@ -136,12 +137,16 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   return formatHtmlPreview(
     `
   <style>
-    ${icon && iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
-    .demo-wrapper{
-      width: 100%;
-    }
+    ${
+      icon && iconType === 'Native'
+        ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i.sdds-btn-icon{
       font-size: ${size === 'Small' ? '16' : '20'}px;
+    }`
+        : ''
+    }
+    .demo-wrapper{
+      width: 100%;
     }
   </style>
 
