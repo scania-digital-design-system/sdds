@@ -14,7 +14,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'Placeholder',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -22,7 +21,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -33,7 +31,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -44,7 +41,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     labelPosition: {
       description: 'Label can be placed inside the textfield',
@@ -53,7 +49,6 @@ export default {
         type: 'radio',
         options: ['No label', 'Inside', 'Outside'],
       },
-      defaultValue: 'No label',
     },
     helper: {
       name: 'Helper text',
@@ -61,7 +56,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     textcounter: {
       name: 'Text counter',
@@ -69,7 +63,6 @@ export default {
       control: {
         type: 'number',
       },
-      defaultValue: 0,
     },
     rows: {
       name: 'Rows',
@@ -77,7 +70,6 @@ export default {
       control: {
         type: 'number',
       },
-      defaultValue: 5,
     },
     state: {
       name: 'State',
@@ -86,7 +78,6 @@ export default {
         type: 'radio',
         options: ['None', 'Success', 'Error'],
       },
-      defaultValue: 'None',
     },
     variant: {
       name: 'Variant',
@@ -97,6 +88,18 @@ export default {
       },
       defaultValue: 'Default',
     },
+  },
+  args: {
+    placeholder: 'Placeholder',
+    disabled: false,
+    readonly: false,
+    label: '',
+    labelPosition: 'No label',
+    helper: '',
+    textcounter: 0,
+    rows: 5,
+    state: 'None',
+    variant: 'Default',
   },
 };
 
