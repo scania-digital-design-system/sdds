@@ -65,7 +65,7 @@ const Template = ({ messageType, icon, showExtendedMessage, variant }) => {
       iconName = 'info';
       break;
     case 'error':
-      iconName = 'info';
+      iconName = 'error';
       break;
     case 'warning':
       iconName = 'warning';
