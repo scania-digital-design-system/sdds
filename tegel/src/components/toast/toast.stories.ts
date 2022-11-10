@@ -9,7 +9,6 @@ export default {
     toastType: {
       name: 'Message type',
       description: 'Changes the type of message',
-      defaultValue: 'success',
       control: {
         type: 'radio',
       },
@@ -67,12 +66,12 @@ const Template = ({ toastType, subheader, link, iconType }) => {
           ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
       i {
         font-size: 20px;
-        color: var(--sdds-${colorLooup[toastType]})
+        color: var(--sdds-${colorLooup[toastType]});
       }
       `
           : `
       sdds-icon{
-        color: var(--sdds-${colorLooup[toastType]})
+        color: var(--sdds-${colorLooup[toastType]});
       }
       `
       }
