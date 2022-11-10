@@ -12,12 +12,14 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Small'],
-      defaultValue: 'radio',
       description: 'Size of the toggle',
     },
     headline: {
       name: 'Headline',
       description: 'Optional value to be used to clarify what the toggle is switching on / off',
+      control: {
+        type: 'text',
+      },
     },
     disabled: {
       name: 'Disabled',
@@ -25,11 +27,12 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
   },
   args: {
+    size: 'Default',
     headline: '',
+    disabled: false,
   },
 };
 
