@@ -43,7 +43,6 @@ const Template = ({ ...Default }) =>
 export const Default = Template.bind({});
 
 Default.args = {
-  type: 'Dark',
   width: 400,
 };
 
