@@ -25,12 +25,6 @@ export default {
       description: 'The label of the component',
       type: 'string',
     },
-    id: {
-      type: 'boolean',
-      table: {
-        disable: true,
-      },
-    },
   },
   args: {
     disabled: false,
@@ -42,12 +36,10 @@ export default {
 const Template = args =>
   formatHtmlPreview(`
     <div class="sdds-checkbox-item">
-      <input class="sdds-form-input" type="checkbox" id="${args.id}" ${args.checked ? 'checked="checked"' : ''}  ${args.disabled ? 'disabled' : ''}>
-      ${args.label ? `<label class="sdds-form-label" for="${args.id}" ${args.disabled && 'disabled'}>  ${args.label} </label>` : ''}
+      <input class="sdds-form-input" type="checkbox" id="unique-id" ${args.checked ? 'checked="checked"' : ''}  ${args.disabled ? 'disabled' : ''}>
+      ${args.label ? `<label class="sdds-form-label" for="unique-id" ${args.disabled && 'disabled'}>  ${args.label} </label>` : ''}
     </div>
   `);
 
 export const Default = Template.bind({});
-Default.args = {
-  id: 'example-default',
-};
+Default.args = {};
