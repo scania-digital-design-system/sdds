@@ -17,8 +17,9 @@
   },
   "include": [
     "components/src",
+    "tegel/src",
     "components/types/jsx.d.ts",
-    "components/node_modules/@types/jest/index.d.ts"
-  ],
-  "exclude": ["node_modules", "dist"]
+    "components/node_modules/@types/jest/index.d.ts",
+    "tegel/node_modules/@types/jest/index.d.ts"
+  ]
 }
