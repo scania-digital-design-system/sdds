@@ -26,6 +26,10 @@ export default {
       },
     },
   },
+  args: {
+    size: 32,
+    icon: 'truck',
+  },
 };
 
 const IconFontTemplate = args =>
@@ -40,7 +44,4 @@ const IconFontTemplate = args =>
 
 export const Native = IconFontTemplate.bind({});
 
-Native.args = {
-  icon: 'truck',
-  size: 32,
-};
+Native.args = {};

@@ -18,6 +18,9 @@ export default {
       options: ['Bottom', 'Bottom start', 'Bottom end', 'Top', 'Top start', 'Top end', 'Left', 'Left-start', 'Left end', 'Right', 'Right start', 'Right end'],
     },
   },
+  args: {
+    canvasPosition: 'Bottom',
+  },
 };
 
 const ComponentPopoverCanvas = ({ canvasPosition }) => {
@@ -70,6 +73,4 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   );
 };
 export const Default = ComponentPopoverCanvas.bind({});
-Default.args = {
-  canvasPosition: 'Bottom',
-};
+Default.args = {};

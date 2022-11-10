@@ -106,6 +106,7 @@ export default {
     disabled: false,
     onlyIcon: false,
     icon: 'none',
+    iconType: 'Webcomponent',
   },
 };
 

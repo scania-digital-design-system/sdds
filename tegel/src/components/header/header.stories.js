@@ -12,8 +12,10 @@ export default {
     siteName: {
       name: 'Site name',
       type: 'string',
-      defaultValue: 'Application',
     },
+  },
+  args: {
+    siteName: 'Application',
   },
 };
 

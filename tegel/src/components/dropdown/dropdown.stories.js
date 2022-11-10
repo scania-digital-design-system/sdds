@@ -78,7 +78,7 @@ export default {
       control: {
         type: 'check',
       },
-      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+      options: ['Option 1', 'Option 2', 'Option 3'],
     },
   },
   args: {
@@ -91,11 +91,11 @@ export default {
     helper: false,
     label: 'Label text',
     defaultOption: 'No default',
-    multiDefaultOption: 'No default',
+    multiDefaultOption: ['Option 1', 'Option 2'],
   },
 };
 
-const Template = ({ size, type, disabled = false, labelPosition, helper, state = 'default', placeholder, defaultOption }) => {
+const Template = ({ size, type, disabled = false, labelPosition, helper, state = 'default', placeholder, defaultOption, multiDefaultOption }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const typeLookup = { Default: 'default', Multiselect: 'multiselect' };
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
@@ -106,6 +106,7 @@ const Template = ({ size, type, disabled = false, labelPosition, helper, state =
     'Option 2': 'option-2',
     'Option 3': 'option-3',
   };
+  const multiDefaultOptionValue = type === 'Multiselect' ? multiDefaultOption.map(value => value.toLowerCase().replace(' ', '-')) : [];
 
   return formatHtmlPreview(`
     <div class="demo-wrapper">
@@ -119,7 +120,7 @@ const Template = ({ size, type, disabled = false, labelPosition, helper, state =
           ${helper ? 'helper="Helper text"' : ''}
           state="${stateValue}"
           type="${typeLookup[type]}"
-          default-option="${defaultOptionLookup[defaultOption]}" >
+          default-option="${typeLookup[type] === 'default' ? defaultOptionLookup[defaultOption] : multiDefaultOptionValue}" >
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>
@@ -148,21 +149,17 @@ const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder
   const typeLookup = { Default: 'default', Multiselect: 'multiselect' };
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
-  const defaultOptionMultiselectLookup = {
-    'No default': 'no-default',
-    'Option 1': 'option-1',
-    'Option 2': 'option-2',
-    'Option 3': 'option-3',
-  };
+  const multiDefaultOptionValue = multiDefaultOption.map(value => value.toLowerCase().replace(' ', '-'));
+
   return formatHtmlPreview(`
     <div class="demo-wrapper">
         <sdds-dropdown
-         id="sdds-dropdown-multiselect"
+        id="sdds-dropdown-multiselect"
         size="${sizeLookup[size]}"
         placeholder="${placeholder}"
         disabled="${disabled}"
         ${helper ? 'helper="Helper text"' : ''}
-        default-option='${defaultOptionMultiselectLookup[multiDefaultOption]}'
+        default-option='${multiDefaultOptionValue}'
         type='${typeLookup[type]}'
         label-position="${labelPosLookup[labelPosition]}"
         ${labelPosLookup[labelPosition] !== 'no-default' ? 'label="Label text"' : ''}
@@ -184,6 +181,7 @@ const MultiselectTemplate = ({ size, disabled = false, type, helper, placeholder
 export const WebComponentMultiselect = MultiselectTemplate.bind({});
 WebComponentMultiselect.args = {
   type: 'Multiselect',
+  multiDefaultOption: ['Option 1', 'Option 2'],
 };
 WebComponentMultiselect.argTypes = {
   state: {

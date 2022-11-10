@@ -14,7 +14,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'Placeholder',
     },
     type: {
       name: 'Type',
@@ -23,7 +22,6 @@ export default {
         type: 'radio',
         options: ['password', 'text'],
       },
-      defaultValue: 'text',
     },
     size: {
       name: 'Size',
@@ -32,7 +30,6 @@ export default {
         type: 'radio',
         options: ['Large', 'Medium', 'Small'],
       },
-      defaultValue: 'Large',
     },
     minWidth: {
       name: 'Min width',
@@ -41,7 +38,6 @@ export default {
         type: 'radio',
         options: ['Default', 'No min width'],
       },
-      defaultValue: 'Default',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -49,7 +45,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     readonly: {
       description: 'Set textfield to read only',
@@ -57,7 +52,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     label: {
       description: 'Label text for specific textfield',
@@ -65,7 +59,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     labelplacement: {
       description: 'Label can be placed inside the textfield',
@@ -73,7 +66,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       if: { arg: 'label', neq: '' },
     },
     prefix: {
@@ -82,7 +74,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -94,7 +85,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -105,7 +95,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       if: { arg: 'prefix', eq: false },
       table: {
         defaultValue: { summary: false },
@@ -117,7 +106,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     textcounter: {
       name: 'Text counter',
@@ -125,7 +113,6 @@ export default {
       control: {
         type: 'number',
       },
-      defaultValue: 0,
     },
     state: {
       name: 'State',
@@ -134,7 +121,6 @@ export default {
         type: 'radio',
         options: ['None', 'Success', 'Error'],
       },
-      defaultValue: 'none',
     },
     variant: {
       name: 'Variant',
@@ -143,8 +129,25 @@ export default {
         type: 'radio',
         options: ['Default', 'Variant'],
       },
-      defaultValue: 'Default',
     },
+  },
+  args: {
+    placeholderText: 'Placeholder',
+    disabled: false,
+    readonly: false,
+    label: '',
+    labelPosition: 'No label',
+    helper: '',
+    textcounter: 0,
+    state: 'None',
+    variant: 'Default',
+    icon: false,
+    suffix: false,
+    prefix: false,
+    labelplacement: false,
+    minWidth: 'Default',
+    size: 'Large',
+    type: 'text',
   },
 };
 

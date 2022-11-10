@@ -5,13 +5,6 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  args: {
-    label: '',
-    size: 'Large',
-    disabled: false,
-    state: 'Default',
-    helper: '',
-  },
   argTypes: {
     label: {
       name: 'Label',
@@ -38,10 +31,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: {
-        Default: 'default',
-        Error: 'error',
-      },
+      options: ['Default', 'Error'],
       description: 'Support error state',
     },
     helper: {
@@ -52,14 +42,20 @@ export default {
       description: 'Helper text assists the user with additional information about the dropdown',
     },
   },
+  args: {
+    label: '',
+    size: 'Large',
+    disabled: false,
+    state: 'Default',
+    helper: '',
+  },
 };
 
 const NativeTemplate = ({ disabled, size, helper, label, state }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-
   return formatHtmlPreview(`
    <div style="width:300px">
-       <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
+       <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${state === 'Error' ? 'sdds-dropdown--error' : ''}" >
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select 
        name="nativeDropdown" 

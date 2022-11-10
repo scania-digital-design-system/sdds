@@ -12,7 +12,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'Chip text',
     },
     icon: {
       name: 'Icon',
@@ -46,7 +45,6 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Active'],
-      defaultValue: 'Default',
     },
     size: {
       name: 'Size',
@@ -55,8 +53,15 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Small'],
-      defaultValue: 'Default',
     },
+  },
+  args: {
+    placeholderText: 'Chip text',
+    icon: false,
+    iconType: 'Native',
+    iconPosition: 'Icon right',
+    state: 'Default',
+    size: 'Default',
   },
 };
 
@@ -88,9 +93,7 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  icon: 'No icon',
-};
+Default.args = {};
 
 export const IconRight = Template.bind({});
 IconRight.args = {

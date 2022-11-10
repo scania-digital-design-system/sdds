@@ -15,8 +15,10 @@ export default {
         type: 'radio',
       },
       options: ['Bottom', 'Bottom start', 'Bottom end', 'Top', 'Top start', 'Top end', 'Left', 'Left-start', 'Left end', 'Right', 'Right start', 'Right end'],
-      defaultValue: 'right-start',
     },
+  },
+  args: {
+    menuPosition: 'Bottom',
   },
 };
 
@@ -172,6 +174,4 @@ const Template = ({ menuPosition }) => {
 };
 
 export const WithIcons = Template.bind({});
-WithIcons.args = {
-  menuPosition: 'Bottom',
-};
+WithIcons.args = {};
