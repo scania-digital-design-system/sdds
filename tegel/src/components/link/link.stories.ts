@@ -13,7 +13,6 @@ export default {
       controls: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     noUnderline: {
       name: 'No underline',
@@ -21,8 +20,11 @@ export default {
       controls: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
+  },
+  args: {
+    disabled: false,
+    noUnderline: false,
   },
 };
 
@@ -35,10 +37,3 @@ const Template = ({ disabled, noUnderline }) =>
   `,
   );
 export const Default = Template.bind({});
-
-const defaultArgs = {
-  disabled: false,
-  noUnderline: false,
-};
-
-Default.args = defaultArgs;
