@@ -85,25 +85,23 @@ const EventListenersTemplate = ({
   responsiveDesign,
 }) =>
   formatHtmlPreview(`
+    <script>
+      // Note: Script here is only for demo purposes
+      window.addEventListener('tableFilteringTerm', e => {
+        document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
+        document.getElementById('event-value-textarea').value = e.detail;
+      });
 
-<script>
-  // Note: Script here is only for demo purposes
-  window.addEventListener('tableFilteringTerm', e => {
-    document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
-    document.getElementById('event-value-textarea').value = e.detail;
-  });
+      window.addEventListener('sortColumnDataEvent', e => {
+        document.getElementById('event-name-textarea').value = 'sortColumnDataEvent';
+        document.getElementById('event-value-textarea').value = e.detail;
+      });
 
-  window.addEventListener('sortColumnDataEvent', e => {
-    document.getElementById('event-name-textarea').value = 'sortColumnDataEvent';
-    document.getElementById('event-value-textarea').value = e.detail;
-  });
-
-  window.addEventListener('currentPageValueEvent', e => {
-    document.getElementById('event-name-textarea').value = 'currentPageValueEvent';
-    document.getElementById('event-value-textarea').value = e.detail;
-  });
-</script>
-
+      window.addEventListener('currentPageValueEvent', e => {
+        document.getElementById('event-name-textarea').value = 'currentPageValueEvent';
+        document.getElementById('event-value-textarea').value = e.detail;
+      });
+    </script>
 
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table

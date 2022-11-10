@@ -51,7 +51,8 @@ export default {
     },
     onWhiteBackground: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -63,7 +64,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -76,7 +78,12 @@ export default {
   },
 };
 
-const FilteringTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+const FilteringTemplate = ({
+  verticalDivider,
+  compactDesign,
+  onWhiteBackground,
+  responsiveDesign,
+}) =>
   formatHtmlPreview(`
   <h3>Filtering example</h3>
    <sdds-table

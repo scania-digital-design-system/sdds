@@ -53,28 +53,28 @@ export default {
       },
       defaultValue: false,
     },
-    column_1_sortable: {
+    column1sortable: {
       name: 'Column 1 is sortable',
       control: {
         type: 'boolean',
       },
       defaultValue: true,
     },
-    column_2_sortable: {
+    column2sortable: {
       name: 'Column 2 is sortable',
       control: {
         type: 'boolean',
       },
       defaultValue: true,
     },
-    column_3_sortable: {
+    column3sortable: {
       name: 'Column 3 is sortable',
       control: {
         type: 'boolean',
       },
       defaultValue: true,
     },
-    column_4_sortable: {
+    column4sortable: {
       name: 'Column 4 is sortable',
       control: {
         type: 'boolean',
@@ -84,7 +84,16 @@ export default {
   },
 };
 
-const SortingTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign, column_1_sortable, column_2_sortable, column_3_sortable, column_4_sortable }) =>
+const SortingTemplate = ({
+  verticalDivider,
+  compactDesign,
+  onWhiteBackground,
+  responsiveDesign,
+  column1sortable,
+  column2sortable,
+  column3sortable,
+  column4sortable,
+}) =>
   formatHtmlPreview(`
   <h3>Sorting example</h3>
    <sdds-table
@@ -95,10 +104,10 @@ const SortingTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, re
       enable-responsive="${responsiveDesign}"
       >
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column_1_sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column_2_sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country' sortable="${column_3_sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column_4_sortable}" text-align='right'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}"></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}"></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right'></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>

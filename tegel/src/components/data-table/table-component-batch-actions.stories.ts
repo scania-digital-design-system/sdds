@@ -51,7 +51,8 @@ export default {
     },
     onWhiteBackground: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -63,7 +64,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -86,7 +88,13 @@ export default {
   },
 };
 
-const BatchActionTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, batchArea, responsiveDesign }) =>
+const BatchActionTemplate = ({
+  verticalDivider,
+  compactDesign,
+  onWhiteBackground,
+  batchArea,
+  responsiveDesign,
+}) =>
   formatHtmlPreview(`
    <sdds-table
         id="actionbar-table"

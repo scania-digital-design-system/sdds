@@ -41,7 +41,8 @@ export default {
     },
     onWhiteBG: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -53,7 +54,8 @@ export default {
     },
     responsiveTable: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -65,7 +67,8 @@ export default {
     },
     noMinWidthArg: {
       name: 'No minimum width',
-      description: 'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
+      description:
+        'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
       control: {
         type: 'boolean',
       },
@@ -126,7 +129,7 @@ export default {
   },
 };
 
-const Template = args =>
+const Template = (args) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
@@ -139,10 +142,18 @@ const Template = args =>
     ${args.tableTitle && `<caption class="sdds-table__title">${args.tableTitle}</caption>`}
     <thead class="sdds-table__header">
       <tr class="sdds-table__row">
-        <th class="sdds-table__header-cell" ${args.column1Width ? `style="width: ${args.column1Width};"` : ''}>Header</th>
-        <th class="sdds-table__header-cell" ${args.column2Width ? `style="width: ${args.column2Width};"` : ''}>Header</th>
-        <th class="sdds-table__header-cell" ${args.column3Width ? `style="width: ${args.column3Width};"` : ''}>Header</th>
-        <th class="sdds-table__header-cell" ${args.column4Width ? `style="width: ${args.column4Width};"` : ''}>Header</th>
+        <th class="sdds-table__header-cell" ${
+          args.column1Width ? `style="width: ${args.column1Width};"` : ''
+        }>Header</th>
+        <th class="sdds-table__header-cell" ${
+          args.column2Width ? `style="width: ${args.column2Width};"` : ''
+        }>Header</th>
+        <th class="sdds-table__header-cell" ${
+          args.column3Width ? `style="width: ${args.column3Width};"` : ''
+        }>Header</th>
+        <th class="sdds-table__header-cell" ${
+          args.column4Width ? `style="width: ${args.column4Width};"` : ''
+        }>Header</th>
       </tr>
     </thead>
      <tbody class="sdds-table__body">
