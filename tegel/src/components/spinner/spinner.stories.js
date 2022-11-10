@@ -16,7 +16,6 @@ export default {
         type: 'radio',
       },
       options: ['Standard', 'Inverted'],
-      defaultValue: 'standard',
       description: 'Variant of the spinner',
     },
     size: {

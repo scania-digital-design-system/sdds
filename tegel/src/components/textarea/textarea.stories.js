@@ -86,7 +86,6 @@ export default {
         type: 'radio',
         options: ['Default', 'Variant'],
       },
-      defaultValue: 'Default',
     },
   },
   args: {
