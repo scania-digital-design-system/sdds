@@ -13,7 +13,6 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Small'],
-      defaultValue: 'Default',
     },
     style: {
       name: 'Style',
@@ -22,7 +21,6 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Text on side', 'Vertical'],
-      defaultValue: 'Default',
     },
     showLabel: {
       name: 'Show label text',
@@ -30,7 +28,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
     iconType: {
       name: 'Icon type',
@@ -41,7 +38,12 @@ export default {
       options: ['Native', 'Webcomponent'],
     },
   },
-  args: {},
+  args: {
+    size: 'Default',
+    style: 'Default',
+    showLabel: true,
+    iconType: 'Native',
+  },
 };
 
 const Template = ({ size, style, showLabel, iconType }) => {
