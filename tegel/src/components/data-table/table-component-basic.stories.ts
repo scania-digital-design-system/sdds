@@ -51,7 +51,8 @@ export default {
     },
     onWhiteBackground: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -63,7 +64,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -76,7 +78,7 @@ export default {
   },
 };
 
-const BasicTemplate = args =>
+const BasicTemplate = (args) =>
   formatHtmlPreview(`
   <sdds-table
       id="basic-table"
@@ -86,10 +88,10 @@ const BasicTemplate = args =>
       enable-responsive="${args.responsiveDesign}"
             >
       <sdds-table-header>
-          <sdds-header-cell column-key='truck' column-title='Truck type' }></sdds-header-cell>
-          <sdds-header-cell column-key='driver' column-title='Driver name' }></sdds-header-cell>
-          <sdds-header-cell column-key='country' column-title='Country' }></sdds-header-cell>
-          <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right' }></sdds-header-cell>
+          <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
+          <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>
+          <sdds-header-cell column-key='country' column-title='Country'></sdds-header-cell>
+          <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
       </sdds-table-header>
       <sdds-table-body>
           <sdds-table-body-row>

@@ -51,7 +51,8 @@ export default {
     },
     onWhiteBackground: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -63,7 +64,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -76,10 +78,16 @@ export default {
   },
 };
 
-const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackground, responsiveDesign }) =>
+const EventListenersTemplate = ({
+  verticalDivider,
+  compactDesign,
+  onWhiteBackground,
+  responsiveDesign,
+}) =>
   formatHtmlPreview(`
 
 <script>
+  // Note: Script here is only for demo purposes
   window.addEventListener('tableFilteringTerm', e => {
     document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
     document.getElementById('event-value-textarea').value = e.detail;
@@ -95,6 +103,8 @@ const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackgro
     document.getElementById('event-value-textarea').value = e.detail;
   });
 </script>
+
+
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table
       id="disabled-functionality-table"
@@ -120,12 +130,14 @@ const EventListenersTemplate = ({ verticalDivider, compactDesign, onWhiteBackgro
           </sdds-table-body>
         <sdds-table-footer enable-client-pagination client-max-pages="10"></sdds-table-footer>
   </sdds-table>
-  <br>
-  <div style="width: 500px; background-color: lightblue; padding: 16px;">
-    <h5>Event test box</h5>
-    <h6 class="sdds-u-pb0 sdds-u-mb0">Event name:</h6>
+
+  <!-- Note: Code below is just for demo purposes -->
+  <div class="sdds-u-mt1" style="width: 500px; background-color: lightblue; padding: 16px;">
+  <p class="sdds-u-mt0">Note: This box works only in "Canvas" tab.</p>
+    <h5 class="sdds-u-mt0 sdds-u-mb0">Event test box</h5>
+    <h6 class="sdds-u-mt1 sdds-u-mb0">Event name:</h6>
     <textarea id="event-name-textarea" rows="1" cols="50" readonly></textarea>
-    <h6 class="sdds-u-pb0 sdds-u-mb0">Events value (aka detail)</h6>
+    <h6 class="sdds-u-mt0 sdds-u-mb0">Events value (aka detail)</h6>
     <small>Event always sent an array of items, where first one is always an ID of tabel where event is emitted from</small>
     <br>
     <textarea id="event-value-textarea" rows="1" cols="50" readonly></textarea>

@@ -51,7 +51,8 @@ export default {
     },
     onWhiteBackground: {
       name: 'On white background',
-      description: 'Changes BG color of table element to grey variation for better visibility on white layouts',
+      description:
+        'Changes BG color of table element to grey variation for better visibility on white layouts',
       control: {
         type: 'boolean',
       },
@@ -63,7 +64,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -75,7 +77,8 @@ export default {
     },
     noMinWidth: {
       name: 'No minimum width',
-      description: 'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
+      description:
+        'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
       control: {
         type: 'boolean',
       },
@@ -136,7 +139,7 @@ export default {
   },
 };
 
-const BasicTemplate = args =>
+const BasicTemplate = (args) =>
   formatHtmlPreview(`
   <sdds-table
       id="basic-table"
@@ -147,10 +150,18 @@ const BasicTemplate = args =>
       no-min-width="${args.noMinWidth}"
             >
       <sdds-table-header>
-          <sdds-header-cell column-key='truck' column-title='Truck type' custom-width="${args.column1Width}" }></sdds-header-cell>
-          <sdds-header-cell column-key='driver' column-title='Driver name' custom-width="${args.column2Width}" }></sdds-header-cell>
-          <sdds-header-cell column-key='country' column-title='Country' custom-width="${args.column3Width}" }></sdds-header-cell>
-          <sdds-header-cell column-key='mileage' column-title='Mileage' custom-width="${args.column4Width}" text-align='right' }></sdds-header-cell>
+          <sdds-header-cell column-key='truck' column-title='Truck type' ${
+            args.column1Width ? `custom-width="${args.column1Width}"` : ''
+          } ></sdds-header-cell>
+          <sdds-header-cell column-key='driver' column-title='Driver name' ${
+            args.column2Width ? `custom-width="${args.column2Width}"` : ''
+          }></sdds-header-cell>
+          <sdds-header-cell column-key='country' column-title='Country' ${
+            args.column3Width ? `custom-width="${args.column3Width}"` : ''
+          }></sdds-header-cell>
+          <sdds-header-cell column-key='mileage' column-title='Mileage' ${
+            args.column4Width ? `custom-width="${args.column4Width}"` : ''
+          } text-align='right'></sdds-header-cell>
       </sdds-table-header>
       <sdds-table-body>
           <sdds-table-body-row>
