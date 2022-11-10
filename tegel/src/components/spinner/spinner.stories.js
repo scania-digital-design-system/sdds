@@ -29,8 +29,8 @@ export default {
     },
   },
   args: {
-    size: 'Large',
     variant: 'Standard',
+    size: 'Large',
   },
 };
 
