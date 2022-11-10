@@ -37,6 +37,7 @@ export default {
   },
   args: {
     visible: true,
+    value: 1,
     size: 'default',
   },
 };
@@ -47,9 +48,7 @@ const Template = args => {
       </sdds-badges>`);
 };
 export const Default = Template.bind({});
-Default.args = {
-  value: 1,
-};
+Default.args = {};
 
 const demoTemplate = args => {
   const valueString = args.value != null ? args.value.toString() : ''; // convert to string
