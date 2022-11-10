@@ -90,6 +90,15 @@ export default {
       options: ['none', ...iconsNames],
       if: { arg: 'size', neq: 'xs' },
     },
+    iconType: {
+      name: 'Icon type',
+      description: 'Native/Webcomponent',
+      control: {
+        type: 'radio',
+      },
+      options: ['Native', 'Webcomponent'],
+      if: { arg: 'icon', neq: 'none' },
+    },
   },
   args: {
     text: 'Button',
@@ -103,7 +112,7 @@ export default {
   },
 };
 
-const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon }) => {
+const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon, iconType }) => {
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
   const btnTypeLookUp = {
@@ -127,8 +136,12 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   return formatHtmlPreview(
     `
   <style>
+    ${icon && iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
     .demo-wrapper{
       width: 100%;
+    }
+    i.sdds-btn-icon{
+      font-size: ${size === 'Small' ? '16' : '20'}px;
     }
   </style>
 
@@ -137,7 +150,17 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
       varaintLookup[variant] === 'on-light' ? 'sdds-on-white-bg' : ''
     }  ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
   ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
-  ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon class='sdds-btn-icon ' size='${sizeLookUp[size] == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}
+  ${
+    onlyIcon || (icon && icon !== 'none')
+      ? `
+    ${
+      iconType === 'Native'
+        ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
+        : `<sdds-icon class='sdds-btn-icon ' size='${sizeLookUp[size] == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>`
+    }
+  `
+      : ''
+  }
 </button>
   </div>
   `,

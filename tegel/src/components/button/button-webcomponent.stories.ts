@@ -87,6 +87,15 @@ export default {
       options: ['none', ...iconsNames],
       if: { arg: 'size', neq: 'xs' },
     },
+    iconType: {
+      name: 'Icon type',
+      description: 'Native/Webcomponent',
+      control: {
+        type: 'radio',
+      },
+      options: ['Native', 'Webcomponent'],
+      if: { arg: 'icon', neq: 'none' },
+    },
   },
   args: {
     text: 'Button',
@@ -100,7 +109,7 @@ export default {
   },
 };
 
-const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, text = 'Button' }) => {
+const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, disabled, icon, iconType, text = 'Button' }) => {
   const btnTypeLookUp = {
     Primary: 'primary',
     Secondary: 'secondary',
@@ -121,7 +130,14 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
 
   return formatHtmlPreview(
     `
-    <style>
+    <style>${
+      icon && iconType === 'Native'
+        ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+    i.sdds-icon::before{
+      font-size: ${size === 'Large' || size === 'Medium' ? '20' : '16'}px;
+    }`
+        : ''
+    }
     .demo-wrapper{
       width: 100%;
     }
@@ -130,7 +146,17 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
   <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
     }" variant="${varaintLookup[variant]}" >
-  ${onlyIcon || (icon && icon !== 'none') ? `<sdds-icon slot='icon' class='sdds-btn-icon'  size='${size == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>` : ''}  
+    ${
+      onlyIcon || (icon && icon !== 'none')
+        ? `
+    ${
+      iconType === 'Native'
+        ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
+        : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${sizeLookUp[size] == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>`
+    }
+  `
+        : ''
+    }   
 </sdds-button>
   </div>
   `,
@@ -144,11 +170,13 @@ WebComponent.args = {};
 export const WebComponentWithIcon = WebComponentTemplate.bind({});
 WebComponentWithIcon.args = {
   icon: 'truck',
+  iconType: 'Webcomponent',
 };
 
 export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
 WebComponentOnlyIcon.args = {
   text: '',
+  iconType: 'Webcomponent',
   onlyIcon: true,
   icon: 'truck',
 };
