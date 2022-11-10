@@ -14,13 +14,11 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      defaultValue: 'lg',
       description: 'Size of the dropdown',
     },
     placeholder: {
       name: 'Placeholder',
       type: 'string',
-      defaultValue: 'Placeholder',
       description: 'Placeholder text when no option is selected',
     },
     disabled: {
@@ -28,14 +26,12 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     helper: {
       name: 'Helper text',
       control: {
         type: 'text',
       },
-      defaultValue: '',
       description: 'Helper text assists the user with additional information about the dropdown',
     },
     defaultOption: {
@@ -45,8 +41,14 @@ export default {
         type: 'radio',
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
-      defaultValue: 'No default',
     },
+  },
+  args: {
+    size: 'Large',
+    placeholder: 'Placeholder',
+    disabled: false,
+    helper: '',
+    defaultOption: 'Option 1',
   },
 };
 
@@ -61,32 +63,21 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
 
   return `
     <style>
-  .demo-wrapper {
-    width: 300px;
-    height:200px;}
-  </style>
-  <div class="demo-wrapper">
-  <sdds-dropdown-filter
-    id="sdds-dropdown-filter"
-    size="${sizeLookup[size]}"
-    placeholder="${placeholder}"
-    disabled="${disabled}"\
-    ${helper !== '' ? `\n    helper="${helper}"` : ''}
-    data=${`[{
-         "value": "option-1",
-         "label": "Jakarta",
-        },
-        { 
-          "value": "option-2",
-          "label": "Stockholm",
-        },
-        { 
-          "value": "option-3",
-          "label": "Barcelona",
-          }]`}
-    default-option="${defaultOptionLookup[defaultOption]}">
-  </sdds-dropdown-filter>
-  </div>
+      .demo-wrapper {
+        width: 300px;
+        height:200px;}
+    </style>
+    <div class="demo-wrapper">
+      <sdds-dropdown-filter
+        id="sdds-dropdown-filter"
+        size="${sizeLookup[size]}"
+        placeholder="${placeholder}"
+        disabled="${disabled}"\
+        ${helper !== '' ? `\n    helper="${helper}"` : ''}
+        data='[{"value": "option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'
+        default-option="${defaultOptionLookup[defaultOption]}">
+      </sdds-dropdown-filter>
+    </div>
   `;
 };
 
