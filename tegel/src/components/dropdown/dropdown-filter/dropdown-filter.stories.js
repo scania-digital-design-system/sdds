@@ -74,7 +74,20 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
         placeholder="${placeholder}"
         disabled="${disabled}"\
         ${helper !== '' ? `\n    helper="${helper}"` : ''}
-        data='[{"value": "option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]'
+        data='[
+          {
+            "value": "option-1",
+            "label":"Jakarta"
+          },
+          {
+            "value":"option-2"
+            ,"label":"Stockholm"
+          },
+          {
+            "value":"option-3",
+            "label":"Barcelona"
+          }
+        ]'
         default-option="${defaultOptionLookup[defaultOption]}">
       </sdds-dropdown-filter>
     </div>
