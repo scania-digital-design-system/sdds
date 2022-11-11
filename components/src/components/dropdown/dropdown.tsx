@@ -342,11 +342,13 @@ export class Dropdown {
                     'sdds-dropdown-label-container--label-inside':
                       this.labelPosition === 'inside' &&
                       this.size !== 'sm' &&
-                      this.selectedLabel.length > 0,
+                      (this.selectedLabel.length > 0 ||
+                        this.selectedLabelsArray.length > 0),
                   }}
                 >
                   {this.size !== 'sm' &&
-                    this.selectedLabel.length > 0 &&
+                    (this.selectedLabel.length > 0 ||
+                      this.selectedLabelsArray.length > 0) &&
                     this.labelPosition === 'inside' &&
                     this.label.length > 0 && (
                       <span class="sdds-dropdown-label-inside">
@@ -380,6 +382,7 @@ export class Dropdown {
                     {!this.selectedLabel &&
                       this.size !== 'sm' &&
                       this.labelPosition === 'inside' &&
+                      !(this.selectedLabelsArray.length > 0) &&
                       this.label}
 
                     {!this.selectedLabel &&
