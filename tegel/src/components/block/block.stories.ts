@@ -28,9 +28,12 @@ const Template = ({ type }) => {
 
   return formatHtmlPreview(
     `
-    <div class="sdds-demo-block"> 
-      <div class="${typeLookup[type] === 'variant' ? 'sdds-block sdds-block__variant' : 'sdds-block'}">
+    <div class="sdds-demo-block sdds-demo-block-${typeLookup[type]}">
+      <div class="sdds-block sdds-block__${typeLookup[type]}">
         <p>Content be here...</p>
+        <div class="sdds-block">
+          <p>Content be here...</p>
+        </div>
       </div>
     </div>
     `,
