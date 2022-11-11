@@ -47,7 +47,7 @@ export default {
 };
 
 const Template = ({ size, style, showLabel, iconType }) => {
-  let sizeClass = size === 'Small' ? 'sdds-stepper--small' : '';
+  let sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
     'Default': '',
