@@ -112,9 +112,10 @@ export class TableHeaderCell {
 
   // TODO - We also need to chech that the attribute isn't "false"
   connectedCallback() {
-    this.enableMultiselectStyle = this.host.closest('sdds-table').hasAttribute('enable-multiselect')
-      ? true
-      : false;
+    const tabelEl = this.host.closest('sdds-table');
+    this.enableMultiselectStyle =
+      !(tabelEl.getAttribute('enable-multiselect') === 'false') &&
+      tabelEl.hasAttribute('enable-multiselect');
   }
 
   // Listen to parent data-table if sorting is allowed

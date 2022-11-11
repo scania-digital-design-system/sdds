@@ -131,9 +131,10 @@ export class TableBody {
 
   // TODO - We also need to chech that the attribute isn't "false"
   connectedCallback() {
-    this.enableMultiselectTableBody = this.host
-      .closest('sdds-table')
-      .hasAttribute('enable-multiselect');
+    const tabelEl = this.host.closest('sdds-table');
+    this.enableMultiselectTableBody =
+      !(tabelEl.getAttribute('enable-multiselect') === 'false') &&
+      tabelEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('enableExpandedRowsEvent', { target: 'body' })

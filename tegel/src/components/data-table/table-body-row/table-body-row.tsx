@@ -34,9 +34,10 @@ export class TableBodyRow {
 
   // TODO - We also need to chech that the attribute isn't "false"
   connectedCallback() {
-    this.enableMultiselectBodyRow = this.host
-      .closest('sdds-table')
-      .hasAttribute('enable-multiselect');
+    const tabelEl = this.host.closest('sdds-table');
+    this.enableMultiselectBodyRow =
+      !(tabelEl.getAttribute('enable-multiselect') === 'false') &&
+      tabelEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })
