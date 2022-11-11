@@ -8,86 +8,49 @@ export default {
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
     notes: readme,
-    backgrounds: {
-      default: 'Light grey',
-      values: [
-        {
-          name: 'White',
-          value: '#FFFFFF',
-        },
-        {
-          name: 'Light grey',
-          value: '#F9FAFB',
-        },
-        {
-          name: 'Dark grey',
-          value: '#868fa2',
-        },
-      ],
-    },
   },
   argTypes: {
     variant: {
       name: 'Variant',
       control: {
         type: 'radio',
-        options: { Standard: 'standard', Inverted: 'inverted' },
       },
-      defaultValue: 'standard',
+      options: ['Standard', 'Inverted'],
       description: 'Variant of the spinner',
     },
     size: {
       name: 'Size',
       control: {
         type: 'radio',
-        options: { Large: 'lg', Medium: 'md', Small: 'sm', XSmall: 'xs' },
       },
-      defaultValue: 'lg',
+      options: ['Large', 'Medium', 'Small', 'Extra small'],
       description: 'Size of the spinner',
     },
   },
+  args: {
+    variant: 'Standard',
+    size: 'Large',
+  },
 };
 
-let channel = addons.getChannel();
-
-const storyListener = args => {
-  if (args.args.variant) {
-    let variant = args.args.variant;
-    channel.emit(UPDATE_GLOBALS, {
-      globals: {
-        theme: variant,
-        backgrounds: variant === 'inverted' ? { name: 'Dark grey', value: '#868fa2' } : { name: 'Light grey', value: '#F9FAFB' },
-      },
-    });
-  }
-};
-
-function setupBackgroundListener() {
-  channel.removeListener(STORY_ARGS_UPDATED, storyListener);
-  channel.addListener(STORY_ARGS_UPDATED, storyListener);
-}
-
-setupBackgroundListener();
 const Template = ({ size, variant }) => {
+  const sizeLookup = { 'Large': 'lg', 'Medium': 'md', 'Small': 'sm', 'Extra small': 'xs' };
+  const variantLookup = { Standard: 'standard', Inverted: 'inverted' };
+
   return format(
     `
   <sdds-spinner 
-    size="${size}"  
-    variant="${variant}">
+    size="${sizeLookup[size]}"  
+    variant="${variantLookup[variant]}">
   </sdds-spinner>
   `,
   );
 };
 
-export const Standard = Template.bind({});
-Standard.args = {
-  variant: 'standard',
-};
+export const Default = Template.bind({});
+Default.args = {};
 
 export const Inverted = Template.bind({});
 Inverted.args = {
-  variant: 'inverted',
-};
-Inverted.parameters = {
-  backgrounds: { default: 'Dark grey' },
+  variant: 'Inverted',
 };

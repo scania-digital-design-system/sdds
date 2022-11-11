@@ -14,7 +14,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'Placeholder',
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -22,7 +21,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -33,7 +31,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
       table: {
         defaultValue: { summary: false },
       },
@@ -44,7 +41,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     labelPosition: {
       description: 'Label can be placed inside the textfield',
@@ -53,8 +49,6 @@ export default {
         type: 'radio',
         options: ['No label', 'Inside', 'Outside'],
       },
-      defaultValue: 'No label',
-      if: { arg: 'label', neq: '' },
     },
     helper: {
       name: 'Helper text',
@@ -62,7 +56,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: '',
     },
     textcounter: {
       name: 'Text counter',
@@ -70,7 +63,6 @@ export default {
       control: {
         type: 'number',
       },
-      defaultValue: 0,
     },
     rows: {
       name: 'Rows',
@@ -78,7 +70,6 @@ export default {
       control: {
         type: 'number',
       },
-      defaultValue: 5,
     },
     state: {
       name: 'State',
@@ -87,7 +78,6 @@ export default {
         type: 'radio',
         options: ['None', 'Success', 'Error'],
       },
-      defaultValue: 'None',
     },
     variant: {
       name: 'Variant',
@@ -96,8 +86,19 @@ export default {
         type: 'radio',
         options: ['Default', 'Variant'],
       },
-      defaultValue: 'Default',
     },
+  },
+  args: {
+    placeholder: 'Placeholder',
+    disabled: false,
+    readonly: false,
+    label: '',
+    labelPosition: 'No label',
+    helper: '',
+    textcounter: 0,
+    rows: 5,
+    state: 'None',
+    variant: 'Default',
   },
 };
 
@@ -105,20 +106,11 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
-  let labelPositionValue;
-  switch (labelPosition) {
-    case 'No label':
-      labelPositionValue = 'no-label';
-      break;
-    case 'Inside':
-      labelPositionValue = 'inside';
-      break;
-    case 'Outside':
-      labelPositionValue = 'outside';
-      break;
-    default:
-      labelPositionValue = 'no-label';
-  }
+  const labelPosLookup = {
+    'No label': 'no-label',
+    'Inside': 'inside',
+    'Outside': 'outside',
+  };
   return formatHtmlPreview(`
   <style>
     .demo-wrapper {
@@ -132,7 +124,7 @@ const Template = ({ placeholder, disabled, readonly, label, labelPosition, state
           label="${label}"
           variant="${variantValue}"
           helper="${helper}"
-          label-position="${labelPositionValue}"
+          label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'readonly' : ''}
           placeholder="${placeholder}"

@@ -11,18 +11,35 @@ export default {
     canvasPosition: {
       name: 'Canvas position',
       description: 'Position of the PopoverCanvas',
-      defaultValue: { summary: 'right-start' },
       type: { summary: 'string' },
       control: {
         type: 'radio',
-        options: ['bottom', 'bottom-start', 'bottom-end', 'top', 'top-start', 'top-end', 'left', 'left-start', 'left-end', 'right', 'right-start', 'right-end'],
       },
+      options: ['Bottom', 'Bottom start', 'Bottom end', 'Top', 'Top start', 'Top end', 'Left', 'Left-start', 'Left end', 'Right', 'Right start', 'Right end'],
     },
+  },
+  args: {
+    canvasPosition: 'Bottom',
   },
 };
 
-const ComponentPopoverCanvas = ({ ...Basic }) =>
-  formatHtmlPreview(
+const ComponentPopoverCanvas = ({ canvasPosition }) => {
+  const canvasPosLookup = {
+    'Bottom': 'bottom',
+    'Bottom start': 'bottom-start',
+    'Bottom end': 'bottom-end',
+    'Top': 'top',
+    'Top start': 'top-start',
+    'Top end': 'top-end',
+    'Left': 'left',
+    'Left star': 'left-start',
+    'Left end': 'left-end',
+    'Right': 'right',
+    'Right start': 'right-start',
+    'Right end': 'right-end',
+  };
+
+  return formatHtmlPreview(
     `
     <style>
       .demo-wrapper {
@@ -31,9 +48,8 @@ const ComponentPopoverCanvas = ({ ...Basic }) =>
         align-items: center;
       }
     </style>
-  <div>
       <sdds-popover-canvas 
-        placement="${Basic.canvasPosition}"
+        placement="${canvasPosLookup[canvasPosition]}"
         selector="#trigger"> 
         <div>
           <h2>A popover canvas!</h2>
@@ -53,11 +69,8 @@ const ComponentPopoverCanvas = ({ ...Basic }) =>
           </svg>
         </div>
       </div>
-      </div>
     `,
   );
-
-export const Default = ComponentPopoverCanvas.bind({});
-Default.args = {
-  canvasPosition: 'right-start',
 };
+export const Default = ComponentPopoverCanvas.bind({});
+Default.args = {};

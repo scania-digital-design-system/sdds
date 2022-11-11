@@ -8,8 +8,8 @@ export default {
       name: 'Icon position',
       control: {
         type: 'radio',
-        options: ['end', 'start'],
       },
+      options: { End: 'end', Start: 'start' },
       description: 'Icon position',
     },
     disabled: {

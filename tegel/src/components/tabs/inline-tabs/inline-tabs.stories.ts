@@ -11,7 +11,6 @@ export default {
     autoHeight: {
       name: 'Same height',
       description: 'Make all tab panels as tall as the tallest tab panel',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -19,7 +18,6 @@ export default {
     altBgColor: {
       name: 'Alternative background color',
       description: 'Style for display on the alternative background color',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -29,6 +27,10 @@ export default {
         disable: true,
       },
     },
+  },
+  args: {
+    autoHeight: false,
+    altBgColor: false,
   },
 };
 // eslint-disable-next-line arrow-body-style
