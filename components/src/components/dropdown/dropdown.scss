@@ -77,10 +77,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    &--label-inside {
-      padding-bottom: 5px;
-    }
   }
 
   &.sdds-dropdown.sdds-dropdown-sm {
@@ -361,27 +357,21 @@
 .sdds-dropdown-label-inside {
   @include type-style("detail-02");
 
-  color: var(--sdds-grey-958);
   position: absolute;
-  transform: scaleY(1) translate(0, -6px);
   transition: transform 250ms ease, color 200ms ease;
   width: calc(100% - 63px);
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--sdds-grey-700);
+  transform: translate(0, -10px);
+  font-size: 10px;
 }
 
-:host(.sdds-dropdown--label-inside-position.sdds-dropdown--selected) {
-  .sdds-dropdown-label {
-    padding-top: 12px;
-  }
+.sdds-dropdown-label-container.sdds-dropdown-label-container--label-inside {
+  padding-top: 7px;
 
   .sdds-dropdown-label-inside {
-    color: var(--sdds-grey-700);
-    transform: translate(0, -17.8px);
-    font-size: calc(2.5rem);
-    width: calc(100% - 64px);
-    overflow: hidden;
-    text-overflow: ellipsis;
+    transform: translate(0, -16px);
   }
 }
 
