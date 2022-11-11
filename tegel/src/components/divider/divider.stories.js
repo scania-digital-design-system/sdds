@@ -7,8 +7,8 @@ export default {
   },
   argTypes: {
     style: {
-      name: 'Type',
-      descripton: 'The type of divider',
+      name: 'Style',
+      descripton: 'The style of the divider.',
       control: {
         type: 'select',
       },
