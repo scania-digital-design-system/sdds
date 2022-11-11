@@ -6,7 +6,7 @@ import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from 
   shadow: true,
 })
 export class TableBodyRow {
-  @State() enableMultiselectBodyRow: boolean = false;
+  @State() enableMultiselectBodyRow: boolean = true;
 
   @State() bodyCheckBoxStatus: boolean = false;
 
@@ -32,10 +32,18 @@ export class TableBodyRow {
     this.runPaginationEvent.emit(this.uniqueTableIdentifier);
   }
 
+  // TODO - We also need to chech that the attribute isn't "false"
+  connectedCallback() {
+    this.enableMultiselectBodyRow = this.host
+      .closest('sdds-table')
+      .hasAttribute('enable-multiselect');
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -95,11 +103,6 @@ export class TableBodyRow {
     this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectBodyRow = event.detail[1];
-  }
-
   render() {
     return (
       <Host
@@ -114,7 +117,12 @@ export class TableBodyRow {
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">
               <label class="sdds-form-label sdds-form-label--data-table">
-                <input class="sdds-form-input" type="checkbox" onChange={event => this.bodyCheckBoxClicked(event)} checked={this.bodyCheckBoxStatus} />
+                <input
+                  class="sdds-form-input"
+                  type="checkbox"
+                  onChange={(event) => this.bodyCheckBoxClicked(event)}
+                  checked={this.bodyCheckBoxStatus}
+                />
               </label>
             </div>
           </td>

@@ -24,7 +24,6 @@
 | ------------------------- | ----------------------------------------------------------------------- | ------------------ |
 | `commonTableStylesEvent`  | Sends out status of different general styling changes to children tegel | `CustomEvent<any>` |
 | `enableExpandedRowsEvent` | Sends out status of multiselect feature to children tegel               | `CustomEvent<any>` |
-| `enableMultiselectEvent`  | Sends out status of multiselect feature to children tegel               | `CustomEvent<any>` |
 
 
 ----------------------------------------------

@@ -1,7 +1,17 @@
 // https://stackoverflow.com/questions/63051941/how-to-pass-data-as-array-of-object-in-stencil-js
 // https://medium.com/@scottmgerstl/passing-an-object-or-array-to-stencil-dd62b7d92641
 
-import { Component, Prop, h, Host, Event, EventEmitter, Element, State, Listen } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  Element,
+  State,
+  Listen,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table',
@@ -35,15 +45,6 @@ export class Table {
 
   @Element() host: HTMLElement;
 
-  /** Sends out status of multiselect feature to children tegel */
-  @Event({
-    eventName: 'enableMultiselectEvent',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  enableMultiselectEvent: EventEmitter<any>;
-
   /** Sends out status of different general styling changes to children tegel */
   @Event({
     eventName: 'commonTableStylesEvent',
@@ -65,7 +66,13 @@ export class Table {
   @Listen('footerWillLoad', { target: 'body' })
   subcomponentsWillLoadListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail) {
-      this.commonTableStyledEvent.emit([this.uniqueTableIdentifier, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground]);
+      this.commonTableStyledEvent.emit([
+        this.uniqueTableIdentifier,
+        this.verticalDividers,
+        this.compactDesign,
+        this.noMinWidth,
+        this.whiteBackground,
+      ]);
     }
     console.log('Sending info to the footer!');
   }
@@ -75,8 +82,13 @@ export class Table {
   }
 
   componentDidRender() {
-    this.commonTableStyledEvent.emit([this.uniqueTableIdentifier, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground]);
-    this.enableMultiselectEvent.emit([this.uniqueTableIdentifier, this.enableMultiselect]);
+    this.commonTableStyledEvent.emit([
+      this.uniqueTableIdentifier,
+      this.verticalDividers,
+      this.compactDesign,
+      this.noMinWidth,
+      this.whiteBackground,
+    ]);
     this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
   }
 

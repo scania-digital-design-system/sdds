@@ -1,4 +1,15 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-table-body',
@@ -108,8 +119,8 @@ export class TableBody {
   }
 
   componentWillRender() {
-    const headerColumnsNo = this.host.parentElement.querySelector('sdds-table-header').children.length;
-
+    const headerColumnsNo =
+      this.host.parentElement.querySelector('sdds-table-header').children.length;
     // multiselect and expended features requires one extra column for controls...
     if (this.enableMultiselectTableBody || this.enableExpendedTableBody) {
       this.columnsNumber = headerColumnsNo + 1;
@@ -118,14 +129,17 @@ export class TableBody {
     }
   }
 
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableExpendedTableBody = event.detail[1];
+  // TODO - We also need to chech that the attribute isn't "false"
+  connectedCallback() {
+    this.enableMultiselectTableBody = this.host
+      .closest('sdds-table')
+      .hasAttribute('enable-multiselect');
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectTableBody = event.detail[1];
+  @Listen('enableExpandedRowsEvent', { target: 'body' })
+  enableExtendedRowsEventListener(event: CustomEvent<any>) {
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpendedTableBody = event.detail[1];
   }
 
   /** Event that sends unique table identifier and enable/disable status for sorting functionality */
@@ -248,7 +262,9 @@ export class TableBody {
   bodyCheckBoxClicked = () => {
     const numberOfRows = this.host.getElementsByClassName('sdds-table__row').length;
 
-    const numberOfRowsSelected = this.host.getElementsByClassName('sdds-table__row--selected').length;
+    const numberOfRowsSelected = this.host.getElementsByClassName(
+      'sdds-table__row--selected',
+    ).length;
 
     this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
 
@@ -293,18 +309,18 @@ export class TableBody {
           this.tempPaginationDisable = true;
         }
 
-        dataRowsFiltering.forEach(item => {
+        dataRowsFiltering.forEach((item) => {
           const cells = item.querySelectorAll('sdds-body-cell');
           const cellValuesArray = [];
 
           // go through cells and save cell-values in array
-          cells.forEach(cellItem => {
+          cells.forEach((cellItem) => {
             const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
             cellValuesArray.push(cellValue);
           });
 
           // iterate over array of values and see if one matches search string
-          const matchCounter = cellValuesArray.find(element => element.includes(searchTerm));
+          const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
 
           // if matches, show parent row, otherwise hide the row
           if (matchCounter) {
@@ -330,7 +346,7 @@ export class TableBody {
         if (this.enablePaginationTableBody) {
           // TODO: EMIT PAGINATION
         } else {
-          dataRowsFiltering.forEach(item => {
+          dataRowsFiltering.forEach((item) => {
             item.classList.remove('sdds-table__row--hidden');
           });
         }
@@ -344,9 +360,9 @@ export class TableBody {
   render() {
     return (
       <Host data-selected-rows={this.multiselectArrayJSON}>
-        {this.bodyDataManipulated.map(row => (
+        {this.bodyDataManipulated.map((row) => (
           <sdds-table-body-row>
-            {Object.keys(row).map(cellData => (
+            {Object.keys(row).map((cellData) => (
               <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
             ))}
           </sdds-table-body-row>

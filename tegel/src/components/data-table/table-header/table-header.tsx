@@ -33,13 +33,22 @@ export class TableHeaderRow {
   }
 
   componentWillRender() {
-    this.enableToolbarDesign = this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+  }
+
+  // TODO - We also need to chech that the attribute isn't "false"
+  connectedCallback() {
+    this.enableMultiselectHeaderRow = this.host
+      .closest('sdds-table')
+      .hasAttribute('enable-multiselect');
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -65,14 +74,10 @@ export class TableHeaderRow {
     }
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectHeaderRow = event.detail[1];
-  }
-
   @Listen('enableExpandedRowsEvent', { target: 'body' })
   enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableExpandedHeaderRow = event.detail[1];
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpandedHeaderRow = event.detail[1];
   }
 
   @Listen('singleRowExpandedEvent', { target: 'body' })
@@ -86,8 +91,12 @@ export class TableHeaderRow {
   }
 
   bodyExpandClicked() {
-    const numberOfExtendRowsActive = this.host.parentElement.querySelector('sdds-table-body').getElementsByClassName('sdds-table__row-extend--active').length;
-    const numberOfExtendRows = this.host.parentElement.querySelector('sdds-table-body').getElementsByTagName('sdds-table-body-row-expendable').length;
+    const numberOfExtendRowsActive = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByClassName('sdds-table__row-extend--active').length;
+    const numberOfExtendRows = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByTagName('sdds-table-body-row-expendable').length;
 
     if (numberOfExtendRows === numberOfExtendRowsActive) {
       this.mainExpendSelected = true;
@@ -110,12 +119,19 @@ export class TableHeaderRow {
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
                 <label class="sdds-form-label sdds-form-label--data-table">
-                  <input class="sdds-form-input" type="checkbox" onChange={e => this.headCheckBoxClicked(e)} checked={this.mainCheckboxSelected} />
+                  <input
+                    class="sdds-form-input"
+                    type="checkbox"
+                    onChange={(e) => this.headCheckBoxClicked(e)}
+                    checked={this.mainCheckboxSelected}
+                  />
                 </label>
               </div>
             </th>
           )}
-          {this.enableExpandedHeaderRow && <th class="sdds-table__header-cell sdds-table__header-cell--checkbox"></th>}
+          {this.enableExpandedHeaderRow && (
+            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox"></th>
+          )}
           <slot></slot>
         </tr>
       </Host>
