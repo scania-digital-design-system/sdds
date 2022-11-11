@@ -341,6 +341,7 @@ export class Dropdown {
                     'sdds-dropdown-label-container': true,
                     'sdds-dropdown-label-container--label-inside':
                       this.labelPosition === 'inside' &&
+                      this.size !== 'sm' &&
                       this.selectedLabel.length > 0,
                   }}
                 >
@@ -377,6 +378,7 @@ export class Dropdown {
                       </span>
                     )}
                     {!this.selectedLabel &&
+                      this.size !== 'sm' &&
                       this.labelPosition === 'inside' &&
                       this.label}
 
