@@ -17,27 +17,12 @@ export default {
       name: 'Tooltip position',
       control: {
         type: 'select',
-        options: {
-          'Bottom-start': 'bottom-start',
-          'Bottom': 'bottom',
-          'Bottom-end': 'bottom-end',
-          'Top-start': 'top-start',
-          'Top': 'top',
-          'Top-end': 'top-end',
-          'Left-start': 'left-start',
-          'Left': 'left',
-          'Left-end': 'left-end',
-          'Right-start': 'right-start',
-          'Right': 'right',
-          'Right-end': 'right-end',
-        },
+        options: ['Bottom-start', 'Bottom', 'Bottom-end', 'Top-start', 'Top', 'Top-end', 'Left-start', 'Left', 'Left-end', 'Right-start', 'Right', 'Right-end'],
       },
-      defaultValue: 'bottom',
       description: 'Position of the tooltip',
     },
     text: {
       name: 'Tooltip text',
-      defaultValue: 'Text inside tooltip',
       description: 'Text that will be displayed inside tooltip',
       control: {
         type: 'text',
@@ -46,16 +31,35 @@ export default {
     mouseOverTooltip: {
       name: 'Open while hovering over tooltip',
       control: 'boolean',
-      defaultValue: true,
       description: 'Keep the tooltip visible as long as the mouse hover over it',
     },
   },
+  args: {
+    tooltipPosition: 'Bottom',
+    text: 'Text inside tooltip',
+    mouseOverTooltip: true,
+  },
+};
+
+const positionLookup = {
+  'Bottom-start': 'bottom-start',
+  'Bottom': 'bottom',
+  'Bottom-end': 'bottom-end',
+  'Top-start': 'top-start',
+  'Top': 'top',
+  'Top-end': 'top-end',
+  'Left-start': 'left-start',
+  'Left': 'left',
+  'Left-end': 'left-end',
+  'Right-start': 'right-start',
+  'Right': 'right',
+  'Right-end': 'right-end',
 };
 
 const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text }) => `
    <div class='demo-wrapper'>
    <sdds-tooltip 
-      placement="${tooltipPosition}" 
+      placement="${positionLookup[tooltipPosition]}" 
       selector="#button-1" 
       text="${text}" 
       mouse-over-tooltip="${mouseOverTooltip}">

@@ -13,8 +13,8 @@ export default {
       name: 'Icon name',
       control: {
         type: 'select',
-        options: iconsNames,
       },
+      options: iconsNames,
     },
     size: {
       name: 'Size in pixels',
@@ -26,6 +26,10 @@ export default {
       },
     },
   },
+  args: {
+    size: 32,
+    icon: 'truck',
+  },
 };
 
 const IconTemplate = args =>
@@ -35,7 +39,4 @@ const IconTemplate = args =>
 
 export const WebComponent = IconTemplate.bind({});
 
-WebComponent.args = {
-  size: 32,
-  icon: 'truck',
-};
+WebComponent.args = {};

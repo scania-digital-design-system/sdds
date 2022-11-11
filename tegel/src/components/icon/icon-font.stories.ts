@@ -13,8 +13,8 @@ export default {
       name: 'Icon name',
       control: {
         type: 'select',
-        options: iconsNames,
       },
+      options: iconsNames,
     },
     size: {
       name: 'Size in pixels',
@@ -25,6 +25,10 @@ export default {
         step: 4,
       },
     },
+  },
+  args: {
+    size: 32,
+    icon: 'truck',
   },
 };
 
@@ -40,7 +44,4 @@ const IconFontTemplate = args =>
 
 export const Native = IconFontTemplate.bind({});
 
-Native.args = {
-  icon: 'truck',
-  size: 32,
-};
+Native.args = {};

@@ -12,7 +12,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: { Information: 'information', Error: 'error', Warning: 'warning', Success: 'success' },
+      options: ['Information', 'Error', 'Warning', 'Success'],
     },
     variant: {
       name: 'Variant',
@@ -20,15 +20,23 @@ export default {
       control: {
         type: 'radio',
       },
-      options: { 'On-dark': 'on-dark', 'On-light': 'on-light' },
+      options: ['On dark', 'On light'],
     },
     icon: {
       name: 'Icon',
-      description: 'Switch between show a native/webcomponent-icon, or no icon.',
+      description: 'Show icon',
+      control: {
+        type: 'boolean',
+      },
+    },
+    iconType: {
+      name: 'Icon',
+      description: 'Switch between show a native/webcomponent icon.',
       control: {
         type: 'radio',
       },
-      options: { Native: 'native', Webcomponent: 'webcomponent', None: 'none' },
+      options: ['Native', 'Webcomponent'],
+      if: { arg: 'icon', eq: true },
     },
     showExtendedMessage: {
       name: 'Extended Message',
@@ -38,70 +46,49 @@ export default {
       },
     },
   },
+  args: {
+    messageType: 'Information',
+    variant: 'On light',
+    icon: false,
+    iconType: 'Native',
+    showExtendedMessage: false,
+  },
 };
 
-const Template = ({ messageType, icon, showExtendedMessage, variant }) => {
-  let messageTypeClass = messageType === 'information' ? 'sdds-message__type-informative' : `sdds-message__type-${messageType}`;
-  let iconClass = messageType === 'information' ? 'sdds-message-icon--informative' : `sdds-message-icon--${messageType}`;
-  let typeCssNameVar = messageType === 'information' ? 'informative' : messageType;
-  const variantValue = variant === 'on-dark' ? 'sdds-message-ongrey' : '';
+const nativeIconNameLookup = {
+  Information: 'info',
+  Error: 'error',
+  Warning: 'warning',
+  Success: 'tick',
+};
+const colorLookup = {
+  Information: 'information',
+  Error: 'negative',
+  Warning: 'warning',
+  Success: 'positive',
+};
 
-  let typeCssValueVar = '';
-  switch (messageType) {
-    case 'error':
-      typeCssValueVar = 'negative';
-      break;
-    case 'success':
-      typeCssValueVar = 'positive';
-      break;
-    default:
-      typeCssValueVar = messageType;
-      break;
-  }
-
-  let iconName = '';
-  switch (messageType) {
-    case 'information':
-      iconName = 'info';
-      break;
-    case 'error':
-      iconName = 'error';
-      break;
-    case 'warning':
-      iconName = 'warning';
-      break;
-    case 'success':
-      iconName = 'tick';
-      break;
-    default:
-      break;
-  }
-
-  let iconHtml = '';
-  switch (icon) {
-    case 'native':
-      iconHtml = `<i class="sdds-message-icon sdds-icon ${iconClass} ${iconName} "></i>`;
-      break;
-    case 'webcomponent':
-      iconHtml = `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${iconName}" size="20" /></div>`;
-      break;
-    default:
-      break;
-  }
+const Template = ({ messageType, icon, iconType, showExtendedMessage, variant }) => {
+  let messageTypeClass = messageType === 'Information' ? 'sdds-message__type-informative' : `sdds-message__type-${messageType.toLowerCase()}`;
+  let iconClass = messageType === 'Information' ? 'sdds-message-icon--informative' : `sdds-message-icon--${messageType.toLowerCase()}`;
+  let typeCssNameVar = messageType === 'Information' ? 'informative' : messageType.toLowerCase();
+  const variantValue = variant === 'On dark' ? 'sdds-message-ongrey' : '';
+  let iconHtml =
+    iconType === 'Native'
+      ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
+      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20" /></div>`;
 
   return formatHtmlPreview(
     ` 
     <style>
-    ${icon === 'native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
+    ${iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
     .sdds-message-icon--${typeCssNameVar} {
-      color: var(--sdds-${typeCssValueVar});
+      color: var(--sdds-${colorLookup[messageType]});
       font-size: 20px;
     }
   </style>
-    <div class="sdds-message ${messageTypeClass} ${icon !== 'none' ? 'sdds-message__icon-active' : ''} ${
-      showExtendedMessage ? 'sdds-message__extended-active' : ''
-    } ${variantValue}">
-    ${iconHtml}
+    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message__icon-active' : ''} ${showExtendedMessage ? 'sdds-message__extended-active' : ''} ${variantValue}">
+    ${icon ? iconHtml : ''}
     <h4 class="sdds-message-single">
       Single line message goes here.
     </h4>
@@ -116,33 +103,19 @@ const Template = ({ messageType, icon, showExtendedMessage, variant }) => {
 };
 
 export const Information = Template.bind({});
-Information.args = {
-  messageType: 'information',
-  icon: 'webcomponent',
-  showExtendedMessage: true,
-  variant: 'on-dark',
-};
+Information.args = {};
 
 export const Error = Template.bind({});
 Error.args = {
-  messageType: 'error',
-  icon: 'webcomponent',
-  showExtendedMessage: true,
-  variant: 'on-dark',
+  messageType: 'Error',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  messageType: 'warning',
-  icon: 'webcomponent',
-  showExtendedMessage: true,
-  variant: 'on-dark',
+  messageType: 'Warning',
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  messageType: 'success',
-  icon: 'webcomponent',
-  showExtendedMessage: true,
-  variant: 'on-dark',
+  messageType: 'Success',
 };

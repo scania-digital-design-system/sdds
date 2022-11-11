@@ -6,7 +6,7 @@
 }
 
 $btn-lg-height: 56px;
-$btn-md-height: 18px;
+$btn-md-height: 48px;
 $btn-sm-height: 40px;
 $btn-xs-height: 24px;
 $btn-sm-only-icon-padding: 11px;
@@ -27,6 +27,72 @@ $iconProps: (fill, color);
   position: relative;
   text-decoration: none;
   cursor: pointer;
+}
+
+.sdds-btn-lg {
+  &:not(.sdds-btn-only-icon) {
+    i.sdds-btn-icon {
+      position: relative;
+
+      &::before {
+        font-size: 20px;
+        line-height: 1;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &.sdds-btn-only-icon {
+    i.sdds-btn-icon::before {
+      font-size: 20px;
+      line-height: 1.25;
+    }
+  }
+}
+
+.sdds-btn-md {
+  &:not(.sdds-btn-only-icon) {
+    i.sdds-btn-icon {
+      position: relative;
+
+      &::before {
+        font-size: 20px;
+        line-height: 1;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &.sdds-btn-only-icon {
+    i.sdds-btn-icon::before {
+      font-size: 20px;
+      line-height: 1.25;
+    }
+  }
+}
+
+.sdds-btn-sm {
+  &:not(.sdds-btn-only-icon) {
+    i.sdds-btn-icon {
+      position: relative;
+
+      &::before {
+        font-size: 16px;
+        line-height: 1;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &.sdds-btn-only-icon {
+    i.sdds-btn-icon::before {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+  }
 }
 
 .sdds-btn.sdds-btn-primary .sdds-btn-icon {
@@ -231,6 +297,10 @@ $iconProps: (fill, color);
       }
     }
   }
+}
+
+i.sdds-btn-icon[slot='icon'] {
+  line-height: 1;
 }
 
 :host(sdds-button) {

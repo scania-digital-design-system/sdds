@@ -9,7 +9,6 @@ export default {
     label: {
       name: 'Label',
       description: 'The label for the radio button',
-      defaultValue: 'Label text',
       controls: {
         type: 'string',
       },
@@ -17,7 +16,6 @@ export default {
     disabled: {
       name: 'Disabled',
       description: 'Disables the radio button',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -25,11 +23,15 @@ export default {
     checked: {
       name: 'Checked',
       description: 'Marks the radio button as checked',
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
     },
+  },
+  args: {
+    label: 'Label text',
+    disabled: false,
+    checked: false,
   },
 };
 
@@ -55,6 +57,4 @@ const Template = args =>
 `);
 
 export const Default = Template.bind({});
-Default.args = {
-  label: 'Label Text',
-};
+Default.args = {};

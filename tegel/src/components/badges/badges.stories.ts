@@ -14,7 +14,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
     value: {
       name: 'Value',
@@ -36,6 +35,11 @@ export default {
       },
     },
   },
+  args: {
+    visible: true,
+    value: 1,
+    size: 'default',
+  },
 };
 
 const Template = args => {
@@ -44,24 +48,18 @@ const Template = args => {
       </sdds-badges>`);
 };
 export const Default = Template.bind({});
-Default.args = {
-  visible: true,
-  value: 1,
-  size: 'default',
-};
+Default.args = {};
 
 const demoTemplate = args => {
   const valueString = args.value != null ? args.value.toString() : ''; // convert to string
   return formatHtmlPreview(`
-      <div class="badges-demo-box">
+    <div class="badges-demo-box">
       <sdds-badges class="${args.size === 'sm' ? 'badges-demo--small' : 'badges-demo--default'}" value='${valueString}' is-visible=${args.visible} size="${args.size}" >
       </sdds-badges>
-      </div>`);
+    </div>`);
 };
 
 export const WithDemoComponent = demoTemplate.bind({});
 WithDemoComponent.args = {
-  visible: true,
   value: 2,
-  size: 'default',
 };

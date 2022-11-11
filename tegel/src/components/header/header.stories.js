@@ -4,16 +4,18 @@ import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Header',
+  parameters: {
+    notes: readme,
+    layout: 'fullscreen',
+  },
   argTypes: {
     siteName: {
       name: 'Site name',
       type: 'string',
-      defaultValue: 'Application',
     },
   },
-  parameters: {
-    notes: readme,
-    layout: 'fullscreen',
+  args: {
+    siteName: 'Application',
   },
 };
 
@@ -682,7 +684,7 @@ const SearchbarMenuTemplate = args => {
 };
 
 export const SearchbarMenu = SearchbarMenuTemplate.bind({});
-ToolbarMenu.argTypes = {
+SearchbarMenu.argTypes = {
   openInlineDropdown: {
     name: 'Open Inline Dropdown',
   },
