@@ -24,6 +24,8 @@ export class TableBodyRow {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
   }
@@ -34,10 +36,10 @@ export class TableBodyRow {
 
   // TODO - We also need to chech that the attribute isn't "false"
   connectedCallback() {
-    const tabelEl = this.host.closest('sdds-table');
+    this.tableEl = this.host.closest('sdds-table');
     this.enableMultiselectBodyRow =
-      !(tabelEl.getAttribute('enable-multiselect') === 'false') &&
-      tabelEl.hasAttribute('enable-multiselect');
+      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
+      this.tableEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })

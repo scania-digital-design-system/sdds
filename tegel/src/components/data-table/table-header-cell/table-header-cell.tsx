@@ -57,6 +57,8 @@ export class TableHeaderCell {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -112,10 +114,11 @@ export class TableHeaderCell {
 
   // TODO - We also need to chech that the attribute isn't "false"
   connectedCallback() {
-    const tabelEl = this.host.closest('sdds-table');
+    this.tableEl = this.host.closest('sdds-table');
+
     this.enableMultiselectStyle =
-      !(tabelEl.getAttribute('enable-multiselect') === 'false') &&
-      tabelEl.hasAttribute('enable-multiselect');
+      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
+      this.tableEl.hasAttribute('enable-multiselect');
   }
 
   // Listen to parent data-table if sorting is allowed
