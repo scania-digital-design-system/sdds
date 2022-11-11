@@ -35,6 +35,7 @@ export default {
     toastType: 'Success',
     subheader: false,
     link: false,
+    iconType: 'Webcomponent',
   },
 };
 
@@ -87,7 +88,9 @@ const Template = ({ toastType, subheader, link, iconType }) => {
     </div>
     <div class="sdds-toast-content">
       <div class="sdds-toast-header">
-        <span class="sdds-toast-headline">This is ${toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'} ${toastType.toLowerCase()} message</span>
+        <span class="sdds-toast-headline">This is ${
+          toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
+        } ${toastType.toLowerCase()} message</span>
         <span class='sdds-toast-dismiss'></span>
       </div>
       ${
