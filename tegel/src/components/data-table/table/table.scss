@@ -1,0 +1,10 @@
+:host,
+.sdds-table {
+  border-collapse: collapse;
+  display: table;
+}
+
+:host(.sdds-table--responsive),
+.sdds-table--responsive {
+  width: 100%;
+}
