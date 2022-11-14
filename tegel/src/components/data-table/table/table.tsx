@@ -57,8 +57,6 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
-  @Prop({ reflect: true }) tableId: string = crypto.randomUUID();
-
   @State() uniqueTableIdentifier: string = '';
 
   @Element() host: HTMLElement;
@@ -129,7 +127,7 @@ export class Table {
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.getAttribute('id') ?? this.tableId;
+    this.uniqueTableIdentifier = this.host.getAttribute('id');
   }
 
   componentDidRender() {
