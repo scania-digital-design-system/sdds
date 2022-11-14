@@ -6,7 +6,7 @@ import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from 
   shadow: true,
 })
 export class TableBodyRow {
-  @State() enableMultiselectBodyRow: boolean = true;
+  @State() enableMultiselectBodyRow: boolean = false;
 
   @State() bodyCheckBoxStatus: boolean = false;
 
