@@ -1,4 +1,16 @@
-import { Component, h, Prop, State, Element, Listen, Host, Event, EventEmitter, Watch, Method } from '@stencil/core';
+import {
+  Component,
+  h,
+  Prop,
+  State,
+  Element,
+  Listen,
+  Host,
+  Event,
+  EventEmitter,
+  Watch,
+  Method,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown',
@@ -75,9 +87,9 @@ export class Dropdown {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
     this.listItemArray = Array.from(this.host.children);
-    this.listItemArray.map(listItem => {
+    this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
-      this.optionLabels.push(listItem.innerText.trim());
+      this.optionLabels.push(listItem.innerText);
     });
     this.setOptionFromOutside(this.defaultOption);
 
@@ -223,8 +235,12 @@ export class Dropdown {
         this.selectedLabelsArray.push(event.detail.label);
       }
       // sorting array to keep selected in same order as user input
-      this.selectedValuesArray = this.optionValues.filter(word => this.selectedValuesArray.includes(word));
-      this.selectedLabelsArray = this.optionLabels.filter(word => this.selectedLabelsArray.includes(word));
+      this.selectedValuesArray = this.optionValues.filter((word) =>
+        this.selectedValuesArray.includes(word),
+      );
+      this.selectedLabelsArray = this.optionLabels.filter((word) =>
+        this.selectedLabelsArray.includes(word),
+      );
     }
   }
 
@@ -247,7 +263,7 @@ export class Dropdown {
     this.selectedValue = '';
     this.selectedLabelsArray = [];
     this.selectedValuesArray = [];
-    this.listItemArray.forEach(optionItem => {
+    this.listItemArray.forEach((optionItem) => {
       optionItem.selected = false;
     });
   }
@@ -266,7 +282,7 @@ export class Dropdown {
       <Host
         class={{
           'sdds-dropdown--open': this.open && !this.disabled,
-          'sdds-dropdown-multiselect': this.type == 'multiselect',
+          'sdds-dropdown-multiselect': this.type === 'multiselect',
           'sdds-dropdown-inline': this.inline,
           'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
@@ -279,17 +295,23 @@ export class Dropdown {
         multi-selected-labels={JSON.stringify(this.selectedLabelsArray)}
       >
         <span class={`sdds-dropdown sdds-dropdown-${this.size}`}>
-          {this.labelPosition === 'outside' && this.label.length > 0 ? <span class="sdds-dropdown-label-outside">{this.label}</span> : ''}
+          {this.labelPosition === 'outside' && this.label.length > 0 ? (
+            <span class="sdds-dropdown-label-outside">{this.label}</span>
+          ) : (
+            ''
+          )}
           <button
             part={this.disabled ? 'dropdown-filter-disabled' : ''}
             disabled={this.disabled}
             tabindex={this.disabled ? '-1' : null}
             class={`sdds-dropdown-toggle ${this.selectedValue === 'filter' ? 'is-filter' : ''} ${
-              this.selectedValue !== '' || this.selectedLabelsArray.length > 0 ? 'sdds-dropdown-toggle--selected' : ''
+              this.selectedValue !== '' || this.selectedLabelsArray.length > 0
+                ? 'sdds-dropdown-toggle--selected'
+                : ''
             }`}
             type="button"
             onClick={() => this.handleClick()}
-            ref={node => (this.node = node)}
+            ref={(node) => (this.node = node)}
           >
             <span class="sdds-dropdown-label">
               {this.type === 'filter' ? (
@@ -297,67 +319,107 @@ export class Dropdown {
                   part={this.disabled ? 'dropdown-filter-disabled' : ''}
                   disabled={this.disabled}
                   tabindex="-1"
-                  ref={inputEl => (this.textInput = inputEl as HTMLInputElement)}
+                  ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
                   class="sdds-dropdown-filter"
                   type="text"
                   placeholder={this.placeholder}
                   value={this.selectedLabel}
-                  onInput={event => this.handleSearch(event)}
+                  onInput={(event) => this.handleSearch(event)}
                   autoComplete="off"
                 />
               ) : (
                 <span
                   class={{
                     'sdds-dropdown-label-container': true,
-                    'sdds-dropdown-label-container--label-inside': this.labelPosition === 'inside' && this.selectedLabel.length > 0,
+                    'sdds-dropdown-label-container--label-inside':
+                      this.labelPosition === 'inside' &&
+                      this.size !== 'sm' &&
+                      (this.selectedLabel.length > 0 || this.selectedLabelsArray.length > 0),
                   }}
                 >
-                  {this.size !== 'sm' && this.selectedLabel.length > 0 && this.labelPosition === 'inside' && this.label.length > 0 && (
-                    <span class="sdds-dropdown-label-inside">{this.label}</span>
-                  )}
+                  {this.size !== 'sm' &&
+                    (this.selectedLabel.length > 0 || this.selectedLabelsArray.length > 0) &&
+                    this.labelPosition === 'inside' &&
+                    this.label.length > 0 && (
+                      <span class="sdds-dropdown-label-inside">{this.label}</span>
+                    )}
                   <span
                     class={`sdds-dropdown-label-main ${
-                      (this.selectedLabel.length === 0 || (this.labelPosition === 'inside' && this.label.length > 0)) && 'sdds-dropdown-placeholder'
+                      (this.selectedLabel.length === 0 ||
+                        (this.labelPosition === 'inside' && this.label.length > 0)) &&
+                      'sdds-dropdown-placeholder'
                     }`}
                   >
-                    {this.selectedLabel.length > 0 && this.type !== 'multiselect' && this.selectedLabel}
+                    {this.selectedLabel.length > 0 &&
+                      this.type !== 'multiselect' &&
+                      this.selectedLabel}
 
                     {this.type === 'multiselect' && (
                       <span class="sdds-dropdown-multiselect-result">
-                        {this.labelPosition !== 'inside' && this.selectedLabelsArray.length < 1 && this.placeholder}
-                        {this.selectedLabelsArray.toString().length > 0 && this.selectedLabelsArray.toString().split(',').join(', ')}
+                        {this.labelPosition !== 'inside' &&
+                          this.selectedLabelsArray.toString().length < 1 &&
+                          this.placeholder}
+                        {this.selectedLabelsArray.toString().length > 0 &&
+                          this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
                     {!this.selectedLabel && this.labelPosition === 'inside' && this.label}
 
-                    {!this.selectedLabel && this.type !== 'multiselect' && this.labelPosition !== 'inside' && this.placeholder}
+                    {!this.selectedLabel &&
+                      this.type !== 'multiselect' &&
+                      this.labelPosition !== 'inside' &&
+                      this.placeholder}
 
-                    {!this.selectedLabel && this.labelPosition === 'inside' && this.selectedLabelsArray.length < 1 && this.placeholder}
+                    {!this.selectedLabel &&
+                      this.size === 'sm' &&
+                      this.labelPosition === 'inside' &&
+                      this.placeholder}
                   </span>
                 </span>
               )}
             </span>
-            <svg class="sdds-dropdown-arrow" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <svg
+              class="sdds-dropdown-arrow"
+              width="12"
+              height="7"
+              viewBox="0 0 12 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L6 6L11 1"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </button>
           <span
             class="sdds-dropdown-menu"
             // Need to have reference in order to calc height and distance from bottom
-            ref={dropdownMenu => (this.dropdownMenuSelector = dropdownMenu)}
+            ref={(dropdownMenu) => (this.dropdownMenuSelector = dropdownMenu)}
           >
             <slot />
           </span>
         </span>
         <p class="sdds-dropdown-helper">
-          <svg class="sdds-dropdown-error-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          <svg
+            class="sdds-dropdown-error-icon"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+          >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M16 4C9.37 4 3.996 9.374 3.996 16.004S9.371 28.007 16 28.007c6.63 0 12.004-5.374 12.004-12.003C28.004 9.374 22.629 4 16 4ZM2 16.004c0-7.732 6.268-14 14-14s14 6.268 14 14-6.268 14-14 14-14-6.268-14-14Z"
               fill="currentColor"
             />
-            <path d="M14.803 14.47V10h2.376v4.47l-.352 4.295h-1.672l-.352-4.295Zm-.053 5.632h2.5v2.394h-2.5v-2.394Z" fill="currentColor" />
+            <path
+              d="M14.803 14.47V10h2.376v4.47l-.352 4.295h-1.672l-.352-4.295Zm-.053 5.632h2.5v2.394h-2.5v-2.394Z"
+              fill="currentColor"
+            />
           </svg>
           <span>{this.helper}</span>
         </p>
