@@ -68,13 +68,13 @@ export class Table {
   tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
 
   /** Sends out status of multiselect feature to children tegel */
-  @Event({
-    eventName: 'enableMultiselectEvent',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  enableMultiselectEvent: EventEmitter<any>;
+  // @Event({
+  //   eventName: 'enableMultiselectEvent',
+  //   bubbles: true,
+  //   cancelable: true,
+  //   composed: true,
+  // })
+  // enableMultiselectEvent: EventEmitter<any>;
 
   /** Sends out status of different general styling changes to children tegel */
   @Event({
@@ -128,6 +128,25 @@ export class Table {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
+
+    const propsChangedEvent: TablePropsChangedEvent = {
+      tableId: this.uniqueTableIdentifier,
+      changed: [
+        'verticalDividers',
+        'compactDesign',
+        'noMinWidth',
+        'whiteBackground',
+        'enableMultiselect',
+        'enableExpandableRows',
+        'enableResponsive',
+      ],
+    };
+
+    propsChangedEvent.changed.forEach((changedProp: keyof Props) => {
+      propsChangedEvent[changedProp] = this[changedProp];
+    });
+
+    this.tablePropsChangedEvent.emit(propsChangedEvent);
   }
 
   componentDidRender() {
@@ -138,7 +157,6 @@ export class Table {
       this.noMinWidth,
       this.whiteBackground,
     ]);
-    this.enableMultiselectEvent.emit([this.uniqueTableIdentifier, this.enableMultiselect]);
     this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
   }
 
