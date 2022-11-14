@@ -63,7 +63,7 @@ export class Table {
 
   /** Broadcasts changes to the tables props */
   @Event({
-    eventName: 'tablePropsChanged',
+    eventName: 'tablePropsChangedEvent',
   })
   tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
 
