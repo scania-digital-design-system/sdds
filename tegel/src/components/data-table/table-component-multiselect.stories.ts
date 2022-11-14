@@ -25,6 +25,18 @@ export default {
     },
   },
   argTypes: {
+    enableMultiselect: {
+      name: 'Enable multiselect',
+      description: 'Enable row selection.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
     verticalDivider: {
       name: 'Vertical dividers',
       description: 'When enabled, table has vertical dividers between columns.',
@@ -89,6 +101,7 @@ const MultiselectTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  enableMultiselect,
 }) =>
   formatHtmlPreview(`
 <script>
@@ -116,7 +129,7 @@ const MultiselectTemplate = ({
   <h3>Multiselect</h3>
    <sdds-table
         id="multiselect-table"
-        enable-multiselect
+        ${enableMultiselect ? 'enable-multiselect' : ''}
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"
         white-background="${onWhiteBackground}"
