@@ -76,6 +76,12 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+  },
 };
 
 const BasicTemplate = (args) =>
@@ -134,9 +140,4 @@ const BasicTemplate = (args) =>
   </sdds-table>`);
 
 export const Default = BasicTemplate.bind({});
-Default.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-};
+Default.args = {};

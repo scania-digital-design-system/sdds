@@ -76,6 +76,12 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+  },
 };
 
 const ExpandableRowTemplate = ({
@@ -126,9 +132,4 @@ const ExpandableRowTemplate = ({
   </sdds-table>`);
 
 export const ExpandableRows = ExpandableRowTemplate.bind({});
-ExpandableRows.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-};
+ExpandableRows.args = {};
