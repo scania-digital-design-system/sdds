@@ -1,6 +1,6 @@
 {
   "name": "@scania/components",
-  "version": "4.10.0",
+  "version": "4.10.1",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "watch-stencil": "npm run build -- --watch",
     "stencil": "stencil build --docs-json dist/data/docs.json",
     "babel": "mkdirp .build && babel src/helpers/index.js --out-file .build/index.js",
-    "watch-sb": "start-storybook -p 1339 --no-dll --no-manager-cache --quiet",
+    "watch-sb": "start-storybook -p 1339 --no-dll --no-manager-cache",
     "build-sb": "build-storybook",
     "publish-sb": "npm run build && npm run build-sb",
     "readme": "stencil build --docs-readme",
@@ -60,6 +60,7 @@
     "babel-preset-es2015": "^6.24.1",
     "bootstrap": "4.3.1",
     "chromatic": "^6.4.3",
+    "highlight.js": "^11.5.0",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "jquery": "^3.6.0",

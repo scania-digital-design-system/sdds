@@ -33,14 +33,6 @@ export default {
         options: ['Show Extended Message', 'Hide Extended Message'],
       },
     },
-    theme: {
-      name: 'Theme',
-      description: 'Switch between different sizes',
-      control: {
-        type: 'radio',
-        options: ['On Grey', 'On White', 'Minimal'],
-      },
-    },
   },
   args: {
     messageType: 'information',

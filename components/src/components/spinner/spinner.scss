@@ -60,13 +60,15 @@ html,
   fill: none;
 
   //Calculation for lenght of dash
-  --sdds-spinner-stroke-dash: calc(
+  --sdds-spinner-stroke-dash:
+ calc(
     (2 * var(--PI)) * var(--sdds-spinner-radius)
   );
 
   stroke-dasharray: var(--sdds-spinner-stroke-dash);
   stroke-width: var(--sdds-spinner-stroke-width);
-  animation: dash var(--sdds-spinner-animation-speed)
+  animation:
+ dash var(--sdds-spinner-animation-speed)
     cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
 
   &-standard {

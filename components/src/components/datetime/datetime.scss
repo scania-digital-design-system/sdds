@@ -1,5 +1,5 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 @mixin datetime-base {
   border-radius: 1rem 1rem 0 0;
@@ -40,19 +40,19 @@
 .sdds-datetime-input,
 .sdds-datetime-input-md,
 .sdds-datetime-input-sm {
-  &[type='datetime-local'] {
+  &[type="datetime-local"] {
     ~ .icon-time {
       display: none;
     }
   }
 
-  &[type='date'] {
+  &[type="date"] {
     ~ .icon-time {
       display: none;
     }
   }
 
-  &[type='time'] {
+  &[type="time"] {
     ~ .icon-datetime-local {
       display: none;
     }
@@ -62,21 +62,21 @@
 //Sizes
 .sdds-datetime-input {
   @include datetime-base;
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
 .sdds-datetime-input-md {
   @include datetime-base;
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   padding: var(--sdds-spacing-element-16);
 }
 
 .sdds-datetime-input-sm {
   @include datetime-base;
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   padding: var(--sdds-spacing-element-16);
 }
@@ -121,8 +121,8 @@
 }
 
 //datetime label
-slot[name='sdds-label']::slotted(*) {
-  @include type-style('detail-05');
+slot[name="sdds-label"]::slotted(*) {
+  @include type-style("detail-05");
 
   display: block;
   margin-bottom: var(--sdds-spacing-element-8);
@@ -130,7 +130,7 @@ slot[name='sdds-label']::slotted(*) {
 }
 
 .sdds-datetime-label-inside {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   position: absolute;
   pointer-events: none;
@@ -217,21 +217,21 @@ slot[name='sdds-label']::slotted(*) {
   &.sdds-datetime-focus,
   &.sdds-datetime-data {
     .sdds-datetime-input-sm ~ .sdds-datetime-label-inside {
-      @include type-style('detail-07');
+      @include type-style("detail-07");
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-datetime-input-md ~ .sdds-datetime-label-inside {
-      @include type-style('detail-07');
+      @include type-style("detail-07");
       @include label-inside-transition;
 
       top: 8px;
     }
 
     .sdds-datetime-input ~ .sdds-datetime-label-inside {
-      @include type-style('detail-07');
+      @include type-style("detail-07");
       @include label-inside-transition;
 
       top: 12px;
@@ -246,7 +246,7 @@ slot[name='sdds-label']::slotted(*) {
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     height: 2px;
     top: 54px;
     width: 0;
@@ -279,7 +279,7 @@ slot[name='sdds-label']::slotted(*) {
 
 //Helper text
 .sdds-datetime-helper {
-  @include type-style('detail-05');
+  @include type-style("detail-05");
 
   display: block;
   flex-basis: 100%;
@@ -301,7 +301,7 @@ slot[name='sdds-label']::slotted(*) {
     }
   }
 
-  slot[name='sdds-label']::slotted(*) {
+  slot[name="sdds-label"]::slotted(*) {
     color: var(--sdds-textfield-disabled-label);
   }
 }
@@ -330,14 +330,14 @@ slot[name='sdds-label']::slotted(*) {
     }
   }
 
-  slot[name='sdds-prefix']::slotted(sdds-icon),
-  slot[name='sdds-suffix']::slotted(sdds-icon) {
+  slot[name="sdds-prefix"]::slotted(sdds-icon),
+  slot[name="sdds-suffix"]::slotted(sdds-icon) {
     color: var(--sdds-textfield-icon-error);
   }
 }
 
 .sdds-datetime-textcounter {
-  @include type-style('detail-05');
+  @include type-style("detail-05");
 
   color: var(--sdds-textfield-textcounter);
   float: right;
@@ -348,23 +348,23 @@ slot[name='sdds-label']::slotted(*) {
   }
 }
 
-slot[name='sdds-prefix']::slotted(*),
-slot[name='sdds-suffix']::slotted(*) {
-  @include type-style('detail-02');
+slot[name="sdds-prefix"]::slotted(*),
+slot[name="sdds-suffix"]::slotted(*) {
+  @include type-style("detail-02");
 
   align-self: center;
   color: var(--sdds-textfield-ps-color);
 }
 
 //TODO: When new icons are avaliable have a look at this one
-slot[name='sdds-prefix']::slotted(sdds-icon),
-slot[name='sdds-suffix']::slotted(sdds-icon) {
+slot[name="sdds-prefix"]::slotted(sdds-icon),
+slot[name="sdds-suffix"]::slotted(sdds-icon) {
   font-size: 6rem; //FIXME: When new icons is avaliable it should be 16x16
   line-height: 0;
 }
 
 //Text gerenerated infront of the input field
-slot[name='sdds-prefix']::slotted(*) {
+slot[name="sdds-prefix"]::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
   & ~ .sdds-datetime-input  {
@@ -373,23 +373,23 @@ slot[name='sdds-prefix']::slotted(*) {
 }
 
 //Text generated after the input field
-slot[name='sdds-suffix']::slotted(*) {
+slot[name="sdds-suffix"]::slotted(*) {
   padding-right: var(--sdds-spacing-element-20);
 }
 
 /* datetime picker icon remove testing */
 
-input[type='datetime-local']::-webkit-inner-spin-button,
-input[type='datetime-local']::-webkit-calendar-picker-indicator {
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
-input[type='date']::-webkit-inner-spin-button,
-input[type='date']::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
-input[type='time']::-webkit-inner-spin-button,
-input[type='time']::-webkit-calendar-picker-indicator {
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }

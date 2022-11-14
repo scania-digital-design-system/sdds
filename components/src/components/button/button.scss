@@ -1,20 +1,19 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
-@import './button-core';
-@import '../../helpers/components-shared.scss';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "./button-core";
+@import "../../helpers/components-shared.scss";
 
-$btn-default-height: 54px;
-$btn-md-height: 48px;
-$btn-sm-height: 40px;
-$btn-xs-height: 24px;
+$btn-default-height: 14rem;
+$btn-md-height: 12rem;
+$btn-sm-height: 10rem;
 $types: (primary, secondary, ghost, danger);
 $props: (background, border-color, color, outline-color);
 
 @mixin button-base {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 1rem;
   border: none;
   box-shadow: none;
   position: relative;
@@ -26,7 +25,7 @@ $props: (background, border-color, color, outline-color);
   @include button-base;
 
   height: $btn-default-height;
-  padding: 0 20px;
+  padding: var(--sdds-spacing-element-20);
   border: 1px solid;
 
   &:disabled,
@@ -38,22 +37,22 @@ $props: (background, border-color, color, outline-color);
     @include sdds-focus-state;
   }
 
+  .sdds-btn-icon,
+  &.sdds-btn-icon {
+    fill: var(--sdds-grey-50);
+    color: var(--sdds-grey-50);
+    font-size: 4rem; //16px
+  }
+
   .sdds-btn-icon {
-    margin-left: 28px;
+    margin-left: var(--sdds-spacing-element-32);
+    width: 16px;
+    height: 16px;
     line-height: 0;
   }
 
-  &.sdds-btn-xs {
-    padding: 0 8px;
-    height: $btn-xs-height;
-
-    .sdds-btn-icon {
-      margin-left: 8px;
-    }
-  }
-
   &.sdds-btn-sm {
-    padding: 0 12px;
+    padding: var(--sdds-spacing-element-12);
     height: $btn-sm-height;
 
     &:focus {
@@ -61,12 +60,12 @@ $props: (background, border-color, color, outline-color);
     }
 
     .sdds-btn-icon {
-      margin-left: 24px;
+      margin-left: var(--sdds-spacing-element-24);
     }
   }
 
   &.sdds-btn-md {
-    padding: 0 16px;
+    padding: var(--sdds-spacing-element-16);
     height: $btn-md-height;
 
     &:focus {
@@ -74,7 +73,7 @@ $props: (background, border-color, color, outline-color);
     }
 
     .sdds-btn-icon {
-      margin-left: 20px;
+      margin-left: var(--sdds-spacing-element-24);
     }
   }
 
@@ -84,27 +83,7 @@ $props: (background, border-color, color, outline-color);
 
     .sdds-btn-icon,
     &.sdds-btn-icon {
-      margin-left: 16px;
-    }
-  }
-
-  &.sdds-btn-icon-only {
-    padding: 0 18px;
-
-    &.sdds-btn-md {
-      padding: 0 15px;
-    }
-
-    &.sdds-btn-sm {
-      padding: 0 11px;
-    }
-
-    &.sdds-btn-xs {
-      padding: 0 8px;
-    }
-
-    .sdds-btn-icon {
-      margin-left: 0;
+      margin-left: var(--sdds-spacing-element-8);
     }
   }
 
@@ -149,62 +128,12 @@ $props: (background, border-color, color, outline-color);
   }
 }
 
-// Web component specific
+::slotted([slot="icon"]) {
+  margin-left: var(--sdds-spacing-element-32);
+  width: var(--sdds-spacing-element-16);
+  height: var(--sdds-spacing-element-16);
+}
 
 :host(sdds-button) {
   display: inline-block;
-}
-
-.sdds-btn {
-  &.sdds-btn-only-icon {
-    padding: 0 16px;
-
-    ::slotted([slot='icon']) {
-      margin-left: 0;
-    }
-  }
-
-  ::slotted([slot='icon']) {
-    margin-left: 28px;
-  }
-}
-
-.sdds-btn-md {
-  &.sdds-btn-only-icon {
-    padding: 0 13px;
-
-    ::slotted([slot='icon']) {
-      margin-left: 0;
-    }
-  }
-
-  ::slotted([slot='icon']) {
-    margin-left: 20px;
-  }
-}
-
-.sdds-btn-sm {
-  &.sdds-btn-only-icon {
-    padding: 0 11px;
-
-    ::slotted([slot='icon']) {
-      margin-left: 0;
-    }
-  }
-
-  ::slotted([slot='icon']) {
-    margin-left: 24px;
-  }
-}
-
-.sdds-btn-xs {
-  &.sdds-btn-only-icon {
-    ::slotted([slot='icon']) {
-      margin-left: 0;
-    }
-  }
-
-  ::slotted([slot='icon']) {
-    margin-left: 8px;
-  }
 }

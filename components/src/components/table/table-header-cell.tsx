@@ -7,31 +7,25 @@ import {
   EventEmitter,
   State,
   Listen,
-  Element,
 } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-cell',
-  styleUrl: 'table-header-cell.scss',
+  styleUrl: 'table.scss',
   shadow: true,
 })
 export class TableHeaderCell {
-  /** Value of column key, usually comes from JSON, needed for sorting */
   @Prop({ reflect: true }) columnKey: string;
 
-  /** Text that displays in column cell */
   @Prop({ reflect: true }) columnTitle: string;
 
-  /** In case noMinWidth setting, user has to specify width value for each column, for example "150px" */
   @Prop({ reflect: true }) customWidth: string;
 
-  /** If passed as prop, enables sorting on that column */
-  @Prop() sortable: boolean = false;
-
-  /** Setting for text align, default is left, but user can pass "right" as string - useful for numeric values */
   @Prop({ reflect: true }) textAlign: string;
 
   @State() textAlignState: string;
+
+  @Prop() sortable: boolean = false;
 
   @State() sortingDirection: string = '';
 
@@ -39,71 +33,31 @@ export class TableHeaderCell {
 
   @State() disableSortingBtn: boolean = false;
 
-  @State() verticalDividers: boolean = false;
-
-  @State() compactDesign: boolean = false;
-
-  @State() noMinWidth: boolean = false;
-
-  @State() whiteBackground: boolean = false;
-
-  @State() enableMultiselectStyle: boolean = false;
-
-  @State() enableToolbarDesign: boolean = false;
-
-  @State() uniqueTableIdentifier: string = '';
-
-  @State() enableExpandedHeaderCell: boolean = false;
-
-  @Element() host: HTMLElement;
-
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [
-        ,
-        this.verticalDividers,
-        this.compactDesign,
-        this.noMinWidth,
-        this.whiteBackground,
-      ] = event.detail;
-    }
-  }
-
-  /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component */
   @Event({
-    eventName: 'sortColumnDataEvent',
+    eventName: 'sortColumnData',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortColumnDataEvent: EventEmitter<any>;
+  sortColumnData: EventEmitter<any>;
 
-  /** Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
-    eventName: 'textAlignEvent',
+    eventName: 'bodyCellData',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  textAlignEvent: EventEmitter<any>;
+  bodyCellData: EventEmitter<any>;
 
-  /** Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
-    eventName: 'headCellHoverEvent',
+    eventName: 'headKey',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  headCellHoverEvent: EventEmitter<any>;
+  headKey: EventEmitter<any>;
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.host
-      .closest('sdds-table')
-      .getAttribute('id');
-  }
-
-  componentWillRender() {
     // enable only right or left text align
     if (this.textAlign === 'right' || this.textAlign === 'end') {
       this.textAlignState = 'right';
@@ -111,24 +65,27 @@ export class TableHeaderCell {
       this.textAlignState = 'left';
     }
     // To enable body cells text align per rules set in head cell
-    this.textAlignEvent.emit([
-      this.uniqueTableIdentifier,
-      this.columnKey,
-      this.textAlignState,
-    ]);
-
-    this.enableToolbarDesign =
-      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar')
-        .length >= 1;
+    this.bodyCellData.emit([this.columnKey, this.textAlignState]);
   }
 
-  // Listen to parent data-table if sorting is allowed
-  @Listen('sortingSwitcherEvent', { target: 'body' })
-  sortingSwitcherEventListener(event: CustomEvent<any>) {
-    const [receivedID, receivedSortingStatus] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.disableSortingBtn = receivedSortingStatus;
+  // target is set to body so other instances of same component "listen" and react to the change
+  @Listen('sortColumnData', { target: 'body' })
+  updateOptionsContent(event: CustomEvent<any>) {
+    // grab only value at position 0 as it is the "key"
+    const keyValue = event.detail[0];
+    if (keyValue !== this.columnKey) {
+      this.sortedByMyKey = false;
+      // To sync with CSS transition timing
+      setTimeout(() => {
+        this.sortingDirection = '';
+      }, 200);
     }
+  }
+
+  // Listen to parent table if sorting is allowed
+  @Listen('sortingEnabler', { target: 'body' })
+  updateSortingStatus(event: CustomEvent<any>) {
+    this.disableSortingBtn = event.detail;
   }
 
   sortButtonClick = (key) => {
@@ -141,43 +98,12 @@ export class TableHeaderCell {
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
     // Use array to send both key and sorting direction
-    this.sortColumnDataEvent.emit([
-      this.uniqueTableIdentifier,
-      key,
-      this.sortingDirection,
-    ]);
+    this.sortColumnData.emit([key, this.sortingDirection]);
   };
-
-  // target is set to body so other instances of same component "listen" and react to the change
-  @Listen('sortColumnDataEvent', { target: 'body' })
-  updateOptionsContent(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      // grab only value at position 1 as it is the "key"
-      if (this.columnKey !== event.detail[1]) {
-        this.sortedByMyKey = false;
-        // To sync with CSS transition timing
-        setTimeout(() => {
-          this.sortingDirection = '';
-        }, 200);
-      }
-    }
-  }
 
   onHeadCellHover = (key) => {
-    this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
+    this.headKey.emit(key);
   };
-
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableMultiselectStyle = event.detail[1];
-  }
-
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableExpandedHeaderCell = event.detail[1];
-  }
 
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
@@ -263,12 +189,6 @@ export class TableHeaderCell {
           'sdds-table__header-cell--custom-width': this.customWidth !== '',
           'sdds-table__header-cell--right-align':
             this.textAlignState === 'right',
-          'sdds-table--compact': this.compactDesign,
-          'sdds-table--divider': this.verticalDividers,
-          'sdds-table--no-min-width': this.noMinWidth,
-          'sdds-table--extra-column':
-            this.enableMultiselectStyle || this.enableExpandedHeaderCell,
-          'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
         style={{ width: this.customWidth }}
         // Calling actions from here to enable hover functionality for both sortable and un-sortable tables
