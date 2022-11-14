@@ -24,3 +24,13 @@ components/dealer-header.e2e.ts
 components/navigation.tsx
 components/navigation.spec.ts
 components/navigation.e2e.ts
+
+theme/light
+
+tegel/loader
+tegel/stencil.config.ts
+
+**/www
+
+
+commitlint.config.js
