@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
 
 @Component({
   tag: 'sdds-table-body-row',
@@ -6,7 +7,7 @@ import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from 
   shadow: true,
 })
 export class TableBodyRow {
-  @State() enableMultiselectBodyRow: boolean = false;
+  @State() enableMultiselect: boolean = false;
 
   @State() bodyCheckBoxStatus: boolean = false;
 
@@ -24,6 +25,8 @@ export class TableBodyRow {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
   }
@@ -32,10 +35,27 @@ export class TableBodyRow {
     this.runPaginationEvent.emit(this.uniqueTableIdentifier);
   }
 
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.enableMultiselect = this.tableEl.enableMultiselect;
+  }
+
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .forEach((changedProp) => {
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -95,11 +115,6 @@ export class TableBodyRow {
     this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectBodyRow = event.detail[1];
-  }
-
   render() {
     return (
       <Host
@@ -110,11 +125,16 @@ export class TableBodyRow {
           'sdds-table--on-white-bg': this.whiteBackground,
         }}
       >
-        {this.enableMultiselectBodyRow && (
+        {this.enableMultiselect && (
           <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
             <div class="sdds-checkbox-item">
               <label class="sdds-form-label sdds-form-label--data-table">
-                <input class="sdds-form-input" type="checkbox" onChange={event => this.bodyCheckBoxClicked(event)} checked={this.bodyCheckBoxStatus} />
+                <input
+                  class="sdds-form-input"
+                  type="checkbox"
+                  onChange={(event) => this.bodyCheckBoxClicked(event)}
+                  checked={this.bodyCheckBoxStatus}
+                />
               </label>
             </div>
           </td>
