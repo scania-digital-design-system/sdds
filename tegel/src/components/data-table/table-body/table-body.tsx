@@ -79,7 +79,7 @@ export class TableBody {
 
   @State() rowsPerPage: number = 1;
 
-  @State() enableMultiselectTableBody: boolean = false;
+  @State() enableMultiselect: boolean = false;
 
   @State() enablePaginationTableBody: boolean = false;
 
@@ -111,6 +111,8 @@ export class TableBody {
 
   @State() uniqueTableIdentifier: string = '';
 
+  tableEl: HTMLSddsTableElement;
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
 
@@ -124,11 +126,18 @@ export class TableBody {
       this.host.parentElement.querySelector('sdds-table-header').children.length;
 
     // multiselect and expended features requires one extra column for controls...
-    if (this.enableMultiselectTableBody || this.enableExpendedTableBody) {
+    if (this.enableMultiselect || this.enableExpendedTableBody) {
       this.columnsNumber = headerColumnsNo + 1;
     } else {
       this.columnsNumber = headerColumnsNo;
     }
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.enableMultiselect =
+      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
+      this.tableEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('enableExpandedRowsEvent', { target: 'body' })
@@ -139,13 +148,11 @@ export class TableBody {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (event.detail.tableId === this.uniqueTableIdentifier) {
-      event.detail.changed
-        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
-        .forEach((changedProp) => {
-          this[changedProp] = event.detail[changedProp];
-        });
-    }
+    event.detail.changed
+      .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+      .forEach((changedProp) => {
+        this[changedProp] = event.detail[changedProp];
+      });
   }
 
   /** Event that sends unique table identifier and enable/disable status for sorting functionality */
@@ -199,7 +206,7 @@ export class TableBody {
 
   sortData(keyValue, sortingDirection) {
     if (!this.disableSortingFunction) {
-      if (this.enableMultiselectTableBody) {
+      if (this.enableMultiselect) {
         // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
         this.uncheckedAll();
       }

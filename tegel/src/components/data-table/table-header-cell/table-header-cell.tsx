@@ -1,4 +1,15 @@
-import { Component, Prop, h, Host, Event, EventEmitter, State, Listen, Element } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  State,
+  Listen,
+  Element,
+} from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
 
 @Component({
   tag: 'sdds-header-cell',
@@ -37,7 +48,7 @@ export class TableHeaderCell {
 
   @State() whiteBackground: boolean = false;
 
-  @State() enableMultiselectStyle: boolean = false;
+  @State() enableMultiselect: boolean = false;
 
   @State() enableToolbarDesign: boolean = false;
 
@@ -47,10 +58,13 @@ export class TableHeaderCell {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -95,7 +109,24 @@ export class TableHeaderCell {
     // To enable body cells text align per rules set in head cell
     this.textAlignEvent.emit([this.uniqueTableIdentifier, this.columnKey, this.textAlignState]);
 
-    this.enableToolbarDesign = this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.enableMultiselect =
+      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
+      this.tableEl.hasAttribute('enable-multiselect');
+  }
+
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    event.detail.changed
+      .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+      .forEach((changedProp) => {
+        this[changedProp] = event.detail[changedProp];
+      });
   }
 
   // Listen to parent data-table if sorting is allowed
@@ -107,7 +138,7 @@ export class TableHeaderCell {
     }
   }
 
-  sortButtonClick = key => {
+  sortButtonClick = (key) => {
     // Toggling direction of sorting as we only use one button for sorting
     if (this.sortingDirection !== 'asc') {
       this.sortingDirection = 'asc';
@@ -135,31 +166,45 @@ export class TableHeaderCell {
     }
   }
 
-  onHeadCellHover = key => {
+  onHeadCellHover = (key) => {
     this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
   };
 
   @Listen('enableMultiselectEvent', { target: 'body' })
   enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectStyle = event.detail[1];
+    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
   }
 
   @Listen('enableExpandedRowsEvent', { target: 'body' })
   enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableExpandedHeaderCell = event.detail[1];
+    if (this.uniqueTableIdentifier === event.detail[0])
+      this.enableExpandedHeaderCell = event.detail[1];
   }
 
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
       return (
-        <button class="sdds-table__header-button" onClick={() => this.sortButtonClick(this.columnKey)}>
+        <button
+          class="sdds-table__header-button"
+          onClick={() => this.sortButtonClick(this.columnKey)}
+        >
           <span class="sdds-table__header-button-text" style={{ textAlign: this.textAlignState }}>
             {this.columnTitle}
           </span>
 
           {this.sortingDirection === '' && (
-            <svg class="sdds-table__header-button-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 15">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.45 13.67V4.62a.5.5 0 0 1 1 0v9.05h-1Z" fill="currentColor" />
+            <svg
+              class="sdds-table__header-button-icon"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 12 15"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.45 13.67V4.62a.5.5 0 0 1 1 0v9.05h-1Z"
+                fill="currentColor"
+              />
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -177,7 +222,9 @@ export class TableHeaderCell {
           {/* First icon is arrow down as first set direction is ascending, clicking it again rotates the icon as we set descending order */}
           {this.sortingDirection !== '' && (
             <svg
-              class={`sdds-table__header-button-icon ${this.sortingDirection === 'desc' ? 'sdds-table__header-button-icon--rotate' : ''}`}
+              class={`sdds-table__header-button-icon ${
+                this.sortingDirection === 'desc' ? 'sdds-table__header-button-icon--rotate' : ''
+              }`}
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -212,7 +259,7 @@ export class TableHeaderCell {
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
-          'sdds-table--extra-column': this.enableMultiselectStyle || this.enableExpandedHeaderCell,
+          'sdds-table--extra-column': this.enableMultiselect || this.enableExpandedHeaderCell,
           'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
         style={{ width: this.customWidth }}
