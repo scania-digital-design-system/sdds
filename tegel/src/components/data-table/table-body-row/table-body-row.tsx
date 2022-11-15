@@ -42,11 +42,13 @@ export class TableBodyRow {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    event.detail.changed
-      .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
-      .forEach((changedProp) => {
-        this[changedProp] = event.detail[changedProp];
-      });
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .forEach((changedProp) => {
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
   }
 
   @Listen('commonTableStylesEvent', { target: 'body' })
@@ -111,11 +113,6 @@ export class TableBodyRow {
       row.classList.remove('sdds-table__row--selected');
     }
     this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
-  }
-
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
   }
 
   render() {

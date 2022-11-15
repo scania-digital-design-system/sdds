@@ -122,11 +122,13 @@ export class TableHeaderCell {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    event.detail.changed
-      .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
-      .forEach((changedProp) => {
-        this[changedProp] = event.detail[changedProp];
-      });
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .forEach((changedProp) => {
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
   }
 
   // Listen to parent data-table if sorting is allowed
