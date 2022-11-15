@@ -11,6 +11,11 @@ import {
 } from '@stencil/core';
 import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'enableExpandableRows',
+];
+
 @Component({
   tag: 'sdds-header-cell',
   styleUrl: 'table-header-cell.scss',
@@ -54,7 +59,7 @@ export class TableHeaderCell {
 
   @State() uniqueTableIdentifier: string = '';
 
-  @State() enableExpandedHeaderCell: boolean = false;
+  @State() enableExpandableRows: boolean = false;
 
   @Element() host: HTMLElement;
 
@@ -97,7 +102,9 @@ export class TableHeaderCell {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
     this.enableMultiselect = this.tableEl.enableMultiselect;
+    this.enableExpandableRows = this.tableEl.enableExpandableRows;
   }
 
   componentWillRender() {
@@ -122,8 +129,11 @@ export class TableHeaderCell {
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
       event.detail.changed
-        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
           this[changedProp] = event.detail[changedProp];
         });
     }
@@ -173,12 +183,6 @@ export class TableHeaderCell {
   @Listen('enableMultiselectEvent', { target: 'body' })
   enableMultiselectEventListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
-  }
-
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableExpandedHeaderCell = event.detail[1];
   }
 
   headerCellContent = () => {
@@ -259,7 +263,7 @@ export class TableHeaderCell {
           'sdds-table--compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
           'sdds-table--no-min-width': this.noMinWidth,
-          'sdds-table--extra-column': this.enableMultiselect || this.enableExpandedHeaderCell,
+          'sdds-table--extra-column': this.enableMultiselect || this.enableExpandableRows,
           'sdds-table--toolbar-available': this.enableToolbarDesign,
         }}
         style={{ width: this.customWidth }}

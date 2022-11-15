@@ -1,5 +1,19 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  // TODO
+];
 @Component({
   tag: 'sdds-table-body-row-expandable',
   styleUrl: 'table-body-row-expandable.scss',
@@ -34,6 +48,20 @@ export class TableBodyRowExpandable {
   })
   singleRowExpandedEvent: EventEmitter<any>;
 
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
+  }
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
   }
@@ -42,7 +70,9 @@ export class TableBodyRowExpandable {
     if (this.clientSetColumnsNumber !== null) {
       this.columnsNumber = this.clientSetColumnsNumber;
     } else {
-      this.columnsNumber = this.host.parentElement.closest('sdds-table').querySelector('sdds-table-header').childElementCount + 1;
+      this.columnsNumber =
+        this.host.parentElement.closest('sdds-table').querySelector('sdds-table-header')
+          .childElementCount + 1;
     }
   }
 
@@ -62,7 +92,8 @@ export class TableBodyRowExpandable {
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -89,7 +120,12 @@ export class TableBodyRowExpandable {
         <tr class="sdds-table__row">
           <td class="sdds-table__cell sdds-table__cell--expand">
             <label class="sdds-table__expand-control-container">
-              <input class="sdds-table__expand-input" type="checkbox" onChange={event => this.onChangeHandler(event)} checked={this.isExpanded} />
+              <input
+                class="sdds-table__expand-input"
+                type="checkbox"
+                onChange={(event) => this.onChangeHandler(event)}
+                checked={this.isExpanded}
+              />
               <span class="sdds-expendable-row-icon">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                   <path

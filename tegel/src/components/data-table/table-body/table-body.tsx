@@ -12,7 +12,7 @@ import {
 } from '@stencil/core';
 import { TablePropsChangedEvent } from '../table/table';
 
-const supportedProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
 ];
@@ -148,10 +148,10 @@ export class TableBody {
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
       event.detail.changed
-        .filter((changedProp) => supportedProps.includes(changedProp))
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
           if (typeof this[changedProp] === 'undefined') {
-            throw new Error('Supported prop is missing.');
+            throw new Error(`Table prop is not supported: ${changedProp}`);
           }
           this[changedProp] = event.detail[changedProp];
         });
