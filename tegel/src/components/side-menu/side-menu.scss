@@ -1,6 +1,6 @@
 @import './side-menu-theme-vars.scss';
 
-/* HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
+/* TODO: HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
 .sdds-nav__mob-menu-btn {
   display: none;
@@ -204,7 +204,6 @@
       border-bottom: 1px solid var(--sdds-sidebar-side-menu-single-item-border-bottom);
 
       &-link {
-        //@include type-style('headline-07');
         font: var(--sdds-headline-07);
         line-height: var(--sdds-headline-07-ls);
         @include item-states;
@@ -219,9 +218,10 @@
         box-sizing: content-box;
         transition: background-color 0.15s ease-in-out;
 
-        &:focus {
-          //@include sdds-focus-state;
-        }
+        // TODO: remove/add?
+        // &:focus {
+        //@include sdds-focus-state;
+        // }
 
         .sdds-sidebar-nav__item-text {
           margin-top: 3px;
@@ -269,7 +269,6 @@
 
       &__item {
         .sdds-sidebar-nav__item-link {
-          //@include type-style('detail-02');
           font: var(--sdds-detail-02);
           line-height: var(--sdds-detail-02-ls);
 
@@ -284,9 +283,10 @@
           font-weight: normal;
           min-height: auto;
 
-          &:focus {
-            //@include sdds-focus-state;
-          }
+          // TODO: remove/add?
+          // &:focus {
+          //@include sdds-focus-state;
+          // }
 
           .sdds-sidebar-nav__item-text {
             //@include type-style('detail-02');

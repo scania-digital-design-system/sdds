@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Side menu',
   parameters: {
@@ -11,12 +13,6 @@ const Template = (args) => {
 
   const style = `
   <style>
-    html, body, #root, #storybook-addon-themes {
-      height: 100%;
-      padding:0;
-      position: relative;
-      font-size: 14px;
-    }
     .sdds-demo-container {
       align-items: stretch;
       height: calc(100% - 64px);
@@ -28,14 +24,12 @@ const Template = (args) => {
   </style>
   `;
 
-  let DOMContentLoaded = false;
+  let isLoaded = false;
   document.addEventListener('DOMContentLoaded', () => {
-    if (DOMContentLoaded) {
+    if (isLoaded) {
       return;
     }
-    DOMContentLoaded = true;
-
-    console.log('side menu : domcontent loaded');
+    isLoaded = true;
 
     const sidebarElement = document.querySelector('.sdds-sidebar.side-menu');
     const sidebarElementToggle = sidebarElement.querySelector('.sdds-sidebar-toggle');
@@ -73,7 +67,7 @@ const Template = (args) => {
     }
   });
 
-  return `
+  return formatHtmlPreview(`
   ${style}
    <nav class='sdds-nav'>
       <div class='sdds-nav__left'>
@@ -185,7 +179,7 @@ const Template = (args) => {
       </div>
     </div>
   </div>
-  `;
+  `);
 };
 
 export const NonCollapsible = Template.bind({});
