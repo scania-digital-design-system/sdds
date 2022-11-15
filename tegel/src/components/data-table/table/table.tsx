@@ -128,25 +128,6 @@ export class Table {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
-
-    const propsChangedEvent: TablePropsChangedEvent = {
-      tableId: this.uniqueTableIdentifier,
-      changed: [
-        'verticalDividers',
-        'compactDesign',
-        'noMinWidth',
-        'whiteBackground',
-        'enableMultiselect',
-        'enableExpandableRows',
-        'enableResponsive',
-      ],
-    };
-
-    propsChangedEvent.changed.forEach((changedProp: keyof Props) => {
-      propsChangedEvent[changedProp] = this[changedProp];
-    });
-
-    this.tablePropsChangedEvent.emit(propsChangedEvent);
   }
 
   componentDidRender() {
