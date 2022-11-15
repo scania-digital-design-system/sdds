@@ -37,9 +37,7 @@ export class TableBodyRow {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
-    this.enableMultiselect =
-      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
-      this.tableEl.hasAttribute('enable-multiselect');
+    this.enableMultiselect = this.tableEl.enableMultiselect;
   }
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
