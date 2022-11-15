@@ -76,6 +76,12 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+  },
 };
 
 const EventListenersTemplate = ({
@@ -142,9 +148,4 @@ const EventListenersTemplate = ({
   </div>`);
 
 export const EventListeners = EventListenersTemplate.bind({});
-EventListeners.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-};
+EventListeners.args = {};

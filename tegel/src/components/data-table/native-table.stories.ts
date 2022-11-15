@@ -127,6 +127,18 @@ export default {
       if: { arg: 'noMinWidthArg', eq: true },
     },
   },
+  args: {
+    tableTitle: 'Native table',
+    isCompact: false,
+    dividers: false,
+    onWhiteBG: false,
+    noMinWidthArg: false,
+    responsiveTable: false,
+    column1Width: '',
+    column2Width: '',
+    column3Width: '',
+    column4Width: '',
+  },
 };
 
 const Template = (args) =>
@@ -186,15 +198,4 @@ const Template = (args) =>
     `);
 
 export const Default = Template.bind({});
-Default.args = {
-  tableTitle: 'Native table',
-  isCompact: false,
-  dividers: false,
-  onWhiteBG: false,
-  noMinWidthArg: false,
-  responsiveTable: false,
-  column1Width: '',
-  column2Width: '',
-  column3Width: '',
-  column4Width: '',
-};
+Default.args = {};

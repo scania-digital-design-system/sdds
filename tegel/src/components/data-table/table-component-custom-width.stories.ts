@@ -137,6 +137,17 @@ export default {
       if: { arg: 'noMinWidth', eq: true },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+    noMinWidth: true,
+    column1Width: '321px',
+    column2Width: '400px',
+    column3Width: '120px',
+    column4Width: '90px',
+  },
 };
 
 const BasicTemplate = (args) =>
@@ -204,14 +215,4 @@ const BasicTemplate = (args) =>
   </sdds-table>`);
 
 export const CustomWidth = BasicTemplate.bind({});
-CustomWidth.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-  noMinWidth: true,
-  column1Width: '321px',
-  column2Width: '400px',
-  column3Width: '120px',
-  column4Width: '90px',
-};
+CustomWidth.args = {};

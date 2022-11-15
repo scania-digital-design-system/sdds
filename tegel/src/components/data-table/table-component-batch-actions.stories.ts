@@ -86,6 +86,15 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+    batchArea: formatHtmlPreview(
+      '<button slot="sdds-table__actionbar" class="sdds-table__actionbar-btn"><sdds-icon class="sdds-table__actionbar-btn-icon" name="settings" size="20px" /> </button><sdds-button slot="sdds-table__actionbar" type="primary" size="sm" text="Download"></sdds-button>',
+    ),
+  },
 };
 
 const BatchActionTemplate = ({
@@ -118,12 +127,4 @@ const BatchActionTemplate = ({
   </sdds-table>`);
 
 export const BatchAction = BatchActionTemplate.bind({});
-BatchAction.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-  batchArea: formatHtmlPreview(
-    '<button slot="sdds-table__actionbar" class="sdds-table__actionbar-btn"><sdds-icon class="sdds-table__actionbar-btn-icon" name="settings" size="20px" /> </button><sdds-button slot="sdds-table__actionbar" type="primary" size="sm" text="Download"></sdds-button>',
-  ),
-};
+BatchAction.args = {};

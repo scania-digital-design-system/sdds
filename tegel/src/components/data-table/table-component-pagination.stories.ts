@@ -88,6 +88,13 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+    rowsPerPageControl: 4,
+  },
 };
 
 const PaginationTemplate = ({
@@ -118,10 +125,4 @@ const PaginationTemplate = ({
   </sdds-table>`);
 
 export const Pagination = PaginationTemplate.bind({});
-Pagination.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-  rowsPerPageControl: 4,
-};
+Pagination.args = {};
