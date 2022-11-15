@@ -1,6 +1,6 @@
-@import '../../helpers/style-helpers';
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "../../helpers/style-helpers";
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 :root,
 html,
@@ -32,7 +32,8 @@ $shadow-hover: rgb(4 30 66 / 8%);
   border-radius: 2px;
 
   @if $fill == 1 {
-    background: linear-gradient(
+    background:
+ linear-gradient(
         var(--sdds-slider-fill-color),
         var(--sdds-slider-fill-color)
       )
@@ -116,12 +117,12 @@ div .range-slider {
   margin-left: 10px;
   position: relative;
 
-  [type='range'] {
+  [type="range"] {
     position: absolute;
   }
 }
 
-[type='range'] {
+[type="range"] {
   &,
   &::-webkit-slider-thumb {
     appearance: none;
@@ -148,7 +149,8 @@ div .range-slider {
     &::-webkit-slider-runnable-track {
       @include track(1);
 
-      background: linear-gradient(
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -160,7 +162,8 @@ div .range-slider {
     &::-moz-range-track {
       @include track(1);
 
-      background: linear-gradient(
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -172,7 +175,8 @@ div .range-slider {
     &::-ms-track {
       @include track(1);
 
-      background: linear-gradient(
+      background:
+ linear-gradient(
           to right,
           var(--sdds-slider-track-color) var(--minvalpx),
           var(--sdds-slider-fill-color) var(--minvalpx) var(--maxvalpx),
@@ -205,7 +209,8 @@ div .range-slider {
   }
 
   &::-webkit-slider-thumb {
-    margin-top: calc(
+    margin-top:
+ calc(
       0.5 *
         (
           #{var(--sdds-slider-track-height)} - #{var(
@@ -301,7 +306,7 @@ button {
   span {
     padding: 8px;
 
-    @include type-style('detail-01');
+    @include type-style("detail-01");
 
     background-color: var(--sdds-slider-span-color);
     color: var(--sdds-white);
@@ -314,7 +319,7 @@ button {
   }
 
   span::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 8px;
     height: 8px;

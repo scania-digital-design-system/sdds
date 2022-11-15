@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-button',
@@ -10,8 +10,10 @@ export class SddsButton {
   /** Text inside a button */
   @Prop() text: string = '';
 
-  @Prop() type: string;
+  /** Type of button */
+  @Prop() type: 'primary' | 'secondary' | 'ghost' | 'danger' = 'primary';
 
+  /** Size of button */
   @Prop() size: 'sm' | 'md' | '' = '';
 
   /** Control for disabled state of component */
@@ -20,26 +22,16 @@ export class SddsButton {
   /** When enabled, makes button take 100% width */
   @Prop() fullbleed: boolean = false;
 
-  @State() onlyIcon: boolean = false;
-
-  componentWillLoad() {
-    if (this.text === '') {
-      this.onlyIcon = true;
-    }
-  }
-
   render() {
     return (
       <button
         class={`sdds-btn sdds-btn-${this.type} ${
-          this.size !== '' ? `sdds-btn-${this.size}` : ''
+          this.size == 'sm' || this.size == 'md' ? `sdds-btn-${this.size}` : ''
         } ${this.disabled ? 'disabled' : ''} ${
           this.fullbleed ? 'sdds-btn-fullbleed' : ''
-        }
-
-        ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
+        }`}
       >
-        <span>{this.text}</span>
+        {this.text}
         <slot name="icon" />
       </button>
     );

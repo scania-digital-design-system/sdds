@@ -1,7 +1,7 @@
-@import '../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../node_modules/@scania/grid/dist/scss/grid';
-@import '../../helpers/components-shared.scss';
+@import "../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared.scss";
 
 :root {
   --sdds-footer-top-bg: var(--sdds-grey-50);
@@ -46,7 +46,7 @@
   color: var(--sdds-footer-top-links);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: calc(100% + 120px);
     height: 100%;
@@ -91,7 +91,7 @@
   background-color: var(--sdds-footer-top-bg);
 
   .sdds-footer-title {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
     @include footer-top-link;
 
     padding: 20px 0;
@@ -197,7 +197,7 @@
     background-position: right bottom;
 
     p {
-      @include type-style('detail-02');
+      @include type-style("detail-02");
 
       color: var(--sdds-footer-main-copyright);
       margin: 0;

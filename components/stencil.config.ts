@@ -8,7 +8,7 @@ const fb = () => ({});
 const dep = fs.existsSync('./.env') ? dotenvPlugin : fb;
 
 export const config: Config = {
-  namespace: 'sdds-tegel-old',
+  namespace: 'sdds-components',
   globalScript: 'src/global.ts',
   enableCache: false,
   hashFileNames: false,
@@ -17,7 +17,7 @@ export const config: Config = {
     cssVarsShim: true,
     dynamicImportShim: true,
     shadowDomShim: true,
-    safari10: true, // TODO: Drop this
+    safari10: true, //TODO: Drop this
     scriptDataOpts: true,
     appendChildSlotFix: true,
     cloneNodeFix: false,

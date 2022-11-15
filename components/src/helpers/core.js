@@ -2,16 +2,16 @@
   const parentScript = doc.querySelectorAll('script');
   const arr = Array.prototype.slice.call(parentScript);
   let scriptElm =
-    arr.filter((item) => item.src.indexOf('dist/sdds-tegel-old.js') > -1)[0] ||
+    arr.filter((item) => item.src.indexOf('dist/sdds-components.js') > -1)[0] ||
     doc.scripts[doc.scripts.length - 1];
 
   const parts = scriptElm.src.split('/');
   parts.pop();
-  parts.push('sdds-tegel-old');
+  parts.push('sdds-components');
   const url = parts.join('/');
 
   scriptElm = doc.createElement('script');
-  // when stop supporting IE 11, change to /sdds-tegel-old.esm.js and type="module"
+  // when stop supporting IE 11, change to /sdds-components.esm.js and type="module"
   scriptElm.src = `${url}/sdds-components.js`;
   scriptElm.nomodule = true;
 

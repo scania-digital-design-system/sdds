@@ -16,7 +16,7 @@
 | `max`             | `max`               | Maximum value                                                                    | `string`     | `'100'` |
 | `min`             | `min`               | Minimum value                                                                    | `string`     | `'0'`   |
 | `name`            | `name`              | Name property (will be inherited by the native slider component)                 | `string`     | `''`    |
-| `readOnly`        | `read-only`         | Sets the read only state for the whole component                                 | `boolean`    | `null`  |
+| `readonly`        | `readonly`          | Sets the read only state for the whole component                                 | `boolean`    | `null`  |
 | `showTickNumbers` | `show-tick-numbers` | Decide to show numbers above the tick markers or not                             | `boolean`    | `false` |
 | `size`            | `size`              | Sets the size of the scrubber                                                    | `"" \| "sm"` | `''`    |
 | `small`           | `small`             |                                                                                  | `boolean`    | `null`  |

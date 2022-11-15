@@ -1,6 +1,6 @@
-@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../helpers/components-shared';
+@import "../../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared";
 
 :host {
   outline: 0 !important;
@@ -71,7 +71,7 @@
   }
 
   &--tab {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     cursor: pointer;
     border: 0;
@@ -93,7 +93,7 @@
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
       top: 0;
       right: 0;
@@ -133,7 +133,7 @@
       }
 
       &::before {
-        content: ' ';
+        content: " ";
         background-color: var(--sdds-grey-50);
         width: 1px;
         top: 0;

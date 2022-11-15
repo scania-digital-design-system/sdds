@@ -1,5 +1,5 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 :host {
   --sdds-tooltip-background: var(--sdds-grey-800);
@@ -7,7 +7,7 @@
 }
 
 .sdds-tooltip {
-  @include type-style('detail-05');
+  @include type-style("detail-05");
 
   color: var(--sdds-tooltip-colour);
   background-color: var(--sdds-tooltip-background);

@@ -1,0 +1,564 @@
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+@import "../../helpers/components-shared";
+
+.sdds-table {
+  border-collapse: collapse;
+  display: table;
+
+  .sdds-table__upper-bar {
+    display: table-caption;
+    position: relative;
+    background-color: var(--sdds-grey-400);
+    color: var(--sdds-grey-958);
+    padding: 0 var(--sdds-spacing-element-16);
+    height: 64px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  .sdds-table__upper-bar-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sdds-table__title {
+    @include type-style("headline-07");
+
+    padding-top: var(--sdds-spacing-element-16);
+    text-align: left;
+  }
+
+  .sdds-table__actionbar {
+    display: flex;
+    align-self: center;
+    gap: 8px;
+  }
+
+  .sdds-table__searchbar {
+    display: flex;
+    align-self: center;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px 4px 0 0;
+    transition: background-color 250ms ease, width 250ms ease;
+    overflow: hidden;
+    background-color: transparent;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      background-color: var(--sdds-blue-400);
+      transform: scaleX(0);
+      transition: transform 150ms ease;
+    }
+
+    &:focus-within {
+      &::after {
+        transform: scaleX(100%);
+      }
+    }
+
+    &:focus-within,
+    &.sdds-table__searchbar--active {
+      width: 208px;
+      background-color: var(--sdds-grey-50);
+
+      &:hover {
+        background-color: var(--sdds-grey-50);
+      }
+    }
+
+    .sdds-table__searchbar-input {
+      @include type-style("detail-02");
+
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 0 36px 0 16px;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+
+      :focus {
+        background-color: var(--sdds-grey-50);
+      }
+    }
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+    }
+
+    .sdds-table__searchbar-icon {
+      z-index: 0;
+      position: absolute;
+      right: 9px;
+      top: 9px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .sdds-table__header {
+    display: table-header-group;
+  }
+
+  // Fix that works for css&html version only
+  .sdds-table__header {
+    .sdds-table__header-cell {
+      &:first-of-type {
+        border-top-left-radius: 4px;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 4px;
+      }
+    }
+  }
+
+  .sdds-table__upper-bar + .sdds-table__header {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      border-radius: 0;
+    }
+  }
+
+  .sdds-table__header {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      @include type-style("headline-07");
+
+      display: table-cell;
+      text-align: left;
+      color: var(--sdds-grey-958);
+      background-color: var(--sdds-grey-300);
+      border-bottom: 1px solid var(--sdds-grey-400);
+      padding: 0;
+      height: 48px;
+      min-width: 192px;
+      box-sizing: border-box;
+
+      // To fix issues with border-radius propagating up from button
+      overflow: hidden;
+      transition: background-color 200ms ease;
+
+      &:first-of-type {
+        border-top-left-radius: 4px;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 4px;
+      }
+    }
+
+    .sdds-table__header-cell--checkbox {
+      min-width: unset;
+      width: 48px;
+      padding: 0;
+    }
+  }
+
+  .sdds-table__header {
+    ::slotted(sdds-header-cell:hover) {
+      background-color: var(--sdds-grey-400);
+    }
+  }
+
+  .sdds-table__body {
+    display: table-row-group;
+  }
+
+  .sdds-table__row {
+    display: table-row;
+    border-bottom: 1px solid var(--sdds-grey-400);
+    background-color: var(--sdds-white);
+    transition: background-color 200ms ease;
+  }
+
+  .sdds-table__row:hover {
+    background-color: var(--sdds-grey-100);
+  }
+
+  .sdds-table__row--selected {
+    background-color: var(--sdds-grey-300);
+  }
+
+  .sdds-table__row--selected:hover {
+    background-color: var(--sdds-grey-400);
+  }
+
+  .sdds-table__row--hidden {
+    display: none;
+  }
+
+  .sdds-table__body-cell,
+  ::slotted(sdds-body-cell) {
+    @include type-style("detail-02");
+
+    display: table-cell;
+    box-sizing: border-box;
+    color: var(--sdds-grey-958);
+    padding: var(--sdds-spacing-element-16);
+    min-width: 192px;
+    vertical-align: top;
+    background-color: transparent;
+    transition: background-color 200ms ease;
+  }
+
+  .sdds-table__body-cell--hover {
+    background-color: var(--sdds-grey-200);
+  }
+
+  .sdds-table__body-cell--checkbox {
+    min-width: 48px;
+    width: 48px;
+    padding: 0;
+  }
+
+  .sdds-table__footer {
+    height: 48px;
+    display: table-footer-group;
+
+    .sdds-table__footer-row {
+      background-color: var(--sdds-grey-100);
+    }
+
+    .sdds-table__footer-cell {
+      padding: 0 16px;
+
+      .sdds-table__pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .sdds-table__row-selector,
+        .sdds-table__page-selector {
+          display: flex;
+          align-items: center;
+        }
+
+        .sdds-table__page-selector-input {
+          @include type-style("detail-02");
+
+          background-color: var(--sdds-grey-50);
+          width: 36px;
+          height: 30px;
+          border: none;
+          border-radius: 4px;
+          transition: background-color 250ms ease;
+          margin-right: 4px;
+          padding-right: 8px;
+
+          &:hover {
+            background-color: var(--sdds-white);
+          }
+
+          &:focus {
+            @include sdds-focus-state;
+          }
+        }
+
+        .sdds-table__page-selector-input--shake {
+          animation: sdds-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+
+        // ToDo: Fina a better place for animation ? Johnny
+        @keyframes sdds-shake {
+          10%,
+          90% {
+            transform: translate3d(-1px, 0, 0);
+          }
+
+          20%,
+          80% {
+            transform: translate3d(2px, 0, 0);
+          }
+
+          30%,
+          50%,
+          70% {
+            transform: translate3d(-4px, 0, 0);
+          }
+
+          40%,
+          60% {
+            transform: translate3d(4px, 0, 0);
+          }
+        }
+
+        .sdds-table__footer-text {
+          @include type-style("detail-02");
+
+          padding: 0 8px 0 0;
+        }
+
+        .sdds-table__footer-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          height: 32px;
+          width: 32px;
+          border-radius: 4px;
+          transition: background-color 250ms ease;
+
+          &:hover {
+            background-color: var(--sdds-grey-300);
+          }
+
+          &:focus {
+            @include sdds-focus-state;
+          }
+
+          &:disabled {
+            cursor: default;
+
+            &:hover {
+              background-color: transparent;
+            }
+          }
+        }
+
+        .sdds-table__footer-btn-svg {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  // SDDS GLOBAL STYLES:
+  &.sdds-table--compact {
+    .sdds-table__upper-bar {
+      height: 56px;
+    }
+
+    .sdds-table__body-cell,
+    ::slotted(sdds-body-cell) {
+      padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
+    }
+
+    .sdds-table__body-cell--checkbox {
+      min-width: 32px;
+      width: 32px;
+      padding: 0;
+    }
+
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell) {
+      height: 32px;
+    }
+
+    .sdds-form-label--data-table {
+      height: 32px;
+    }
+  }
+
+  &.sdds-table--divider {
+    .sdds-table__header-cell,
+    ::slotted(sdds-header-cell),
+    .sdds-table__body-cell,
+    ::slotted(sdds-body-cell) {
+      border-right: 1px solid var(--sdds-grey-400);
+    }
+
+    .sdds-table__header-cell:last-child,
+    ::slotted(sdds-header-cell:last-child),
+    .sdds-table__body-cell:last-child,
+    ::slotted(sdds-body-cell:last-child) {
+      border-right: none;
+    }
+  }
+
+  &.sdds-table--no-min-width {
+    .sdds-table__header {
+      .sdds-table__header-cell,
+      ::slotted(.sdds-table__header-cell) {
+        min-width: unset;
+      }
+    }
+
+    .sdds-table__body {
+      .sdds-table__body-cell,
+      ::slotted(sdds-body-cell) {
+        min-width: unset;
+      }
+    }
+  }
+
+  &.sdds-table--on-white-bg {
+    .sdds-table__row {
+      background-color: var(--sdds-grey-50);
+    }
+
+    .sdds-table__row:hover {
+      background-color: var(--sdds-grey-200);
+    }
+  }
+
+  // Rule to fix tiny gap that shows when multiselect is on but table has no caption area
+  &.sdds-table--multiselect {
+    .sdds-table__header {
+      ::slotted(.sdds-table__header-cell:first-of-type) {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
+  //Web component specific part
+
+  ::slotted(sdds-header-cell:first-of-type) {
+    border-top-left-radius: 4px;
+  }
+
+  ::slotted(sdds-header-cell:last-of-type) {
+    border-top-right-radius: 4px;
+  }
+
+  .sdds-table__upper-bar + .sdds-table__header {
+    ::slotted(sdds-header-cell) {
+      border-radius: 0;
+    }
+  }
+}
+
+// Styling anything inside table-header-cell or sdds-header-cell
+
+:host(.sdds-table__header-cell) {
+  vertical-align: middle;
+
+  .sdds-table__header-text {
+    padding: 0 16px;
+    margin: 0;
+  }
+}
+
+:host(.sdds-table__header-cell--sortable) {
+  .sdds-table__header-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+
+    &:focus {
+      outline: 2px solid var(--sdds-blue-400);
+      outline-offset: -2px;
+
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
+    }
+
+    .sdds-table__header-button-text {
+      @include type-style("headline-07");
+
+      text-align: left;
+      color: var(--sdds-grey-958);
+    }
+
+    .sdds-table__header-button-icon {
+      /* not to shrink on lot of text */
+      flex: 0 0 16px;
+      height: 16px;
+      opacity: 0;
+      transform-origin: center;
+      transition: opacity 200ms ease-in, transform 200ms ease;
+    }
+
+    &:hover {
+      .sdds-table__header-button-icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+:host(.sdds-table__header-cell--right-align) {
+  .sdds-table__header-button {
+    text-align: right;
+    justify-content: end;
+    flex-direction: row-reverse;
+  }
+}
+
+:host(.sdds-table__header-cell--is-sorted) {
+  .sdds-table__header-button {
+    background-color: var(--sdds-grey-500);
+
+    &:hover {
+      background-color: var(--sdds-grey-400);
+    }
+
+    .sdds-table__header-button-icon {
+      opacity: 1;
+    }
+
+    .sdds-table__header-button-icon--rotate {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+/* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
+
+@import "../checkbox/checkbox";
+
+// Extra rule for label use in data-table
+.sdds-form-label--data-table {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+// Actionbar buttons styling
+
+.sdds-table__actionbar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  min-width: 40px;
+  border: none;
+  background-color: transparent;
+  color: var(--sdds-grey-958);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 250ms ease;
+  margin-left: 0;
+
+  &:focus {
+    @include sdds-focus-state;
+  }
+
+  &:hover {
+    background-color: var(--sdds-grey-300);
+  }
+}
+
+.sdds-table__actionbar-btn-icon {
+  height: 20px;
+  width: auto;
+}

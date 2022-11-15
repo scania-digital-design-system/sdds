@@ -1,7 +1,7 @@
-@import '../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../node_modules/@scania/grid/dist/scss/grid';
-@import '../../helpers/components-shared';
+@import "../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../node_modules/@scania/grid/dist/scss/grid";
+@import "../../helpers/components-shared";
 
 /* HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
@@ -37,7 +37,7 @@
     @include sdds-focus-state;
 
     &::after {
-      content: ' ';
+      content: " ";
       display: block;
       position: absolute;
       top: -1px;
@@ -94,7 +94,7 @@
       }
 
       &::after {
-        content: ' ';
+        content: " ";
         position: absolute;
         background: var(--sdds-black);
         opacity: 0;
@@ -207,7 +207,7 @@
       border-bottom: 1px solid var(--sdds-grey-300);
 
       &-link {
-        @include type-style('headline-07');
+        @include type-style("headline-07");
         @include item-states;
 
         color: var(--sdds-grey-958);
@@ -250,7 +250,7 @@
         position: relative;
 
         &::before {
-          content: ' ';
+          content: " ";
           position: absolute;
           left: 0;
           top: 0;
@@ -270,7 +270,7 @@
 
       &__item {
         .sdds-sidebar-nav__item-link {
-          @include type-style('detail-02');
+          @include type-style("detail-02");
           @include item-states;
 
           color: var(--sdds-grey-800);
@@ -278,7 +278,8 @@
           display: block;
           padding: 16px 24px 16px 56px;
           white-space: nowrap;
-          transition: opacity 0.15s ease-in-out,
+          transition:
+ opacity 0.15s ease-in-out,
             background-color 0.15s ease-in-out;
           font-weight: normal;
           min-height: auto;
@@ -288,20 +289,21 @@
           }
 
           .sdds-sidebar-nav__item-text {
-            @include type-style('detail-02');
+            @include type-style("detail-02");
 
             transition: opacity 0.15s ease-in-out, height 0.15s ease-in-out;
           }
         }
 
         .sdds-sidebar-nav__item-title {
-          @include type-style('detail-02');
+          @include type-style("detail-02");
 
           color: var(--sdds-grey-958);
           text-decoration: none;
           padding: 16px 24px 16px 56px;
           white-space: nowrap;
-          transition: opacity 0.15s ease-in-out,
+          transition:
+ opacity 0.15s ease-in-out,
             background-color 0.15s ease-in-out;
           min-height: auto;
           font-weight: 600;
@@ -311,7 +313,7 @@
 
       .sdds-item--active {
         .sdds-sidebar-nav__item-link {
-          @include type-style('headline-07');
+          @include type-style("headline-07");
 
           color: var(--sdds-grey-958);
         }

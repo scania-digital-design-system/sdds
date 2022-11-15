@@ -1,12 +1,12 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 sdds-slider {
   width: 100%;
 
   --sdds-slider-inputfield-bg: var(--sdds-white);
 
-  input[type='range'].sdds-slider-native-element {
+  input[type="range"].sdds-slider-native-element {
     display: none;
   }
 }
@@ -62,7 +62,7 @@ html .sdds-on-white-bg {
       padding: 18px;
       color: var(--sdds-grey-700);
 
-      @include type-style('detail-02');
+      @include type-style("detail-02");
     }
 
     .sdds-slider__input-field-wrapper {
@@ -72,7 +72,7 @@ html .sdds-on-white-bg {
       justify-content: center;
 
       input.sdds-slider__input-field {
-        @include type-style('detail-02');
+        @include type-style("detail-02");
 
         color: var(--sdds-grey-700);
         border: 0;
@@ -95,7 +95,7 @@ html .sdds-on-white-bg {
   }
 
   label {
-    @include type-style('detail-05');
+    @include type-style("detail-05");
 
     user-select: none;
     position: absolute;
@@ -109,7 +109,7 @@ html .sdds-on-white-bg {
   }
 
   .sdds-slider__value {
-    @include type-style('detail-01');
+    @include type-style("detail-01");
 
     user-select: none;
     border-radius: 4px;
@@ -144,7 +144,7 @@ html .sdds-on-white-bg {
       z-index: 10;
 
       &::before {
-        content: ' ';
+        content: " ";
         display: none;
         width: 48px;
         height: 48px;
@@ -199,7 +199,7 @@ html .sdds-on-white-bg {
         user-select: none;
         color: var(-sdds-grey-700);
 
-        @include type-style('detail-05');
+        @include type-style("detail-05");
 
         position: relative;
         top: -7px;

@@ -1,4 +1,4 @@
-@import '../../helpers/style-helpers.scss';
+@import "../../helpers/style-helpers.scss";
 
 .sdds-message {
   display: block;
@@ -11,7 +11,7 @@
   margin-bottom: 12px;
 
   &-single {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -19,7 +19,7 @@
   }
 
   &-extended {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     margin-top: 4px !important;
     margin-bottom: 0 !important;
@@ -27,7 +27,7 @@
   }
 
   &::before {
-    content: ' ';
+    content: " ";
     display: block;
     position: absolute;
     width: 4px;
@@ -77,7 +77,7 @@
     }
 
     .sdds-message-single {
-      @include type-style('detail-02');
+      @include type-style("detail-02");
 
       font-weight: normal;
       padding-left: 8px;

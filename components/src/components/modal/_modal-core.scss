@@ -1,5 +1,5 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 :root,
 html {
@@ -103,7 +103,7 @@ $modals: (
 }
 
 @mixin modal-body {
-  @include type-style('body-01');
+  @include type-style("body-01");
 
   padding-bottom: 40px;
   margin: 0;
@@ -148,7 +148,7 @@ $modals: (
   .sdds-modal-sm {
     height: 100%;
 
-    slot[name='sdds-modal-actions']::slotted(*) {
+    slot[name="sdds-modal-actions"]::slotted(*) {
       display: flex;
     }
   }
@@ -162,7 +162,7 @@ $modals: (
   background-color: var(--sdds-modal-bg);
 
   &::before {
-    content: ' ';
+    content: " ";
     position: absolute;
     height: 16px;
     top: -16px;
@@ -179,7 +179,7 @@ $modals: (
     padding-top: var(--sdds-spacing-element-16);
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
       height: 17px;
       bottom: -17px;

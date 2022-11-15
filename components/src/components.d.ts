@@ -54,18 +54,8 @@ export namespace Components {
         "value": string;
     }
     interface SddsBodyCell {
-        /**
-          * Passing same cell key for all body cells which is used in head cell enables features of text align and hovering
-         */
         "cellKey": any;
-        /**
-          * Value that will be presented as text inside a cell
-         */
         "cellValue": string | number;
-        /**
-          * Disables internal padding. Useful when passing other tegel to cell.
-         */
-        "disablePadding": boolean;
     }
     interface SddsButton {
         /**
@@ -76,12 +66,18 @@ export namespace Components {
           * When enabled, makes button take 100% width
          */
         "fullbleed": boolean;
+        /**
+          * Size of button
+         */
         "size": 'sm' | 'md' | '';
         /**
           * Text inside a button
          */
         "text": string;
-        "type": string;
+        /**
+          * Type of button
+         */
+        "type": 'primary' | 'secondary' | 'ghost' | 'danger';
     }
     interface SddsCard {
     }
@@ -256,36 +252,14 @@ export namespace Components {
         "value2": string;
     }
     interface SddsHeaderCell {
-        /**
-          * Value of column key, usually comes from JSON, needed for sorting
-         */
         "columnKey": string;
-        /**
-          * Text that displays in column cell
-         */
         "columnTitle": string;
-        /**
-          * In case noMinWidth setting, user has to specify width value for each column, for example "150px"
-         */
         "customWidth": string;
-        /**
-          * If passed as prop, enables sorting on that column
-         */
         "sortable": boolean;
-        /**
-          * Setting for text align, default is left, but user can pass "right" as string - useful for numeric values
-         */
         "textAlign": string;
     }
     interface SddsIcon {
-        /**
-          * Pass a name of the icon. For icon names, refer to https://digitaldesign.scania.com/foundations/icons/icon-library or storybook
-         */
         "name": string;
-        /**
-          * Pass a size of icon as a string, for example: 32px, 1rem, 4em...
-         */
-        "size": string;
     }
     interface SddsInlineTabs {
         /**
@@ -393,7 +367,7 @@ export namespace Components {
         /**
           * Sets the read only state for the whole component
          */
-        "readOnly": boolean;
+        "readonly": boolean;
         /**
           * Public method to re-initialise the slider if some configuration props are changed
          */
@@ -453,102 +427,29 @@ export namespace Components {
         "type": string;
     }
     interface SddsTable {
-        /**
-          * Enables style where data-table toolbar, rows and footer are less high
-         */
+        "actionBar": boolean;
+        "bodyData": any;
         "compactDesign": boolean;
-        /**
-          * Enables extended row feature of data-table
-         */
-        "enableExpandableRows": boolean;
-        /**
-          * Enables multiselect feature of data-table
-         */
-        "enableMultiselect": boolean;
-        /**
-          * Enables table to take 100% available width with equal spacing of columns
-         */
-        "enableResponsive": boolean;
-        /**
-          * Enables to customise width on data-table columns
-         */
+        "filtering": boolean;
+        "multiSelect": boolean;
         "noMinWidth": boolean;
-        /**
-          * Enables style with vertical dividers between columns
-         */
+        "pagination": boolean;
+        "rowsPerPage": number;
+        "tableTitle": string;
         "verticalDividers": boolean;
-        /**
-          * Changes a colors of data data-table when used on white background
-         */
         "whiteBackground": boolean;
     }
     interface SddsTableBody {
-        /**
-          * Prop to pass JSON string which enables automatic rendering of table rows and cells
-         */
-        "bodyData": any;
-        /**
-          * Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term
-         */
-        "disableFilteringFunction": boolean;
-        /**
-          * Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting
-         */
-        "disableSortingFunction": boolean;
-        /**
-          * Prop for showcase of rendering JSON in body-data, just for presentation purposes
-         */
-        "enableDummyData": boolean;
     }
     interface SddsTableBodyRow {
     }
-    interface SddsTableBodyRowExpandable {
-        /**
-          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
-         */
-        "clientSetColumnsNumber": number;
-    }
     interface SddsTableFooter {
-        /**
-          * Prop for client to set max number of pages
-         */
-        "clientMaxPages": number;
-        /**
-          * Prop for client to set current page number
-         */
-        "clientPaginationValue": number;
-        /**
-          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
-         */
-        "clientSetColumnsNumber": number;
-        /**
-          * Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component
-         */
-        "disablePaginationFunction": boolean;
-        /**
-          * Prop to enable client controlled pagination
-         */
-        "enableClientPagination": boolean;
-        /**
-          * Enable pagination and show pagination controls
-         */
-        "enablePagination": boolean;
-        /**
-          * Sets how many rows to display when pagination is enabled
-         */
-        "rowsPerPage": number;
     }
     interface SddsTableHeader {
     }
+    interface SddsTableHeaderRow {
+    }
     interface SddsTableToolbar {
-        /**
-          * Enables preview of searchbar
-         */
-        "enableFiltering": boolean;
-        /**
-          * Adds title to the data-table
-         */
-        "tableTitle": string;
     }
     interface SddsTextarea {
         /**
@@ -648,7 +549,7 @@ export namespace Components {
         /**
           * Which input type, text, password or similar
          */
-        "type": string;
+        "type": 'text' | 'password';
         /**
           * Value of the input text
          */
@@ -847,12 +748,6 @@ declare global {
         prototype: HTMLSddsTableBodyRowElement;
         new (): HTMLSddsTableBodyRowElement;
     };
-    interface HTMLSddsTableBodyRowExpandableElement extends Components.SddsTableBodyRowExpandable, HTMLStencilElement {
-    }
-    var HTMLSddsTableBodyRowExpandableElement: {
-        prototype: HTMLSddsTableBodyRowExpandableElement;
-        new (): HTMLSddsTableBodyRowExpandableElement;
-    };
     interface HTMLSddsTableFooterElement extends Components.SddsTableFooter, HTMLStencilElement {
     }
     var HTMLSddsTableFooterElement: {
@@ -864,6 +759,12 @@ declare global {
     var HTMLSddsTableHeaderElement: {
         prototype: HTMLSddsTableHeaderElement;
         new (): HTMLSddsTableHeaderElement;
+    };
+    interface HTMLSddsTableHeaderRowElement extends Components.SddsTableHeaderRow, HTMLStencilElement {
+    }
+    var HTMLSddsTableHeaderRowElement: {
+        prototype: HTMLSddsTableHeaderRowElement;
+        new (): HTMLSddsTableHeaderRowElement;
     };
     interface HTMLSddsTableToolbarElement extends Components.SddsTableToolbar, HTMLStencilElement {
     }
@@ -923,9 +824,9 @@ declare global {
         "sdds-table": HTMLSddsTableElement;
         "sdds-table-body": HTMLSddsTableBodyElement;
         "sdds-table-body-row": HTMLSddsTableBodyRowElement;
-        "sdds-table-body-row-expandable": HTMLSddsTableBodyRowExpandableElement;
         "sdds-table-footer": HTMLSddsTableFooterElement;
         "sdds-table-header": HTMLSddsTableHeaderElement;
+        "sdds-table-header-row": HTMLSddsTableHeaderRowElement;
         "sdds-table-toolbar": HTMLSddsTableToolbarElement;
         "sdds-textarea": HTMLSddsTextareaElement;
         "sdds-textfield": HTMLSddsTextfieldElement;
@@ -985,18 +886,8 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SddsBodyCell {
-        /**
-          * Passing same cell key for all body cells which is used in head cell enables features of text align and hovering
-         */
         "cellKey"?: any;
-        /**
-          * Value that will be presented as text inside a cell
-         */
         "cellValue"?: string | number;
-        /**
-          * Disables internal padding. Useful when passing other tegel to cell.
-         */
-        "disablePadding"?: boolean;
     }
     interface SddsButton {
         /**
@@ -1007,12 +898,18 @@ declare namespace LocalJSX {
           * When enabled, makes button take 100% width
          */
         "fullbleed"?: boolean;
+        /**
+          * Size of button
+         */
         "size"?: 'sm' | 'md' | '';
         /**
           * Text inside a button
          */
         "text"?: string;
-        "type"?: string;
+        /**
+          * Type of button
+         */
+        "type"?: 'primary' | 'secondary' | 'ghost' | 'danger';
     }
     interface SddsCard {
     }
@@ -1191,48 +1088,17 @@ declare namespace LocalJSX {
         "value2"?: string;
     }
     interface SddsHeaderCell {
-        /**
-          * Value of column key, usually comes from JSON, needed for sorting
-         */
         "columnKey"?: string;
-        /**
-          * Text that displays in column cell
-         */
         "columnTitle"?: string;
-        /**
-          * In case noMinWidth setting, user has to specify width value for each column, for example "150px"
-         */
         "customWidth"?: string;
-        /**
-          * Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell
-         */
-        "onHeadCellHoverEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends unique table identifier,column key and sorting direction to the sdds-table-body component
-         */
-        "onSortColumnDataEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell
-         */
-        "onTextAlignEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * If passed as prop, enables sorting on that column
-         */
+        "onBodyCellData"?: (event: CustomEvent<any>) => void;
+        "onHeadKey"?: (event: CustomEvent<any>) => void;
+        "onSortColumnData"?: (event: CustomEvent<any>) => void;
         "sortable"?: boolean;
-        /**
-          * Setting for text align, default is left, but user can pass "right" as string - useful for numeric values
-         */
         "textAlign"?: string;
     }
     interface SddsIcon {
-        /**
-          * Pass a name of the icon. For icon names, refer to https://digitaldesign.scania.com/foundations/icons/icon-library or storybook
-         */
         "name"?: string;
-        /**
-          * Pass a size of icon as a string, for example: 32px, 1rem, 4em...
-         */
-        "size"?: string;
     }
     interface SddsInlineTabs {
         /**
@@ -1342,7 +1208,7 @@ declare namespace LocalJSX {
         /**
           * Sets the read only state for the whole component
          */
-        "readOnly"?: boolean;
+        "readonly"?: boolean;
         /**
           * Decide to show numbers above the tick markers or not
          */
@@ -1398,162 +1264,30 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface SddsTable {
-        /**
-          * Enables style where data-table toolbar, rows and footer are less high
-         */
+        "actionBar"?: boolean;
+        "bodyData"?: any;
         "compactDesign"?: boolean;
-        /**
-          * Enables extended row feature of data-table
-         */
-        "enableExpandableRows"?: boolean;
-        /**
-          * Enables multiselect feature of data-table
-         */
-        "enableMultiselect"?: boolean;
-        /**
-          * Enables table to take 100% available width with equal spacing of columns
-         */
-        "enableResponsive"?: boolean;
-        /**
-          * Enables to customise width on data-table columns
-         */
+        "filtering"?: boolean;
+        "multiSelect"?: boolean;
         "noMinWidth"?: boolean;
-        /**
-          * Sends out status of different general styling changes to children tegel
-         */
-        "onCommonTableStylesEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends out status of multiselect feature to children tegel
-         */
-        "onEnableExpandedRowsEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends out status of multiselect feature to children tegel
-         */
-        "onEnableMultiselectEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Enables style with vertical dividers between columns
-         */
+        "onSortingEnabler"?: (event: CustomEvent<any>) => void;
+        "pagination"?: boolean;
+        "rowsPerPage"?: number;
+        "tableTitle"?: string;
         "verticalDividers"?: boolean;
-        /**
-          * Changes a colors of data data-table when used on white background
-         */
         "whiteBackground"?: boolean;
     }
     interface SddsTableBody {
-        /**
-          * Prop to pass JSON string which enables automatic rendering of table rows and cells
-         */
-        "bodyData"?: any;
-        /**
-          * Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term
-         */
-        "disableFilteringFunction"?: boolean;
-        /**
-          * Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting
-         */
-        "disableSortingFunction"?: boolean;
-        /**
-          * Prop for showcase of rendering JSON in body-data, just for presentation purposes
-         */
-        "enableDummyData"?: boolean;
-        /**
-          * Event that sends unique table identifier and enable/disable status for sorting functionality
-         */
-        "onSortingSwitcherEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled
-         */
-        "onUpdateBodyCheckboxesEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used
-         */
-        "onUpdateMainCheckboxEvent"?: (event: CustomEvent<any>) => void;
     }
     interface SddsTableBodyRow {
-        /**
-          * Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control
-         */
-        "onBodyRowToTable"?: (event: CustomEvent<boolean>) => void;
-        /**
-          * Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run
-         */
-        "onRunPaginationEvent"?: (event: CustomEvent<string>) => void;
-    }
-    interface SddsTableBodyRowExpandable {
-        /**
-          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
-         */
-        "clientSetColumnsNumber"?: number;
-        /**
-          * Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run
-         */
-        "onRunPaginationEvent"?: (event: CustomEvent<string>) => void;
-        /**
-          * Sends out status of itw own expended status feature to table header component
-         */
-        "onSingleRowExpandedEvent"?: (event: CustomEvent<any>) => void;
     }
     interface SddsTableFooter {
-        /**
-          * Prop for client to set max number of pages
-         */
-        "clientMaxPages"?: number;
-        /**
-          * Prop for client to set current page number
-         */
-        "clientPaginationValue"?: number;
-        /**
-          * In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too
-         */
-        "clientSetColumnsNumber"?: number;
-        /**
-          * Disables inbuilt pagination logic, leaving user an option to create own pagination functionality while listening to events from sdds-table-footer component
-         */
-        "disablePaginationFunction"?: boolean;
-        /**
-          * Prop to enable client controlled pagination
-         */
-        "enableClientPagination"?: boolean;
-        /**
-          * Enable pagination and show pagination controls
-         */
-        "enablePagination"?: boolean;
-        /**
-          * Event to send current page value back to sdds-table-body component
-         */
-        "onCurrentPageValueEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Event that footer sends out in order to receive other necessary information from other subcomponents
-         */
-        "onEnablePaginationEvent"?: (event: CustomEvent<any>) => void;
-        /**
-          * Event that footer sends out in order to receive other necessary information from other subcomponents
-         */
-        "onFooterWillLoad"?: (event: CustomEvent<any>) => void;
-        /**
-          * Sets how many rows to display when pagination is enabled
-         */
-        "rowsPerPage"?: number;
     }
     interface SddsTableHeader {
-        /**
-          * Send status of main checkbox in header to the parent, sdds-table component
-         */
-        "onMainCheckboxSelectedEvent"?: (event: CustomEvent<any>) => void;
+    }
+    interface SddsTableHeaderRow {
     }
     interface SddsTableToolbar {
-        /**
-          * Enables preview of searchbar
-         */
-        "enableFiltering"?: boolean;
-        /**
-          * Used for sending users input to main parent <sdds-table> component
-         */
-        "onTableFilteringTerm"?: (event: CustomEvent<any>) => void;
-        /**
-          * Adds title to the data-table
-         */
-        "tableTitle"?: string;
     }
     interface SddsTextarea {
         /**
@@ -1661,7 +1395,7 @@ declare namespace LocalJSX {
         /**
           * Which input type, text, password or similar
          */
-        "type"?: string;
+        "type"?: 'text' | 'password';
         /**
           * Value of the input text
          */
@@ -1724,9 +1458,9 @@ declare namespace LocalJSX {
         "sdds-table": SddsTable;
         "sdds-table-body": SddsTableBody;
         "sdds-table-body-row": SddsTableBodyRow;
-        "sdds-table-body-row-expandable": SddsTableBodyRowExpandable;
         "sdds-table-footer": SddsTableFooter;
         "sdds-table-header": SddsTableHeader;
+        "sdds-table-header-row": SddsTableHeaderRow;
         "sdds-table-toolbar": SddsTableToolbar;
         "sdds-textarea": SddsTextarea;
         "sdds-textfield": SddsTextfield;
@@ -1765,9 +1499,9 @@ declare module "@stencil/core" {
             "sdds-table": LocalJSX.SddsTable & JSXBase.HTMLAttributes<HTMLSddsTableElement>;
             "sdds-table-body": LocalJSX.SddsTableBody & JSXBase.HTMLAttributes<HTMLSddsTableBodyElement>;
             "sdds-table-body-row": LocalJSX.SddsTableBodyRow & JSXBase.HTMLAttributes<HTMLSddsTableBodyRowElement>;
-            "sdds-table-body-row-expandable": LocalJSX.SddsTableBodyRowExpandable & JSXBase.HTMLAttributes<HTMLSddsTableBodyRowExpandableElement>;
             "sdds-table-footer": LocalJSX.SddsTableFooter & JSXBase.HTMLAttributes<HTMLSddsTableFooterElement>;
             "sdds-table-header": LocalJSX.SddsTableHeader & JSXBase.HTMLAttributes<HTMLSddsTableHeaderElement>;
+            "sdds-table-header-row": LocalJSX.SddsTableHeaderRow & JSXBase.HTMLAttributes<HTMLSddsTableHeaderRowElement>;
             "sdds-table-toolbar": LocalJSX.SddsTableToolbar & JSXBase.HTMLAttributes<HTMLSddsTableToolbarElement>;
             "sdds-textarea": LocalJSX.SddsTextarea & JSXBase.HTMLAttributes<HTMLSddsTextareaElement>;
             "sdds-textfield": LocalJSX.SddsTextfield & JSXBase.HTMLAttributes<HTMLSddsTextfieldElement>;
