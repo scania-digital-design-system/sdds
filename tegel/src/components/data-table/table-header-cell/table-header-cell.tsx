@@ -110,6 +110,24 @@ export class TableHeaderCell {
     }
   }
 
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.enableMultiselect =
+      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
+      this.tableEl.hasAttribute('enable-multiselect');
+  }
+
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .forEach((changedProp) => {
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
+  }
+
   // Listen to parent data-table if sorting is allowed
   @Listen('sortingSwitcherEvent', { target: 'body' })
   sortingSwitcherEventListener(event: CustomEvent<any>) {
