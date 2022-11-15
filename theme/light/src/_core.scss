@@ -1,15 +1,14 @@
 /*
-Import foundation into theme tegel-old
+Import foundation into theme components
 */
-@import '../../core/logotype/vars.scss';
-@import '../../core/typography/typography-vars.scss';
-@import '../../core/colour/tokens';
-@import '../../core/spacing/spacing';
-@import '../../core/typography/vars';
-@import '../../core/typography/selectors';
-@import '../../core/colour/vars';
-@import '../../core/spacing/spacing-vars.scss';
-@import '../../core/colour/colour';
+@import "../../core/logotype/vars.scss";
+@import "../../core/typography/typography-vars.scss";
+@import "../../core/colour/tokens";
+@import "../../core/spacing/spacing";
+@import "../../core/typography/vars";
+@import "../../core/typography/selectors";
+@import "../../core/spacing/spacing-vars.scss";
+@import "../../core/colour/colour";
 
 //TODO: remove. Old colors are not used, only imported because of old setup
-@import 'old/core/old-colors.scss';
+@import "old/core/old-colors.scss";

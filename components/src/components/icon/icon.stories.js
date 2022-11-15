@@ -1,23 +1,11 @@
-import { iconsNames } from './iconsArray';
-
 export default {
   title: 'Component/Icons',
-  parameters: {
-    layout: 'centered',
-  },
   argTypes: {
-    icon: {
-      name: 'Icon name',
-      control: {
-        type: 'select',
-        options: iconsNames,
-      },
-    },
+    icon: { control: { type: 'text' } },
     size: {
-      name: 'Size in pixels',
       control: {
         type: 'range',
-        min: 16,
+        min: 4,
         max: 100,
         step: 4,
       },
@@ -25,29 +13,33 @@ export default {
   },
 };
 
-const IconTemplate = ({ icon, size }) => `  
-  <sdds-icon name="${icon}" size="${`${size.toString()}px`}" />
+const IconTemplate = ({ icon, size }) => `
+  <style>
+    sdds-icon {
+      font-size: ${size}rem;
+    }
+  </style>
+  <sdds-icon name="${icon}">sdds-icon</sdds-icon>
   `;
 
-export const ComponentWay = IconTemplate.bind({});
+export const Component = IconTemplate.bind({});
 
-ComponentWay.args = {
-  size: 32,
-  icon: 'truck',
+Component.args = {
+  icon: 'scania-truck',
+  size: 64,
 };
 
-const IconFontTemplate = ({ icon, size }) => `
+const IconCssTemplate = ({ icon, size }) => `
   <style>
-     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css'); 
-    
-    i {font-size: ${size}px;}
+    @import url('https://cdn.digitaldesign.scania.com/icons/dist/1.1.0/fonts/css/sdds-icons.css');
+    i {font-size: ${size}rem;}
   </style>
   <i class="sdds-icon ${icon}"></i>
   `;
 
-export const FontWay = IconFontTemplate.bind({});
+export const CssIcon = IconCssTemplate.bind({});
 
-FontWay.args = {
-  icon: 'truck',
-  size: 32,
+CssIcon.args = {
+  icon: 'scania-truck',
+  size: 64,
 };

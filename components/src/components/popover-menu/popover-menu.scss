@@ -1,5 +1,5 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-popover-menu {
   overflow: hidden;
@@ -19,7 +19,7 @@ ul.sdds-popover-menu-wrapper {
   padding: 0;
 
   li {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
 
     color: var(--sdds-grey-958);
     margin-bottom: 16px;
@@ -56,7 +56,7 @@ ul.sdds-popover-menu-wrapper {
       &:hover {
         &::before {
           z-index: -1;
-          content: ' ';
+          content: " ";
           display: block;
           position: absolute;
           width: calc(100% + 32px);
@@ -75,7 +75,7 @@ ul.sdds-popover-menu-wrapper {
 
       &::before {
         position: relative;
-        content: ' ';
+        content: " ";
         display: block;
         background-color: var(--sdds-grey-300);
         height: 1px;

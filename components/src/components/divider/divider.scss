@@ -1,7 +1,7 @@
 $types: (
-  'light': var(--sdds-grey-300),
-  'dark': var(--sdds-grey-868),
-  'coloured': var(--sdds-blue-600),
+  "light": var(--sdds-grey-300),
+  "dark": var(--sdds-grey-868),
+  "coloured": var(--sdds-blue-600),
 );
 $border-types: top, right, bottom, left;
 
@@ -33,7 +33,8 @@ $border-types: top, right, bottom, left;
 
   @each $border-type in $border-types {
     .sdds-divider-#{$type}-border-#{$border-type} {
-      border-#{$border-type}: 1px
+      border-#{$border-type}:
+ 1px
         solid
         var(--sdds-divider-#{$type}-border-#{$border-type});
     }

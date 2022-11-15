@@ -1,6 +1,6 @@
-@import '../../../../node_modules/@scania/typography/dist/scss/mixins';
-@import '../../../../node_modules/@scania/typography/dist/scss/tokens';
-@import '../../../helpers/components-shared';
+@import "../../../../node_modules/@scania/typography/dist/scss/mixins";
+@import "../../../../node_modules/@scania/typography/dist/scss/tokens";
+@import "../../../helpers/components-shared";
 
 .sdds-navigation-tabs {
   background-color: var(--sdds-white);
@@ -8,7 +8,7 @@
   display: flex;
 
   &::after {
-    content: ' ';
+    content: " ";
     display: block;
     border-bottom: 1px solid var(--sdds-grey-300);
     left: 0;
@@ -97,7 +97,7 @@
   }
 
   &--tab {
-    @include type-style('headline-07');
+    @include type-style("headline-07");
 
     color: rgb(0 21 51 / 60%);
     padding: 26px 0;
@@ -117,7 +117,7 @@
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       position: absolute;
       bottom: 0;
       right: 0;

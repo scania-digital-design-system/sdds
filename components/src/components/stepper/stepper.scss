@@ -1,8 +1,8 @@
-@import '@scania/typography/dist/scss/mixins';
-@import '@scania/typography/dist/scss/tokens';
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
 
 .sdds-stepper {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   color: var(--sdds-grey-958);
   display: inline-flex;
@@ -19,7 +19,7 @@
 
       &-icon {
         &::before {
-          content: ' ';
+          content: " ";
           position: absolute;
           height: 1px;
           background-color: var(--sdds-blue-900);
@@ -54,7 +54,7 @@
 
       &-icon {
         &::after {
-          content: ' ';
+          content: " ";
           position: absolute;
           height: 45px;
           background-color: var(--sdds-blue-900);
@@ -104,7 +104,7 @@
       align-items: center;
 
       &::before {
-        content: ' ';
+        content: " ";
         position: absolute;
         height: 1px;
         background-color: var(--sdds-blue-900);
@@ -114,7 +114,7 @@
       }
 
       &::after {
-        content: ' ';
+        content: " ";
         position: absolute;
         height: 1px;
         background-color: var(--sdds-blue-900);

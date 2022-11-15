@@ -1,3 +1,6 @@
+@import "@scania/typography/dist/scss/mixins";
+@import "@scania/typography/dist/scss/tokens";
+
 :root,
 html {
   --sdds-banner-bg-default: var(--sdds-grey-50);
@@ -68,7 +71,7 @@ html {
 }
 
 .sdds-banner-subheader {
-  @include type-style('detail-02');
+  @include type-style("detail-02");
 
   + .sdds-banner-link {
     margin-top: var(--sdds-spacing-element-16);
@@ -78,5 +81,5 @@ html {
 .sdds-banner-link {
   display: block;
 
-  @include type-style('detail-03');
+  @include type-style("detail-03");
 }

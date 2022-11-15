@@ -10,7 +10,7 @@
   position: relative;
 
   &-text {
-    @include type-style('detail-02');
+    @include type-style("detail-02");
   }
 
   &:hover {

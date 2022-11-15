@@ -66,7 +66,7 @@ export class Theme {
     this.setTheme();
 
     (window as any).CorporateUi = { ...(window as any).CorporateUi, version };
-    document.documentElement.setAttribute('sdds-tegel-old-version', version);
+    document.documentElement.setAttribute('sdds-components-version', version);
 
     if (!(this.el && this.el.nodeName)) return;
 
