@@ -30,57 +30,59 @@ export default {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     compactDesign: {
       name: 'Compact Design',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     onWhiteBackground: {
       name: 'On white background',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     responsiveDesign: {
       name: 'Responsive design',
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
     },
     column1sortable: {
       name: 'Column 1 is sortable',
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
     column2sortable: {
       name: 'Column 2 is sortable',
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
     column3sortable: {
       name: 'Column 3 is sortable',
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
     column4sortable: {
       name: 'Column 4 is sortable',
       control: {
         type: 'boolean',
       },
-      defaultValue: true,
     },
+  },
+  args: {
+    verticalDivider: false,
+    compactDesign: false,
+    onWhiteBackground: false,
+    responsiveDesign: false,
+    column1sortable: true,
+    column2sortable: true,
+    column3sortable: true,
+    column4sortable: true,
   },
 };
 

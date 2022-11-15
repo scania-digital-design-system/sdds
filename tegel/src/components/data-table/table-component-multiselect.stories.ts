@@ -76,6 +76,12 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+  },
 };
 
 const MultiselectTemplate = ({
@@ -135,9 +141,4 @@ const MultiselectTemplate = ({
   </div>`);
 
 export const Multiselect = MultiselectTemplate.bind({});
-Multiselect.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-};
+Multiselect.args = {};

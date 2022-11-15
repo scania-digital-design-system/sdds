@@ -76,6 +76,12 @@ export default {
       },
     },
   },
+  args: {
+    compactDesign: false,
+    onWhiteBackground: false,
+    verticalDivider: false,
+    responsiveDesign: false,
+  },
 };
 
 const FilteringTemplate = ({
@@ -105,9 +111,4 @@ const FilteringTemplate = ({
   </sdds-table>`);
 
 export const Filtering = FilteringTemplate.bind({});
-Filtering.args = {
-  compactDesign: false,
-  onWhiteBackground: false,
-  verticalDivider: false,
-  responsiveDesign: false,
-};
+Filtering.args = {};
