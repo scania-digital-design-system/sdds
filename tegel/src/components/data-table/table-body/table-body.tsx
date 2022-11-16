@@ -115,6 +115,7 @@ export class TableBody {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+    this.enableMultiselect = this.tableEl.enableMultiselect;
 
     if (this.enableDummyData) {
       this.bodyData = this.dummyData;
@@ -135,9 +136,6 @@ export class TableBody {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
-    this.enableMultiselect =
-      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
-      this.tableEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('enableExpandedRowsEvent', { target: 'body' })
