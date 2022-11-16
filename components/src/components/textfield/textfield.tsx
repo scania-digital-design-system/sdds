@@ -215,7 +215,7 @@ export class Textfield {
 
           {this.maxlength > 0 && (
             <div class="sdds-textfield-textcounter">
-              {this.value?.length}
+              {this.value === null ? 0 : this.value?.length}
               <span class="sdds-textfield-textcounter-divider"> / </span>
               {this.maxlength}
             </div>
