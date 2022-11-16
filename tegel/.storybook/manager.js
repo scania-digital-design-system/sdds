@@ -1,6 +1,6 @@
 // .storybook/manager.js
 
-window.STORYBOOK_GA_ID = 'G-T4S5M709VL';
+window.STORYBOOK_GA_ID = process.env.STORYBOOK_GA_ID;
 window.STORYBOOK_REACT_GA_OPTIONS = {};
 
 import { addons } from '@storybook/addons';
