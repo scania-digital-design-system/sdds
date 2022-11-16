@@ -33,6 +33,7 @@ export class TableHeaderRow {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+    this.enableMultiselectHeaderRow = this.tableEl.enableMultiselect;
   }
 
   componentWillRender() {
@@ -42,9 +43,6 @@ export class TableHeaderRow {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
-    this.enableMultiselectHeaderRow =
-      !(this.tableEl.getAttribute('enable-multiselect') === 'false') &&
-      this.tableEl.hasAttribute('enable-multiselect');
   }
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
