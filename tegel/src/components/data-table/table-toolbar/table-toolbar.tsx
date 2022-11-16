@@ -1,4 +1,19 @@
-import { Component, h, Host, Prop, Event, EventEmitter, Listen, State, Element } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  Event,
+  EventEmitter,
+  Listen,
+  State,
+  Element,
+} from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
+
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  // TODO
+];
 
 @Component({
   tag: 'sdds-table-toolbar',
@@ -50,10 +65,25 @@ export class TableToolbar {
     }
   }
 
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
+        event.detail;
     }
   }
 
@@ -65,7 +95,11 @@ export class TableToolbar {
           <div class="sdds-table__actionbar">
             {this.enableFiltering && (
               <div class="sdds-table__searchbar">
-                <input class="sdds-table__searchbar-input" type="text" onKeyUp={event => this.searchFunction(event)} />
+                <input
+                  class="sdds-table__searchbar-input"
+                  type="text"
+                  onKeyUp={(event) => this.searchFunction(event)}
+                />
                 <span class="sdds-table__searchbar-icon">
                   <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                     <path

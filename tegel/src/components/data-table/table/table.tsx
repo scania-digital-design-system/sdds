@@ -86,13 +86,13 @@ export class Table {
   commonTableStyledEvent: EventEmitter<any>;
 
   /** Sends out status of multiselect feature to children tegel */
-  @Event({
-    eventName: 'enableExpandedRowsEvent',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  enableExpandedRowsEvent: EventEmitter<any>;
+  // @Event({
+  //   eventName: 'enableExpandedRowsEvent',
+  //   bubbles: true,
+  //   cancelable: true,
+  //   composed: true,
+  // })
+  // enableExpandedRowsEvent: EventEmitter<any>;
 
   emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
     this.tablePropsChangedEvent.emit({
@@ -110,6 +110,11 @@ export class Table {
   @Watch('compactDesign')
   compactDesignChanged(newValue: boolean) {
     this.emitTablePropsChangedEvent('compactDesign', newValue);
+  }
+
+  @Watch('enableExpandableRows')
+  enableExpandableRowsChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
   }
 
   @Listen('footerWillLoad', { target: 'body' })
@@ -138,7 +143,7 @@ export class Table {
       this.noMinWidth,
       this.whiteBackground,
     ]);
-    this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
+    // this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
   }
 
   render() {
