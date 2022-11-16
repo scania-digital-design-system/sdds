@@ -115,7 +115,7 @@ export class TableBody {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-    this.enableMultiselect = this.tableEl.hasAttribute('enable-multiselect');
+    this.enableMultiselect = this.tableEl.enableMultiselect;
 
     if (this.enableDummyData) {
       this.bodyData = this.dummyData;
