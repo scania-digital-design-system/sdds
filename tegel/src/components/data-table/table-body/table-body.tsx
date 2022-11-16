@@ -12,6 +12,11 @@ import {
 } from '@stencil/core';
 import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'enableExpandableRows',
+];
+
 @Component({
   tag: 'sdds-table-body',
   styleUrl: 'table-body.scss',
@@ -83,7 +88,7 @@ export class TableBody {
 
   @State() enablePaginationTableBody: boolean = false;
 
-  @State() enableExpendedTableBody: boolean = true;
+  @State() enableExpandableRows: boolean = true;
 
   @State() innerBodyData = [];
 
@@ -113,9 +118,14 @@ export class TableBody {
 
   tableEl: HTMLSddsTableElement;
 
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
     this.enableMultiselect = this.tableEl.enableMultiselect;
+    this.enableExpandableRows = this.tableEl.enableExpandableRows;
 
     if (this.enableDummyData) {
       this.bodyData = this.dummyData;
@@ -127,29 +137,22 @@ export class TableBody {
       this.host.parentElement.querySelector('sdds-table-header').children.length;
 
     // multiselect and expended features requires one extra column for controls...
-    if (this.enableMultiselect || this.enableExpendedTableBody) {
+    if (this.enableMultiselect || this.enableExpandableRows) {
       this.columnsNumber = headerColumnsNo + 1;
     } else {
       this.columnsNumber = headerColumnsNo;
     }
   }
 
-  connectedCallback() {
-    this.tableEl = this.host.closest('sdds-table');
-  }
-
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableExpendedTableBody = event.detail[1];
-  }
-
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
       event.detail.changed
-        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
           this[changedProp] = event.detail[changedProp];
         });
     }
