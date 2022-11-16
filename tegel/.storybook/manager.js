@@ -1,5 +1,8 @@
 // .storybook/manager.js
 
+window.STORYBOOK_GA_ID = process.env.STORYBOOK_GA_ID;
+window.STORYBOOK_REACT_GA_OPTIONS = {};
+
 import { addons } from '@storybook/addons';
 import theme from './ScaniaThemeLight';
 
