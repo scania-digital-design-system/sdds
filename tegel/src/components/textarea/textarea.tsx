@@ -102,7 +102,7 @@ export class Textarea {
               this.focusInput = false;
             }}
             class={'sdds-textarea-input'}
-            ref={inputEl => (this.textEl = inputEl as HTMLTextAreaElement)}
+            ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
             readonly={this.readonly}
             placeholder={this.placeholder}
@@ -112,11 +112,17 @@ export class Textarea {
             maxlength={this.maxlength}
             cols={this.cols}
             rows={this.rows}
-            onInput={e => this.handleInput(e)}
-            onChange={e => this.handleChange(e)}
+            onInput={(e) => this.handleInput(e)}
+            onChange={(e) => this.handleChange(e)}
           ></textarea>
           <span class="sdds-textarea-resizer-icon">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -126,7 +132,14 @@ export class Textarea {
             </svg>
           </span>
 
-          <svg class="sdds-textarea-icon__readonly" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="sdds-textarea-icon__readonly"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
@@ -150,7 +163,8 @@ export class Textarea {
         {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
         {this.maxlength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
-            {this.value?.length} <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
+            {this.value === null ? 0 : this.value?.length}
+            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
           </div>
         )}
       </div>
