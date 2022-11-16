@@ -61,7 +61,7 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
     'Option 3': 'option-3',
   };
 
-  return `
+  return formatHtmlPreview(`
     <style>
       .demo-wrapper {
         width: 300px;
@@ -91,7 +91,7 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
         default-option="${defaultOptionLookup[defaultOption]}">
       </sdds-dropdown-filter>
     </div>
-  `;
+  `);
 };
 
 export const Default = FilterTemplate.bind({});
