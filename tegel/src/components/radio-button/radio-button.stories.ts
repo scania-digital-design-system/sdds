@@ -35,11 +35,13 @@ export default {
   },
 };
 
-const Template = args =>
+const Template = (args) =>
   formatHtmlPreview(`
    <div class="sdds-radio-button-group">
    <div class="sdds-radio-item">
-     <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" checked="" ${args.disabled ? 'disabled' : ''}>
+     <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" checked="" ${
+       args.disabled ? 'disabled' : ''
+     }>
      <label class="sdds-form-label" for="rb-option-1">
        ${args.label} 1
      </label>
@@ -47,7 +49,9 @@ const Template = args =>
  </div>
  <div class="sdds-radio-button-group">
    <div class="sdds-radio-item">
-     <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${args.checked ? 'checked="checked"' : ''} >
+     <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" ${
+       args.checked ? 'checked="checked"' : ''
+     } >
      <label class="sdds-form-label" for="rb-option-1">
        ${args.label} 2
      </label>

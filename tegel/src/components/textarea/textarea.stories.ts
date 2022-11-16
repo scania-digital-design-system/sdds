@@ -102,7 +102,18 @@ export default {
   },
 };
 
-const Template = ({ placeholder, disabled, readonly, label, labelPosition, state, helper, textcounter, rows, variant }) => {
+const Template = ({
+  placeholder,
+  disabled,
+  readonly,
+  label,
+  labelPosition,
+  state,
+  helper,
+  textcounter,
+  rows,
+  variant,
+}) => {
   const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
