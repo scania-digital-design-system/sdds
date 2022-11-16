@@ -55,7 +55,9 @@ const NativeTemplate = ({ disabled, size, helper, label, state }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
    <div style="width:300px">
-       <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${state === 'Error' ? 'sdds-dropdown--error' : ''}" >
+       <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
+    state === 'Error' ? 'sdds-dropdown--error' : ''
+  }" >
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select 
        name="nativeDropdown" 
