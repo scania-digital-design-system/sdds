@@ -49,6 +49,7 @@
     "@popperjs/core": "^2.11.6",
     "@scania/typography": "^1.2.1",
     "@stencil/core": "^2.13.0",
+    "@storybook/addon-google-analytics": "^6.2.9",
     "concurrently": "^7.4.0",
     "html-format": "^1.0.2",
     "prettier": "^2.7.1"
