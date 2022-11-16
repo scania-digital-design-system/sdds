@@ -118,8 +118,11 @@ export class TableHeaderCell {
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
       event.detail.changed
-        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
           this[changedProp] = event.detail[changedProp];
         });
     }
