@@ -1,15 +1,22 @@
 import { Component, h, Host, State, Event, EventEmitter, Listen, Element } from '@stencil/core';
 import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'enableExpandableRows',
+];
+
 @Component({
   tag: 'sdds-table-header',
   styleUrl: 'table-header.scss',
   shadow: true,
 })
 export class TableHeaderRow {
-  @State() enableMultiselectHeaderRow: boolean = false;
+  // @State() enableMultiselectHeaderRow: boolean = false;
 
   @State() enableMultiselect: boolean = false;
+
+  @State() enableExpandableRows: boolean = false;
 
   @State() mainCheckboxSelected: boolean = false;
 
@@ -33,7 +40,8 @@ export class TableHeaderRow {
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-    this.enableMultiselectHeaderRow = this.tableEl.enableMultiselect;
+    this.enableMultiselect = this.tableEl.enableMultiselect;
+    this.enableExpandableRows = this.tableEl.enableExpandableRows;
   }
 
   componentWillRender() {
@@ -49,8 +57,11 @@ export class TableHeaderRow {
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
       event.detail.changed
-        .filter((changedProp) => ['enableMultiselect'].includes(changedProp))
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
           this[changedProp] = event.detail[changedProp];
         });
     }
@@ -86,16 +97,16 @@ export class TableHeaderRow {
     }
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0])
-      this.enableMultiselectHeaderRow = event.detail[1];
-  }
+  // @Listen('enableMultiselectEvent', { target: 'body' })
+  // enableMultiselectEventListener(event: CustomEvent<any>) {
+  //   if (this.uniqueTableIdentifier === event.detail[0])
+  //     this.enableMultiselectHeaderRow = event.detail[1];
+  // }
 
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
-  }
+  // @Listen('enableExpandedRowsEvent', { target: 'body' })
+  // enableExtendedRowsEventListener(event: CustomEvent<any>) {
+  //   if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
+  // }
 
   @Listen('singleRowExpandedEvent', { target: 'body' })
   singleRowExpandedEventListener(event: CustomEvent<any>) {
@@ -132,7 +143,7 @@ export class TableHeaderRow {
         }}
       >
         <tr>
-          {this.enableMultiselectHeaderRow && (
+          {this.enableMultiselect && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
                 <label class="sdds-form-label sdds-form-label--data-table">
@@ -146,7 +157,7 @@ export class TableHeaderRow {
               </div>
             </th>
           )}
-          {this.enableMultiselect && (
+          {this.enableExpandableRows && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox"></th>
           )}
           <slot></slot>

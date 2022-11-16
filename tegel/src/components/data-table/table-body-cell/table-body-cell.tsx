@@ -1,5 +1,9 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  // TODO
+];
 @Component({
   tag: 'sdds-body-cell',
   styleUrl: 'table-body-cell.scss',
@@ -35,9 +39,29 @@ export class TableBodyCell {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
   }
 
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.uniqueTableIdentifier === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
+  }
+
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    const [receiverID, receiverVerticalDividers, receiverCompactDesign, receiverNoMinWidth, receiverWhiteBackground] = event.detail;
+    const [
+      receiverID,
+      receiverVerticalDividers,
+      receiverCompactDesign,
+      receiverNoMinWidth,
+      receiverWhiteBackground,
+    ] = event.detail;
 
     if (this.uniqueTableIdentifier === receiverID) {
       this.verticalDividers = receiverVerticalDividers;
