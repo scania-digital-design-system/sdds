@@ -1,7 +1,12 @@
 import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from '@stencil/core';
 import { TablePropsChangedEvent } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = ['enableMultiselect'];
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'verticalDividers',
+  'compactDesign',
+  'whiteBackground',
+];
 
 @Component({
   tag: 'sdds-table-body-row',
@@ -29,17 +34,27 @@ export class TableBodyRow {
 
   tableEl: HTMLSddsTableElement;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-    this.enableMultiselect = this.tableEl.enableMultiselect;
+  bodyCheckBoxClicked(event) {
+    const row = this.host;
+    this.bodyCheckBoxStatus = event.currentTarget.checked;
+    if (this.bodyCheckBoxStatus === true) {
+      row.classList.add('sdds-table__row--selected');
+    } else {
+      row.classList.remove('sdds-table__row--selected');
+    }
+    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
-  componentDidLoad() {
-    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
-  }
-
-  connectedCallback() {
-    this.tableEl = this.host.closest('sdds-table');
+  bodyCheckBoxStatusUpdater(status) {
+    this.mainCheckBoxStatus = status;
+    this.bodyCheckBoxStatus = this.mainCheckBoxStatus;
+    const row = this.host;
+    if (this.bodyCheckBoxStatus === true) {
+      row.classList.add('sdds-table__row--selected');
+    } else {
+      row.classList.remove('sdds-table__row--selected');
+    }
+    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
   }
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
@@ -53,14 +68,6 @@ export class TableBodyRow {
           }
           this[changedProp] = event.detail[changedProp];
         });
-    }
-  }
-
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
     }
   }
 
@@ -82,17 +89,6 @@ export class TableBodyRow {
   })
   runPaginationEvent: EventEmitter<string>;
 
-  bodyCheckBoxClicked(event) {
-    const row = this.host;
-    this.bodyCheckBoxStatus = event.currentTarget.checked;
-    if (this.bodyCheckBoxStatus === true) {
-      row.classList.add('sdds-table__row--selected');
-    } else {
-      row.classList.remove('sdds-table__row--selected');
-    }
-    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
-  }
-
   @Listen('mainCheckboxSelectedEvent', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.uniqueTableIdentifier === event.detail[0]) {
@@ -108,16 +104,20 @@ export class TableBodyRow {
     }
   }
 
-  bodyCheckBoxStatusUpdater(status) {
-    this.mainCheckBoxStatus = status;
-    this.bodyCheckBoxStatus = this.mainCheckBoxStatus;
-    const row = this.host;
-    if (this.bodyCheckBoxStatus === true) {
-      row.classList.add('sdds-table__row--selected');
-    } else {
-      row.classList.remove('sdds-table__row--selected');
-    }
-    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentDidLoad() {
+    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
   }
 
   render() {

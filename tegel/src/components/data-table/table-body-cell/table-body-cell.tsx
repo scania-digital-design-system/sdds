@@ -2,7 +2,10 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 import { TablePropsChangedEvent } from '../table/table';
 
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
-  // TODO
+  'verticalDividers',
+  'compactDesign',
+  'noMinWidth',
+  'whiteBackground',
 ];
 @Component({
   tag: 'sdds-body-cell',
@@ -35,9 +38,7 @@ export class TableBodyCell {
 
   @Element() host: HTMLElement;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-  }
+  tableEl: HTMLSddsTableElement;
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
@@ -50,24 +51,6 @@ export class TableBodyCell {
           }
           this[changedProp] = event.detail[changedProp];
         });
-    }
-  }
-
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    const [
-      receiverID,
-      receiverVerticalDividers,
-      receiverCompactDesign,
-      receiverNoMinWidth,
-      receiverWhiteBackground,
-    ] = event.detail;
-
-    if (this.uniqueTableIdentifier === receiverID) {
-      this.verticalDividers = receiverVerticalDividers;
-      this.compactDesign = receiverCompactDesign;
-      this.noMinWidth = receiverNoMinWidth;
-      this.whiteBackground = receiverWhiteBackground;
     }
   }
 
@@ -91,6 +74,18 @@ export class TableBodyCell {
         this.textAlignState = receivedTextAlign;
       }
     }
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
   }
 
   render() {

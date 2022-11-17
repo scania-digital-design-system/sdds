@@ -14,6 +14,10 @@ import { TablePropsChangedEvent } from '../table/table';
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
+  'compactDesign',
+  'noMinWidth',
+  'verticalDividers',
+  'whiteBackground',
 ];
 
 @Component({
@@ -65,14 +69,6 @@ export class TableHeaderCell {
 
   tableEl: HTMLSddsTableElement;
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
-    }
-  }
-
   /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component */
   @Event({
     eventName: 'sortColumnDataEvent',
@@ -100,31 +96,6 @@ export class TableHeaderCell {
   })
   headCellHoverEvent: EventEmitter<any>;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-
-    this.enableMultiselect = this.tableEl.enableMultiselect;
-    this.enableExpandableRows = this.tableEl.enableExpandableRows;
-  }
-
-  componentWillRender() {
-    // enable only right or left text align
-    if (this.textAlign === 'right' || this.textAlign === 'end') {
-      this.textAlignState = 'right';
-    } else {
-      this.textAlignState = 'left';
-    }
-    // To enable body cells text align per rules set in head cell
-    this.textAlignEvent.emit([this.uniqueTableIdentifier, this.columnKey, this.textAlignState]);
-
-    this.enableToolbarDesign =
-      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
-  }
-
-  connectedCallback() {
-    this.tableEl = this.host.closest('sdds-table');
-  }
-
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.uniqueTableIdentifier === event.detail.tableId) {
@@ -148,19 +119,6 @@ export class TableHeaderCell {
     }
   }
 
-  sortButtonClick = (key) => {
-    // Toggling direction of sorting as we only use one button for sorting
-    if (this.sortingDirection !== 'asc') {
-      this.sortingDirection = 'asc';
-    } else {
-      this.sortingDirection = 'desc';
-    }
-    // Setting to true we can set enable CSS class for "active" state of column
-    this.sortedByMyKey = true;
-    // Use array to send both key and sorting direction
-    this.sortColumnDataEvent.emit([this.uniqueTableIdentifier, key, this.sortingDirection]);
-  };
-
   // target is set to body so other instances of same component "listen" and react to the change
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
@@ -176,14 +134,49 @@ export class TableHeaderCell {
     }
   }
 
-  onHeadCellHover = (key) => {
-    this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
-  };
-
   @Listen('enableMultiselectEvent', { target: 'body' })
   enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
+    if (this.uniqueTableIdentifier === event.detail[0]) [, this.enableMultiselect] = event.detail;
   }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentWillRender() {
+    // enable only right or left text align
+    if (this.textAlign === 'right' || this.textAlign === 'end') {
+      this.textAlignState = 'right';
+    } else {
+      this.textAlignState = 'left';
+    }
+    // To enable body cells text align per rules set in head cell
+    this.textAlignEvent.emit([this.uniqueTableIdentifier, this.columnKey, this.textAlignState]);
+
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+  }
+
+  sortButtonClick = (key) => {
+    // Toggling direction of sorting as we only use one button for sorting
+    if (this.sortingDirection !== 'asc') {
+      this.sortingDirection = 'asc';
+    } else {
+      this.sortingDirection = 'desc';
+    }
+    // Setting to true we can set enable CSS class for "active" state of column
+    this.sortedByMyKey = true;
+    // Use array to send both key and sorting direction
+    this.sortColumnDataEvent.emit([this.uniqueTableIdentifier, key, this.sortingDirection]);
+  };
 
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
@@ -249,6 +242,10 @@ export class TableHeaderCell {
         {this.columnTitle}
       </p>
     );
+  };
+
+  onHeadCellHover = (key) => {
+    this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
   };
 
   render() {

@@ -12,7 +12,10 @@ import {
 import { TablePropsChangedEvent } from '../table/table';
 
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
-  // TODO
+  'compactDesign',
+  'noMinWidth',
+  'verticalDividers',
+  'whiteBackground',
 ];
 
 function removeShakeAnimation(e: AnimationEvent & { target: HTMLElement }) {
@@ -70,14 +73,7 @@ export class TableFooter {
 
   @Element() host: HTMLElement;
 
-  /** Event that footer sends out in order to receive other necessary information from other subcomponents */
-  @Event({
-    eventName: 'footerWillLoad',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  footerWillLoad: EventEmitter<any>;
+  tableEl: HTMLSddsTableElement;
 
   /** Event that footer sends out in order to receive other necessary information from other subcomponents */
   @Event({
@@ -102,19 +98,17 @@ export class TableFooter {
     }
   }
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
-    }
-  }
-
   connectedCallback() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+    this.tableEl = this.host.closest('sdds-table');
   }
 
   componentWillLoad() {
+    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+
     const numberOfRows = this.host.parentElement.querySelector('sdds-table-body').childElementCount;
 
     const numberOfColumns =
@@ -128,7 +122,6 @@ export class TableFooter {
       this.columnsNumber = numberOfColumns;
     }
 
-    this.footerWillLoad.emit(this.uniqueTableIdentifier);
     this.enablePaginationEvent.emit(this.uniqueTableIdentifier);
   }
 

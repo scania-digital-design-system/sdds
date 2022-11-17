@@ -12,7 +12,10 @@ import {
 import { TablePropsChangedEvent } from '../table/table';
 
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
-  // TODO
+  'verticalDividers',
+  'compactDesign',
+  'noMinWidth',
+  'whiteBackground',
 ];
 @Component({
   tag: 'sdds-table-body-row-expandable',
@@ -39,6 +42,8 @@ export class TableBodyRowExpandable {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   /** Sends out status of itw own expended status feature to table header component */
   @Event({
     eventName: 'singleRowExpandedEvent',
@@ -47,6 +52,15 @@ export class TableBodyRowExpandable {
     composed: true,
   })
   singleRowExpandedEvent: EventEmitter<any>;
+
+  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  @Event({
+    eventName: 'runPaginationEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  runPaginationEvent: EventEmitter<string>;
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
@@ -62,8 +76,20 @@ export class TableBodyRowExpandable {
     }
   }
 
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentDidLoad() {
+    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
   }
 
   componentWillRender() {
@@ -76,34 +102,13 @@ export class TableBodyRowExpandable {
     }
   }
 
-  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
-  @Event({
-    eventName: 'runPaginationEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  runPaginationEvent: EventEmitter<string>;
-
-  componentDidLoad() {
-    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
-  }
-
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
-    }
+  sendValue() {
+    this.singleRowExpandedEvent.emit([this.uniqueTableIdentifier, this.isExpanded]);
   }
 
   onChangeHandler(event) {
     this.isExpanded = event.currentTarget.checked === true;
     this.sendValue();
-  }
-
-  sendValue() {
-    this.singleRowExpandedEvent.emit([this.uniqueTableIdentifier, this.isExpanded]);
   }
 
   render() {
