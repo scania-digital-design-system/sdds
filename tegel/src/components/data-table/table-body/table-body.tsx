@@ -318,6 +318,8 @@ export class TableBody {
 
     if (this.enableDummyData) {
       this.bodyData = this.dummyData;
+    } else if (this.bodyData) {
+      this.arrayDataWatcher(this.bodyData);
     }
   }
 
