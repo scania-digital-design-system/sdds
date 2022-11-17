@@ -56,12 +56,6 @@ const typeLookup = {
   Warning: 'warning',
   Error: 'error',
 };
-const colorLooup = {
-  Success: 'positive',
-  Info: 'information',
-  Warning: 'warning',
-  Error: 'negative',
-};
 const iconLookup = {
   Success: 'tick',
   Info: 'info',
@@ -73,22 +67,18 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
   const iconValue = icon === 'recommended' ? iconLookup[toastType] : icon;
   return formatHtmlPreview(
     `
-    <style>
       ${
         iconType === 'Native'
-          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-      i {
+          ? `
+    <style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+      i.sdds-icon {
         font-size: 20px;
-        color: var(--sdds-${colorLooup[toastType]});
-      }
-      `
-          : `
-      sdds-icon{
-        color: var(--sdds-${colorLooup[toastType]});
-      }
-      `
       }
     </style>
+      `
+          : ''
+      }
   <div class="sdds-toast sdds-toast-${typeLookup[toastType]}">
     <div class="sdds-toast-icon">
       ${
