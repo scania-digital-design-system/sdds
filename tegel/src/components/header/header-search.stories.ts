@@ -135,7 +135,6 @@ const SearchbarMenuTemplate = (args) => {
           </ul>
         </ul>
         <input class="sdds-nav__searchbar-input" type="text" placeholder="Search">
-        </input>
           <button class="sdds-nav__app-searchbar-btn sdds-nav__app-searchbar-x-btn" onclick="toggleSearchbar()">
             <svg class="sdds-nav__app-searchbar-btn-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2499 3.75004C12.4452 3.9453 12.4452 4.26188 12.2499 4.45714L4.4571 12.25C4.26184 12.4452 3.94526 12.4452 3.75 12.25C3.55474 12.0547 3.55474 11.7381 3.75 11.5429L11.5428 3.75004C11.7381 3.55478 12.0547 3.55478 12.2499 3.75004Z" fill="currentColor" fill-opacity="1"/>
@@ -179,7 +178,6 @@ const SearchbarMenuTemplate = (args) => {
         </li>
         </ul>
         </div>
-      </div>
         <div class='sdds-nav__right'>
           <div class='sdds-nav__item sdds-nav__app-launcher'>
               <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher()'>
@@ -259,6 +257,14 @@ const SearchbarMenuTemplate = (args) => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
   
+    }
+
+    toggleAppLauncher = () => {
+      document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__app-launcher--opened");
+      document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
+      document.getElementsByClassName("sdds-nav__item sdds-nav__dropdown")[0].classList.remove("sdds-nav__dropdown--opened");
+      document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
+      document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
     }
   
     closeDropdownsFromOverlay = () => {
