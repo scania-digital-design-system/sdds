@@ -1,3 +1,13 @@
 <!-- .storybook/manager-head.html -->
 
+<!-- Google tag (gtag.js) -->
+<script async src=`https://www.googletagmanager.com/gtag/js?id=${process.env.STORYBOOK_GA_ID}`></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', process.env.STORYBOOK_GA_ID);
+</script>
+
 <meta name="description" content="Tegel Storybook page - Scania's Digital Design System" key="desc" />
