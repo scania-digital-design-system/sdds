@@ -40,7 +40,7 @@ export default {
       defaultValue: 'Headline',
     },
   },
-  paramaters: {
+  parameters: {
     notes: readme,
   },
 };
