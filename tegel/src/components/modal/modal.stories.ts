@@ -6,7 +6,13 @@ export default {
       description: 'Size of modal',
       control: {
         type: 'radio',
-        options: ['xs', 'sm', 'md', 'lg'],
+        options: ['lg', 'md', 'sm', 'xs'],
+        labels: {
+          lg: 'Large',
+          md: 'Medium',
+          sm: 'Small',
+          xs: 'Extra Small',
+        },
       },
       defaultValue: 'md',
     },
@@ -16,6 +22,10 @@ export default {
       control: {
         type: 'radio',
         options: ['sticky', 'static'],
+        labels: {
+          sticky: 'Sticky',
+          static: 'Static',
+        },
       },
       defaultValue: 'static',
     },
