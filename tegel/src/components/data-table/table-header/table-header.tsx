@@ -101,7 +101,7 @@ export class TableHeaderRow {
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
 
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
