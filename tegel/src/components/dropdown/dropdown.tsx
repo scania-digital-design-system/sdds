@@ -89,7 +89,7 @@ export class Dropdown {
     this.listItemArray = Array.from(this.host.children);
     this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
-      this.optionLabels.push(listItem.innerText);
+      this.optionLabels.push(listItem.innerText.trim());
     });
     this.setOptionFromOutside(this.defaultOption);
 
@@ -110,6 +110,7 @@ export class Dropdown {
   setOptionFromOutside(optionValue) {
     if (optionValue) {
       this.deselectAll();
+      optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
         if (optionValue.includes(el['value']) || el['value'] === optionValue) {
@@ -287,7 +288,8 @@ export class Dropdown {
           'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position': this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
+          'sdds-dropdown--label-inside-position':
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
@@ -363,7 +365,10 @@ export class Dropdown {
                           this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
-                    {!this.selectedLabel && this.labelPosition === 'inside' && this.label}
+                    {!this.selectedLabel &&
+                      this.labelPosition === 'inside' &&
+                      this.size !== 'sm' &&
+                      this.label}
 
                     {!this.selectedLabel &&
                       this.type !== 'multiselect' &&
