@@ -89,7 +89,7 @@ export class Dropdown {
     this.listItemArray = Array.from(this.host.children);
     this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
-      this.optionLabels.push(listItem.innerText);
+      this.optionLabels.push(listItem.innerText.trim());
     });
     this.setOptionFromOutside(this.defaultOption);
 
@@ -110,6 +110,7 @@ export class Dropdown {
   setOptionFromOutside(optionValue) {
     if (optionValue) {
       this.deselectAll();
+      optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
         if (optionValue.includes(el['value']) || el['value'] === optionValue) {
