@@ -6,7 +6,6 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-notes/register',
     'storybook-dark-mode',
-    '@storybook/addon-google-analytics',
   ],
   framework: '@storybook/html',
 };
