@@ -11,9 +11,34 @@
 </script>
 
 <script defer data-domain="tegel-storybook.netlify.app" src="https://plausible.io/js/script.manual.js"></script>
+
 <!-- define the `plausible` function to manually trigger events -->
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <!-- trigger pageview -->
+
+<script>
+  ;(function() {
+    const pushState = history.pushState;
+    const replaceState = history.replaceState;
+
+    history.pushState = function() {
+      pushState.apply(history, arguments);
+      window.dispatchEvent(new Event('pushstate'));
+      window.dispatchEvent(new Event('locationchange'));
+    };
+
+    history.replaceState = function() {
+      replaceState.apply(history, arguments);
+      window.dispatchEvent(new Event('replacestate'));
+      window.dispatchEvent(new Event('locationchange'));
+    };
+
+    window.addEventListener('popstate', function() {
+      window.dispatchEvent(new Event('locationchange'))
+    });
+  })();
+</script>
+
 <script>
   function prepareUrl(params) {
     const url = new URL(location.href)
@@ -26,6 +51,10 @@
     return customUrl
   }
   plausible('pageview', { u: prepareUrl(["path", "args"]) })
+
+  window.addEventListener('locationchange', function(){
+    plausible('pageview', { u: prepareUrl(["path", "args"]) })
+  })
 </script>
 
 <meta name="description" content="Tegel Storybook page - Scania's Digital Design System" key="desc" />
