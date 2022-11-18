@@ -110,14 +110,18 @@ export class Dropdown {
   setOptionFromOutside(optionValue) {
     if (optionValue) {
       this.deselectAll();
+      // TODO
+      // eslint-disable-next-line no-param-reassign
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
-        const el = this.host.children[i];
-        if ((el as any).value.trim() === optionValue[0]) {
-          this.selectedLabelsArray.push(el.textContent);
-          this.selectedValuesArray.push(el['value']);
+        // Todo - specify type
+        const el: any = this.host.children[i];
+        console.log(el);
+        if (optionValue.includes(el.value) || el.value === optionValue) {
+          this.selectedLabelsArray.push(el.textContent.trim());
+          this.selectedValuesArray.push(el.value);
           this.selectedLabel = el.textContent;
-          this.selectedValue = el['value'];
+          this.selectedValue = el.value;
           el.setAttribute('selectedLabel', 'true');
           el.setAttribute('selected', 'true');
         } else {
@@ -146,7 +150,8 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      // TODO: Maybe can be this.open = !this.open ?
+      // TODO: Maybe can be this.open = !this.open ? - Does not work, dont know why?
+      // eslint-disable-next-line no-unused-expressions, @typescript-eslint/no-unused-expressions
       this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
@@ -228,20 +233,17 @@ export class Dropdown {
       this.tabbingLabelReset();
     } else {
       if (this.selectedValuesArray.includes(event.detail.value)) {
-        const index = this.selectedValuesArray.indexOf(event.detail.value);
-        this.selectedValuesArray.splice(index, 1);
-        this.selectedLabelsArray.splice(index, 1);
+        const itemIndex = this.selectedValuesArray.indexOf(event.detail.value);
+        this.selectedValuesArray = this.selectedValuesArray.filter(
+          (_value, index) => index !== itemIndex,
+        );
+        this.selectedLabelsArray = this.selectedLabelsArray.filter(
+          (_value, index) => index !== itemIndex,
+        );
       } else {
-        this.selectedValuesArray.push(event.detail.value);
-        this.selectedLabelsArray.push(event.detail.label);
+        this.selectedValuesArray = [...this.selectedValuesArray, event.detail.value];
+        this.selectedLabelsArray = [...this.selectedLabelsArray, event.detail.label.trim()];
       }
-      // sorting array to keep selected in same order as user input
-      this.selectedValuesArray = this.optionValues.filter((word) =>
-        this.selectedValuesArray.includes(word),
-      );
-      this.selectedLabelsArray = this.optionLabels.filter((word) =>
-        this.selectedLabelsArray.includes(word),
-      );
     }
   }
 
@@ -264,9 +266,10 @@ export class Dropdown {
     this.selectedValue = '';
     this.selectedLabelsArray = [];
     this.selectedValuesArray = [];
-    this.listItemArray.forEach((optionItem) => {
-      optionItem.selected = false;
-    });
+    this.listItemArray = this.listItemArray.map((optionItem) => ({
+      ...optionItem,
+      selected: false,
+    }));
   }
 
   @Method() async resetOption() {
