@@ -57,12 +57,14 @@ export class DropdownOption {
       });
     }
   }
+
   @Listen('click')
   handleSelection(ev) {
-    if(this.isMultiSelectOption){
-      ev.stopPropagation()
+    if (this.isMultiSelectOption) {
+      ev.stopPropagation();
     }
   }
+
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host
@@ -106,11 +108,7 @@ export class DropdownOption {
         {this.isMultiSelectOption && (
           <div class="sdds-checkbox-item sdds-option-checkbox">
             <label class="sdds-form-label">
-              <input
-                class="sdds-form-input"
-                type="checkbox"
-                checked={this.selected}
-              />
+              <input class="sdds-form-input" type="checkbox" checked={this.selected} />
             </label>
           </div>
         )}
