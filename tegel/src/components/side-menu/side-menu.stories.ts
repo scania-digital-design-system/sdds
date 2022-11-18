@@ -4,6 +4,11 @@ export default {
   title: 'Components/Side menu',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
   argTypes: {
     collapsed: {
