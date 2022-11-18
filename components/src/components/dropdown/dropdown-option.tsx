@@ -34,16 +34,19 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
+
   isMultiSelectOption: boolean;
 
   @Listen('mouseover')
   changeFocusHandler() {
     this.host.focus();
   }
+
   @Listen('mouseout')
   removeFocusHandler() {
     this.host.blur();
   }
+
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
     if (event.code === 'Enter') {
@@ -54,10 +57,7 @@ export class DropdownOption {
       });
     }
   }
-  @Listen('click')
-  handleClick(ev) {
-    ev.stopPropagation();
-  }
+
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host
@@ -66,14 +66,10 @@ export class DropdownOption {
   }
 
   selectOptionHandler(value) {
-    const listOptions = value.parent.childNodes;
     this.selectOption.emit(value);
-    if (!this.isMultiSelectOption) {
-      listOptions.forEach((optionEl) => {
-        optionEl.selected = false;
-      });
-    }
-    var optionCheckbox = this.host.shadowRoot.querySelector('input');
+
+    const optionCheckbox = this.host.shadowRoot.querySelector('input');
+
     if (this.selected) {
       this.selected = false;
       if (optionCheckbox) {
