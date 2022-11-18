@@ -24,7 +24,6 @@
 | ----------------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
 | `currentPageValueEvent` | Event to send current page value back to sdds-table-body component                                   | `CustomEvent<any>` |
 | `enablePaginationEvent` | Event that footer sends out in order to receive other necessary information from other subcomponents | `CustomEvent<any>` |
-| `footerWillLoad`        | Event that footer sends out in order to receive other necessary information from other subcomponents | `CustomEvent<any>` |
 
 
 ----------------------------------------------
