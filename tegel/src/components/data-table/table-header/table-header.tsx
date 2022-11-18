@@ -4,6 +4,10 @@ import { TablePropsChangedEvent } from '../table/table';
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
+  'verticalDividers',
+  'compactDesign',
+  'noMinWidth',
+  'whiteBackground',
 ];
 
 @Component({
@@ -12,8 +16,6 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   shadow: true,
 })
 export class TableHeaderRow {
-  // @State() enableMultiselectHeaderRow: boolean = false;
-
   @State() enableMultiselect: boolean = false;
 
   @State() enableExpandableRows: boolean = false;
@@ -38,20 +40,14 @@ export class TableHeaderRow {
 
   tableEl: HTMLSddsTableElement;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-    this.enableMultiselect = this.tableEl.enableMultiselect;
-    this.enableExpandableRows = this.tableEl.enableExpandableRows;
-  }
-
-  componentWillRender() {
-    this.enableToolbarDesign =
-      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
-  }
-
-  connectedCallback() {
-    this.tableEl = this.host.closest('sdds-table');
-  }
+  /** Send status of main checkbox in header to the parent, sdds-table component */
+  @Event({
+    eventName: 'mainCheckboxSelectedEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  mainCheckboxSelectedEvent: EventEmitter<any>;
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
@@ -67,28 +63,6 @@ export class TableHeaderRow {
     }
   }
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
-    }
-  }
-
-  /** Send status of main checkbox in header to the parent, sdds-table component */
-  @Event({
-    eventName: 'mainCheckboxSelectedEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  mainCheckboxSelectedEvent: EventEmitter<any>;
-
-  headCheckBoxClicked(event) {
-    this.mainCheckboxSelected = event.currentTarget.checked;
-    this.mainCheckboxSelectedEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxSelected]);
-  }
-
   @Listen('updateMainCheckboxEvent', { target: 'body' })
   updateMainCheckboxEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedMainCheckboxStatus] = event.detail;
@@ -96,17 +70,6 @@ export class TableHeaderRow {
       this.mainCheckboxSelected = receivedMainCheckboxStatus;
     }
   }
-
-  // @Listen('enableMultiselectEvent', { target: 'body' })
-  // enableMultiselectEventListener(event: CustomEvent<any>) {
-  //   if (this.uniqueTableIdentifier === event.detail[0])
-  //     this.enableMultiselectHeaderRow = event.detail[1];
-  // }
-
-  // @Listen('enableExpandedRowsEvent', { target: 'body' })
-  // enableExtendedRowsEventListener(event: CustomEvent<any>) {
-  //   if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselect = event.detail[1];
-  // }
 
   @Listen('singleRowExpandedEvent', { target: 'body' })
   singleRowExpandedEventListener(event: CustomEvent<any>) {
@@ -131,6 +94,28 @@ export class TableHeaderRow {
     } else {
       this.mainExpendSelected = false;
     }
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentWillRender() {
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+  }
+
+  headCheckBoxClicked(event) {
+    this.mainCheckboxSelected = event.currentTarget.checked;
+    this.mainCheckboxSelectedEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxSelected]);
   }
 
   render() {

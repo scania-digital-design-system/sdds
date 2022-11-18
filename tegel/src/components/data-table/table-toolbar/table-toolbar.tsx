@@ -12,7 +12,10 @@ import {
 import { TablePropsChangedEvent } from '../table/table';
 
 const relevantTableProps: TablePropsChangedEvent['changed'] = [
-  // TODO
+  'compactDesign',
+  'noMinWidth',
+  'verticalDividers',
+  'whiteBackground',
 ];
 
 @Component({
@@ -39,9 +42,7 @@ export class TableToolbar {
 
   @Element() host: HTMLElement;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-  }
+  tableEl: HTMLSddsTableElement;
 
   /** Used for sending users input to main parent <sdds-table> component */
   @Event({
@@ -51,19 +52,6 @@ export class TableToolbar {
     bubbles: true,
   })
   tableFilteringTerm: EventEmitter<any>;
-
-  searchFunction(event) {
-    const searchTerm = event.currentTarget.value.toLowerCase();
-    const sddsTableSearchBar = event.currentTarget.parentElement;
-
-    this.tableFilteringTerm.emit([this.uniqueTableIdentifier, searchTerm]);
-
-    if (searchTerm.length > 0) {
-      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
-    } else {
-      sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
-    }
-  }
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
@@ -79,11 +67,28 @@ export class TableToolbar {
     }
   }
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] =
-        event.detail;
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+  }
+
+  componentWillLoad() {
+    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
+
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  searchFunction(event) {
+    const searchTerm = event.currentTarget.value.toLowerCase();
+    const sddsTableSearchBar = event.currentTarget.parentElement;
+
+    this.tableFilteringTerm.emit([this.uniqueTableIdentifier, searchTerm]);
+
+    if (searchTerm.length > 0) {
+      sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
+    } else {
+      sddsTableSearchBar.classList.remove('sdds-table__searchbar--active');
     }
   }
 

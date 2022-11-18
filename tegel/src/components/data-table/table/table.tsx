@@ -10,7 +10,6 @@ import {
   EventEmitter,
   Element,
   State,
-  Listen,
   Watch,
 } from '@stencil/core';
 
@@ -64,35 +63,11 @@ export class Table {
   /** Broadcasts changes to the tables props */
   @Event({
     eventName: 'tablePropsChangedEvent',
-  })
-  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
-
-  /** Sends out status of multiselect feature to children tegel */
-  // @Event({
-  //   eventName: 'enableMultiselectEvent',
-  //   bubbles: true,
-  //   cancelable: true,
-  //   composed: true,
-  // })
-  // enableMultiselectEvent: EventEmitter<any>;
-
-  /** Sends out status of different general styling changes to children tegel */
-  @Event({
-    eventName: 'commonTableStylesEvent',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  commonTableStyledEvent: EventEmitter<any>;
-
-  /** Sends out status of multiselect feature to children tegel */
-  // @Event({
-  //   eventName: 'enableExpandedRowsEvent',
-  //   bubbles: true,
-  //   cancelable: true,
-  //   composed: true,
-  // })
-  // enableExpandedRowsEvent: EventEmitter<any>;
+  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
 
   emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
     this.tablePropsChangedEvent.emit({
@@ -107,43 +82,33 @@ export class Table {
     this.emitTablePropsChangedEvent('enableMultiselect', newValue);
   }
 
-  @Watch('compactDesign')
-  compactDesignChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('compactDesign', newValue);
-  }
-
   @Watch('enableExpandableRows')
   enableExpandableRowsChanged(newValue: boolean) {
     this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
   }
 
-  @Listen('footerWillLoad', { target: 'body' })
-  subcomponentsWillLoadListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail) {
-      this.commonTableStyledEvent.emit([
-        this.uniqueTableIdentifier,
-        this.verticalDividers,
-        this.compactDesign,
-        this.noMinWidth,
-        this.whiteBackground,
-      ]);
-    }
-    console.log('Sending info to the footer!');
+  @Watch('compactDesign')
+  compactDesignChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('compactDesign', newValue);
+  }
+
+  @Watch('verticalDividers')
+  verticalDividersChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('verticalDividers', newValue);
+  }
+
+  @Watch('noMinWidth')
+  noMinWidthChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('noMinWidth', newValue);
+  }
+
+  @Watch('whiteBackground')
+  whiteBackgroundChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('whiteBackground', newValue);
   }
 
   componentWillLoad() {
     this.uniqueTableIdentifier = this.host.getAttribute('id');
-  }
-
-  componentDidRender() {
-    this.commonTableStyledEvent.emit([
-      this.uniqueTableIdentifier,
-      this.verticalDividers,
-      this.compactDesign,
-      this.noMinWidth,
-      this.whiteBackground,
-    ]);
-    // this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
   }
 
   render() {

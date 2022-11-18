@@ -20,10 +20,9 @@
 
 ## Events
 
-| Event                    | Description                                                             | Type                                                                           |
-| ------------------------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `commonTableStylesEvent` | Sends out status of different general styling changes to children tegel | `CustomEvent<any>`                                                             |
-| `tablePropsChangedEvent` | Broadcasts changes to the tables props                                  | `CustomEvent<{ tableId: string; changed: (keyof Props)[]; } & Partial<Props>>` |
+| Event                    | Description                            | Type                                                                           |
+| ------------------------ | -------------------------------------- | ------------------------------------------------------------------------------ |
+| `tablePropsChangedEvent` | Broadcasts changes to the tables props | `CustomEvent<{ tableId: string; changed: (keyof Props)[]; } & Partial<Props>>` |
 
 
 ----------------------------------------------
