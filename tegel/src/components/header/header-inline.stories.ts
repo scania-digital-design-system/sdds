@@ -6,6 +6,11 @@ export default {
   parameters: {
     notes: readme,
     layout: 'fullscreen',
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
   argTypes: {
     siteName: {
