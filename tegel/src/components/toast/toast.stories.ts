@@ -1,4 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import { iconsNames } from '../icon/iconsArray';
 
 export default {
   title: 'Components/Toast',
@@ -30,62 +31,69 @@ export default {
       },
       options: ['Native', 'Webcomponent'],
     },
+    icon: {
+      name: 'Icon',
+      description:
+        'Icon to display on the button. Choose "none" to exclude the icon, or choose "recommended" to pick the icon that is recommended for the type of toast.',
+      control: {
+        type: 'select',
+      },
+      options: ['none', 'recommended', ...iconsNames],
+      if: { arg: 'size', neq: 'xs' },
+    },
   },
   args: {
     toastType: 'Success',
     subheader: false,
     link: false,
     iconType: 'Webcomponent',
+    icon: 'recommended',
   },
 };
+const typeLookup = {
+  Success: 'success',
+  Info: 'info',
+  Warning: 'warning',
+  Error: 'error',
+};
+const iconLookup = {
+  Success: 'tick',
+  Info: 'info',
+  Warning: 'warning',
+  Error: 'info',
+};
 
-const Template = ({ toastType, subheader, link, iconType }) => {
-  const typeLookup = {
-    Success: 'success',
-    Info: 'info',
-    Warning: 'warning',
-    Error: 'error',
-  };
-  const iconLookup = {
-    Success: 'tick',
-    Info: 'info',
-    Warning: 'warning',
-    Error: 'info',
-  };
-  const colorLooup = {
-    Success: 'positive',
-    Info: 'information',
-    Warning: 'warning',
-    Error: 'negative',
-  };
-
+const Template = ({ toastType, subheader, link, iconType, icon }) => {
+  const iconValue = icon === 'recommended' ? iconLookup[toastType] : icon;
   return formatHtmlPreview(
     `
-    <style>
       ${
         iconType === 'Native'
-          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-      i {
+          ? `
+    <style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+      i.sdds-icon {
         font-size: 20px;
-        color: var(--sdds-${colorLooup[toastType]});
-      }
-      `
-          : `
-      sdds-icon{
-        color: var(--sdds-${colorLooup[toastType]});
-      }
-      `
       }
     </style>
+      `
+          : ''
+      }
   <div class="sdds-toast sdds-toast-${typeLookup[toastType]}">
+  ${
+    icon === 'none'
+      ? ''
+      : `
     <div class="sdds-toast-icon">
       ${
         iconType === 'Native'
-          ? `<i class="sdds-icon ${iconLookup[toastType]}"></i>`
-          : `<sdds-icon name="${iconLookup[toastType]}" size="20px" />
+          ? `<i class="sdds-icon ${iconValue}"></i>`
+          : `<sdds-icon name="${iconValue}" size="20px" />
       `
       }
     </div>
+  `
+  }
     <div class="sdds-toast-content">
       <div class="sdds-toast-header">
         <span class="sdds-toast-headline">This is ${
@@ -108,6 +116,4 @@ const Template = ({ toastType, subheader, link, iconType }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  toastType: 'Success',
-};
+Default.args = {};

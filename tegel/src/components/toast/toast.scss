@@ -17,32 +17,32 @@
   &-success {
     border-left-color: var(--sdds-positive);
 
-    .sdds-toast-icon svg {
-      background: var(--sdds-positive);
+    .sdds-toast-icon {
+      color: var(--sdds-positive);
     }
   }
 
   &-info {
     border-left-color: var(--sdds-information);
 
-    .sdds-toast-icon svg {
-      background: var(--sdds-information);
+    .sdds-toast-icon {
+      color: var(--sdds-information);
     }
   }
 
   &-warning {
     border-left-color: var(--sdds-warning);
 
-    .sdds-toast-icon svg {
-      background: var(--sdds-warning);
+    .sdds-toast-icon {
+      color: var(--sdds-warning);
     }
   }
 
   &-error {
     border-left-color: var(--sdds-negative);
 
-    .sdds-toast-icon svg {
-      background: var(--sdds-negative);
+    .sdds-toast-icon {
+      color: var(--sdds-negative);
     }
   }
 
