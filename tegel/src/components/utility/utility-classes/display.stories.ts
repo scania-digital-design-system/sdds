@@ -10,7 +10,7 @@ export default {
 const Template = () =>
   formatHtmlPreview(
     `<style>
-        .sdds-u-flex {
+          .sdds-u-flex {
             display: flex !important;
           }
           

@@ -109,7 +109,87 @@ const Template = () =>
           .sdds-u-mb-auto {
             margin-bottom: auto !important;
           }
-        </style>`,
+        
+          /* CLASSES FOR DEMO PURPOSES */
+
+          .demo-wrapper div {
+            background-color: var(--sdds-blue-400);
+            margin: 5px 0;
+            width: 150px;
+          }
+
+          /* CLASSES FOR DEMO PURPOSES */
+
+        </style>
+
+        <div class="demo-wrapper">
+          <div class="sdds-u-m0">
+            sdds-u-m0
+          </div>
+          <div class="sdds-u-mt0">
+            sdds-u-mt0
+          </div>
+          <div class="sdds-umpr0">
+            sdds-u-mr0
+          </div>
+          <div class="sdds-u-mb0">
+            sdds-u-mb0
+          </div>
+          <div class="sdds-u-ml0">
+            sdds-u-ml0
+          </div>
+
+          <div class="sdds-u-m1">
+            sdds-u-m1
+          </div>
+          <div class="sdds-u-mt1">
+            sdds-u-mt1
+          </div>
+          <div class="sdds-u-mr1">
+            sdds-u-mr1
+          </div>
+          <div class="sdds-u-mb1">
+            sdds-u-mb1
+          </div>
+          <div class="sdds-u-ml1">
+            sdds-u-ml1
+          </div>
+
+          <div class="sdds-u-m2">
+            sdds-u-m2
+          </div>
+          <div class="sdds-u-mt2">
+            sdds-u-mt2
+          </div>
+          <div class="sdds-u-mr2">
+            sdds-u-mr2
+          </div>
+          <div class="sdds-u-mb2">
+            sdds-u-mb2
+          </div>
+          <div class="sdds-u-ml2">
+            sdds-u-ml2
+          </div>
+          <div class="sdds-u-m3">
+            sdds-u-m3
+          </div>
+          <div class="sdds-u-mt3">
+            sdds-u-mt3
+          </div>
+          <div class="sdds-u-mr3">
+            sdds-u-mr3
+          </div>
+          <div class="sdds-u-mb3">
+            sdds-u-mb3
+          </div>
+          <div class="sdds-u-ml3">
+            sdds-u-ml3
+          </div>
+          
+        </div>
+        
+        
+          `,
   );
 
 export const Margin = Template.bind({});

@@ -89,7 +89,88 @@ const Template = () =>
         .sdds-u-pl3 {
             padding-left: 24px !important;
           }
-        </style>`,
+
+
+          /* CLASSES FOR DEMO PURPOSES */
+
+          .demo-wrapper div {
+            background-color: var(--sdds-blue-400);
+            margin: 5px 0;
+            width: 150px;
+          }
+
+          /* CLASSES FOR DEMO PURPOSES */
+
+        </style>
+
+        <div class="demo-wrapper">
+          <div class="sdds-u-p0">
+            sdds-u-p0
+          </div>
+          <div class="sdds-u-pt0">
+            sdds-u-pt0
+          </div>
+          <div class="sdds-u-pr0">
+            sdds-u-pr0
+          </div>
+          <div class="sdds-u-pb0">
+            sdds-u-pb0
+          </div>
+          <div class="sdds-u-pl0">
+            sdds-u-pl0
+          </div>
+
+          <div class="sdds-u-p1">
+            sdds-u-p1
+          </div>
+          <div class="sdds-u-pt1">
+            sdds-u-pt1
+          </div>
+          <div class="sdds-u-pr1">
+            sdds-u-pr1
+          </div>
+          <div class="sdds-u-pb1">
+            sdds-u-pb1
+          </div>
+          <div class="sdds-u-pl1">
+            sdds-u-pl1
+          </div>
+
+          <div class="sdds-u-p2">
+            sdds-u-p2
+          </div>
+          <div class="sdds-u-pt2">
+            sdds-u-pt2
+          </div>
+          <div class="sdds-u-pr2">
+            sdds-u-pr2
+          </div>
+          <div class="sdds-u-pb2">
+            sdds-u-pb2
+          </div>
+          <div class="sdds-u-pl2">
+            sdds-u-pl2
+          </div>
+
+          <div class="sdds-u-p3">
+            sdds-u-p3
+          </div>
+          <div class="sdds-u-pt3">
+            sdds-u-pt3
+          </div>
+          <div class="sdds-u-pr3">
+            sdds-u-pr3
+          </div>
+          <div class="sdds-u-pb3">
+            sdds-u-pb3
+          </div>
+          <div class="sdds-u-pl3">
+            sdds-u-pl3
+          </div>
+          
+        </div>
+        
+        `,
   );
 
 export const Padding = Template.bind({});
