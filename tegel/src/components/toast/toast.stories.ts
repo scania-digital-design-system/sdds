@@ -80,14 +80,18 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
           : ''
       }
   <div class="sdds-toast sdds-toast-${typeLookup[toastType]}">
+    ${
+      icon !== 'none'
+        ? `
     <div class="sdds-toast-icon">
-      ${
-        iconType === 'Native'
-          ? `<i class="sdds-icon ${iconValue}"></i>`
-          : `<sdds-icon name="${iconValue}" size="20px" />
-      `
-      }
-    </div>
+    ${
+      iconType === 'Native'
+        ? `<i class="sdds-icon ${iconValue}"></i>`
+        : `<sdds-icon name="${iconValue}" size="20px" />
+        </div>`
+    }`
+        : ''
+    }
     <div class="sdds-toast-content">
       <div class="sdds-toast-header">
         <span class="sdds-toast-headline">This is ${
