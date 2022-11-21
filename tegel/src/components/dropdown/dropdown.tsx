@@ -116,7 +116,6 @@ export class Dropdown {
       for (let i = 0; i < this.host.children.length; i++) {
         // Todo - specify type
         const el: any = this.host.children[i];
-        console.log(el);
         if (optionValue.includes(el.value) || el.value === optionValue) {
           this.selectedLabelsArray.push(el.textContent.trim());
           this.selectedValuesArray.push(el.value);
