@@ -113,7 +113,7 @@ export class Dropdown {
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
-        if (optionValue.includes(el['value']) || el['value'] === optionValue) {
+        if (el['value'] === optionValue) {
           this.selectedLabelsArray.push(el.textContent);
           this.selectedValuesArray.push(el['value']);
           this.selectedLabel = el.textContent;
