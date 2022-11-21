@@ -115,9 +115,9 @@ export class Dropdown {
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
         const el: any = this.host.children[i];
-        if (el.value.trim() === optionValue[i]) {
-          this.selectedLabelsArray.push(el.textContent);
-          this.selectedValuesArray.push(el.value);
+        if (optionValue.includes(el.value.trim())) {
+          this.selectedLabelsArray = [...this.selectedLabelsArray, el.textContent.trim()];
+          this.selectedValuesArray = [...this.selectedValuesArray, el.value];
           this.selectedLabel = el.textContent;
           this.selectedValue = el.value;
           el.setAttribute('selectedLabel', 'true');
