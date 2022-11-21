@@ -3,7 +3,7 @@ import { formatHtmlPreview } from '../../../utils/utils';
 export default {
   title: 'Utilities/Utility Classes',
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
   },
 };
 
@@ -29,7 +29,45 @@ const Template = () =>
         .sdds-u-w-25 {
             width: 25% !important;
           }
-        </style>`,
+
+
+          /* CLASSES FOR DEMO PURPOSES */
+
+          .demo-wrapper {
+            width: 100%;
+          }
+          .demo-class {
+            background-color: var(--sdds-blue-400);
+            margin: 10px 0;
+            padding: 10px;
+          }
+
+          /* CLASSES FOR DEMO PURPOSES */
+
+        </style>
+
+        <div class="demo-wrapper">
+        <div class="sdds-u-w-auto demo-class">
+        sdds-u-w-auto
+        </div>
+
+        <div class="sdds-u-w-100 demo-class">
+        sdds-u-w-100
+        </div>
+
+        <div class="sdds-u-w-75 demo-class">
+        sdds-u-w-75
+        </div>
+
+        <div class="sdds-u-w-50 demo-class">
+        sdds-u-w-50
+        </div>
+
+        <div class="sdds-u-w-25 demo-class">
+        sdds-u-w-25
+        </div>
+        </div>
+        `,
   );
 
 export const Width = Template.bind({});
