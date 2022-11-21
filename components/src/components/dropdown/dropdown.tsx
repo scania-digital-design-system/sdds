@@ -114,8 +114,8 @@ export class Dropdown {
       // eslint-disable-next-line no-param-reassign
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
-        const el:any = this.host.children[i];
-        if (el.value.trim() === optionValue[0]) {
+        const el: any = this.host.children[i];
+        if (el.value.trim() === optionValue[i]) {
           this.selectedLabelsArray.push(el.textContent);
           this.selectedValuesArray.push(el.value);
           this.selectedLabel = el.textContent;
@@ -290,7 +290,7 @@ export class Dropdown {
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
           'sdds-dropdown--label-inside-position':
-            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
