@@ -59,7 +59,7 @@ export class DropdownOption {
   }
 
   @Listen('click')
-  handleSelection(ev) {
+  handleClick(ev) {
     if (this.isMultiSelectOption) {
       ev.stopPropagation();
     }
@@ -73,8 +73,15 @@ export class DropdownOption {
   }
 
   selectOptionHandler(value) {
+    const listOptions = value.parent.childNodes;
     this.selectOption.emit(value);
-
+    if (!this.isMultiSelectOption) {
+      listOptions.forEach((optionEl) => {
+        // TODO: fix and enable rule
+        // eslint-disable-next-line no-param-reassign
+        optionEl.selected = false;
+      });
+    }
     const optionCheckbox = this.host.shadowRoot.querySelector('input');
 
     if (this.selected) {
