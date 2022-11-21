@@ -84,17 +84,11 @@ export class Textarea {
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readonly ? 'sdds-textarea-readonly' : ''}
         ${this.value ? 'sdds-textarea-data' : ''}
-        ${
-          this.state == 'error' || this.state == 'success'
-            ? `sdds-textarea-${this.state}`
-            : ''
-        }
+        ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
         onClick={() => this.handleFocusClick()}
       >
-        {this.label.length > 0 && (
-          <span class={'sdds-textarea-label'}>{this.label}</span>
-        )}
+        {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
         <div class="sdds-textarea-wrapper">
           <textarea
             onFocus={() => {
@@ -160,18 +154,13 @@ export class Textarea {
             />
           </svg>
 
-          <span class="sdds-textarea-icon__readonly-label">
-            This field is non-editable
-          </span>
+          <span class="sdds-textarea-icon__readonly-label">This field is non-editable</span>
         </div>
-        {this.helper.length > 0 && (
-          <span class={'sdds-textarea-helper'}>{this.helper}</span>
-        )}
+        {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
         {this.maxlength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
             {this.value === null ? 0 : this.value?.length}
-            <span class="sdds-textfield-textcounter-divider"> / </span>{' '}
-            {this.maxlength}
+            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
           </div>
         )}
       </div>
