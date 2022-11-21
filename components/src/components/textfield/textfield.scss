@@ -313,6 +313,11 @@ html {
 
   display: flex;
   justify-content: space-between;
+
+  & .sdds-textfield-textcounter {
+    margin-left: auto;
+  }
+
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textfield-helper);
 }

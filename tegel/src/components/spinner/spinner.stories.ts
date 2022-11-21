@@ -1,5 +1,3 @@
-import { addons } from '@storybook/addons';
-import { UPDATE_GLOBALS, STORY_ARGS_UPDATED } from '@storybook/core-events';
 import format from 'html-format';
 import readme from './readme.md';
 

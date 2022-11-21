@@ -89,7 +89,7 @@ export class Dropdown {
     this.listItemArray = Array.from(this.host.children);
     this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
-      this.optionLabels.push(listItem.innerText);
+      this.optionLabels.push(listItem.innerText.trim());
     });
     this.setOptionFromOutside(this.defaultOption);
 
@@ -201,8 +201,7 @@ export class Dropdown {
     this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
     const distanceToBottom = this.host.getBoundingClientRect().top;
     const viewportHeight = window.innerHeight;
-    this.openUpwards =
-      distanceToBottom + this.dropdownMenuHeight + 57 > viewportHeight;
+    this.openUpwards = distanceToBottom + this.dropdownMenuHeight + 57 > viewportHeight;
     // If summary of dropdown menu height and its distance to the bottom is more than viewport height, open menu upwards
     // Additional 57px is added as compensation for dropdown element own input/button height
     // It is added on handleClick due to possible dynamic injection of data when component is already rendered
@@ -238,10 +237,10 @@ export class Dropdown {
       }
       // sorting array to keep selected in same order as user input
       this.selectedValuesArray = this.optionValues.filter((word) =>
-        this.selectedValuesArray.includes(word)
+        this.selectedValuesArray.includes(word),
       );
       this.selectedLabelsArray = this.optionLabels.filter((word) =>
-        this.selectedLabelsArray.includes(word)
+        this.selectedLabelsArray.includes(word),
       );
     }
   }
@@ -289,7 +288,8 @@ export class Dropdown {
           'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position': this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
+          'sdds-dropdown--label-inside-position':
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}

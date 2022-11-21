@@ -15,7 +15,20 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Bottom', 'Bottom start', 'Bottom end', 'Top', 'Top start', 'Top end', 'Left', 'Left-start', 'Left end', 'Right', 'Right start', 'Right end'],
+      options: [
+        'Bottom',
+        'Bottom start',
+        'Bottom end',
+        'Top',
+        'Top start',
+        'Top end',
+        'Left',
+        'Left-start',
+        'Left end',
+        'Right',
+        'Right start',
+        'Right end',
+      ],
     },
   },
   args: {
@@ -47,6 +60,9 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
         flex-wrap; nowrap;
         align-items: center;
       }
+      sdds-icon:hover {
+        cursor:pointer;
+      }
     </style>
       <sdds-popover-canvas 
         placement="${canvasPosLookup[canvasPosition]}"
@@ -63,11 +79,7 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
       </sdds-popover-canvas>
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
-        <div style="cursor: pointer; display: flex; align-items: center;" id="trigger">
-          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM7 8a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM7 12a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z" fill="#0D0F13"/>
-          </svg>
-        </div>
+        <sdds-icon id="trigger" name="kebab" size="16px" />
       </div>
     `,
   );

@@ -12,14 +12,28 @@ export default {
 
 const Template = ({ colour }) => {
   let scale = {
-    grey: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '846', '868', '900', '958'],
+    grey: [
+      '50',
+      '100',
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '800',
+      '846',
+      '868',
+      '900',
+      '958',
+    ],
     blue: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
     red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
   };
   const picked = scale[colour];
   let div = '';
 
-  picked.forEach(num => {
+  picked.forEach((num) => {
     div += `<div id="test" class="demo-wrapper" style="background-color: var(--sdds-${colour}-${num})">
       <span>--sdds-${colour}-${num}</span>
       </div>`;

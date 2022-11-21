@@ -288,7 +288,8 @@ export class Dropdown {
           'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position': this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
+          'sdds-dropdown--label-inside-position':
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
@@ -364,7 +365,10 @@ export class Dropdown {
                           this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
-                    {!this.selectedLabel && this.labelPosition === 'inside' && this.label}
+                    {!this.selectedLabel &&
+                      this.labelPosition === 'inside' &&
+                      this.size !== 'sm' &&
+                      this.label}
 
                     {!this.selectedLabel &&
                       this.type !== 'multiselect' &&
