@@ -1,4 +1,14 @@
-import { Component, h, Prop, State, Element, Host, Event, EventEmitter, Listen } from '@stencil/core';
+import {
+  Component,
+  h,
+  Prop,
+  State,
+  Element,
+  Host,
+  Event,
+  EventEmitter,
+  Listen,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-option',
@@ -50,23 +60,30 @@ export class DropdownOption {
 
   @Listen('click')
   handleClick(ev) {
-    ev.stopPropagation();
+    if (this.isMultiSelectOption) {
+      ev.stopPropagation();
+    }
   }
 
   componentWillLoad() {
     this.innerValue = this.value;
-    this.isMultiSelectOption = this.host.closest('sdds-dropdown').classList.contains('sdds-dropdown-multiselect');
+    this.isMultiSelectOption = this.host
+      .closest('sdds-dropdown')
+      .classList.contains('sdds-dropdown-multiselect');
   }
 
   selectOptionHandler(value) {
     const listOptions = value.parent.childNodes;
     this.selectOption.emit(value);
     if (!this.isMultiSelectOption) {
-      listOptions.forEach(optionEl => {
+      listOptions.forEach((optionEl) => {
+        // TODO: fix and enable rule
+        // eslint-disable-next-line no-param-reassign
         optionEl.selected = false;
       });
     }
     const optionCheckbox = this.host.shadowRoot.querySelector('input');
+
     if (this.selected) {
       this.selected = false;
       if (optionCheckbox) {
@@ -83,7 +100,7 @@ export class DropdownOption {
   render() {
     return (
       <Host
-        onClick={ev =>
+        onClick={(ev) =>
           this.selectOptionHandler({
             value: this.value,
             label: this.host.innerText,
@@ -107,8 +124,20 @@ export class DropdownOption {
         </span>
         {!this.isMultiSelectOption && (
           <span class="sdds-option-checkmark">
-            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 3L4 6L9 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <svg
+              width="10"
+              height="7"
+              viewBox="0 0 10 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 3L4 6L9 1"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </span>
         )}

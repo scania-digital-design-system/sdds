@@ -110,10 +110,7 @@ export class Textfield {
           <slot name="sdds-label" />
         </div>
 
-        <div
-          onClick={() => this.handleFocusClick()}
-          class="sdds-textfield-container"
-        >
+        <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
           <div class="sdds-textfield-slot-wrap-prefix">
             <slot name="sdds-prefix" />
           </div>
@@ -145,9 +142,7 @@ export class Textfield {
             />
 
             {this.labelInside.length > 0 && this.size !== 'sm' && (
-              <label class="sdds-textfield-label-inside">
-                {this.labelInside}
-              </label>
+              <label class="sdds-textfield-label-inside">{this.labelInside}</label>
             )}
           </div>
           <div class="sdds-textfield-bar"></div>
@@ -182,9 +177,7 @@ export class Textfield {
             />
           </svg>
 
-          <span class="sdds-textfield-icon__readonly-label">
-            This field is non-editable
-          </span>
+          <span class="sdds-textfield-icon__readonly-label">This field is non-editable</span>
         </div>
 
         <div class="sdds-textfield-helper">

@@ -34,16 +34,19 @@ export class DropdownOption {
     bubbles: true,
   })
   selectOption: EventEmitter<any>;
+
   isMultiSelectOption: boolean;
 
   @Listen('mouseover')
   changeFocusHandler() {
     this.host.focus();
   }
+
   @Listen('mouseout')
   removeFocusHandler() {
     this.host.blur();
   }
+
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
     if (event.code === 'Enter') {
@@ -54,10 +57,14 @@ export class DropdownOption {
       });
     }
   }
+
   @Listen('click')
   handleClick(ev) {
-    ev.stopPropagation();
+    if (this.isMultiSelectOption) {
+      ev.stopPropagation();
+    }
   }
+
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host
@@ -70,10 +77,13 @@ export class DropdownOption {
     this.selectOption.emit(value);
     if (!this.isMultiSelectOption) {
       listOptions.forEach((optionEl) => {
+        // TODO: fix and enable rule
+        // eslint-disable-next-line no-param-reassign
         optionEl.selected = false;
       });
     }
-    var optionCheckbox = this.host.shadowRoot.querySelector('input');
+    const optionCheckbox = this.host.shadowRoot.querySelector('input');
+
     if (this.selected) {
       this.selected = false;
       if (optionCheckbox) {
@@ -105,11 +115,7 @@ export class DropdownOption {
         {this.isMultiSelectOption && (
           <div class="sdds-checkbox-item sdds-option-checkbox">
             <label class="sdds-form-label">
-              <input
-                class="sdds-form-input"
-                type="checkbox"
-                checked={this.selected}
-              />
+              <input class="sdds-form-input" type="checkbox" checked={this.selected} />
             </label>
           </div>
         )}
