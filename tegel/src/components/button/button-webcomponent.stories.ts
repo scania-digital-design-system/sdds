@@ -131,19 +131,6 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
 
   return formatHtmlPreview(
     `
-    <style>${
-      icon && iconType === 'Native'
-        ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    i.sdds-icon::before{
-      font-size: ${size === 'Large' || size === 'Medium' ? '20' : '16'}px;
-    }`
-        : ''
-    }
-    .demo-wrapper{
-      width: 100%;
-    }
-  </style>
-  <div class="demo-wrapper">
   <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
     }" variant="${varaintLookup[variant]}" >
@@ -159,7 +146,6 @@ const WebComponentTemplate = ({ onlyIcon, size, variant, btnType, fullbleed, dis
         : ''
     }   
 </sdds-button>
-  </div>
   `,
   );
 };
