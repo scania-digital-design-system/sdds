@@ -122,6 +122,12 @@ const Template = ({
       : [];
 
   return formatHtmlPreview(`
+  <style>
+  .demo-wrapper {
+    width: 300px;
+    height:200px;
+  }
+  </style>
     <div class="demo-wrapper">
         <sdds-dropdown
           id="sdds-dropdown-reg"
@@ -138,82 +144,17 @@ const Template = ({
               ? defaultOptionLookup[defaultOption]
               : multiDefaultOptionValue
           }" >
-          <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>
         </sdds-dropdown>
       </div>
-  
-      <style>
-  .demo-wrapper {
-    width: 300px;
-    height:200px;
-  }
-  </style>
   `);
 };
 
-export const WebComponent = Template.bind({});
-WebComponent.args = {
-  type: 'Default',
-  size: 'Large',
-  labelPosition: 'None',
-  helper: false,
-  disabled: false,
-};
+export const WebComponentDefault = Template.bind({});
 
-const MultiselectTemplate = ({
-  size,
-  disabled = false,
-  type,
-  helper,
-  placeholder,
-  multiDefaultOption,
-  labelPosition,
-}) => {
-  const typeLookup = { Default: 'default', Multiselect: 'multiselect' };
-  const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
-  const multiDefaultOptionValue = multiDefaultOption.map((value) =>
-    value.toLowerCase().replace(' ', '-'),
-  );
-
-  return formatHtmlPreview(`
-    <div class="demo-wrapper">
-        <sdds-dropdown
-        id="sdds-dropdown-multiselect"
-        size="${sizeLookup[size]}"
-        placeholder="${placeholder}"
-        disabled="${disabled}"
-        ${helper ? 'helper="Helper text"' : ''}
-        default-option='${multiDefaultOptionValue}'
-        type='${typeLookup[type]}'
-        label-position="${labelPosLookup[labelPosition]}"
-        ${labelPosLookup[labelPosition] !== 'no-default' ? 'label="Label text"' : ''}
-        >
-          <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-3" tabindex="0">Option 3 Longer</sdds-dropdown-option>
-        </sdds-dropdown>
-      </div>
-
-      <style>
-  .demo-wrapper {
-    width: 300px;
-    height:200px;}
-</style>
-  `);
-};
-
-export const WebComponentMultiselect = MultiselectTemplate.bind({});
+export const WebComponentMultiselect = Template.bind({});
 WebComponentMultiselect.args = {
   type: 'Multiselect',
-  multiDefaultOption: ['Option 1', 'Option 2'],
-};
-WebComponentMultiselect.argTypes = {
-  state: {
-    table: {
-      disable: true,
-    },
-  },
 };
