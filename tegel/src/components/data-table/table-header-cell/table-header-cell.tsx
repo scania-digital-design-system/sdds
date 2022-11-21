@@ -110,24 +110,6 @@ export class TableHeaderCell {
     }
   }
 
-  connectedCallback() {
-    this.tableEl = this.host.closest('sdds-table');
-  }
-
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
-      event.detail.changed
-        .filter((changedProp) => relevantTableProps.includes(changedProp))
-        .forEach((changedProp) => {
-          if (typeof this[changedProp] === 'undefined') {
-            throw new Error(`Table prop is not supported: ${changedProp}`);
-          }
-          this[changedProp] = event.detail[changedProp];
-        });
-    }
-  }
-
   // Listen to parent data-table if sorting is allowed
   @Listen('sortingSwitcherEvent', { target: 'body' })
   sortingSwitcherEventListener(event: CustomEvent<any>) {
