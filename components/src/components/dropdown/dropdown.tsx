@@ -113,7 +113,7 @@ export class Dropdown {
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
         const el = this.host.children[i];
-        if (optionValue.includes(el['value']) || el['value'] === optionValue) {
+        if (el['value'] === optionValue) {
           this.selectedLabelsArray.push(el.textContent);
           this.selectedValuesArray.push(el['value']);
           this.selectedLabel = el.textContent;
@@ -289,7 +289,7 @@ export class Dropdown {
           'sdds-dropdown--error': this.state === 'error',
           'sdds-dropdown--open-upwards': this.openUpwards,
           'sdds-dropdown--label-inside-position':
-            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
+            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0
         }}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
