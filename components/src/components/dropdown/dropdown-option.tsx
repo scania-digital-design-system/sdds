@@ -58,13 +58,6 @@ export class DropdownOption {
     }
   }
 
-  @Listen('click')
-  handleClick(ev) {
-    if (this.isMultiSelectOption) {
-      ev.stopPropagation();
-    }
-  }
-
   componentWillLoad() {
     this.innerValue = this.value;
     this.isMultiSelectOption = this.host
@@ -100,13 +93,16 @@ export class DropdownOption {
   render() {
     return (
       <Host
-        onClick={(ev) =>
-          this.selectOptionHandler({
+        onClick={(ev) => {
+          if (this.isMultiSelectOption) {
+            ev.stopPropagation();
+          }
+          return this.selectOptionHandler({
             value: this.value,
             label: this.host.innerText,
             parent: ev.target.parentNode,
-          })
-        }
+          });
+        }}
         class={{
           selected: this.selected,
         }}
