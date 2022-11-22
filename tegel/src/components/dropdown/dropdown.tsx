@@ -149,9 +149,6 @@ export class Dropdown {
       if (typeof this.textInput !== 'undefined' || this.textInput === null) {
         this.textInput.focus();
       }
-      // TODO: Maybe can be this.open = !this.open ? - Does not work, dont know why?
-      // eslint-disable-next-line no-unused-expressions, @typescript-eslint/no-unused-expressions
-      this.open ? !this.open : this.open;
     } else {
       this.tabbingLabelReset();
       this.open = false;
