@@ -106,7 +106,6 @@ const BatchActionTemplate = ({
 }) =>
   formatHtmlPreview(`
    <sdds-table
-        id="actionbar-table"
         enable-multiselect
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"

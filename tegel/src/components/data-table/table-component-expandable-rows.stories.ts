@@ -93,7 +93,6 @@ const ExpandableRowTemplate = ({
   formatHtmlPreview(`
   <h3>Expandable rows</h3>
   <sdds-table
-    id="expendable-rows-table"
     enable-expandable-rows
     vertical-dividers="${verticalDivider}"
     compact-design="${compactDesign}"

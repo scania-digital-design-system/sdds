@@ -61,7 +61,7 @@ export class TableHeaderCell {
 
   @State() enableToolbarDesign: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @State() enableExpandableRows: boolean = false;
 
@@ -98,7 +98,7 @@ export class TableHeaderCell {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -114,7 +114,7 @@ export class TableHeaderCell {
   @Listen('sortingSwitcherEvent', { target: 'body' })
   sortingSwitcherEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedSortingStatus] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.disableSortingBtn = receivedSortingStatus;
     }
   }
@@ -122,7 +122,7 @@ export class TableHeaderCell {
   // target is set to body so other instances of same component "listen" and react to the change
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       // grab only value at position 1 as it is the "key"
       if (this.columnKey !== event.detail[1]) {
         this.sortedByMyKey = false;
@@ -136,16 +136,15 @@ export class TableHeaderCell {
 
   @Listen('enableMultiselectEvent', { target: 'body' })
   enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) [, this.enableMultiselect] = event.detail;
+    if (this.tableId === event.detail[0]) [, this.enableMultiselect] = event.detail;
   }
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
@@ -159,7 +158,7 @@ export class TableHeaderCell {
       this.textAlignState = 'left';
     }
     // To enable body cells text align per rules set in head cell
-    this.textAlignEvent.emit([this.uniqueTableIdentifier, this.columnKey, this.textAlignState]);
+    this.textAlignEvent.emit([this.tableId, this.columnKey, this.textAlignState]);
 
     this.enableToolbarDesign =
       this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
@@ -175,7 +174,7 @@ export class TableHeaderCell {
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
     // Use array to send both key and sorting direction
-    this.sortColumnDataEvent.emit([this.uniqueTableIdentifier, key, this.sortingDirection]);
+    this.sortColumnDataEvent.emit([this.tableId, key, this.sortingDirection]);
   };
 
   headerCellContent = () => {
@@ -245,7 +244,7 @@ export class TableHeaderCell {
   };
 
   onHeadCellHover = (key) => {
-    this.headCellHoverEvent.emit([this.uniqueTableIdentifier, key]);
+    this.headCellHoverEvent.emit([this.tableId, key]);
   };
 
   render() {

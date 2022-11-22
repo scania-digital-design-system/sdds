@@ -28,7 +28,7 @@ export class TableBodyRow {
 
   @State() whiteBackground: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
@@ -59,7 +59,7 @@ export class TableBodyRow {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -91,7 +91,7 @@ export class TableBodyRow {
 
   @Listen('mainCheckboxSelectedEvent', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       this.bodyCheckBoxStatusUpdater(event.detail[1]);
     }
   }
@@ -99,25 +99,24 @@ export class TableBodyRow {
   @Listen('updateBodyCheckboxesEvent', { target: 'body' })
   updateBodyCheckboxesEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedBodyCheckboxStatus] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.bodyCheckBoxStatusUpdater(receivedBodyCheckboxStatus);
     }
   }
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
   }
 
   componentDidLoad() {
-    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
+    this.runPaginationEvent.emit(this.tableId);
   }
 
   render() {

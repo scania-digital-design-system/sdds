@@ -93,7 +93,6 @@ const FilteringTemplate = ({
   formatHtmlPreview(`
   <h3>Filtering example</h3>
    <sdds-table
-      id="filtering-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
