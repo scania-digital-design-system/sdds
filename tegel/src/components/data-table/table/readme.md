@@ -14,7 +14,7 @@
 | `enableMultiselect`    | `enable-multiselect`     | Enables multiselect feature of data-table                                | `boolean` | `false`               |
 | `enableResponsive`     | `enable-responsive`      | Enables table to take 100% available width with equal spacing of columns | `boolean` | `false`               |
 | `noMinWidth`           | `no-min-width`           | Enables to customise width on data-table columns                         | `boolean` | `undefined`           |
-| `tableId`              | `table-id`               |                                                                          | `string`  | `crypto.randomUUID()` |
+| `tableId`              | `table-id`               | ID used for internal table functionality and events, must be unique.     | `string`  | `crypto.randomUUID()` |
 | `verticalDividers`     | `vertical-dividers`      | Enables style with vertical dividers between columns                     | `boolean` | `false`               |
 | `whiteBackground`      | `white-background`       | Changes a colors of data data-table when used on white background        | `boolean` | `false`               |
 

@@ -46,6 +46,7 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
+  /** ID used for internal table functionality and events, must be unique. */
   @Prop() tableId: string = crypto.randomUUID();
 
   @Element() host: HTMLElement;
