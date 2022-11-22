@@ -42,13 +42,13 @@ const Home = () => {
           <h5 className="sdds-headline-05">Inline Tabs</h5>
           
           <sdds-inline-tabs auto-height>
-            <div name="Tab with a long name">
+            <div data-name="Tab with a long name">
               Content for tab this tab with a long name
             </div>
-            <div default name="Another tab">
+            <div data-default="true" data-name="Another tab">
               Content for this tab. This will be the initially visible tab because of the default-attribute.
             </div>
-            <div disabled name="Tab 3">
+            <div aria-disabled="true" data-name="Tab 3">
               This tab is disabled because of the disabled attribute and cannot be selected. Hence you will never get to read this text sadly.
             </div>
           </sdds-inline-tabs>
@@ -208,14 +208,14 @@ const Home = () => {
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Dropdown</h5>
-          <sdds-dropdown placeholder="Select option">
-            <sdds-dropdown-option value="option-1">
+          <sdds-dropdown type="multiselect" placeholder="Select option">
+            <sdds-dropdown-option onClick={() => {console.log('test1')}} value="option-1">
               Option 1
             </sdds-dropdown-option>
-            <sdds-dropdown-option value="option-2">
+            <sdds-dropdown-option onClick={() => {console.log('test2')}} value="option-2">
               Option 2
             </sdds-dropdown-option>
-            <sdds-dropdown-option value="option-3">
+            <sdds-dropdown-option onClick={() => {console.log('test3')}} value="option-3">
               Option 3
             </sdds-dropdown-option>
           </sdds-dropdown>
