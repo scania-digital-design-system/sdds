@@ -1,4 +1,4 @@
-import { formatHtmlPreview } from '../../utils/utils';
+import { formatHtmlPreview } from '../../../utils/utils';
 
 export default {
   title: 'Utilities/Colours',
@@ -20,7 +20,21 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '846', '868', '900', '958'],
+      options: [
+        '50',
+        '100',
+        '200',
+        '300',
+        '400',
+        '500',
+        '600',
+        '700',
+        '800',
+        '846',
+        '868',
+        '900',
+        '958',
+      ],
       if: { arg: 'backgroundColor', eq: 'grey' },
     },
     redScale: {
