@@ -14,7 +14,7 @@ export class Icon {
   async loadIcon() {
     try {
       // dynamic import icon from @scania/icons
-      this.icon = await import(`../../../theme/core/icons/dist/${this.name}.js`);
+      this.icon = await import(`@scania/icons/dist/${this.name}.js`);
     } catch (err) {
       this.name = 'scania-truck'; // If icon not found, display a truck icon
     }
