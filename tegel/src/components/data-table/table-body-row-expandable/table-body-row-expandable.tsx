@@ -24,7 +24,7 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
 })
 export class TableBodyRowExpandable {
   /** In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too */
-  @Prop() clientSetColumnsNumber: number = null;
+  @Prop() colSpan: number = null;
 
   @State() isExpanded: boolean = false;
 
@@ -93,12 +93,10 @@ export class TableBodyRowExpandable {
   }
 
   componentWillRender() {
-    if (this.clientSetColumnsNumber !== null) {
-      this.columnsNumber = this.clientSetColumnsNumber;
+    if (this.colSpan !== null) {
+      this.columnsNumber = this.colSpan;
     } else {
-      this.columnsNumber =
-        this.host.parentElement.closest('sdds-table').querySelector('sdds-table-header')
-          .childElementCount + 1;
+      this.columnsNumber = this.tableEl.querySelector('sdds-table-header').childElementCount + 1;
     }
   }
 
