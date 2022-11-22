@@ -141,36 +141,102 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 
 export const Default = Template.bind({});
 Default.args = {};
-
+Default.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const SupportText = Template.bind({});
 
 SupportText.args = {
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
-
+SupportText.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const Divider = Template.bind({});
 
 Divider.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
-
+Divider.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const link = Template.bind({});
 
 link.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
-  footer: '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
+  footer:
+    '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
 };
+link.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
+export const Button = Template.bind({});
 
-export const button = Template.bind({});
-
-button.args = {
+Button.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Button text</button>',
 };
-
+Button.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const Image = Template.bind({});
 
 Image.args = {
@@ -179,7 +245,20 @@ Image.args = {
   image: true,
   imageTop: true,
 };
-
+Image.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const Avatar = Template.bind({});
 
 Avatar.args = {
@@ -187,4 +266,18 @@ Avatar.args = {
   divider: false,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   imageTop: false,
+};
+Avatar.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2891%3A125&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
 };

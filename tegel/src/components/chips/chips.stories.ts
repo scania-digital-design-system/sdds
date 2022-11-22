@@ -75,17 +75,27 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
 
   // TODO - Add dark theme to story
   const iconSvg = `
-    ${iconType === 'Native' ? '<i class="sdds-chip-icon sdds-icon notification"></i>' : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'}
+    ${
+      iconType === 'Native'
+        ? '<i class="sdds-chip-icon sdds-icon notification"></i>'
+        : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'
+    }
     `;
 
   return formatHtmlPreview(`
     <style>
-      ${iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
+      ${
+        iconType === 'Native'
+          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');`
+          : ''
+      }
       .sdds-chip-icon {
         font-size: 16px;
       }
     </style>
-    <div class="sdds-chip ${icon ? iconPositionLookup[iconPosition] : ''} ${stateValue} ${sizeValue}">
+    <div class="sdds-chip ${
+      icon ? iconPositionLookup[iconPosition] : ''
+    } ${stateValue} ${sizeValue}">
       ${icon ? iconSvg : ''}
       <span class="sdds-chip-text">${placeholderText}</span>
     </div>
@@ -94,11 +104,39 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
 
 export const Default = Template.bind({});
 Default.args = {};
+Default.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 
 export const IconRight = Template.bind({});
 IconRight.args = {
   icon: true,
   iconPosition: 'Icon right',
+};
+IconRight.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
 };
 
 export const IconLeft = Template.bind({});
@@ -106,13 +144,55 @@ IconLeft.args = {
   icon: true,
   iconPosition: 'Icon left',
 };
+IconLeft.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 
 export const Active = Template.bind({});
 Active.args = {
   state: 'Active',
 };
+Active.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'Small',
+};
+Small.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
 };

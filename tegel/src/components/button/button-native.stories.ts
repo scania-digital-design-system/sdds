@@ -1,5 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
-import { iconsNames } from '../icon/iconsArray.js';
+import { iconsNames } from '../icon/iconsArray';
 
 export default {
   title: 'Components/Button',
@@ -19,7 +19,8 @@ export default {
     },
     btnType: {
       name: 'Type',
-      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent',
+      description:
+        'Four different button types to help the user to distinguish the level of importance of the task they represent',
       control: {
         type: 'radio',
       },
@@ -113,7 +114,17 @@ export default {
   },
 };
 
-const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', disabled = '', onlyIcon, icon, iconType }) => {
+const NativeTemplate = ({
+  size,
+  variant,
+  btnType,
+  fullbleed,
+  text = 'Button',
+  disabled = '',
+  onlyIcon,
+  icon,
+  iconType,
+}) => {
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
   const btnTypeLookUp = {
@@ -151,7 +162,9 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
   </style>
 
   <div class="demo-wrapper">
-<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
+<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} sdds-btn-${
+      sizeLookUp[size]
+    } ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} ${
       varaintLookup[variant] === 'on-light' ? 'sdds-on-white-bg' : ''
     }  ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
   ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
@@ -161,7 +174,9 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
     ${
       iconType === 'Native'
         ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
-        : `<sdds-icon class='sdds-btn-icon ' size='${sizeLookUp[size] == 'sm' ? '16px' : '20px'}' name='${icon}'></sdds-icon>`
+        : `<sdds-icon class='sdds-btn-icon ' size='${
+            sizeLookUp[size] === 'sm' ? '16px' : '20px'
+          }' name='${icon}'></sdds-icon>`
     }
   `
       : ''
@@ -174,15 +189,56 @@ const NativeTemplate = ({ size, variant, btnType, fullbleed, text = 'Button', di
 
 export const Native = NativeTemplate.bind({});
 Native.args = {};
+Native.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 
 export const NativeWithIcon = NativeTemplate.bind({});
 NativeWithIcon.args = {
   icon: 'truck',
 };
-
+NativeWithIcon.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const NativeOnlyIcon = NativeTemplate.bind({});
 NativeOnlyIcon.args = {
   text: '',
   onlyIcon: true,
   icon: 'truck',
+};
+NativeOnlyIcon.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
 };

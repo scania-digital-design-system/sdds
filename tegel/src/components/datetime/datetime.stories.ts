@@ -115,7 +115,20 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
 export const Default = datetimeTemplate.bind({});
 
 Default.args = {};
-
+Default.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const ErrorState = datetimeTemplate.bind({});
 
 ErrorState.args = {
@@ -123,15 +136,55 @@ ErrorState.args = {
   helper: 'Helper text',
   label: 'Label text',
 };
-
+ErrorState.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const Time = datetimeTemplate.bind({});
 
 Time.args = {
   type: 'time',
 };
-
+Time.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
+};
 export const Date = datetimeTemplate.bind({});
 
 Date.args = {
   type: 'date',
+};
+Date.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+    {
+      name: 'Link',
+      type: 'link',
+      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+    },
+  ],
 };
