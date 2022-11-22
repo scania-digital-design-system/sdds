@@ -70,7 +70,6 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
     "babel-loader": "^8.2.5",
-    "clsx": "^1.2.1",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0",

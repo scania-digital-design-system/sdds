@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
@@ -31,7 +30,9 @@ export default {
 const Template = ({ disabled, noUnderline }) =>
   formatHtmlPreview(
     `
-      <a class="${clsx('demo-text sdds-link', disabled && 'disabled', noUnderline && 'sdds-link--no-underline')}" href="#">
+      <a class="sdds-link ${disabled ? 'disabled' : ''} ${
+      noUnderline ? 'sdds-link--no-underline' : ''
+    }" href="#">
         This is a link.
       </a>
   `,
