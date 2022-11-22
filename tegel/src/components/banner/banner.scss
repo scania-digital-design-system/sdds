@@ -54,6 +54,7 @@
   width: 16px;
   color: var(--sdds-banner-x-color);
   cursor: pointer;
+  flex-shrink: 0;
 
   &::after {
     content: '';
