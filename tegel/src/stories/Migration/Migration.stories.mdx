@@ -175,3 +175,28 @@ Rename all instances of `maxlength` to `max-length`.
 ></sdds-textarea>
 
 ```
+
+## Textfield
+
+[Webcomponent](/docs/components-textarea--default)
+
+#### Changed prop name 'max-length'
+
+The prop `maxlength` was changed to `max-length` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `maxlength` to `max-length`.
+
+```jsx
+// Old ❌
+<sdds-textfield
+    maxlength="10"
+></sdds-textfield>
+
+// New ✅
+<sdds-textfield
+    max-length="10"
+></sdds-textfield>
+
+```
