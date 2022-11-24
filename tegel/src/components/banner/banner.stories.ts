@@ -46,7 +46,8 @@ export default {
     },
     prefix: {
       name: 'Show icon',
-      description: 'If an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
+      description:
+        'If an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
       control: {
         type: 'boolean',
       },
@@ -64,18 +65,32 @@ export default {
   },
 };
 
-const Template = args =>
+const Template = (args) =>
   formatHtmlPreview(`
     <div class="sdds-banner sdds-banner-${args.state}">
-     ${args.prefix && args.state === 'error' ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px" /></span>' : ''}
-     ${args.prefix && args.state === 'info' ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px" /></span>' : ''}
-     ${args.prefix && !(args.state === 'info' || args.state === 'error') ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px" /></span>' : ''}
+      ${
+        args.prefix && args.state === 'error'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px" /></span>'
+          : ''
+      }
+      ${
+        args.prefix && args.state === 'info'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px" /></span>'
+          : ''
+      }
+      ${
+        args.prefix && !(args.state === 'info' || args.state === 'error')
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px" /></span>'
+          : ''
+      }
       <div class="sdds-banner-body">
       ${args.header && `<h6 class="sdds-banner-header">${args.header}</h6>`}
       ${args.subheader && `<div class="sdds-banner-subheader">${args.subheader}</div>`}
       ${args.link && `<a class="sdds-link sdds-banner-link">${args.link}</a>`}
       </div>
-      <div class="sdds-banner-close"></div>
+      <button type="button" aria-label="close" class="sdds-banner-close">
+        <sdds-icon name="cross" size="20px"></sdds-icon>
+      </button>
     </div>
   `);
 

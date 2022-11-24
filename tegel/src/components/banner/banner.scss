@@ -47,6 +47,13 @@
   padding-right: 24px;
 }
 
+button.sdds-banner-close {
+  appearance: none;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
 .sdds-banner-close {
   position: relative;
   flex-basis: 16px;
@@ -55,23 +62,6 @@
   color: var(--sdds-banner-x-color);
   cursor: pointer;
   flex-shrink: 0;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    color: inherit;
-    background-color: currentcolor;
-    mask-position: center;
-    mask-size: 16px;
-    mask-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.5 7.5a1 1 0 0 1 0 1.414L8.914 24.5A1 1 0 0 1 7.5 23.086L23.086 7.5a1 1 0 0 1 1.414 0Z' fill='currentColor'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.5 7.5a1 1 0 0 1 1.414 0L24.5 23.086a1 1 0 0 1-1.414 1.414L7.5 8.914a1 1 0 0 1 0-1.414Z' fill='currentColor'/%3E%3C/svg%3E ");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: 16px;
-    mask-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.5 7.5a1 1 0 0 1 0 1.414L8.914 24.5A1 1 0 0 1 7.5 23.086L23.086 7.5a1 1 0 0 1 1.414 0Z' fill='currentColor'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.5 7.5a1 1 0 0 1 1.414 0L24.5 23.086a1 1 0 0 1-1.414 1.414L7.5 8.914a1 1 0 0 1 0-1.414Z' fill='currentColor'/%3E%3C/svg%3E ");
-    mask-repeat: no-repeat;
-  }
 }
 
 .sdds-banner-header {
