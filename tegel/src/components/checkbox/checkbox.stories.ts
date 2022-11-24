@@ -33,13 +33,20 @@ export default {
   },
 };
 
-const Template = args =>
+const Template = ({ checked, disabled, label }) =>
   formatHtmlPreview(`
     <div class="sdds-checkbox-item">
-      <input class="sdds-form-input" type="checkbox" id="unique-id" ${args.checked ? 'checked="checked"' : ''}  ${args.disabled ? 'disabled' : ''}>
-      ${args.label ? `<label class="sdds-form-label" for="unique-id" ${args.disabled && 'disabled'}>  ${args.label} </label>` : ''}
+      <input class="sdds-form-input" type="checkbox" id="unique-id" ${
+        checked ? 'checked="checked"' : ''
+      }  ${disabled ? 'disabled' : ''}>
+      ${
+        label
+          ? `<label class="sdds-form-label" for="unique-id" ${
+              disabled ? 'disabled' : ''
+            }>  ${label} </label>`
+          : ''
+      }
     </div>
   `);
 
 export const Default = Template.bind({});
-Default.args = {};
