@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Tabs/Navigation Tabs',
+  title: 'Components/Tabs',
   parameters: {
     notes: readme,
   },
@@ -20,5 +20,5 @@ const Template = () =>
     </sdds-navigation-tabs>
     `);
 
-export const Default = Template.bind({});
-Default.args = {};
+export const NavigationTabs = Template.bind({});
+NavigationTabs.args = {};

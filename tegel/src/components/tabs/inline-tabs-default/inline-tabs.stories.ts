@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Tabs/Inline Tabs',
+  title: 'Components/Tabs',
   parameters: {
     notes: readme,
     backgrounds: { default: 'white' },
@@ -36,7 +36,9 @@ export default {
 // eslint-disable-next-line arrow-body-style
 const Template = ({ autoHeight = false, altBgColor = false }) => {
   return formatHtmlPreview(`
-    <sdds-inline-tabs ${autoHeight ? 'auto-height' : ''} ${altBgColor ? 'color-variant="on-grey"' : ''}>
+    <sdds-inline-tabs ${autoHeight ? 'auto-height' : ''} ${
+    altBgColor ? 'color-variant="on-grey"' : ''
+  }>
       <div data-name="Tab with tall content">
         Tab panel 1
         <div style="width:200px; height:200px; background: linear-gradient(125deg,rgba(255, 0, 0, 1) 0%,rgba(255, 255, 0, 1) 33%,rgba(0, 192, 255, 1) 66%,rgba(192, 0, 255, 1) 100%);"></div>
@@ -51,5 +53,5 @@ const Template = ({ autoHeight = false, altBgColor = false }) => {
 `);
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const InlineTabs = Template.bind({});
+InlineTabs.args = {};
