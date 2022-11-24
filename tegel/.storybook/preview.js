@@ -75,7 +75,6 @@ export const parameters = {
       date: /Date$/,
     },
     expanded: true,
-    sort: 'alpha',
   },
   viewMode: 'docs',
   previewTabs: {
@@ -85,7 +84,7 @@ export const parameters = {
   viewport: { viewports: customViewports },
   docs: {
     // Fix for dark mode not working on docs tab
-    container: props => {
+    container: (props) => {
       const isDark = useDarkMode();
 
       const { id: storyId, storyById } = props.context;
@@ -148,13 +147,17 @@ export const parameters = {
 // https://github.com/hipstersmoothie/storybook-dark-mode/blob/bdb64ee8302bb95c23ebc2709ed3fe88431072f3/src/index.tsx
 if (!window.SDDS_DID_SUBSCRIBE_DARK_BG) {
   window.SDDS_DID_SUBSCRIBE_DARK_BG = true;
-  const darkModeBgColor = parameters.backgrounds.values.find(({ name }) => name === 'grey-958').value;
-  const lightModeBgColor = parameters.backgrounds.values.find(({ name }) => name === 'grey-50').value;
+  const darkModeBgColor = parameters.backgrounds.values.find(
+    ({ name }) => name === 'grey-958',
+  ).value;
+  const lightModeBgColor = parameters.backgrounds.values.find(
+    ({ name }) => name === 'grey-50',
+  ).value;
   const channel = addons.getChannel();
   channel.emit(UPDATE_GLOBALS, {
     globals: { backgrounds: { value: lightModeBgColor } },
   });
-  channel.on('DARK_MODE', isDarkMode => {
+  channel.on('DARK_MODE', (isDarkMode) => {
     if ((isDarkMode && !window.SDDS_DARK_BG) || (!isDarkMode && window.SDDS_DARK_BG)) {
       channel.emit(UPDATE_GLOBALS, {
         globals: { backgrounds: { value: isDarkMode ? darkModeBgColor : lightModeBgColor } },
