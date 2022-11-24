@@ -31,9 +31,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title opened">
               <span>Title 1</span>
               <span class="sdds-footer-top-icon">
-                <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
-                </svg>
+                <sdds-icon name="chevron_down" size="16px" /> 
               </span>
             </div>
             <ul class="sdds-footer-main-links opened">
@@ -48,9 +46,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title">
               <span>Title 2</span>
               <span class="sdds-footer-top-icon">
-                <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' />
-                </svg>
+              <sdds-icon name="chevron_down" size="16px" /> 
               </span>
             </div>
             <ul class="sdds-footer-main-links">
