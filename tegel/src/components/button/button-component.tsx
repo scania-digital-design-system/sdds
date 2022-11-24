@@ -10,7 +10,6 @@ export class SddsButton {
   /** Text inside a button */
   @Prop() text: string = '';
 
-  //TODO: Should this have prmary, danger, warning etc?
   /** Type of button */
   @Prop() type: 'primary' | 'secondary' | 'ghost' | 'danger' = 'primary';
 
