@@ -149,3 +149,29 @@ Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
   // ...
 </div>
 ```
+
+
+## Textarea
+
+[Webcomponent](/docs/components-textarea--default)
+
+#### Changed prop name 'max-length'
+
+The prop `maxlength` was changed to `max-length` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `maxlength` to `max-length`.
+
+```jsx
+// Old ❌
+<sdds-textarea
+    maxlength="10"
+></sdds-textarea>
+
+// New ✅
+<sdds-textarea
+    max-length="10"
+></sdds-textarea>
+
+```
