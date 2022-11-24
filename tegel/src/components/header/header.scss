@@ -178,7 +178,8 @@ html,
 
     display: block;
     cursor: pointer;
-    background-image: var(--sdds-background-image-scania-symbol-svg), var(--sdds-background-image-scania-symbol-png);
+    background-image: var(--sdds-background-image-scania-symbol-svg),
+      var(--sdds-background-image-scania-symbol-png);
     background-size: 30px auto;
     width: 64px;
     background-position: center;
@@ -611,6 +612,8 @@ html,
         path {
           fill: var(--sdds-header-searchbar-btn-svg-fill);
         }
+
+        color: var(--sdds-header-searchbar-btn-svg-fill);
       }
     }
 
@@ -1073,7 +1076,8 @@ html,
 
             &:last-of-type {
               border-radius: 0;
-              border-bottom: 1px solid var(--sdds-header-mobile-nav-center-dropdown-item--last-border-color);
+              border-bottom: 1px solid
+                var(--sdds-header-mobile-nav-center-dropdown-item--last-border-color);
             }
           }
         }
