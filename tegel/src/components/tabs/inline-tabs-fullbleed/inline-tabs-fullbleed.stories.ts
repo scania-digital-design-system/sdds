@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Tabs/Inline Tabs (full bleed)',
+  title: 'Components/Tabs',
   parameters: {
     notes: readme,
   },
@@ -19,5 +19,5 @@ const Template = () =>
     </sdds-inline-tabs-fullbleed>
 `);
 
-export const Default = Template.bind({});
-Default.args = {};
+export const InlineTabsFullbleed = Template.bind({});
+InlineTabsFullbleed.args = {};
