@@ -70,10 +70,8 @@ const InlineMenuTemplate = (args) => {
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <p class='sdds-nav__item-core-text'>Item 3</p>
                   <span class='sdds-nav__dropdown-icon'>
-                        <svg class="sdds-nav__dropdown-icon-svg" viewBox='0 0 14 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                          <path fill-rule='evenodd' clip-rule='evenodd' fill='currentColor' d='M1.13668 0.891564C1.33194 0.696302 1.64853 0.696302 1.84379 0.891564L6.78786 5.83563C6.90501 5.95278 7.09496 5.95278 7.21212 5.83563L12.1562 0.891564C12.3515 0.696302 12.668 0.696303 12.8633 0.891565C13.0586 1.08683 13.0586 1.40341 12.8633 1.59867L7.91923 6.54273C7.41155 7.05041 6.58843 7.05041 6.08075 6.54273L1.13668 1.59867C0.941419 1.40341 0.941419 1.08683 1.13668 0.891564Z'/>
-                        </svg>                                       
-                    </span>
+                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />                                                                          
+                  </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>
                   <li class='sdds-nav__dropdown-item'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
