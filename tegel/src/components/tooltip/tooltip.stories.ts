@@ -44,7 +44,7 @@ export default {
     },
     slot: {
       name: 'Tooltip html content',
-      description: 'A slot for the tooltip to pass in html content.',
+      description: 'A slot for the tooltip to pass in html.',
       control: {
         type: 'text',
       },
