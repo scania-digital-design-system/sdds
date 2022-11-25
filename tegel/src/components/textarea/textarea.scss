@@ -27,6 +27,7 @@
   &:disabled {
     background-color: var(--sdds-textarea-disabled-bg);
     color: var(--sdds-textarea-disabled-color);
+    cursor: not-allowed;
 
     &::placeholder {
       color: var(--sdds-textarea-disabled-placeholder);

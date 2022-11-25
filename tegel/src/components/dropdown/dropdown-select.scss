@@ -16,6 +16,10 @@
     &:focus {
       border-bottom: 2px solid var(--sdds-blue-400);
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   // Size medium
