@@ -35,9 +35,9 @@ export class Tooltip {
 
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
-    const _this = this;
+    const thisValue = this;
     createPopper(this.target, this.tooltip, {
-      placement: _this.placement,
+      placement: thisValue.placement,
       modifiers: [
         {
           name: 'positionCalc',
@@ -45,15 +45,15 @@ export class Tooltip {
           phase: 'main',
           fn({ state }) {
             if (state.placement === 'bottom-start' || state.placement === 'right-start') {
-              _this.border = 'top-left';
+              thisValue.border = 'top-left';
             } else if (state.placement === 'bottom-end' || state.placement === 'left-start') {
-              _this.border = 'top-right';
+              thisValue.border = 'top-right';
             } else if (state.placement === 'top-end' || state.placement === 'left-end') {
-              _this.border = 'bottom-right';
+              thisValue.border = 'bottom-right';
             } else if (state.placement === 'top-start' || state.placement === 'right-end') {
-              _this.border = 'bottom-left';
+              thisValue.border = 'bottom-left';
             } else if (state.placement === 'bottom' || state.placement === 'top') {
-              _this.border = 'default';
+              thisValue.border = 'default';
             }
           },
         },
@@ -73,6 +73,15 @@ export class Tooltip {
     const hideTooltip = () => {
       this.show = false;
     };
+
+    // For tabbing over element
+    this.target.addEventListener('focusin', () => {
+      showTooltip();
+    });
+
+    this.target.addEventListener('focusout', () => {
+      hideTooltip();
+    });
 
     // For hovering over element with selector
     this.target.addEventListener('mouseenter', () => {
@@ -98,7 +107,10 @@ export class Tooltip {
   /* Slot on line 118 is added to support adding HTML elements to component */
   render() {
     return (
-      <span ref={el => (this.tooltip = el as HTMLInputElement)} class={`sdds-tooltip sdds-tooltip-${this.border} ${this.show ? 'sdds-tooltip-show' : ''}`}>
+      <span
+        ref={(el) => (this.tooltip = el as HTMLInputElement)}
+        class={`sdds-tooltip sdds-tooltip-${this.border} ${this.show ? 'sdds-tooltip-show' : ''}`}
+      >
         {this.text}
         <slot />
       </span>
