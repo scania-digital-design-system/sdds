@@ -101,7 +101,7 @@ const SearchbarMenuTemplate = (args) => {
           <ul class='sdds-nav__searchbar-menu'>
               <li class='sdds-nav__searchbar-item--top' tabindex="0">
                     <p class='sdds-nav__searchbar-all-results'>
-                    <i class="sdds-icon search sdds-nav__app-searchbar-results-mgl-svg"></i>
+                    <sdds-icon name="search" class="sdds-nav__app-searchbar-results-mgl-svg"></sdds-icon>
                     See all search results <span>(press enter)</span>
                     </p>
               </li>
