@@ -66,8 +66,8 @@ export default {
 };
 
 const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }) => {
-  let stateValue = state === 'Active' ? 'sdds-chip__active' : '';
-  let sizeValue = size === 'Small' ? 'sdds-chip__small' : '';
+  const stateValue = state === 'Active' ? 'sdds-chip__active' : '';
+  const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
     'Icon left': 'sdds-chip__icon-left',
     'Icon right': 'sdds-chip__icon-right',
@@ -75,17 +75,27 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
 
   // TODO - Add dark theme to story
   const iconSvg = `
-    ${iconType === 'Native' ? '<i class="sdds-chip-icon sdds-icon notification"></i>' : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'}
+    ${
+      iconType === 'Native'
+        ? '<i class="sdds-chip-icon sdds-icon notification"></i>'
+        : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'
+    }
     `;
 
   return formatHtmlPreview(`
     <style>
-      ${iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
+      ${
+        iconType === 'Native'
+          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');`
+          : ''
+      }
       .sdds-chip-icon {
         font-size: 16px;
       }
     </style>
-    <div class="sdds-chip ${icon ? iconPositionLookup[iconPosition] : ''} ${stateValue} ${sizeValue}">
+    <div class="sdds-chip ${
+      icon ? iconPositionLookup[iconPosition] : ''
+    } ${stateValue} ${sizeValue}">
       ${icon ? iconSvg : ''}
       <span class="sdds-chip-text">${placeholderText}</span>
     </div>
