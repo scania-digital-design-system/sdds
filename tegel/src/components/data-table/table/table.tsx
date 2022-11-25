@@ -46,7 +46,10 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
-  /** ID used for internal table functionality and events, must be unique. */
+  /** ID used for internal table functionality and events, must be unique.
+   *
+   * **NOTE**: If you're listening for table events you need to set this ID yourself to identify the table, as the default ID is random and will be different every time.
+   */
   @Prop() tableId: string = crypto.randomUUID();
 
   @Element() host: HTMLElement;
