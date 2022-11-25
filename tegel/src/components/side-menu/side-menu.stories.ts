@@ -48,7 +48,7 @@ const Template = ({ showIcons, collapsed }) => {
 <nav class="sdds-nav">
   <div class="sdds-nav__left">
     <button class="sdds-nav__mob-menu-btn">
-    <sdds-icon name="burger" size="20px" /> 
+      <sdds-icon name="burger" size="20px" /> 
     </button>
     <div class="sdds-nav__app-name">My application</div>
   </div>
@@ -60,14 +60,14 @@ const Template = ({ showIcons, collapsed }) => {
 <div class="sdds-push sdds-demo-container">
   <div class="sdds-sidebar side-menu ${collapsed ? 'collapsed' : ''}">
     <div class="sdds-sidebar-mheader">
-      <a href="#" class="sdds-sidebar-mheader__close">
-        <sdds-icon name="cross" size="20px" /> 
-      </a>
+    <button class="sdds-sidebar-mheader__close">
+      <sdds-icon name="cross" size="20px" /> 
+    </button>
     </div>
 
     <ul class="sdds-sidebar-nav sdds-sidebar-nav--main ${icons}">
       <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
-        <a class="sdds-sidebar-nav__item-link" href="#">
+        <button class="sdds-sidebar-nav__item-link">
           <div>
             <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
           </div>
@@ -75,7 +75,7 @@ const Template = ({ showIcons, collapsed }) => {
           <div>
             <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
           </div>
-        </a>
+        </button>
         <ul class="sdds-sidebar-nav-subnav">
           <li class="sdds-sidebar-nav-subnav__item">
             <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
@@ -98,7 +98,7 @@ const Template = ({ showIcons, collapsed }) => {
         </ul>
       </li>
       <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
-      <a class="sdds-sidebar-nav__item-link" href="#">
+      <button class="sdds-sidebar-nav__item-link">
       <div>
         <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
       </div>
@@ -106,7 +106,7 @@ const Template = ({ showIcons, collapsed }) => {
       <div>
         <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
       </div>
-       </a>
+       </button>
         <ul class="sdds-sidebar-nav-subnav">
           <li class="sdds-sidebar-nav-subnav__item">
             <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
@@ -151,6 +151,14 @@ const Template = ({ showIcons, collapsed }) => {
   </div>
 </div>
 <script>
+
+  document.querySelector('button.sdds-nav__mob-menu-btn').addEventListener('click', () => {
+    document.querySelector('.side-menu').classList.toggle('mobile-menu-open')
+  })
+  document.querySelector('button.sdds-sidebar-mheader__close').addEventListener('click', () => {
+    document.querySelector('.side-menu').classList.toggle('mobile-menu-open')
+  })
+
   expandableListItems = document.getElementsByClassName('sdds-sidebar-nav__extended');
 
   for (let i = 0; i < expandableListItems.length; i++) {
