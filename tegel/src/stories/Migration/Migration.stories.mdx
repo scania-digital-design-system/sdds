@@ -13,6 +13,36 @@ Here is where we document all the breaking changes that we are introducing while
 
 https://www.markdownguide.org/cheat-sheet/
 
+
+## Banner
+
+[Native](/docs/components-banner--default/)
+
+
+#### Replaced built in icon with icon component
+
+Support for just adding a `.sdds-banner-close` class was removed in favor of using the <sdds-icon> component.
+For accessibility reasons, we recommend wrapping the icon in a native `button` element.
+
+```jsx
+// Old ❌
+<div class="sdds-banner sdds-banner-error">
+  // ...
+  <div  class="sdds-banner-close">
+  </div>
+</div>
+
+// New ✅
+<div class="sdds-banner sdds-banner-error">
+  // ...
+  <button type="button" aria-label="close" class="sdds-banner-close">
+    <sdds-icon name="cross" size="20px"></sdds-icon>
+  </button>
+</div>
+```
+
+
+
 ## Button
 
 [Native](/docs/components-button--native/)
