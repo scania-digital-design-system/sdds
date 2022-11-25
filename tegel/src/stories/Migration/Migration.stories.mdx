@@ -199,4 +199,88 @@ Rename all instances of `maxlength` to `max-length`.
     max-length="10"
 ></sdds-textfield>
 
+
+### Not breaing but highly suggested changes
+
+## Side menu
+
+[Native](/docs/components-side-menu--default)
+
+#### Used `<sdds-icon>` instead of `<svg>`
+
+The side-menu has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
+
+##### What action is required?
+
+Change all instances of `<svg>` to `<sdds-icon>`
+
+```jsx
+// Old ❌
+<button class="sdds-nav__mob-menu-btn">
+  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z"
+        fill="currentColor"
+      />
+    </svg> 
+</button>
+
+// New ✅
+<button class="sdds-nav__mob-menu-btn">
+    <sdds-icon name="burger" size="20px" /> 
+</button>
+```
+
+## Header
+
+[Native](/docs/components-header--default)
+
+#### Used `<sdds-icon>` instead of `<svg>`
+
+The header has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
+
+##### What action is required?
+
+Change all instances of `<svg>` to `<sdds-icon>`
+
+```jsx
+// Old ❌
+<button class='sdds-nav__app-launcher-btn'>
+  <svg class="sdds-nav__app-launcher-btn-svg" viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <path fill-rule='evenodd' clip-rule='evenodd' d='M1.33333 2.66667C2.06971 2.66667 2.66667 2.06971 2.66667 1.33333C2.66667 0.596954 2.06971 0 1.33333 0C0.596954 0 0 0.596954 0 1.33333C0 2.06971 0.596954 2.66667 1.33333 2.66667ZM9.33307 1.33333C9.33307 2.06971 8.73612 2.66667 7.99974 2.66667C7.26336 2.66667 6.66641 2.06971 6.66641 1.33333C6.66641 0.596954 7.26336 0 7.99974 0C8.73612 0 9.33307 0.596954 9.33307 1.33333ZM16.0003 1.33333C16.0003 2.06971 15.4033 2.66667 14.6669 2.66667C13.9305 2.66667 13.3336 2.06971 13.3336 1.33333C13.3336 0.596954 13.9305 0 14.6669 0C15.4033 0 16.0003 0.596954 16.0003 1.33333ZM16.0003 8C16.0003 8.73638 15.4033 9.33333 14.6669 9.33333C13.9305 9.33333 13.3336 8.73638 13.3336 8C13.3336 7.26362 13.9305 6.66667 14.6669 6.66667C15.4033 6.66667 16.0003 7.26362 16.0003 8ZM14.6669 16C15.4033 16 16.0003 15.403 16.0003 14.6667C16.0003 13.9303 15.4033 13.3333 14.6669 13.3333C13.9305 13.3333 13.3336 13.9303 13.3336 14.6667C13.3336 15.403 13.9305 16 14.6669 16ZM7.99974 9.33333C8.73612 9.33333 9.33307 8.73638 9.33307 8C9.33307 7.26362 8.73612 6.66667 7.99974 6.66667C7.26336 6.66667 6.66641 7.26362 6.66641 8C6.66641 8.73638 7.26336 9.33333 7.99974 9.33333ZM9.33307 14.6667C9.33307 15.403 8.73612 16 7.99974 16C7.26336 16 6.66641 15.403 6.66641 14.6667C6.66641 13.9303 7.26336 13.3333 7.99974 13.3333C8.73612 13.3333 9.33307 13.9303 9.33307 14.6667ZM2.66667 8C2.66667 8.73638 2.06971 9.33333 1.33333 9.33333C0.596954 9.33333 0 8.73638 0 8C0 7.26362 0.596954 6.66667 1.33333 6.66667C2.06971 6.66667 2.66667 7.26362 2.66667 8ZM1.33333 16C2.06971 16 2.66667 15.403 2.66667 14.6667C2.66667 13.9303 2.06971 13.3333 1.33333 13.3333C0.596954 13.3333 0 13.9303 0 14.6667C0 15.403 0.596954 16 1.33333 16Z' fill='currentColor' fill-opacity='1'/>
+  </svg>
+</button>
+
+// New ✅
+<button class='sdds-nav__app-launcher-btn'>
+  <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" />
+</button>
+```
+
+## Footer
+
+[Native](/docs/components-footer--default)
+
+#### Used `<sdds-icon>` instead of `<svg>`
+
+The footer has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
+
+##### What action is required?
+
+Change all instances of `<svg>` to `<sdds-icon>`
+
+```jsx
+// Old ❌
+<span class="sdds-footer-top-icon">
+  <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/>
+  </svg>
+</span>
+
+// New ✅
+<span class='sdds-footer-top-icon'>
+  <sdds-icon name="chevron_down" size="16px" /> 
+</span>
 ```
