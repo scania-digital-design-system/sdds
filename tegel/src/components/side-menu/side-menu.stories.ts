@@ -163,10 +163,7 @@ const Template = ({ showIcons, collapsed }) => {
 
   for (let i = 0; i < expandableListItems.length; i++) {
     expandableListItems[i].addEventListener('click', (event) => {
-      event.preventDefault();
-      document
-        .getElementsByClassName('sdds-sidebar-nav__extended')
-        [i].classList.toggle('subnav-open');
+      document.getElementsByClassName('sdds-sidebar-nav__extended')[i].classList.toggle('subnav-open');
     });
   }
 </script>
