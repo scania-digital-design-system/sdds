@@ -21,6 +21,7 @@
   &:disabled {
     background-color: var(--sdds-datetime-disabled-bg);
     color: var(--sdds-datetime-disabled-color);
+    cursor: not-allowed;
 
     &::placeholder {
       color: var(--sdds-datetime-disabled-placeholder);
@@ -164,8 +165,6 @@ slot[name='sdds-label']::slotted(*) {
 
 @mixin label-inside-transition {
   transition: 0.1s ease all;
-  transition: 0.1s ease all;
-  transition: 0.1s ease all;
 }
 
 //Form control
@@ -306,6 +305,7 @@ slot[name='sdds-label']::slotted(*) {
 
   slot[name='sdds-label']::slotted(*) {
     color: var(--sdds-datetime-disabled-label);
+    cursor: not-allowed;
   }
 }
 

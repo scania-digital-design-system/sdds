@@ -106,7 +106,7 @@ const Template = ({ showIcons, collapsed }) => {
       <div>
         <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
       </div>
-       </button>
+      </button>
         <ul class="sdds-sidebar-nav-subnav">
           <li class="sdds-sidebar-nav-subnav__item">
             <span class="sdds-sidebar-nav__item-title">Sub-menu</span>
