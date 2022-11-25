@@ -75,12 +75,26 @@ export default {
         },
       },
     },
+    disablePadding: {
+      name: 'Disable cell padding',
+      description:
+        'By default each cell comes with padding. Disabling padding rule can be useful when a users want to insert another HTML element in cell, eg. input.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
+    disablePadding: false,
   },
 };
 
@@ -101,40 +115,40 @@ const BasicTemplate = (args) =>
       </sdds-table-header>
       <sdds-table-body>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 1" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 2" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 3" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 4" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 5" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 6" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 7" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 8" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 1" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 2" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 3" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 4" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 5" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 6" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 7" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 8" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 1" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 2" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 3" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 4" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 1" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 2" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 3" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 4" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
           <sdds-table-body-row>
-              <sdds-body-cell cell-value="Test value 5" cell-key="truck"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 6" cell-key="driver"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 7" cell-key="country"></sdds-body-cell>
-              <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 5" cell-key="truck" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 6" cell-key="driver" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 7" cell-key="country" disable-padding="${args.disablePadding}"></sdds-body-cell>
+              <sdds-body-cell cell-value="Test value 8" cell-key="mileage" disable-padding="${args.disablePadding}"></sdds-body-cell>
           </sdds-table-body-row>
       </sdds-table-body>
   </sdds-table>`);
