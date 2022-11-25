@@ -99,7 +99,6 @@ const SortingTemplate = ({
   formatHtmlPreview(`
   <h3>Sorting example</h3>
    <sdds-table
-      id="sorting-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"

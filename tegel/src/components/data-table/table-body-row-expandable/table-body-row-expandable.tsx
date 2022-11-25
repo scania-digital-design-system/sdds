@@ -28,7 +28,7 @@ export class TableBodyRowExpandable {
 
   @State() isExpanded: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @State() columnsNumber: number = null;
 
@@ -64,7 +64,7 @@ export class TableBodyRowExpandable {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -78,18 +78,17 @@ export class TableBodyRowExpandable {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
   }
 
   componentDidLoad() {
-    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
+    this.runPaginationEvent.emit(this.tableId);
   }
 
   componentWillRender() {
@@ -101,7 +100,7 @@ export class TableBodyRowExpandable {
   }
 
   sendValue() {
-    this.singleRowExpandedEvent.emit([this.uniqueTableIdentifier, this.isExpanded]);
+    this.singleRowExpandedEvent.emit([this.tableId, this.isExpanded]);
   }
 
   onChangeHandler(event) {

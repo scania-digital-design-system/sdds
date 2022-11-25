@@ -1,17 +1,7 @@
 // https://stackoverflow.com/questions/63051941/how-to-pass-data-as-array-of-object-in-stencil-js
 // https://medium.com/@scottmgerstl/passing-an-object-or-array-to-stencil-dd62b7d92641
 
-import {
-  Component,
-  Prop,
-  h,
-  Host,
-  Event,
-  EventEmitter,
-  Element,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter, Element, Watch } from '@stencil/core';
 
 type Props = {
   verticalDividers: boolean;
@@ -56,7 +46,8 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  /** ID used for internal table functionality and events, must be unique. */
+  @Prop() tableId: string = crypto.randomUUID();
 
   @Element() host: HTMLElement;
 
@@ -71,7 +62,7 @@ export class Table {
 
   emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
     this.tablePropsChangedEvent.emit({
-      tableId: this.uniqueTableIdentifier,
+      tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,
     });
@@ -105,10 +96,6 @@ export class Table {
   @Watch('whiteBackground')
   whiteBackgroundChanged(newValue: boolean) {
     this.emitTablePropsChangedEvent('whiteBackground', newValue);
-  }
-
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.getAttribute('id');
   }
 
   render() {

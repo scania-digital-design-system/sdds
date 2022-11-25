@@ -69,7 +69,7 @@ export class TableFooter {
 
   @State() whiteBackground: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
@@ -86,7 +86,7 @@ export class TableFooter {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -100,11 +100,10 @@ export class TableFooter {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
@@ -122,7 +121,7 @@ export class TableFooter {
       this.columnsNumber = numberOfColumns;
     }
 
-    this.enablePaginationEvent.emit(this.uniqueTableIdentifier);
+    this.enablePaginationEvent.emit(this.tableId);
   }
 
   paginationPrev = (event) => {
@@ -157,7 +156,7 @@ export class TableFooter {
 
   @Listen('runPaginationEvent', { target: 'body' })
   runPaginationEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail) {
+    if (this.tableId === event.detail) {
       this.runPagination();
     }
   }
@@ -201,7 +200,7 @@ export class TableFooter {
   currentPageValueEvent: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.currentPageValueEvent.emit([this.uniqueTableIdentifier, value]);
+    this.currentPageValueEvent.emit([this.tableId, value]);
   }
 
   clientPaginationPrev = (event) => {

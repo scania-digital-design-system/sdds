@@ -34,7 +34,7 @@ export class TableHeaderRow {
 
   @State() enableToolbarDesign: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
@@ -51,7 +51,7 @@ export class TableHeaderRow {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -66,14 +66,14 @@ export class TableHeaderRow {
   @Listen('updateMainCheckboxEvent', { target: 'body' })
   updateMainCheckboxEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedMainCheckboxStatus] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.mainCheckboxSelected = receivedMainCheckboxStatus;
     }
   }
 
   @Listen('singleRowExpandedEvent', { target: 'body' })
   singleRowExpandedEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       // TODO: Improve this logic. Why we get late repose in DOM?
       setTimeout(() => {
         this.bodyExpandClicked();
@@ -98,11 +98,10 @@ export class TableHeaderRow {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
@@ -115,7 +114,7 @@ export class TableHeaderRow {
 
   headCheckBoxClicked(event) {
     this.mainCheckboxSelected = event.currentTarget.checked;
-    this.mainCheckboxSelectedEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxSelected]);
+    this.mainCheckboxSelectedEvent.emit([this.tableId, this.mainCheckboxSelected]);
   }
 
   render() {
