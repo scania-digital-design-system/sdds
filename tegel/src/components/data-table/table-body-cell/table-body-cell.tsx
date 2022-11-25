@@ -12,7 +12,7 @@ export class TableBodyCell {
   /** Passing same cell key for all body cells which is used in head cell enables features of text align and hovering */
   @Prop({ reflect: true }) cellKey: any;
 
-  /** Disables internal padding. Useful when passing other tegel to cell. */
+  /** Disables internal padding. Useful when passing other components to cell. */
   @Prop({ reflect: true }) disablePadding: boolean = false;
 
   @State() textAlignState: string;
@@ -37,7 +37,13 @@ export class TableBodyCell {
 
   @Listen('commonTableStylesEvent', { target: 'body' })
   commonTableStyleListener(event: CustomEvent<any>) {
-    const [receiverID, receiverVerticalDividers, receiverCompactDesign, receiverNoMinWidth, receiverWhiteBackground] = event.detail;
+    const [
+      receiverID,
+      receiverVerticalDividers,
+      receiverCompactDesign,
+      receiverNoMinWidth,
+      receiverWhiteBackground,
+    ] = event.detail;
 
     if (this.uniqueTableIdentifier === receiverID) {
       this.verticalDividers = receiverVerticalDividers;
