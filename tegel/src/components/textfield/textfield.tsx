@@ -43,7 +43,7 @@ export class Textfield {
   @Prop() state: string;
 
   /** Max length of input */
-  @Prop() maxlength: number;
+  @Prop() maxLength: number;
 
   /** Autofocus for input */
   @Prop() autofocus: boolean = false;
@@ -139,7 +139,7 @@ export class Textfield {
               placeholder={this.placeholder}
               value={this.value}
               autofocus={this.autofocus}
-              maxlength={this.maxlength}
+              maxlength={this.maxLength}
               name={this.name}
               onInput={(e) => this.handleInput(e)}
               onChange={(e) => this.handleChange(e)}
@@ -210,11 +210,11 @@ export class Textfield {
           )}
           {this.state !== 'error' && <slot name="sdds-helper" />}
 
-          {this.maxlength > 0 && (
+          {this.maxLength > 0 && (
             <div class="sdds-textfield-textcounter">
               {this.value === null ? 0 : this.value?.length}
               <span class="sdds-textfield-textcounter-divider"> / </span>
-              {this.maxlength}
+              {this.maxLength}
             </div>
           )}
         </div>

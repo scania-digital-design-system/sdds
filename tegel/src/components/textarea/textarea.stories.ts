@@ -114,7 +114,7 @@ const Template = ({
   rows,
   variant,
 }) => {
-  const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
+  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
@@ -137,7 +137,7 @@ const Template = ({
           helper="${helper}"
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
-          ${readonly ? 'readonly' : ''}
+          ${readonly ? 'read-only' : ''}
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>

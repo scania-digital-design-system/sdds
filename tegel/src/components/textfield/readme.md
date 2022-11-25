@@ -10,7 +10,7 @@
 | `autofocus`   | `autofocus`    | Autofocus for input                         | `boolean`                | `false`     |
 | `disabled`    | `disabled`     | Set input in disabled state                 | `boolean`                | `false`     |
 | `labelInside` | `label-inside` | Label that will be put inside the input     | `string`                 | `''`        |
-| `maxlength`   | `maxlength`    | Max length of input                         | `number`                 | `undefined` |
+| `maxLength`   | `max-length`   | Max length of input                         | `number`                 | `undefined` |
 | `name`        | `name`         | Name property                               | `string`                 | `''`        |
 | `nominwidth`  | `nominwidth`   | With setting                                | `boolean`                | `false`     |
 | `placeholder` | `placeholder`  | Placeholder text                            | `string`                 | `''`        |

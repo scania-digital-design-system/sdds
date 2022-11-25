@@ -43,7 +43,7 @@ export class Textarea {
   @Prop() state: string;
 
   /** Max length of input */
-  @Prop() maxlength: number;
+  @Prop() maxLength: number;
 
   /** Variant of the textarea */
   @Prop() variant: 'default' | 'variant' = 'default';
@@ -109,7 +109,7 @@ export class Textarea {
             value={this.value}
             name={this.name}
             autofocus={this.autofocus}
-            maxlength={this.maxlength}
+            maxlength={this.maxLength}
             cols={this.cols}
             rows={this.rows}
             onInput={(e) => this.handleInput(e)}
@@ -161,10 +161,10 @@ export class Textarea {
           <span class="sdds-textarea-icon__readonly-label">This field is non-editable</span>
         </div>
         {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
-        {this.maxlength > 0 && (
+        {this.maxLength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
             {this.value === null ? 0 : this.value?.length}
-            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
+            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxLength}
           </div>
         )}
       </div>
