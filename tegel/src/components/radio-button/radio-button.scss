@@ -71,7 +71,7 @@
 
     &:disabled,
     &.disabled {
-      cursor: default;
+      cursor: not-allowed;
 
       &::after {
         border-color: var(--sdds-radio-button-border-color-disabled-after);
@@ -80,7 +80,7 @@
 
       + label {
         color: var(--sdds-grey-600);
-        cursor: default;
+        cursor: not-allowed;
       }
 
       &:hover {
