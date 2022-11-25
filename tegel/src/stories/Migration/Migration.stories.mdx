@@ -21,20 +21,20 @@ https://www.markdownguide.org/cheat-sheet/
 
 #### Replaced built in icon with icon component
 
-Support for just adding a `.sdds-banner-close` class was removed in favor of using the <sdds-icon> component.
+Support for just adding a `.sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
 For accessibility reasons, we recommend wrapping the icon in a native `button` element.
 
 ```jsx
 // Old ❌
 <div class="sdds-banner sdds-banner-error">
-  // ...
+  //...
   <div  class="sdds-banner-close">
   </div>
 </div>
 
 // New ✅
 <div class="sdds-banner sdds-banner-error">
-  // ...
+  //...
   <button type="button" aria-label="close" class="sdds-banner-close">
     <sdds-icon name="cross" size="20px"></sdds-icon>
   </button>
