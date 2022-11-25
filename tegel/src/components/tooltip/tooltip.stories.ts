@@ -1,3 +1,4 @@
+import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
@@ -41,6 +42,13 @@ export default {
         type: 'text',
       },
     },
+    slot: {
+      name: 'Tooltip slot',
+      description: 'A slot for the tooltip to pass in an element.',
+      control: {
+        type: 'text',
+      },
+    },
     mouseOverTooltip: {
       name: 'Open while hovering over tooltip',
       control: 'boolean',
@@ -50,6 +58,7 @@ export default {
   args: {
     tooltipPosition: 'Bottom',
     text: 'Text inside tooltip',
+    slot: '<p> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>',
     mouseOverTooltip: true,
   },
 };
@@ -69,25 +78,29 @@ const positionLookup = {
   'Right-end': 'right-end',
 };
 
-const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text }) => `
-   <div class='demo-wrapper'>
+const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
+  formatHtmlPreview(
+    `
+   <div class="demo-wrapper">
    <sdds-tooltip 
       placement="${positionLookup[tooltipPosition]}" 
       selector="#button-1" 
       text="${text}" 
       mouse-over-tooltip="${mouseOverTooltip}">
-      <p> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>
+      ${slot}
     </sdds-tooltip>
-    <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button></div>
-
-    <style> 
-    .demo-wrapper{ 
-      height: 200px; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-    } 
-    </style>
-  `;
+    <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button>
+   </div>
+   <style>
+    /* This is only for demontration purposes */
+    .demo-wrapper{
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   </style>  
+  `,
+  );
 
 export const Default = ComponentTooltip.bind({});
