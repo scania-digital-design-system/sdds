@@ -168,7 +168,7 @@ const Template = ({
   icon,
   textcounter,
 }) => {
-  const maxlength = textcounter > 0 ? `maxlength="${textcounter}"` : '';
+  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
   const sizeLookUp = {

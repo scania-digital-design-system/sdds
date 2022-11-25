@@ -13,7 +13,7 @@ export class SddsBadges {
   /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
 
-  /** !!Deprecated!! Use size prop instead. Changes badge from default to small size */
+  /** @deprecated Use size prop instead. Changes badge from default to small size */
   @Prop() isSmall: boolean = false;
 
   /** Component is available in size default and small (small dot). Default size is default */
@@ -46,13 +46,22 @@ export class SddsBadges {
       this.size = 'default';
       this.text = valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
     } else {
-      this.value !== '' && this.size !== 'sm' ? console.warn('The provided value is either empty or string, please provide value as number.') : '';
+      // eslint-disable-next-line no-unused-expressions, @typescript-eslint/no-unused-expressions
+      this.value !== '' && this.size !== 'sm'
+        ? console.warn(
+            'The provided value is either empty or string, please provide value as number.',
+          )
+        : '';
     }
   }
 
   render() {
     return (
-      <host class={`sdds-badges sdds-badges-${this.size} ${this.shape === 'pill' ? 'sdds-badges-pill' : ''} ${this.isVisible ? '' : 'sdds-badges-hidden'}`}>
+      <host
+        class={`sdds-badges sdds-badges-${this.size} ${
+          this.shape === 'pill' ? 'sdds-badges-pill' : ''
+        } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+      >
         <div class="sdds-badges-text">{this.text}</div>
       </host>
     );
