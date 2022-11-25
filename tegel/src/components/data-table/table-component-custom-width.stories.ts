@@ -153,7 +153,6 @@ export default {
 const BasicTemplate = (args) =>
   formatHtmlPreview(`
   <sdds-table
-      id="basic-table"
       vertical-dividers="${args.verticalDivider}"
       compact-design="${args.compactDesign}"
       white-background="${args.onWhiteBackground}"

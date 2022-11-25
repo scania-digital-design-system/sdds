@@ -107,7 +107,6 @@ const PaginationTemplate = ({
   formatHtmlPreview(`
   <h3>Pagination</h3>
    <sdds-table
-      id="pagination-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"

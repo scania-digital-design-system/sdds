@@ -111,7 +111,6 @@ const EventListenersTemplate = ({
 
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table
-      id="disabled-functionality-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"

@@ -34,7 +34,7 @@ export class TableBodyCell {
 
   @State() whiteBackground: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
@@ -42,7 +42,7 @@ export class TableBodyCell {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -59,7 +59,7 @@ export class TableBodyCell {
   headCellHoverEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue] = event.detail;
 
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.activeSorting = this.cellKey === receivedKeyValue;
     }
   }
@@ -69,7 +69,7 @@ export class TableBodyCell {
   textAlignEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedKey, receivedTextAlign] = event.detail;
 
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       if (this.cellKey === receivedKey) {
         this.textAlignState = receivedTextAlign;
       }
@@ -78,11 +78,10 @@ export class TableBodyCell {
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });

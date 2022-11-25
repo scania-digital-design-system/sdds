@@ -72,7 +72,7 @@ export class TableBody {
 
   @State() showNoResultsMessage: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   tableEl: HTMLSddsTableElement;
 
@@ -116,7 +116,7 @@ export class TableBody {
 
   @Listen('tablePropsChangedEvent', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
-    if (this.uniqueTableIdentifier === event.detail.tableId) {
+    if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
         .forEach((changedProp) => {
@@ -151,8 +151,8 @@ export class TableBody {
 
   uncheckAll = () => {
     this.mainCheckboxStatus = false;
-    this.updateMainCheckboxEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
-    this.updateBodyCheckboxesEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
+    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.updateBodyCheckboxesEvent.emit([this.tableId, this.mainCheckboxStatus]);
   };
 
   sortData(keyValue, sortingDirection) {
@@ -172,7 +172,7 @@ export class TableBody {
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.sortData(receivedKeyValue, receivedSortingDirection);
     }
   }
@@ -196,7 +196,7 @@ export class TableBody {
 
   @Listen('mainCheckboxSelectedEvent', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       [, this.mainCheckboxStatus] = event.detail;
       this.selectedDataExporter();
     }
@@ -211,7 +211,7 @@ export class TableBody {
 
     this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
 
-    this.updateMainCheckboxEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
+    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
 
     this.selectedDataExporter();
   };
@@ -272,7 +272,7 @@ export class TableBody {
         });
 
         this.disableAllSorting = true;
-        this.sortingSwitcherEvent.emit([this.uniqueTableIdentifier, this.disableAllSorting]);
+        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
 
         const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
 
@@ -293,7 +293,7 @@ export class TableBody {
         }
 
         this.disableAllSorting = false;
-        this.sortingSwitcherEvent.emit([this.uniqueTableIdentifier, this.disableAllSorting]);
+        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
       }
     }
   }
@@ -301,18 +301,17 @@ export class TableBody {
   // Listen to tableFilteringTerm from tableToolbar component
   @Listen('tableFilteringTerm', { target: 'body' })
   tableFilteringTermListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       this.searchFunction(event.detail[1]);
     }
   }
 
   connectedCallback() {
     this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
-    this.uniqueTableIdentifier = this.tableEl.getAttribute('id');
-
     relevantTableProps.forEach((tablePropName) => {
       this[tablePropName] = this.tableEl[tablePropName];
     });
