@@ -8,6 +8,7 @@ import sddsBodyRow from './table-body-row/readme.md';
 import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
+import dummyData from './table-body/dummy-data.json';
 
 export default {
   title: 'Components/Data Table/Web Component',
@@ -75,12 +76,25 @@ export default {
         },
       },
     },
+    useDataProp: {
+      name: 'Use data prop',
+      description: 'Load table data from property',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
+    useDataProp: false,
   },
 };
 
@@ -89,6 +103,7 @@ const FilteringTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  useDataProp,
 }) =>
   formatHtmlPreview(`
   <h3>Filtering example</h3>
@@ -96,8 +111,8 @@ const FilteringTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
-       enable-responsive="${responsiveDesign}"
-   >
+      enable-responsive="${responsiveDesign}"
+  >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
@@ -105,7 +120,24 @@ const FilteringTemplate = ({
               <sdds-header-cell column-key='country' column-title='Country' ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
           </sdds-table-header>
-          <sdds-table-body enable-dummy-data>
+          <sdds-table-body ${useDataProp ? `body-data='${JSON.stringify(dummyData)}'` : ''}>
+            ${
+              !useDataProp
+                ? dummyData
+                    .map(
+                      (row) =>
+                        `<sdds-table-body-row>
+                        ${Object.entries(row)
+                          .map(
+                            (cell) =>
+                              `<sdds-body-cell cell-key="${cell[0]}" cell-value="${cell[1]}"></sdds-body-cell>`,
+                          )
+                          .join(' ')}
+                      </sdds-table-body-row>`,
+                    )
+                    .join(' ')
+                : ''
+            }
           </sdds-table-body>
   </sdds-table>`);
 
