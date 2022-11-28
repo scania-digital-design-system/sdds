@@ -1,7 +1,22 @@
 // https://stackoverflow.com/questions/63051941/how-to-pass-data-as-array-of-object-in-stencil-js
 // https://medium.com/@scottmgerstl/passing-an-object-or-array-to-stencil-dd62b7d92641
 
-import { Component, Prop, h, Host, Event, EventEmitter, Element, State, Listen } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter, Element, Watch } from '@stencil/core';
+
+type Props = {
+  verticalDividers: boolean;
+  compactDesign: boolean;
+  noMinWidth: boolean;
+  whiteBackground: boolean;
+  enableMultiselect: boolean;
+  enableExpandableRows: boolean;
+  enableResponsive: boolean;
+};
+
+export type TablePropsChangedEvent = {
+  tableId: string;
+  changed: Array<keyof Props>;
+} & Partial<Props>;
 
 @Component({
   tag: 'sdds-table',
@@ -31,53 +46,59 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  /** ID used for internal table functionality and events, must be unique.
+   *
+   * **NOTE**: If you're listening for table events you need to set this ID yourself to identify the table, as the default ID is random and will be different every time.
+   */
+  @Prop() tableId: string = crypto.randomUUID();
 
   @Element() host: HTMLElement;
 
-  /** Sends out status of multiselect feature to children tegel */
+  /** Broadcasts changes to the tables props */
   @Event({
-    eventName: 'enableMultiselectEvent',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  enableMultiselectEvent: EventEmitter<any>;
-
-  /** Sends out status of different general styling changes to children tegel */
-  @Event({
-    eventName: 'commonTableStylesEvent',
+    eventName: 'tablePropsChangedEvent',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  commonTableStyledEvent: EventEmitter<any>;
+  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
 
-  /** Sends out status of multiselect feature to children tegel */
-  @Event({
-    eventName: 'enableExpandedRowsEvent',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  enableExpandedRowsEvent: EventEmitter<any>;
-
-  @Listen('footerWillLoad', { target: 'body' })
-  subcomponentsWillLoadListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail) {
-      this.commonTableStyledEvent.emit([this.uniqueTableIdentifier, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground]);
-    }
-    console.log('Sending info to the footer!');
+  emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
+    this.tablePropsChangedEvent.emit({
+      tableId: this.tableId,
+      changed: [changedValueName],
+      [changedValueName]: changedValue,
+    });
   }
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.getAttribute('id');
+  @Watch('enableMultiselect')
+  enableMultiselectChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('enableMultiselect', newValue);
   }
 
-  componentDidRender() {
-    this.commonTableStyledEvent.emit([this.uniqueTableIdentifier, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground]);
-    this.enableMultiselectEvent.emit([this.uniqueTableIdentifier, this.enableMultiselect]);
-    this.enableExpandedRowsEvent.emit([this.uniqueTableIdentifier, this.enableExpandableRows]);
+  @Watch('enableExpandableRows')
+  enableExpandableRowsChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
+  }
+
+  @Watch('compactDesign')
+  compactDesignChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('compactDesign', newValue);
+  }
+
+  @Watch('verticalDividers')
+  verticalDividersChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('verticalDividers', newValue);
+  }
+
+  @Watch('noMinWidth')
+  noMinWidthChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('noMinWidth', newValue);
+  }
+
+  @Watch('whiteBackground')
+  whiteBackgroundChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('whiteBackground', newValue);
   }
 
   render() {

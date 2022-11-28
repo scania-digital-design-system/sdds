@@ -1,5 +1,22 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
 
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'verticalDividers',
+  'compactDesign',
+  'noMinWidth',
+  'whiteBackground',
+];
 @Component({
   tag: 'sdds-table-body-row-expandable',
   styleUrl: 'table-body-row-expandable.scss',
@@ -7,11 +24,11 @@ import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State }
 })
 export class TableBodyRowExpandable {
   /** In case that automatic count of columns does not work, user can manually set this one. Take in mind that expandable control is column too */
-  @Prop() clientSetColumnsNumber: number = null;
+  @Prop() colSpan: number = null;
 
   @State() isExpanded: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @State() columnsNumber: number = null;
 
@@ -25,6 +42,8 @@ export class TableBodyRowExpandable {
 
   @Element() host: HTMLElement;
 
+  tableEl: HTMLSddsTableElement;
+
   /** Sends out status of itw own expended status feature to table header component */
   @Event({
     eventName: 'singleRowExpandedEvent',
@@ -33,18 +52,6 @@ export class TableBodyRowExpandable {
     composed: true,
   })
   singleRowExpandedEvent: EventEmitter<any>;
-
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-  }
-
-  componentWillRender() {
-    if (this.clientSetColumnsNumber !== null) {
-      this.columnsNumber = this.clientSetColumnsNumber;
-    } else {
-      this.columnsNumber = this.host.parentElement.closest('sdds-table').querySelector('sdds-table-header').childElementCount + 1;
-    }
-  }
 
   /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
@@ -55,24 +62,50 @@ export class TableBodyRowExpandable {
   })
   runPaginationEvent: EventEmitter<string>;
 
-  componentDidLoad() {
-    this.runPaginationEvent.emit(this.uniqueTableIdentifier);
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.tableId === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
   }
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
+  }
+
+  componentWillLoad() {
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentDidLoad() {
+    this.runPaginationEvent.emit(this.tableId);
+  }
+
+  componentWillRender() {
+    if (this.colSpan !== null) {
+      this.columnsNumber = this.colSpan;
+    } else {
+      this.columnsNumber = this.tableEl.querySelector('sdds-table-header').childElementCount + 1;
     }
+  }
+
+  sendValue() {
+    this.singleRowExpandedEvent.emit([this.tableId, this.isExpanded]);
   }
 
   onChangeHandler(event) {
     this.isExpanded = event.currentTarget.checked === true;
     this.sendValue();
-  }
-
-  sendValue() {
-    this.singleRowExpandedEvent.emit([this.uniqueTableIdentifier, this.isExpanded]);
   }
 
   render() {
@@ -89,7 +122,12 @@ export class TableBodyRowExpandable {
         <tr class="sdds-table__row">
           <td class="sdds-table__cell sdds-table__cell--expand">
             <label class="sdds-table__expand-control-container">
-              <input class="sdds-table__expand-input" type="checkbox" onChange={event => this.onChangeHandler(event)} checked={this.isExpanded} />
+              <input
+                class="sdds-table__expand-input"
+                type="checkbox"
+                onChange={(event) => this.onChangeHandler(event)}
+                checked={this.isExpanded}
+              />
               <span class="sdds-expendable-row-icon">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                   <path

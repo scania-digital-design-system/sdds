@@ -1,4 +1,14 @@
 import { Component, h, Host, State, Event, EventEmitter, Listen, Element } from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
+
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'enableExpandableRows',
+  'verticalDividers',
+  'compactDesign',
+  'noMinWidth',
+  'whiteBackground',
+];
 
 @Component({
   tag: 'sdds-table-header',
@@ -6,9 +16,9 @@ import { Component, h, Host, State, Event, EventEmitter, Listen, Element } from 
   shadow: true,
 })
 export class TableHeaderRow {
-  @State() enableMultiselectHeaderRow: boolean = false;
+  @State() enableMultiselect: boolean = false;
 
-  @State() enableExpandedHeaderRow: boolean = false;
+  @State() enableExpandableRows: boolean = false;
 
   @State() mainCheckboxSelected: boolean = false;
 
@@ -24,24 +34,11 @@ export class TableHeaderRow {
 
   @State() enableToolbarDesign: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-  }
-
-  componentWillRender() {
-    this.enableToolbarDesign = this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
-  }
-
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
-    }
-  }
+  tableEl: HTMLSddsTableElement;
 
   /** Send status of main checkbox in header to the parent, sdds-table component */
   @Event({
@@ -52,32 +49,31 @@ export class TableHeaderRow {
   })
   mainCheckboxSelectedEvent: EventEmitter<any>;
 
-  headCheckBoxClicked(event) {
-    this.mainCheckboxSelected = event.currentTarget.checked;
-    this.mainCheckboxSelectedEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxSelected]);
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.tableId === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
+    }
   }
 
   @Listen('updateMainCheckboxEvent', { target: 'body' })
   updateMainCheckboxEventListener(event: CustomEvent<any>) {
     const [receivedID, receivedMainCheckboxStatus] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
+    if (this.tableId === receivedID) {
       this.mainCheckboxSelected = receivedMainCheckboxStatus;
     }
   }
 
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectHeaderRow = event.detail[1];
-  }
-
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableExpandedHeaderRow = event.detail[1];
-  }
-
   @Listen('singleRowExpandedEvent', { target: 'body' })
   singleRowExpandedEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
+    if (this.tableId === event.detail[0]) {
       // TODO: Improve this logic. Why we get late repose in DOM?
       setTimeout(() => {
         this.bodyExpandClicked();
@@ -86,14 +82,39 @@ export class TableHeaderRow {
   }
 
   bodyExpandClicked() {
-    const numberOfExtendRowsActive = this.host.parentElement.querySelector('sdds-table-body').getElementsByClassName('sdds-table__row-extend--active').length;
-    const numberOfExtendRows = this.host.parentElement.querySelector('sdds-table-body').getElementsByTagName('sdds-table-body-row-expendable').length;
+    const numberOfExtendRowsActive = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByClassName('sdds-table__row-extend--active').length;
+    const numberOfExtendRows = this.host.parentElement
+      .querySelector('sdds-table-body')
+      .getElementsByTagName('sdds-table-body-row-expendable').length;
 
     if (numberOfExtendRows === numberOfExtendRowsActive) {
       this.mainExpendSelected = true;
     } else {
       this.mainExpendSelected = false;
     }
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
+  }
+
+  componentWillLoad() {
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+  }
+
+  componentWillRender() {
+    this.enableToolbarDesign =
+      this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
+  }
+
+  headCheckBoxClicked(event) {
+    this.mainCheckboxSelected = event.currentTarget.checked;
+    this.mainCheckboxSelectedEvent.emit([this.tableId, this.mainCheckboxSelected]);
   }
 
   render() {
@@ -106,16 +127,23 @@ export class TableHeaderRow {
         }}
       >
         <tr>
-          {this.enableMultiselectHeaderRow && (
+          {this.enableMultiselect && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
               <div class="sdds-checkbox-item">
                 <label class="sdds-form-label sdds-form-label--data-table">
-                  <input class="sdds-form-input" type="checkbox" onChange={e => this.headCheckBoxClicked(e)} checked={this.mainCheckboxSelected} />
+                  <input
+                    class="sdds-form-input"
+                    type="checkbox"
+                    onChange={(e) => this.headCheckBoxClicked(e)}
+                    checked={this.mainCheckboxSelected}
+                  />
                 </label>
               </div>
             </th>
           )}
-          {this.enableExpandedHeaderRow && <th class="sdds-table__header-cell sdds-table__header-cell--checkbox"></th>}
+          {this.enableExpandableRows && (
+            <th class="sdds-table__header-cell sdds-table__header-cell--checkbox"></th>
+          )}
           <slot></slot>
         </tr>
       </Host>

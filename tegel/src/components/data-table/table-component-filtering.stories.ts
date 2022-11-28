@@ -8,6 +8,7 @@ import sddsBodyRow from './table-body-row/readme.md';
 import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
+import dummyData from './table-body/dummy-data.json';
 
 export default {
   title: 'Components/Data Table/Web Component',
@@ -75,12 +76,38 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
+    useDataProp: {
+      name: 'Use data prop',
+      description: 'Load table data from property',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'n/a',
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
-    responsiveDesign: false,
+    responsiveDesign: true,
+    useDataProp: true,
+    noMinWidth: true,
   },
 };
 
@@ -89,16 +116,18 @@ const FilteringTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  useDataProp,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
   <h3>Filtering example</h3>
    <sdds-table
-      id="filtering-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
-       enable-responsive="${responsiveDesign}"
-   >
+      ${responsiveDesign ? 'enable-responsive' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
+  >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
@@ -106,7 +135,24 @@ const FilteringTemplate = ({
               <sdds-header-cell column-key='country' column-title='Country' ></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
           </sdds-table-header>
-          <sdds-table-body enable-dummy-data>
+          <sdds-table-body ${useDataProp ? `body-data='${JSON.stringify(dummyData)}'` : ''}>
+            ${
+              !useDataProp
+                ? dummyData
+                    .map(
+                      (row) =>
+                        `<sdds-table-body-row>
+                        ${Object.entries(row)
+                          .map(
+                            (cell) =>
+                              `<sdds-body-cell cell-key="${cell[0]}" cell-value="${cell[1]}"></sdds-body-cell>`,
+                          )
+                          .join(' ')}
+                      </sdds-table-body-row>`,
+                    )
+                    .join(' ')
+                : ''
+            }
           </sdds-table-body>
   </sdds-table>`);
 
