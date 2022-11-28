@@ -2,6 +2,11 @@ export default {
   title: 'Foundations/Grid',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
   args: {
     fluidContainer: false,

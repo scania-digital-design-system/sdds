@@ -5,6 +5,11 @@ export default {
   title: 'Foundations/Typography',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
 };
 
