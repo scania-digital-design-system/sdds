@@ -76,6 +76,18 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
     useDataProp: {
       name: 'Use data prop',
       description: 'Load table data from property',
@@ -84,7 +96,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: false,
+          summary: 'n/a',
         },
       },
     },
@@ -93,8 +105,9 @@ export default {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
-    responsiveDesign: false,
-    useDataProp: false,
+    responsiveDesign: true,
+    useDataProp: true,
+    noMinWidth: true,
   },
 };
 
@@ -104,6 +117,7 @@ const FilteringTemplate = ({
   onWhiteBackground,
   responsiveDesign,
   useDataProp,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
   <h3>Filtering example</h3>
@@ -111,7 +125,8 @@ const FilteringTemplate = ({
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
-      enable-responsive="${responsiveDesign}"
+      ${responsiveDesign ? 'enable-responsive' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
   >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>

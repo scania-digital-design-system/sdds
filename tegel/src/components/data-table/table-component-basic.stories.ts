@@ -88,6 +88,18 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
@@ -95,6 +107,7 @@ export default {
     verticalDivider: false,
     responsiveDesign: false,
     disablePadding: false,
+    noMinWidth: false,
   },
 };
 
@@ -105,6 +118,7 @@ const BasicTemplate = (args) =>
       compact-design="${args.compactDesign}"
       white-background="${args.onWhiteBackground}"
       enable-responsive="${args.responsiveDesign}"
+      ${args.noMinWidth ? 'no-min-width' : ''}
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
