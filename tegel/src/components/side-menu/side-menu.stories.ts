@@ -38,7 +38,7 @@ const Template = ({ showIcons, collapsed }) => {
   <style>
   .sdds-demo-container {
     align-items: stretch;
-    height: calc(100% - 64px);
+    height: 100vh;
   }
   .sdds-container {
     overflow-y: auto;
