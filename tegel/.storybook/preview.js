@@ -76,7 +76,6 @@ export const parameters = {
     },
     expanded: true,
   },
-  viewMode: 'docs',
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
     // https://storybook.js.org/addons/storybook-dark-mode#:~:text=%5D%0A%7D%3B-,Configuration,-Configure%20the%20dark
