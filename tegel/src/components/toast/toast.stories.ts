@@ -111,7 +111,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         <span class="sdds-toast-headline">This is ${
           toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
         } ${toastType.toLowerCase()} message</span>
-        <span class='sdds-toast-dismiss'></span>
+        <button class='sdds-toast-dismiss'></button>
       </div>
       ${
         subheader || link
