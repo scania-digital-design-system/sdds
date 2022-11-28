@@ -11,11 +11,7 @@ export default {
     state: {
       name: 'Type',
       description: 'Changes type of component',
-      options: {
-        Default: 'default',
-        Error: 'error',
-        Info: 'info',
-      },
+      options: ['Default', 'Error', 'Info'],
       control: {
         type: 'radio',
       },
@@ -57,7 +53,7 @@ export default {
     },
   },
   args: {
-    state: 'info',
+    state: 'Default',
     header: 'This is a header text area',
     subheader: 'SubHeader text area',
     link: 'Learn more',
@@ -65,28 +61,28 @@ export default {
   },
 };
 
-const Template = (args) =>
+const Template = ({ state, prefix, header, subheader, link }) =>
   formatHtmlPreview(`
-    <div class="sdds-banner sdds-banner-${args.state}">
+    <div class="sdds-banner sdds-banner-${state.toLowerCase()}">
       ${
-        args.prefix && args.state === 'error'
+        prefix && state === 'error'
           ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px" /></span>'
           : ''
       }
       ${
-        args.prefix && args.state === 'info'
+        prefix && state === 'info'
           ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px" /></span>'
           : ''
       }
       ${
-        args.prefix && !(args.state === 'info' || args.state === 'error')
+        prefix && !(state === 'info' || state === 'error')
           ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px" /></span>'
           : ''
       }
       <div class="sdds-banner-body">
-      ${args.header && `<h6 class="sdds-banner-header">${args.header}</h6>`}
-      ${args.subheader && `<div class="sdds-banner-subheader">${args.subheader}</div>`}
-      ${args.link && `<a class="sdds-link sdds-banner-link">${args.link}</a>`}
+      ${header && `<h6 class="sdds-banner-header">${header}</h6>`}
+      ${subheader && `<div class="sdds-banner-subheader">${subheader}</div>`}
+      ${link && `<a class="sdds-link sdds-banner-link">${link}</a>`}
       </div>
       <button type="button" aria-label="close" class="sdds-banner-close">
         <sdds-icon name="cross" size="20px"></sdds-icon>
@@ -95,4 +91,3 @@ const Template = (args) =>
   `);
 
 export const Default = Template.bind({});
-Default.args = {};
