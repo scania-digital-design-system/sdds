@@ -27,6 +27,7 @@ export default {
   argTypes: {
     siteName: {
       name: 'Site name',
+      description: 'Set a custom title for the header',
       type: 'string',
     },
   },
@@ -49,7 +50,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
     }
   </style>
   <div class="demo-wrapper">
-    <nav class='sdds-nav'>     
+    <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
@@ -61,27 +62,27 @@ const SearchbarMenuTemplate = ({ siteName }) =>
           </button>
           <div class='sdds-nav__app-name'>${siteName}</div>
         </div>
-        
+
         <div class='sdds-nav__center sdds-nav__center-withsearch'>
         <ul class='sdds-nav__inline-menu'>
-        
+
         <li class='sdds-nav__item'>
             <a class='sdds-nav__item-core' href='#'>
                 <span class='span'>Item 1</span>
             </a>
         </li>
-  
+
         <li class='sdds-nav__item sdds-nav__item--active'>
             <a class='sdds-nav__item-core ' href='#'>
                 <span class='sdds-nav__item-core-text'>Item 2</span>
             </a>
         </li>
-  
+
         <li class='sdds-nav__item sdds-nav__dropdown'>
         <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
             <span class='sdds-nav__item-core-text'>Item 3</span>
             <span class='sdds-nav__dropdown-icon'>
-              <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />                                                                
+              <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />
             </span>
         </button>
         <ul class='sdds-nav__dropdown-menu'>
@@ -121,7 +122,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
             </ul>
             <ul class='sdds-nav__searchbar-results--category'>
               <p class='sdds-nav__searchbar-results-category-title'>TEAMS</p>
-            
+
             <li class='sdds-nav__searchbar-results-item'>
               <a href='' class='sdds-nav__searchbar-results-item-core'>Team– Eric Mattsson – IXCD Visual designer </a>
               <button class="sdds-nav__app-searchbar-results-x-btn">
@@ -135,7 +136,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
           <button class="sdds-nav__app-searchbar-btn sdds-nav__app-searchbar-x-btn" onclick="toggleSearchbar()">
             <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="cross" size="20px" />
           </button>
-          
+
       </div>
        <button class="sdds-nav__app-searchbar-btn sdds-nav__app-searchbar-mgl-btn" onclick="toggleSearchbar()">
           <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="search" size="20px" />
@@ -143,7 +144,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
     </div>
   </div>
     <ul class='sdds-nav__toolbar-menu'>
-        
+
         <li class='sdds-nav__item sdds-nav__avatar'>
             <button class='sdds-nav__avatar-btn' onclick='toggleAvatarMenu()'>
                 <img class="sdds-nav__avatar-img" src='https://www.svgrepo.com/show/170303/avatar.svg' alt='profile photo'/>
@@ -152,7 +153,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
                     <span class='sdds-nav__avatar-subtitle'>Company Name</span>
                 </span>
             </button>
-  
+
             <ul class='sdds-nav__avatar-menu'>
                 <li class='sdds-nav__avatar-item sdds-nav__avatar-item--large'>
                     <span class='sdds-nav__avatar-info'>
@@ -221,7 +222,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
               </ul>
           </div>
           <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
-        </div> 
+        </div>
     </nav>
     </div>
     <script>
@@ -239,14 +240,14 @@ const SearchbarMenuTemplate = ({ siteName }) =>
         document.getElementsByClassName("sdds-nav__item sdds-nav__dropdown")[0].classList.remove("sdds-nav__dropdown--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
     }
-    
+
     toggleInlineDropdown = () => {
         document.getElementsByClassName("sdds-nav__item sdds-nav__dropdown")[0].classList.toggle("sdds-nav__dropdown--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-  
+
     }
 
     toggleAppLauncher = () => {
@@ -256,14 +257,14 @@ const SearchbarMenuTemplate = ({ siteName }) =>
       document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
       document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
     }
-  
+
     closeDropdownsFromOverlay = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-  
+
     }
-  
+
     toggleSearchbar = () => {
       document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__searchbar--opened");
       document.getElementsByClassName("sdds-nav__item sdds-nav__dropdown")[0].classList.remove("sdds-nav__dropdown--opened");

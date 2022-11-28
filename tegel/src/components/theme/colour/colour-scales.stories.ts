@@ -62,6 +62,7 @@ export const Scales = Template.bind({});
 Scales.argTypes = {
   colour: {
     name: 'Colour',
+    description: 'Choose colour scale to display',
     control: {
       type: 'select',
     },
