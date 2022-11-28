@@ -114,6 +114,7 @@ export class Dropdown {
       // eslint-disable-next-line no-param-reassign
       optionValue = optionValue.split(',');
       for (let i = 0; i < this.host.children.length; i++) {
+        // Todo - specify type
         const el: any = this.host.children[i];
         if (optionValue.includes(el.value.trim())) {
           this.selectedLabelsArray = [...this.selectedLabelsArray, el.textContent.trim()];
@@ -363,7 +364,10 @@ export class Dropdown {
                           this.selectedLabelsArray.toString().split(',').join(', ')}
                       </span>
                     )}
-                    {!this.selectedLabel && this.labelPosition === 'inside' && this.label}
+                    {!this.selectedLabel &&
+                      this.labelPosition === 'inside' &&
+                      this.size !== 'sm' &&
+                      this.label}
 
                     {!this.selectedLabel &&
                       this.type !== 'multiselect' &&
