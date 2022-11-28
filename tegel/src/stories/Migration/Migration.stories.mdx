@@ -524,3 +524,35 @@ Change all instances of `<svg>` to `<sdds-icon>`
   <sdds-icon name="chevron_down" size="16px" />
 </span>
 ```
+
+
+## Toast
+
+[Native](/docs/components-toast--default)
+
+#### Used `<button>` instead of `<span>` for `sdds-toast-dismiss`
+
+The toast has previously used a `<span>` for the close button in the code example. We have now switched it to our own `<button>` instead.
+
+##### What action is required?
+
+Change all instances of `<span class="sdds-toast-dismiss">` to `<button class="sdds-toast-dismiss">`
+
+```jsx
+// Old ❌
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+    <span class="sdds-toast-dismiss"></span>
+  </div>
+</div>
+
+
+// New ✅
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+    <button class="sdds-toast-dismiss"></button>
+  </div>
+</div>
+```
