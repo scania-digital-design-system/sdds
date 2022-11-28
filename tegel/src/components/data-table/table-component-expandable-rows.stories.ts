@@ -75,12 +75,25 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
+    noMinWidth: false,
   },
 };
 
@@ -89,17 +102,18 @@ const ExpandableRowTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
   <h3>Expandable rows</h3>
   <sdds-table
-    id="expendable-rows-table"
     enable-expandable-rows
     vertical-dividers="${verticalDivider}"
     compact-design="${compactDesign}"
     white-background="${onWhiteBackground}"
     enable-responsive="${responsiveDesign}"
-  >
+    ${noMinWidth ? 'no-min-width' : ''}
+    >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
           <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>

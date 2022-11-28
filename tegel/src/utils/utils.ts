@@ -6,9 +6,10 @@ import { Options } from 'prettier';
 const prettierOptions: Options = {
   bracketSameLine: false,
   htmlWhitespaceSensitivity: 'ignore',
+  printWidth: 100,
 };
 
-export const formatHtmlPreview = htmlStr =>
+export const formatHtmlPreview = (htmlStr) =>
   prettier.format(htmlStr, {
     parser: 'html',
     plugins: [parserBabel, parserHtml],

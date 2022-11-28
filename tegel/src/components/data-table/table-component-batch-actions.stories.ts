@@ -75,6 +75,18 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
     batchArea: {
       name: 'Batch code',
       description: 'Code that user can inject to the toolbar area.',
@@ -94,6 +106,7 @@ export default {
     batchArea: formatHtmlPreview(
       '<button slot="sdds-table__actionbar" class="sdds-table__actionbar-btn"><sdds-icon class="sdds-table__actionbar-btn-icon" name="settings" size="20px" /> </button><sdds-button slot="sdds-table__actionbar" type="primary" size="sm" text="Download"></sdds-button>',
     ),
+    noMinWidth: false,
   },
 };
 
@@ -103,15 +116,16 @@ const BatchActionTemplate = ({
   onWhiteBackground,
   batchArea,
   responsiveDesign,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
    <sdds-table
-        id="actionbar-table"
         enable-multiselect
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"
         white-background="${onWhiteBackground}"
         enable-responsive="${responsiveDesign}"
+      ${noMinWidth ? 'no-min-width' : ''}
       >
           <sdds-table-toolbar table-title="Batch action">
           ${batchArea}

@@ -1,4 +1,22 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import dummyData from './dummy-data.json';
+import { TablePropsChangedEvent } from '../table/table';
+
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'enableMultiselect',
+  'enableExpandableRows',
+];
 
 @Component({
   tag: 'sdds-table-body',
@@ -18,60 +36,17 @@ export class TableBody {
   /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
   @Prop() enableDummyData: boolean = false;
 
-  @State() dummyData: any = `[
-      {
-          "truck": "L-series",
-          "driver": "Sonya Bruce",
-          "country": "Brazil",
-          "mileage": 123987
-      },
-      {
-          "truck": "P-series",
-          "driver": "Guerra Bowman",
-          "country": "Sweden",
-          "mileage": 2000852
-      },
-      {
-          "truck": "G-series",
-          "driver": "Ferrell Wallace",
-          "country": "Germany",
-          "mileage": 564
-      },
-      {
-          "truck": "R-series",
-          "driver": "Cox Burris",
-          "country": "Spain",
-          "mileage": 1789357
-      },
-      {
-          "truck": "S-series",
-          "driver": "Montgomery Cervantes",
-          "country": "Croatia",
-          "mileage": 65
-      },
-      {
-          "truck": "L-series",
-          "driver": "Sheryl Nielsen",
-          "country": "Greece",
-          "mileage": 365784
-      },
-      {
-          "truck": "G-series",
-          "driver": "Benton Gomez",
-          "country": "France",
-          "mileage": 80957
-      }
-  ]`;
+  @State() dummyData: any = JSON.stringify(dummyData);
 
   @Element() host: HTMLElement;
 
   @State() rowsPerPage: number = 1;
 
-  @State() enableMultiselectTableBody: boolean = false;
+  @State() enableMultiselect: boolean = false;
 
   @State() enablePaginationTableBody: boolean = false;
 
-  @State() enableExpendedTableBody: boolean = true;
+  @State() enableExpandableRows: boolean = true;
 
   @State() innerBodyData = [];
 
@@ -97,45 +72,9 @@ export class TableBody {
 
   @State() showNoResultsMessage: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
-  componentWillLoad() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
-
-    if (this.enableDummyData) {
-      this.bodyData = this.dummyData;
-    }
-  }
-
-  componentWillRender() {
-    const headerColumnsNo = this.host.parentElement.querySelector('sdds-table-header').children.length;
-
-    // multiselect and expended features requires one extra column for controls...
-    if (this.enableMultiselectTableBody || this.enableExpendedTableBody) {
-      this.columnsNumber = headerColumnsNo + 1;
-    } else {
-      this.columnsNumber = headerColumnsNo;
-    }
-  }
-
-  @Listen('enableExpandedRowsEvent', { target: 'body' })
-  enableExtendedRowsEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableExpendedTableBody = event.detail[1];
-  }
-
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) this.enableMultiselectTableBody = event.detail[1];
-  }
-
-  /** Event that sends unique table identifier and enable/disable status for sorting functionality */
-  @Event({
-    eventName: 'sortingSwitcherEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sortingSwitcherEvent: EventEmitter<any>;
+  tableEl: HTMLSddsTableElement;
 
   @Watch('bodyData')
   arrayDataWatcher(newValue: string) {
@@ -148,17 +87,49 @@ export class TableBody {
     this.bodyDataOriginal = [...this.innerBodyData];
   }
 
-  // Listen to sortColumnData from data-table-header-element
-  @Listen('sortColumnDataEvent', { target: 'body' })
-  updateOptionsContent(event: CustomEvent<any>) {
-    const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
-    if (this.uniqueTableIdentifier === receivedID) {
-      this.sortData(receivedKeyValue, receivedSortingDirection);
+  /** Event that sends unique table identifier and enable/disable status for sorting functionality */
+  @Event({
+    eventName: 'sortingSwitcherEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sortingSwitcherEvent: EventEmitter<any>;
+
+  /** Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
+  @Event({
+    eventName: 'updateBodyCheckboxesEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  updateBodyCheckboxesEvent: EventEmitter<any>;
+
+  /** Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
+  @Event({
+    eventName: 'updateMainCheckboxEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  updateMainCheckboxEvent: EventEmitter<any>;
+
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.tableId === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
     }
   }
 
-  compareValues = (key, order = 'asc') =>
-    function innerSort(a, b) {
+  static compareValues(key, order = 'asc') {
+    return function innerSort(a, b) {
       // eslint-disable-next-line no-prototype-builtins
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
         // property doesn't exist on either object
@@ -176,17 +147,33 @@ export class TableBody {
       }
       return order === 'desc' ? comparison * -1 : comparison;
     };
+  }
+
+  uncheckAll = () => {
+    this.mainCheckboxStatus = false;
+    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.updateBodyCheckboxesEvent.emit([this.tableId, this.mainCheckboxStatus]);
+  };
 
   sortData(keyValue, sortingDirection) {
     if (!this.disableSortingFunction) {
-      if (this.enableMultiselectTableBody) {
+      if (this.enableMultiselect) {
         // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
-        this.uncheckedAll();
+        this.uncheckAll();
       }
 
       // use spread operator to make enable sorting and modifying array, same as using .slice()
       this.bodyDataManipulated = [...this.bodyDataManipulated];
-      this.bodyDataManipulated.sort(this.compareValues(keyValue, sortingDirection));
+      this.bodyDataManipulated.sort(TableBody.compareValues(keyValue, sortingDirection));
+    }
+  }
+
+  // Listen to sortColumnData from data-table-header-element
+  @Listen('sortColumnDataEvent', { target: 'body' })
+  updateOptionsContent(event: CustomEvent<any>) {
+    const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
+    if (this.tableId === receivedID) {
+      this.sortData(receivedKeyValue, receivedSortingDirection);
     }
   }
 
@@ -207,62 +194,32 @@ export class TableBody {
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
 
-  /** Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
-  @Event({
-    eventName: 'updateBodyCheckboxesEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  updateBodyCheckboxesEvent: EventEmitter<any>;
-
-  uncheckedAll = () => {
-    this.mainCheckboxStatus = false;
-    this.updateMainCheckboxEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
-    this.updateBodyCheckboxesEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
-  };
-
   @Listen('mainCheckboxSelectedEvent', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      this.mainCheckboxStatus = event.detail[1];
+    if (this.tableId === event.detail[0]) {
+      [, this.mainCheckboxStatus] = event.detail;
       this.selectedDataExporter();
     }
   }
+
+  bodyCheckBoxClicked = () => {
+    const numberOfRows = this.host.getElementsByClassName('sdds-table__row').length;
+
+    const numberOfRowsSelected = this.host.getElementsByClassName(
+      'sdds-table__row--selected',
+    ).length;
+
+    this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
+
+    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
+
+    this.selectedDataExporter();
+  };
 
   // No need to read the value, event is here just to trigger another function
   @Listen('bodyRowToTable', { target: 'body' })
   bodyCheckboxListener() {
     this.bodyCheckBoxClicked();
-  }
-
-  /** Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
-  @Event({
-    eventName: 'updateMainCheckboxEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  updateMainCheckboxEvent: EventEmitter<any>;
-
-  bodyCheckBoxClicked = () => {
-    const numberOfRows = this.host.getElementsByClassName('sdds-table__row').length;
-
-    const numberOfRowsSelected = this.host.getElementsByClassName('sdds-table__row--selected').length;
-
-    this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
-
-    this.updateMainCheckboxEvent.emit([this.uniqueTableIdentifier, this.mainCheckboxStatus]);
-
-    this.selectedDataExporter();
-  };
-
-  // Listen to tableFilteringTerm from tableToolbar component
-  @Listen('tableFilteringTerm', { target: 'body' })
-  tableFilteringTermListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      this.searchFunction(event.detail[1]);
-    }
   }
 
   searchFunction(searchTerm) {
@@ -293,18 +250,18 @@ export class TableBody {
           this.tempPaginationDisable = true;
         }
 
-        dataRowsFiltering.forEach(item => {
+        dataRowsFiltering.forEach((item) => {
           const cells = item.querySelectorAll('sdds-body-cell');
           const cellValuesArray = [];
 
           // go through cells and save cell-values in array
-          cells.forEach(cellItem => {
+          cells.forEach((cellItem) => {
             const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
             cellValuesArray.push(cellValue);
           });
 
           // iterate over array of values and see if one matches search string
-          const matchCounter = cellValuesArray.find(element => element.includes(searchTerm));
+          const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
 
           // if matches, show parent row, otherwise hide the row
           if (matchCounter) {
@@ -315,7 +272,7 @@ export class TableBody {
         });
 
         this.disableAllSorting = true;
-        this.sortingSwitcherEvent.emit([this.uniqueTableIdentifier, this.disableAllSorting]);
+        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
 
         const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
 
@@ -330,23 +287,60 @@ export class TableBody {
         if (this.enablePaginationTableBody) {
           // TODO: EMIT PAGINATION
         } else {
-          dataRowsFiltering.forEach(item => {
+          dataRowsFiltering.forEach((item) => {
             item.classList.remove('sdds-table__row--hidden');
           });
         }
 
         this.disableAllSorting = false;
-        this.sortingSwitcherEvent.emit([this.uniqueTableIdentifier, this.disableAllSorting]);
+        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
       }
+    }
+  }
+
+  // Listen to tableFilteringTerm from tableToolbar component
+  @Listen('tableFilteringTerm', { target: 'body' })
+  tableFilteringTermListener(event: CustomEvent<any>) {
+    if (this.tableId === event.detail[0]) {
+      this.searchFunction(event.detail[1]);
+    }
+  }
+
+  connectedCallback() {
+    this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
+  }
+
+  componentWillLoad() {
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+
+    if (this.enableDummyData) {
+      this.bodyData = this.dummyData;
+    } else if (this.bodyData) {
+      this.arrayDataWatcher(this.bodyData);
+    }
+  }
+
+  componentWillRender() {
+    const headerColumnsNo =
+      this.host.parentElement.querySelector('sdds-table-header').children.length;
+
+    // multiselect and expended features requires one extra column for controls...
+    if (this.enableMultiselect || this.enableExpandableRows) {
+      this.columnsNumber = headerColumnsNo + 1;
+    } else {
+      this.columnsNumber = headerColumnsNo;
     }
   }
 
   render() {
     return (
       <Host data-selected-rows={this.multiselectArrayJSON}>
-        {this.bodyDataManipulated.map(row => (
+        {this.bodyDataManipulated.map((row) => (
           <sdds-table-body-row>
-            {Object.keys(row).map(cellData => (
+            {Object.keys(row).map((cellData) => (
               <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
             ))}
           </sdds-table-body-row>

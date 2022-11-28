@@ -25,6 +25,18 @@ export default {
     },
   },
   argTypes: {
+    enableMultiselect: {
+      name: 'Enable multiselect',
+      description: 'Enable row selection.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
     verticalDivider: {
       name: 'Vertical dividers',
       description: 'When enabled, table has vertical dividers between columns.',
@@ -75,12 +87,25 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
+    noMinWidth: false,
   },
 };
 
@@ -89,6 +114,8 @@ const MultiselectTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  enableMultiselect,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
 <script>
@@ -114,14 +141,15 @@ const MultiselectTemplate = ({
 </script>
 
   <h3>Multiselect</h3>
-   <sdds-table
+    <sdds-table
         id="multiselect-table"
-        enable-multiselect
+        ${enableMultiselect ? 'enable-multiselect' : ''}
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"
         white-background="${onWhiteBackground}"
-         enable-responsive="${responsiveDesign}"
-        >
+        enable-responsive="${responsiveDesign}"
+        ${noMinWidth ? 'no-min-width' : ''}
+      >
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>

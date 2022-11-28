@@ -75,12 +75,25 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'If columns should be able to shrink below 192px width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
   },
   args: {
     compactDesign: false,
     onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
+    noMinWidth: false,
   },
 };
 
@@ -89,6 +102,7 @@ const EventListenersTemplate = ({
   compactDesign,
   onWhiteBackground,
   responsiveDesign,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
     <script>
@@ -111,11 +125,11 @@ const EventListenersTemplate = ({
 
   <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table
-      id="disabled-functionality-table"
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
       enable-responsive="${responsiveDesign}"
+      ${noMinWidth ? 'no-min-width' : ''}
    >
           <sdds-table-toolbar table-title="Disabled functionalities table" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>

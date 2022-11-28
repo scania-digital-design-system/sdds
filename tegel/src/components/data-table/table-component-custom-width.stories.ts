@@ -153,12 +153,11 @@ export default {
 const BasicTemplate = (args) =>
   formatHtmlPreview(`
   <sdds-table
-      id="basic-table"
       vertical-dividers="${args.verticalDivider}"
       compact-design="${args.compactDesign}"
       white-background="${args.onWhiteBackground}"
       enable-responsive="${args.responsiveDesign}"
-      no-min-width="${args.noMinWidth}"
+      ${args.noMinWidth ? 'no-min-width' : ''}
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' ${

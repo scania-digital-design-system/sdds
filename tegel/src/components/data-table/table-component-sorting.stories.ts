@@ -83,6 +83,7 @@ export default {
     column2sortable: true,
     column3sortable: true,
     column4sortable: true,
+    noMinWidth: false,
   },
 };
 
@@ -95,15 +96,16 @@ const SortingTemplate = ({
   column2sortable,
   column3sortable,
   column4sortable,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
   <h3>Sorting example</h3>
-   <sdds-table
-      id="sorting-table"
+    <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
       white-background="${onWhiteBackground}"
       enable-responsive="${responsiveDesign}"
+      ${noMinWidth ? 'no-min-width' : ''}
       >
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>

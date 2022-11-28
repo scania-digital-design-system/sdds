@@ -1,4 +1,26 @@
-import { Component, h, Host, Listen, State, Event, EventEmitter, Prop, Element } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Listen,
+  State,
+  Event,
+  EventEmitter,
+  Prop,
+  Element,
+} from '@stencil/core';
+import { TablePropsChangedEvent } from '../table/table';
+
+const relevantTableProps: TablePropsChangedEvent['changed'] = [
+  'compactDesign',
+  'noMinWidth',
+  'verticalDividers',
+  'whiteBackground',
+];
+
+function removeShakeAnimation(e: AnimationEvent & { target: HTMLElement }) {
+  e.target.classList.remove('sdds-table__page-selector-input--shake');
+}
 
 @Component({
   tag: 'sdds-table-footer',
@@ -47,18 +69,11 @@ export class TableFooter {
 
   @State() whiteBackground: boolean = false;
 
-  @State() uniqueTableIdentifier: string = '';
+  @State() tableId: string = '';
 
   @Element() host: HTMLElement;
 
-  /** Event that footer sends out in order to receive other necessary information from other subcomponents */
-  @Event({
-    eventName: 'footerWillLoad',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  footerWillLoad: EventEmitter<any>;
+  tableEl: HTMLSddsTableElement;
 
   /** Event that footer sends out in order to receive other necessary information from other subcomponents */
   @Event({
@@ -69,21 +84,34 @@ export class TableFooter {
   })
   enablePaginationEvent: EventEmitter<any>;
 
-  @Listen('commonTableStylesEvent', { target: 'body' })
-  commonTableStyleListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail[0]) {
-      [, this.verticalDividers, this.compactDesign, this.noMinWidth, this.whiteBackground] = event.detail;
+  @Listen('tablePropsChangedEvent', { target: 'body' })
+  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+    if (this.tableId === event.detail.tableId) {
+      event.detail.changed
+        .filter((changedProp) => relevantTableProps.includes(changedProp))
+        .forEach((changedProp) => {
+          if (typeof this[changedProp] === 'undefined') {
+            throw new Error(`Table prop is not supported: ${changedProp}`);
+          }
+          this[changedProp] = event.detail[changedProp];
+        });
     }
   }
 
   connectedCallback() {
-    this.uniqueTableIdentifier = this.host.closest('sdds-table').getAttribute('id');
+    this.tableEl = this.host.closest('sdds-table');
+    this.tableId = this.tableEl.tableId;
   }
 
   componentWillLoad() {
+    relevantTableProps.forEach((tablePropName) => {
+      this[tablePropName] = this.tableEl[tablePropName];
+    });
+
     const numberOfRows = this.host.parentElement.querySelector('sdds-table-body').childElementCount;
 
-    const numberOfColumns = this.host.parentElement.querySelector('sdds-table-header').childElementCount;
+    const numberOfColumns =
+      this.host.parentElement.querySelector('sdds-table-header').childElementCount;
 
     this.numberOfPages = Math.ceil(numberOfRows / this.rowsPerPage);
 
@@ -93,11 +121,10 @@ export class TableFooter {
       this.columnsNumber = numberOfColumns;
     }
 
-    this.footerWillLoad.emit(this.uniqueTableIdentifier);
-    this.enablePaginationEvent.emit(this.uniqueTableIdentifier);
+    this.enablePaginationEvent.emit(this.tableId);
   }
 
-  paginationPrev = event => {
+  paginationPrev = (event) => {
     event.preventDefault();
     // Enable lowering until 1st page
     if (this.paginationValue >= 2) {
@@ -106,7 +133,7 @@ export class TableFooter {
     }
   };
 
-  paginationNext = event => {
+  paginationNext = (event) => {
     event.preventDefault();
     // Enable increasing until the max number of pages
     if (this.paginationValue <= this.numberOfPages) {
@@ -120,21 +147,16 @@ export class TableFooter {
 
     if (insertedValue > this.numberOfPages || insertedValue < 1) {
       event.target.classList.add('sdds-table__page-selector-input--shake');
-      event.target.value = event.target.max;
-      this.paginationValue = event.target.value;
+      this.paginationValue = event.target.max;
     } else {
       this.paginationValue = event.target.value;
     }
     this.runPagination();
   }
 
-  removeShakeAnimation = event => {
-    event.target.classList.remove('sdds-table__page-selector-input--shake');
-  };
-
   @Listen('runPaginationEvent', { target: 'body' })
   runPaginationEventListener(event: CustomEvent<any>) {
-    if (this.uniqueTableIdentifier === event.detail) {
+    if (this.tableId === event.detail) {
       this.runPagination();
     }
   }
@@ -142,7 +164,9 @@ export class TableFooter {
   runPagination = () => {
     if (!this.disablePaginationFunction) {
       // grab all rows in body
-      const dataRowsPagination = this.host.parentNode.querySelector('sdds-table-body').querySelectorAll('.sdds-table__row');
+      const dataRowsPagination = this.host.parentNode
+        .querySelector('sdds-table-body')
+        .querySelectorAll('.sdds-table__row');
 
       dataRowsPagination.forEach((item, i) => {
         // for making logic easier 1st result, 2nd result...
@@ -176,10 +200,10 @@ export class TableFooter {
   currentPageValueEvent: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.currentPageValueEvent.emit([this.uniqueTableIdentifier, value]);
+    this.currentPageValueEvent.emit([this.tableId, value]);
   }
 
-  clientPaginationPrev = event => {
+  clientPaginationPrev = (event) => {
     event.preventDefault();
     // Enable lowering until 1st page
     if (this.clientPaginationValue >= 2) {
@@ -188,7 +212,7 @@ export class TableFooter {
     }
   };
 
-  clientPaginationNext = event => {
+  clientPaginationNext = (event) => {
     event.preventDefault();
     // Enable increasing until the max number of pages
     if (this.clientPaginationValue <= this.clientMaxPages) {
@@ -202,8 +226,7 @@ export class TableFooter {
 
     if (insertedValue > this.clientMaxPages || insertedValue < 1) {
       event.target.classList.add('sdds-table__page-selector-input--shake');
-      event.target.value = event.target.max;
-      this.clientPaginationValue = event.target.value;
+      this.clientPaginationValue = event.target.max;
     } else {
       this.clientPaginationValue = event.target.value;
     }
@@ -227,18 +250,25 @@ export class TableFooter {
                     value={this.paginationValue}
                     pattern="[0-9]+"
                     dir="rtl"
-                    onChange={event => this.paginationInputChange(event)}
-                    onFocusout={event => this.paginationInputChange(event)}
-                    onAnimationEnd={event => {
-                      this.removeShakeAnimation(event);
-                    }}
+                    onChange={(event) => this.paginationInputChange(event)}
+                    onFocusout={(event) => this.paginationInputChange(event)}
+                    onAnimationEnd={removeShakeAnimation}
                     disabled={this.tempPaginationDisable}
                   />
                   <p class="sdds-table__footer-text">
                     of <span>{this.tempPaginationDisable ? 1 : this.numberOfPages}</span> pages
                   </p>
-                  <button class="sdds-table__footer-btn" disabled={this.paginationValue <= 1 || this.tempPaginationDisable} onClick={event => this.paginationPrev(event)}>
-                    <svg class="sdds-table__footer-btn-svg" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <button
+                    class="sdds-table__footer-btn"
+                    disabled={this.paginationValue <= 1 || this.tempPaginationDisable}
+                    onClick={(event) => this.paginationPrev(event)}
+                  >
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -249,10 +279,17 @@ export class TableFooter {
                   </button>
                   <button
                     class="sdds-table__footer-btn"
-                    disabled={this.paginationValue >= this.numberOfPages || this.tempPaginationDisable}
-                    onClick={event => this.paginationNext(event)}
+                    disabled={
+                      this.paginationValue >= this.numberOfPages || this.tempPaginationDisable
+                    }
+                    onClick={(event) => this.paginationNext(event)}
                   >
-                    <svg class="sdds-table__footer-btn-svg" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -276,17 +313,24 @@ export class TableFooter {
                     value={this.clientPaginationValue}
                     pattern="[0-9]+"
                     dir="rtl"
-                    onChange={event => this.clientPaginationInputChange(event)}
-                    onFocusout={event => this.clientPaginationInputChange(event)}
-                    onAnimationEnd={event => {
-                      this.removeShakeAnimation(event);
-                    }}
+                    onChange={(event) => this.clientPaginationInputChange(event)}
+                    onFocusout={(event) => this.clientPaginationInputChange(event)}
+                    onAnimationEnd={removeShakeAnimation}
                   />
                   <p class="sdds-table__footer-text">
                     of <span>{this.clientMaxPages}</span> pages
                   </p>
-                  <button class="sdds-table__footer-btn" disabled={this.clientPaginationValue <= 1} onClick={event => this.clientPaginationPrev(event)}>
-                    <svg class="sdds-table__footer-btn-svg" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <button
+                    class="sdds-table__footer-btn"
+                    disabled={this.clientPaginationValue <= 1}
+                    onClick={(event) => this.clientPaginationPrev(event)}
+                  >
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -295,8 +339,17 @@ export class TableFooter {
                       />
                     </svg>
                   </button>
-                  <button class="sdds-table__footer-btn" disabled={this.clientPaginationValue >= this.clientMaxPages} onClick={event => this.clientPaginationNext(event)}>
-                    <svg class="sdds-table__footer-btn-svg" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <button
+                    class="sdds-table__footer-btn"
+                    disabled={this.clientPaginationValue >= this.clientMaxPages}
+                    onClick={(event) => this.clientPaginationNext(event)}
+                  >
+                    <svg
+                      class="sdds-table__footer-btn-svg"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
