@@ -4,11 +4,6 @@ export default {
   title: 'Foundations/Spacing',
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        state: 'closed',
-      },
-    },
   },
 };
 
