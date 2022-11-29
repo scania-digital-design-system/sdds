@@ -13,11 +13,9 @@ Here is where we document all the breaking changes that we are introducing while
 
 https://www.markdownguide.org/cheat-sheet/
 
-
 ## Banner
 
 [Native](/docs/components-banner--default/)
-
 
 #### Replaced built in icon with icon component
 
@@ -40,8 +38,6 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
   </button>
 </div>
 ```
-
-
 
 ## Button
 
@@ -180,7 +176,6 @@ Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
 </div>
 ```
 
-
 ## Textarea
 
 [Webcomponent](/docs/components-textarea--default)
@@ -254,19 +249,19 @@ Change all instances of `<svg>` to `<sdds-icon>`
         d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z"
         fill="currentColor"
       />
-    </svg> 
+    </svg>
 </button>
 
 // New ✅
 <button class="sdds-nav__mob-menu-btn">
-    <sdds-icon name="burger" size="20px" /> 
+    <sdds-icon name="burger" size="20px" />
 </button>
 ```
 
 #### Used `<button>` instead of `<a>` for `sdds-sidebar-nav__item-link` inside `sdds-sidebar-nav__extended`
 
 The header was previously using `<a>` for the `sdds-sidebar-nav__item-link` that was a child of `sdds-sidebar-nav__extended`, we have now changed this
-to a `<button>` instead. 
+to a `<button>` instead.
 
 ##### What action is required?
 
@@ -321,12 +316,11 @@ Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button cl
 
 #### Used `<button>` instead of `<a>` for `sdds-sidebar-mheader__close` and used `<sdds-icon>` instead of hard `<svg>`
 
-The `sdds-sidebar-mheader` was previously using an `<a>` for it close button, we have changed this to be a button instead. 
+The `sdds-sidebar-mheader` was previously using an `<a>` for it close button, we have changed this to be a button instead.
 
 ##### What action is required?
 
 Change all instances of `<a href="#" class="sdds-sidebar-mheader__close">` to `<button class="sdds-sidebar-mheader__close">` and change all instances of `<svg>` to `<sdds-icon>`.
-
 
 ```jsx
 // Old ❌
@@ -346,11 +340,9 @@ Change all instances of `<a href="#" class="sdds-sidebar-mheader__close">` to `<
 </a>
 // New ✅
 <button class="sdds-sidebar-mheader__close">
-  <sdds-icon name="cross" size="20px" /> 
+  <sdds-icon name="cross" size="20px" />
 </button>
 ```
-
-
 
 ## Header
 
@@ -400,6 +392,6 @@ Change all instances of `<svg>` to `<sdds-icon>`
 
 // New ✅
 <span class='sdds-footer-top-icon'>
-  <sdds-icon name="chevron_down" size="16px" /> 
+  <sdds-icon name="chevron_down" size="16px" />
 </span>
 ```
