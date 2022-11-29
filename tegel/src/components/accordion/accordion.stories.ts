@@ -1,5 +1,6 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import readmeItem from './accordion-item/readme.md';
 
 export default {
   title: 'Components/Accordion',
@@ -22,7 +23,7 @@ export default {
     },
   },
   parameters: {
-    notes: readme,
+    notes: { 'Accordion': readme, 'Accordion item': readmeItem },
   },
   args: {
     disabled: false,
