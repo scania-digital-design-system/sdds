@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-notes/register',
     'storybook-dark-mode',
+    '@whitespace/storybook-addon-html',
   ],
   framework: '@storybook/html',
 };

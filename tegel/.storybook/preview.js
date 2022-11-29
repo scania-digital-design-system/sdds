@@ -133,6 +133,13 @@ export const parameters = {
     },
   },
   layout: 'padded',
+  html: {
+    prettier: {
+      tabWidth: 4,
+      useTabs: false,
+      htmlWhitespaceSensitivity: 'strict',
+    },
+  },
 };
 
 // Below is some hacky code that changes selected background when the theme changes
