@@ -40,11 +40,11 @@ const InlineMenuTemplate = (args) => {
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
-              <div id='sdds-nav__mob-menu-icon'>
+              <span id='sdds-nav__mob-menu-icon'>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
-              </div>
+              </span>
           </button>
           <div class='sdds-nav__app-name'>${siteName}</div>
         </div>
@@ -54,13 +54,13 @@ const InlineMenuTemplate = (args) => {
         
               <li class='sdds-nav__item'>
                   <a class='sdds-nav__item-core' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 1</p>
+                      <span class='sdds-nav__item-core-text'>Item 1</span>
                   </a>
               </li>
         
               <li class='sdds-nav__item sdds-nav__item--active'>
                   <a class='sdds-nav__item-core ' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 2</p>
+                      <span class='sdds-nav__item-core-text'>Item 2</span>
                   </a>
               </li>
         
@@ -68,7 +68,7 @@ const InlineMenuTemplate = (args) => {
                 openInlineDropdown && 'sdds-nav__dropdown--opened'
               }'>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
-                  <p class='sdds-nav__item-core-text'>Item 3</p>
+                  <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
                     <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />                                                                          
                   </span>
