@@ -80,7 +80,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'size', neq: 'xs' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
     icon: {
       name: 'Icon',
@@ -89,7 +89,7 @@ export default {
         type: 'select',
       },
       options: ['none', ...iconsNames],
-      if: { arg: 'size', neq: 'xs' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
     iconType: {
       name: 'Icon type',
