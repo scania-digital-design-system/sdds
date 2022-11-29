@@ -39,7 +39,7 @@ export default {
       },
     },
     subheader: {
-      name: 'SubHeader',
+      name: 'Subheader',
       description: 'Text to display in subheader section',
       control: {
         type: 'text',
