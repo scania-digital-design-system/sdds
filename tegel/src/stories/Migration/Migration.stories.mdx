@@ -370,6 +370,105 @@ Change all instances of `<svg>` to `<sdds-icon>`
 </button>
 ```
 
+#### Changed div to span on `sdds-nav__mob-menu-icon`
+
+The header previously had a `<div>` with the class `sdds-nav__mob-menu-icon`. This has been changed to a `span` instead.
+
+##### What action is required?
+
+Change all `<div>` with class `sdds-nav__mob-menu-icon` to span.
+
+```jsx
+// Old ❌
+<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
+  <div id='sdds-nav__mob-menu-icon'>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+  </div>
+</button>
+
+// New ✅
+<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
+  <span id='sdds-nav__mob-menu-icon'>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+  </span>
+</button>
+```
+
+
+#### Changed p to span on `sdds-nav__item-core-text`
+
+The header previously had a `<p>` with the class  `sdds-nav__item-core-text`. This has been changed to a `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with class `sdds-nav__item-core-text` to span.
+
+```jsx
+// Old ❌
+<li class='sdds-nav__item'>
+    <a class='sdds-nav__item-core' href='#'>
+        <p class='sdds-nav__item-core-text'>Item 1</p>
+    </a>
+</li>
+
+// New ✅
+<li class='sdds-nav__item'>
+    <a class='sdds-nav__item-core' href='#'>
+        <span class='sdds-nav__item-core-text'>Item 1</span>
+    </a>
+</li>
+```
+
+#### Changed p to span on `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`
+
+The header previously had `<p>` with the class  `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`. These has been changed to `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
+
+```jsx
+// Old ❌
+<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+    <p class='sdds-nav__avatar-title'>Employee Name</p>
+    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+</div>
+
+// New ✅
+<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+    <span class='sdds-nav__avatar-title'>Employee Name</span>
+    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+</div>
+```
+
+
+#### Changed `<div>` to span on `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`
+
+The header previously had `<div>` with the class  `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`. These has been changed to `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
+
+```jsx
+// Old ❌
+<div class='sdds-nav__avatar-info'>
+    <p class='sdds-nav__avatar-title'>Employee Name</p>
+    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+</div>
+
+// New ✅
+<span class='sdds-nav__avatar-info'>
+    <span class='sdds-nav__avatar-title'>Employee Name</span>
+    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+</span>
+```
+
+
 ## Footer
 
 [Native](/docs/components-footer--default)
