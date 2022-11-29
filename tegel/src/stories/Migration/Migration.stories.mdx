@@ -228,7 +228,7 @@ Rename all instances of `maxlength` to `max-length`.
 <sdds-textfield
     max-length="10"
 ></sdds-textfield>
-
+```
 
 ### Not breaing but highly suggested changes
 
@@ -262,6 +262,95 @@ Change all instances of `<svg>` to `<sdds-icon>`
     <sdds-icon name="burger" size="20px" /> 
 </button>
 ```
+
+#### Used `<button>` instead of `<a>` for `sdds-sidebar-nav__item-link` inside `sdds-sidebar-nav__extended`
+
+The header was previously using `<a>` for the `sdds-sidebar-nav__item-link` that was a child of `sdds-sidebar-nav__extended`, we have now changed this
+to a `<button>` instead. 
+
+##### What action is required?
+
+Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it's child of `sdds-sidebar-nav__extended`.
+
+```jsx
+// Old ❌
+<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
+  <a class="sdds-sidebar-nav__item-link" href="#">
+    <svg
+      class="sdds-sidebar-nav__icon"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="#e2e2e4"
+      xmlns="http://www.w3.org/2000/svg">
+      <rect y="0.334473" width="20" height="20" />
+    </svg>
+      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
+    <svg
+      class="sdds-sidebar-nav__chevron"
+      width="12"
+      height="7"
+      viewBox="0 0 12 7"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 1L6 6L11 1"
+        stroke="currentColor"
+        stroke-width="1.25"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+      </path>
+    </svg>
+  </a>
+    ...
+</li>
+// New ✅
+<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
+  <button class="sdds-sidebar-nav__item-link">
+    <div>
+      <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+    </div>
+      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
+    <div>
+      <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
+    </div>
+  </button>
+  ...
+</li>
+```
+
+#### Used `<button>` instead of `<a>` for `sdds-sidebar-mheader__close` and used `<sdds-icon>` instead of hard `<svg>`
+
+The `sdds-sidebar-mheader` was previously using an `<a>` for it close button, we have changed this to be a button instead. 
+
+##### What action is required?
+
+Change all instances of `<a href="#" class="sdds-sidebar-mheader__close">` to `<button class="sdds-sidebar-mheader__close">` and change all instances of `<svg>` to `<sdds-icon>`.
+
+
+```jsx
+// Old ❌
+<a href="#" class="sdds-sidebar-mheader__close">
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.40338 2.34308C3.11048 2.05019 2.63561 2.05019 2.34272 2.34308C2.04982 2.63598 2.04982 3.11085 2.34272 3.40374L6.93897 8L2.34283 12.5961C2.04994 12.889 2.04994 13.3639 2.34283 13.6568C2.63572 13.9497 3.1106 13.9497 3.40349 13.6568L7.99963 9.06066L12.5958 13.6568C12.8887 13.9497 13.3635 13.9497 13.6564 13.6568C13.9493 13.3639 13.9493 12.889 13.6564 12.5961L9.06029 8L13.6565 3.40376C13.9494 3.11086 13.9494 2.63599 13.6565 2.3431C13.3636 2.0502 12.8888 2.0502 12.5959 2.3431L7.99963 6.93934L3.40338 2.34308Z"
+      fill="#171719"/>
+  </svg>
+</a>
+// New ✅
+<button class="sdds-sidebar-mheader__close">
+  <sdds-icon name="cross" size="20px" /> 
+</button>
+```
+
+
 
 ## Header
 

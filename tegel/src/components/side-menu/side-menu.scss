@@ -123,6 +123,8 @@
     }
 
     &__close {
+      all: unset;
+      cursor: pointer;
       height: 64px;
       width: 68px;
       display: flex;
@@ -200,6 +202,17 @@
     }
 
     // SINGLE ITEM
+    &__extended {
+      .sdds-sidebar-nav__item-link {
+        border: none;
+        background: none;
+        cursor: pointer;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+      }
+    }
+
     &__item {
       border-bottom: 1px solid var(--sdds-sidebar-side-menu-single-item-border-bottom);
 
@@ -217,11 +230,6 @@
         min-height: 20px;
         box-sizing: content-box;
         transition: background-color 0.15s ease-in-out;
-
-        // TODO: remove/add?
-        // &:focus {
-        //@include sdds-focus-state;
-        // }
 
         .sdds-sidebar-nav__item-text {
           margin-top: 3px;
