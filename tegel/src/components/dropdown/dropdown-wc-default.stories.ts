@@ -23,6 +23,11 @@ export default {
       type: 'string',
       description: 'Placeholder text when no option is selected',
     },
+    label: {
+      name: 'Label text',
+      type: 'string',
+      description: 'Label text helps to describe what the dropdown contains',
+    },
     labelPosition: {
       name: 'Label position',
       control: {
@@ -50,11 +55,6 @@ export default {
       control: 'boolean',
       description: 'Helper text assists the user with additional information about the dropdown',
     },
-    label: {
-      name: 'Label text',
-      type: 'string',
-      description: 'Label text helps to describe what the dropdown contains',
-    },
     defaultOption: {
       if: { arg: 'type', neq: 'Multiselect' },
       description: 'Sets a pre-selected option and replaces placeholder',
@@ -66,14 +66,14 @@ export default {
     },
   },
   args: {
-    defaultOption: 'Option 1',
     size: 'Large',
     placeholder: 'Placeholder',
-    labelPosition: 'None',
-    disabled: false,
-    state: 'Default',
-    helper: false,
     label: 'Label text',
+    labelPosition: 'None',
+    helper: false,
+    disabled: false,
+    defaultOption: 'Option 1',
+    state: 'Default',
   },
 };
 

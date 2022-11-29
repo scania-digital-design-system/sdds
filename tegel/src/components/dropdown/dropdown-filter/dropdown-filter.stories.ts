@@ -67,12 +67,12 @@ export default {
   args: {
     size: 'Large',
     placeholder: 'Placeholder',
-    disabled: false,
+    label: 'Label text',
     labelPosition: 'None',
     helper: '',
+    disabled: false,
     defaultOption: 'Option 1',
     state: 'Default',
-    label: 'Label text',
   },
 };
 
