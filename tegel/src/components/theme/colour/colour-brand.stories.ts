@@ -2,6 +2,11 @@ export default {
   title: 'Foundations/Colour',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        state: 'closed',
+      },
+    },
   },
 };
 
