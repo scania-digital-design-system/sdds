@@ -21,27 +21,11 @@ export default {
       type: 'string',
       description: 'Placeholder text when no option is selected',
     },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Outside'],
-      description: 'Label text position',
-    },
     disabled: {
       name: 'Disabled',
       control: {
         type: 'boolean',
       },
-    },
-    state: {
-      name: 'State',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
     },
     helper: {
       name: 'Helper text',
@@ -49,11 +33,6 @@ export default {
         type: 'text',
       },
       description: 'Helper text assists the user with additional information about the dropdown',
-    },
-    label: {
-      name: 'Label text',
-      type: 'string',
-      description: 'Label text helps to describe what the dropdown contains',
     },
     defaultOption: {
       description: 'Sets a pre-selected option and replaces placeholder',
@@ -67,29 +46,14 @@ export default {
   args: {
     size: 'Large',
     placeholder: 'Placeholder',
-    label: 'Label text',
-    labelPosition: 'None',
-    helper: '',
     disabled: false,
+    helper: '',
     defaultOption: 'Option 1',
-    state: 'Default',
   },
 };
 
-const FilterTemplate = ({
-  size,
-  disabled = false,
-  helper = '',
-  label,
-  state = 'default',
-  placeholder,
-  labelPosition,
-  defaultOption,
-}) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defaultOption }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Outside: 'outside' };
-
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -108,11 +72,8 @@ const FilterTemplate = ({
         id="sdds-dropdown-filter"
         size="${sizeLookup[size]}"
         placeholder="${placeholder}"
-        disabled="${disabled}"
-        label-position="${labelPosLookup[labelPosition]}"
-        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
-        ${helper !== '' ? `helper="${helper}"` : ''}
-        state="${stateValue}"
+        disabled="${disabled}"\
+        ${helper !== '' ? `\n    helper="${helper}"` : ''}
         data='[
           {
             "value": "option-1",
@@ -127,8 +88,7 @@ const FilterTemplate = ({
             "label":"Barcelona"
           }
         ]'
-        default-option="${defaultOptionLookup[defaultOption]}"
-        >
+        default-option="${defaultOptionLookup[defaultOption]}">
       </sdds-dropdown-filter>
     </div>
   `);
