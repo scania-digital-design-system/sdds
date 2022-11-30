@@ -1,15 +1,15 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
-@import "./dropdown-core";
-@import "../../helpers/components-shared.scss";
-@import "../checkbox/checkbox.scss";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
+@import './dropdown-core';
+@import '../../helpers/components-shared.scss';
+@import '../checkbox/checkbox.scss';
 
 :host,
 ::slotted(*) {
   --sdds-link: var(--sdds-grey-958);
   --sdds-link-text-decoration: none;
 
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   color: var(--sdds-grey-958);
   box-sizing: border-box;
@@ -51,7 +51,13 @@
     align-items: center;
 
     &.sdds-dropdown-toggle-label-inside {
-      padding-bottom: 16px;
+      &-lg {
+        padding-bottom: 16px;
+      }
+
+      &-md {
+        padding-bottom: 12px;
+      }
     }
   }
 
@@ -93,7 +99,7 @@
     border: 0;
     outline: none;
 
-    @include type-style("detail-02");
+    @include type-style('detail-02');
 
     color: var(--sdds-grey-958);
     width: 100%;
@@ -178,13 +184,13 @@
   }
 }
 
-:host(.sdds-dropdown--open-upwards[label-position="outside"]) {
+:host(.sdds-dropdown--open-upwards[label-position='outside']) {
   span.sdds-dropdown-menu {
     bottom: calc(100% - 24px);
   }
 }
 
-:host([disabled="true"]) {
+:host([disabled='true']) {
   cursor: not-allowed;
 
   .sdds-dropdown {
@@ -311,7 +317,7 @@
   margin-left: var(--sdds-spacing-element-16);
 }
 
-:host([size="sm"]) {
+:host([size='sm']) {
   ::slotted(sdds-dropdown-option) {
     padding: var(--sdds-spacing-element-12) var(--sdds-spacing-element-16);
   }
@@ -326,7 +332,7 @@
 
       &.is-filter {
         &::before {
-          content: " ";
+          content: ' ';
           position: absolute;
           z-index: 2;
           bottom: 0;
@@ -359,7 +365,7 @@
 }
 
 .sdds-dropdown-label-inside {
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   position: absolute;
   transition: transform 250ms ease, color 200ms ease;
@@ -372,13 +378,23 @@
 }
 
 .sdds-dropdown-label-container.sdds-dropdown-label-container--label-inside {
+  .sdds-dropdown-placeholder {
+    display: block;
+    padding-top: 4px;
+  }
+}
+
+.sdds-dropdown-lg {
   .sdds-dropdown-label-inside {
     display: block;
     top: 16px;
   }
-  .sdds-dropdown-placeholder {
+}
+
+.sdds-dropdown-md {
+  .sdds-dropdown-label-inside {
     display: block;
-    padding-top: 4px;
+    top: 12px;
   }
 }
 

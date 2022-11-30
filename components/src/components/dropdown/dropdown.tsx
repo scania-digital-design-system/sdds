@@ -315,9 +315,15 @@ export class Dropdown {
             class={`sdds-dropdown-toggle ${this.selectedValue === 'filter' ? 'is-filter' : ''} ${
               this.selectedValue !== '' || this.selectedLabelsArray.length > 0
                 ? 'sdds-dropdown-toggle--selected'
-                : ''}
-                ${this.labelPosition === 'inside' && this.selectedValue !== '' || this.selectedLabelsArray.length > 0 ? 'sdds-dropdown-toggle-label-inside': ''}
-                `}
+                : ''
+            }
+              }
+              ${
+                (this.labelPosition === 'inside' && this.selectedValue !== '') ||
+                this.selectedLabelsArray.length > 0
+                  ? `sdds-dropdown-toggle-label-inside-${this.size}`
+                  : ''
+              }`}
             type="button"
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
