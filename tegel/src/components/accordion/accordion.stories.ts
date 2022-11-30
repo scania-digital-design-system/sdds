@@ -36,37 +36,20 @@ const Template = ({ disabled, iconPosition, lessPaddingRight }) => {
   const affixAttr = iconPosition === 'start' ? 'affix="prefix"' : '';
   const disabledAttr = disabled ? 'disabled' : '';
   const tabIndexAttr = 'tabindex="0"';
-  const paddingResetJs = lessPaddingRight
+  const lessPaddingRightStyle = lessPaddingRight
     ? `
-    // Note: If you are using a framework these should likely be set like properties instead,
-    // see: https://gilfink.medium.com/using-complex-objects-arrays-as-props-in-stencil-components-f2d54b093e85
-    console.log('test')
-    document.querySelectorAll('sdds-accordion-item').forEach((accordionItemEl) => {
-      accordionItemEl.panelStyle = {
-        'padding-right': '16px';
+    <style>
+      /* You can style the panel via its shadow part name 
+         https://developer.mozilla.org/en-US/docs/Web/CSS/::part */
+      sdds-accordion-item::part(panel) {
+        padding-right: 16px;
       }
-    })
+    </style>
   `
     : '';
-  const scriptTag = paddingResetJs ? `<script>${paddingResetJs}</script>` : '';
-  if (lessPaddingRight) {
-    document.querySelectorAll('sdds-accordion-item').forEach((accordionItemEl) => {
-      // eslint-disable-next-line no-param-reassign
-      accordionItemEl.panelStyle = {
-        'padding-right': '16px',
-      };
-      console.log('test');
-      // debugger;
-    });
-  } else {
-    document.querySelectorAll('sdds-accordion-item').forEach((accordionItemEl) => {
-      // eslint-disable-next-line no-param-reassign
-      delete accordionItemEl.panelStyle;
-      // debugger;
-    });
-  }
 
   return formatHtmlPreview(`
+    ${lessPaddingRightStyle}
     <sdds-accordion class="sdds-storybook-wrapper">
       <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
@@ -81,7 +64,6 @@ const Template = ({ disabled, iconPosition, lessPaddingRight }) => {
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
     </sdds-accordion>
-    ${scriptTag}
   `);
 };
 
