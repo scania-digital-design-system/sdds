@@ -49,6 +49,10 @@
 
     display: flex;
     align-items: center;
+
+    &.sdds-dropdown-toggle-label-inside {
+      padding-bottom: 16px;
+    }
   }
 
   .sdds-dropdown-toggle--selected:not(:focus) {
@@ -368,10 +372,13 @@
 }
 
 .sdds-dropdown-label-container.sdds-dropdown-label-container--label-inside {
-  padding-top: 7px;
-
   .sdds-dropdown-label-inside {
-    transform: translate(0, -16px);
+    display: block;
+    top: 16px;
+  }
+  .sdds-dropdown-placeholder {
+    display: block;
+    padding-top: 4px;
   }
 }
 
