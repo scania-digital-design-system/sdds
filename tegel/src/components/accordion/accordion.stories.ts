@@ -23,6 +23,18 @@ export default {
   },
   parameters: {
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   args: {
     disabled: false,
@@ -56,75 +68,18 @@ const Template = ({ disabled, iconPosition, paddingReset }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {};
-Default.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 
 export const Prefix = Template.bind({});
 Prefix.args = {
   iconPosition: 'start',
-};
-Prefix.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
-Disabled.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 
 export const PaddingReset = Template.bind({});
 PaddingReset.args = {
   paddingReset: true, // Allows item text to expand past suffix icon
-};
-PaddingReset.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };

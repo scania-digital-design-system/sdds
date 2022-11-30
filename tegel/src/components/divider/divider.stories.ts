@@ -4,6 +4,18 @@ export default {
   title: 'Components/Divider',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
+      },
+    ],
   },
   argTypes: {
     style: {

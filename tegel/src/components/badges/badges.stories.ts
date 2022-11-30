@@ -6,6 +6,18 @@ export default {
   parameters: {
     layout: 'centered',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     visible: {
@@ -60,35 +72,7 @@ const demoTemplate = (args) => {
       </sdds-badges>
     </div>`);
 };
-Default.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 export const WithDemoComponent = demoTemplate.bind({});
 WithDemoComponent.args = {
   value: 2,
-};
-WithDemoComponent.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };

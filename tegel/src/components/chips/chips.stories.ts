@@ -4,6 +4,18 @@ export default {
   title: 'Components/Chips',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     placeholderText: {
@@ -104,39 +116,11 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
 
 export const Default = Template.bind({});
 Default.args = {};
-Default.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 
 export const IconRight = Template.bind({});
 IconRight.args = {
   icon: true,
   iconPosition: 'Icon right',
-};
-IconRight.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };
 
 export const IconLeft = Template.bind({});
@@ -144,55 +128,13 @@ IconLeft.args = {
   icon: true,
   iconPosition: 'Icon left',
 };
-IconLeft.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 
 export const Active = Template.bind({});
 Active.args = {
   state: 'Active',
 };
-Active.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'Small',
-};
-Small.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };

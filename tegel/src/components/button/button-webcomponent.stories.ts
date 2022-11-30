@@ -8,6 +8,18 @@ export default {
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
     },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     text: {
@@ -181,39 +193,11 @@ const WebComponentTemplate = ({
 
 /** Button as web component */
 export const WebComponent = WebComponentTemplate.bind({});
-WebComponent.args = {};
-WebComponent.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
-};
+
 export const WebComponentWithIcon = WebComponentTemplate.bind({});
 WebComponentWithIcon.args = {
   icon: 'truck',
   iconType: 'Webcomponent',
-};
-WebComponentWithIcon.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };
 export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
 WebComponentOnlyIcon.args = {
@@ -221,18 +205,4 @@ WebComponentOnlyIcon.args = {
   iconType: 'Webcomponent',
   onlyIcon: true,
   icon: 'truck',
-};
-WebComponentOnlyIcon.parameters = {
-  design: [
-    {
-      name: 'Figma',
-      type: 'figma',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-    {
-      name: 'Link',
-      type: 'link',
-      url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
-    },
-  ],
 };
