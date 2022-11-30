@@ -55,9 +55,15 @@
 
     display: flex;
     align-items: center;
-    
+
     &.sdds-dropdown-toggle-label-inside {
-      padding-bottom: 16px;
+      &-lg {
+        padding-bottom: 16px;
+      }
+
+      &-md {
+        padding-bottom: 12px;
+      }
     }
   }
 
@@ -378,16 +384,23 @@
 }
 
 .sdds-dropdown-label-container.sdds-dropdown-label-container--label-inside {
-  //padding-top: 7px;
+  .sdds-dropdown-placeholder {
+    display: block;
+    padding-top: 4px;
+  }
+}
 
+.sdds-dropdown-lg {
   .sdds-dropdown-label-inside {
     display: block;
     top: 16px;
   }
+}
 
-  .sdds-dropdown-placeholder {
+.sdds-dropdown-md {
+  .sdds-dropdown-label-inside {
     display: block;
-    padding-top: 4px;
+    top: 12px;
   }
 }
 
