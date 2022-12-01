@@ -80,9 +80,16 @@
   border-bottom: 0;
 }
 
+.sdds-textarea-container {
+  .sdds-textarea-wrapper {
+    position: relative;
+    width: unset;
+    min-width: 100%;
+  }
+}
+
 .sdds-textarea-container:not(.sdds-textarea-disabled) {
   .sdds-textarea-wrapper {
-    //@extend .sdds-textfield-bar;
     &::before,
     &::after {
       content: '';
@@ -100,12 +107,6 @@
     &::after {
       right: 50%;
     }
-
-    //@extend end
-
-    position: relative;
-    width: unset;
-    min-width: 100%;
 
     &::after,
     &::before {
