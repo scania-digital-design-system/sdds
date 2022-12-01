@@ -21,6 +21,16 @@ export default {
       name: 'Less padding right',
       description: 'Less padding on the right in accordion items',
     },
+    lessPaddingRightWithAttribute: {
+      name: 'Set less padding right with attribute',
+      type: 'boolean',
+      description:
+        'Use the `padding-reset` attribute to give accordion items less padding on the right instead',
+      table: {
+        defaultValue: { summary: false },
+      },
+      if: { arg: 'lessPaddingRight', truthy: true },
+    },
   },
   parameters: {
     notes: { 'Accordion': readme, 'Accordion item': readmeItem },
@@ -28,16 +38,20 @@ export default {
   args: {
     disabled: false,
     lessPaddingRight: false,
+    lessPaddingRightWithAttribute: false,
     iconPosition: 'end',
   },
 };
 
-const Template = ({ disabled, iconPosition, lessPaddingRight }) => {
+const Template = ({ disabled, iconPosition, lessPaddingRight, lessPaddingRightWithAttribute }) => {
   const affixAttr = iconPosition === 'start' ? 'affix="prefix"' : '';
   const disabledAttr = disabled ? 'disabled' : '';
   const tabIndexAttr = 'tabindex="0"';
-  const lessPaddingRightStyle = lessPaddingRight
-    ? `
+  const lessPaddingRightAttr =
+    lessPaddingRight && lessPaddingRightWithAttribute ? `padding-reset` : '';
+  const lessPaddingRightStyle =
+    lessPaddingRight && !lessPaddingRightWithAttribute
+      ? `
     <style>
       /* You can style the panel via its shadow part name 
          https://developer.mozilla.org/en-US/docs/Web/CSS/::part */
@@ -46,20 +60,20 @@ const Template = ({ disabled, iconPosition, lessPaddingRight }) => {
       }
     </style>
   `
-    : '';
+      : '';
 
   return formatHtmlPreview(`
     ${lessPaddingRightStyle}
-    <sdds-accordion class="sdds-storybook-wrapper">
-      <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr}>
+    <sdds-accordion>
+      <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Second item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} expanded>
+      <sdds-accordion-item header="Second item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr} expanded>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum. Proin ac odio sed tellus fermentum placerat. Nam sit amet orci dui. Proin commodo tellus at mauris accumsan blandit. Donec eget suscipit lorem, sit amet ultrices tellus. Cras massa ligula, rhoncus non elementum non, molestie sed nibh.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Third item" ${tabIndexAttr} ${affixAttr} ${disabledAttr}>
+      <sdds-accordion-item header="Third item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>

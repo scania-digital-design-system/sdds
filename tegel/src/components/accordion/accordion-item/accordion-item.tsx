@@ -19,6 +19,9 @@ export class AccordionItem {
   /** Set to true to expand panel open */
   @Prop() expanded: boolean = false;
 
+  /** Set to true to make the padding on both sides of the panel equal */
+  @Prop() paddingReset: boolean = false;
+
   /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
   @Event({
     eventName: 'accordionItemToggle',
@@ -65,7 +68,12 @@ export class AccordionItem {
             </svg>
           </div>
         </div>
-        <div part="panel" class={`sdds-accordion-panel`}>
+        <div
+          part="panel"
+          class={`sdds-accordion-panel 
+            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
+            `}
+        >
           <slot></slot>
         </div>
       </div>
