@@ -1,6 +1,5 @@
 import readme from './readme.md';
 import readmeOption from './dropdown-option/readme.md';
-
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
@@ -76,6 +75,19 @@ export default {
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
+    },
   },
   args: {
     defaultOption: 'Option 1',
@@ -86,6 +98,7 @@ export default {
     state: 'Default',
     helper: false,
     label: 'Label text',
+    openDirection: 'Auto',
   },
 };
 
@@ -98,6 +111,7 @@ const Template = ({
   state = 'default',
   placeholder,
   defaultOption,
+  openDirection,
 }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
@@ -122,6 +136,7 @@ const Template = ({
           size="${sizeLookup[size]}"
           placeholder="${placeholder}"
           disabled="${disabled}"
+          open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosLookup[labelPosition]}"
           ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
           ${helper ? 'helper="Helper text"' : ''}

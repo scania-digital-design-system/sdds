@@ -75,6 +75,19 @@ export default {
       },
       options: ['Option 1', 'Option 2', 'Option 3'],
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
+    },
   },
   args: {
     size: 'Large',
@@ -85,6 +98,7 @@ export default {
     helper: false,
     label: 'Label text',
     multiDefaultOption: ['Option 1', 'Option 2'],
+    openDirection: 'Auto',
   },
 };
 
@@ -97,6 +111,7 @@ const Template = ({
   state = 'default',
   placeholder,
   multiDefaultOption,
+  openDirection,
 }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
@@ -117,6 +132,7 @@ const Template = ({
           size="${sizeLookup[size]}"
           placeholder="${placeholder}"
           disabled="${disabled}"
+          open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosLookup[labelPosition]}"
           ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
           ${helper ? 'helper="Helper text"' : ''}
