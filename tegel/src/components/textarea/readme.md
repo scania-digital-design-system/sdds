@@ -18,7 +18,7 @@
 | `placeholder`   | `placeholder`    | Placeholder text                         | `string`                              | `''`         |
 | `readOnly`      | `read-only`      | Set input in readonly state              | `boolean`                             | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                  | `number`                              | `undefined`  |
-| `state`         | `state`          | Error state of input                     | `string`                              | `undefined`  |
+| `state`         | `state`          | Error state of input                     | `"default" \| "error" \| "success"`   | `'default'`  |
 | `value`         | `value`          | Value of the input text                  | `string`                              | `''`         |
 | `variant`       | `variant`        | Variant of the textarea                  | `"default" \| "variant"`              | `'default'`  |
 
