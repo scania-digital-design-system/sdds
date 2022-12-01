@@ -9,9 +9,39 @@ Here is where we document all the breaking changes that we are introducing while
 
 ---
 
-### MD cheatsheet
 
-https://www.markdownguide.org/cheat-sheet/
+<!-- TODO: remove link to markdownguide.org -->
+<!-- ### MD cheatsheet
+https://www.markdownguide.org/cheat-sheet/ -->
+
+## Accordion
+
+[Webcomponent](/docs/components-accordion--default/)
+
+#### Replaced `affix` with `expand-icon-position`
+
+The attribute `affix` was replaced by `expand-icon-position`, since `affix` is not descriptive enough of what it does.
+
+##### What action is required?
+
+Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="suffix"`.
+
+```jsx
+// Old ❌
+<sdds-accordion>
+  <sdds-accordion-item header="Lorem ipsum" affix="prefix" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+
+// New ✅
+<sdds-accordion>
+  <sdds-accordion-item header="Lorem ipsum" expand-icon-position="start" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+```
+
 
 ## Banner
 
