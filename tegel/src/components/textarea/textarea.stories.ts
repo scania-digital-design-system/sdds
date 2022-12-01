@@ -55,12 +55,12 @@ export default {
       },
     },
     labelPosition: {
-      description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
         type: 'radio',
       },
-      options: ['No label', 'Inside', 'Outside'],
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Label text position',
     },
     helper: {
       name: 'Helper text',
@@ -105,7 +105,7 @@ export default {
     disabled: false,
     readonly: false,
     label: '',
-    labelPosition: 'No label',
+    labelPosition: 'None',
     helper: '',
     maxLength: 0,
     rows: 5,
@@ -130,9 +130,9 @@ const Template = ({
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
-    'No label': 'no-label',
-    'Inside': 'inside',
-    'Outside': 'outside',
+    None: 'no-label',
+    Inside: 'inside',
+    Outside: 'outside',
   };
   return formatHtmlPreview(`
   <style>

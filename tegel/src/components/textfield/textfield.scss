@@ -103,7 +103,7 @@
 } */
 
 //Textfield label
-.sdds-textfield-slot-wrap-label > * {
+.sdds-textfield-label-outside > * {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
@@ -292,7 +292,7 @@
     }
   }
 
-  .sdds-textfield-slot-wrap-label {
+  .sdds-textfield-label-outside {
     > * {
       color: var(--sdds-textfield-disabled-label);
     }

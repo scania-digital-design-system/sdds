@@ -92,7 +92,9 @@ export class Textarea {
         `}
         onClick={() => this.handleFocusClick()}
       >
-        {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
+        {this.labelPosition !== 'no-label' && (
+          <span class={'sdds-textarea-label'}>{this.label}</span>
+        )}
         <div class="sdds-textarea-wrapper">
           <textarea
             onFocus={() => {

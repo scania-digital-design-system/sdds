@@ -72,13 +72,13 @@ export default {
         type: 'text',
       },
     },
-    labelplacement: {
-      description: 'Label can be placed inside the textfield',
-      name: 'Label inside',
+    labelPosition: {
+      name: 'Label position',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
-      if: { arg: 'label', neq: '' },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Label text position',
     },
     prefix: {
       name: 'Prefix',
@@ -137,16 +137,16 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
       },
+      options: ['None', 'Success', 'Error'],
     },
     variant: {
       name: 'Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
       },
+      options: ['Default', 'Variant'],
     },
   },
   args: {
@@ -154,7 +154,7 @@ export default {
     disabled: false,
     readonly: false,
     label: '',
-    labelPosition: 'No label',
+    labelPosition: 'None',
     helper: '',
     maxLength: 0,
     state: 'None',
@@ -178,7 +178,7 @@ const Template = ({
   disabled,
   readonly,
   label,
-  labelplacement,
+  labelPosition,
   state,
   variant,
   helper,
@@ -205,8 +205,9 @@ const Template = ({
       size="${sizeLookUp[size]}"
       state="${stateValue}"
       variant="${variantValue}"
+      label="${label}"
+      label-position="${labelPosition.toLowerCase()}"
       ${maxlength}
-      ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
       ${minWidth === 'No min width' ? 'noMinWidth' : ''}
@@ -219,7 +220,6 @@ const Template = ({
         </span>`
             : ''
         }
-        ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
         ${
           suffix
