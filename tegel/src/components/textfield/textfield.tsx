@@ -37,7 +37,7 @@ export class Textfield {
   @Prop() variant: 'default' | 'variant' = 'default';
 
   /** With setting */
-  @Prop() nominwidth: boolean = false;
+  @Prop() noMinWidth: boolean = false;
 
   /** Name property */
   @Prop() name = '';
@@ -89,7 +89,7 @@ export class Textfield {
     return (
       <div
         class={`
-        ${this.nominwidth ? 'sdds-form-textfield-nomin' : ''}
+        ${this.noMinWidth ? 'sdds-form-textfield-nomin' : ''}
         ${
           this.focusInput && !this.disabled
             ? 'sdds-form-textfield sdds-textfield-focus'

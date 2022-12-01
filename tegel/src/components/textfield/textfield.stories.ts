@@ -209,7 +209,7 @@ const Template = ({
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidth === 'No min width' ? 'noMinWidth' : ''}
+      ${minWidth === 'No min width' ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
           prefix
