@@ -60,7 +60,7 @@ const iconLookup = {
   Success: 'tick',
   Info: 'info',
   Warning: 'warning',
-  Error: 'info',
+  Error: 'error',
 };
 
 const Template = ({ toastType, subheader, link, iconType, icon }) => {
