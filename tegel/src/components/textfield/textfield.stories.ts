@@ -140,7 +140,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Success', 'Error'],
+      options: ['Default', 'Success', 'Error'],
     },
     variant: {
       name: 'Variant',
@@ -158,8 +158,8 @@ export default {
     label: 'Label',
     labelPosition: 'None',
     helper: '',
-    maxLength: 0,
-    state: 'None',
+    textcounter: 0,
+    state: 'Default',
     variant: 'Default',
     suffix: false,
     suffixType: 'Icon',

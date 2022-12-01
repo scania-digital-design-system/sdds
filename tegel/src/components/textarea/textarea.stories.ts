@@ -89,7 +89,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Success', 'Error'],
+      options: ['Default', 'Success', 'Error'],
     },
     variant: {
       name: 'Variant',
@@ -109,7 +109,7 @@ export default {
     helper: '',
     maxLength: 0,
     rows: 5,
-    state: 'None',
+    state: 'Default',
     variant: 'Default',
   },
 };
