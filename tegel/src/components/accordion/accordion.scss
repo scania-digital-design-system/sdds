@@ -72,6 +72,10 @@
       margin: 0;
       padding: 0;
     }
+    
+    &--padding-reset {
+      padding-right: var(--sdds-spacing-element-16);
+    }
   }
 
   .sdds-accordion-header-suffix {
