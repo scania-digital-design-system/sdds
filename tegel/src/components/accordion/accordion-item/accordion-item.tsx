@@ -19,9 +19,6 @@ export class AccordionItem {
   /** Set to true to expand panel open */
   @Prop() expanded: boolean = false;
 
-  /** Override the style of the panel. Note that it is passed as an object with css properties in camelCase. */
-  @Prop() panelStyle: undefined | { [key: string]: string };
-
   /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
   @Event({
     eventName: 'accordionItemToggle',
@@ -33,7 +30,6 @@ export class AccordionItem {
 
   openAccordion() {
     this.expanded = !this.expanded;
-
     this.accordionItemToggle.emit(this.expanded);
   }
 
