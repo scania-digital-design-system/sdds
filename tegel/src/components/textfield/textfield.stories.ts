@@ -119,9 +119,9 @@ export default {
         type: 'text',
       },
     },
-    textcounter: {
-      name: 'Text counter',
-      description: 'Set a maximum value how long the text can be',
+    maxLength: {
+      name: 'Max length',
+      description: 'Set a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
@@ -150,7 +150,7 @@ export default {
     label: '',
     labelPosition: 'No label',
     helper: '',
-    textcounter: 0,
+    maxLength: 0,
     state: 'None',
     variant: 'Default',
     icon: false,
@@ -178,9 +178,9 @@ const Template = ({
   prefix,
   suffix,
   icon,
-  textcounter,
+  maxLength,
 }) => {
-  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
+  const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
   const sizeLookUp = {
