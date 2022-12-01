@@ -19,7 +19,7 @@
 | `readOnly`      | `read-only`      | Set input in readonly state                               | `boolean`                | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`                 | `undefined`  |
 | `state`         | `state`          | Error state of input                                      | `string`                 | `undefined`  |
-| `value`         | `value`          | Value of the input text                                   | `string`                 | `null`       |
+| `value`         | `value`          | Value of the input text                                   | `string`                 | `''`         |
 | `variant`       | `variant`        | Variant of the textarea                                   | `"default" \| "variant"` | `'default'`  |
 
 

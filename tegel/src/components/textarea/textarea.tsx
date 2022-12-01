@@ -31,7 +31,7 @@ export class Textarea {
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop() value: string = null;
+  @Prop() value: string = '';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
