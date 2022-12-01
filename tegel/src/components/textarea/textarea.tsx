@@ -24,8 +24,8 @@ export class Textarea {
   /** Textarea rows attribute */
   @Prop() rows: number;
 
-  /** Label position: `no-label` (default), `inside`, `outside` */
-  @Prop() labelPosition = 'no-label';
+  /** Position of the label for the textfield. */
+  @Prop() labelPosition: 'inside' | 'outside' | 'no-label' = 'no-label';
 
   /** Placeholder text */
   @Prop() placeholder: string = '';
