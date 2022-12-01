@@ -9,9 +9,8 @@ export class AccordionItem {
   /** The header gives users the context about the additional information available inside the panel */
   @Prop() header: string = '';
 
-  /** Icon can be placed after or before accordion header. Values accepted: `prefix` or `suffix`
-   *  Default value is `suffix` */
-  @Prop() affix: 'prefix' | 'suffix' = 'suffix';
+  /** Changes where the expand icon is placed. */
+  @Prop() expandIconPosition: 'start' | 'end' = 'end';
 
   /** Disabled option in `boolean`. */
   @Prop() disabled: boolean = false;
@@ -45,7 +44,10 @@ export class AccordionItem {
         ${this.expanded ? 'expanded' : ''}
         `}
       >
-        <div class={`sdds-accordion-header-${this.affix}`} onClick={() => this.openAccordion()}>
+        <div
+          class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
+          onClick={() => this.openAccordion()}
+        >
           <div class="sdds-accordion-title">{this.header}</div>
           <div class="sdds-accordion-icon">
             <svg
