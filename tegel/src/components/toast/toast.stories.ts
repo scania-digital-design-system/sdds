@@ -100,7 +100,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
       ${
         iconType === 'Native'
           ? `<i class="sdds-icon ${iconValue}"></i>`
-          : `<sdds-icon name="${iconValue}" size="20px" />
+          : `<sdds-icon name="${iconValue}" size="20px"></sdds-icon>
       `
       }
     </div>
@@ -111,13 +111,20 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         <span class="sdds-toast-headline">This is ${
           toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
         } ${toastType.toLowerCase()} message</span>
-        <span class='sdds-toast-dismiss'></span>
+        <button type="button" aria-label="close" class="sdds-toast-dismiss">
+          ${
+            iconType === 'Native'
+              ? `<i class="sdds-icon cross"></i>`
+              : `<sdds-icon name="cross" size="20px"></sdds-icon>
+          `
+          }
+        </button>
       </div>
       ${
         subheader || link
           ? `\n<div class="sdds-toast-body">\
           ${subheader ? '\n<span class="sdds-toast-subheadline">Short subheader</span>' : ''}\
-           ${link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
+          ${link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
           </div> `
           : ''
       }
