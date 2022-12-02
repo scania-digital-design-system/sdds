@@ -69,6 +69,37 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
 </div>
 ```
 
+## Block  
+
+[Native](/docs/components-block--default/)
+
+#### Renamed classes `sdds-block__default` and `sdds-block__variant` to conform with convention
+
+The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-default` and `sdds-block-variant` to conform with convention.
+
+##### What action is required?
+
+Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-default` and `sdds-block-variant`.
+
+```jsx
+// Old ❌
+<div class="sdds-block sdds-block__default">
+  <p>Content....</p>
+</div>
+<div class="sdds-block sdds-block__variant">
+  <p>Content....</p>
+</div>
+
+
+// New ✅
+<div class="sdds-block sdds-block-default">
+  <p>Content....</p>
+</div>
+<div class="sdds-block sdds-block-variant">
+  <p>Content....</p>
+</div>
+```
+
 ## Button
 
 [Native](/docs/components-button--native/)
