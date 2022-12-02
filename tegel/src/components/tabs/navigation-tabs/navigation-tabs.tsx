@@ -29,7 +29,7 @@ export class NavigationTabs {
   }
 
   componentDidLoad() {
-    const resizeObserver = new ResizeObserver(entries => {
+    const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
@@ -37,9 +37,10 @@ export class NavigationTabs {
         const navButtons = Array.from(this.host.children);
         navButtons.forEach((navButton: HTMLElement) => {
           const style = window.getComputedStyle(navButton);
-          buttonsWidth += navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
-          navButton.classList.add('sdds-navigation-tabs--tab');
+          navButton.classList.add('sdds-navigation-tabs-tab');
         });
 
         this.componentWidth = componentWidth;
@@ -65,7 +66,8 @@ export class NavigationTabs {
     const navButtons = Array.from(this.host.children);
     navButtons.forEach((navButton: HTMLElement) => {
       const style = window.getComputedStyle(navButton);
-      const width = navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+      const width =
+        navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
       if (width > best) {
         best = width;
@@ -109,12 +111,26 @@ export class NavigationTabs {
     return (
       <Host>
         <div class="sdds-navigation-tabs">
-          <div class="sdds-navigation-tabs-wrapper" ref={el => (this.navWrapperElement = el as HTMLElement)}>
+          <div
+            class="sdds-navigation-tabs-wrapper"
+            ref={(el) => (this.navWrapperElement = el as HTMLElement)}
+          >
             <slot />
           </div>
           <div class="sdds-navigation-tabs-navigation">
-            <button class={`sdds-navigation-tabs--forward ${this.showRightScroll ? 'sdds-navigation-tabs--forward__show' : ''}`} onClick={() => this._scrollRight()}>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button
+              class={`sdds-navigation-tabs-forward ${
+                this.showRightScroll ? 'sdds-navigation-tabs-forward-show' : ''
+              }`}
+              onClick={() => this._scrollRight()}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -123,8 +139,19 @@ export class NavigationTabs {
                 ></path>
               </svg>
             </button>
-            <button class={`sdds-navigation-tabs--back ${this.showLeftScroll ? 'sdds-navigation-tabs--back__show' : ''}`} onClick={() => this._scrollLeft()}>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button
+              class={`sdds-navigation-tabs-back ${
+                this.showLeftScroll ? 'sdds-navigation-tabs-back-show' : ''
+              }`}
+              onClick={() => this._scrollLeft()}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"

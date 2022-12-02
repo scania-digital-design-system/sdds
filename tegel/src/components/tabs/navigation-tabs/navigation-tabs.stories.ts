@@ -24,11 +24,11 @@ export default {
 const Template = () =>
   formatHtmlPreview(`
     <sdds-navigation-tabs>
-      <a href="#" class="sdds-navigation-tabs--tab__active">Active tab</a>
+      <a href="#" class="sdds-navigation-tabs-tab-active">Active tab</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
-      <a role="link" aria-disabled="true" class="sdds-navigation-tabs--tab__disabled">Disabled tab</a>
+      <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
     </sdds-navigation-tabs>
     `);
 
