@@ -18,11 +18,23 @@ export default {
       },
     ],
   },
+  argTypes: {
+    variant: {
+      name: "Variant",
+      control: {
+        type: 'radio'
+      }, 
+      options: ['Primary', 'Secondary'],
+    }
+  },
+  args: {
+    variant: 'Primary'
+  }
 };
 
-const Template = () =>
+const Template = ({variant}) =>
   formatHtmlPreview(`
-    <sdds-inline-tabs-fullbleed>
+  <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" variant="${variant.toLowerCase()}">
       <a href="#">Tab name</a>
       <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Active tab</a>
       <a href="#">Tab name</a>

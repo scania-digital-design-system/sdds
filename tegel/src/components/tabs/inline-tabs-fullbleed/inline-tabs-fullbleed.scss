@@ -173,3 +173,27 @@
     opacity: 0.16;
   }
 }
+
+.sdds-inline-tabs-fullbleed-primary {
+  background-color: var(--sdds-white);
+
+  .sdds-inline-tabs-fullbleed--forward {
+    background-color: var(--sdds-white);
+  }
+
+  .sdds-inline-tabs-fullbleed--back {
+    background-color: var(--sdds-white);
+  }
+}
+
+.sdds-inline-tabs-fullbleed-secondary {
+  background-color: var(--sdds-grey-50);
+
+  .sdds-inline-tabs-fullbleed--forward {
+    background-color: var(--sdds-grey-50);
+  }
+
+  .sdds-inline-tabs-fullbleed--back {
+    background-color: var(--sdds-grey-50);
+  }
+}
