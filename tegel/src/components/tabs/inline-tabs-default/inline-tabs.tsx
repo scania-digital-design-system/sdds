@@ -14,8 +14,8 @@ export class InlineTabs {
   /** different height settings. right now only supports "auto", otherwise ignored */
   @Prop() autoHeight: boolean = false;
 
-  /** color variant. right now only supports "on-grey", otherwise ignored */
-  @Prop() colorVariant: 'on-grey' | null = null;
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() variant: 'primary' | 'secondary' = 'primary'; 
 
   /** array with metadata for slotted children */
   @State() tabs: Array<any> = [];
@@ -260,7 +260,7 @@ export class InlineTabs {
 
     return (
       <Host>
-        <div class={`sdds-inline-tabs ${this.colorVariant === 'on-grey' ? 'sdds-inline-tabs-ongrey50' : 'sdds-inline-tabs-onwhite'}`}>
+        <div class={`sdds-inline-tabs sdds-inline-tabs sdds-inline-tabs-${this.variant}`}>
           <nav class="sdds-inline-tabs-header">
             <div ref={el => (this.navWrapperElement = el as HTMLElement)} class="sdds-inline-tabs-wrapper">
               {this.tabs.map(tab => (
