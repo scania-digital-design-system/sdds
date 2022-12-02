@@ -5,7 +5,7 @@ module.exports = {
     '@storybook/addon-essentials',
     // '@storybook/addon-interactions',
     '@storybook/addon-notes/register',
-    'storybook-dark-mode',,
+    'storybook-dark-mode',
     'storybook-addon-designs',
     '@storybook/addon-a11y',
     'addon-screen-reader',
