@@ -1,4 +1,4 @@
-import { Component, Host, State, Element, h } from '@stencil/core';
+import { Component, Host, State, Element, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-inline-tabs-fullbleed',
@@ -6,6 +6,9 @@ import { Component, Host, State, Element, h } from '@stencil/core';
   shadow: true,
 })
 export class InlineTabsFullbleed {
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() variant: 'primary' | 'secondary' = 'primary';
+
   @Element() host: HTMLElement;
 
   @State() tabs: Array<any> = []; // array with metadata for slotted children
@@ -38,9 +41,7 @@ export class InlineTabsFullbleed {
         navButtons.forEach((navButton: HTMLElement) => {
           const style = window.getComputedStyle(navButton);
           buttonsWidth +=
-            navButton.clientWidth +
-            parseFloat(style.marginLeft) +
-            parseFloat(style.marginRight);
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
           navButton.classList.add('sdds-inline-tabs-fullbleed--tab');
         });
@@ -69,9 +70,7 @@ export class InlineTabsFullbleed {
     navButtons.forEach((navButton: HTMLElement) => {
       const style = window.getComputedStyle(navButton);
       const width =
-        navButton.clientWidth +
-        parseFloat(style.marginLeft) +
-        parseFloat(style.marginRight);
+        navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
       if (width > best) {
         best = width;
@@ -114,7 +113,7 @@ export class InlineTabsFullbleed {
   render() {
     return (
       <Host>
-        <div class="sdds-inline-tabs-fullbleed">
+        <div class={`sdds-inline-tabs-fullbleed sdds-inline-tabs-fullbleed-${this.variant}`}>
           <div
             class="sdds-inline-tabs-fullbleed-wrapper"
             ref={(el) => (this.navWrapperElement = el as HTMLElement)}
@@ -124,9 +123,7 @@ export class InlineTabsFullbleed {
           <div class="sdds-inline-tabs-fullbleed-navigation">
             <button
               class={`sdds-inline-tabs-fullbleed--forward ${
-                this.showRightScroll
-                  ? 'sdds-inline-tabs-fullbleed--back__show'
-                  : ''
+                this.showRightScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
               onClick={() => this._scrollRight()}
             >
@@ -147,9 +144,7 @@ export class InlineTabsFullbleed {
             </button>
             <button
               class={`sdds-inline-tabs-fullbleed--back ${
-                this.showLeftScroll
-                  ? 'sdds-inline-tabs-fullbleed--back__show'
-                  : ''
+                this.showLeftScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
               onClick={() => this._scrollLeft()}
             >
