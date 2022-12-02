@@ -22,6 +22,9 @@ export class InlineTabs {
   /** different height settings. right now only supports "auto", otherwise ignored */
   @Prop() autoHeight: boolean = false;
 
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() variant: 'primary' | 'secondary' = 'primary'; 
+
   /** array with metadata for slotted children */
   @State() tabs: Array<any> = [];
 
@@ -284,7 +287,7 @@ export class InlineTabs {
 
     return (
       <Host>
-        <div class="sdds-inline-tabs sdds-inline-tabs-onwhite">
+        <div class={`sdds-inline-tabs sdds-inline-tabs-${this.variant}`}>
           <nav class="sdds-inline-tabs-header">
             <div
               ref={(el) => (this.navWrapperElement = el as HTMLElement)}
