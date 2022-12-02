@@ -158,7 +158,7 @@ const Template = ({
           type="${type}"
           default-option="${defaultOption}" >     
           <sdds-dropdown-option value="option-1" tabindex="0">Stockholm & Stockholm</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2" tabindex="0">Hello 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0" disabled>Hello 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>          
           ${extraDropdownOptions}
                   </sdds-dropdown>
@@ -306,7 +306,7 @@ const MultiselectTemplate = ({
         label="${label}"   
         >
           <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
-          <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-2" tabindex="0" disabled>Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3 Longer</sdds-dropdown-option>
           </sdds-dropdown>
       </div>
