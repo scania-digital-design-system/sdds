@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Popover-canvas',
+  title: 'Components/Popover Canvas',
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -13,7 +13,7 @@ export default {
       description: 'Position of the PopoverCanvas',
       type: { summary: 'string' },
       control: {
-        type: 'radio',
+        type: 'select',
       },
       options: [
         'Bottom',

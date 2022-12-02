@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Popover-Menu',
+  title: 'Components/Popover Menu',
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -24,7 +24,7 @@ export default {
       name: 'Menu position',
       description: 'Position of the PopoverMenu',
       control: {
-        type: 'radio',
+        type: 'select',
       },
       options: [
         'Bottom',
