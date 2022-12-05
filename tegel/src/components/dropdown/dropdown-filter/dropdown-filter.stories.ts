@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Dropdown-filter',
+  title: 'Components/Dropdown Filter',
   parameters: {
     layout: 'centered',
     notes: readme,
