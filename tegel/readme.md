@@ -13,35 +13,12 @@ Check out [Tegel Design System](https://tegel.scania.com/) for implementation an
 
 ## Quick start
 
-How to add components in the project:
-
-Install components via NPM package by running the command below.
-
-<!-- TODO: update if we rename package when we release tegel -->
-```
-npm i @scania/tegel
-```
-
-Import component as a module with `defineCustomElements` function.
-
-```js
-import { defineCustomElements } from '@scania/tegel';
-
-defineCustomElements();
-```
-
-Import the global CSS.
-
-<!-- TODO: update when we know path/package name -->
-```js
-import '@scania/tegel/dist/tegel/tegel.css';
-```
-
+- Installation: [https://tegel.scania.com/development/getting-started-development/installation](https://tegel.scania.com/development/getting-started-development/installation)
 See all available components in the [Tegel Design System](https://tegel.scania.com/components).
 
 ## Browser support
 
-See the Tegel [website](https://tegel.scania.com/development/getting-started-development/introduction#browser-support).
+See the browser support section on [the Tegel website](https://tegel.scania.com/development/getting-started-development/introduction#browser-support).
 
 ## Contributing
 
