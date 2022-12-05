@@ -1,4 +1,4 @@
-import format from 'html-format';
+import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
@@ -47,7 +47,7 @@ const Template = ({ size, variant }) => {
   const sizeLookup = { 'Large': 'lg', 'Medium': 'md', 'Small': 'sm', 'Extra small': 'xs' };
   const variantLookup = { Standard: 'standard', Inverted: 'inverted' };
 
-  return format(
+  return formatHtmlPreview(
     `
   <sdds-spinner 
     size="${sizeLookup[size]}"  
