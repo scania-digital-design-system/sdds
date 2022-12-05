@@ -54,6 +54,19 @@ export default {
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
+    },
   },
   args: {
     size: 'Large',
@@ -61,11 +74,25 @@ export default {
     disabled: false,
     helper: '',
     defaultOption: 'Option 1',
+    state: 'Default',
+    openDirection: 'Auto',
   },
 };
 
-const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defaultOption }) => {
+const FilterTemplate = ({
+  size,
+  disabled = false,
+  helper = '',
+  label,
+  state = 'default',
+  placeholder,
+  labelPosition,
+  defaultOption,
+  openDirection,
+}) => {
+  const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
+  const labelPosLookup = { None: 'no-default', Outside: 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -84,8 +111,12 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
         id="sdds-dropdown-filter"
         size="${sizeLookup[size]}"
         placeholder="${placeholder}"
-        disabled="${disabled}"\
-        ${helper !== '' ? `\n    helper="${helper}"` : ''}
+        disabled="${disabled}"
+        open-direction="${openDirection.toLowerCase()}"
+        label-position="${labelPosLookup[labelPosition]}"
+        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
+        ${helper !== '' ? `helper="${helper}"` : ''}
+        state="${stateValue}"
         data='[
           {
             "value": "option-1",

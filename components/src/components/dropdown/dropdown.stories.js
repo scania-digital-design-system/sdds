@@ -46,8 +46,8 @@ export default {
         type: 'radio',
         options: {
           'No default': 'no-default',
-          Inside: 'inside',
-          Outside: 'outside',
+          'Inside': 'inside',
+          'Outside': 'outside',
         },
       },
       defaultValue: 'no-default',
@@ -106,6 +106,15 @@ export default {
       },
       defaultValue: 250,
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      defaultValue: 'Auto',
+    },
     extraDropdownOptions: {
       name: 'Extra dropdown options',
       type: 'string',
@@ -133,6 +142,7 @@ const Template = ({
   defaultOption,
   width,
   extraDropdownOptions,
+  openDirection,
 }) => `
     <div style="width:${width}px">
         <sdds-dropdown   
@@ -140,6 +150,7 @@ const Template = ({
           size="${size}"
           placeholder="${placeholder}"
           disabled="${disabled}"
+          open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosition}"
           label="${label}"
           helper="${helper}"
@@ -320,17 +331,11 @@ Multiselect.argTypes = {
     },
   },
 };
-const NativeTemplate = ({
-  size,
-  helper = 'Helper text',
-  label,
-  state,
-  width,
-}) => `
+const NativeTemplate = ({ size, helper = 'Helper text', label, state, width }) => `
     <div style="width:${width}px">
-        <div class="sdds-dropdown ${
-          size !== 'lg' ? `sdds-dropdown-${size}` : ''
-        } ${state === 'error' ? 'sdds-dropdown--error' : ''}" >
+        <div class="sdds-dropdown ${size !== 'lg' ? `sdds-dropdown-${size}` : ''} ${
+  state === 'error' ? 'sdds-dropdown--error' : ''
+}" >
           <span class="sdds-dropdown-label-outside">${label}</span>
           <select name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>
