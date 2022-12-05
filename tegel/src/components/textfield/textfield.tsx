@@ -19,7 +19,7 @@ export class Textfield {
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop({ reflect: true }) value: string = null;
+  @Prop({ reflect: true }) value: string = '';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
