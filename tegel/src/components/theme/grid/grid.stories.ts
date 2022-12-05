@@ -36,14 +36,14 @@ const style = `
     }
 
     .container-demo {
-      margin-top: 4rem;
+      margin-top: 16px;
     }
 
   </style>`;
 
 const GridTemplate = ({ fluidContainer, padding }) => `
   ${style}
-  <h4>Grid</h4>
+  <h4 class="sdds-headline-04">Grid</h4>
   <div class="${fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'} ${
   padding == false ? 'sdds-no-padding' : ''
 }">
