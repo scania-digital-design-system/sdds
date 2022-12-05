@@ -163,7 +163,6 @@ export default {
     suffixType: 'Icon',
     prefix: false,
     prefixType: 'Icon',
-    labelplacement: false,
     minWidth: 'Default',
     size: 'Large',
     type: 'text',
