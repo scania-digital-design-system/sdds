@@ -18,7 +18,7 @@
 | `size`        | `size`         | Size of the input                           | `"lg" \| "md" \| "sm"`   | `'lg'`      |
 | `state`       | `state`        | Error state of input                        | `string`                 | `undefined` |
 | `type`        | `type`         | Which input type, text, password or similar | `"password" \| "text"`   | `'text'`    |
-| `value`       | `value`        | Value of the input text                     | `string`                 | `null`      |
+| `value`       | `value`        | Value of the input text                     | `string`                 | `''`        |
 | `variant`     | `variant`      | Variant of the textfield                    | `"default" \| "variant"` | `'default'` |
 
 
