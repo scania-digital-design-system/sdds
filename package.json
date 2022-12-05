@@ -71,8 +71,7 @@
   "dependencies": {
     "commitizen": "^4.2.4",
     "commitlint": "^15.0.0",
-    "highlight.js": "^11.6.0",
-    "html-format": "^1.0.2"
+    "highlight.js": "^11.6.0"
   },
   "config": {
     "commitizen": {
