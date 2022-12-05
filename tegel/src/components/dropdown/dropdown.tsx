@@ -318,10 +318,9 @@ export class Dropdown {
                 : ''
             }
                 ${
-                  (this.labelPosition === 'inside' && this.selectedValue !== '') ||
-                  this.selectedLabelsArray.length > 0
+                  this.labelPosition === 'inside' && this.selectedValue !== '' && this.size !== 'sm'
                     ? `sdds-dropdown-toggle-label-inside-${this.size}`
-                    : ''
+                    : `sdds-dropdown-toggle-${this.size}`
                 }`}
             type="button"
             onClick={() => this.handleClick()}
