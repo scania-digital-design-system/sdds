@@ -3,7 +3,7 @@
 [![Github release](https://img.shields.io/github/v/release/scania-digital-design-system/sdds?color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases) -->
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
-[![Getting Started](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://tegel.scania.com/getting-started/development)
+[![Getting Started](https://img.shields.io/badge/Available%20components-tegel.scania.com-orange)](https://tegel.scania.com/getting-started/development)
 
 # Tegel Design System - Components
 
