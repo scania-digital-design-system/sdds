@@ -89,7 +89,15 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'icon', eq: false },
+    },
+    prefixType: {
+      name: 'Prefix type',
+      description: 'Choose icon or text for prefix.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Icon', 'Text'],
+      if: { arg: 'prefix', eq: true },
     },
     suffix: {
       name: 'Suffix',
@@ -101,16 +109,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    icon: {
-      name: 'Icon',
-      description: 'Add icon before or after the textfield',
+    suffixType: {
+      name: 'Suffix type',
+      description: 'Choose icon or text for suffix.',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
-      if: { arg: 'prefix', eq: false },
-      table: {
-        defaultValue: { summary: false },
-      },
+      options: ['Icon', 'Text'],
+      if: { arg: 'suffix', eq: true },
     },
     helper: {
       name: 'Helper text',
@@ -153,9 +159,10 @@ export default {
     maxLength: 0,
     state: 'None',
     variant: 'Default',
-    icon: false,
     suffix: false,
+    suffixType: 'Icon',
     prefix: false,
+    prefixType: 'Icon',
     labelplacement: false,
     minWidth: 'Default',
     size: 'Large',
@@ -176,8 +183,9 @@ const Template = ({
   variant,
   helper,
   prefix,
+  prefixType,
   suffix,
-  icon,
+  suffixType,
   maxLength,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
@@ -203,16 +211,31 @@ const Template = ({
       ${readonly ? 'readonly' : ''}
       ${minWidth === 'No min width' ? 'noMinWidth' : ''}
       placeholder="${placeholderText}" >
-        ${prefix ? '<span slot="sdds-prefix">$</span>' : ''}
+        ${
+          prefix
+            ? `
+        <span slot="sdds-prefix">
+          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"/>'}
+        </span>`
+            : ''
+        }
         ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix ? '<span slot="sdds-suffix">$</span>' : ''}
-        ${icon ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
-    </sdds-textfield>
+        ${
+          suffix
+            ? `
+        <span slot="sdds-suffix">
+          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"/>'}
+        </span>`
+            : ''
+        }
+        </sdds-textfield>
   </div>
   `,
   );
 };
+
+// ${true ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
 
 export const Default = Template.bind({});
 
