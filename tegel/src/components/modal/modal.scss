@@ -148,10 +148,6 @@ $modals: (
   }
 }
 
-@mixin modal-actions {
-  margin-right: var(--sdds-spacing-element-16);
-}
-
 /* MODAL STYLING */
 
 .sdds-modal {
@@ -233,12 +229,6 @@ $modals: (
 
 .sdds-modal-body {
   @include modal-body;
-}
-
-.sdds-modal-actions {
-  & > * {
-    @include modal-actions;
-  }
 }
 
 .sdds-modal-backdrop {
