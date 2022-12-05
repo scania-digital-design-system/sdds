@@ -37,7 +37,7 @@ export class Textarea {
   @Prop() disabled: boolean = false;
 
   /** Set input in readonly state */
-  @Prop() readonly: boolean = false;
+  @Prop() readOnly: boolean = false;
 
   /** Error state of input */
   @Prop() state: string;
@@ -49,7 +49,7 @@ export class Textarea {
   @Prop() variant: 'default' | 'variant' = 'default';
 
   /** Control of autofocus */
-  @Prop() autofocus: boolean = false;
+  @Prop() autoFocus: boolean = false;
 
   /** Listen to the focus state of the input */
   @State() focusInput;
@@ -85,7 +85,7 @@ export class Textarea {
         ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
-        ${this.readonly ? 'sdds-textarea-readonly' : ''}
+        ${this.readOnly ? 'sdds-textarea-readonly' : ''}
         ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
         ${this.value ? 'sdds-textarea-data' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
@@ -104,11 +104,11 @@ export class Textarea {
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
-            readonly={this.readonly}
+            readonly={this.readOnly}
             placeholder={this.placeholder}
             value={this.value}
             name={this.name}
-            autofocus={this.autofocus}
+            autofocus={this.autoFocus}
             maxlength={this.maxLength}
             cols={this.cols}
             rows={this.rows}

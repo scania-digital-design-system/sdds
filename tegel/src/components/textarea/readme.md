@@ -7,7 +7,7 @@
 
 | Property        | Attribute        | Description                                               | Type                     | Default      |
 | --------------- | ---------------- | --------------------------------------------------------- | ------------------------ | ------------ |
-| `autofocus`     | `autofocus`      | Control of autofocus                                      | `boolean`                | `false`      |
+| `autoFocus`     | `auto-focus`     | Control of autofocus                                      | `boolean`                | `false`      |
 | `cols`          | `cols`           | Textarea cols attribute                                   | `number`                 | `undefined`  |
 | `disabled`      | `disabled`       | Set input in disabled state                               | `boolean`                | `false`      |
 | `helper`        | `helper`         | Helper text                                               | `string`                 | `''`         |
@@ -16,7 +16,7 @@
 | `maxLength`     | `max-length`     | Max length of input                                       | `number`                 | `undefined`  |
 | `name`          | `name`           | Name attribute                                            | `string`                 | `''`         |
 | `placeholder`   | `placeholder`    | Placeholder text                                          | `string`                 | `''`         |
-| `readonly`      | `readonly`       | Set input in readonly state                               | `boolean`                | `false`      |
+| `readOnly`      | `read-only`      | Set input in readonly state                               | `boolean`                | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`                 | `undefined`  |
 | `state`         | `state`          | Error state of input                                      | `string`                 | `undefined`  |
 | `value`         | `value`          | Value of the input text                                   | `string`                 | `null`       |
