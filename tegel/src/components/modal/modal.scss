@@ -185,6 +185,7 @@ $modals: (
       background-color: var(--sdds-modal-bg);
       padding: var(--sdds-spacing-element-16);
       display: flex;
+      gap: 16px;
     }
   }
 
@@ -192,6 +193,7 @@ $modals: (
     .sdds-modal-actions {
       background-color: var(--sdds-modal-bg);
       display: flex;
+      gap: 16px;
     }
   }
 }
