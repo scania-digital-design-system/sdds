@@ -14,6 +14,34 @@ Here is where we document all the breaking changes that we are introducing while
 https://www.markdownguide.org/cheat-sheet/
 
 
+## Accordion
+
+[Web Component](/docs/components-accordion--default/)
+
+#### Renamed property `paddingReset` to `equalPadding`.
+
+Equal padding was deemed a more descriptive name.
+
+##### What action is required?
+
+Replace `padding-reset` with `equal-padding`.
+
+```jsx
+// Old ❌
+<sdds-accordion>
+  <sdds-accordion-item padding-reset>
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+
+// New ✅
+<sdds-accordion>
+  <sdds-accordion-item equal-padding>
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+```
+
 ## Banner
 
 [Native](/docs/components-banner--default/)
