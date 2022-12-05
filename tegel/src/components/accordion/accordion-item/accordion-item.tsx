@@ -20,7 +20,7 @@ export class AccordionItem {
   @Prop() expanded: boolean = false;
 
   /** Set to true to make the padding on both sides of the panel equal */
-  @Prop() paddingReset: boolean = false;
+  @Prop() equalPadding: boolean = false;
 
   /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
   @Event({
@@ -71,7 +71,7 @@ export class AccordionItem {
         <div
           part="panel"
           class={`sdds-accordion-panel 
-            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
+            ${this.equalPadding ? 'sdds-accordion-panel--padding-reset ' : ''}
             `}
         >
           <slot></slot>

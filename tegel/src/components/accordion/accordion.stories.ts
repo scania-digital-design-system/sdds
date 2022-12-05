@@ -17,19 +17,9 @@ export default {
       name: 'Disabled',
       description: 'Disabled',
     },
-    lessPaddingRight: {
-      name: 'Less padding right',
-      description: 'Less padding on the right in accordion items',
-    },
-    lessPaddingRightWithAttribute: {
-      name: 'Set less padding right with attribute',
-      type: 'boolean',
-      description:
-        'Use the `padding-reset` attribute to give accordion items less padding on the right instead',
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'lessPaddingRight', truthy: true },
+    equalPaddingX: {
+      name: 'Equal panel left and right padding',
+      description: 'Use equal padding on the left and right sides inside accordion panels',
     },
   },
   parameters: {
@@ -37,43 +27,28 @@ export default {
   },
   args: {
     disabled: false,
-    lessPaddingRight: false,
-    lessPaddingRightWithAttribute: false,
+    equalPaddingX: false,
     iconPosition: 'end',
   },
 };
 
-const Template = ({ disabled, iconPosition, lessPaddingRight, lessPaddingRightWithAttribute }) => {
+const Template = ({ disabled, iconPosition, equalPaddingX }) => {
   const affixAttr = iconPosition === 'start' ? 'affix="prefix"' : '';
   const disabledAttr = disabled ? 'disabled' : '';
   const tabIndexAttr = 'tabindex="0"';
-  const lessPaddingRightAttr =
-    lessPaddingRight && lessPaddingRightWithAttribute ? `padding-reset` : '';
-  const lessPaddingRightStyle =
-    lessPaddingRight && !lessPaddingRightWithAttribute
-      ? `
-    <style>
-      /* You can style the panel via its shadow part name 
-         https://developer.mozilla.org/en-US/docs/Web/CSS/::part */
-      sdds-accordion-item::part(panel) {
-        padding-right: 16px;
-      }
-    </style>
-  `
-      : '';
+  const equalPaddingXAttr = equalPaddingX ? `equal-padding` : '';
 
   return formatHtmlPreview(`
-    ${lessPaddingRightStyle}
     <sdds-accordion>
-      <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr}>
+      <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${equalPaddingXAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Second item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr} expanded>
+      <sdds-accordion-item header="Second item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${equalPaddingXAttr} expanded>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum. Proin ac odio sed tellus fermentum placerat. Nam sit amet orci dui. Proin commodo tellus at mauris accumsan blandit. Donec eget suscipit lorem, sit amet ultrices tellus. Cras massa ligula, rhoncus non elementum non, molestie sed nibh.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Third item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${lessPaddingRightAttr}>
+      <sdds-accordion-item header="Third item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${equalPaddingXAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
@@ -94,7 +69,7 @@ Disabled.args = {
   disabled: true,
 };
 
-export const PaddingReset = Template.bind({});
-PaddingReset.args = {
-  paddingReset: true, // Allows item text to expand past suffix icon
+export const EqualPadding = Template.bind({});
+EqualPadding.args = {
+  equalPaddingX: true, // Allows item text to expand past suffix icon
 };
