@@ -50,7 +50,7 @@ export class AccordionItem {
         >
           <div class="sdds-accordion-title">{this.header}</div>
           <div class="sdds-accordion-icon">
-            <sdds-icon name="chevron_down" size="18px"></sdds-icon>
+            <sdds-icon name="chevron_down" size="16px"></sdds-icon>
           </div>
         </div>
         <div
