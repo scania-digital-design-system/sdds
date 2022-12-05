@@ -148,10 +148,6 @@ $modals: (
   }
 }
 
-@mixin modal-actions {
-  margin-right: var(--sdds-spacing-element-16);
-}
-
 /* MODAL STYLING */
 
 .sdds-modal {
@@ -185,6 +181,7 @@ $modals: (
       background-color: var(--sdds-modal-bg);
       padding: var(--sdds-spacing-element-16);
       display: flex;
+      gap: 16px;
     }
   }
 
@@ -192,6 +189,7 @@ $modals: (
     .sdds-modal-actions {
       background-color: var(--sdds-modal-bg);
       display: flex;
+      gap: 16px;
     }
   }
 }
@@ -231,12 +229,6 @@ $modals: (
 
 .sdds-modal-body {
   @include modal-body;
-}
-
-.sdds-modal-actions {
-  & > * {
-    @include modal-actions;
-  }
 }
 
 .sdds-modal-backdrop {
