@@ -59,8 +59,8 @@ export default {
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['No label', 'Inside', 'Outside'],
       },
+      options: ['No label', 'Inside', 'Outside'],
     },
     helper: {
       name: 'Helper text',
@@ -69,9 +69,9 @@ export default {
         type: 'text',
       },
     },
-    textcounter: {
-      name: 'Text counter',
-      description: 'Set a maximum value how long the text can be',
+    maxLength: {
+      name: 'Max length',
+      description: 'Set a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
@@ -88,16 +88,16 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
       },
+      options: ['None', 'Success', 'Error'],
     },
     variant: {
       name: 'Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
       },
+      options: ['Default', 'Variant'],
     },
   },
   args: {
@@ -107,7 +107,7 @@ export default {
     label: '',
     labelPosition: 'No label',
     helper: '',
-    textcounter: 0,
+    maxLength: 0,
     rows: 5,
     state: 'None',
     variant: 'Default',
@@ -122,11 +122,11 @@ const Template = ({
   labelPosition,
   state,
   helper,
-  textcounter,
+  maxLength,
   rows,
   variant,
 }) => {
-  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
+  const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const variantValue = variant === 'Variant' ? 'variant' : 'default';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
@@ -136,6 +136,7 @@ const Template = ({
   };
   return formatHtmlPreview(`
   <style>
+    /* This is only for demonstration purposes */
     .demo-wrapper {
       width: 400px;
     }
