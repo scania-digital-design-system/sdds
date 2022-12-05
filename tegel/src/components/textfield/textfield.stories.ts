@@ -44,11 +44,13 @@ export default {
       },
     },
     minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
+      name: 'No minimum width',
+      description: 'Toggle the minimum width.',
       control: {
-        type: 'radio',
-        options: ['Default', 'No min width'],
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     disabled: {
@@ -209,7 +211,7 @@ const Template = ({
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidth === 'No min width' ? 'no-min-width' : ''}
+      ${minWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
           prefix
