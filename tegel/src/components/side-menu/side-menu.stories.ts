@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Side menu',
+  title: 'Components/Side Menu',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -60,7 +60,7 @@ const Template = ({ showIcons, collapsed }) => {
 <nav class="sdds-nav">
   <div class="sdds-nav__left">
     <button class="sdds-nav__mob-menu-btn">
-      <sdds-icon name="burger" size="20px" /> 
+      <sdds-icon name="burger" size="20px" />
     </button>
     <div class="sdds-nav__app-name">My application</div>
   </div>
@@ -72,7 +72,7 @@ const Template = ({ showIcons, collapsed }) => {
   <div class="sdds-sidebar side-menu ${collapsed ? 'collapsed' : ''}">
     <div class="sdds-sidebar-mheader">
     <button class="sdds-sidebar-mheader__close">
-      <sdds-icon name="cross" size="20px" /> 
+      <sdds-icon name="cross" size="20px" />
     </button>
     </div>
     <ul class="sdds-sidebar-nav sdds-sidebar-nav--main ${icons}">
@@ -157,7 +157,7 @@ const Template = ({ showIcons, collapsed }) => {
     </ul>
   </div>
   <div class="sdds-container" style="padding-top: 30px">
-   
+
   </div>
 </div>
 <script>
@@ -169,7 +169,7 @@ const Template = ({ showIcons, collapsed }) => {
   })
   expandableListItems = document.getElementsByClassName('sdds-sidebar-nav__extended');
   for (let i = 0; i < expandableListItems.length; i++) {
-    expandableListItems[i].addEventListener('click', (event) => {
+    expandableListItems[i].addEventListener('click', () => {
       document.getElementsByClassName('sdds-sidebar-nav__extended')[i].classList.toggle('subnav-open');
     });
   }
