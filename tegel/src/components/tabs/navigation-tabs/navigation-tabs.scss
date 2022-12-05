@@ -27,7 +27,7 @@
     }
   }
 
-  &--forward {
+  &-forward {
     cursor: pointer;
     width: 48px;
     height: 100%;
@@ -61,7 +61,7 @@
     }
   }
 
-  &--back {
+  &-back {
     cursor: pointer;
     width: 48px;
     height: 100%;
@@ -95,7 +95,7 @@
   }
 
   /* tab */
-  ::slotted(&--tab) {
+  ::slotted(&-tab) {
     //fixme: headline-07 has a line-height that is not matching old storybook
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
@@ -126,16 +126,16 @@
     }
   }
 
-  ::slotted(&--tab:first-child) {
+  ::slotted(&-tab:first-child) {
     margin-left: 32px;
   }
 
-  ::slotted(&--tab:last-child) {
+  ::slotted(&-tab:last-child) {
     margin-right: 32px;
   }
 
   /* tab states */
-  ::slotted(&--tab:hover) {
+  ::slotted(&-tab:hover) {
     color: var(--sdds-navigation-tabs-tab-hover-color);
 
     &::after {
@@ -143,7 +143,7 @@
     }
   }
 
-  ::slotted(&--tab:focus) {
+  ::slotted(&-tab:focus) {
     @include sdds-focus-state;
 
     color: var(--sdds-navigation-tabs-tab-focus-color);
@@ -153,7 +153,7 @@
     }
   }
 
-  ::slotted(&--tab__active) {
+  ::slotted(&-tab-active) {
     color: var(--sdds-navigation-tabs-tab-active-color);
 
     &::after {
@@ -165,11 +165,11 @@
     }
   }
 
-  ::slotted(&--tab__active:focus)::after {
+  ::slotted(&-tab-active:focus)::after {
     width: 100%;
   }
 
-  ::slotted(&--tab__disabled) {
+  ::slotted(&-tab-disabled) {
     color: var(--sdds-navigation-tabs-tab-active-color);
     opacity: 0.16;
     pointer-events: none;

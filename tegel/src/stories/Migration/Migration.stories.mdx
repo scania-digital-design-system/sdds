@@ -237,6 +237,42 @@ Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
 </div>
 ```
 
+## Navigation Tabs
+
+[Webcomponent](/docs/components-tabs--navigation-tabs)
+
+#### Changed class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled` 
+
+The class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled` was
+changed to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled` to conform
+with convention.  
+
+##### What action is required?
+
+Changed all instaces of `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled`
+to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
+
+```jsx
+// Old ❌
+<sdds-navigation-tabs>
+  <a href="#" class="sdds-navigation-tabs--tab__active">Active tab</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a role="link" aria-disabled="true" class="sdds-navigation-tabs--tab__disabled">Disabled tab</a>
+</sdds-navigation-tabs>
+
+// New ✅
+<sdds-navigation-tabs>
+  <a href="#" class="sdds-navigation-tabs-tab-active">Active tab</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
+</sdds-navigation-tabs>
+
+```
+
 ## Textarea
 
 [Webcomponent](/docs/components-textarea--default)
