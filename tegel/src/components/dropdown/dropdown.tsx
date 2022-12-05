@@ -53,6 +53,9 @@ export class Dropdown {
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';
 
+  /** Direction that the dropdown will open. By default set to auto. */
+  @Prop() openDirection: 'down' | 'up' | 'auto' = 'auto';
+
   @State() optionValues: Array<any> = [];
 
   @State() optionLabels: Array<any> = [];
@@ -199,13 +202,17 @@ export class Dropdown {
 
   handleClick() {
     this.open = this.open === false;
-    this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
-    const distanceToBottom = this.host.getBoundingClientRect().top;
-    const viewportHeight = window.innerHeight;
-    this.openUpwards = distanceToBottom + this.dropdownMenuHeight + 57 > viewportHeight;
-    // If summary of dropdown menu height and its distance to the bottom is more than viewport height, open menu upwards
-    // Additional 57px is added as compensation for dropdown element own input/button height
-    // It is added on handleClick due to possible dynamic injection of data when component is already rendered
+    if (this.openDirection === 'auto') {
+      this.dropdownMenuHeight = this.dropdownMenuSelector.offsetHeight;
+      const distanceToBottom = this.host.getBoundingClientRect().top;
+      const viewportHeight = window.innerHeight;
+      this.openUpwards = distanceToBottom + this.dropdownMenuHeight + 57 > viewportHeight;
+      // If summary of dropdown menu height and its distance to the bottom is more than viewport height, open menu upwards
+      // Additional 57px is added as compensation for dropdown element own input/button height
+      // It is added on handleClick due to possible dynamic injection of data when component is already rendered
+    } else {
+      this.openUpwards = this.openDirection === 'up';
+    }
   }
 
   tabbingLabelReset() {
