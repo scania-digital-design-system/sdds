@@ -26,6 +26,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     value: {
       name: 'Value',
@@ -34,23 +37,29 @@ export default {
         type: 'number',
       },
       if: { arg: 'size', neq: 'sm' },
+      table: {
+        defaultValue: { summary: null },
+      },
     },
     size: {
       name: 'Size',
       description: 'Size of the component',
       options: {
-        Default: 'default',
+        Large: 'lg',
         Small: 'sm',
       },
       control: {
         type: 'radio',
       },
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
   },
   args: {
     visible: true,
+    size: 'lg',
     value: 1,
-    size: 'default',
   },
 };
 
@@ -75,7 +84,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
       background-color: #C4C4C4;
     }
 
-    .badges-demo-box sdds-badges[size="default"]{
+    .badges-demo-box sdds-badges[size="lg"]{
       position: absolute;
       left: 16px;
       top: -5px;
