@@ -43,7 +43,7 @@ const style = `
 
 const GridTemplate = ({ fluidContainer, padding }) => `
   ${style}
-  <h4 class="sdds-headline-04">Grid</h4>
+  <h4>Grid</h4>
   <div class="${fluidContainer == true ? 'sdds-container-fluid' : 'sdds-container'} ${
   padding == false ? 'sdds-no-padding' : ''
 }">
