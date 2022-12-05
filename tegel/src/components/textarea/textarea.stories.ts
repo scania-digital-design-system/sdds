@@ -104,7 +104,7 @@ export default {
     placeholder: 'Placeholder',
     disabled: false,
     readonly: false,
-    label: '',
+    label: 'Label',
     labelPosition: 'None',
     helper: '',
     maxLength: 0,

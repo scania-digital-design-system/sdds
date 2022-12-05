@@ -153,7 +153,7 @@ export default {
     placeholderText: 'Placeholder',
     disabled: false,
     readonly: false,
-    label: '',
+    label: 'Label',
     labelPosition: 'None',
     helper: '',
     maxLength: 0,
