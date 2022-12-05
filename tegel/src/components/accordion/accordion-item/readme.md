@@ -22,6 +22,19 @@
 | `accordionItemToggle` | Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion | `CustomEvent<boolean>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [sdds-icon](../../icon)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-accordion-item --> sdds-icon
+  style sdds-accordion-item fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -53,6 +53,10 @@
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
       color: var(--sdds-accordion-colour);
+
+      & > sdds-icon {
+        display: block;
+      }
     }
   }
 
@@ -145,6 +149,7 @@
   &.expanded {
     .sdds-accordion-panel {
       display: block;
+      padding-bottom: 31px;
     }
 
     .sdds-accordion-icon {
