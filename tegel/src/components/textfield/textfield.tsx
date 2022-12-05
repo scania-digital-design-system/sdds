@@ -115,7 +115,7 @@ export class Textfield {
         </div>
 
         <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
-          <div class="sdds-textfield-slot-wrap-prefix">
+          <div class={`sdds-textfield-slot-wrap-prefix sdds-textfield-${this.state}`}>
             <slot name="sdds-prefix" />
           </div>
 
@@ -151,7 +151,7 @@ export class Textfield {
           </div>
           <div class="sdds-textfield-bar"></div>
 
-          <div class="sdds-textfield-slot-wrap-suffix">
+          <div class={`sdds-textfield-slot-wrap-suffix sdds-textfield-${this.state}`}>
             <slot name="sdds-suffix" />
           </div>
 
