@@ -11,26 +11,27 @@
 
 .sdds-badges {
   display: block;
-  height: 20px;
-  line-height: 20px;
-  width: 20px;
   border-radius: 12px;
   background-color: var(--sdds-badges-bg-color);
   text-align: center;
+
+  &.sdds-badges-sm {
+    height: 8px;
+    width: 8px;
+    line-height: 8px;
+  }
+
+  &.sdds-badges-lg {
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+  }
 
   &.sdds-badges-pill {
     display: inline-block;
     width: unset;
     padding-left: 8px;
     padding-right: 8px;
-  }
-
-  &.sdds-badges-sm {
-    display: block;
-    height: 8px;
-    width: 8px;
-    line-height: 8px;
-    text-align: center;
   }
 
   &.sdds-badges-hidden {
