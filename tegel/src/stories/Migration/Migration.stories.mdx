@@ -344,7 +344,7 @@ Rename all instances of `autofocus` to `auto-focus`.
 
 [Webcomponent](/docs/components-textarea--default)
 
-#### Changed prop name 'max-length'
+#### Changed prop name 'maxlength'
 
 The prop `maxlength` was changed to `max-length` to conform with other prop names.
 
@@ -419,6 +419,26 @@ and `label="Your label text"` props instead.
   label="Label text"
   label-position="outside"
   placeholder="Placeholder"
+  ></sdds-textfield>
+```
+
+#### Changed prop name 'nominwidth'
+
+The prop `nominwidth` was changed to `no-min-width` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `nominwidth` to `no-min-width`.
+
+```jsx
+// Old ❌
+<sdds-textfield
+    nominwidth
+></sdds-textfield>
+
+// New ✅
+<sdds-textfield
+    no-min-width
 ></sdds-textfield>
 ```
 
