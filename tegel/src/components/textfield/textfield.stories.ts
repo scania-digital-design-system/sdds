@@ -201,10 +201,11 @@ const Template = ({
   return formatHtmlPreview(
     `
     <style>
-      .demo-wrapper {
-        width: 200px;
-        height: 150px;
-      }
+    /* demo-wrapper is for demonstration purposes only*/
+  .demo-wrapper {
+    width: 200px;
+    height: 150px;
+  }
     </style>
   <div class="demo-wrapper">
     <sdds-textfield

@@ -40,6 +40,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
     <style>
+    /* demo-wrapper is for demonstration purposes only*/
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i {
       font-size: 16px;

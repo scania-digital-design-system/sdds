@@ -55,14 +55,15 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   return formatHtmlPreview(
     `
     <style>
-      .demo-wrapper {
-        display: flex;
-        flex-wrap; nowrap;
-        align-items: center;
-      }
-      sdds-icon:hover {
-        cursor:pointer;
-      }
+  /* demo-wrapper and demo-styles is for demonstration purposes only*/
+  .demo-wrapper {
+    display: flex;
+    flex-wrap; nowrap;
+    align-items: center;
+  }
+  sdds-icon:hover {
+    cursor:pointer;
+  }
     </style>
       <sdds-popover-canvas 
         placement="${canvasPosLookup[canvasPosition]}"

@@ -156,7 +156,8 @@ const WebComponentTemplate = ({
 
   return formatHtmlPreview(
     `
-    <style>${
+    <style>
+    /* demo-wrapper is for demonstration purposes only*/${
       icon && iconType === 'Native'
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i.sdds-icon::before{

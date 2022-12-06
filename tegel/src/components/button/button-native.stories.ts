@@ -160,15 +160,15 @@ const NativeTemplate = ({
   return formatHtmlPreview(
     `
   <style>
+  /* demo-wrapper is for demonstration purposes only*/
     ${
       icon && iconType === 'Native'
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i.sdds-btn-icon{
       font-size: ${size === 'Small' ? '16' : '20'}px;
-    }`
+    }\n `
         : ''
-    }
-    .demo-wrapper{
+    }\ .demo-wrapper{
       width: 100%;
     }
   </style>
@@ -187,7 +187,7 @@ const NativeTemplate = ({
       iconType === 'Native'
         ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
         : `<sdds-icon class='sdds-btn-icon ' size='${
-            sizeLookUp[size] == 'sm' ? '16px' : '20px'
+            sizeLookUp[size] === 'sm' ? '16px' : '20px'
           }' name='${icon}'></sdds-icon>`
     }
   `

@@ -66,7 +66,19 @@ const sizeLookUp = {
 
 const Template = ({ headline, size, actions, showModal }) =>
   formatHtmlPreview(
-    `
+    `    <style> 
+  /* demo-wrapper and demo-styles is for demonstration purposes only*/
+  .demo-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 500px;
+  }
+  .demo-styles {
+    position: absolute;
+    margin-bottom: 20px;
+  }
+  </style>
   <div class="demo-wrapper">
   <button id="modal-button" class="sdds-btn sdds-btn-primary sdds-btn-lg">
     <span class="sdds-btn-text">Open modal</span>
@@ -112,22 +124,6 @@ const Template = ({ headline, size, actions, showModal }) =>
     modal.classList.replace('hide', 'show')
   })
   </script>
-  <style>
-  
-  /* This is only for demonstration purposes. */
-  .demo-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 500px;
-  }
-  .demo-styles {
-    position: absolute;
-    margin-bottom: 20px;
-  }
-  /* This is only for demonstration purposes. */
-
-  </style>
   `,
   );
 
