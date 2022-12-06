@@ -40,7 +40,7 @@ export class Textarea {
   @Prop() readOnly: boolean = false;
 
   /** Error state of input */
-  @Prop() state: string;
+  @Prop() state: 'error' | 'success' | 'default' = 'default';
 
   /** Max length of input */
   @Prop() maxLength: number;
