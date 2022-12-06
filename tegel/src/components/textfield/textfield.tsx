@@ -12,8 +12,11 @@ export class Textfield {
   /** Which input type, text, password or similar */
   @Prop({ reflect: true }) type: 'text' | 'password' = 'text';
 
-  /** Label that will be put inside the input */
-  @Prop() labelInside: string = '';
+  /** Position of the label for the textfield. */
+  @Prop() labelPosition: 'inside' | 'outside' | 'no-label' = 'no-label';
+
+  /** Label text */
+  @Prop() label: string = '';
 
   /** Placeholder text */
   @Prop() placeholder: string = '';
@@ -94,7 +97,7 @@ export class Textfield {
         }
         ${this.value ? 'sdds-textfield-data' : ''}
         ${
-          this.labelInside.length > 0 && this.size !== 'sm'
+          this.labelPosition === 'inside' && this.size !== 'sm'
             ? 'sdds-textfield-container-label-inside'
             : ''
         }
@@ -110,10 +113,11 @@ export class Textfield {
         }
         `}
       >
-        <div class="sdds-textfield-slot-wrap-label">
-          <slot name="sdds-label" />
-        </div>
-
+        {this.labelPosition === 'outside' && (
+          <div class="sdds-textfield-label-outside">
+            <div>{this.label}</div>
+          </div>
+        )}
         <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
           <div class={`sdds-textfield-slot-wrap-prefix sdds-textfield-${this.state}`}>
             <slot name="sdds-prefix" />
@@ -145,8 +149,8 @@ export class Textfield {
               onChange={(e) => this.handleChange(e)}
             />
 
-            {this.labelInside.length > 0 && this.size !== 'sm' && (
-              <label class="sdds-textfield-label-inside">{this.labelInside}</label>
+            {this.labelPosition === 'inside' && this.size !== 'sm' && (
+              <label class="sdds-textfield-label-inside">{this.label}</label>
             )}
           </div>
           <div class="sdds-textfield-bar"></div>

@@ -24,8 +24,8 @@ export class Textarea {
   /** Textarea rows attribute */
   @Prop() rows: number;
 
-  /** Label position: `no-label` (default), `inside`, `outside` */
-  @Prop() labelPosition = 'no-label';
+  /** Position of the label for the textfield. */
+  @Prop() labelPosition: 'inside' | 'outside' | 'no-label' = 'no-label';
 
   /** Placeholder text */
   @Prop() placeholder: string = '';
@@ -92,7 +92,9 @@ export class Textarea {
         `}
         onClick={() => this.handleFocusClick()}
       >
-        {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
+        {this.labelPosition !== 'no-label' && (
+          <span class={'sdds-textarea-label'}>{this.label}</span>
+        )}
         <div class="sdds-textarea-wrapper">
           <textarea
             onFocus={() => {
