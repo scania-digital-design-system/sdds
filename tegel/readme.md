@@ -16,7 +16,7 @@ Check out [Tegel Design System](https://tegel.scania.com/) for implementation an
 - Installation: [https://tegel.scania.com/development/getting-started-development/installation](https://tegel.scania.com/development/getting-started-development/installation)
 
 
-See all available components in the [Tegel Design System](https://tegel.scania.com/components).
+See all available components in the [Tegel Design System](https://tegel.scania.com/components/overview).
 
 ## Browser support
 
