@@ -44,11 +44,13 @@ export default {
       },
     },
     minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
+      name: 'No minimum width',
+      description: 'Toggle the minimum width.',
       control: {
-        type: 'radio',
-        options: ['Default', 'No min width'],
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     disabled: {
@@ -198,7 +200,13 @@ const Template = ({
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+    <style>
+      .demo-wrapper {
+        width: 200px;
+        height: 150px;
+      }
+    </style>
+  <div class="demo-wrapper">
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
@@ -209,7 +217,7 @@ const Template = ({
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidth === 'No min width' ? 'noMinWidth' : ''}
+      ${minWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
           prefix

@@ -13,7 +13,7 @@
 | `labelPosition` | `label-position` | Position of the label for the textfield.    | `"inside" \| "no-label" \| "outside"` | `'no-label'` |
 | `maxLength`     | `max-length`     | Max length of input                         | `number`                              | `undefined`  |
 | `name`          | `name`           | Name property                               | `string`                              | `''`         |
-| `nominwidth`    | `nominwidth`     | With setting                                | `boolean`                             | `false`      |
+| `noMinWidth`    | `no-min-width`   | With setting                                | `boolean`                             | `false`      |
 | `placeholder`   | `placeholder`    | Placeholder text                            | `string`                              | `''`         |
 | `readonly`      | `readonly`       | Set input in readonly state                 | `boolean`                             | `false`      |
 | `size`          | `size`           | Size of the input                           | `"lg" \| "md" \| "sm"`                | `'lg'`       |
