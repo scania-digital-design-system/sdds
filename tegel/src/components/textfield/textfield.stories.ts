@@ -200,7 +200,13 @@ const Template = ({
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+    <style>
+      .demo-wrapper {
+        width: 200px;
+        height: 150px;
+      }
+    </style>
+  <div class="demo-wrapper">
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
