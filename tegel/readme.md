@@ -29,6 +29,17 @@ Please read through our [contributing guidelines](https://github.com/scania-digi
 - [Report bug](https://github.com/scania-digital-design-system/sdds/issues)
 - [Request feature](https://github.com/scania-digital-design-system/sdds/issues/new)
 
+### Setting up the development environment
+
+1. Make sure you are using the required node.js version specified in `tegel/package.json` (node 16 at the time of writing).
+2. Run `npm install` in the /tegel directory.
+3. Create a `.env` file in the /tegel directory with the following contents:
+
+  ```
+  STORYBOOK_ENV=development
+  ```
+4. Make sure you are in the /tegel directory, and start the dev server with `npm run tegel`.
+
 ## Community
 
 Get in touch with the team and the community:
