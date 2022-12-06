@@ -364,6 +364,64 @@ Rename all instances of `maxlength` to `max-length`.
 ></sdds-textfield>
 ```
 
+#### Changed props for label and label-position to align with convention.
+
+The prop `label-inside` was used to set an inside label, and to set an outside label you would pass a `<slot>`.
+This has been changed and aligned with convention. This component now accepts a `label` prop for the text to 
+be displayed and a `label-position` to set the position of this label. For no label just leave out the `label`
+and `label-position` props.
+
+##### What action is required?
+
+For all labels inside remove the `label-inside` prop and add `label-position="inside"` and `label="Your label text"`
+props. For label outside remove the `<label slot="sdds-label">Label text</label>` and add `label-position="outside"`
+and `label="Your label text"` props instead.
+
+```jsx
+// Old ❌ - Inside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label-inside="Label text"
+  placeholder="Placeholder">
+</sdds-textfield>
+
+// Old ❌ - Outside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  placeholder="Placeholder">
+   <label slot="sdds-label">Label text</label>
+</sdds-textfield>
+
+
+// New ✅ - Inside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label="Label text"
+  label-position="inside"
+  placeholder="Placeholder"
+></sdds-textfield>
+
+// New ✅ - Outside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label="Label text"
+  label-position="outside"
+  placeholder="Placeholder"
+></sdds-textfield>
+```
+
 ### Not breaing but highly suggested changes
 
 ## Side menu
