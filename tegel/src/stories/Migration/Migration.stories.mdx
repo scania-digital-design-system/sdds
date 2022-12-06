@@ -16,7 +16,7 @@ https://www.markdownguide.org/cheat-sheet/ -->
 
 ## Accordion
 
-[Webcomponent](/docs/components-accordion--default/)
+[Web Component](/docs/components-accordion--default/)
 
 #### Replaced `affix` with `expand-icon-position`
 
@@ -40,6 +40,26 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
     // ...
   </sdds-accordion-item>
 </sdds-accordion>
+```
+
+## Badge
+
+[Web Component](/docs/components-badge--default/)
+
+#### Replaced "default" value of size prop with "lg"
+
+Size value `default` was replaced with value `lg` as part of standardisation size props to use "t-shirt" naming convention.
+
+##### What action is required?
+
+Replace size value `default` with `lg` or just remove prop as component's default size is `lg`.
+
+```jsx
+// Old ❌
+<sdds-badges value="1" is-visible="true" size="default"></sdds-badges>
+
+// New ✅
+<sdds-badges value="1" is-visible="true" size="lg"></sdds-badges>
 ```
 
 
@@ -104,7 +124,7 @@ Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sd
 
 [Native](/docs/components-button--native/)
 
-[Webcomponent](/docs/components-button--native/)
+[Web Component](/docs/components-button--native/)
 
 #### Added class `sdds-btn-text`
 
@@ -275,7 +295,7 @@ to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
 
 ## Textarea
 
-[Webcomponent](/docs/components-textarea--default)
+[Web Component](/docs/components-textarea--default)
 
 #### Changed prop name 'max-length'
 
@@ -342,7 +362,7 @@ Rename all instances of `autofocus` to `auto-focus`.
 
 ## Textfield
 
-[Webcomponent](/docs/components-textarea--default)
+[Web Component](/docs/components-textarea--default)
 
 #### Changed prop name 'maxlength'
 
