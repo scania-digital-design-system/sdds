@@ -27,6 +27,6 @@
     $val: ($step + ($step - 8)) * 4;
   }
 
-  // Return value in rem
-  @return calc(((#{$val}/ 4)) * 4px);
+  // Return value in pixels
+  @return #{$val + px};
 }
