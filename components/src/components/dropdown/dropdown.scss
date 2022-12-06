@@ -278,10 +278,9 @@
     pointer-events: none;
   }
 
-  ::slotted(sdds-dropdown-option.sdds-dropdown-option--disabled) {
+  ::slotted(sdds-dropdown-option.sdds-dropdown-option-disabled) {
     cursor: not-allowed;
     color: var(--sdds-grey-400);
-    background-color: var(--sdds-grey-50);
   }
 }
 

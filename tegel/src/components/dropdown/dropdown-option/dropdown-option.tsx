@@ -110,7 +110,7 @@ export class DropdownOption {
         }}
         class={{
           'selected': this.selected,
-          'sdds-dropdown-option--disabled': this.disabled,
+          'sdds-dropdown-option-disabled': this.disabled,
         }}
         tabindex="-1"
         aria-disabled={this.disabled}
