@@ -76,6 +76,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
   formatHtmlPreview(
     `
     <style>
+    <!-- Note: Demo classes used here are just for demo purposes in Storybook -->
     .badges-demo-box {
       margin:5px;
       height: 32px;
@@ -96,6 +97,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
       top: -2px;
     }
     </style>
+
     <div class="badges-demo-box">
       <sdds-badges
         ${value ? `value="${value}"` : ''}
