@@ -12,10 +12,7 @@
 // Typography
 @import 'scania-fonts';
 @import 'scania-fonts-vars';
-
-//FIXME: remove if not needed for component to work OK
-//@import '../theme/core/typography/typography-vars.scss';
-//@import '../theme/core/typography/selectors';
+@import '../theme/core/typography/selectors';
 
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
@@ -69,7 +66,7 @@
 @import 'src/components/modal/modal';
 
 :root {
-  --johnny-red: purple;
+  --johnny-red: blue;
 }
 
 body {
