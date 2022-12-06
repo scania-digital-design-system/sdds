@@ -158,7 +158,7 @@ export default {
     label: 'Label',
     labelPosition: 'None',
     helper: '',
-    textcounter: 0,
+    maxLength: 0,
     state: 'Default',
     variant: 'Default',
     suffix: false,
