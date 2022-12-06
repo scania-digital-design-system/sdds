@@ -1,4 +1,3 @@
-import '@scania/typography/dist/css/selectors.css';
 import { formatHtmlPreview } from '../../../utils/utils';
 
 export default {
