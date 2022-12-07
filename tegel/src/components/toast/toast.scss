@@ -8,11 +8,11 @@
   background: var(--sdds-toast-background-color);
   border-radius: var(--sdds-spacing-element-4);
   border-left: 4px solid white;
-  width: 88rem;
+  width: 352px;
   min-height: var(--sdds-spacing-element-48);
 
   &-icon {
-    margin: 13.5px 0 0 3rem;
+    margin: 13.5px 0 0 12px;
   }
 
   &-success {
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 4rem 4rem 4rem 3rem;
+    padding: 16px 16px 16px 12px;
   }
 
   &-header {
@@ -64,7 +64,7 @@
     font-size: 14px;
     letter-spacing: -0.01em;
     color: var(--sdds-toast-headline-color);
-    width: 63rem;
+    width: 252px;
     float: left;
   }
 
