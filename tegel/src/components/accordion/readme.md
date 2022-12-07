@@ -6,9 +6,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                   | Type      | Default |
-| --------- | --------- | --------------------------------------------- | --------- | ------- |
-| `divider` | `divider` | Enable or disable divider lines between items | `boolean` | `true`  |
+| Property      | Attribute      | Description                                   | Type                       | Default     |
+| ------------- | -------------- | --------------------------------------------- | -------------------------- | ----------- |
+| `divider`     | `divider`      | Enable or disable divider lines between items | `boolean`                  | `true`      |
+| `modeVariant` | `mode-variant` |                                               | `"primary" \| "secondary"` | `'primary'` |
 
 
 ----------------------------------------------
