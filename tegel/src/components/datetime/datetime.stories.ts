@@ -22,11 +22,11 @@ export default {
   argTypes: {
     type: {
       name: 'Type',
-      description: 'Which type of textfield',
+      description: 'Set the field to display date, time or both',
       control: {
         type: 'radio',
       },
-      options: ['datetime-local', 'date', 'time'],
+      options: ['Datetime', 'Date', 'Time'],
     },
     size: {
       name: 'Size',
@@ -77,7 +77,7 @@ export default {
     },
   },
   args: {
-    type: 'datetime-local',
+    type: 'Datetime',
     size: 'Large',
     minWidth: 'Default',
     disabled: false,
@@ -89,6 +89,11 @@ export default {
 
 const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
   let minWidthValue = minWidth === 'No min width' ? true : false;
+  const typeLookup = {
+    Datetime: 'datetime-local',
+    Date: 'date',
+    Time: 'time',
+  };
   const sizeLookup = {
     Large: 'lg',
     Medium: 'md',
@@ -105,7 +110,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
   <div style="width: 208px">
     <sdds-datetime
     id="datetime"
-      type="${type}"
+      type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}

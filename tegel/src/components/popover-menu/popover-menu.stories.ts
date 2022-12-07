@@ -22,7 +22,7 @@ export default {
   argTypes: {
     menuPosition: {
       name: 'Menu position',
-      description: 'Position of the PopoverMenu',
+      description: 'Position of the Popover menu',
       control: {
         type: 'select',
       },
@@ -77,12 +77,12 @@ const Template = ({ menuPosition }) => {
     </style>
     <sdds-popover-menu
         placement="${menuPosLookup[menuPosition]}"
-        selector="#trigger"> 
+        selector="#trigger">
         <ul class="sdds-popover-menu-wrapper">
           <li>
             <a target="_blank" href="https://digitaldesign.scania.com">Menu item 1</a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
               Menu item 2
             </a>
@@ -97,7 +97,7 @@ const Template = ({ menuPosition }) => {
           <li>
             <a target="_blank" href="https://digitaldesign.scania.com">Menu item 5</a>
           </li>
-        </ul>        
+        </ul>
       </sdds-popover-menu>
 
       <div class="demo-wrapper">
