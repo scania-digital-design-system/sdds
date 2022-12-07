@@ -144,7 +144,7 @@ $modals: (
   @include modal-scroll-inner;
 
   @media (min-width: $screen-l) {
-    padding-right: 16rem;
+    padding-right: 64px;
   }
 }
 
@@ -155,7 +155,7 @@ $modals: (
   z-index: 4;
   margin: auto;
   position: relative;
-  border-radius: 1rem;
+  border-radius: 4px;
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;

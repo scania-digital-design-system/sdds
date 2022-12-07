@@ -36,7 +36,7 @@ const style = `
     }
 
     .container-demo {
-      margin-top: 4rem;
+      margin-top: 16px;
     }
 
   </style>`;

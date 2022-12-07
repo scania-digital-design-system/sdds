@@ -6,13 +6,35 @@ import './migration.css';
 # Migration Docs
 
 Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
-
----
-
-
 <!-- TODO: remove link to markdownguide.org -->
 <!-- ### MD cheatsheet
 https://www.markdownguide.org/cheat-sheet/ -->
+
+---
+
+## Removed base font-size and moved to `px` instead of `rem`.
+
+This change affects all components/typography/spacing/grid. 
+
+In the past we have used a base value of 4px
+that has been used to calculate the spacing/padding/margins etc with rem. This was done by setting the 
+base value (4px) as the font-size on the `<html>`-element, which for some users has caused error with 
+custom font-sizes. We have now removed these dependencies and are using pixels in our 
+components/spacing/typography/margins.
+
+We are doing this to decrease the dependencies between our packages and we want to make sure the Tegel
+can be used on its own. 
+
+#### What action is required? 
+
+If you are not yourself using `rem` in your project ideally this change should not affect you, but since it is 
+something that has an effect on all components and utilities/foundations we expect that there might be some
+unforeseen problems. These will have our highest prio in order to make the migration to Tegel as smooth as possible.
+
+If you are however using `rem` in your project you would have to consider that the base value will no longer be `4px`.
+This value will now by default be `16px`. So for the element in you project that are using rem these would have to be 
+recalculated.
+
 
 ## Accordion
 
