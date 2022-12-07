@@ -36,6 +36,14 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+    },
   },
   parameters: {
     notes: { 'Accordion': readme, 'Accordion item': readmeItem },
@@ -56,17 +64,18 @@ export default {
     disabled: false,
     paddingReset: false,
     iconPosition: 'end',
+    modeVariant: 'Primary',
   },
 };
 
-const Template = ({ disabled, iconPosition, paddingReset }) => {
+const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const affixAttr = iconPosition === 'start' ? 'expand-icon-position="start"' : '';
   const disabledAttr = disabled ? 'disabled' : '';
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
   const tabIndexAttr = 'tabindex="0"';
 
   return formatHtmlPreview(`
-    <sdds-accordion class="sdds-storybook-wrapper">
+    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}" class="sdds-storybook-wrapper">
       <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
