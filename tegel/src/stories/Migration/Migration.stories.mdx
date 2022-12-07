@@ -64,6 +64,31 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
 </sdds-accordion>
 ```
 
+#### Added prop for mode-variant and removed class `sdds-on-white-bg`
+Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is 
+used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or 
+`seconday` to determine which variant is being shown. For this component `primary` is the default value and
+`seconday` represents the old `sdds-on-white-bg`
+
+##### What action is required?
+Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`.
+
+```jsx
+// Old ❌
+<sdds-accordion class="sdds-on-white-bg">
+  <sdds-accordion-item header="Lorem ipsum" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+
+// New ✅
+<sdds-accordion mode-variant="seconday">
+  <sdds-accordion-item header="Lorem ipsum" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+```
+
 ## Badge
 
 [Web Component](/docs/components-badge--default/)
