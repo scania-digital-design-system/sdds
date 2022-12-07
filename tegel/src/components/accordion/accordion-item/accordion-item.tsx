@@ -1,8 +1,8 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-accordion-item',
-  styleUrl: './../accordion.scss',
+  styleUrl: 'accordion-item.scss',
   shadow: true,
 })
 export class AccordionItem {
@@ -38,29 +38,31 @@ export class AccordionItem {
 
   render() {
     return (
-      <div
-        class={`sdds-accordion-item 
+      <Host>
+        <div
+          class={`sdds-accordion-item 
         ${this.disabled ? 'disabled' : ''} 
         ${this.expanded ? 'expanded' : ''}
         `}
-      >
-        <div
-          class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
-          onClick={() => this.openAccordion()}
         >
-          <div class="sdds-accordion-title">{this.header}</div>
-          <div class="sdds-accordion-icon">
-            <sdds-icon name="chevron_down" size="16px"></sdds-icon>
+          <div
+            class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
+            onClick={() => this.openAccordion()}
+          >
+            <div class="sdds-accordion-title">{this.header}</div>
+            <div class="sdds-accordion-icon">
+              <sdds-icon name="chevron_down" size="16px"></sdds-icon>
+            </div>
           </div>
-        </div>
-        <div
-          class={`sdds-accordion-panel 
+          <div
+            class={`sdds-accordion-panel 
             ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
             `}
-        >
-          <slot></slot>
+          >
+            <slot></slot>
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }
