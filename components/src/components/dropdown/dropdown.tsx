@@ -316,7 +316,14 @@ export class Dropdown {
               this.selectedValue !== '' || this.selectedLabelsArray.length > 0
                 ? 'sdds-dropdown-toggle--selected'
                 : ''
-            }`}
+            }
+              }
+              ${
+                (this.labelPosition === 'inside' && this.selectedValue !== '') ||
+                this.selectedLabelsArray.length > 0
+                  ? `sdds-dropdown-toggle-label-inside-${this.size}`
+                  : ''
+              }`}
             type="button"
             onClick={() => this.handleClick()}
             ref={(node) => (this.node = node)}
@@ -354,7 +361,7 @@ export class Dropdown {
                   <span
                     class={`sdds-dropdown-label-main ${
                       (this.selectedLabel.length === 0 ||
-                        (this.labelPosition === 'inside' && this.label.length > 0)) &&
+                        (this.labelPosition === 'inside' && this.label.length < 0)) &&
                       'sdds-dropdown-placeholder'
                     }`}
                   >
