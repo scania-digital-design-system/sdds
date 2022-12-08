@@ -1,21 +1,11 @@
 <!-- .storybook/manager-head.html -->
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4S5M709VL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T4S5M709VL');
-</script>
-
 <script defer data-domain="tegel-storybook.netlify.app" src="https://plausible.io/js/script.manual.js"></script>
 
-<!-- define the `plausible` function to manually trigger events -->
+<!-- 1. define the `plausible` function to manually trigger events -->
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-<!-- trigger pageview -->
 
+<!-- 2. script to help trigger Plausible tracking based on url changes -->
 <script>
   ;(function() {
     const pushState = history.pushState;
@@ -39,6 +29,7 @@
   })();
 </script>
 
+<!-- 3. Plausible manual script -->
 <script>
   function prepareUrl(params) {
     const url = new URL(location.href)
@@ -52,6 +43,7 @@
   }
   plausible('pageview', { u: prepareUrl(["path", "args"]) })
 
+  /* 4. trigger Plausible script on event */
   window.addEventListener('locationchange', function(){
     plausible('pageview', { u: prepareUrl(["path", "args"]) })
   })
