@@ -76,7 +76,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
   formatHtmlPreview(
     `
     <style>
-    <!-- Note: Demo classes used here are just for demo purposes in Storybook -->
+    /* Note: Demo classes used here are just for demo purposes in Storybook */
     .badges-demo-box {
       margin:5px;
       height: 32px;

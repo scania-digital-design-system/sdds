@@ -111,19 +111,7 @@
 
     &::placeholder {
       color: var(--sdds-grey-700);
-    }
-
-    &::input-placeholder {
-      color: var(--sdds-grey-700);
-    }
-
-    &::placeholder {
-      color: var(--sdds-grey-700);
       opacity: 1;
-    }
-
-    &::input-placeholder {
-      color: var(--sdds-grey-700);
     }
   }
 
@@ -288,6 +276,13 @@
   ::slotted(sdds-dropdown-option.sdds-option--no-result) {
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  ::slotted(sdds-dropdown-option.sdds-dropdown-option-disabled),
+  ::slotted(sdds-dropdown-option.selected.sdds-dropdown-option-disabled) {
+    cursor: not-allowed;
+    color: var(--sdds-grey-400);
+    background-color: var(--sdds-white);
   }
 }
 
