@@ -152,7 +152,7 @@ const Template = ({
           state="${stateValue}"
           type="default"
           default-option="${defaultOptionLookup[defaultOption]}" >
-          <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
+          <sdds-dropdown-option value="option-1" tabindex="0" disabled>Option 1</sdds-dropdown-option>
           <sdds-dropdown-option value="option-2" tabindex="0">Option 2</sdds-dropdown-option>
           <sdds-dropdown-option value="option-3" tabindex="0">Option 3</sdds-dropdown-option>
         </sdds-dropdown>

@@ -24,6 +24,9 @@ export class DropdownOption {
   /** Selected set to true if selected */
   @Prop() selected: boolean = false;
 
+  /** Sets option to disabled state if true */
+  @Prop() disabled: boolean = false;
+
   /** Value is a unique string that will be used for application logic */
   @Prop({ reflect: true }) value: string;
 
@@ -66,26 +69,28 @@ export class DropdownOption {
   }
 
   selectOptionHandler(value) {
-    const listOptions = value.parent.childNodes;
-    this.selectOption.emit(value);
-    if (!this.isMultiSelectOption) {
-      listOptions.forEach((optionEl) => {
-        // TODO: fix and enable rule
-        // eslint-disable-next-line no-param-reassign
-        optionEl.selected = false;
-      });
-    }
-    const optionCheckbox = this.host.shadowRoot.querySelector('input');
-
-    if (this.selected) {
-      this.selected = false;
-      if (optionCheckbox) {
-        optionCheckbox.checked = false;
+    if (!this.disabled) {
+      const listOptions = value.parent.childNodes;
+      this.selectOption.emit(value);
+      if (!this.isMultiSelectOption) {
+        listOptions.forEach((optionEl) => {
+          // TODO: fix and enable rule
+          // eslint-disable-next-line no-param-reassign
+          optionEl.selected = false;
+        });
       }
-    } else {
-      this.selected = true;
-      if (optionCheckbox) {
-        optionCheckbox.checked = true;
+      const optionCheckbox = this.host.shadowRoot.querySelector('input');
+
+      if (this.selected) {
+        this.selected = false;
+        if (optionCheckbox) {
+          optionCheckbox.checked = false;
+        }
+      } else {
+        this.selected = true;
+        if (optionCheckbox) {
+          optionCheckbox.checked = true;
+        }
       }
     }
   }
@@ -104,14 +109,20 @@ export class DropdownOption {
           });
         }}
         class={{
-          selected: this.selected,
+          'selected': this.selected,
+          'sdds-dropdown-option-disabled': this.disabled,
         }}
         tabindex="-1"
       >
         {this.isMultiSelectOption && (
           <div class="sdds-checkbox-item sdds-option-checkbox">
             <label class="sdds-form-label">
-              <input class="sdds-form-input" type="checkbox" checked={this.selected} />
+              <input
+                class="sdds-form-input"
+                type="checkbox"
+                checked={this.selected}
+                disabled={this.disabled}
+              />
             </label>
           </div>
         )}

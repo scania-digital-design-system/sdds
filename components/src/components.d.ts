@@ -225,6 +225,10 @@ export namespace Components {
     }
     interface SddsDropdownOption {
         /**
+          * Sets option to disabled state if true
+         */
+        "disabled": boolean;
+        /**
           * Selected set to true if selected
          */
         "selected": boolean;
@@ -1059,6 +1063,10 @@ declare namespace LocalJSX {
         "state"?: string;
     }
     interface SddsDropdownOption {
+        /**
+          * Sets option to disabled state if true
+         */
+        "disabled"?: boolean;
         "onSelectOption"?: (event: CustomEvent<any>) => void;
         /**
           * Selected set to true if selected
