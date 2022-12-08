@@ -28,7 +28,7 @@ export default {
     }
   },
   args: {
-    variant: 'Primary'
+    modeVariant: 'Primary'
   }
 };
 

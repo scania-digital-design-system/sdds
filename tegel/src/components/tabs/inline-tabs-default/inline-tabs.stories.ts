@@ -42,7 +42,7 @@ export default {
   },
   args: {
     autoHeight: false,
-    variant: 'Primary'
+    modeVariant: 'Primary'
   },
 };
 // eslint-disable-next-line arrow-body-style
