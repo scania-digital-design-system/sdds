@@ -62,7 +62,7 @@ export default {
     messageType: 'Information',
     variant: 'On light',
     icon: false,
-    iconType: 'Native',
+    iconType: 'Webcomponent',
     showExtendedMessage: false,
   },
 };
@@ -73,33 +73,39 @@ const nativeIconNameLookup = {
   Warning: 'warning',
   Success: 'tick',
 };
-const colorLookup = {
-  Information: 'information',
-  Error: 'negative',
-  Warning: 'warning',
-  Success: 'positive',
-};
 
 const Template = ({ messageType, icon, iconType, showExtendedMessage, variant }) => {
-  let messageTypeClass = messageType === 'Information' ? 'sdds-message__type-informative' : `sdds-message__type-${messageType.toLowerCase()}`;
-  let iconClass = messageType === 'Information' ? 'sdds-message-icon--informative' : `sdds-message-icon--${messageType.toLowerCase()}`;
-  let typeCssNameVar = messageType === 'Information' ? 'informative' : messageType.toLowerCase();
+  const messageTypeClass =
+    messageType === 'Information'
+      ? 'sdds-message-type-informative'
+      : `sdds-message-type-${messageType.toLowerCase()}`;
+  const iconClass =
+    messageType === 'Information'
+      ? 'sdds-message-icon-informative'
+      : `sdds-message-icon-${messageType.toLowerCase()}`;
   const variantValue = variant === 'On dark' ? 'sdds-message-ongrey' : '';
-  let iconHtml =
+  const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
       : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20" /></div>`;
 
   return formatHtmlPreview(
     ` 
-    <style>
-    ${iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
-    .sdds-message-icon--${typeCssNameVar} {
-      color: var(--sdds-${colorLookup[messageType]});
+    
+    ${
+      iconType === 'Native'
+        ? `<style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+    i {
       font-size: 20px;
     }
-  </style>
-    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message__icon-active' : ''} ${showExtendedMessage ? 'sdds-message__extended-active' : ''} ${variantValue}">
+    </style>`
+        : ''
+    }
+
+    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
+      showExtendedMessage ? 'sdds-message-extended-active' : ''
+    } ${variantValue}">
     ${icon ? iconHtml : ''}
     <h4 class="sdds-message-single">
       Single line message goes here.
@@ -115,7 +121,6 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
 };
 
 export const Information = Template.bind({});
-Information.args = {};
 
 export const Error = Template.bind({});
 Error.args = {

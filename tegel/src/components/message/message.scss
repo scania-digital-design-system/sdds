@@ -52,7 +52,7 @@
 
   /* modifiers */
 
-  &__icon-active {
+  &-icon-active {
     padding: 18px 32px 18px 20px;
 
     .sdds-message-single,
@@ -61,7 +61,7 @@
     }
   }
 
-  &__extended-active {
+  &-extended-active {
     .sdds-message-icon {
       top: 16px;
       left: 20px;
@@ -92,7 +92,7 @@
 
   /* types */
 
-  &__type {
+  &-type {
     &-informative {
       color: var(--sdds-message-type-informative-color);
       background-color: var(--sdds-message-type-informative-bg);
@@ -108,8 +108,9 @@
       .sdds-message-icon {
         display: none;
 
-        &--informative {
+        &-informative {
           display: block;
+          color: var(--sdds-information);
         }
 
         path {
@@ -129,8 +130,9 @@
       .sdds-message-icon {
         display: none;
 
-        &--error {
+        &-error {
           display: block;
+          color: var(--sdds-negative);
         }
 
         path {
@@ -154,8 +156,9 @@
       .sdds-message-icon {
         display: none;
 
-        &--warning {
+        &-warning {
           display: block;
+          color: var(--sdds-warning);
         }
 
         path {
@@ -179,8 +182,9 @@
       .sdds-message-icon {
         display: none;
 
-        &--success {
+        &-success {
           display: block;
+          color: var(--sdds-positive);
         }
 
         path {
