@@ -9,6 +9,7 @@ export class Accordion {
   /** Enable or disable divider lines between items */
   @Prop() divider: boolean = true;
 
+  /** Set the variant of the the accordion. */
   @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   render() {
