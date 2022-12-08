@@ -8,7 +8,9 @@
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     text-align: left;
-    height: 64px;
+
+    // 24px to account for header component that overlaps
+    height: 32px;
     display: table-caption;
     position: relative;
     background-color: var(--sdds-grey-400);
@@ -119,7 +121,8 @@
   // SDDS GLOBAL STYLES:
   &.sdds-table--compact {
     .sdds-table__title {
-      height: 56px;
+      // 24px to account for header component that overlaps
+      height: 24px;
     }
 
     .sdds-table__body-cell,
