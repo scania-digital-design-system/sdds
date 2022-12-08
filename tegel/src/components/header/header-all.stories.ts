@@ -35,17 +35,8 @@ export default {
   },
 };
 
-const AllMenusTemplate = (args) => {
-  const {
-    siteName,
-    openInlineDropdown = true,
-    openAppLauncher = false,
-    openAvatarMenu = false,
-    openMobileMenu = false,
-    openSearchbar = false,
-  } = args;
-
-  return formatHtmlPreview(
+const AllMenusTemplate = ({ siteName }) =>
+  formatHtmlPreview(
     `
       <style>
       .demo-wrapper {
@@ -53,12 +44,7 @@ const AllMenusTemplate = (args) => {
       }
     </style>
   <div class="demo-wrapper">
-    <nav class='sdds-nav  
-      ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
-      ${openAvatarMenu && 'sdds-nav__avatar--opened'}
-      ${openSearchbar && 'sdds-nav__searchbar--opened'}
-      ${openAppLauncher && 'sdds-nav__app-launcher--opened'}
-       '>     
+    <nav class='sdds-nav'>     
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
@@ -86,9 +72,7 @@ const AllMenusTemplate = (args) => {
                   </a>
               </li>
         
-              <li class='sdds-nav__item sdds-nav__dropdown ${
-                openInlineDropdown && 'sdds-nav__dropdown--opened'
-              }'>
+              <li class='sdds-nav__item sdds-nav__dropdown'>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
@@ -240,31 +224,5 @@ const AllMenusTemplate = (args) => {
     
     `,
   );
-};
 
 export const AllMenus = AllMenusTemplate.bind({});
-AllMenus.argTypes = {
-  openInlineDropdown: {
-    name: 'Open Inline Dropdown',
-  },
-  openMobileMenu: {
-    name: 'Open Mobile Menu',
-  },
-  openAppLauncher: {
-    name: 'Open App Launcher',
-  },
-  openSearchbar: {
-    name: 'Open Search Bar',
-  },
-  openAvatarMenu: {
-    name: 'Open Avatar Menu',
-  },
-};
-AllMenus.args = {
-  siteName: 'All Menus App',
-  openInlineDropdown: false,
-  openAppLauncher: false,
-  openAvatarMenu: false,
-  openMobileMenu: false,
-  openSearchbar: false,
-};

@@ -35,10 +35,8 @@ export default {
   },
 };
 
-const InlineMenuTemplate = (args) => {
-  const { siteName, openInlineDropdown = true, openMobileMenu = false } = args;
-
-  return formatHtmlPreview(
+const InlineMenuTemplate = ({ siteName }) =>
+  formatHtmlPreview(
     `
       <style>
       .demo-wrapper {
@@ -46,9 +44,7 @@ const InlineMenuTemplate = (args) => {
       }
     </style>
   <div class="demo-wrapper">
-    <nav class='sdds-nav  
-      ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
-       '>     
+    <nav class='sdds-nav'>     
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
@@ -76,9 +72,7 @@ const InlineMenuTemplate = (args) => {
                   </a>
               </li>
         
-              <li class='sdds-nav__item sdds-nav__dropdown ${
-                openInlineDropdown && 'sdds-nav__dropdown--opened'
-              }'>
+              <li class='sdds-nav__item sdds-nav__dropdown'>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
@@ -126,19 +120,5 @@ const InlineMenuTemplate = (args) => {
     </script>
     `,
   );
-};
 
 export const InlineMenu = InlineMenuTemplate.bind({});
-InlineMenu.argTypes = {
-  openInlineDropdown: {
-    name: 'Open Inline Dropdown',
-  },
-  openMobileMenu: {
-    name: 'Open Mobile Menu',
-  },
-};
-InlineMenu.args = {
-  siteName: 'Inline Menu App',
-  openInlineDropdown: false,
-  openMobileMenu: false,
-};
