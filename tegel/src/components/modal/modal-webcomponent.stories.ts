@@ -74,7 +74,7 @@ const ModalTemplate = ({ size, headline, actions }) =>
   <script>
 
     document.getElementById('my-modal-button').addEventListener('click', () => {
-      document.getElementById('my-modal').setAttribute("open", "true");
+      document.getElementById('my-modal').open = true;
     })
   </script>
   
