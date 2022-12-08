@@ -359,7 +359,7 @@ export class Dropdown {
                   <span
                     class={`sdds-dropdown-label-main ${
                       (this.selectedLabel.length === 0 ||
-                        (this.labelPosition === 'inside' && this.label.length > 0)) &&
+                        (this.labelPosition === 'inside' && this.label.length < 0)) &&
                       'sdds-dropdown-placeholder'
                     }`}
                   >
