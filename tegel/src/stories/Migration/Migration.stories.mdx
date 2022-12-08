@@ -255,6 +255,47 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
 </div>
 ```
 
+## Message
+
+[Native](/docs/components-message--information)
+
+#### Renamed multiple classes to conform with convention.
+
+The following classes was changed to conform with convention:
+ * `sdds-message__icon-active` -> `sdds-message-icon-active`
+ * `sdds-message__extended-active` -> `sdds-message-extended-active`
+ * `sdds-message__type` -> `sdds-message-type`
+ * `sdds-message-icon--informative` -> `sdds-message-icon-informative`
+ * `sdds-message-icon--error` -> `sdds-message-icon-error`
+ * `sdds-message-icon--warning` -> `sdds-message-icon-warning`
+ * `sdds-message-icon--success` -> `sdds-message-icon-success`
+
+ The overall change is that we are dropping the use of `__` and `--` in class names and are 
+ moving to single dashes instead.
+
+##### What action is required?
+
+Rename all instances of `__` and `--` from class names in the message component and replace
+with a single dash (`-`).
+
+```jsx
+// Old ❌
+<div class="sdds-message sdds-message__type-informative sdds-message__icon-active">
+  <div>
+    <sdds-icon class="sdds-message-icon sdds-message-icon--informative" name="info" size="20" />
+  </div>
+  <h4 class="sdds-message-single">Single line message goes here.</h4>
+</div>
+
+// New ✅
+<div class="sdds-message sdds-message-type-informative sdds-message-icon-active">
+  <div>
+    <sdds-icon class="sdds-message-icon sdds-message-icon-informative" name="info" size="20" />
+  </div>
+  <h4 class="sdds-message-single">Single line message goes here.</h4>
+</div>
+```
+
 ## Stepper
 
 [Native](/docs/components-stepper--default)
