@@ -95,16 +95,14 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
     `;
 
   return formatHtmlPreview(`
-    <style>
+   
       ${
         iconType === 'Native'
-          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');`
+          ? ` <style>
+          @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+          </style>`
           : ''
       }
-      .sdds-chip-icon {
-        font-size: 16px;
-      }
-    </style>
     <div class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${stateValue} ${sizeValue}">
