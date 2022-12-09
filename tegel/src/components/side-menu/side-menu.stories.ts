@@ -50,7 +50,8 @@ const Template = ({ showIcons, collapsed }) => {
 
   return formatHtmlPreview(`
   <style>
-  .sdds-demo-container {
+  /* demo-wrapper is for demonstration purposes only*/
+  .demo-wrapper {
     align-items: stretch;
     height: 100vh;
   }
@@ -70,7 +71,7 @@ const Template = ({ showIcons, collapsed }) => {
     <a class="sdds-nav__item sdds-nav__app-logo" href="#"></a>
   </div>
 </nav>
-<div class="sdds-push sdds-demo-container">
+<div class="sdds-push demo-wrapper">
   <div class="sdds-sidebar side-menu ${collapsed ? 'collapsed' : ''}">
     <div class="sdds-sidebar-mheader">
     <button class="sdds-sidebar-mheader__close">

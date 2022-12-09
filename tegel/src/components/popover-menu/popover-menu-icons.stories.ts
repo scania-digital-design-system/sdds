@@ -65,6 +65,7 @@ const Template = ({ menuPosition }) => {
   return formatHtmlPreview(
     `
         <style>
+        /* demo-wrapper is for demonstration purposes only*/
         .demo-wrapper {
           display: flex;
           flex-wrap: nowrap;

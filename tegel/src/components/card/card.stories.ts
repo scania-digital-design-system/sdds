@@ -110,6 +110,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
   formatHtmlPreview(
     `
 <style> 
+/* demo-wrapper is for demonstration purposes only*/
   .demo-wrapper {
     width: 300px;
   }

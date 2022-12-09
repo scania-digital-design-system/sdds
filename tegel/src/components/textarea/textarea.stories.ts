@@ -136,7 +136,7 @@ const Template = ({
   };
   return formatHtmlPreview(`
   <style>
-    /* This is only for demonstration purposes */
+  /* demo-wrapper is for demonstration purposes only*/
     .demo-wrapper {
       width: 400px;
     }

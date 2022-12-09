@@ -82,7 +82,7 @@ const directionLookup = {
   Left: 'left',
 };
 
-const Template = ({ type, style, width, height, direction }) => {
+const Template = ({ type, style, width, direction }) => {
   const classLookup = {
     Horizontal: `sdds-divider-${styleLookup[style]}`,
     Vertical: `sdds-divider-${styleLookup[style]}-vertical`,
@@ -90,22 +90,25 @@ const Template = ({ type, style, width, height, direction }) => {
   };
 
   return formatHtmlPreview(
-    `
+    `<style>
     ${
       direction
-        ? `<style>
-    .demo-class {
+        ? `/* demo-wrapper is for demonstration purposes only*/    
+    .demo-wrapper {
     height: 200px;
     width: 200px;
     background-color: var(--sdds-grey-100);
     }
-    </style>`
-        : ''
+    `
+        : 
+        `/* demo-wrapper is for demonstration purposes only*/    
+    .demo-wrapper {
+      ${width ? `width: ${width}px;` : ''}
+    }`
     }
+    </style>
         <div
-    ${width ? `style="width:${width}px;"` : ''}
-    ${height ? `style="height:${height}px;"` : ''}
-    class="${classLookup[type]} ${direction ? `demo-class` : ''}">
+    class="${classLookup[type]} demo-wrapper ">
     ${direction ? 'DEMO' : ''}</div>
     `,
   );
