@@ -48,7 +48,7 @@ export default {
 
 const IconTemplate = (args) =>
   formatHtmlPreview(`
-  <sdds-icon name="${args.icon}" size="${`${args.size.toString()}px`}" />
+  <sdds-icon name="${args.icon}" size="${`${args.size.toString()}px`}"></sdds-icon> 
   `);
 
 export const WebComponent = IconTemplate.bind({});

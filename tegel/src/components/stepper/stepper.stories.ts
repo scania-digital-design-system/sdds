@@ -117,7 +117,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
           iconType === 'Native'
             ? `<i class="sdds-icon warning"></i>
         `
-            : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}" />`
+            : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}"></sdds-icon> `
         }
         </div>
         ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
@@ -137,7 +137,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
             ? `<i class="sdds-icon tick"></i>
         `
             : `<div>
-        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}" />
+        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}"></sdds-icon> 
         </div>`
         }
         </div>

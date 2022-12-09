@@ -82,7 +82,7 @@ const Template = ({ menuPosition }) => {
           <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon> 
             </i>
                 Menu item 1            
             </a>
@@ -90,7 +90,7 @@ const Template = ({ menuPosition }) => {
           <li>            
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon> 
             </i>   
               Menu item 2
             </a>
@@ -98,7 +98,7 @@ const Template = ({ menuPosition }) => {
           <li>            
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon> 
             </i>
               Menu item 3
             </a>
@@ -107,7 +107,7 @@ const Template = ({ menuPosition }) => {
           <li>            
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon> 
             </i>
               Menu item 4
             </a>
@@ -115,7 +115,7 @@ const Template = ({ menuPosition }) => {
           <li>            
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon> 
             </i>
               Menu item 5
             </a>
@@ -125,7 +125,7 @@ const Template = ({ menuPosition }) => {
     
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
-        <sdds-icon id="trigger" name="kebab" size="16px" />
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
       </div>
       `,
   );

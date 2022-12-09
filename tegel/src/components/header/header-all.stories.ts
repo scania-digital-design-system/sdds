@@ -78,7 +78,7 @@ const AllMenusTemplate = ({ siteName }) =>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
-                        <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />
+                        <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon> 
                     </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>
@@ -126,7 +126,7 @@ const AllMenusTemplate = ({ siteName }) =>
         <div class='sdds-nav__right'>
           <div class='sdds-nav__item sdds-nav__app-launcher'>
               <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher()'>
-                  <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" />
+                  <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" ></sdds-icon> 
               </button>
               <ul class='sdds-nav__app-launcher-menu'>
                   <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>
