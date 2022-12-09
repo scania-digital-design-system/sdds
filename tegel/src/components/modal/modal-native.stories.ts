@@ -106,7 +106,7 @@ const Template = ({ headline, size, actions, showModal }) =>
   </div>
 
   <script>
-  /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
+  /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
   modal = document.getElementById('my-modal');
   buttons = modal.getElementsByTagName('button');
   for (const button of buttons) {
