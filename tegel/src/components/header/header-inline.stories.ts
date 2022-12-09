@@ -89,7 +89,7 @@ const InlineMenuTemplate = ({ siteName }) =>
     </nav>
 
     <script>
-    /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
     toggleMobileMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
