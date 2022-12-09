@@ -83,10 +83,9 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         iconType === 'Native'
           ? `
     <style>
+    /* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-      i.sdds-icon {
-        font-size: 20px;
-      }
+
     </style>
       `
           : ''
