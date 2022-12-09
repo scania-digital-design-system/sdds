@@ -55,3 +55,7 @@
     @include disabledStyle;
   }
 }
+
+:host(:last-child) {
+  border-bottom: 1px solid var(--sdds-accordion-border);
+}
