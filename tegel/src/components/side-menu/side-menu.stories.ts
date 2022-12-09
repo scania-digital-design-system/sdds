@@ -166,7 +166,7 @@ const Template = ({ showIcons, collapsed }) => {
 
 
 <script>
-    /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
   document.querySelector('button.sdds-nav__mob-menu-btn').addEventListener('click', () => {
     document.querySelector('.side-menu').classList.toggle('mobile-menu-open')
   })
