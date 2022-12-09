@@ -39,13 +39,6 @@ export default {
 const AllMenusTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
-      <style>
-      /* demo-wrapper is for demonstration purposes only*/
-      .demo-wrapper {
-        font-size: 14px;
-      }
-    </style>
-  <div class="demo-wrapper">
     <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
@@ -176,8 +169,9 @@ const AllMenusTemplate = ({ siteName }) =>
           <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
         </div>
     </nav>
-    </div>
+
     <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
     toggleAvatarMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__avatar--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
@@ -223,7 +217,6 @@ const AllMenusTemplate = ({ siteName }) =>
 
     }
     </script>
-
     `,
   );
 

@@ -39,13 +39,6 @@ export default {
 const InlineMenuTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
-      <style>
-      /* demo-wrapper is for demonstration purposes only*/
-      .demo-wrapper {
-        font-size: 14px;
-      }
-    </style>
-  <div class="demo-wrapper">
     <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
@@ -94,9 +87,9 @@ const InlineMenuTemplate = ({ siteName }) =>
           <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
         </div>
     </nav>
-    </div>
-    <script>
 
+    <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
     toggleMobileMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
