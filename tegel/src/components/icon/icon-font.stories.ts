@@ -49,8 +49,9 @@ export default {
 const IconFontTemplate = (args) =>
   formatHtmlPreview(`
   <style>
+    /* Demo code for presentation purposes */
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    i {font-size: ${args.size}px;}
+    .sdds-icon { font-size: ${args.size}px; }
   </style>
 
   <i class="sdds-icon ${args.icon}"></i>

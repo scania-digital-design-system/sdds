@@ -1,4 +1,4 @@
-import { formatHtmlPreview } from '../../../utils/utils';
+import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Foundations/Spacing',
@@ -11,6 +11,7 @@ const Template = () =>
   formatHtmlPreview(
     `
   <style>
+    /* Demo code for presentation purposes */
     .sdds-spacing-element-demo-box {
       background-color: var(--sdds-red-500);
       display: inline-block;
@@ -28,6 +29,7 @@ const Template = () =>
       text-align: left;
     }
   </style>
+
   <h4>Spacing Element</h4>
   <table>
     <tr>
