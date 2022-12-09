@@ -87,7 +87,6 @@ export default {
 };
 
 const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
-  const minWidthValue = minWidth === true;
   const typeLookup = {
     Datetime: 'datetime-local',
     Date: 'date',
@@ -122,7 +121,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
-      ${minWidthValue ? 'noMinWidth' : ''} >
+      ${minWidth ? 'no-min-width' : ''}>
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
     </sdds-datetime>
