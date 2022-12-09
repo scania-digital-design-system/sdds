@@ -26,9 +26,8 @@ export class Modal {
     this.open = true;
   }
 
-  dismissModal() {
+  setDissmissButtons() {
     const nodes = this.el.querySelectorAll('[data-dismiss-modal]');
-
     nodes.forEach((el) => {
       el.addEventListener('click', () => {
         this.open = false;
@@ -45,6 +44,10 @@ export class Modal {
     ) {
       this.open = false;
     }
+  }
+
+  componentDidRender() {
+    this.setDissmissButtons();
   }
 
   render() {
