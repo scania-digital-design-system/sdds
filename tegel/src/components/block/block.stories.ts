@@ -19,20 +19,25 @@ export default {
   },
   argTypes: {
     type: {
-      name: 'Type',
-      description: 'Pick variant',
+      name: 'Mode variation',
+      description:
+        'Mode variation adjusts component colors to have better visibility depending on global mode and background. ',
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Variant'],
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
     },
   },
   args: {
-    type: 'Default',
+    type: 'Primary',
   },
 };
 
-const Template = ({ type }) =>  formatHtmlPreview(
+const Template = ({ type }) =>
+  formatHtmlPreview(
     `
       <div class="sdds-block sdds-block-${type.toLowerCase()}">
       <h2 class="sdds-headline-02">Block</h2>
@@ -44,6 +49,5 @@ const Template = ({ type }) =>  formatHtmlPreview(
       </div>
     `,
   );
-
 
 export const Default = Template.bind({});
