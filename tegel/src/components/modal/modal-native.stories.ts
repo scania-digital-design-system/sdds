@@ -66,7 +66,7 @@ const sizeLookUp = {
 
 const Template = ({ headline, size, actions, showModal }) =>
   formatHtmlPreview(
-    `    <style> 
+    `    <style>
   /* demo-wrapper and demo-styles is for demonstration purposes only*/
   .demo-wrapper {
     position: relative;
@@ -79,35 +79,34 @@ const Template = ({ headline, size, actions, showModal }) =>
     margin-bottom: 20px;
   }
   </style>
-  <div class="demo-wrapper">
-  <button id="modal-button" class="sdds-btn sdds-btn-primary sdds-btn-lg">
-    <span class="sdds-btn-text">Open modal</span>
-  </button>
-  
-  <div id="my-modal" class="sdds-modal-backdrop ${showModal ? 'show' : 'hide'} demo-styles">
-  <div class="sdds-modal sdds-modal-${
-    sizeLookUp[size]
-  } sdds-modal__actions-${actions.toLowerCase()}">
-    <div class="sdds-modal-header">
-     
-        <h5 class="sdds-modal-headline">${headline}</h5>
-     
-      <span class="sdds-modal-btn"></span>
-    </div>
-      <div class="sdds-modal-body">
-        <p>
-          Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
-        </p>
-      </div>
-      <div class="sdds-modal-actions">
-          <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
-          <button class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
-      </div>
-  </div>
-</div>
 
+  <div class="demo-wrapper">
+    <button id="modal-button" class="sdds-btn sdds-btn-primary sdds-btn-lg">
+      <span class="sdds-btn-text">Open modal</span>
+    </button>
+    <div id="my-modal" class="sdds-modal-backdrop ${showModal ? 'show' : 'hide'} demo-styles">
+      <div class="sdds-modal sdds-modal-${
+        sizeLookUp[size]
+      } sdds-modal__actions-${actions.toLowerCase()}">
+        <div class="sdds-modal-header">
+            <h5 class="sdds-modal-headline">${headline}</h5>
+          <span class="sdds-modal-btn"></span>
+        </div>
+          <div class="sdds-modal-body">
+            <p>
+              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
+            </p>
+          </div>
+          <div class="sdds-modal-actions">
+              <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
+              <button class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
+          </div>
+      </div>
+    </div>
   </div>
+
   <script>
+  /* Note: Code below is used only for inspiration and presentation purposes in Stroybook */
   modal = document.getElementById('my-modal');
   buttons = modal.getElementsByTagName('button');
   for (const button of buttons) {
