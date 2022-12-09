@@ -41,9 +41,8 @@ export default {
       name: 'Min width',
       description: 'Toggle min width',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'No min width'],
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -88,7 +87,7 @@ export default {
 };
 
 const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
-  let minWidthValue = minWidth === 'No min width' ? true : false;
+  const minWidthValue = minWidth === true;
   const typeLookup = {
     Datetime: 'datetime-local',
     Date: 'date',
@@ -107,7 +106,16 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+
+    <style>
+        /* Note: Demo classes used here are just for demo purposes in Storybook */
+        .demo-wrapper {
+            width: 208px;
+        }
+    </style>
+
+  <div class="demo-wrapper">
+
     <sdds-datetime
     id="datetime"
       type="${typeLookup[type]}"
@@ -118,6 +126,7 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
     </sdds-datetime>
+
     <!-- You can listen for the 'customChange' event to get value updates. -->
     <script>
       const datetimeEl = document.getElementById('datetime');
