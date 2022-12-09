@@ -11,25 +11,23 @@
 --sdds-font-weight-normal: 400;
 --sdds-font-weight-base: var(--font-weight-normal);
 --sdds-line-height-base: 1.5;
---sdds-font-family-sans-serif: 'Scania Sans Semi Condensed', 'Scania Sans Condensed',
-  arial, helvetica, sans-serif;
+--sdds-font-family-sans-serif: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', arial, helvetica,
+  sans-serif;
 --sdds-font-family-sans: 'Scania Sans', arial, helvetica, sans-serif;
 --sdds-font-family-monospace: var(--font-family-sans-serif);
 --sdds-font-family-base: var(--font-family-sans-serif);
---sdds-headings-font-family: 'Scania Sans Semi Condensed', arial, helvetica,
-  sans-serif;
+--sdds-headings-font-family: 'Scania Sans Semi Condensed', arial, helvetica, sans-serif;
 
 // New value 2020 below this comment line
 
 --sdds-font-family-regular: 'Scania Sans', arial, helvetica, sans-serif;
---sdds-font-family-semi-condensed: 'Scania Sans Semi Condensed',
-  'Scania Sans Condensed', arial, helvetica, sans-serif;
+--sdds-font-family-semi-condensed: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', arial, helvetica,
+  sans-serif;
 --sdds-font-family-headline: 'Scania Sans Headline', arial, helvetica, sans-serif;
 
 // Bold version is by adding font-weight:bold
 --sdds-font-family-bold: 'Scania Sans', arial, helvetica, sans-serif;
---sdds-font-family-semi-condensed-bold: 'Scania Sans Semi Condensed', arial, helvetica,
-  sans-serif;
+--sdds-font-family-semi-condensed-bold: 'Scania Sans Semi Condensed', arial, helvetica, sans-serif;
 --sdds-font-family-headline-bold: 'Scania Sans Headline', arial, helvetica, sans-serif;
 
 }

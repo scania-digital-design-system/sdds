@@ -5,120 +5,120 @@
 $headline-01: (
   font-family: $font-family-headline-bold,
   font-weight: bold,
-  font-size: type-scale(9),
-  line-height: type-scale(9),
+  font-size: 2.5rem,
+  line-height: 1,
   letter-spacing: 0,
 );
 $headline-02: (
   font-family: $font-family-bold,
   font-weight: bold,
-  font-size: type-scale(8),
-  line-height: type-scale(8),
+  font-size: 2rem,
+  line-height: 1,
   letter-spacing: -0.04em,
 );
 $headline-03: (
   font-family: $font-family-bold,
   font-weight: bold,
-  font-size: type-scale(6),
-  line-height: type-scale(6),
+  font-size: 1.5rem,
+  line-height: 1,
   letter-spacing: -0.03em,
 );
 $headline-04: (
   font-family: $font-family-bold,
   font-weight: bold,
-  font-size: type-scale(5),
-  line-height: type-scale(6),
+  font-size: 1.25rem,
+  line-height: 1.2,
   letter-spacing: -0.01em,
 );
 $headline-05: (
   font-family: $font-family-bold,
   font-weight: bold,
-  font-size: type-scale(4),
-  line-height: type-scale(6),
+  font-size: 0.875rem,
+  line-height: 1.5,
   letter-spacing: -0.02em,
 );
 $headline-06: (
   font-family: $font-family-bold,
   font-weight: bold,
-  font-size: type-scale(3),
-  line-height: type-scale(4),
+  font-size: 0.875rem,
+  line-height: 1.14,
   letter-spacing: -0.02em,
 );
 $headline-07: (
   font-family: $font-family-semi-condensed-bold,
   font-weight: bold,
-  font-size: type-scale(3),
-  line-height: type-scale(4),
+  font-size: 0.875rem,
+  line-height: 1.14,
   letter-spacing: -0.01em,
 );
 $paragraph-01: (
   font-family: $font-family-regular,
-  font-size: type-scale(6),
-  line-height: type-scale(8),
+  font-size: 1.5rem,
+  line-height: 1.33,
   letter-spacing: -0.03em,
 );
 $paragraph-02: (
   font-family: $font-family-regular,
-  font-size: type-scale(5),
-  line-height: type-scale(6),
+  font-size: 1.25rem,
+  line-height: 1.2,
   letter-spacing: -0.01em,
 );
 $body-01: (
   font-family: $font-family-regular,
-  font-size: type-scale(4),
-  line-height: type-scale(6),
+  font-size: 1rem,
+  line-height: 1.5,
   letter-spacing: -0.02em,
 );
 $body-02: (
   font-family: $font-family-regular,
-  font-size: type-scale(3),
-  line-height: type-scale(5),
+  font-size: 0.875rem,
+  line-height: 1.43,
   letter-spacing: -0.01em,
 );
 $detail-01: (
   font-family: $font-family-semi-condensed,
-  font-size: type-scale(4),
-  line-height: type-scale(6),
+  font-size: 1rem,
+  line-height: 1.5,
   letter-spacing: -0.01em,
 );
 $detail-02: (
   font-family: $font-family-semi-condensed,
-  font-size: type-scale(3),
-  line-height: type-scale(4),
+  font-size: 0.875rem,
+  line-height: 1.14,
   letter-spacing: -0.01em,
 );
 $detail-03: (
   font-family: $font-family-semi-condensed,
-  font-size: type-scale(3),
-  line-height: type-scale(5),
+  font-size: 0.875rem,
+  line-height: 1.43,
   letter-spacing: -0.01em,
 );
 $detail-04: (
   font-family: $font-family-bold,
   font-weight: bold,
   text-transform: uppercase,
-  font-size: type-scale(2),
-  line-height: type-scale(4),
+  font-size: 0.75rem,
+  line-height: 1.33,
   letter-spacing: 0.08em,
 );
 $detail-05: (
   font-family: $font-family-semi-condensed,
-  font-size: type-scale(2),
-  line-height: type-scale(4),
+  font-size: 0.75rem,
+  line-height: 1.33,
   letter-spacing: 0,
 );
 $detail-06: (
   font-family: $font-family-bold,
   font-weight: bold,
   text-transform: uppercase,
-  font-size: type-scale(1),
-  line-height: type-scale(4),
+  font-size: 0.625rem,
+  line-height: 1.6,
   letter-spacing: 0.08em,
 );
 $detail-07: (
   font-family: $font-family-semi-condensed,
-  font-size: type-scale(1),
-  line-height: 2rem,
+  font-size: 0.625rem,
+  line-height: 0.8,
   letter-spacing: 0,
 );
 
@@ -126,15 +126,15 @@ $detail-07: (
 $expressive-headline-01: (
   font-family: $font-family-headline-bold,
   font-weight: bold,
-  font-size: type-scale(14),
-  line-height: type-scale(14),
+  font-size: 5rem,
+  line-height: 1,
   letter-spacing: 0,
 );
 $expressive-headline-02: (
   font-family: $font-family-headline-bold,
   font-weight: bold,
-  font-size: type-scale(11),
-  line-height: type-scale(11),
+  font-size: 3.5rem,
+  line-height: 1,
   letter-spacing: 0,
 );
 $typography-sets: (
