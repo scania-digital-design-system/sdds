@@ -52,7 +52,7 @@ export default {
     },
     direction: {
       name: 'Direction',
-      discription: 'Set the direction of the divider',
+      description: 'Set the direction of the divider',
       control: {
         type: 'select',
       },
@@ -82,7 +82,7 @@ const directionLookup = {
   Left: 'left',
 };
 
-const Template = ({ type, style, width, direction }) => {
+const Template = ({ type, style, width, direction, height }) => {
   const classLookup = {
     Horizontal: `sdds-divider-${styleLookup[style]}`,
     Vertical: `sdds-divider-${styleLookup[style]}-vertical`,
@@ -90,23 +90,35 @@ const Template = ({ type, style, width, direction }) => {
   };
 
   return formatHtmlPreview(
-    `<style>
-    ${
-      direction
-        ? `/* demo-wrapper is for demonstration purposes only*/    
-    .demo-wrapper {
-    height: 200px;
-    width: 200px;
-    background-color: var(--sdds-grey-100);
-    }
     `
-        : 
-        `/* demo-wrapper is for demonstration purposes only*/    
-    .demo-wrapper {
-      ${width ? `width: ${width}px;` : ''}
-    }`
+      <style>
+        ${
+          direction
+            ? `/* demo-wrapper is for demonstration purposes only*/
+        .demo-wrapper {
+          height: 200px;
+          width: 200px;
+          background-color: var(--sdds-grey-100);
+        }
+        `
+            : ''
+        } ${
+      height
+        ? `/* demo-wrapper is for demonstration purposes only*/
+        .demo-wrapper {
+          height: ${height}px;
+        }`
+        : ''
+    }    ${
+      width
+        ? `/* demo-wrapper is for demonstration purposes only*/
+            .demo-wrapper {
+              width: ${width}px;
+            }`
+        : ''
     }
-    </style>
+      </style>
+
         <div
     class="${classLookup[type]} demo-wrapper ">
     ${direction ? 'DEMO' : ''}</div>
