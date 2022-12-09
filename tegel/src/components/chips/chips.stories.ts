@@ -90,24 +90,25 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
     ${
       iconType === 'Native'
         ? '<i class="sdds-chip-icon sdds-icon notification"></i>'
-        : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'
+        : '<sdds-icon class="sdds-chip-icon" name="notification" size="16px"></sdds-icon>'
     }
     `;
 
   return formatHtmlPreview(`
-   
-      ${
-        iconType === 'Native'
-          ? ` <style>
-          @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+  ${
+    iconType === 'Native'
+      ? `<style>
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+    .sdds-chip-icon {
+      font-size: 16px;
+    }
           </style>`
-          : ''
-      }
+      : ''
+  }
     <div class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${stateValue} ${sizeValue}">
-      ${icon ? iconSvg : ''}
-      <span class="sdds-chip-text">${placeholderText}</span>
+      ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
     </div>
     `);
 };
