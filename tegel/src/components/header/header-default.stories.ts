@@ -57,6 +57,3 @@ const Template = ({ siteName }) =>
   );
 
 export const Default = Template.bind({});
-Default.args = {
-  siteName: 'Basic App',
-};

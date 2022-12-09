@@ -35,17 +35,8 @@ export default {
   },
 };
 
-const SearchbarMenuTemplate = (args) => {
-  const {
-    siteName,
-    openInlineDropdown = true,
-    openSearchbar = false,
-    openAppLauncher = false,
-    openAvatarMenu = false,
-    openMobileMenu = false,
-  } = args;
-
-  return formatHtmlPreview(
+const SearchbarMenuTemplate = ({ siteName }) =>
+  formatHtmlPreview(
     `
     <style>
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
@@ -58,12 +49,7 @@ const SearchbarMenuTemplate = (args) => {
     }
   </style>
   <div class="demo-wrapper">
-    <nav class='sdds-nav  
-      ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
-      ${openAvatarMenu && 'sdds-nav__avatar--opened'}
-      ${openSearchbar && 'sdds-nav__searchbar--opened'}
-      ${openAppLauncher && 'sdds-nav__app-launcher--opened'}
-       '>     
+    <nav class='sdds-nav'>     
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
@@ -91,9 +77,7 @@ const SearchbarMenuTemplate = (args) => {
             </a>
         </li>
   
-        <li class='sdds-nav__item sdds-nav__dropdown ${
-          openInlineDropdown && 'sdds-nav__dropdown--opened'
-        }'>
+        <li class='sdds-nav__item sdds-nav__dropdown'>
         <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
             <span class='sdds-nav__item-core-text'>Item 3</span>
             <span class='sdds-nav__dropdown-icon'>
@@ -290,31 +274,5 @@ const SearchbarMenuTemplate = (args) => {
     </script>
     `,
   );
-};
 
 export const SearchbarMenu = SearchbarMenuTemplate.bind({});
-SearchbarMenu.argTypes = {
-  openInlineDropdown: {
-    name: 'Open Inline Dropdown',
-  },
-  openMobileMenu: {
-    name: 'Open Mobile Menu',
-  },
-  openAppLauncher: {
-    name: 'Open App Launcher',
-  },
-  openSearchbar: {
-    name: 'Open Search Bar',
-  },
-  openAvatarMenu: {
-    name: 'Open Avatar Menu',
-  },
-};
-SearchbarMenu.args = {
-  siteName: 'Searchbar menu',
-  openInlineDropdown: false,
-  openAppLauncher: false,
-  openAvatarMenu: false,
-  openMobileMenu: false,
-  openSearchbar: false,
-};
