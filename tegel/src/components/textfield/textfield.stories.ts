@@ -143,12 +143,12 @@ export default {
       options: ['Default', 'Success', 'Error'],
     },
     variant: {
-      name: 'Variant',
+      name: 'Mode Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Variant'],
+      options: ['Primary', 'Secondary'],
     },
   },
   args: {
@@ -160,7 +160,7 @@ export default {
     helper: '',
     maxLength: 0,
     state: 'Default',
-    variant: 'Default',
+    variant: 'Secondary',
     suffix: false,
     suffixType: 'Icon',
     prefix: false,
@@ -190,7 +190,7 @@ const Template = ({
   maxLength,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const sizeLookUp = {
     Large: 'lg',
@@ -207,12 +207,13 @@ const Template = ({
     height: 150px;
   }
     </style>
+
   <div class="demo-wrapper">
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
       state="${stateValue}"
-      variant="${variantValue}"
+      mode-variant="${variantValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
       ${maxlength}
