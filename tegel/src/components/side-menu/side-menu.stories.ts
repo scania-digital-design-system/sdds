@@ -63,7 +63,7 @@ const Template = ({ showIcons, collapsed }) => {
 <nav class="sdds-nav">
   <div class="sdds-nav__left">
     <button class="sdds-nav__mob-menu-btn">
-      <sdds-icon name="burger" size="20px" />
+      <sdds-icon name="burger" size="20px"></sdds-icon> 
     </button>
     <div class="sdds-nav__app-name">My application</div>
   </div>
@@ -75,18 +75,18 @@ const Template = ({ showIcons, collapsed }) => {
   <div class="sdds-sidebar side-menu ${collapsed ? 'collapsed' : ''}">
     <div class="sdds-sidebar-mheader">
     <button class="sdds-sidebar-mheader__close">
-      <sdds-icon name="cross" size="20px" />
+      <sdds-icon name="cross" size="20px"></sdds-icon> 
     </button>
     </div>
     <ul class="sdds-sidebar-nav sdds-sidebar-nav--main ${icons}">
       <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
         <button class="sdds-sidebar-nav__item-link">
           <div>
-            <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+            <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"></sdds-icon> 
           </div>
           <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
           <div>
-            <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
+            <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px></sdds-icon> 
           </div>
         </button>
         <ul class="sdds-sidebar-nav-subnav">
@@ -113,11 +113,11 @@ const Template = ({ showIcons, collapsed }) => {
       <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
       <button class="sdds-sidebar-nav__item-link">
       <div>
-        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px></sdds-icon> 
       </div>
       <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
       <div>
-        <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
+        <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px></sdds-icon> 
       </div>
       </button>
         <ul class="sdds-sidebar-nav-subnav">
@@ -144,7 +144,7 @@ const Template = ({ showIcons, collapsed }) => {
       <li class="sdds-sidebar-nav__item">
         <a class="sdds-sidebar-nav__item-link" href="#">
         <div>
-        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"></sdds-icon> 
       </div>
           <span class="sdds-sidebar-nav__item-text">Page link</span>
         </a>
@@ -152,7 +152,7 @@ const Template = ({ showIcons, collapsed }) => {
       <li class="sdds-sidebar-nav__item">
         <a class="sdds-sidebar-nav__item-link" href="#">
         <div>
-        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+        <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"></sdds-icon> 
       </div>
           <span class="sdds-sidebar-nav__item-text">Page link</span>
         </a>

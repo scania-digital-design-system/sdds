@@ -341,7 +341,7 @@ export class TableBody {
         {this.bodyDataManipulated.map((row) => (
           <sdds-table-body-row>
             {Object.keys(row).map((cellData) => (
-              <sdds-body-cell cell-key={cellData} cell-value={row[cellData]} />
+              <sdds-body-cell cell-key={cellData} cell-value={row[cellData]}></sdds-body-cell>
             ))}
           </sdds-table-body-row>
         ))}

@@ -78,17 +78,17 @@ const Template = ({ state, prefix, header, subheader, link }) =>
     <div class="sdds-banner sdds-banner-${state.toLowerCase()}">
       ${
         prefix && state === 'error'
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
         prefix && state === 'info'
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
         prefix && !(state === 'info' || state === 'error')
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px"></sdds-icon></span>'
           : ''
       }
       <div class="sdds-banner-body">

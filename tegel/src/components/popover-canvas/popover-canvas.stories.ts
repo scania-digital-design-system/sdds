@@ -80,7 +80,7 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
       </sdds-popover-canvas>
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
-        <sdds-icon id="trigger" name="kebab" size="16px" />
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
       </div>
     `,
   );
