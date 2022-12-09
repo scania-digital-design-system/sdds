@@ -10,6 +10,7 @@ export default {
 const Template = () =>
   formatHtmlPreview(
     `
+    <h1>Triggering netlify</h1>
   <p class='sdds-body-01'>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </p>
