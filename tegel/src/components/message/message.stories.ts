@@ -87,7 +87,7 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
   const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
-      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20" /></div>`;
+      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20"></sdds-icon></div>`;
 
   return formatHtmlPreview(
     `

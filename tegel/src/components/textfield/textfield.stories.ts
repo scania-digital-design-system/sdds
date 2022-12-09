@@ -224,7 +224,7 @@ const Template = ({
           prefix
             ? `
         <span slot="sdds-prefix">
-          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"/>'}
+          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
         </span>`
             : ''
         }
@@ -233,7 +233,7 @@ const Template = ({
           suffix
             ? `
         <span slot="sdds-suffix">
-          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"/>'}
+          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
         </span>`
             : ''
         }

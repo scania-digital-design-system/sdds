@@ -43,7 +43,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title opened">
               <span>Title 1</span>
               <span class="sdds-footer-top-icon">
-                <sdds-icon name="chevron_down" size="16px" /> 
+                <sdds-icon name="chevron_down" size="16px"></sdds-icon> 
               </span>
             </div>
             <ul class="sdds-footer-main-links opened">
@@ -58,7 +58,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title">
               <span>Title 2</span>
               <span class="sdds-footer-top-icon">
-              <sdds-icon name="chevron_down" size="16px" /> 
+              <sdds-icon name="chevron_down" size="16px"></sdds-icon> 
               </span>
             </div>
             <ul class="sdds-footer-main-links">

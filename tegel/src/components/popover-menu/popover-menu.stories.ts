@@ -103,7 +103,7 @@ const Template = ({ menuPosition }) => {
 
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
-        <sdds-icon id="trigger" name="kebab" size="16px" />
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
       </div>
   `,
   );
