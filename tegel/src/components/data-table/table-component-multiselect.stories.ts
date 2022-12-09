@@ -106,6 +106,7 @@ export default {
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,
+    enableMultiselect: true,
   },
 };
 
