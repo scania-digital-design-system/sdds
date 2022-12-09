@@ -106,8 +106,10 @@ const FilterTemplate = ({
     /* demo-wrapper is for demonstration purposes only*/
       .demo-wrapper {
         width: 300px;
-        height:200px;}
+        height:200px;
+        }
     </style>
+
     <div class="demo-wrapper">
       <sdds-dropdown-filter
         id="sdds-dropdown-filter"
