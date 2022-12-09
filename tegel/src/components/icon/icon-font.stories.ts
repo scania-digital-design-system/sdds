@@ -23,6 +23,7 @@ export default {
   argTypes: {
     icon: {
       name: 'Icon name',
+      description: 'Select icon to display',
       control: {
         type: 'select',
       },
@@ -30,6 +31,7 @@ export default {
     },
     size: {
       name: 'Size in pixels',
+      description: 'Set the size of the icon',
       control: {
         type: 'range',
         min: 16,
@@ -44,7 +46,7 @@ export default {
   },
 };
 
-const IconFontTemplate = args =>
+const IconFontTemplate = (args) =>
   formatHtmlPreview(`
   <style>
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');

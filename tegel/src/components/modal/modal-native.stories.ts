@@ -28,6 +28,7 @@ export default {
     },
     showModal: {
       name: 'Show modal',
+      description: 'Toggle if the modal is displayed',
       control: {
         type: 'boolean',
       },

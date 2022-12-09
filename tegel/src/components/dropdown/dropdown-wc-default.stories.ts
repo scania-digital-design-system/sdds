@@ -50,6 +50,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
+      description: 'Disables the component',
       control: {
         type: 'boolean',
       },
@@ -75,8 +76,8 @@ export default {
     },
     defaultOption: {
       if: { arg: 'type', neq: 'Multiselect' },
-      description: 'Sets a pre-selected option and replaces placeholder',
       name: 'Default option',
+      description: 'Sets a pre-selected option and replaces placeholder',
       control: {
         type: 'radio',
       },

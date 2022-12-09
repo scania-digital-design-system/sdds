@@ -25,12 +25,14 @@ export default {
   argTypes: {
     collapsed: {
       name: 'Collapsed',
+      description: 'Toggle the side menus collapsed state.',
       control: {
         type: 'boolean',
       },
     },
     showIcons: {
       name: 'Show icons',
+      description: 'Toggle if icons for side menu options are displayed.',
       control: {
         type: 'boolean',
       },

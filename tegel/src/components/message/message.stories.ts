@@ -52,7 +52,7 @@ export default {
     },
     showExtendedMessage: {
       name: 'Extended Message',
-      desription: 'Show an extended message',
+      description: 'Show an extended message',
       control: {
         type: 'boolean',
       },
@@ -90,8 +90,8 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
       : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20" /></div>`;
 
   return formatHtmlPreview(
-    ` 
-    
+    `
+
     ${
       iconType === 'Native'
         ? `<style>

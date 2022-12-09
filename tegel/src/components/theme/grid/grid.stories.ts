@@ -7,6 +7,22 @@ export default {
     fluidContainer: false,
     padding: true,
   },
+  argTypes: {
+    fluidContainer: {
+      name: 'Fluid container',
+      description: 'Set container to fluid or not',
+      control: {
+        type: 'boolean',
+      },
+    },
+    padding: {
+      name: 'Fluid container',
+      description: 'Toggle padding on columns',
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
 
 // Styling for grid templates

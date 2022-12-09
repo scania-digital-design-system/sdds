@@ -51,6 +51,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
+      description: 'Disables the component',
       control: {
         type: 'boolean',
       },
@@ -76,6 +77,7 @@ export default {
     },
     multiDefaultOption: {
       name: 'Default options',
+      description: 'Sets a pre-selected option and replaces placeholder',
       if: { arg: 'type', neq: 'Default' },
       control: {
         type: 'check',
