@@ -1,6 +1,9 @@
 @import '../../mixins/focus-state';
+@import '../../mixins/box-sizing';
 
 .sdds-table {
+  @include sdds-box-sizing;
+
   border-collapse: collapse;
   display: table;
 

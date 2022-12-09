@@ -1,4 +1,7 @@
 @import './header-theme-vars.scss';
+@import '../../mixins/focus-state';
+@import '../../mixins/flex-center';
+@import '../../mixins/scrollbar';
 
 html,
 :root {
@@ -19,33 +22,6 @@ html,
 
   &:focus {
     @include sdds-focus-state;
-  }
-}
-
-@mixin sdds-flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin sdds-focus-state {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
-}
-
-@mixin sdds-scrollbar {
-  &::-webkit-scrollbar {
-    width: 4px;
-    background-color: inherit;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--sdds-grey-300);
-  }
-
-  ::-webkit-scrollbar-button {
-    height: 0;
-    width: 0;
   }
 }
 

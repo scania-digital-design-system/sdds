@@ -1,6 +1,9 @@
 @import './stepper-theme-vars.scss';
+@import '../../mixins/box-sizing';
 
 .sdds-stepper {
+  @include sdds-box-sizing;
+
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-stepper-color);

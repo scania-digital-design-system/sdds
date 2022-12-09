@@ -1,9 +1,6 @@
 @import './footer-theme-vars.scss';
-
-@mixin sdds-focus-state {
-  outline: 2px solid var(--sdds-blue-400);
-  outline-offset: -2px;
-}
+@import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
 @mixin footer-links {
   padding: 0;
@@ -62,6 +59,8 @@
 }
 
 .sdds-footer {
+  @include sdds-box-sizing;
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,7 +77,6 @@
   background-color: var(--sdds-footer-top-bg);
 
   .sdds-footer-title {
-    //@include type-style('headline-07');
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     @include footer-top-link;
@@ -186,7 +184,6 @@
     background-position: right bottom;
 
     p {
-      //@include type-style('detail-02');
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
       color: var(--sdds-footer-main-copyright);

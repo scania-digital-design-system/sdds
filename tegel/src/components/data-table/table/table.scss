@@ -1,7 +1,10 @@
+@import '../../../mixins/box-sizing';
+
 :host,
 .sdds-table {
   border-collapse: collapse;
   display: table;
+  @include sdds-box-sizing;
 }
 
 :host(.sdds-table--responsive),

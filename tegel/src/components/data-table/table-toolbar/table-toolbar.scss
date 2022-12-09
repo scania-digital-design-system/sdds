@@ -1,4 +1,8 @@
+@import '../../../mixins/box-sizing';
+
 :host {
+  @include sdds-box-sizing;
+
   display: table-caption;
   position: relative;
   background-color: var(--sdds-grey-400);

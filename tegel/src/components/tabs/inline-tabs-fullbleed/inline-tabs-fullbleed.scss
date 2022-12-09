@@ -1,6 +1,9 @@
 @import '../../../mixins/focus-state';
+@import '../../../mixins/box-sizing';
 
 .sdds-inline-tabs-fullbleed {
+  @include sdds-box-sizing;
+
   display: flex;
   position: relative;
 
