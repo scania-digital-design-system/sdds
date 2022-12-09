@@ -20,7 +20,7 @@ export default {
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
-      description: 'Chip text',
+      description: 'Set custom chip text',
       control: {
         type: 'text',
       },
@@ -34,7 +34,7 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Choose what icon type to use',
       control: {
         type: 'radio',
       },
@@ -43,7 +43,7 @@ export default {
     },
     iconPosition: {
       name: 'Icon position',
-      description: 'Icon placement',
+      description: 'Set the placement of the icon',
       control: {
         type: 'radio',
       },
@@ -52,7 +52,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Chip state',
+      description: 'Set the chips state as active or default',
       control: {
         type: 'radio',
       },
@@ -60,7 +60,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Chip size',
+      description: 'Set the chip size',
       control: {
         type: 'radio',
       },
