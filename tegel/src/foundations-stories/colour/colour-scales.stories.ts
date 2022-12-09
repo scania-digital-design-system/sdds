@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Foundations/Colour',
   parameters: {
@@ -11,7 +13,7 @@ export default {
 };
 
 const Template = ({ colour }) => {
-  let scale = {
+  const scale = {
     grey: [
       '50',
       '100',
@@ -39,9 +41,9 @@ const Template = ({ colour }) => {
       </div>`;
   });
 
-  return `
-
+  return formatHtmlPreview(`
   <style>
+  /* Demo code for presentation purposes */
   .demo-wrapper {
     height: 90px;
   }
@@ -53,8 +55,9 @@ const Template = ({ colour }) => {
     position: absolute;
   }
   </style>
+
     ${div}
-    `;
+    `);
 };
 
 export const Scales = Template.bind({});

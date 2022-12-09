@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Foundations/Colour',
   parameters: {
@@ -10,8 +12,10 @@ export default {
   },
 };
 
-const Template = () => `
+const Template = () =>
+  formatHtmlPreview(`
   <style>
+  /* Demo code for presentation purposes */
   .demo-wrapper {
     height: 90px;
   }
@@ -23,6 +27,7 @@ const Template = () => `
     position: absolute;
   }
 </style>
+
   <div class="demo-wrapper" style="background-color: var(--sdds-positive)">
     <span>--sdds-positive</span>
   </div>
@@ -34,6 +39,6 @@ const Template = () => `
   </div>
   <div class="demo-wrapper" style="background-color: var(--sdds-information)">
     <span>--sdds-information</span>
-  </div>`;
+  </div>`);
 
 export const Sematic = Template.bind({});

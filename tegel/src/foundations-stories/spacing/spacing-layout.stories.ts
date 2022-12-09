@@ -1,4 +1,4 @@
-import { formatHtmlPreview } from '../../../utils/utils';
+import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Foundations/Spacing',
@@ -11,6 +11,7 @@ const Template = () =>
   formatHtmlPreview(
     `
   <style>
+   /* Demo code for presentation purposes */
     .demo-wrapper {
       background-color: var(--sdds-blue-500);
       display: inline-block;
@@ -23,6 +24,7 @@ const Template = () =>
       text-align: left;
     }
   </style>
+
   <table>
     <tr>
       <th>Px</th>
