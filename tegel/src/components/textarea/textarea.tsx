@@ -45,8 +45,8 @@ export class Textarea {
   /** Max length of input */
   @Prop() maxLength: number;
 
-  /** Variant of the textarea */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** Control of autofocus */
   @Prop() autoFocus: boolean = false;
@@ -86,9 +86,9 @@ export class Textarea {
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readOnly ? 'sdds-textarea-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.modeVariant === 'primary' ? 'sdds-on-white-bg' : ''}
         ${this.value ? 'sdds-textarea-data' : ''}
-        ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
+        ${this.state === 'error' || this.state === 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
         onClick={() => this.handleFocusClick()}
       >
