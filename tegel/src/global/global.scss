@@ -12,7 +12,9 @@
 // Typography
 @import 'scania-fonts';
 @import 'scania-fonts-vars';
-@import '../theme/core/typography/selectors';
+@import 'scania-fonts-selectors';
+
+//@import '../theme/core/typography/selectors';
 
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
