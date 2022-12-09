@@ -43,6 +43,9 @@ export default {
         type: 'radio',
       },
       options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
   },
   parameters: {
@@ -75,7 +78,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const tabIndexAttr = 'tabindex="0"';
 
   return formatHtmlPreview(`
-    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}" class="sdds-storybook-wrapper">
+    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}">
       <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.

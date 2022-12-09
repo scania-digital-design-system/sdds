@@ -39,18 +39,6 @@ export default {
 const SearchbarMenuTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
-    <style>
-    /* demo-wrapper is for demonstration purposes only*/
-    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    i {
-      font-size: 16px;
-    }
-
-    .demo-wrapper {
-      font-size: 14px;
-    }
-  </style>
-  <div class="demo-wrapper">
     <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
@@ -225,8 +213,9 @@ const SearchbarMenuTemplate = ({ siteName }) =>
           <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
         </div>
     </nav>
-    </div>
+
     <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
     toggleAvatarMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__avatar--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");

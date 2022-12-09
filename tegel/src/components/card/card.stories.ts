@@ -109,41 +109,45 @@ export default {
 const Template = ({ headline, subheadline, footer, clickable, text, divider, imageTop, avatar }) =>
   formatHtmlPreview(
     `
-<style> 
+<style>
 /* demo-wrapper is for demonstration purposes only*/
   .demo-wrapper {
     width: 300px;
   }
 </style>
+
     <div class="demo-wrapper">
           <div class="sdds-card${clickable ? ' sdds-clickable' : ''}">
-            ${imageTop == true ? `<img class="sdds-card-img" src="${CardImage}" />` : ''}
+            ${
+              imageTop === true
+                ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
+                : ''
+            }
             <div class="${avatar ? 'sdds-card-header-avatar' : 'sdds-card-header'}">
             ${
               avatar
                 ? `
               <div class="sdds-card-avatar">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="18" fill="#E2E2E4"/></svg>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="18" fill="#E2E2E4"/></svg>
               </div>`
                 : ''
             }
-             
+                ${
+                  avatar
+                    ? `<div class="sdds-card-headlines">
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
+                  ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
+                  </div>`
+                    : `${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
+                 ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
+                `
+                }
+            </div>
             ${
-              avatar
-                ? `
-              <div class="sdds-card-headlines">
-              ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
-              ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
-              </div>
-            `
-                : `
-            ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
-             ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
-            `
+              imageTop === false
+                ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
+                : ''
             }
-             
-             </div>
-            ${imageTop == false ? `<img class="sdds-card-img" src="${CardImage}" />` : ''}
             ${divider ? '<div class="sdds-divider-light-border-top"></div>' : ''}
             ${text ? `<div class="sdds-card-body">${text}</div>` : ''}
             ${footer ? `<div class="sdds-card-footer">${footer}</div>` : ''}
@@ -168,17 +172,18 @@ Divider.args = {
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
 };
 
-export const link = Template.bind({});
+export const Link = Template.bind({});
 
-link.args = {
+Link.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
-  footer: '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
+  footer:
+    '<a class="sdds-link sdds-link--no-underline" href="#">Link text</a><a class="sdds-link sdds-link--no-underline" href="#">Link text</a>',
 };
 
-export const button = Template.bind({});
+export const Button = Template.bind({});
 
-button.args = {
+Button.args = {
   divider: true,
   text: 'This is a short and consist detail text describing for the user what this text is really about.',
   footer: '<button class="sdds-btn sdds-btn-sm sdds-btn-primary">Button text</button>',

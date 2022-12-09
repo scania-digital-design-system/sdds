@@ -60,6 +60,7 @@ const Template = ({ showIcons, collapsed }) => {
     max-width: 10000px;
   }
 </style>
+
 <nav class="sdds-nav">
   <div class="sdds-nav__left">
     <button class="sdds-nav__mob-menu-btn">
@@ -160,10 +161,12 @@ const Template = ({ showIcons, collapsed }) => {
     </ul>
   </div>
   <div class="sdds-container" style="padding-top: 30px">
-
   </div>
 </div>
+
+
 <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
   document.querySelector('button.sdds-nav__mob-menu-btn').addEventListener('click', () => {
     document.querySelector('.side-menu').classList.toggle('mobile-menu-open')
   })

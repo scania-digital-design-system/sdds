@@ -14,25 +14,25 @@ https://www.markdownguide.org/cheat-sheet/ -->
 
 ## Removed base font-size and moved to `px` instead of `rem`.
 
-This change affects all components/typography/spacing/grid. 
+This change affects all components/typography/spacing/grid.
 
 In the past we have used a base value of 4px
-that has been used to calculate the spacing/padding/margins etc with rem. This was done by setting the 
-base value (4px) as the font-size on the `<html>`-element, which for some users has caused error with 
-custom font-sizes. We have now removed these dependencies and are using pixels in our 
+that has been used to calculate the spacing/padding/margins etc with rem. This was done by setting the
+base value (4px) as the font-size on the `<html>`-element, which for some users has caused error with
+custom font-sizes. We have now removed these dependencies and are using pixels in our
 components/spacing/typography/margins.
 
 We are doing this to decrease the dependencies between our packages and we want to make sure the Tegel
-can be used on its own. 
+can be used on its own.
 
-#### What action is required? 
+#### What action is required?
 
-If you are not yourself using `rem` in your project ideally this change should not affect you, but since it is 
+If you are not yourself using `rem` in your project ideally this change should not affect you, but since it is
 something that has an effect on all components and utilities/foundations we expect that there might be some
 unforeseen problems. These will have our highest prio in order to make the migration to Tegel as smooth as possible.
 
 If you are however using `rem` in your project you would have to consider that the base value will no longer be `4px`.
-This value will now by default be `16px`. So for the element in you project that are using rem these would have to be 
+This value will now by default be `16px`. So for the element in you project that are using rem these would have to be
 recalculated.
 
 
@@ -65,8 +65,8 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
 ```
 
 #### Added prop for mode-variant and removed class `sdds-on-white-bg`
-Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is 
-used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or 
+Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is
+used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or
 `seconday` to determine which variant is being shown. For this component `primary` is the default value and
 `seconday` represents the old `sdds-on-white-bg`
 
@@ -136,17 +136,17 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
 </div>
 ```
 
-## Block  
+## Block
 
 [Native](/docs/components-block--default/)
 
 #### Renamed classes `sdds-block__default` and `sdds-block__variant` to conform with convention
 
-The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-default` and `sdds-block-variant` to conform with convention.
+The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-primary` and `sdds-block-secondary` to conform with convention.
 
 ##### What action is required?
 
-Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-default` and `sdds-block-variant`.
+Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-primary` and `sdds-block-secondary`.
 
 ```jsx
 // Old ❌
@@ -159,10 +159,10 @@ Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sd
 
 
 // New ✅
-<div class="sdds-block sdds-block-default">
+<div class="sdds-block sdds-block-primary">
   <p>Content....</p>
 </div>
-<div class="sdds-block sdds-block-variant">
+<div class="sdds-block sdds-block-secondary">
   <p>Content....</p>
 </div>
 ```
@@ -295,7 +295,7 @@ The following classes was changed to conform with convention:
  * `sdds-message-icon--warning` -> `sdds-message-icon-warning`
  * `sdds-message-icon--success` -> `sdds-message-icon-success`
 
- The overall change is that we are dropping the use of `__` and `--` in class names and are 
+ The overall change is that we are dropping the use of `__` and `--` in class names and are
  moving to single dashes instead.
 
 ##### What action is required?
@@ -349,11 +349,11 @@ Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
 
 [Webcomponent](/docs/components-tabs--navigation-tabs)
 
-#### Changed class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled` 
+#### Changed class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled`
 
 The class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled` was
 changed to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled` to conform
-with convention.  
+with convention.
 
 ##### What action is required?
 
@@ -475,7 +475,7 @@ Rename all instances of `maxlength` to `max-length`.
 #### Changed props for label and label-position to align with convention.
 
 The prop `label-inside` was used to set an inside label, and to set an outside label you would pass a `<slot>`.
-This has been changed and aligned with convention. This component now accepts a `label` prop for the text to 
+This has been changed and aligned with convention. This component now accepts a `label` prop for the text to
 be displayed and a `label-position` to set the position of this label. For no label just leave out the `label`
 and `label-position` props.
 

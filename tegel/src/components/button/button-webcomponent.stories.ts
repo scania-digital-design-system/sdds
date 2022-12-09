@@ -169,6 +169,7 @@ const WebComponentTemplate = ({
       width: 100%;
     }
   </style>
+
   <div class="demo-wrapper">
   <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
       sizeLookUp[size]
@@ -187,7 +188,7 @@ const WebComponentTemplate = ({
     }
   `
         : ''
-    }   
+    }
 </sdds-button>
   </div>
   `,

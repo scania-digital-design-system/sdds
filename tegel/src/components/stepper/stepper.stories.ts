@@ -59,7 +59,7 @@ export default {
 };
 
 const Template = ({ size, style, showLabel, iconType }) => {
-  let sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
+  const sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
     'Default': '',
@@ -68,42 +68,19 @@ const Template = ({ size, style, showLabel, iconType }) => {
   };
   return formatHtmlPreview(
     `
-    <style>
+
     ${
       iconType === 'Native'
-        ? `  @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+        ? ` <style>/* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
+  @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');</style>
     `
         : ''
     }
-      ${iconType === 'Native' ? '.sdds-icon.warning' : 'sdds-icon[name="warning"]'} {
-        color: var(--sdds-negative)
-      }
-      ${iconType === 'Native' ? '.sdds-icon.tick' : 'sdds-icon[name="tick"]'} {
-        color: var(--sdds-white)
-      }
-      ${
-        iconType === 'Native'
-          ? `
-      .sdds-icon.warning {
-        font-size: ${size === 'Small' ? '16px' : '18px'};
-      }
-      .sdds-icon.warning:before{
-        line-height: 1;
-      }
-      .sdds-icon.tick {
-        font-size: ${size === 'Small' ? '16px' : '20px'};
-      }
-      .sdds-icon.tick:before{
-        line-height: 1;
-      }`
-          : `sdds-icon{
-          line-height: 1;
-      }`
-      }
-    </style>
+
+
     <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleLookup[style]}">
-      
+
       <div class="sdds-stepper__step sdds-stepper__step--value">
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">1</span>
@@ -129,7 +106,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         </div>
         ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
       </div>
-      
+
       <div class="sdds-stepper__step sdds-stepper__step--success">
         <div class="sdds-stepper__step-icon">
         ${

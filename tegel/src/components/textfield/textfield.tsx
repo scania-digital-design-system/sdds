@@ -33,8 +33,8 @@ export class Textfield {
   /** Size of the input */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  /** Variant of the textfield */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** With setting */
   @Prop() noMinWidth: boolean = false;
@@ -81,10 +81,10 @@ export class Textfield {
   render() {
     let className = ' sdds-textfield-input';
     if (this.size === 'md') {
-      className += className + '-md';
+      className += `${className}-md`;
     }
     if (this.size === 'sm') {
-      className += className + '-sm';
+      className += `${className}-sm`;
     }
     return (
       <div
@@ -103,7 +103,7 @@ export class Textfield {
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.modeVariant === 'primary' ? 'sdds-on-white-bg' : ''}
         ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${

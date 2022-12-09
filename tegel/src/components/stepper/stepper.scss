@@ -280,4 +280,51 @@
       }
     }
   }
+
+  //FIXME: Code below needs to be refactored!
+  //Native
+  .sdds-icon.warning {
+    color: var(--sdds-negative);
+  }
+
+  .sdds-icon.tick {
+    color: var(--sdds-white);
+  }
+
+  .sdds-icon.warning {
+    font-size: 18px;
+  }
+
+  .sdds-icon.warning::before {
+    line-height: 1;
+  }
+
+  .sdds-icon.tick {
+    font-size: 20px;
+  }
+
+  .sdds-icon.tick::before {
+    line-height: 1;
+  }
+
+  // Native icon with small size of component
+  &.sdds-stepper--sm {
+    .sdds-icon.warning,
+    .sdds-icon.tick {
+      font-size: 16px;
+    }
+  }
+
+  //WebComponent icons
+  sdds-icon[name='warning'] {
+    color: var(--sdds-negative);
+  }
+
+  sdds-icon[name='tick'] {
+    color: var(--sdds-white);
+  }
+
+  sdds-icon {
+    line-height: 1;
+  }
 }

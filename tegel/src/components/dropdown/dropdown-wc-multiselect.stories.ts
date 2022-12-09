@@ -138,6 +138,7 @@ const Template = ({
     height:200px;
   }
   </style>
+
     <div class="demo-wrapper">
         <sdds-dropdown
           id="sdds-dropdown-reg"
