@@ -66,7 +66,13 @@ export default {
 const NativeTemplate = ({ disabled, size, helper, label, state }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
-   <div style="width:300px">
+  <style> 
+/* demo-wrapper is for demonstration purposes only*/
+  .demo-wrapper {
+    width: 300px;
+  }
+</style>
+<div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
     state === 'Error' ? 'sdds-dropdown--error' : ''
   }" >

@@ -40,6 +40,7 @@ const InlineMenuTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
       <style>
+      /* demo-wrapper is for demonstration purposes only*/
       .demo-wrapper {
         font-size: 14px;
       }

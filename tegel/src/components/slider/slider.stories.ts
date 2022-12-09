@@ -165,6 +165,7 @@ export default {
 
 const style = `
   <style>
+  /* demo-wrapper is for demonstration purposes only*/
     .demo-wrapper {
       width: 80%;
       margin: 0 auto;

@@ -93,6 +93,15 @@ const positionLookup = {
 const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
   formatHtmlPreview(
     `
+    <style>
+    /* demo-wrapper is for demonstration purposes only*/
+     .demo-wrapper{
+       height: 300px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+     }
+    </style>  
    <div class="demo-wrapper">
    <sdds-tooltip 
       placement="${positionLookup[tooltipPosition]}" 
@@ -103,15 +112,6 @@ const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
     </sdds-tooltip>
     <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button>
    </div>
-   <style>
-    /* This is only for demontration purposes */
-    .demo-wrapper{
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-   </style>  
   `,
   );
 
