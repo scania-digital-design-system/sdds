@@ -1,4 +1,4 @@
-import { formatHtmlPreview } from '../../../utils/utils';
+import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Foundations/Typography',
@@ -21,10 +21,12 @@ const Template = ({ type }) =>
   formatHtmlPreview(
     `
     <style>
-        .demo-wrapper h1{
-            margin: 0;
-        }
+    /* Demo code for presentation purposes */
+    .demo-wrapper h1 {
+        margin: 0;
+    }
     </style>
+
     <div class="demo-wrapper">
         <h1 class="sdds-${type === 'expressive' ? `${type}-` : ''}headline-01">Headline</h1>
         <h2 class="sdds-${type === 'expressive' ? `${type}-` : ''}headline-02">Headline</h2>
