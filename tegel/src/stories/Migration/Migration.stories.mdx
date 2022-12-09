@@ -324,6 +324,35 @@ with a single dash (`-`).
 </div>
 ```
 
+## Modal
+
+[Native](/docs/components-modal--native)
+
+#### Changed class name 'sdds-modal-btn' to 'sdds-modal-close'
+
+The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is required if you are using the web component).
+
+```jsx
+// Old ❌
+<div class="sdds-modal">
+  <div class="sdds-modal-header">
+    <span class="sdds-modal-btn"></span>
+  </div>
+</div>
+
+// New ✅
+<div class="sdds-modal">
+  <div class="sdds-modal-header">
+    <span class="sdds-modal-close"></span>
+  </div>
+</div>
+```
+
+
 ## Stepper
 
 [Native](/docs/components-stepper--default)

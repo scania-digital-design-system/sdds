@@ -238,7 +238,7 @@ $modals: (
   @include modal-host;
 }
 
-.sdds-modal-btn {
+.sdds-modal-close {
   display: inline-block;
   width: 16px;
   height: auto;
@@ -264,7 +264,7 @@ $modals: (
 :host {
   @include modal-host;
 
-  .sdds-modal-btn {
+  .sdds-modal-close {
     border: none;
     background-color: transparent;
 
