@@ -22,7 +22,7 @@ export class Datetime {
   @Prop() size: 'sm' | 'md' | '' = '';
 
   /** With setting */
-  @Prop() nominwidth: boolean = false;
+  @Prop() noMinWidth: boolean = false;
 
   /** Name property */
   @Prop() name = '';
@@ -83,29 +83,36 @@ export class Datetime {
     return (
       <div
         class={`
-        ${this.nominwidth ? 'sdds-form-datetime-nomin' : ''}
+        ${this.noMinWidth ? 'sdds-form-datetime-nomin' : ''}
         ${this.focusInput ? 'sdds-form-datetime sdds-datetime-focus' : ' sdds-form-datetime'}
         ${this.value.length > 0 ? 'sdds-datetime-data' : ''}
         ${this.disabled ? 'sdds-form-datetime-disabled' : ''}
-        ${this.size == 'md' ? 'sdds-form-datetime-md' : ''}
-        ${this.size == 'sm' ? 'sdds-form-datetime-sm' : ''}
-        ${this.state == 'error' || this.state == 'success' ? `sdds-form-datetime-${this.state}` : ''}
+        ${this.size === 'md' ? 'sdds-form-datetime-md' : ''}
+        ${this.size === 'sm' ? 'sdds-form-datetime-sm' : ''}
+        ${
+          this.state === 'error' || this.state === 'success'
+            ? `sdds-form-datetime-${this.state}`
+            : ''
+        }
         `}
       >
         <slot name="sdds-label" />
 
-        <div onClick={() => this.handleFocusClick()} class="sdds-datetime-container sdds-datetime-container">
+        <div
+          onClick={() => this.handleFocusClick()}
+          class="sdds-datetime-container sdds-datetime-container"
+        >
           <div class="sdds-datetime-input-container">
             <input
-              ref={inputEl => (this.textInput = inputEl as HTMLInputElement)}
+              ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
               class={className}
               type={this.type}
               disabled={this.disabled}
               value={this.value}
               autofocus={this.autofocus}
               name={this.name}
-              onInput={e => this.handleInput(e)}
-              onChange={e => this.handleChange(e)}
+              onInput={(e) => this.handleInput(e)}
+              onChange={(e) => this.handleChange(e)}
             />
 
             <div class="datetime-icon icon-datetime-local">
@@ -121,7 +128,10 @@ export class Datetime {
 
             <div class="datetime-icon icon-time">
               <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path d="M17 7a1 1 0 1 0-2 0v8a2 2 0 0 0 2 2h6a1 1 0 1 0 0-2h-6V7Z" fill="currentColor" />
+                <path
+                  d="M17 7a1 1 0 1 0-2 0v8a2 2 0 0 0 2 2h6a1 1 0 1 0 0-2h-6V7Z"
+                  fill="currentColor"
+                />
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"

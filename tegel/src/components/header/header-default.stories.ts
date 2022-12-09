@@ -39,22 +39,14 @@ export default {
 const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
-    <style>
-    /* demo-wrapper is for demonstration purposes only*/
-      .demo-wrapper {
-        font-size: 14px;
-      }
-    </style>
-  <div class="demo-wrapper">
-  <nav class='sdds-nav'>     
+  <nav class='sdds-nav'>
   <div class='sdds-nav__left'>
     <div class='sdds-nav__app-name'>${siteName}</div>
-  </div>  
-  <div class='sdds-nav__right'>  
-    <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
-  </div> 
-</nav>
   </div>
+  <div class='sdds-nav__right'>
+    <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+  </div>
+</nav>
   `,
   );
 

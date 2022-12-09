@@ -75,57 +75,59 @@ const Template = ({ menuPosition }) => {
           cursor:pointer;
         }
       </style>
+
       <sdds-popover-menu
         placement="${menuPosLookup[menuPosition]}"
-        selector="#trigger"> 
+        selector="#trigger">
         <ul class="sdds-popover-menu-wrapper">
           <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px"></sdds-icon> 
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
-                Menu item 1            
+                Menu item 1
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px"></sdds-icon> 
-            </i>   
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>
               Menu item 2
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px"></sdds-icon> 
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 3
             </a>
           </li>
           <li class="divider"></li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px"></sdds-icon> 
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 4
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px"></sdds-icon> 
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 5
             </a>
           </li>
-        </ul>        
+        </ul>
       </sdds-popover-menu>
-    
+
+      <!-- demo-wrapper code below is for demonstration purposes only -->
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
-        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon>
       </div>
       `,
   );

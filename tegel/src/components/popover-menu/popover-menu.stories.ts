@@ -66,7 +66,7 @@ const Template = ({ menuPosition }) => {
   return formatHtmlPreview(
     `
     <style>
-    /* demo-wrapper is for demonstration purposes only*/
+    /* demo-wrapper styles is for demonstration purposes only */
       .demo-wrapper {
         display: flex;
         flex-wrap: nowrap;
@@ -76,6 +76,7 @@ const Template = ({ menuPosition }) => {
         cursor:pointer;
       }
     </style>
+
     <sdds-popover-menu
         placement="${menuPosLookup[menuPosition]}"
         selector="#trigger">
@@ -101,6 +102,7 @@ const Template = ({ menuPosition }) => {
         </ul>
       </sdds-popover-menu>
 
+      <!-- demo-wrapper code below is for demonstration purposes only -->
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
         <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 

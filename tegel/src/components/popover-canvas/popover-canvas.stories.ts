@@ -55,7 +55,7 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   return formatHtmlPreview(
     `
     <style>
-  /* demo-wrapper and demo-styles is for demonstration purposes only*/
+  /* demo-wrapper and demo-styles is for demonstration purposes only */
   .demo-wrapper {
     display: flex;
     flex-wrap; nowrap;
@@ -65,9 +65,10 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
     cursor:pointer;
   }
     </style>
-      <sdds-popover-canvas 
+
+      <sdds-popover-canvas
         placement="${canvasPosLookup[canvasPosition]}"
-        selector="#trigger"> 
+        selector="#trigger">
         <div>
           <h2>A popover canvas!</h2>
           <p>
@@ -78,6 +79,8 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
           </p>
         </div>
       </sdds-popover-canvas>
+
+     <!-- demo-wrapper and demo-styles is for demonstration purposes only -->
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
         <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 

@@ -92,12 +92,12 @@ export default {
       options: ['Default', 'Success', 'Error'],
     },
     variant: {
-      name: 'Variant',
+      name: 'Mode Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Variant'],
+      options: ['Primary', 'Secondary'],
     },
   },
   args: {
@@ -110,7 +110,7 @@ export default {
     maxLength: 0,
     rows: 5,
     state: 'Default',
-    variant: 'Default',
+    variant: 'Secondary',
   },
 };
 
@@ -127,7 +127,7 @@ const Template = ({
   variant,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
     None: 'no-label',
@@ -141,12 +141,13 @@ const Template = ({
       width: 400px;
     }
   </style>
+
   <div class="demo-wrapper">
         <sdds-textarea
           rows="${rows}"
           state="${stateValue}"
           label="${label}"
-          variant="${variantValue}"
+          mode-variant="${variantValue}"
           helper="${helper}"
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
