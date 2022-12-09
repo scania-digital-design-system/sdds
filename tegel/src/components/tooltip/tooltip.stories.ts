@@ -70,7 +70,7 @@ export default {
   args: {
     tooltipPosition: 'Bottom',
     text: 'Text inside tooltip',
-    slot: '<p> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>',
+    slot: '<p class="sdds-detail-05 sdds-u-m0"> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>',
     mouseOverTooltip: true,
   },
 };
@@ -101,15 +101,18 @@ const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
        justify-content: center;
        align-items: center;
      }
-    </style>  
+    </style>
+
    <div class="demo-wrapper">
-   <sdds-tooltip 
-      placement="${positionLookup[tooltipPosition]}" 
-      selector="#button-1" 
-      text="${text}" 
+   <sdds-tooltip
+      placement="${positionLookup[tooltipPosition]}"
+      selector="#button-1"
+      text="${text}"
       mouse-over-tooltip="${mouseOverTooltip}">
       ${slot}
     </sdds-tooltip>
+
+    <!-- Demo button for presentation purposes -->
     <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button>
    </div>
   `,
