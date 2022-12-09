@@ -98,13 +98,13 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
   ${
     iconType === 'Native'
       ? `<style>
+/* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    .sdds-chip-icon {
-      font-size: 16px;
-    }
+
           </style>`
       : ''
   }
+
     <div class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${stateValue} ${sizeValue}">
