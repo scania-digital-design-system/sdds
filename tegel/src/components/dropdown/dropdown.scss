@@ -1,3 +1,4 @@
+@import '../../mixins/z-index';
 @import './dropdown-core';
 @import './dropdown-theme-vars.scss';
 @import '../../global/scania-fonts-vars.scss';
@@ -135,7 +136,7 @@
   }
 
   .sdds-dropdown-menu {
-    z-index: 10000;
+    z-index: z(dropdown);
 
     @include sdds-scrollbar;
 
@@ -345,6 +346,7 @@
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
 
+      // TODO: what is this? it doesnt seem to do anything.
       &.is-filter {
         &::before {
           content: ' ';
