@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                          | Type                           | Default    |
-| --------- | --------- | ---------------------------------------------------- | ------------------------------ | ---------- |
-| `actions` | `actions` | Sticky or Static Actions                             | `"static" \| "sticky"`         | `'static'` |
-| `open`    | `open`    |                                                      | `boolean`                      | `false`    |
-| `prevent` | `prevent` | Disables closing modal on clicking on overlay area.  | `boolean`                      | `false`    |
-| `size`    | `size`    | Size of modal. Accepted strings are: xs, sm, md, lg. | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`     |
+| Property  | Attribute | Description                                         | Type                           | Default    |
+| --------- | --------- | --------------------------------------------------- | ------------------------------ | ---------- |
+| `actions` | `actions` | Sticky or Static Actions                            | `"static" \| "sticky"`         | `'static'` |
+| `open`    | `open`    |                                                     | `boolean`                      | `false`    |
+| `prevent` | `prevent` | Disables closing modal on clicking on overlay area. | `boolean`                      | `false`    |
+| `size`    | `size`    | Size of modal                                       | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`     |
 
 
 ## Methods
