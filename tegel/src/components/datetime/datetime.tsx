@@ -71,7 +71,7 @@ export class Datetime {
       case 'date':
         return `${year}-${month}-${day}`;
       case 'time':
-        return new Date().toTimeString().slice(0, 5);
+        return `${hours}:${minutes}`;
       default:
         throw new Error('Invalid type.');
     }
@@ -84,15 +84,7 @@ export class Datetime {
       case 'date':
         return new Date(this.defaultValue).toJSON().slice(0, 10);
       case 'time':
-        return new Date(
-          2000,
-          1,
-          1,
-          parseInt(this.defaultValue.slice(0, 2)),
-          parseInt(this.defaultValue.slice(3, 5)),
-        )
-          .toTimeString()
-          .slice(0, 5);
+        return this.defaultValue;
       default:
         throw new Error('Invalid type.');
     }
@@ -102,7 +94,6 @@ export class Datetime {
     if (this.defaultValue !== 'none') {
       if (this.defaultValue === 'now') {
         this.value = this.getCurrentValue();
-        console.log(this.value);
       } else {
         try {
           this.value = this.getDefaultValue();
