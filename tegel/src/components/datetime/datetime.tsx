@@ -10,10 +10,15 @@ export class Datetime {
   textInput?: HTMLInputElement;
 
   /** Which input type, text, password or similar */
-  @Prop({ reflect: true }) type: string = 'text';
+  @Prop({ reflect: true }) type: 'datetime-local' | 'date' | 'time' = 'datetime-local';
 
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
+
+  /** Default value of the component. Needs to match the format of the type.
+    Use 'now' to get the current date/time.
+   */
+  @Prop() defaultValue: string | 'now' | 'none' = 'none';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -34,6 +39,12 @@ export class Datetime {
   /** Autofocus for input */
   @Prop() autofocus: boolean = false;
 
+  /** Label text for the component */
+  @Prop() label: string = '';
+
+  /** Helper text for the component */
+  @Prop() helper: string = '';
+
   /** Listen to the focus state of the input */
   @State() focusInput;
 
@@ -44,6 +55,63 @@ export class Datetime {
     cancelable: true,
   })
   customChange: EventEmitter;
+
+  getCurrentValue = () => {
+    const date = new Date();
+    const [year, month, day, hours, minutes] = [
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+      date.getHours(),
+      date.getMinutes(),
+    ];
+    switch (this.type) {
+      case 'datetime-local':
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+      case 'date':
+        return `${year}-${month}-${day}`;
+      case 'time':
+        return new Date().toTimeString().slice(0, 5);
+      default:
+        throw new Error('Invalid type.');
+    }
+  };
+
+  getDefaultValue = () => {
+    switch (this.type) {
+      case 'datetime-local':
+        return new Date(this.defaultValue).toJSON().slice(0, 16);
+      case 'date':
+        return new Date(this.defaultValue).toJSON().slice(0, 10);
+      case 'time':
+        return new Date(
+          2000,
+          1,
+          1,
+          parseInt(this.defaultValue.slice(0, 2)),
+          parseInt(this.defaultValue.slice(3, 5)),
+        )
+          .toTimeString()
+          .slice(0, 5);
+      default:
+        throw new Error('Invalid type.');
+    }
+  };
+
+  componentWillLoad() {
+    if (this.defaultValue !== 'none') {
+      if (this.defaultValue === 'now') {
+        this.value = this.getCurrentValue();
+        console.log(this.value);
+      } else {
+        try {
+          this.value = this.getDefaultValue();
+        } catch (error) {
+          throw new Error(error);
+        }
+      }
+    }
+  }
 
   // Listener if input enters focus state
   @Listen('focus')
@@ -65,6 +133,7 @@ export class Datetime {
   // Change event isn't a composed:true by default in for input
   handleChange(e): void {
     this.customChange.emit(e);
+    console.log(this.value);
   }
 
   /** Set the input as focus when clicking the whole datetime with suffix/prefix */
@@ -96,8 +165,7 @@ export class Datetime {
         }
         `}
       >
-        <slot name="sdds-label" />
-
+        {this.label && <div class="sdds-label">{this.label}</div>}
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-datetime-container sdds-datetime-container"
@@ -145,7 +213,12 @@ export class Datetime {
         </div>
 
         <div class="sdds-datetime-helper">
-          <slot name="sdds-helper" />
+          {this.label && (
+            <div class="sdds-helper">
+              {this.state === 'error' && <sdds-icon name="error" size="16px"></sdds-icon>}
+              {this.helper}
+            </div>
+          )}
         </div>
       </div>
     );
