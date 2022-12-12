@@ -13,7 +13,7 @@
     text-align: left;
 
     // 24px to account for header component that overlaps
-    height: 32px;
+    height: 64px;
     display: table-caption;
     position: relative;
     background-color: var(--sdds-grey-400);
@@ -125,7 +125,7 @@
   &.sdds-table--compact {
     .sdds-table__title {
       // 24px to account for header component that overlaps
-      height: 24px;
+      height: 56px;
     }
 
     .sdds-table__body-cell,
