@@ -203,7 +203,7 @@ export class Datetime {
         </div>
 
         <div class="sdds-datetime-helper">
-          {this.label && (
+          {this.helper && (
             <div class="sdds-helper">
               {this.state === 'error' && <sdds-icon name="error" size="16px"></sdds-icon>}
               {this.helper}
