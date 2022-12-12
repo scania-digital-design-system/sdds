@@ -199,6 +199,38 @@ If the child of the native `sdds-btn` is a text it will need a class of `sdds-bt
 </button>
 ```
 
+## Datepicker
+
+[Web Component](/docs/components-datetime--default)
+
+#### Aligned props for ´label´ and 'helper'
+Previously `<sdds-datetime>` component components has used slots for label and helper. This has now been
+aligned with other components and this component now accepts two props `label` and `helper` to display
+these texts. 
+
+##### What action is required?
+Change all `<sdds-datetime>` that are using slots to use the prop instead.
+
+
+```jsx
+// Old ❌
+<sdds-datetime id="datetime" type="datetime-local" size="lg" state="none" no-min-width>
+  <label slot="sdds-label">Label text</label>
+  <span slot="sdds-helper">Helper text</span>
+</sdds-datetime>
+
+// New ✅
+<sdds-datetime
+  id="datetime"
+  type="datetime-local"
+  size="lg"
+  state="none"
+  no-min-width
+  label="Label text"
+  helper="Helper text"
+></sdds-datetime>
+```
+
 #### Added class 'sdds-btn-only-icon'
 
 We added a class for only icon buttons on native button in order to style it correctly.
