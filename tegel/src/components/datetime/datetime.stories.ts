@@ -28,6 +28,14 @@ export default {
       },
       options: ['Datetime', 'Date', 'Time'],
     },
+    defaultValue: {
+      name: 'Default value',
+      description: 'Default value of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Custom', 'Now'],
+    },
     size: {
       name: 'Size',
       description: 'Switch between different sizes',
@@ -52,19 +60,34 @@ export default {
       },
     },
     label: {
+      name: 'Label',
+      description: 'Add/remove a label text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    labelText: {
       description: 'Label text for specific textfield',
       name: 'Label text',
       control: {
         type: 'text',
       },
+      if: { arg: 'label', eq: true },
     },
-
     helper: {
+      name: 'Helper',
+      description: 'Add/remove a helper text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    helperText: {
       name: 'Helper text',
       description: 'Add helper text for the textfield',
       control: {
         type: 'text',
       },
+      if: { arg: 'helper', eq: true },
     },
     state: {
       name: 'State',
@@ -78,15 +101,29 @@ export default {
   args: {
     type: 'Datetime',
     size: 'Large',
+    defaultValue: 'None',
     minWidth: 'Default',
     disabled: false,
     state: 'None',
-    label: 'Label text',
-    helper: 'Helper text',
+    label: true,
+    labelText: 'Label text',
+    helper: true,
+    helperText: 'Helper text',
   },
 };
 
-const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
+const datetimeTemplate = ({
+  type,
+  size,
+  minWidth,
+  disabled,
+  label,
+  labelText,
+  state,
+  helper,
+  helperText,
+  defaultValue,
+}) => {
   const typeLookup = {
     Datetime: 'datetime-local',
     Date: 'date',
@@ -103,6 +140,23 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
     Error: 'error',
   };
 
+  const getDefaultValue = (value: string, componentType: string) => {
+    if (value === 'Custom') {
+      switch (componentType) {
+        case 'Datetime':
+          return '1891-01-01T12:30';
+        case 'Date':
+          return '1891-01-01';
+        case 'Time':
+          return '12:30';
+        default:
+          return 'Invalid type';
+      }
+    } else if (value === 'Now') {
+      return 'now';
+    }
+  };
+
   return formatHtmlPreview(
     `
 
@@ -116,23 +170,29 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
   <div class="demo-wrapper">
 
     <sdds-datetime
-    id="datetime"
+      id="datetime"
+      ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
       type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
-      ${minWidth ? 'no-min-width' : ''}>
-      ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
-      ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+      ${minWidth ? 'no-min-width' : ''}
+      ${label ? `label="${labelText}" ` : ''}
+      ${helper ? `helper="${helperText}" ` : ''}
+      >
     </sdds-datetime>
 
 
     <script>
+
+
     /* You can listen for the 'customChange' event to get value updates. */
       const datetimeEl = document.getElementById('datetime');
       datetimeEl.addEventListener('customChange', (event) => {
         console.log(event.target.value);
       });
+
+
     </script>
   </div>`,
   );
@@ -146,8 +206,6 @@ export const ErrorState = datetimeTemplate.bind({});
 
 ErrorState.args = {
   state: 'Error',
-  helper: 'Helper text',
-  label: 'Label text',
 };
 
 export const Time = datetimeTemplate.bind({});
