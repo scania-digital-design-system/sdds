@@ -46,7 +46,7 @@ export class Datetime {
   @Prop() helper: string = '';
 
   /** Listen to the focus state of the input */
-  @State() focusInput;
+  @State() focusInput: boolean;
 
   /** Change event for the datetime */
   @Event({
@@ -56,42 +56,39 @@ export class Datetime {
   })
   customChange: EventEmitter;
 
-  getCurrentValue = () => {
-    const date = new Date();
-    const [year, month, day, hours, minutes] = [
-      date.getFullYear(),
-      date.getMonth() + 1,
-      date.getDate(),
-      date.getHours(),
-      date.getMinutes(),
-    ];
-    switch (this.type) {
-      case 'datetime-local':
-        return `${year}-${month}-${day}T${hours}:${minutes}`;
-      case 'date':
-        return `${year}-${month}-${day}`;
-      case 'time':
-        return `${hours}:${minutes}`;
-      default:
-        throw new Error('Invalid type.');
-    }
-  };
-
   getDefaultValue = () => {
-    const [year, month, day, hours, minutes] = [
-      this.defaultValue.slice(0, 4),
-      this.defaultValue.slice(5, 7),
-      this.defaultValue.slice(8, 10),
-      this.defaultValue.slice(11, 13),
-      this.defaultValue.slice(14, 16),
-    ];
+    let dateTimeObj: {
+      year: string | number;
+      month: string | number;
+      day: string | number;
+      hours: string | number;
+      minutes: string | number;
+    };
+    if (this.defaultValue === 'now') {
+      const date = new Date();
+      dateTimeObj = {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+        hours: date.getHours(),
+        minutes: date.getMinutes(),
+      };
+    } else {
+      dateTimeObj = {
+        year: this.defaultValue.slice(0, 4),
+        month: this.defaultValue.slice(5, 7),
+        day: this.defaultValue.slice(8, 10),
+        hours: this.defaultValue.slice(11, 13),
+        minutes: this.defaultValue.slice(14, 16),
+      };
+    }
     switch (this.type) {
       case 'datetime-local':
-        return `${year}-${month}-${day}T${hours}:${minutes}`;
+        return `${dateTimeObj.year}-${dateTimeObj.month}-${dateTimeObj.day}T${dateTimeObj.hours}:${dateTimeObj.minutes}`;
       case 'date':
-        return `${year}-${month}-${day}`;
+        return `${dateTimeObj.year}-${dateTimeObj.month}-${dateTimeObj.day}`;
       case 'time':
-        return this.defaultValue;
+        return `${dateTimeObj.hours}:${dateTimeObj.minutes}`;
       default:
         throw new Error('Invalid type.');
     }
@@ -99,15 +96,7 @@ export class Datetime {
 
   componentWillLoad() {
     if (this.defaultValue !== 'none') {
-      if (this.defaultValue === 'now') {
-        this.value = this.getCurrentValue();
-      } else {
-        try {
-          this.value = this.getDefaultValue();
-        } catch (error) {
-          throw new Error(error);
-        }
-      }
+      this.value = this.getDefaultValue();
     }
   }
 
@@ -129,7 +118,7 @@ export class Datetime {
   }
 
   // Change event isn't a composed:true by default in for input
-  handleChange(e): void {
+  handleChange(e: Event): void {
     this.customChange.emit(e);
   }
 
