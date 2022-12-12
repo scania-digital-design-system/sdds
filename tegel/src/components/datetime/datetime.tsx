@@ -78,11 +78,18 @@ export class Datetime {
   };
 
   getDefaultValue = () => {
+    const [year, month, day, hours, minutes] = [
+      this.defaultValue.slice(0, 4),
+      this.defaultValue.slice(5, 7),
+      this.defaultValue.slice(8, 10),
+      this.defaultValue.slice(11, 13),
+      this.defaultValue.slice(14, 16),
+    ];
     switch (this.type) {
       case 'datetime-local':
-        return new Date(this.defaultValue).toJSON().slice(0, 16);
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
       case 'date':
-        return new Date(this.defaultValue).toJSON().slice(0, 10);
+        return `${year}-${month}-${day}`;
       case 'time':
         return this.defaultValue;
       default:
