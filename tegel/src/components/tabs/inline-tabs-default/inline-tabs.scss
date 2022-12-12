@@ -1,7 +1,9 @@
 @import '../../../mixins/focus-state';
+@import '../../../mixins/box-sizing';
 
 :host {
   outline: 0 !important;
+  @include sdds-box-sizing;
 }
 
 .sdds-inline-tabs {

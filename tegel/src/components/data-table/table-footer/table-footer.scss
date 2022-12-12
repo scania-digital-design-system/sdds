@@ -1,4 +1,8 @@
+@import '../../../mixins/box-sizing';
+
 :host {
+  @include sdds-box-sizing;
+
   display: table-footer-group;
   height: 48px;
 

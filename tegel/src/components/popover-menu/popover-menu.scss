@@ -1,4 +1,8 @@
+@import '../../mixins/box-sizing';
+
 :host {
+  @include sdds-box-sizing;
+
   overflow: hidden;
   width: 160px;
   background-color: var(--sdds-popover-bg-default);

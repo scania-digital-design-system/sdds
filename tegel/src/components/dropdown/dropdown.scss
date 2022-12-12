@@ -3,11 +3,13 @@
 @import '../../global/scania-fonts-vars.scss';
 
 @import '../checkbox/checkbox.scss';
+@import '../../mixins/box-sizing';
 
 :host,
 ::slotted(*) {
   color: var(--sdds-grey-958);
   box-sizing: border-box;
+  @include sdds-box-sizing;
 }
 
 :host,
