@@ -1,4 +1,8 @@
+@import '../../../mixins/box-sizing';
+
 :host {
+  @include sdds-box-sizing;
+
   display: contents;
 
   .sdds-table__row,

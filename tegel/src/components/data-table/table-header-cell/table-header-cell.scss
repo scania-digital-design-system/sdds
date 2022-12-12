@@ -1,4 +1,8 @@
+@import '../../../mixins/box-sizing';
+
 :host(.sdds-table__header-cell) {
+  @include sdds-box-sizing;
+
   font: var(--sdds-headline-07);
   letter-spacing: var(--sdds-headline-07-ls);
   display: table-cell;

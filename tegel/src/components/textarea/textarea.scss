@@ -44,14 +44,6 @@
     color: transparent;
   }
 
-  &::input-placeholder {
-    color: transparent;
-  }
-
-  &:placeholder {
-    color: transparent;
-  }
-
   ::placeholder {
     color: transparent;
   }
@@ -234,7 +226,6 @@
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
-  flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textarea-helper);
   flex-grow: 2;

@@ -1,4 +1,5 @@
 @import './side-menu-theme-vars.scss';
+@import '../../mixins/box-sizing';
 
 /* TODO: HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
 
@@ -58,6 +59,8 @@
 /* REFACTOR STYLES */
 
 .sdds-sidebar {
+  @include sdds-box-sizing;
+
   &.side-menu {
     background-color: var(--sdds-sidebar-side-menu);
     display: flex;

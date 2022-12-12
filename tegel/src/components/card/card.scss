@@ -1,6 +1,9 @@
 @import './card-theme-vars.scss';
+@import '../../mixins/box-sizing';
 
 .sdds-card {
+  @include sdds-box-sizing;
+
   background-color: var(--sdds-card-bg);
   border-radius: 4px;
   box-shadow: var(--sdds-card-box);
