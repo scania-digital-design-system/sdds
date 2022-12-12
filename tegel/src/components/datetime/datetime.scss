@@ -279,10 +279,15 @@ slot[name='sdds-label']::slotted(*) {
 .sdds-datetime-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
-  display: block;
+  display: flex;
   flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-datetime-helper);
+
+  .sdds-helper {
+    display: inline-flex;
+    gap: 8px;
+  }
 }
 
 //Disabled state
