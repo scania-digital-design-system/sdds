@@ -1,3 +1,5 @@
+@import './dropdown-theme-vars.scss';
+
 @mixin dropdown-wrapper {
   font: var(--sdds-detail-ex-02);
   letter-spacing: var(--sdds-detail-ex-02-ls);
