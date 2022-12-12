@@ -133,7 +133,6 @@ export class Datetime {
   // Change event isn't a composed:true by default in for input
   handleChange(e): void {
     this.customChange.emit(e);
-    console.log(this.value);
   }
 
   /** Set the input as focus when clicking the whole datetime with suffix/prefix */
