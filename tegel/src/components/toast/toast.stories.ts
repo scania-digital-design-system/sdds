@@ -37,11 +37,11 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Native/Web Component',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
     },
     icon: {
       name: 'Icon',

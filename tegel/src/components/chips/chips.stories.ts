@@ -38,7 +38,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
     },
     iconPosition: {
