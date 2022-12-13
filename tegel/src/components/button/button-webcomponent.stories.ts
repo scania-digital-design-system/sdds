@@ -121,7 +121,7 @@ export default {
     disabled: false,
     onlyIcon: false,
     icon: 'none',
-    iconType: 'Webcomponent',
+    iconType: 'Web Component',
   },
 };
 
@@ -202,13 +202,13 @@ WebComponent.args = {};
 export const WebComponentWithIcon = WebComponentTemplate.bind({});
 WebComponentWithIcon.args = {
   icon: 'truck',
-  iconType: 'Webcomponent',
+  iconType: 'Web Component',
 };
 
 export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
 WebComponentOnlyIcon.args = {
   text: '',
-  iconType: 'Webcomponent',
+  iconType: 'Web Component',
   onlyIcon: true,
   icon: 'truck',
 };
