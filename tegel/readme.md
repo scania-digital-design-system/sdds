@@ -45,7 +45,7 @@ type StencilProps<T> = {
   
 defineCustomElements(window)
 ```
-4. In your index.tsx import `regsiter-webcomponents.ts`
+4. In your index.tsx import `register-webcomponents.ts`
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
