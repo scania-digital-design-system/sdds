@@ -1,6 +1,6 @@
 {
   "name": "@scania/tegel",
-  "version": "0.0.1-beta.6",
+  "version": "0.0.1-beta.7",
   "description": "Tegel - Scania's Digital Design System",
   "keywords": [
     "tegel",
@@ -16,7 +16,7 @@
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/components/components.esm.js",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@stencil/core": "^2.13.0",
+    "@stencil/core": "^2.20.0",
     "@storybook/addon-google-analytics": "^6.2.9",
     "concurrently": "^7.4.0",
     "dotenv": "^16.0.3",
@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
-    "@stencil/sass": "^2.0.0",
+    "@stencil/sass": "^2.0.1",
     "@storybook/addon-a11y": "^6.5.14",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
