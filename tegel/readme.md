@@ -11,13 +11,12 @@
 
 Check out [Tegel Design System](https://tegel.scania.com/) for implementation and technical documentation.
 
-## Quick start
 
-- Installation: [https://tegel.scania.com/development/getting-started-development/installation](https://tegel.scania.com/development/getting-started-development/installation)
+[comment]: <> (Needs to be updated once a stable version is released.)
+## Installation
+### React
 
-## React
-
-### Typescript
+#### with Typescript
 
 1. Run `npm install @scania/tegel`
 2. src folder create a file called `register-webcomponents.ts`
@@ -70,7 +69,7 @@ reportWebVitals();
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
 
-### Javascript
+#### with Javascript
 1. Run `npm install @scania/tegel`
 2. In your index.jsx define the custom components:
 ```jsx
@@ -96,7 +95,7 @@ defineCustomElements()
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
 
-## Angular
+### Angular
 
 1. Run `npm install @scania/tegel`
 2. In your `main.ts` import and call the function `defineCustomElements()`:
@@ -135,7 +134,7 @@ export class AppModule { }
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
 
-## HTML
+### HTML
 
 1. Run `npm init` to generate a package.json
 2. Run `npm install @scania/tegel`
