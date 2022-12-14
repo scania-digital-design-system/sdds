@@ -62,7 +62,7 @@ export default {
     messageType: 'Information',
     variant: 'On light',
     icon: false,
-    iconType: 'Webcomponent',
+    iconType: 'Web Component',
     showExtendedMessage: false,
   },
 };
