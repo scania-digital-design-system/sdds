@@ -58,7 +58,7 @@ export default {
     toastType: 'Success',
     subheader: false,
     link: false,
-    iconType: 'Webcomponent',
+    iconType: 'Web Component',
     icon: 'recommended',
   },
 };
