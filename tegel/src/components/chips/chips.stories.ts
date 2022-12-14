@@ -4,11 +4,23 @@ export default {
   title: 'Components/Chips',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11268%3A39456&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
-      description: 'Chip text',
+      description: 'Set custom chip text',
       control: {
         type: 'text',
       },
@@ -22,16 +34,16 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Choose what icon type to use',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
     },
     iconPosition: {
       name: 'Icon position',
-      description: 'Icon placement',
+      description: 'Set the placement of the icon',
       control: {
         type: 'radio',
       },
@@ -40,7 +52,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Chip state',
+      description: 'Set the chips state as active or default',
       control: {
         type: 'radio',
       },
@@ -48,7 +60,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Chip size',
+      description: 'Set the chip size',
       control: {
         type: 'radio',
       },
@@ -78,26 +90,25 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
     ${
       iconType === 'Native'
         ? '<i class="sdds-chip-icon sdds-icon notification"></i>'
-        : '<div><sdds-icon class="sdds-chip-icon" name="notification" size="16px" /></div>'
+        : '<sdds-icon class="sdds-chip-icon" name="notification" size="16px"></sdds-icon>'
     }
     `;
 
   return formatHtmlPreview(`
-    <style>
-      ${
-        iconType === 'Native'
-          ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');`
-          : ''
-      }
-      .sdds-chip-icon {
-        font-size: 16px;
-      }
-    </style>
+  ${
+    iconType === 'Native'
+      ? `<style>
+/* Note: In case you are using WebFont icons, please make sure to import icons css file in your implementation */
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+
+          </style>`
+      : ''
+  }
+
     <div class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${stateValue} ${sizeValue}">
-      ${icon ? iconSvg : ''}
-      <span class="sdds-chip-text">${placeholderText}</span>
+      ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
     </div>
     `);
 };

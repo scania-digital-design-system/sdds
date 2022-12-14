@@ -1,8 +1,11 @@
 @import './card-theme-vars.scss';
+@import '../../mixins/box-sizing';
 
 .sdds-card {
+  @include sdds-box-sizing;
+
   background-color: var(--sdds-card-bg);
-  border-radius: 1rem;
+  border-radius: 4px;
   box-shadow: var(--sdds-card-box);
 
   //Clickable state on card
@@ -25,7 +28,7 @@
     .sdds-card-img {
       height: auto;
       width: auto;
-      border-radius: 1rem 0 0 1rem;
+      border-radius: 4px 0 0 4px;
     }
   }
 
@@ -93,7 +96,7 @@
   .sdds-card-img {
     height: 100%;
     width: 100%;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 4px 4px 0 0;
   }
 
   .sdds-card-body {

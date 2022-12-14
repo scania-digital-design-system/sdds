@@ -9,6 +9,10 @@
   --sdds-accordion-colour: var(--sdds-grey-958);
   --sdds-accordion-border-focus: var(--sdds-grey-500);
   --sdds-accordion-colour-disabled: var(--sdds-grey-400);
+
+  .secondary {
+    --sdds-accordion-bg-hover: var(--sdds-accordion-bg-hover-on-white);
+  }
 }
 
 .sdds-theme-dark {
@@ -21,4 +25,8 @@
   --sdds-accordion-colour: var(--sdds-grey-958);
   --sdds-accordion-border-focus: var(--sdds-grey-500);
   --sdds-accordion-colour-disabled: var(--sdds-grey-400);
+
+  .sdds-on-white-bg {
+    --sdds-accordion-bg-hover: var(--sdds-accordion-bg-hover-on-white);
+  }
 }

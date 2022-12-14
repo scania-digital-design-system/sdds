@@ -6,6 +6,18 @@ export default {
   parameters: {
     layout: 'centered',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7477%3A297479&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     visible: {
@@ -13,6 +25,9 @@ export default {
       description: 'Toggle visibility of badge',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     value: {
@@ -22,23 +37,29 @@ export default {
         type: 'number',
       },
       if: { arg: 'size', neq: 'sm' },
+      table: {
+        defaultValue: { summary: null },
+      },
     },
     size: {
       name: 'Size',
       description: 'Size of the component',
       options: {
-        Default: 'default',
+        Large: 'lg',
         Small: 'sm',
       },
       control: {
         type: 'radio',
       },
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
   },
   args: {
     visible: true,
+    size: 'lg',
     value: 1,
-    size: 'default',
   },
 };
 
@@ -55,6 +76,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
   formatHtmlPreview(
     `
     <style>
+    /* Note: Demo classes used here are just for demo purposes in Storybook */
     .badges-demo-box {
       margin:5px;
       height: 32px;
@@ -63,7 +85,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
       background-color: #C4C4C4;
     }
 
-    .badges-demo-box sdds-badges[size="default"]{
+    .badges-demo-box sdds-badges[size="lg"]{
       position: absolute;
       left: 16px;
       top: -5px;
@@ -75,6 +97,7 @@ const WithDemoTemplate = ({ value, size, visible }) =>
       top: -2px;
     }
     </style>
+
     <div class="badges-demo-box">
       <sdds-badges
         ${value ? `value="${value}"` : ''}

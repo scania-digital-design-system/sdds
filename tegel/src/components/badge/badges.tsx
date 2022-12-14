@@ -13,11 +13,11 @@ export class SddsBadges {
   /** Changes visibility of badge */
   @Prop() isVisible: boolean = true;
 
-  /** @deprecated Use size prop instead. Changes badge from default to small size */
+  /** @deprecated Use size prop instead. Changes badge from large to small size */
   @Prop() isSmall: boolean = false;
 
-  /** Component is available in size default and small (small dot). Default size is default */
-  @Prop() size: 'default' | 'sm' = 'default';
+  /** Sets component size. */
+  @Prop() size: 'lg' | 'sm' = 'lg';
 
   @State() shape: string = '';
 
@@ -41,9 +41,9 @@ export class SddsBadges {
 
   checkProps() {
     const valueAsNumber = parseInt(this.value);
-    if (!isNaN(valueAsNumber) && this.size !== 'sm') {
+    if (!Number.isNaN(valueAsNumber) && this.size !== 'sm') {
       this.shape = this.value.toString().length >= 2 ? 'pill' : '';
-      this.size = 'default';
+      this.size = 'lg';
       this.text = valueAsNumber.toString().length >= 3 ? '99+' : valueAsNumber.toString();
     } else {
       // eslint-disable-next-line no-unused-expressions, @typescript-eslint/no-unused-expressions

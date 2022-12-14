@@ -12,14 +12,17 @@ export class Textfield {
   /** Which input type, text, password or similar */
   @Prop({ reflect: true }) type: 'text' | 'password' = 'text';
 
-  /** Label that will be put inside the input */
-  @Prop() labelInside: string = '';
+  /** Position of the label for the textfield. */
+  @Prop() labelPosition: 'inside' | 'outside' | 'no-label' = 'no-label';
+
+  /** Label text */
+  @Prop() label: string = '';
 
   /** Placeholder text */
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop({ reflect: true }) value: string = null;
+  @Prop({ reflect: true }) value: string = '';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -30,17 +33,17 @@ export class Textfield {
   /** Size of the input */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  /** Variant of the textfield */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** With setting */
-  @Prop() nominwidth: boolean = false;
+  @Prop() noMinWidth: boolean = false;
 
   /** Name property */
   @Prop() name = '';
 
   /** Error state of input */
-  @Prop() state: string;
+  @Prop() state: 'error' | 'success' | 'default' = 'default';
 
   /** Max length of input */
   @Prop() maxLength: number;
@@ -78,15 +81,15 @@ export class Textfield {
   render() {
     let className = ' sdds-textfield-input';
     if (this.size === 'md') {
-      className += className + '-md';
+      className += `${className}-md`;
     }
     if (this.size === 'sm') {
-      className += className + '-sm';
+      className += `${className}-sm`;
     }
     return (
       <div
         class={`
-        ${this.nominwidth ? 'sdds-form-textfield-nomin' : ''}
+        ${this.noMinWidth ? 'sdds-form-textfield-nomin' : ''}
         ${
           this.focusInput && !this.disabled
             ? 'sdds-form-textfield sdds-textfield-focus'
@@ -94,13 +97,13 @@ export class Textfield {
         }
         ${this.value ? 'sdds-textfield-data' : ''}
         ${
-          this.labelInside.length > 0 && this.size !== 'sm'
+          this.labelPosition === 'inside' && this.size !== 'sm'
             ? 'sdds-textfield-container-label-inside'
             : ''
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.modeVariant === 'primary' ? 'sdds-on-white-bg' : ''}
         ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
@@ -110,12 +113,13 @@ export class Textfield {
         }
         `}
       >
-        <div class="sdds-textfield-slot-wrap-label">
-          <slot name="sdds-label" />
-        </div>
-
+        {this.labelPosition === 'outside' && (
+          <div class="sdds-textfield-label-outside">
+            <div>{this.label}</div>
+          </div>
+        )}
         <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
-          <div class="sdds-textfield-slot-wrap-prefix">
+          <div class={`sdds-textfield-slot-wrap-prefix sdds-textfield-${this.state}`}>
             <slot name="sdds-prefix" />
           </div>
 
@@ -145,13 +149,13 @@ export class Textfield {
               onChange={(e) => this.handleChange(e)}
             />
 
-            {this.labelInside.length > 0 && this.size !== 'sm' && (
-              <label class="sdds-textfield-label-inside">{this.labelInside}</label>
+            {this.labelPosition === 'inside' && this.size !== 'sm' && (
+              <label class="sdds-textfield-label-inside">{this.label}</label>
             )}
           </div>
           <div class="sdds-textfield-bar"></div>
 
-          <div class="sdds-textfield-slot-wrap-suffix">
+          <div class={`sdds-textfield-slot-wrap-suffix sdds-textfield-${this.state}`}>
             <slot name="sdds-suffix" />
           </div>
 

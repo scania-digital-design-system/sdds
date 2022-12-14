@@ -11,10 +11,23 @@ export default {
         state: 'closed',
       },
     },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11142%3A42941&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11142%3A42941&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     siteName: {
       name: 'Site name',
+      description: 'Set a custom title for the header',
       type: 'string',
     },
   },
@@ -23,64 +36,42 @@ export default {
   },
 };
 
-const ToolbarMenuTemplate = (args) => {
-  const {
-    siteName,
-    openInlineDropdown = true,
-    openAppLauncher = false,
-    openAvatarMenu = false,
-    openMobileMenu = false,
-    openSearchbar = false,
-  } = args;
-
-  return formatHtmlPreview(
+const ToolbarMenuTemplate = ({ siteName }) =>
+  formatHtmlPreview(
     `
-      <style>
-      .demo-wrapper {
-        font-size: 14px;
-      }
-    </style>
-  <div class="demo-wrapper">
-    <nav class='sdds-nav  
-      ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
-      ${openAvatarMenu && 'sdds-nav__avatar--opened'}
-      ${openSearchbar && 'sdds-nav__searchbar--opened'}
-      ${openAppLauncher && 'sdds-nav__app-launcher--opened'}
-       '>     
+    <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
-              <div id='sdds-nav__mob-menu-icon'>
+              <span id='sdds-nav__mob-menu-icon'>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
-              </div>
+              </span>
           </button>
           <div class='sdds-nav__app-name'>${siteName}</div>
         </div>
-        
+
         <div class='sdds-nav__center'>
           <ul class='sdds-nav__inline-menu'>
-        
+
               <li class='sdds-nav__item'>
                   <a class='sdds-nav__item-core' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 1</p>
+                      <span class='span'>Item 1</span>
                   </a>
               </li>
-        
+
               <li class='sdds-nav__item sdds-nav__item--active'>
                   <a class='sdds-nav__item-core ' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 2</p>
+                      <span class='sdds-nav__item-core-text'>Item 2</span>
                   </a>
               </li>
-        
-              <li class='sdds-nav__item sdds-nav__dropdown ${
-                openInlineDropdown && 'sdds-nav__dropdown--opened'
-              }'>
+
+              <li class='sdds-nav__item sdds-nav__dropdown'>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
-                  <p class='sdds-nav__item-core-text'>Item 3</p>
+                  <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
-                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />                                                                            
+                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon> 
                   </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>
@@ -90,24 +81,24 @@ const ToolbarMenuTemplate = (args) => {
               </ul>
               </li>
           </ul>
-        
-          <ul class='sdds-nav__toolbar-menu'>       
-        
+
+          <ul class='sdds-nav__toolbar-menu'>
+
               <li class='sdds-nav__item sdds-nav__avatar' >
                   <button class='sdds-nav__avatar-btn' onclick='toggleAvatarMenu()'>
                       <img class="sdds-nav__avatar-img" src='https://www.svgrepo.com/show/170303/avatar.svg' alt='profile photo'/>
-                      <div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
-                          <p class='sdds-nav__avatar-title'>Employee Name</p>
-                          <p class='sdds-nav__avatar-subtitle'>Company Name</p>
-                      </div>
+                      <span class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+                          <span class='sdds-nav__avatar-title'>Employee Name</span>
+                          <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+                      </span>
                   </button>
-        
+
                   <ul class='sdds-nav__avatar-menu'>
                       <li class='sdds-nav__avatar-item sdds-nav__avatar-item--large'>
-                          <div class='sdds-nav__avatar-info'>
-                              <p class='sdds-nav__avatar-title'>Employee Name</p>
-                              <p class='sdds-nav__avatar-subtitle'>Company Name</p>
-                          </div>
+                          <span class='sdds-nav__avatar-info'>
+                              <span class='sdds-nav__avatar-title'>Employee Name</span>
+                              <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+                          </span>
                       </li>
                       <li class='sdds-nav__avatar-item'>
                           <a href='' class='sdds-nav__avatar-item-core'>Link 1</a>
@@ -119,11 +110,11 @@ const ToolbarMenuTemplate = (args) => {
               </li>
           </ul>
         </div>
-        
+
         <div class='sdds-nav__right'>
           <div class='sdds-nav__item sdds-nav__app-launcher'>
               <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher()'>
-                <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" />
+                <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px"></sdds-icon> 
               </button>
               <ul class='sdds-nav__app-launcher-menu'>
                   <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>
@@ -171,10 +162,11 @@ const ToolbarMenuTemplate = (args) => {
               </ul>
           </div>
           <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
-        </div> 
+        </div>
     </nav>
-    </div>
+
     <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
     toggleAvatarMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__avatar--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
@@ -202,44 +194,17 @@ const ToolbarMenuTemplate = (args) => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-  
+
     }
     closeDropdownsFromOverlay = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-  
+
     }
-  
+
     </script>
     `,
   );
-};
 
 export const ToolbarMenu = ToolbarMenuTemplate.bind({});
-
-ToolbarMenu.argTypes = {
-  openInlineDropdown: {
-    name: 'Open Inline Dropdown',
-  },
-  openMobileMenu: {
-    name: 'Open Mobile Menu',
-  },
-  openAppLauncher: {
-    name: 'Open App Launcher',
-  },
-  openSearchbar: {
-    name: 'Open Search Bar',
-  },
-  openAvatarMenu: {
-    name: 'Open Avatar Menu',
-  },
-};
-ToolbarMenu.args = {
-  siteName: 'ToolBar Menu App',
-  openInlineDropdown: false,
-  openAppLauncher: false,
-  openAvatarMenu: false,
-  openMobileMenu: false,
-  openSearchbar: false,
-};

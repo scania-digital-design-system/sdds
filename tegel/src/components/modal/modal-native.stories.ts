@@ -4,6 +4,18 @@ export default {
   title: 'Components/Modal',
   parameters: {
     layout: 'fullscreen',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=4398%3A181325&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=4398%3A181325&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     size: {
@@ -16,6 +28,7 @@ export default {
     },
     showModal: {
       name: 'Show modal',
+      description: 'Toggle if the modal is displayed',
       control: {
         type: 'boolean',
       },
@@ -53,36 +66,47 @@ const sizeLookUp = {
 
 const Template = ({ headline, size, actions, showModal }) =>
   formatHtmlPreview(
-    `
-  <div class="demo-wrapper">
-  <button id="modal-button" class="sdds-btn sdds-btn-primary sdds-btn-lg">
-    <span class="sdds-btn-text">Open modal</span>
-  </button>
-  
-  <div id="my-modal" class="sdds-modal-backdrop ${showModal ? 'show' : 'hide'} demo-styles">
-  <div class="sdds-modal sdds-modal-${
-    sizeLookUp[size]
-  } sdds-modal__actions-${actions.toLowerCase()}">
-    <div class="sdds-modal-header">
-     
-        <h5 class="sdds-modal-headline">${headline}</h5>
-     
-      <span class="sdds-modal-btn"></span>
-    </div>
-      <div class="sdds-modal-body">
-        <p>
-          Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
-        </p>
-      </div>
-      <div class="sdds-modal-actions">
-          <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
-          <button class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
-      </div>
-  </div>
-</div>
+    `    <style>
+  /* demo-wrapper and demo-styles is for demonstration purposes only*/
+  .demo-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 500px;
+  }
+  .demo-styles {
+    position: absolute;
+    margin-bottom: 20px;
+  }
+  </style>
 
+  <div class="demo-wrapper">
+    <button id="modal-button" class="sdds-btn sdds-btn-primary sdds-btn-lg">
+      <span class="sdds-btn-text">Open modal</span>
+    </button>
+    <div id="my-modal" class="sdds-modal-backdrop ${showModal ? 'show' : 'hide'} demo-styles">
+      <div class="sdds-modal sdds-modal-${
+        sizeLookUp[size]
+      } sdds-modal__actions-${actions.toLowerCase()}">
+        <div class="sdds-modal-header">
+            <h5 class="sdds-modal-headline">${headline}</h5>
+          <span class="sdds-modal-btn"></span>
+        </div>
+          <div class="sdds-modal-body">
+            <p>
+              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
+            </p>
+          </div>
+          <div class="sdds-modal-actions">
+              <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
+              <button class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
+          </div>
+      </div>
+    </div>
   </div>
+
   <script>
+  /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
   modal = document.getElementById('my-modal');
   buttons = modal.getElementsByTagName('button');
   for (const button of buttons) {
@@ -99,22 +123,6 @@ const Template = ({ headline, size, actions, showModal }) =>
     modal.classList.replace('hide', 'show')
   })
   </script>
-  <style>
-  
-  /* This is only for demonstration purposes. */
-  .demo-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 500px;
-  }
-  .demo-styles {
-    position: absolute;
-    margin-bottom: 20px;
-  }
-  /* This is only for demonstration purposes. */
-
-  </style>
   `,
   );
 

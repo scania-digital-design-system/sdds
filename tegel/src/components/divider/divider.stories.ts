@@ -4,11 +4,23 @@ export default {
   title: 'Components/Divider',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
+      },
+    ],
   },
   argTypes: {
     style: {
       name: 'Style',
-      descripton: 'The style of the divider.',
+      description: 'Set the style of the divider.',
       control: {
         type: 'select',
       },
@@ -16,7 +28,7 @@ export default {
     },
     type: {
       name: 'Type',
-      description: 'Divider type.',
+      description: 'Choose divider type.',
       control: {
         type: 'radio',
       },
@@ -24,6 +36,7 @@ export default {
     },
     width: {
       name: 'Width',
+      description: 'Choose divider width.',
       control: {
         type: 'number',
       },
@@ -31,6 +44,7 @@ export default {
     },
     height: {
       name: 'Height',
+      description: 'Choose divider height.',
       control: {
         type: 'number',
       },
@@ -38,7 +52,7 @@ export default {
     },
     direction: {
       name: 'Direction',
-      discription: 'The direction of the divider',
+      description: 'Set the direction of the divider',
       control: {
         type: 'select',
       },
@@ -68,7 +82,7 @@ const directionLookup = {
   Left: 'left',
 };
 
-const Template = ({ type, style, width, height, direction }) => {
+const Template = ({ type, style, width, direction, height }) => {
   const classLookup = {
     Horizontal: `sdds-divider-${styleLookup[style]}`,
     Vertical: `sdds-divider-${styleLookup[style]}-vertical`,
@@ -77,21 +91,36 @@ const Template = ({ type, style, width, height, direction }) => {
 
   return formatHtmlPreview(
     `
-    ${
-      direction
-        ? `<style>
-    .demo-class {
-    height: 200px;
-    width: 200px;
-    background-color: var(--sdds-grey-100);
-    }
-    </style>`
+      <style>
+        ${
+          direction
+            ? `/* demo-wrapper is for demonstration purposes only*/
+        .demo-wrapper {
+          height: 200px;
+          width: 200px;
+          background-color: var(--sdds-grey-100);
+        }
+        `
+            : ''
+        } ${
+      height
+        ? `/* demo-wrapper is for demonstration purposes only*/
+        .demo-wrapper {
+          height: ${height}px;
+        }`
+        : ''
+    }    ${
+      width
+        ? `/* demo-wrapper is for demonstration purposes only*/
+            .demo-wrapper {
+              width: ${width}px;
+            }`
         : ''
     }
+      </style>
+
         <div
-    ${width ? `style="width:${width}px;"` : ''}
-    ${height ? `style="height:${height}px;"` : ''}
-    class="${classLookup[type]} ${direction ? `demo-class` : ''}">
+    class="${classLookup[type]} demo-wrapper ">
     ${direction ? 'DEMO' : ''}</div>
     `,
   );

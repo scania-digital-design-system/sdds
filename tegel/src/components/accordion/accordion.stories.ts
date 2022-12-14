@@ -1,74 +1,95 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import readmeItem from './accordion-item/readme.md';
 
 export default {
   title: 'Components/Accordion',
   argTypes: {
     iconPosition: {
-      name: 'Icon position',
+      name: 'Expand icon position',
       control: {
         type: 'radio',
       },
       options: { End: 'end', Start: 'start' },
-      description: 'Icon position',
+      description: 'The horizontal position of the expand icon.',
+      table: {
+        defaultValue: { summary: 'end' },
+      },
     },
     disabled: {
-      name: 'Disabled',
-      description: 'Disabled',
+      name: 'Disable all items',
+      description: 'Disable all accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
     paddingReset: {
       name: 'Less padding right',
-      description: 'Less padding on the right in accordion items',
+      description: 'Less padding on the right inside accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
   },
   parameters: {
-    notes: readme,
+    notes: { 'Accordion': readme, 'Accordion item': readmeItem },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2762%3A84&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   args: {
     disabled: false,
     paddingReset: false,
     iconPosition: 'end',
+    modeVariant: 'Primary',
   },
 };
 
-const Template = ({ disabled, iconPosition, paddingReset }) => {
-  const affixAttr = iconPosition === 'start' ? 'affix="prefix"' : '';
+const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
+  const affixAttr = iconPosition === 'start' ? 'expand-icon-position="start"' : '';
   const disabledAttr = disabled ? 'disabled' : '';
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
   const tabIndexAttr = 'tabindex="0"';
 
   return formatHtmlPreview(`
-    <sdds-accordion class="sdds-storybook-wrapper">
+    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}">
       <sdds-accordion-item header="First item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
-        This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
+        This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
       <sdds-accordion-item header="Second item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${paddingResetAttr} expanded>
-        This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum. Proin ac odio sed tellus fermentum placerat. Nam sit amet orci dui. Proin commodo tellus at mauris accumsan blandit. Donec eget suscipit lorem, sit amet ultrices tellus. Cras massa ligula, rhoncus non elementum non, molestie sed nibh.
+        This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Third item" ${tabIndexAttr} ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
-         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header. 
-         Lorem ipsum doler sit amet.
-       </sdds-accordion-item>
     </sdds-accordion>
   `);
 };
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export const Prefix = Template.bind({});
-Prefix.args = {
-  iconPosition: 'start',
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-};
-
-export const PaddingReset = Template.bind({});
-PaddingReset.args = {
-  paddingReset: true, // Allows item text to expand past suffix icon
-};

@@ -11,6 +11,19 @@
 | `size`   | `size`    | Pass a size of icon as a string, for example: 32px, 1rem, 4em...                                                               | `string` | `'16px'`           |
 
 
+## Dependencies
+
+### Used by
+
+ - [sdds-accordion-item](../accordion/accordion-item)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-accordion-item --> sdds-icon
+  style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

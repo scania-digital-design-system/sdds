@@ -6,6 +6,18 @@ export default {
   parameters: {
     notes: readme,
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1675%3A76544&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1675%3A76544&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     placeholderText: {
@@ -32,11 +44,13 @@ export default {
       },
     },
     minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
+      name: 'No minimum width',
+      description: 'Toggle the minimum width.',
       control: {
-        type: 'radio',
-        options: ['Default', 'No min width'],
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     disabled: {
@@ -60,13 +74,13 @@ export default {
         type: 'text',
       },
     },
-    labelplacement: {
-      description: 'Label can be placed inside the textfield',
-      name: 'Label inside',
+    labelPosition: {
+      name: 'Label position',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
-      if: { arg: 'label', neq: '' },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Label text position',
     },
     prefix: {
       name: 'Prefix',
@@ -77,7 +91,15 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'icon', eq: false },
+    },
+    prefixType: {
+      name: 'Prefix type',
+      description: 'Choose icon or text for prefix.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Icon', 'Text'],
+      if: { arg: 'prefix', eq: true },
     },
     suffix: {
       name: 'Suffix',
@@ -89,16 +111,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    icon: {
-      name: 'Icon',
-      description: 'Add icon before or after the textfield',
+    suffixType: {
+      name: 'Suffix type',
+      description: 'Choose icon or text for suffix.',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
-      if: { arg: 'prefix', eq: false },
-      table: {
-        defaultValue: { summary: false },
-      },
+      options: ['Icon', 'Text'],
+      if: { arg: 'suffix', eq: true },
     },
     helper: {
       name: 'Helper text',
@@ -107,9 +127,9 @@ export default {
         type: 'text',
       },
     },
-    textcounter: {
-      name: 'Text counter',
-      description: 'Set a maximum value how long the text can be',
+    maxLength: {
+      name: 'Max length',
+      description: 'Set a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
@@ -119,32 +139,32 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
       },
+      options: ['Default', 'Success', 'Error'],
     },
     variant: {
-      name: 'Variant',
+      name: 'Mode Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
       },
+      options: ['Primary', 'Secondary'],
     },
   },
   args: {
     placeholderText: 'Placeholder',
     disabled: false,
     readonly: false,
-    label: '',
-    labelPosition: 'No label',
+    label: 'Label',
+    labelPosition: 'None',
     helper: '',
-    textcounter: 0,
-    state: 'None',
-    variant: 'Default',
-    icon: false,
+    maxLength: 0,
+    state: 'Default',
+    variant: 'Secondary',
     suffix: false,
+    suffixType: 'Icon',
     prefix: false,
-    labelplacement: false,
+    prefixType: 'Icon',
     minWidth: 'Default',
     size: 'Large',
     type: 'text',
@@ -159,17 +179,18 @@ const Template = ({
   disabled,
   readonly,
   label,
-  labelplacement,
+  labelPosition,
   state,
   variant,
   helper,
   prefix,
+  prefixType,
   suffix,
-  icon,
-  textcounter,
+  suffixType,
+  maxLength,
 }) => {
-  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
+  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const sizeLookUp = {
     Large: 'lg',
@@ -179,28 +200,51 @@ const Template = ({
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+    <style>
+    /* demo-wrapper is for demonstration purposes only*/
+  .demo-wrapper {
+    width: 200px;
+    height: 150px;
+  }
+    </style>
+
+  <div class="demo-wrapper">
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
       state="${stateValue}"
-      variant="${variantValue}"
+      mode-variant="${variantValue}"
+      label="${label}"
+      label-position="${labelPosition.toLowerCase()}"
       ${maxlength}
-      ${label && labelplacement ? `label-inside="${label}"` : ''}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
-      ${minWidth === 'No min width' ? 'noMinWidth' : ''}
+      ${minWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
-        ${prefix ? '<span slot="sdds-prefix">$</span>' : ''}
-        ${label && !labelplacement ? `<label slot='sdds-label'>${label}</label>` : ''}
+        ${
+          prefix
+            ? `
+        <span slot="sdds-prefix">
+          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
+        </span>`
+            : ''
+        }
         ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
-        ${suffix ? '<span slot="sdds-suffix">$</span>' : ''}
-        ${icon ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
-    </sdds-textfield>
+        ${
+          suffix
+            ? `
+        <span slot="sdds-suffix">
+          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
+        </span>`
+            : ''
+        }
+        </sdds-textfield>
   </div>
   `,
   );
 };
+
+// ${true ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
 
 export const Default = Template.bind({});
 

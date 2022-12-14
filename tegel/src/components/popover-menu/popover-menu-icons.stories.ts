@@ -2,17 +2,29 @@ import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Popover-Menu',
+  title: 'Components/Popover Menu',
   parameters: {
     layout: 'centered',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=16794%3A59241&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=16794%3A59241&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     menuPosition: {
       name: 'Menu position',
-      description: 'Position of the PopoverMenu',
+      description: 'Position of the Popover menu',
       control: {
-        type: 'radio',
+        type: 'select',
       },
       options: [
         'Bottom',
@@ -53,6 +65,7 @@ const Template = ({ menuPosition }) => {
   return formatHtmlPreview(
     `
         <style>
+        /* demo-wrapper is for demonstration purposes only*/
         .demo-wrapper {
           display: flex;
           flex-wrap: nowrap;
@@ -62,57 +75,59 @@ const Template = ({ menuPosition }) => {
           cursor:pointer;
         }
       </style>
+
       <sdds-popover-menu
         placement="${menuPosLookup[menuPosition]}"
-        selector="#trigger"> 
+        selector="#trigger">
         <ul class="sdds-popover-menu-wrapper">
           <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
-                Menu item 1            
+                Menu item 1
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
-            </i>   
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>
               Menu item 2
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 3
             </a>
           </li>
           <li class="divider"></li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 4
             </a>
           </li>
-          <li>            
+          <li>
             <a target="_blank" href="https://digitaldesign.scania.com">
             <i>
-              <sdds-icon name="save" size="16px" />
+              <sdds-icon name="save" size="16px"></sdds-icon>
             </i>
               Menu item 5
             </a>
           </li>
-        </ul>        
+        </ul>
       </sdds-popover-menu>
-    
+
+      <!-- demo-wrapper code below is for demonstration purposes only -->
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
-        <sdds-icon id="trigger" name="kebab" size="16px" />
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon>
       </div>
       `,
   );

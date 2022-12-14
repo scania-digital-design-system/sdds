@@ -24,32 +24,32 @@ export class Textarea {
   /** Textarea rows attribute */
   @Prop() rows: number;
 
-  /** Label position: `no-label` (default), `inside`, `outside` */
-  @Prop() labelPosition = 'no-label';
+  /** Position of the label for the textfield. */
+  @Prop() labelPosition: 'inside' | 'outside' | 'no-label' = 'no-label';
 
   /** Placeholder text */
   @Prop() placeholder: string = '';
 
   /** Value of the input text */
-  @Prop() value: string = null;
+  @Prop() value: string = '';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
 
   /** Set input in readonly state */
-  @Prop() readonly: boolean = false;
+  @Prop() readOnly: boolean = false;
 
   /** Error state of input */
-  @Prop() state: string;
+  @Prop() state: 'error' | 'success' | 'default' = 'default';
 
   /** Max length of input */
   @Prop() maxLength: number;
 
-  /** Variant of the textarea */
-  @Prop() variant: 'default' | 'variant' = 'default';
+  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** Control of autofocus */
-  @Prop() autofocus: boolean = false;
+  @Prop() autoFocus: boolean = false;
 
   /** Listen to the focus state of the input */
   @State() focusInput;
@@ -85,14 +85,16 @@ export class Textarea {
         ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
-        ${this.readonly ? 'sdds-textarea-readonly' : ''}
-        ${this.variant === 'default' ? '' : 'sdds-on-white-bg'}
+        ${this.readOnly ? 'sdds-textarea-readonly' : ''}
+        ${this.modeVariant === 'primary' ? 'sdds-on-white-bg' : ''}
         ${this.value ? 'sdds-textarea-data' : ''}
-        ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
+        ${this.state === 'error' || this.state === 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
         onClick={() => this.handleFocusClick()}
       >
-        {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
+        {this.labelPosition !== 'no-label' && (
+          <span class={'sdds-textarea-label'}>{this.label}</span>
+        )}
         <div class="sdds-textarea-wrapper">
           <textarea
             onFocus={() => {
@@ -104,11 +106,11 @@ export class Textarea {
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
-            readonly={this.readonly}
+            readonly={this.readOnly}
             placeholder={this.placeholder}
             value={this.value}
             name={this.name}
-            autofocus={this.autofocus}
+            autofocus={this.autoFocus}
             maxlength={this.maxLength}
             cols={this.cols}
             rows={this.rows}

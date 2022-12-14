@@ -11,10 +11,23 @@ export default {
         state: 'closed',
       },
     },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11142%3A42941&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11142%3A42941&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     siteName: {
       name: 'Site name',
+      description: 'Set a custom title for the header',
       type: 'string',
     },
   },
@@ -23,54 +36,42 @@ export default {
   },
 };
 
-const InlineMenuTemplate = (args) => {
-  const { siteName, openInlineDropdown = true, openMobileMenu = false } = args;
-
-  return formatHtmlPreview(
+const InlineMenuTemplate = ({ siteName }) =>
+  formatHtmlPreview(
     `
-      <style>
-      .demo-wrapper {
-        font-size: 14px;
-      }
-    </style>
-  <div class="demo-wrapper">
-    <nav class='sdds-nav  
-      ${openMobileMenu && 'sdds-nav__mob-menu--opened'} 
-       '>     
+    <nav class='sdds-nav'>
         <div class='sdds-nav__left'>
           <div class="sdds-nav__overlay" onclick="closeDropdownsFromOverlay()"></div>
           <button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
-              <div id='sdds-nav__mob-menu-icon'>
+              <span id='sdds-nav__mob-menu-icon'>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
                   <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
-              </div>
+              </span>
           </button>
           <div class='sdds-nav__app-name'>${siteName}</div>
         </div>
-        
+
         <div class='sdds-nav__center'>
           <ul class='sdds-nav__inline-menu'>
-        
+
               <li class='sdds-nav__item'>
                   <a class='sdds-nav__item-core' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 1</p>
+                      <span class='sdds-nav__item-core-text'>Item 1</span>
                   </a>
               </li>
-        
+
               <li class='sdds-nav__item sdds-nav__item--active'>
                   <a class='sdds-nav__item-core ' href='#'>
-                      <p class='sdds-nav__item-core-text'>Item 2</p>
+                      <span class='sdds-nav__item-core-text'>Item 2</span>
                   </a>
               </li>
-        
-              <li class='sdds-nav__item sdds-nav__dropdown ${
-                openInlineDropdown && 'sdds-nav__dropdown--opened'
-              }'>
+
+              <li class='sdds-nav__item sdds-nav__dropdown'>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
-                  <p class='sdds-nav__item-core-text'>Item 3</p>
+                  <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
-                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px" />                                                                          
+                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon> 
                   </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>
@@ -79,16 +80,16 @@ const InlineMenuTemplate = (args) => {
                   <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--active'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
               </ul>
               </li>
-          </ul>  
+          </ul>
         </div>
-        
-        <div class='sdds-nav__right'>       
-          <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
-        </div> 
-    </nav>
-    </div>
-    <script>
 
+        <div class='sdds-nav__right'>
+          <a class='sdds-nav__item sdds-nav__app-logo' href='#'></a>
+        </div>
+    </nav>
+
+    <script>
+    /* Note: Code below is used only for inspiration and presentation purposes in Storybook */
     toggleMobileMenu = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
@@ -104,29 +105,15 @@ const InlineMenuTemplate = (args) => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
     }
-  
+
     closeDropdownsFromOverlay = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-  
+
     }
     </script>
     `,
   );
-};
 
 export const InlineMenu = InlineMenuTemplate.bind({});
-InlineMenu.argTypes = {
-  openInlineDropdown: {
-    name: 'Open Inline Dropdown',
-  },
-  openMobileMenu: {
-    name: 'Open Mobile Menu',
-  },
-};
-InlineMenu.args = {
-  siteName: 'Inline Menu App',
-  openInlineDropdown: false,
-  openMobileMenu: false,
-};

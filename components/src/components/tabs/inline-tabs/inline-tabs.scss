@@ -161,7 +161,9 @@
   }
 }
 
-.sdds-inline-tabs-onwhite {
+
+//On white
+.sdds-inline-tabs-primary {
   .sdds-inline-tabs--tab__active {
     background-color: var(--sdds-grey-50);
   }
@@ -171,7 +173,8 @@
   }
 }
 
-.sdds-inline-tabs-ongrey50 {
+//On grey50
+.sdds-inline-tabs-secondary {
   .sdds-inline-tabs--tab__active {
     background-color: var(--sdds-white);
   }

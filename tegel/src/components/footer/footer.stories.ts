@@ -6,6 +6,18 @@ export default {
   parameters: {
     notes: readme,
     layout: 'fullscreen',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7568%3A298118&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=7568%3A298118&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     topPart: {
@@ -21,6 +33,15 @@ export default {
 const Template = ({ topPart }) =>
   formatHtmlPreview(
     `
+  <style>
+  .demo-wrapper {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+  }
+  </style>
+
+  <div class="demo-wrapper">
   <div class="sdds-footer">
     ${
       topPart
@@ -31,7 +52,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title opened">
               <span>Title 1</span>
               <span class="sdds-footer-top-icon">
-                <sdds-icon name="chevron_down" size="16px" /> 
+                <sdds-icon name="chevron_down" size="16px"></sdds-icon>
               </span>
             </div>
             <ul class="sdds-footer-main-links opened">
@@ -46,7 +67,7 @@ const Template = ({ topPart }) =>
             <div class="sdds-footer-title">
               <span>Title 2</span>
               <span class="sdds-footer-top-icon">
-              <sdds-icon name="chevron_down" size="16px" /> 
+              <sdds-icon name="chevron_down" size="16px"></sdds-icon>
               </span>
             </div>
             <ul class="sdds-footer-main-links">
@@ -77,6 +98,7 @@ const Template = ({ topPart }) =>
       </div>
     </div>
   </div>
+    </div>
   `,
   );
 

@@ -6,6 +6,18 @@ export default {
   parameters: {
     layout: 'fullscreen',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=4398%3A181325&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=4398%3A181325&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     size: {
@@ -49,11 +61,9 @@ const sizeLookUp = {
 const ModalTemplate = ({ size, headline, actions }) =>
   formatHtmlPreview(
     `
-  <button onclick="console.log('Open modal 1')" class="sdds-btn sdds-btn-primary modal1">Open modal</button>  
+  <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>  
 
-  <sdds-modal id="modal-test" size="${
-    sizeLookUp[size]
-  }" selector=".modal1" actions="${actions.toLowerCase()}">
+  <sdds-modal open id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <div class="sdds-modal-body" slot="sdds-modal-body">
         Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
@@ -61,6 +71,12 @@ const ModalTemplate = ({ size, headline, actions }) =>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
+  <script>
+
+    document.getElementById('my-modal-button').addEventListener('click', () => {
+      document.getElementById('my-modal').open = true;
+    })
+  </script>
   
   `,
   );

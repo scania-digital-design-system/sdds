@@ -11,6 +11,18 @@ export default {
         state: 'closed',
       },
     },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2620%3A4152&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=2620%3A4152&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
 
   argTypes: {
@@ -58,7 +70,7 @@ export default {
   args: {
     tooltipPosition: 'Bottom',
     text: 'Text inside tooltip',
-    slot: '<p> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>',
+    slot: '<p class="sdds-detail-05 sdds-u-m0"> Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too. </p>',
     mouseOverTooltip: true,
   },
 };
@@ -81,25 +93,28 @@ const positionLookup = {
 const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
   formatHtmlPreview(
     `
+    <style>
+    /* demo-wrapper is for demonstration purposes only*/
+     .demo-wrapper{
+       height: 300px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+     }
+    </style>
+
    <div class="demo-wrapper">
-   <sdds-tooltip 
-      placement="${positionLookup[tooltipPosition]}" 
-      selector="#button-1" 
-      text="${text}" 
+   <sdds-tooltip
+      placement="${positionLookup[tooltipPosition]}"
+      selector="#button-1"
+      text="${text}"
       mouse-over-tooltip="${mouseOverTooltip}">
       ${slot}
     </sdds-tooltip>
+
+    <!-- Demo button for presentation purposes -->
     <sdds-button size= 'sm' id="button-1" text='Hover me'></sdds-button>
    </div>
-   <style>
-    /* This is only for demontration purposes */
-    .demo-wrapper{
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-   </style>  
   `,
   );
 

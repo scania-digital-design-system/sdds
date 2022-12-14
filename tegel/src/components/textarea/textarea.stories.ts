@@ -6,6 +6,18 @@ export default {
   parameters: {
     notes: readme,
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1828%3A85238&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1828%3A85238&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     placeholder: {
@@ -43,12 +55,12 @@ export default {
       },
     },
     labelPosition: {
-      description: 'Label can be placed inside the textfield',
       name: 'Label position',
       control: {
         type: 'radio',
-        options: ['No label', 'Inside', 'Outside'],
       },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Label text position',
     },
     helper: {
       name: 'Helper text',
@@ -57,9 +69,9 @@ export default {
         type: 'text',
       },
     },
-    textcounter: {
-      name: 'Text counter',
-      description: 'Set a maximum value how long the text can be',
+    maxLength: {
+      name: 'Max length',
+      description: 'Set a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
@@ -76,29 +88,29 @@ export default {
       description: 'Switch between success or error state',
       control: {
         type: 'radio',
-        options: ['None', 'Success', 'Error'],
       },
+      options: ['Default', 'Success', 'Error'],
     },
     variant: {
-      name: 'Variant',
+      name: 'Mode Variant',
       description: 'The variant of the textarea',
       control: {
         type: 'radio',
-        options: ['Default', 'Variant'],
       },
+      options: ['Primary', 'Secondary'],
     },
   },
   args: {
     placeholder: 'Placeholder',
     disabled: false,
     readonly: false,
-    label: '',
-    labelPosition: 'No label',
+    label: 'Label',
+    labelPosition: 'None',
     helper: '',
-    textcounter: 0,
+    maxLength: 0,
     rows: 5,
-    state: 'None',
-    variant: 'Default',
+    state: 'Default',
+    variant: 'Secondary',
   },
 };
 
@@ -110,30 +122,32 @@ const Template = ({
   labelPosition,
   state,
   helper,
-  textcounter,
+  maxLength,
   rows,
   variant,
 }) => {
-  const maxlength = textcounter > 0 ? `max-length="${textcounter}"` : '';
-  const variantValue = variant === 'Variant' ? 'variant' : 'default';
+  const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
+  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
-    'No label': 'no-label',
-    'Inside': 'inside',
-    'Outside': 'outside',
+    None: 'no-label',
+    Inside: 'inside',
+    Outside: 'outside',
   };
   return formatHtmlPreview(`
   <style>
+  /* demo-wrapper is for demonstration purposes only*/
     .demo-wrapper {
       width: 400px;
     }
   </style>
+
   <div class="demo-wrapper">
         <sdds-textarea
           rows="${rows}"
           state="${stateValue}"
           label="${label}"
-          variant="${variantValue}"
+          mode-variant="${variantValue}"
           helper="${helper}"
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}

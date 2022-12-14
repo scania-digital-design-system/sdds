@@ -6,6 +6,18 @@ export default {
   title: 'Components/Banner',
   parameters: {
     layout: 'fullscreen',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=5927%3A497&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=5927%3A497&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     state: {
@@ -27,7 +39,7 @@ export default {
       },
     },
     subheader: {
-      name: 'SubHeader',
+      name: 'Subheader',
       description: 'Text to display in subheader section',
       control: {
         type: 'text',
@@ -66,17 +78,17 @@ const Template = ({ state, prefix, header, subheader, link }) =>
     <div class="sdds-banner sdds-banner-${state.toLowerCase()}">
       ${
         prefix && state === 'error'
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
         prefix && state === 'info'
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
         prefix && !(state === 'info' || state === 'error')
-          ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px" /></span>'
+          ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px"></sdds-icon></span>'
           : ''
       }
       <div class="sdds-banner-body">

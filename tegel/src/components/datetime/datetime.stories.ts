@@ -6,15 +6,27 @@ export default {
   parameters: {
     layout: 'centered',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10241%3A40193&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     type: {
       name: 'Type',
-      description: 'Which type of textfield',
+      description: 'Set the field to display date, time or both',
       control: {
         type: 'radio',
       },
-      options: ['datetime-local', 'date', 'time'],
+      options: ['Datetime', 'Date', 'Time'],
     },
     size: {
       name: 'Size',
@@ -29,9 +41,8 @@ export default {
       name: 'Min width',
       description: 'Toggle min width',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'No min width'],
     },
     disabled: {
       description: 'Set textfield to disabled state',
@@ -65,7 +76,7 @@ export default {
     },
   },
   args: {
-    type: 'datetime-local',
+    type: 'Datetime',
     size: 'Large',
     minWidth: 'Default',
     disabled: false,
@@ -76,7 +87,11 @@ export default {
 };
 
 const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper }) => {
-  let minWidthValue = minWidth === 'No min width' ? true : false;
+  const typeLookup = {
+    Datetime: 'datetime-local',
+    Date: 'date',
+    Time: 'time',
+  };
   const sizeLookup = {
     Large: 'lg',
     Medium: 'md',
@@ -90,19 +105,30 @@ const datetimeTemplate = ({ type, size, minWidth, disabled, label, state, helper
 
   return formatHtmlPreview(
     `
-  <div style="width: 208px">
+
+    <style>
+        /* Note: Demo classes used here are just for demo purposes in Storybook */
+        .demo-wrapper {
+            width: 208px;
+        }
+    </style>
+
+  <div class="demo-wrapper">
+
     <sdds-datetime
     id="datetime"
-      type="${type}"
+      type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
-      ${minWidthValue ? 'noMinWidth' : ''} >
+      ${minWidth ? 'no-min-width' : ''}>
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
     </sdds-datetime>
-    <!-- You can listen for the 'customChange' event to get value updates. -->
+
+
     <script>
+    /* You can listen for the 'customChange' event to get value updates. */
       const datetimeEl = document.getElementById('datetime');
       datetimeEl.addEventListener('customChange', (event) => {
         console.log(event.target.value);

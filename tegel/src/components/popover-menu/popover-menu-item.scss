@@ -1,6 +1,9 @@
-// TODO - Investigate whether or not this should instead be a webcomponent.
+// TODO - Investigate whether or not this should instead be a Web Component.
+@import '../../mixins/box-sizing';
 
 ul.sdds-popover-menu-wrapper {
+  @include sdds-box-sizing;
+
   list-style-type: none;
   margin: 0;
   margin-block: 0;

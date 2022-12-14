@@ -1,6 +1,6 @@
 {
   "name": "@scania/tegel",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.6",
   "description": "Tegel - Scania's Digital Design System",
   "keywords": [
     "tegel",
@@ -41,22 +41,23 @@
     "build-storybook": "build-storybook --quiet",
     "deploy-storybook": "npm install && npm run build && npm run build-storybook",
     "build-stencil:watch": "stencil build --docs-readme --watch",
-    "start-storybook": "start-storybook -p 6006 -s dist",
+    "start-storybook": "start-storybook -p 6006",
     "tegel": "concurrently --raw  'npm:build-stencil:watch' 'npm:start-storybook'",
     "commit": "npm run --prefix ../ commit"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@scania/typography": "^1.2.1",
     "@stencil/core": "^2.13.0",
     "@storybook/addon-google-analytics": "^6.2.9",
     "concurrently": "^7.4.0",
+    "dotenv": "^16.0.3",
     "html-format": "^1.0.2",
     "prettier": "^2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@stencil/sass": "^2.0.0",
+    "@storybook/addon-a11y": "^6.5.14",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
@@ -69,10 +70,12 @@
     "@storybook/manager-webpack4": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
+    "addon-screen-reader": "^1.8.6",
     "babel-loader": "^8.2.5",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0",
+    "storybook-addon-designs": "^6.3.1",
     "storybook-dark-mode": "^1.1.2"
   },
   "license": "MIT",

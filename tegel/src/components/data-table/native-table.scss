@@ -1,6 +1,9 @@
 @import '../../mixins/focus-state';
+@import '../../mixins/box-sizing';
 
 .sdds-table {
+  @include sdds-box-sizing;
+
   border-collapse: collapse;
   display: table;
 
@@ -8,6 +11,8 @@
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     text-align: left;
+
+    // 24px to account for header component that overlaps
     height: 64px;
     display: table-caption;
     position: relative;
@@ -119,6 +124,7 @@
   // SDDS GLOBAL STYLES:
   &.sdds-table--compact {
     .sdds-table__title {
+      // 24px to account for header component that overlaps
       height: 56px;
     }
 

@@ -5,6 +5,18 @@ export default {
   title: 'Components/Tabs',
   parameters: {
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10544%3A31546&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10544%3A31546&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
 };
 
@@ -12,11 +24,11 @@ export default {
 const Template = () =>
   formatHtmlPreview(`
     <sdds-navigation-tabs>
-      <a href="#" class="sdds-navigation-tabs--tab__active">Active tab</a>
+      <a href="#" class="sdds-navigation-tabs-tab-active">Active tab</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
-      <a role="link" aria-disabled="true" class="sdds-navigation-tabs--tab__disabled">Disabled tab</a>
+      <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
     </sdds-navigation-tabs>
     `);
 

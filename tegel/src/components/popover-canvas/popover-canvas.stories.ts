@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Popover-canvas',
+  title: 'Components/Popover Canvas',
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -13,7 +13,7 @@ export default {
       description: 'Position of the PopoverCanvas',
       type: { summary: 'string' },
       control: {
-        type: 'radio',
+        type: 'select',
       },
       options: [
         'Bottom',
@@ -55,18 +55,20 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   return formatHtmlPreview(
     `
     <style>
-      .demo-wrapper {
-        display: flex;
-        flex-wrap; nowrap;
-        align-items: center;
-      }
-      sdds-icon:hover {
-        cursor:pointer;
-      }
+  /* demo-wrapper and demo-styles is for demonstration purposes only */
+  .demo-wrapper {
+    display: flex;
+    flex-wrap; nowrap;
+    align-items: center;
+  }
+  sdds-icon:hover {
+    cursor:pointer;
+  }
     </style>
-      <sdds-popover-canvas 
+
+      <sdds-popover-canvas
         placement="${canvasPosLookup[canvasPosition]}"
-        selector="#trigger"> 
+        selector="#trigger">
         <div>
           <h2>A popover canvas!</h2>
           <p>
@@ -77,9 +79,11 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
           </p>
         </div>
       </sdds-popover-canvas>
+
+     <!-- demo-wrapper and demo-styles is for demonstration purposes only -->
       <div class="demo-wrapper">
         <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
-        <sdds-icon id="trigger" name="kebab" size="16px" />
+        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
       </div>
     `,
   );

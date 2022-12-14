@@ -1,23 +1,117 @@
 import { Meta } from '@storybook/addon-docs';
-import './migration.css';
 
 <Meta title="Intro/Migrating from components&nbsp;v4" />
 
 # Migration Docs
 
 Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
+<!-- TODO: remove link to markdownguide.org -->
+<!-- ### MD cheatsheet
+https://www.markdownguide.org/cheat-sheet/ -->
 
 ---
 
-### MD cheatsheet
+## Removed base font-size and moved to `px` instead of `rem`.
 
-https://www.markdownguide.org/cheat-sheet/
+This change affects all components/typography/spacing/grid.
+
+In the past we have used a base value of 4px
+that has been used to calculate the spacing/padding/margins etc with rem. This was done by setting the
+base value (4px) as the font-size on the `<html>`-element, which for some users has caused error with
+custom font-sizes. We have now removed these dependencies and are using pixels in our
+components/spacing/typography/margins.
+
+We are doing this to decrease the dependencies between our packages and we want to make sure the Tegel
+can be used on its own.
+
+#### What action is required?
+
+If you are not yourself using `rem` in your project ideally this change should not affect you, but since it is
+something that has an effect on all components and utilities/foundations we expect that there might be some
+unforeseen problems. These will have our highest prio in order to make the migration to Tegel as smooth as possible.
+
+If you are however using `rem` in your project you would have to consider that the base value will no longer be `4px`.
+This value will now by default be `16px`. So for the element in you project that are using rem these would have to be
+recalculated.
+
+
+## Accordion
+
+[Web Component](/docs/components-accordion--default/)
+
+#### Replaced `affix` with `expand-icon-position`
+
+The attribute `affix` was replaced by `expand-icon-position`, since `affix` is not descriptive enough of what it does.
+
+##### What action is required?
+
+Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="suffix"`.
+
+```jsx
+// Old ❌
+<sdds-accordion>
+  <sdds-accordion-item header="Lorem ipsum" affix="prefix" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+
+// New ✅
+<sdds-accordion>
+  <sdds-accordion-item header="Lorem ipsum" expand-icon-position="start" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+```
+
+#### Added prop for mode-variant and removed class `sdds-on-white-bg`
+Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is
+used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or
+`seconday` to determine which variant is being shown. For this component `primary` is the default value and
+`seconday` represents the old `sdds-on-white-bg`
+
+##### What action is required?
+Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`.
+
+```jsx
+// Old ❌
+<sdds-accordion class="sdds-on-white-bg">
+  <sdds-accordion-item header="Lorem ipsum" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+
+// New ✅
+<sdds-accordion mode-variant="seconday">
+  <sdds-accordion-item header="Lorem ipsum" tabindex="0">
+    // ...
+  </sdds-accordion-item>
+</sdds-accordion>
+```
+
+## Badge
+
+[Web Component](/docs/components-badge--default/)
+
+#### Replaced "default" value of size prop with "lg"
+
+Size value `default` was replaced with value `lg` as part of standardisation size props to use "t-shirt" naming convention.
+
+##### What action is required?
+
+Replace size value `default` with `lg` or just remove prop as component's default size is `lg`.
+
+```jsx
+// Old ❌
+<sdds-badges value="1" is-visible="true" size="default"></sdds-badges>
+
+// New ✅
+<sdds-badges value="1" is-visible="true" size="lg"></sdds-badges>
+```
 
 
 ## Banner
 
 [Native](/docs/components-banner--default/)
-
 
 #### Replaced built in icon with icon component
 
@@ -41,13 +135,42 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
 </div>
 ```
 
+## Block
 
+[Native](/docs/components-block--default/)
+
+#### Renamed classes `sdds-block__default` and `sdds-block__variant` to conform with convention
+
+The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-primary` and `sdds-block-secondary` to conform with convention.
+
+##### What action is required?
+
+Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-primary` and `sdds-block-secondary`.
+
+```jsx
+// Old ❌
+<div class="sdds-block sdds-block__default">
+  <p>Content....</p>
+</div>
+<div class="sdds-block sdds-block__variant">
+  <p>Content....</p>
+</div>
+
+
+// New ✅
+<div class="sdds-block sdds-block-primary">
+  <p>Content....</p>
+</div>
+<div class="sdds-block sdds-block-secondary">
+  <p>Content....</p>
+</div>
+```
 
 ## Button
 
 [Native](/docs/components-button--native/)
 
-[Webcomponent](/docs/components-button--native/)
+[Web Component](/docs/components-button--native/)
 
 #### Added class `sdds-btn-text`
 
@@ -156,6 +279,47 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
 </div>
 ```
 
+## Message
+
+[Native](/docs/components-message--information)
+
+#### Renamed multiple classes to conform with convention.
+
+The following classes was changed to conform with convention:
+ * `sdds-message__icon-active` -> `sdds-message-icon-active`
+ * `sdds-message__extended-active` -> `sdds-message-extended-active`
+ * `sdds-message__type` -> `sdds-message-type`
+ * `sdds-message-icon--informative` -> `sdds-message-icon-informative`
+ * `sdds-message-icon--error` -> `sdds-message-icon-error`
+ * `sdds-message-icon--warning` -> `sdds-message-icon-warning`
+ * `sdds-message-icon--success` -> `sdds-message-icon-success`
+
+ The overall change is that we are dropping the use of `__` and `--` in class names and are
+ moving to single dashes instead.
+
+##### What action is required?
+
+Rename all instances of `__` and `--` from class names in the message component and replace
+with a single dash (`-`).
+
+```jsx
+// Old ❌
+<div class="sdds-message sdds-message__type-informative sdds-message__icon-active">
+  <div>
+    <sdds-icon class="sdds-message-icon sdds-message-icon--informative" name="info" size="20" />
+  </div>
+  <h4 class="sdds-message-single">Single line message goes here.</h4>
+</div>
+
+// New ✅
+<div class="sdds-message sdds-message-type-informative sdds-message-icon-active">
+  <div>
+    <sdds-icon class="sdds-message-icon sdds-message-icon-informative" name="info" size="20" />
+  </div>
+  <h4 class="sdds-message-single">Single line message goes here.</h4>
+</div>
+```
+
 ## Stepper
 
 [Native](/docs/components-stepper--default)
@@ -180,10 +344,45 @@ Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
 </div>
 ```
 
+## Navigation Tabs
+
+[Webcomponent](/docs/components-tabs--navigation-tabs)
+
+#### Changed class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled`
+
+The class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled` was
+changed to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled` to conform
+with convention.
+
+##### What action is required?
+
+Changed all instaces of `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled`
+to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
+
+```jsx
+// Old ❌
+<sdds-navigation-tabs>
+  <a href="#" class="sdds-navigation-tabs--tab__active">Active tab</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a role="link" aria-disabled="true" class="sdds-navigation-tabs--tab__disabled">Disabled tab</a>
+</sdds-navigation-tabs>
+
+// New ✅
+<sdds-navigation-tabs>
+  <a href="#" class="sdds-navigation-tabs-tab-active">Active tab</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a href="#">Tab name</a>
+  <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
+</sdds-navigation-tabs>
+
+```
 
 ## Textarea
 
-[Webcomponent](/docs/components-textarea--default)
+[Web Component](/docs/components-textarea--default)
 
 #### Changed prop name 'max-length'
 
@@ -206,11 +405,53 @@ Rename all instances of `maxlength` to `max-length`.
 
 ```
 
+#### Changed prop name 'readonly'
+
+The prop `readonly` was changed to `read-only` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `readonly` to `read-only`.
+
+```jsx
+// Old ❌
+<sdds-textarea
+    readonly
+></sdds-textarea>
+
+// New ✅
+<sdds-textarea
+    read-only
+></sdds-textarea>
+
+```
+
+#### Changed prop name 'autofocus'
+
+The prop `autofocus` was changed to `auto-focus` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `autofocus` to `auto-focus`.
+
+```jsx
+// Old ❌
+<sdds-textarea
+    autofocus
+></sdds-textarea>
+
+// New ✅
+<sdds-textarea
+    auto-focus
+></sdds-textarea>
+
+```
+
 ## Textfield
 
-[Webcomponent](/docs/components-textarea--default)
+[Web Component](/docs/components-textarea--default)
 
-#### Changed prop name 'max-length'
+#### Changed prop name 'maxlength'
 
 The prop `maxlength` was changed to `max-length` to conform with other prop names.
 
@@ -228,7 +469,85 @@ Rename all instances of `maxlength` to `max-length`.
 <sdds-textfield
     max-length="10"
 ></sdds-textfield>
+```
 
+#### Changed props for label and label-position to align with convention.
+
+The prop `label-inside` was used to set an inside label, and to set an outside label you would pass a `<slot>`.
+This has been changed and aligned with convention. This component now accepts a `label` prop for the text to
+be displayed and a `label-position` to set the position of this label. For no label just leave out the `label`
+and `label-position` props.
+
+##### What action is required?
+
+For all labels inside remove the `label-inside` prop and add `label-position="inside"` and `label="Your label text"`
+props. For label outside remove the `<label slot="sdds-label">Label text</label>` and add `label-position="outside"`
+and `label="Your label text"` props instead.
+
+```jsx
+// Old ❌ - Inside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label-inside="Label text"
+  placeholder="Placeholder">
+</sdds-textfield>
+
+// Old ❌ - Outside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  placeholder="Placeholder">
+   <label slot="sdds-label">Label text</label>
+</sdds-textfield>
+
+
+// New ✅ - Inside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label="Label text"
+  label-position="inside"
+  placeholder="Placeholder"
+></sdds-textfield>
+
+// New ✅ - Outside label
+<sdds-textfield
+  type="text"
+  size="lg"
+  state="none"
+  variant="default"
+  label="Label text"
+  label-position="outside"
+  placeholder="Placeholder"
+  ></sdds-textfield>
+```
+
+#### Changed prop name 'nominwidth'
+
+The prop `nominwidth` was changed to `no-min-width` to conform with other prop names.
+
+##### What action is required?
+
+Rename all instances of `nominwidth` to `no-min-width`.
+
+```jsx
+// Old ❌
+<sdds-textfield
+    nominwidth
+></sdds-textfield>
+
+// New ✅
+<sdds-textfield
+    no-min-width
+></sdds-textfield>
+```
 
 ### Not breaing but highly suggested changes
 
@@ -254,12 +573,98 @@ Change all instances of `<svg>` to `<sdds-icon>`
         d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z"
         fill="currentColor"
       />
-    </svg> 
+    </svg>
 </button>
 
 // New ✅
 <button class="sdds-nav__mob-menu-btn">
-    <sdds-icon name="burger" size="20px" /> 
+    <sdds-icon name="burger" size="20px" />
+</button>
+```
+
+#### Used `<button>` instead of `<a>` for `sdds-sidebar-nav__item-link` inside `sdds-sidebar-nav__extended`
+
+The header was previously using `<a>` for the `sdds-sidebar-nav__item-link` that was a child of `sdds-sidebar-nav__extended`, we have now changed this
+to a `<button>` instead.
+
+##### What action is required?
+
+Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it's child of `sdds-sidebar-nav__extended`.
+
+```jsx
+// Old ❌
+<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
+  <a class="sdds-sidebar-nav__item-link" href="#">
+    <svg
+      class="sdds-sidebar-nav__icon"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="#e2e2e4"
+      xmlns="http://www.w3.org/2000/svg">
+      <rect y="0.334473" width="20" height="20" />
+    </svg>
+      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
+    <svg
+      class="sdds-sidebar-nav__chevron"
+      width="12"
+      height="7"
+      viewBox="0 0 12 7"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 1L6 6L11 1"
+        stroke="currentColor"
+        stroke-width="1.25"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+      </path>
+    </svg>
+  </a>
+  // ...
+</li>
+// New ✅
+<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
+  <button class="sdds-sidebar-nav__item-link">
+    <div>
+      <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
+    </div>
+      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
+    <div>
+      <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
+    </div>
+  </button>
+  // ...
+</li>
+```
+
+#### Used `<button>` instead of `<a>` for `sdds-sidebar-mheader__close` and used `<sdds-icon>` instead of hard `<svg>`
+
+The `sdds-sidebar-mheader` was previously using an `<a>` for it close button, we have changed this to be a button instead.
+
+##### What action is required?
+
+Change all instances of `<a href="#" class="sdds-sidebar-mheader__close">` to `<button class="sdds-sidebar-mheader__close">` and change all instances of `<svg>` to `<sdds-icon>`.
+
+```jsx
+// Old ❌
+<a href="#" class="sdds-sidebar-mheader__close">
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.40338 2.34308C3.11048 2.05019 2.63561 2.05019 2.34272 2.34308C2.04982 2.63598 2.04982 3.11085 2.34272 3.40374L6.93897 8L2.34283 12.5961C2.04994 12.889 2.04994 13.3639 2.34283 13.6568C2.63572 13.9497 3.1106 13.9497 3.40349 13.6568L7.99963 9.06066L12.5958 13.6568C12.8887 13.9497 13.3635 13.9497 13.6564 13.6568C13.9493 13.3639 13.9493 12.889 13.6564 12.5961L9.06029 8L13.6565 3.40376C13.9494 3.11086 13.9494 2.63599 13.6565 2.3431C13.3636 2.0502 12.8888 2.0502 12.5959 2.3431L7.99963 6.93934L3.40338 2.34308Z"
+      fill="#171719"/>
+  </svg>
+</a>
+// New ✅
+<button class="sdds-sidebar-mheader__close">
+  <sdds-icon name="cross" size="20px" />
 </button>
 ```
 
@@ -289,6 +694,105 @@ Change all instances of `<svg>` to `<sdds-icon>`
 </button>
 ```
 
+#### Changed div to span on `sdds-nav__mob-menu-icon`
+
+The header previously had a `<div>` with the class `sdds-nav__mob-menu-icon`. This has been changed to a `span` instead.
+
+##### What action is required?
+
+Change all `<div>` with class `sdds-nav__mob-menu-icon` to span.
+
+```jsx
+// Old ❌
+<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
+  <div id='sdds-nav__mob-menu-icon'>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+  </div>
+</button>
+
+// New ✅
+<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
+  <span id='sdds-nav__mob-menu-icon'>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
+    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
+  </span>
+</button>
+```
+
+
+#### Changed p to span on `sdds-nav__item-core-text`
+
+The header previously had a `<p>` with the class  `sdds-nav__item-core-text`. This has been changed to a `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with class `sdds-nav__item-core-text` to span.
+
+```jsx
+// Old ❌
+<li class='sdds-nav__item'>
+    <a class='sdds-nav__item-core' href='#'>
+        <p class='sdds-nav__item-core-text'>Item 1</p>
+    </a>
+</li>
+
+// New ✅
+<li class='sdds-nav__item'>
+    <a class='sdds-nav__item-core' href='#'>
+        <span class='sdds-nav__item-core-text'>Item 1</span>
+    </a>
+</li>
+```
+
+#### Changed p to span on `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`
+
+The header previously had `<p>` with the class  `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`. These has been changed to `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
+
+```jsx
+// Old ❌
+<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+    <p class='sdds-nav__avatar-title'>Employee Name</p>
+    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+</div>
+
+// New ✅
+<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
+    <span class='sdds-nav__avatar-title'>Employee Name</span>
+    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+</div>
+```
+
+
+#### Changed `<div>` to span on `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`
+
+The header previously had `<div>` with the class  `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`. These has been changed to `span` instead.
+
+##### What action is required?
+
+Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
+
+```jsx
+// Old ❌
+<div class='sdds-nav__avatar-info'>
+    <p class='sdds-nav__avatar-title'>Employee Name</p>
+    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
+</div>
+
+// New ✅
+<span class='sdds-nav__avatar-info'>
+    <span class='sdds-nav__avatar-title'>Employee Name</span>
+    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
+</span>
+```
+
+
 ## Footer
 
 [Native](/docs/components-footer--default)
@@ -311,6 +815,95 @@ Change all instances of `<svg>` to `<sdds-icon>`
 
 // New ✅
 <span class='sdds-footer-top-icon'>
-  <sdds-icon name="chevron_down" size="16px" /> 
+  <sdds-icon name="chevron_down" size="16px" />
 </span>
+```
+
+
+## Toast
+
+[Native](/docs/components-toast--default)
+
+#### Used `<button>` instead of `<span>`, and icon component for `sdds-toast-dismiss`
+
+The toast has previously used a `<span>` for the close button in the code example. We have now switched it to our own `<button>` instead.
+We also removed the icon from the sdds-toast-dismiss class. The sdds-icon component should be used instead.
+
+##### What action is required?
+
+Change all instances the toast dismiss button like shown below:
+
+```jsx
+// Old ❌
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+    <span class="sdds-toast-dismiss"></span>
+  </div>
+</div>
+
+
+// New ✅
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+      <button type="button" aria-label="close" class="sdds-toast-dismiss">
+        <sdds-icon name="cross" size="20px"></sdds-icon>
+      </button>
+  </div>
+</div>
+```
+
+## Modal
+
+[Web component](/docs/components-modal--web-component)
+
+#### Refactored how the modal is opened and removed dependacy to trigger
+The modal component has previously been opened via a trigger that was added on a button,
+which would be the controler of the button. This has now been refactored and the modal is
+now opened based on its own boolean prop, called `open`. This change is done in order to
+make the component more inline with how these sort of thing are generally done. We also
+dont want to assume that is is a button that controls the open/closed state of the modal
+and this approach gives you more freedom on how you open your modals.
+
+The modal will still have its public method `openModal()` which can be called on the
+element to set its `open` prop to true.
+
+##### What action is required?
+All buttons that has previously been the triggers for the buttons now needs to alter the
+modals `open` prop and set it to `true` in order to open the component.
+
+```jsx
+// Old ❌
+<button class="sdds-btn sdds-btn-primary modal1">
+  Open modal
+</button>
+
+<sdds-modal id="modal-test" size="lg" selector=".modal1" actions="static">
+  <h5 class="sdds-modal-headline" slot="sdds-modal-headline">
+    Headline
+  </h5>
+  <div class="sdds-modal-body" slot="sdds-modal-body">
+    Content....
+  </div>
+</sdds-modal>
+
+
+// New ✅
+<button onclick="openMyModal()" id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
+
+<sdds-modal id="my-modal" size="md" actions="static">
+  <h5 class="sdds-modal-headline" slot="sdds-modal-headline">
+    Headline
+  </h5>
+  <div class="sdds-modal-body" slot="sdds-modal-body">
+    Content...
+  </div>
+</sdds-modal>
+<script>
+  /* This is just an example of how it can be done. */
+  const function openMyModal(){
+    document.getElementById("my-modal").setAttribute("open", "true");
+  }
+</script>
 ```

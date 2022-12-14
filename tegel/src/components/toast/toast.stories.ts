@@ -5,6 +5,18 @@ export default {
   title: 'Components/Toast',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=5903%3A245536&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=5903%3A245536&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     toastType: {
@@ -25,11 +37,11 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Native/Web Component',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
     },
     icon: {
       name: 'Icon',
@@ -46,7 +58,7 @@ export default {
     toastType: 'Success',
     subheader: false,
     link: false,
-    iconType: 'Webcomponent',
+    iconType: 'Web Component',
     icon: 'recommended',
   },
 };
@@ -60,7 +72,7 @@ const iconLookup = {
   Success: 'tick',
   Info: 'info',
   Warning: 'warning',
-  Error: 'info',
+  Error: 'error',
 };
 
 const Template = ({ toastType, subheader, link, iconType, icon }) => {
@@ -71,10 +83,9 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         iconType === 'Native'
           ? `
     <style>
+    /* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
     @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-      i.sdds-icon {
-        font-size: 20px;
-      }
+
     </style>
       `
           : ''
@@ -88,7 +99,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
       ${
         iconType === 'Native'
           ? `<i class="sdds-icon ${iconValue}"></i>`
-          : `<sdds-icon name="${iconValue}" size="20px" />
+          : `<sdds-icon name="${iconValue}" size="20px"></sdds-icon>
       `
       }
     </div>
@@ -99,13 +110,20 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         <span class="sdds-toast-headline">This is ${
           toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
         } ${toastType.toLowerCase()} message</span>
-        <span class='sdds-toast-dismiss'></span>
+        <button type="button" aria-label="close" class="sdds-toast-dismiss">
+          ${
+            iconType === 'Native'
+              ? `<i class="sdds-icon cross"></i>`
+              : `<sdds-icon name="cross" size="20px"></sdds-icon>
+          `
+          }
+        </button>
       </div>
       ${
         subheader || link
           ? `\n<div class="sdds-toast-body">\
           ${subheader ? '\n<span class="sdds-toast-subheadline">Short subheader</span>' : ''}\
-           ${link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
+          ${link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
           </div> `
           : ''
       }

@@ -1,11 +1,25 @@
+require('dotenv').config();
+
+let addons = [
+  '@storybook/addon-links',
+  '@storybook/addon-essentials',
+  // '@storybook/addon-interactions',
+  '@storybook/addon-notes/register',
+];
+
+if (process.env.STORYBOOK_ENV === 'development') {
+  addons = [
+    ...addons,
+    'storybook-dark-mode',
+    'storybook-addon-designs',
+    '@storybook/addon-a11y',
+    'addon-screen-reader',
+  ];
+}
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-notes/register',
-    'storybook-dark-mode',
-  ],
+  addons: addons,
   framework: '@storybook/html',
+  staticDirs: ['../dist', '../public'],
 };

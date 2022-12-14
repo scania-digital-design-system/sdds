@@ -4,6 +4,18 @@ export default {
   title: 'Components/Stepper',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10508%3A32221&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10508%3A32221&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     size: {
@@ -31,11 +43,11 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Native/Web Component',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
     },
   },
   args: {
@@ -47,7 +59,7 @@ export default {
 };
 
 const Template = ({ size, style, showLabel, iconType }) => {
-  let sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
+  const sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
     'Default': '',
@@ -56,42 +68,19 @@ const Template = ({ size, style, showLabel, iconType }) => {
   };
   return formatHtmlPreview(
     `
-    <style>
+
     ${
       iconType === 'Native'
-        ? `  @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+        ? ` <style>/* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
+  @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');</style>
     `
         : ''
     }
-      ${iconType === 'Native' ? '.sdds-icon.warning' : 'sdds-icon[name="warning"]'} {
-        color: var(--sdds-negative)
-      }
-      ${iconType === 'Native' ? '.sdds-icon.tick' : 'sdds-icon[name="tick"]'} {
-        color: var(--sdds-white)
-      }
-      ${
-        iconType === 'Native'
-          ? `
-      .sdds-icon.warning {
-        font-size: ${size === 'Small' ? '16px' : '18px'};
-      }
-      .sdds-icon.warning:before{
-        line-height: 1;
-      }
-      .sdds-icon.tick {
-        font-size: ${size === 'Small' ? '16px' : '20px'};
-      }
-      .sdds-icon.tick:before{
-        line-height: 1;
-      }`
-          : `sdds-icon{
-          line-height: 1;
-      }`
-      }
-    </style>
+
+
     <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleLookup[style]}">
-      
+
       <div class="sdds-stepper__step sdds-stepper__step--value">
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">1</span>
@@ -105,7 +94,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
           iconType === 'Native'
             ? `<i class="sdds-icon warning"></i>
         `
-            : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}" />`
+            : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}"></sdds-icon> `
         }
         </div>
         ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
@@ -117,7 +106,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         </div>
         ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
       </div>
-      
+
       <div class="sdds-stepper__step sdds-stepper__step--success">
         <div class="sdds-stepper__step-icon">
         ${
@@ -125,7 +114,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
             ? `<i class="sdds-icon tick"></i>
         `
             : `<div>
-        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}" />
+        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}"></sdds-icon> 
         </div>`
         }
         </div>

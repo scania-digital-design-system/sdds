@@ -8,6 +8,18 @@ export default {
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
     },
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=1574%3A72148&t=rVXuTOgTmXPauyHd-1',
+      },
+    ],
   },
   argTypes: {
     text: {
@@ -80,7 +92,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'size', neq: 'xs' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
     icon: {
       name: 'Icon',
@@ -89,15 +101,15 @@ export default {
         type: 'select',
       },
       options: ['none', ...iconsNames],
-      if: { arg: 'size', neq: 'xs' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Webcomponent',
+      description: 'Native/Web Component',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
       if: { arg: 'icon', neq: 'none' },
     },
   },
@@ -148,15 +160,15 @@ const NativeTemplate = ({
   return formatHtmlPreview(
     `
   <style>
+  /* demo-wrapper is for demonstration purposes only*/
     ${
       icon && iconType === 'Native'
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i.sdds-btn-icon{
       font-size: ${size === 'Small' ? '16' : '20'}px;
-    }`
+    }\n `
         : ''
-    }
-    .demo-wrapper{
+    }\ .demo-wrapper{
       width: 100%;
     }
   </style>
@@ -175,7 +187,7 @@ const NativeTemplate = ({
       iconType === 'Native'
         ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
         : `<sdds-icon class='sdds-btn-icon ' size='${
-            sizeLookUp[size] == 'sm' ? '16px' : '20px'
+            sizeLookUp[size] === 'sm' ? '16px' : '20px'
           }' name='${icon}'></sdds-icon>`
     }
   `

@@ -1,17 +1,16 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-accordion-item',
-  styleUrl: 'accordion.scss',
+  styleUrl: 'accordion-item.scss',
   shadow: true,
 })
 export class AccordionItem {
   /** The header gives users the context about the additional information available inside the panel */
   @Prop() header: string = '';
 
-  /** Icon can be placed after or before accordion header. Values accepted: `prefix` or `suffix`
-   *  Default value is `suffix` */
-  @Prop() affix: 'prefix' | 'suffix' = 'suffix';
+  /** Changes where the expand icon is placed. */
+  @Prop() expandIconPosition: 'start' | 'end' = 'end';
 
   /** Disabled option in `boolean`. */
   @Prop() disabled: boolean = false;
@@ -39,28 +38,31 @@ export class AccordionItem {
 
   render() {
     return (
-      <div
-        class={`sdds-accordion-item 
+      <Host>
+        <div
+          class={`sdds-accordion-item 
         ${this.disabled ? 'disabled' : ''} 
         ${this.expanded ? 'expanded' : ''}
         `}
-      >
-        <div class={`sdds-accordion-header-${this.affix}`} onClick={() => this.openAccordion()}>
-          <div class="sdds-accordion-title">{this.header}</div>
-          <div class="sdds-accordion-icon">
-            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+        >
+          <div
+            class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
+            onClick={() => this.openAccordion()}
+          >
+            <div class="sdds-accordion-title">{this.header}</div>
+            <div class="sdds-accordion-icon">
+              <sdds-icon name="chevron_down" size="16px"></sdds-icon>
+            </div>
           </div>
-        </div>
-        <div
-          class={`sdds-accordion-panel 
+          <div
+            class={`sdds-accordion-panel 
             ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
             `}
-        >
-          <slot></slot>
+          >
+            <slot></slot>
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

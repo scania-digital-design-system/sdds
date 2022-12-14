@@ -2,10 +2,22 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 
 export default {
-  title: 'Components/Dropdown-filter',
+  title: 'Components/Dropdown Filter',
   parameters: {
     layout: 'centered',
     notes: readme,
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=9754%3A22916&t=M7Ova7xZaoeMwb5e-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=9754%3A22916&t=M7Ova7xZaoeMwb5e-1',
+      },
+    ],
   },
   argTypes: {
     size: {
@@ -23,6 +35,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
+      description: 'Disables the component',
       control: {
         type: 'boolean',
       },
@@ -42,6 +55,19 @@ export default {
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
+    },
   },
   args: {
     size: 'Large',
@@ -49,11 +75,25 @@ export default {
     disabled: false,
     helper: '',
     defaultOption: 'Option 1',
+    state: 'Default',
+    openDirection: 'Auto',
   },
 };
 
-const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defaultOption }) => {
+const FilterTemplate = ({
+  size,
+  disabled = false,
+  helper = '',
+  label,
+  state = 'default',
+  placeholder,
+  labelPosition,
+  defaultOption,
+  openDirection,
+}) => {
+  const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
+  const labelPosLookup = { None: 'no-default', Outside: 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -63,17 +103,24 @@ const FilterTemplate = ({ size, disabled = false, helper = '', placeholder, defa
 
   return formatHtmlPreview(`
     <style>
+    /* demo-wrapper is for demonstration purposes only*/
       .demo-wrapper {
         width: 300px;
-        height:200px;}
+        height:200px;
+        }
     </style>
+
     <div class="demo-wrapper">
       <sdds-dropdown-filter
         id="sdds-dropdown-filter"
         size="${sizeLookup[size]}"
         placeholder="${placeholder}"
-        disabled="${disabled}"\
-        ${helper !== '' ? `\n    helper="${helper}"` : ''}
+        disabled="${disabled}"
+        open-direction="${openDirection.toLowerCase()}"
+        label-position="${labelPosLookup[labelPosition]}"
+        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
+        ${helper !== '' ? `helper="${helper}"` : ''}
+        state="${stateValue}"
         data='[
           {
             "value": "option-1",

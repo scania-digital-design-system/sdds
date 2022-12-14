@@ -12,12 +12,12 @@ When integrating in own solution, please consider making own classes for correct
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                               | Type                | Default     |
-| ----------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------- |
-| `isSmall`   | `is-small`   | <span style="color:red">**[DEPRECATED]**</span> Use size prop instead. Changes badge from default to small size<br/><br/> | `boolean`           | `false`     |
-| `isVisible` | `is-visible` | Changes visibility of badge                                                                                               | `boolean`           | `true`      |
-| `size`      | `size`       | Component is available in size default and small (small dot). Default size is default                                     | `"default" \| "sm"` | `'default'` |
-| `value`     | `value`      | Value shown in badge                                                                                                      | `string`            | `''`        |
+| Property    | Attribute    | Description                                                                                                             | Type           | Default |
+| ----------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- | -------------- | ------- |
+| `isSmall`   | `is-small`   | <span style="color:red">**[DEPRECATED]**</span> Use size prop instead. Changes badge from large to small size<br/><br/> | `boolean`      | `false` |
+| `isVisible` | `is-visible` | Changes visibility of badge                                                                                             | `boolean`      | `true`  |
+| `size`      | `size`       | Sets component size.                                                                                                    | `"lg" \| "sm"` | `'lg'`  |
+| `value`     | `value`      | Value shown in badge                                                                                                    | `string`       | `''`    |
 
 
 ----------------------------------------------

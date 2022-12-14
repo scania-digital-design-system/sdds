@@ -3,10 +3,20 @@ export default {
   parameters: {
     layout: 'fullpage',
   },
+  argTypes: {
+    modeVariant: {
+      name: "Mode variant",
+      control: {
+        type: 'radio'
+      }, 
+      options: ['Primary', 'Secondary'],
+      defaultValue: 'Primary'
+    }
+  }
 };
 
-const Template = () => `
-  <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example">
+const Template = ({modeVariant}) => `
+  <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" mode-variant="${modeVariant.toLowerCase()}">
     <a href="#">Tab name</a>
     <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Tab name</a>
     <a href="#">Tab name</a>

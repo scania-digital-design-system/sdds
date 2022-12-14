@@ -4,6 +4,18 @@ export default {
   title: 'Components/Message',
   parameters: {
     layout: 'centered',
+    design: [
+      {
+        name: 'Figma',
+        type: 'figma',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11884%3A47370&t=Ne6myqwca5m00de7-1',
+      },
+      {
+        name: 'Link',
+        type: 'link',
+        url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=11884%3A47370&t=Ne6myqwca5m00de7-1',
+      },
+    ],
   },
   argTypes: {
     messageType: {
@@ -31,16 +43,16 @@ export default {
     },
     iconType: {
       name: 'Icon',
-      description: 'Switch between show a native/webcomponent icon.',
+      description: 'Switch between show a native/web component icon.',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Webcomponent'],
+      options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
     },
     showExtendedMessage: {
       name: 'Extended Message',
-      desription: 'Show an extended message',
+      description: 'Show an extended message',
       control: {
         type: 'boolean',
       },
@@ -50,7 +62,7 @@ export default {
     messageType: 'Information',
     variant: 'On light',
     icon: false,
-    iconType: 'Native',
+    iconType: 'Web Component',
     showExtendedMessage: false,
   },
 };
@@ -61,33 +73,37 @@ const nativeIconNameLookup = {
   Warning: 'warning',
   Success: 'tick',
 };
-const colorLookup = {
-  Information: 'information',
-  Error: 'negative',
-  Warning: 'warning',
-  Success: 'positive',
-};
 
 const Template = ({ messageType, icon, iconType, showExtendedMessage, variant }) => {
-  let messageTypeClass = messageType === 'Information' ? 'sdds-message__type-informative' : `sdds-message__type-${messageType.toLowerCase()}`;
-  let iconClass = messageType === 'Information' ? 'sdds-message-icon--informative' : `sdds-message-icon--${messageType.toLowerCase()}`;
-  let typeCssNameVar = messageType === 'Information' ? 'informative' : messageType.toLowerCase();
+  const messageTypeClass =
+    messageType === 'Information'
+      ? 'sdds-message-type-informative'
+      : `sdds-message-type-${messageType.toLowerCase()}`;
+  const iconClass =
+    messageType === 'Information'
+      ? 'sdds-message-icon-informative'
+      : `sdds-message-icon-${messageType.toLowerCase()}`;
   const variantValue = variant === 'On dark' ? 'sdds-message-ongrey' : '';
-  let iconHtml =
+  const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
-      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20" /></div>`;
+      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20"></sdds-icon></div>`;
 
   return formatHtmlPreview(
-    ` 
-    <style>
-    ${iconType === 'Native' ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');` : ''}
-    .sdds-message-icon--${typeCssNameVar} {
-      color: var(--sdds-${colorLookup[messageType]});
-      font-size: 20px;
+    `
+
+    ${
+      iconType === 'Native'
+        ? `<style>
+    /* Note: In case using WebFont icons, please make sure to import icons css file in your implementation */
+    @import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
+    </style>`
+        : ''
     }
-  </style>
-    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message__icon-active' : ''} ${showExtendedMessage ? 'sdds-message__extended-active' : ''} ${variantValue}">
+
+    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
+      showExtendedMessage ? 'sdds-message-extended-active' : ''
+    } ${variantValue}">
     ${icon ? iconHtml : ''}
     <h4 class="sdds-message-single">
       Single line message goes here.
@@ -103,7 +119,6 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
 };
 
 export const Information = Template.bind({});
-Information.args = {};
 
 export const Error = Template.bind({});
 Error.args = {

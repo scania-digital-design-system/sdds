@@ -5,11 +5,6 @@
   @include properties($token);
 }
 
-//Function to convert px value into rem
-@function rem-size($target, $context: $base-unit) {
-  @return ($target / $context) * 1rem;
-}
-
 @mixin properties($map) {
   @each $name, $value in $map {
     #{$name}: $value;
@@ -32,6 +27,6 @@
     $val: ($step + ($step - 8)) * 4;
   }
 
-  // Return value in rem
-  @return calc(((#{$val}/ 4)) * 1rem);
+  // Return value in pixels
+  @return #{$val + px};
 }

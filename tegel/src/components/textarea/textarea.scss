@@ -5,7 +5,7 @@
 }
 
 @mixin textfield-base {
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 4px 4px 0 0;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -44,14 +44,6 @@
     color: transparent;
   }
 
-  &::input-placeholder {
-    color: transparent;
-  }
-
-  &:placeholder {
-    color: transparent;
-  }
-
   ::placeholder {
     color: transparent;
   }
@@ -65,7 +57,7 @@
 
 .sdds-textarea-container {
   //@extend .sdds-textfield-container;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 4px 4px 0 0;
   position: relative;
   box-sizing: border-box;
 
@@ -80,9 +72,16 @@
   border-bottom: 0;
 }
 
+.sdds-textarea-container {
+  .sdds-textarea-wrapper {
+    position: relative;
+    width: unset;
+    min-width: 100%;
+  }
+}
+
 .sdds-textarea-container:not(.sdds-textarea-disabled) {
   .sdds-textarea-wrapper {
-    //@extend .sdds-textfield-bar;
     &::before,
     &::after {
       content: '';
@@ -100,12 +99,6 @@
     &::after {
       right: 50%;
     }
-
-    //@extend end
-
-    position: relative;
-    width: unset;
-    min-width: 100%;
 
     &::after,
     &::before {
@@ -233,7 +226,6 @@
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
-  flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textarea-helper);
   flex-grow: 2;

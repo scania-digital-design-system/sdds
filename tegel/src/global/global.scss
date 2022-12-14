@@ -12,9 +12,8 @@
 // Typography
 @import 'scania-fonts';
 @import 'scania-fonts-vars';
+@import 'scania-fonts-selectors';
 
-//FIXME: remove if not needed for component to work OK
-//@import '../theme/core/typography/typography-vars.scss';
 //@import '../theme/core/typography/selectors';
 
 // Spacing
@@ -24,7 +23,8 @@
 @import '../theme/core/grid/grid';
 
 // Tegel reset
-@import '../theme/light/src/_reboot.scss';
+
+/* @import '../theme/light/src/_reboot.scss'; */
 
 // Utility classes
 @import 'utility-classes';
@@ -68,5 +68,12 @@
 @import 'src/components/modal/modal';
 
 :root {
-  --johnny-red: purple;
+  --johnny-red: green;
+}
+
+body {
+  font-family: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  flex: 1;
 }
