@@ -4,7 +4,7 @@
   $value: index($z-index, $element);
 
   @if $value {
-    @return ($value - 1) * 10;
+    @return ($value - 1) * 100;
   }
 
   @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
