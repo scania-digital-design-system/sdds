@@ -18,6 +18,7 @@
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-datetime](../datetime)
  - [sdds-modal](../modal)
+ - [sdds-stepper-item](../stepper/stepper-item)
  - [sdds-textarea](../textarea)
 
 ### Graph
@@ -26,6 +27,7 @@ graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-datetime --> sdds-icon
   sdds-modal --> sdds-icon
+  sdds-stepper-item --> sdds-icon
   sdds-textarea --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -104,7 +104,11 @@ const Template = ({ size, style, showLabel, iconType }) => {
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
+        ${
+          showLabel
+            ? '<label class="sdds-stepper__step_label">Step inactive with looooong text</label>'
+            : ''
+        }
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--success">
