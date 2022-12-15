@@ -16,11 +16,13 @@
 ### Used by
 
  - [sdds-accordion-item](../accordion/accordion-item)
+ - [sdds-stepper-item](../stepper/stepper-item)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-accordion-item --> sdds-icon
+  sdds-stepper-item --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
