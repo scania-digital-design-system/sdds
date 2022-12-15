@@ -7,20 +7,17 @@ $border-types: top, right, bottom, left;
   .sdds-divider-#{$type} {
     background-color: var(--sdds-divider-#{$type});
     height: 1px;
-    box-sizing: border-box;
   }
 
   .sdds-divider-#{$type}-vertical {
     background-color: var(--sdds-divider-#{$type}-vertical);
     height: 100%;
     width: 1px;
-    box-sizing: border-box;
   }
 
   @each $border-type in $border-types {
     .sdds-divider-#{$type}-border-#{$border-type} {
       border-#{$border-type}: 1px solid var(--sdds-divider-#{$type}-border-#{$border-type});
-      box-sizing: border-box;
     }
   }
 }

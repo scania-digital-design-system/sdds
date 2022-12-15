@@ -1,9 +1,6 @@
 @import './spinner-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 :host {
-  @include sdds-box-sizing;
-
   display: block;
 }
 

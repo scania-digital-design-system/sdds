@@ -1,9 +1,6 @@
 @import '../../../mixins/focus-state';
-@import '../../../mixins/box-sizing';
 
 .sdds-navigation-tabs {
-  @include sdds-box-sizing;
-
   background-color: var(--sdds-navigation-tabs-bg);
   position: relative;
   display: flex;

@@ -43,11 +43,11 @@ export default {
     },
     iconType: {
       name: 'Icon',
-      description: 'Switch between show a native/web component icon.',
+      description: 'Switch between show a native/webcomponent icon.',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Web Component'],
+      options: ['Native', 'Webcomponent'],
       if: { arg: 'icon', eq: true },
     },
     showExtendedMessage: {
@@ -62,7 +62,7 @@ export default {
     messageType: 'Information',
     variant: 'On light',
     icon: false,
-    iconType: 'Web Component',
+    iconType: 'Webcomponent',
     showExtendedMessage: false,
   },
 };

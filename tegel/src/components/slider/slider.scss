@@ -1,9 +1,6 @@
 @import 'slider-theme-vars';
-@import '../../mixins/box-sizing';
 
 sdds-slider {
-  @include sdds-box-sizing;
-
   width: 100%;
 
   --sdds-slider-inputfield-bg: var(--sdds-white);

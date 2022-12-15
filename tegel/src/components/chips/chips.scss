@@ -1,9 +1,6 @@
 @import './chips-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 .sdds-chip {
-  @include sdds-box-sizing;
-
   color: var(--sdds-chips-color);
   background-color: var(--sdds-chips-bg);
   display: inline-flex;
@@ -45,7 +42,7 @@
     }
 
     &:hover {
-      background-color: var(--sdds-blue-600);
+      background-color: var(--sdds-chips-bg-active-hover);
     }
   }
 

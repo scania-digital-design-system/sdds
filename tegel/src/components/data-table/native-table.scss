@@ -1,9 +1,6 @@
 @import '../../mixins/focus-state';
-@import '../../mixins/box-sizing';
 
 .sdds-table {
-  @include sdds-box-sizing;
-
   border-collapse: collapse;
   display: table;
 
@@ -13,7 +10,7 @@
     text-align: left;
 
     // 24px to account for header component that overlaps
-    height: 64px;
+    height: 32px;
     display: table-caption;
     position: relative;
     background-color: var(--sdds-grey-400);
@@ -125,7 +122,7 @@
   &.sdds-table--compact {
     .sdds-table__title {
       // 24px to account for header component that overlaps
-      height: 56px;
+      height: 24px;
     }
 
     .sdds-table__body-cell,

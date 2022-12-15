@@ -61,6 +61,9 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
     flex-wrap; nowrap;
     align-items: center;
   }
+  .sdds-theme-dark .demo-wrapper {
+    color: #fff;
+  }
   sdds-icon:hover {
     cursor:pointer;
   }

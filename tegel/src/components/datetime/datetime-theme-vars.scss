@@ -2,6 +2,7 @@
 .sdds-theme-light {
   --sdds-datetime-color: var(--sdds-grey-868);
   --sdds-datetime-bg: var(--sdds-white);
+  --sdds-datetime-icon: var(--sdds-grey-868);
   --sdds-datetime-border-bottom: var(--sdds-grey-400);
   --sdds-datetime-placeholder: var(--sdds-grey-500);
   --sdds-datetime-border-bottom-hover: var(--sdds-grey-600);
@@ -41,20 +42,21 @@
 }
 
 .sdds-theme-dark {
-  --sdds-datetime-color: var(--sdds-white);
-  --sdds-datetime-bg: var(--sdds-black);
+  --sdds-datetime-color: var(--sdds-grey-50);
+  --sdds-datetime-bg: var(--sdds-grey-900);
+  --sdds-datetime-icon: var(--sdds-grey-50);
   --sdds-datetime-border-bottom: var(--sdds-grey-400);
   --sdds-datetime-placeholder: var(--sdds-grey-500);
   --sdds-datetime-border-bottom-hover: var(--sdds-grey-600);
 
   // Disabled
-  --sdds-datetime-disabled-bg: var(--sdds-black);
+  --sdds-datetime-disabled-bg: var(--sdds-grey-900);
   --sdds-datetime-disabled-color: var(--sdds-grey-400);
   --sdds-datetime-disabled-placeholder: var(--sdds-grey-400);
   --sdds-datetime-disabled-label: var(--sdds-grey-400);
 
   // Label
-  --sdds-datetime-label-color: var(--sdds-white);
+  --sdds-datetime-label-color: var(--sdds-grey-100);
   --sdds-datetime-label-inside-color: var(--sdds-grey-700);
   --sdds-datetime-placeholder-focus-color: var(--sdds-grey-500);
 

@@ -1,8 +1,4 @@
-@import '../../mixins/box-sizing';
-
 @mixin datetime-base {
-  @include sdds-box-sizing;
-
   border-radius: 4px 4px 0 0;
   width: 100%;
   box-sizing: border-box;
@@ -122,6 +118,10 @@
     transform: translateY(-50%);
     right: 18px;
     pointer-events: none;
+
+    path {
+      fill: var(--sdds-datetime-icon);
+    }
   }
 }
 
@@ -145,6 +145,14 @@ slot[name='sdds-label']::slotted(*) {
 
 @mixin placeholder-label {
   &::placeholder {
+    color: transparent;
+  }
+
+  &::input-placeholder {
+    color: transparent;
+  }
+
+  &:placeholder {
     color: transparent;
   }
 

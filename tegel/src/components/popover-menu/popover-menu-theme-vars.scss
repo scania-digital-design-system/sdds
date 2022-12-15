@@ -1,8 +1,12 @@
 :root,
 .sdds-theme-light {
-  --sdds-popover-bg-default: #fff;
+  --sdds-popover-color-default: var(--sdds-grey-958);
+  --sdds-popover-bg-default: var(--sdds-white);
+  --sdds-popover-bg-hover: var(--sdds-grey-100);
 }
 
 .sdds-theme-dark {
-  --sdds-popover-bg-default: #000;
+  --sdds-popover-color-default: var(--sdds-white);
+  --sdds-popover-bg-default: var(--sdds-grey-868);
+  --sdds-popover-bg-hover: var(--sdds-grey-800);
 }

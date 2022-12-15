@@ -1,9 +1,6 @@
 @import './tooltip-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 .sdds-tooltip {
-  @include sdds-box-sizing;
-
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   color: var(--sdds-tooltip-color);

@@ -342,15 +342,20 @@
         display: block;
       }
     }
+
+    path {
+      fill: var(--sdds-textfield-color);
+    }
   }
 
   .sdds-textfield-input {
     padding-right: 54px;
-    background-color: transparent;
+
+    //background-color: transparent;
   }
 
   .sdds-textfield-container {
-    background-color: transparent;
+    //background-color: transparent;
   }
 }
 

@@ -104,11 +104,11 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Native/Webcomponent',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Web Component'],
+      options: ['Native', 'Webcomponent'],
       if: { arg: 'icon', neq: 'none' },
     },
   },
@@ -121,7 +121,7 @@ export default {
     disabled: false,
     onlyIcon: false,
     icon: 'none',
-    iconType: 'Web Component',
+    iconType: 'Webcomponent',
   },
 };
 
@@ -202,13 +202,13 @@ WebComponent.args = {};
 export const WebComponentWithIcon = WebComponentTemplate.bind({});
 WebComponentWithIcon.args = {
   icon: 'truck',
-  iconType: 'Web Component',
+  iconType: 'Webcomponent',
 };
 
 export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
 WebComponentOnlyIcon.args = {
   text: '',
-  iconType: 'Web Component',
+  iconType: 'Webcomponent',
   onlyIcon: true,
   icon: 'truck',
 };

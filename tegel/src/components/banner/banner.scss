@@ -1,5 +1,4 @@
 @import 'banner-theme-vars';
-@import '../../mixins/box-sizing';
 
 :host,
 :root {
@@ -12,8 +11,6 @@
 }
 
 .sdds-banner {
-  @include sdds-box-sizing;
-
   background-color: var(--sdds-banner-bg-default);
   padding: var(--sdds-spacing-element-16);
   display: flex;

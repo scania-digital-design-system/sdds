@@ -1,5 +1,4 @@
 @import 'modal-theme-vars';
-@import '../../mixins/box-sizing';
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
 //Media rules doesn't calculate correct with using rem
@@ -130,6 +129,7 @@ $modals: (
 }
 
 @mixin modal-headline {
+  color: var(--sdds-modal-text);
   font: var(--sdds-headline-05);
   letter-spacing: var(--sdds-headline-05-ls);
   margin: 0;
@@ -137,6 +137,7 @@ $modals: (
 }
 
 @mixin modal-body {
+  color: var(--sdds-modal-text);
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
@@ -152,8 +153,6 @@ $modals: (
 /* MODAL STYLING */
 
 .sdds-modal {
-  @include sdds-box-sizing;
-
   background-color: var(--sdds-modal-bg);
   z-index: 4;
   margin: auto;
@@ -162,6 +161,7 @@ $modals: (
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;
+  overflow-x: hidden;
   @include modal-scroll-outer;
 
   &__actions-sticky {
@@ -238,7 +238,7 @@ $modals: (
   @include modal-host;
 }
 
-.sdds-modal-close {
+.sdds-modal-btn {
   display: inline-block;
   width: 16px;
   height: auto;
@@ -259,12 +259,12 @@ $modals: (
   overflow: hidden;
 }
 
-/* WEB COMPONENT STUFF */
+/* WEBCOMPONENT STUFF */
 
 :host {
   @include modal-host;
 
-  .sdds-modal-close {
+  .sdds-modal-btn {
     border: none;
     background-color: transparent;
 

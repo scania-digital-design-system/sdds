@@ -1,11 +1,8 @@
 @import './toast-theme-vars.scss';
 @import '../../global/scania-fonts-vars.scss';
 @import '../../mixins/focus-state';
-@import '../../mixins/box-sizing';
 
 .sdds-toast {
-  @include sdds-box-sizing;
-
   display: flex;
   flex-direction: row;
   background: var(--sdds-toast-background-color);
@@ -28,6 +25,10 @@
 
     .sdds-toast-icon {
       color: var(--sdds-positive);
+
+      :host path {
+        fill: var(--sdds-positive);
+      }
     }
   }
 
@@ -36,6 +37,10 @@
 
     .sdds-toast-icon {
       color: var(--sdds-information);
+
+      :host path {
+        fill: var(--sdds-information);
+      }
     }
   }
 
@@ -44,6 +49,10 @@
 
     .sdds-toast-icon {
       color: var(--sdds-warning);
+
+      :host path {
+        fill: var(--sdds-warning);
+      }
     }
   }
 
@@ -52,6 +61,10 @@
 
     .sdds-toast-icon {
       color: var(--sdds-negative);
+
+      :host path {
+        fill: var(--sdds-negative);
+      }
     }
   }
 
@@ -76,7 +89,7 @@
     float: left;
   }
 
-  &-close {
+  &-dismiss {
     all: unset;
     float: right;
     width: var(--sdds-spacing-element-20);

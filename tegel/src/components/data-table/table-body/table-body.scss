@@ -1,9 +1,5 @@
-@import '../../../mixins/box-sizing';
-
 :host,
 sdds-table-body {
-  @include sdds-box-sizing;
-
   display: table-row-group;
 
   .sdds-table__info-message {

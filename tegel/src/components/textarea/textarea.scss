@@ -44,6 +44,14 @@
     color: transparent;
   }
 
+  &::input-placeholder {
+    color: transparent;
+  }
+
+  &:placeholder {
+    color: transparent;
+  }
+
   ::placeholder {
     color: transparent;
   }
@@ -226,6 +234,7 @@
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
+  flex-basis: 100%;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textarea-helper);
   flex-grow: 2;
@@ -292,6 +301,10 @@
     background-color: var(--sdds-textarea-icon-read-only-label-bg);
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
+  }
+
+  path {
+    fill: var(--sdds-textarea-resize-icon);
   }
 }
 

@@ -1,9 +1,6 @@
 @import './link-theme-vars';
-@import '../../mixins/box-sizing';
 
 .sdds-link {
-  @include sdds-box-sizing;
-
   cursor: pointer;
   outline: none;
 

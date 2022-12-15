@@ -71,6 +71,9 @@ const Template = ({ menuPosition }) => {
           flex-wrap: nowrap;
           alignt-items: center;
         }
+        .sdds-theme-dark .demo-wrapper {
+          color: #fff;
+        }
         sdds-icon:hover {
           cursor:pointer;
         }

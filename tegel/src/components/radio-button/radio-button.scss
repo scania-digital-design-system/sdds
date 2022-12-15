@@ -1,9 +1,6 @@
 @import './radio-button-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 .sdds-radio-button-group {
-  @include sdds-box-sizing;
-
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-radio-button-color);

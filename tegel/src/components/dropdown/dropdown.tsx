@@ -32,7 +32,7 @@ export class Dropdown {
   /** Set to true for disabled states */
   @Prop() disabled: boolean;
 
-  /** `Controls type of dropdown. */
+  /** `Controls type of dropdown. 'Default', 'multiselect' and 'filter' are correct values */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */

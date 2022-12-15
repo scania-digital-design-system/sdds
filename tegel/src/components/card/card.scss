@@ -1,9 +1,6 @@
 @import './card-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 .sdds-card {
-  @include sdds-box-sizing;
-
   background-color: var(--sdds-card-bg);
   border-radius: 4px;
   box-shadow: var(--sdds-card-box);
@@ -89,6 +86,7 @@
 
   //divider
   .sdds-divider-light-border-top {
+    border-top-color: var(--sdds-card-divider);
     margin: 0 var(--sdds-spacing-element-16);
   }
 
@@ -100,6 +98,7 @@
   }
 
   .sdds-card-body {
+    color: var(--sdds-card-body);
     font: var(--sdds-detail-03);
     letter-spacing: var(--sdds-detail-03-ls);
     padding: var(--sdds-spacing-element-16);

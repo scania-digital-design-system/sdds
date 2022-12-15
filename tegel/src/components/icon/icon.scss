@@ -16,3 +16,19 @@
     fill: currentcolor;
   }
 }
+
+/* DARK THEME FIX, DO WE NEED A VARS FILE? */
+
+:host-context(body.sdds-theme-dark) {
+  svg {
+    path {
+      fill: var(--sdds-white);
+    }
+  }
+}
+
+.sdds-theme-dark {
+  .sdds-icon {
+    color: var(--sdds-white);
+  }
+}

@@ -1,5 +1,4 @@
 @import './button-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 .sdds-on-white-bg {
   --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-on-white-background-disabled);
@@ -18,8 +17,6 @@ $props: (background, border-color, color, outline-color);
 $iconProps: (fill, color);
 
 @mixin button-base {
-  @include sdds-box-sizing;
-
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   display: flex;
@@ -213,7 +210,7 @@ $iconProps: (fill, color);
 
     span.sdds-btn-text + .sdds-btn-icon {
       margin: unset;
-      margin-left: 28px;
+      margin-left: 42px;
     }
 
     &.sdds-btn-fullbleed {

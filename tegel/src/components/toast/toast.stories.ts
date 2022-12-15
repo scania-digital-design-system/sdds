@@ -37,11 +37,11 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Native/Webcomponent',
       control: {
         type: 'radio',
       },
-      options: ['Native', 'Web Component'],
+      options: ['Native', 'Webcomponent'],
     },
     icon: {
       name: 'Icon',
@@ -58,7 +58,7 @@ export default {
     toastType: 'Success',
     subheader: false,
     link: false,
-    iconType: 'Web Component',
+    iconType: 'Webcomponent',
     icon: 'recommended',
   },
 };
@@ -110,7 +110,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         <span class="sdds-toast-headline">This is ${
           toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
         } ${toastType.toLowerCase()} message</span>
-        <button type="button" aria-label="close" class="sdds-toast-close">
+        <button type="button" aria-label="close" class="sdds-toast-dismiss">
           ${
             iconType === 'Native'
               ? `<i class="sdds-icon cross"></i>`

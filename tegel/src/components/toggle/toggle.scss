@@ -1,5 +1,4 @@
 @import './toggle-theme-vars.scss';
-@import '../../mixins/box-sizing';
 
 @mixin activeState {
   + .sdds-toggle-switch {
@@ -20,8 +19,6 @@
 }
 
 .sdds-toggle {
-  @include sdds-box-sizing;
-
   position: relative;
   display: flex;
   align-items: center;
