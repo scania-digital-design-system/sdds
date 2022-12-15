@@ -11,6 +11,10 @@ https://www.markdownguide.org/cheat-sheet/ -->
 
 ---
 
+# Breaking changes
+
+---
+
 ## Removed base font-size and moved to `px` instead of `rem`.
 
 This change affects all components/typography/spacing/grid.
@@ -320,6 +324,35 @@ with a single dash (`-`).
 </div>
 ```
 
+## Modal
+
+[Native](/docs/components-modal--native)
+
+#### Changed class name 'sdds-modal-btn' to 'sdds-modal-close'
+
+The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is required if you are using the web component).
+
+```jsx
+// Old ❌
+<div class="sdds-modal">
+  <div class="sdds-modal-header">
+    <span class="sdds-modal-btn"></span>
+  </div>
+</div>
+
+// New ✅
+<div class="sdds-modal">
+  <div class="sdds-modal-header">
+    <span class="sdds-modal-close"></span>
+  </div>
+</div>
+```
+
+
 ## Stepper
 
 [Native](/docs/components-stepper--default)
@@ -549,7 +582,41 @@ Rename all instances of `nominwidth` to `no-min-width`.
 ></sdds-textfield>
 ```
 
-### Not breaing but highly suggested changes
+## Toast
+
+#### Changed class name 'sdds-toast-dismiss' to 'sdds-toast-close'
+
+The class `sdds-toast-dismiss` was renamed to `sdds-toast-close` to conform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-toast-dismiss` to `sdds-toast-close`.
+
+```jsx
+// Old ❌
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+    <button class="sdds-toast-dismiss">
+    </button>
+  </div>
+</div>
+
+// New ✅
+<div class="sdds-toast-content">
+  <div class="sdds-toast-header">
+    <span class="sdds-toast-headline">This is a success message</span>
+    <button class="sdds-toast-close">
+    </button>
+  </div>
+</div>
+```
+(**NOTE**: there are more highly suggested changes for this component further down 👇)
+
+----- 
+
+# Not breaing but highly suggested changes
+---
 
 ## Side menu
 

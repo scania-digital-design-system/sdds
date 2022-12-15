@@ -39,7 +39,7 @@ export class Modal {
     const targetList = e.composedPath();
     const target = targetList[0];
     if (
-      target.classList[0] === 'sdds-modal-btn' ||
+      target.classList[0] === 'sdds-modal-close' ||
       (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
     ) {
       this.open = false;
@@ -65,7 +65,7 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <button class="sdds-modal-btn"></button>
+            <button class="sdds-modal-close"></button>
           </div>
 
           <div class="sdds-modal-body">

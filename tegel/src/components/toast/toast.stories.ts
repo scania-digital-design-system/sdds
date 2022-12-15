@@ -110,7 +110,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
         <span class="sdds-toast-headline">This is ${
           toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
         } ${toastType.toLowerCase()} message</span>
-        <button type="button" aria-label="close" class="sdds-toast-dismiss">
+        <button type="button" aria-label="close" class="sdds-toast-close">
           ${
             iconType === 'Native'
               ? `<i class="sdds-icon cross"></i>`
