@@ -90,7 +90,7 @@ const Template = ({ headline, size, actions, showModal }) =>
       } sdds-modal__actions-${actions.toLowerCase()}">
         <div class="sdds-modal-header">
             <h5 class="sdds-modal-headline">${headline}</h5>
-          <span class="sdds-modal-btn"></span>
+          <span class="sdds-modal-close"></span>
         </div>
           <div class="sdds-modal-body">
             <p>
@@ -115,7 +115,7 @@ const Template = ({ headline, size, actions, showModal }) =>
     })
   }
 
-  document.getElementsByClassName('sdds-modal-btn')[0].addEventListener('click', () => {
+  document.getElementsByClassName('sdds-modal-close')[0].addEventListener('click', () => {
     modal.classList.replace('show', 'hide');
   })
 
