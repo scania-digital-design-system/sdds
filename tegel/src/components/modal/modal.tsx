@@ -9,7 +9,7 @@ export class Modal {
   /** Disables closing modal on clicking on overlay area. */
   @Prop() prevent: boolean = false;
 
-  /** Size of modal. Accepted strings are: xs, sm, md, lg.  */
+  /** Size of modal  */
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
 
   /** Sticky or Static Actions  */

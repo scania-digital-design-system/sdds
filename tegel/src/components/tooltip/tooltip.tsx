@@ -20,7 +20,7 @@ export class Tooltip {
   /** Prop in control of showing and hiding prop */
   @Prop({ mutable: true }) show: boolean = false;
 
-  /** Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end. */
+  /** Placement of tooltip. */
   @Prop() placement: Placement = 'bottom';
 
   @State() target: any;
