@@ -1,5 +1,3 @@
-@import '../../mixins/box-sizing';
-
 // This component does not have dark version so all css is in this file
 
 :host {
@@ -8,8 +6,6 @@
   --sdds-badges-color-text: var(--sdds-white);
 
   // Styling
-  @include sdds-box-sizing;
-
   display: block;
 }
 
