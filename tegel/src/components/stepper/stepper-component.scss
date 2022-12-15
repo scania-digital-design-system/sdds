@@ -1,0 +1,17 @@
+:host {
+  .sdds-stepper {
+    display: flex;
+    justify-content: space-evenly;
+
+    &-vertical {
+      height: 100%;
+      flex-direction: column;
+      justify-content: unset;
+      gap: 48px;
+    }
+
+    &-vertical.sdds-stepper-sm {
+      gap: 36px;
+    }
+  }
+}
