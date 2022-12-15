@@ -1,10 +1,8 @@
 @import '../../mixins/focus-state';
 @import '../../mixins/disabled-style';
-@import '../../mixins/box-sizing';
 
 :host {
   display: block;
-  @include sdds-box-sizing;
 
   .sdds-accordion-header-icon-start,
   .sdds-accordion-header-icon-end {

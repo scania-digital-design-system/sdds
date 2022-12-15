@@ -1,12 +1,14 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/disabled-style';
-@import '../../../mixins/box-sizing';
 
 .sdds-accordion-item {
-  @include sdds-box-sizing;
-
   list-style: none;
   color: var(--sdds-accordion-colour);
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
 
   .sdds-accordion-header-icon-start,
   .sdds-accordion-header-icon-end {
