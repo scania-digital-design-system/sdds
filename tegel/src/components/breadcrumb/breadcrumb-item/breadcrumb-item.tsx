@@ -5,7 +5,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
   styleUrl: 'breadcrumb-item.scss',
   shadow: true,
 })
-export class SddsBreadcrumb {
+export class SddsBreadcrumbItem {
   /** Boolean for the current link */
   @Prop() current: boolean = false;
 
