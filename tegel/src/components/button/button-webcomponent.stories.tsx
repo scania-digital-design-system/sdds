@@ -61,7 +61,7 @@ export default {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Button mode variant.',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
