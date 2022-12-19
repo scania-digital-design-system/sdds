@@ -1,14 +1,4 @@
-import {
-  Component,
-  h,
-  Listen,
-  Host,
-  Prop,
-  State,
-  Element,
-  Watch,
-  Method,
-} from '@stencil/core';
+import { Component, h, Listen, Host, Prop, State, Element, Watch, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-modal',
@@ -83,15 +73,12 @@ export class Modal {
     ) {
       this.show = false;
     }
-    e.stopPropagation();
   }
 
   render() {
     return (
       <Host class={`sdds-modal-backdrop ${this.show ? 'show' : 'hide'}`}>
-        <div
-          class={`sdds-modal ${this.size ? `sdds-modal-${this.size}` : ''} `}
-        >
+        <div class={`sdds-modal ${this.size ? `sdds-modal-${this.size}` : ''} `}>
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
             <button class="sdds-modal-btn"></button>
