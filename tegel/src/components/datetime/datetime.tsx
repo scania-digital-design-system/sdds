@@ -15,10 +15,8 @@ export class Datetime {
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
 
-  /** Default value of the component. Needs to match the format of the type.
-    Use 'now' to get the current date/time.
-   */
-  @Prop() defaultValue: string | 'now' | 'none' = 'none';
+  /** Default value of the component. Needs to match the format of the type. */
+  @Prop() defaultValue: string | 'none' = 'none';
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -57,31 +55,13 @@ export class Datetime {
   customChange: EventEmitter;
 
   getDefaultValue = () => {
-    let dateTimeObj: {
-      year: string | number;
-      month: string | number;
-      day: string | number;
-      hours: string | number;
-      minutes: string | number;
+    const dateTimeObj = {
+      year: this.defaultValue.slice(0, 4),
+      month: this.defaultValue.slice(5, 7),
+      day: this.defaultValue.slice(8, 10),
+      hours: this.defaultValue.slice(11, 13),
+      minutes: this.defaultValue.slice(14, 16),
     };
-    if (this.defaultValue === 'now') {
-      const date = new Date();
-      dateTimeObj = {
-        year: date.getFullYear(),
-        month: date.getMonth() + 1,
-        day: date.getDate(),
-        hours: date.getHours(),
-        minutes: date.getMinutes(),
-      };
-    } else {
-      dateTimeObj = {
-        year: this.defaultValue.slice(0, 4),
-        month: this.defaultValue.slice(5, 7),
-        day: this.defaultValue.slice(8, 10),
-        hours: this.defaultValue.slice(11, 13),
-        minutes: this.defaultValue.slice(14, 16),
-      };
-    }
     switch (this.type) {
       case 'datetime-local':
         return `${dateTimeObj.year}-${dateTimeObj.month}-${dateTimeObj.day}T${dateTimeObj.hours}:${dateTimeObj.minutes}`;
