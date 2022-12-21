@@ -1,0 +1,100 @@
+@import '../../header-theme-vars.scss';
+@import '../../../../mixins/focus-state';
+
+:host {
+  height: 100%;
+
+  li {
+    height: 100%;
+
+    button {
+      font: var(--sdds-headline-07);
+      letter-spacing: var(--sdds-headline-07-ls);
+      position: relative;
+      border-right: 1px solid var(--sdds-nav-item-border-color);
+      border-top: none;
+      border-bottom: none;
+      border-left: none;
+      height: 100%;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      cursor: pointer;
+      background-color: var(--sdds-header-bg);
+      transition: background-color 150ms ease;
+      color: var(--sdds-white);
+      padding: 0 24px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--sdds-header-bg-hover);
+      }
+
+      &:focus {
+        @include sdds-focus-state;
+      }
+
+      &:first-child {
+        border-left: 1px solid var(--sdds-nav-item-border-color);
+      }
+
+      sdds-icon {
+        transition: transform ease 250ms;
+      }
+    }
+
+    &.open {
+      button {
+        background-color: var(--sdds-white);
+        color: var(--sdds-grey-958);
+      }
+
+      sdds-icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    ul.sdds-header-dropdown-menu {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 190px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: var(--sdds-nav-dropdown-menu-box);
+      border-radius: var(--sdds-nav-dropdown-item-border-radius);
+      overflow: hidden;
+    }
+  }
+
+  &:active {
+    position: relative;
+    border-right: 1px solid var(--sdds-blue-700);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+
+    li {
+      button {
+        background-color: red;
+      }
+    }
+  }
+}
+
+:host(.sdds-header-inline-menu-dropdown-active) {
+  li {
+    button {
+      background-color: var(--sdds-blue-700);
+    }
+
+    &::after {
+      content: '';
+      border-bottom: 4px solid var(--sdds-blue-400);
+      width: calc(100% + 2px);
+      display: block;
+      margin-left: -1px;
+      bottom: 4px;
+      position: relative;
+    }
+  }
+}

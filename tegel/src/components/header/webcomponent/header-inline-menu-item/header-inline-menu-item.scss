@@ -1,0 +1,78 @@
+@import '../../header-theme-vars.scss';
+@import '../../../../mixins/focus-state';
+
+:host {
+  height: 100%;
+
+  li {
+    height: 100%;
+
+    button,
+    a {
+      font: var(--sdds-headline-07);
+      letter-spacing: var(--sdds-headline-07-ls);
+      position: relative;
+      border-right: 1px solid var(--sdds-nav-item-border-color);
+      border-top: none;
+      border-bottom: none;
+      border-left: none;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      background-color: var(--sdds-header-bg);
+      transition: background-color 150ms ease;
+      color: var(--sdds-white);
+      padding: 0 24px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--sdds-header-bg-hover);
+      }
+
+      &:focus {
+        @include sdds-focus-state;
+      }
+
+      &:hover {
+        background-color: var(--sdds-blue-700);
+      }
+
+      &:first-child {
+        border-left: 1px solid var(--sdds-nav-item-border-color);
+      }
+    }
+  }
+
+  &:active {
+    position: relative;
+    border-right: 1px solid var(--sdds-blue-700);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+
+    li {
+      button,
+      a {
+        background-color: red;
+      }
+    }
+  }
+}
+
+:host(.sdds-header-inline-menu-item-active) {
+  li {
+    button,
+    a {
+      background-color: var(--sdds-blue-700);
+    }
+
+    &::after {
+      content: '';
+      border-bottom: 4px solid var(--sdds-blue-400);
+      display: block;
+      bottom: 4px;
+      position: relative;
+    }
+  }
+}

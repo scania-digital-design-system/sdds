@@ -1,4 +1,4 @@
-# sdds-header-inline-menu-item
+# sdds-header-avatar-item
 
 
 
@@ -9,7 +9,6 @@
 
 | Property | Attribute | Description | Type                               | Default    |
 | -------- | --------- | ----------- | ---------------------------------- | ---------- |
-| `active` | `active`  |             | `boolean`                          | `false`    |
 | `href`   | `href`    |             | `string`                           | `''`       |
 | `text`   | `text`    |             | `string`                           | `''`       |
 | `type`   | `type`    |             | `"button" \| "category" \| "link"` | `'button'` |

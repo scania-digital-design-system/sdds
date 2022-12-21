@@ -1,68 +1,92 @@
 @import '../../../mixins/box-sizing';
 @import '../../../mixins/flex-center';
 
-
 :host {
-    @include sdds-box-sizing;
+  @include sdds-box-sizing;
 
-    background-color: var(--sdds-header-bg);
-    height: 64px;
+  background-color: var(--sdds-header-bg);
+  height: 64px;
+  width: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+
+  .sdds-header-overlay {
+    &-show {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 64px;
+      background: var(--sdds-header-overlay);
+      opacity: 0.4;
+      transition: opacity 0.1s ease-out;
+      visibility: visible;
+    }
+
+    &-hide {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 64px;
+      background: var(--sdds-header-overlay);
+      opacity: 0;
+      transition: opacity 0.1s ease-out;
+      visibility: hidden;
+    }
+  }
+
+  .sdds-header-site-name-desktop {
+    @include sdds-flex-center;
+
+    font-family: var(--sdds-font-family-headline);
+    font-weight: normal;
+    color: var(--sdds-header-app-name-color);
+    padding: 0 24px;
+    white-space: nowrap;
+  }
+
+  .sdds-header-logo {
+    display: flex;
+    border-left: 1px solid var(--sdds-nav-item-border-color);
+
+    .sdds-header-logo-holder {
+      background-color: var(--sdds-header-bg);
+      transition: background-color 150ms ease;
+      display: block;
+      cursor: pointer;
+      background-image: var(--sdds-background-image-scania-symbol-svg),
+        var(--sdds-background-image-scania-symbol-png);
+      background-size: 30px auto;
+      width: 64px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .sdds-header-content {
     width: 100%;
-    z-index: 3;
     display: flex;
     justify-content: space-between;
+  }
 
+  slot[name='mobile-menu']::slotted(*) {
+    display: none;
+  }
 
-    .sdds-header-overlay {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 64px;
-        background: var(--sdds-header-overlay);
-        opacity: 0;
-        transition: opacity 0.1s ease-out;
-        visibility: hidden;
-    }
-
-
-    .sdds-header-site-name {
-        @include sdds-flex-center;
-
-        font-family: var(--sdds-font-family-headline);
-        font-weight: normal;
-        color: var(--sdds-header-app-name-color);
-        padding: 0 24px;
-        white-space: nowrap;
-    }
-
+  // should use the token
+  @media all and (max-width: 992px) {
     .sdds-header-logo {
-        display: flex;
-        border-left: 1px solid var(--sdds-nav-item-border-color);
-
-        .sdds-header-logo-holder {
-            background-color: var(--sdds-header-bg);
-            transition: background-color 150ms ease;
-            display: block;
-            cursor: pointer;
-            background-image: var(--sdds-background-image-scania-symbol-svg), var(--sdds-background-image-scania-symbol-png);
-            background-size: 30px auto;
-            width: 64px;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+      display: none;
     }
 
-    .sdds-header-content{
-        display: flex;
-        justify-content: space-between;
+    slot[name='lead']::slotted(*) {
+      display: none;
     }
 
-
-    // should use the token
-    @media all and (max-width: 992px) {
-        .sdds-header-logo {
-            display: none;
-        }
+    slot[name='mobile-menu']::slotted(*) {
+      display: block;
     }
+  }
 }

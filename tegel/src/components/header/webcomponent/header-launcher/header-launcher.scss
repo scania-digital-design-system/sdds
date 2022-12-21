@@ -1,0 +1,39 @@
+:host {
+  background-color: var(--sdds-header-bg);
+  border-left: 1px solid var(--sdds-blue-700);
+  height: 100%;
+  position: relative;
+  
+  button {
+    height: 100%;
+    width: 64px;
+    background-color: var(--sdds-header-bg);
+    color: var(--sdds-white);
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--sdds-blue-700);
+    }
+
+    &.sdds-launcher-open{
+        background-color: var(--sdds-white);
+        color: var(--sdds-grey-958)
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 320px;
+    height: calc(100vh - 64px);
+    background-color: var(--sdds-white);
+
+    // TODO - NEEDS PROPPER SOLUTION
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
