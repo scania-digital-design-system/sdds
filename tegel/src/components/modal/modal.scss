@@ -1,3 +1,4 @@
+@import '../../mixins/z-index';
 @import 'modal-theme-vars';
 @import '../../mixins/box-sizing';
 
@@ -94,7 +95,7 @@ $modals: (
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 40000;
+  z-index: z(modal);
   background-color: var(--sdds-modal-backdrop);
   padding: 0 16px;
 
@@ -155,7 +156,6 @@ $modals: (
   @include sdds-box-sizing;
 
   background-color: var(--sdds-modal-bg);
-  z-index: 4;
   margin: auto;
   position: relative;
   border-radius: 4px;
