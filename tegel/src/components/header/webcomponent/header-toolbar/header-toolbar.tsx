@@ -1,11 +1,11 @@
 import { Component, h, Host } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-inline-menu',
-  styleUrl: 'header-inline-menu.scss',
+  tag: 'sdds-header-toolbar',
+  styleUrl: 'header-toolbar.scss',
   shadow: true,
 })
-export class SddsHeaderInlineMenu {
+export class SddsHeaderToolBar {
   render() {
     return (
       <Host>

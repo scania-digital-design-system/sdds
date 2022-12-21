@@ -7,21 +7,22 @@
 
 ## Properties
 
-| Property    | Attribute | Description | Type                                                          | Default |
-| ----------- | --------- | ----------- | ------------------------------------------------------------- | ------- |
-| `childList` | --        |             | `{ type: "button" \| "link"; text: string; href: string; }[]` | `[]`    |
+| Property        | Attribute | Description | Type                                                          | Default |
+| --------------- | --------- | ----------- | ------------------------------------------------------------- | ------- |
+| `dropdownItems` | --        |             | `{ type: "button" \| "link"; text: string; href: string; }[]` | `[]`    |
+| `text`          | `text`    |             | `string`                                                      | `''`    |
 
 
 ## Dependencies
 
 ### Depends on
 
-- [sdds-header-inline-menu-item](../header-inline-menu-item)
+- [sdds-icon](../../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-inline-menu-dropdown --> sdds-header-inline-menu-item
+  sdds-header-inline-menu-dropdown --> sdds-icon
   style sdds-header-inline-menu-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

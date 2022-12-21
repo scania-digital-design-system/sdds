@@ -29,6 +29,8 @@
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
  - [sdds-toast](../toast)
+ - [sdds-header-inline-menu-dropdown](../header/webcomponent/header-inline-menu-dropdown)
+ - [sdds-header-launcher](../header/webcomponent/header-launcher)
 
 ### Graph
 ```mermaid
@@ -47,6 +49,8 @@ graph TD;
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
   sdds-toast --> sdds-icon
+  sdds-header-inline-menu-dropdown --> sdds-icon
+  sdds-header-launcher --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

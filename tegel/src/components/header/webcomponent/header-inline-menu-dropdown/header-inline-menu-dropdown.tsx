@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host, Prop, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-inline-menu-dropdown',
@@ -6,22 +6,37 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SddsHeaderInlineMenuDropdown {
-  @Prop() childList: Array<{
+  @Prop() text: string = '';
+
+  @Prop() dropdownItems: {
     type: 'button' | 'link';
     text: string;
     href: string;
-  }> = [];
+  }[] = [];
+
+  @State() open: boolean = false;
+
+  @Element() el: HTMLElement;
+
+  handleClick = () => {
+    this.open = !this.open;
+  };
 
   render() {
     return (
       <Host>
-        {this.childList.map((child) => {
-          <sdds-header-inline-menu-item
-            type={child.type}
-            text={child.text}
-            href={child.href}
-          ></sdds-header-inline-menu-item>;
-        })}
+        <li class={this.open && 'open'}>
+          <button
+            id="test"
+            onClick={() => {
+              this.handleClick();
+            }}
+          >
+            {this.text}
+            <sdds-icon name="chevron_down" size="16px"></sdds-icon>
+          </button>
+          <ul class="sdds-header-dropdown-menu">{this.open && <slot />}</ul>
+        </li>
       </Host>
     );
   }
