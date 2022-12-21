@@ -1,3 +1,4 @@
+@import '../../mixins/z-index';
 @import './tooltip-theme-vars.scss';
 @import '../../mixins/box-sizing';
 
@@ -12,7 +13,7 @@
   padding: 8px;
   word-wrap: break-word;
   max-width: 192px;
-  z-index: 20000;
+  z-index: z(tooltip);
   opacity: 0;
   visibility: hidden;
   transition: opacity 200ms ease-in, visibility 200ms ease-in;

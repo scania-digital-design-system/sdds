@@ -6,6 +6,7 @@ import { useDarkMode } from 'storybook-dark-mode';
 import { addons } from '@storybook/addons';
 import { globals } from '@storybook/api';
 import { UPDATE_GLOBALS } from '@storybook/core-events';
+import './preview.css';
 
 // https://github.com/storybookjs/storybook/issues/6364
 // - Look for: sarangk-hotstar commented on 23 Jun 2021

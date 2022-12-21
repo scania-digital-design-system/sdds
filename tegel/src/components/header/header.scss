@@ -1,3 +1,4 @@
+@import '../../mixins/z-index';
 @import './header-theme-vars.scss';
 @import '../../mixins/focus-state';
 @import '../../mixins/flex-center';
@@ -38,7 +39,8 @@ html,
   background-color: var(--sdds-header-bg);
   height: 64px;
   width: 100%;
-  z-index: 3;
+  z-index: z(header);
+  position: relative;
   display: flex;
   justify-content: space-between;
 

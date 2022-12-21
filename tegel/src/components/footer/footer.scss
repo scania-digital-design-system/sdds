@@ -30,6 +30,7 @@
   color: var(--sdds-footer-top-links);
 
   &::after {
+    // this is the line that appears under top links and buttons in mobile version
     content: '';
     position: absolute;
     width: calc(100% + 120px);
