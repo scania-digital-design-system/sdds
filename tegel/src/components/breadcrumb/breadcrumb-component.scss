@@ -1,11 +1,12 @@
 @import 'breadcrumb-theme-vars';
 @import '../../mixins/box-sizing';
 
-:host(.sdds-breadcrumb) {
+ul.sdds-breadcrumb {
   @include sdds-box-sizing;
 
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   display: flex;
   flex-wrap: wrap;
+  list-style-type: none;
 }

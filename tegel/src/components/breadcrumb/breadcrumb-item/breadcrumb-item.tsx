@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-breadcrumb-item',
@@ -15,20 +15,23 @@ export class SddsBreadcrumbItem {
   /** The text for the breadcrumb */
   @Prop() linkText: string;
 
-  /** The text for the breadcrumb */
+  /** Toggle the disabled state for the breadcrumb */
   @Prop() disabled: boolean = false;
 
   render() {
     return (
-      <Host class={`sdds-breadcrumb-item ${this.disabled && 'disabled'}`}>
-        {!this.disabled ? (
-          <a href={this.href} aria-current={this.current && 'page'}>
-            {this.linkText}
-          </a>
-        ) : (
-          <a>{this.linkText}</a>
-        )}
-      </Host>
+      <li
+        class={`${this.current ? 'sdds-breadcrumb-item-current' : ''} 
+        ${this.disabled ? 'sdds-breadcrumb-item-disabled' : ''}`}
+      >
+        <a
+          aria-current={this.current && 'page'}
+          // eslint-disable-next-line no-script-url
+          href={this.disabled ? 'javascript:void(0)' : this.href}
+        >
+          {this.linkText}
+        </a>
+      </li>
     );
   }
 }

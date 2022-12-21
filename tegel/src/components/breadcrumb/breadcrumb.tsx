@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'sdds-breadcrumb',
@@ -6,11 +6,17 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class SddsBreadcrumb {
+  @Element() el: HTMLElement;
+
+  connectedCallback() {
+    this.el.children[this.el.children.length - 1].classList.add('sdds-breadcrumb-item-last');
+  }
+
   render() {
     return (
-      <Host class={'sdds-breadcrumb'}>
+      <ul class={'sdds-breadcrumb'}>
         <slot></slot>
-      </Host>
+      </ul>
     );
   }
 }
