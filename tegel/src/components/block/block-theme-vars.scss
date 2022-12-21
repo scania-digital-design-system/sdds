@@ -1,27 +1,18 @@
-:host,
-:root {
-  --sdds-block-bg-primary: var(--sdds-grey-50);
-  --sdds-block-bg-primary-nested: var(--sdds-white);
-  --sdds-block-bg-secondary: var(--sdds-white);
-  --sdds-block-bg-secondary-nested: var(--sdds-grey-50);
-}
-
-.sdds-dark-light {
-  :host,
-  :root {
+:root,
+.sdds-theme-light{
+  --sdds-block-color: var(--sdds-grey-985);
     --sdds-block-bg-primary: var(--sdds-grey-50);
     --sdds-block-bg-primary-nested: var(--sdds-white);
     --sdds-block-bg-secondary: var(--sdds-white);
     --sdds-block-bg-secondary-nested: var(--sdds-grey-50);
   }
-}
 
-.sdds-theme-dark {
-  :host,
-  :root {
+  :root,
+  .sdds-theme-dark {
+    --sdds-block-color: var(--sdds-grey-50);
     --sdds-block-bg-primary: var(--sdds-grey-900);
     --sdds-block-bg-primary-nested: var(--sdds-grey-868);
     --sdds-block-bg-secondary: var(--sdds-grey-868);
     --sdds-block-bg-secondary-nested: var(--sdds-grey-846);
   }
-}
+
