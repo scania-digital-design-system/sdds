@@ -17,10 +17,11 @@ $border-types: top, right, bottom, left;
   }
 }
 
+:host-context(body.sdds-theme-dark),
 .sdds-theme-dark {
   $types: (
     'light': var(--sdds-white),
-    'dark': var(--sdds-grey-300),
+    'dark': var(--sdds-grey-700),
     'coloured': var(--sdds-blue-200),
   );
 
