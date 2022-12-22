@@ -31,6 +31,7 @@
  - [sdds-toast](../toast)
  - [sdds-header-inline-menu-dropdown](../header/webcomponent/header-inline-menu-dropdown)
  - [sdds-header-launcher](../header/webcomponent/header-launcher)
+ - [sdds-header-mobile-menu](../header/webcomponent/header-mobile-menu)
 
 ### Graph
 ```mermaid
@@ -51,6 +52,7 @@ graph TD;
   sdds-toast --> sdds-icon
   sdds-header-inline-menu-dropdown --> sdds-icon
   sdds-header-launcher --> sdds-icon
+  sdds-header-mobile-menu --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

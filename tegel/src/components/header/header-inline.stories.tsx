@@ -82,6 +82,12 @@ const InlineMenuTemplate = ({ siteName }) =>
                   <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--active'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
               </ul>
               </li>
+
+              <li class='sdds-nav__item sdds-nav__item--active'>
+                  <a class='sdds-nav__item-core ' href='#'>
+                      <span class='sdds-nav__item-core-text'>Item 2</span>
+                  </a>
+              </li>
           </ul>
         </div>
 
