@@ -105,4 +105,17 @@
 
 :root,
 .sdds-theme-dark {
+  --sdds-header-bg: var(--sdds-blue-900);
+  --sdds-nav-item-border-color: var(--sdds-blue-800);
+
+  --sdds-header-mobile-avatar--item-btn-bg: var(--sdds-blue-700);
+  --sdds-header-mobile-avatar--item-btn-bg-hover: var(--sdds-blue-900);
+  --sdds-nav-dropdown-item-bg: var(--sdds-blue-800);
+  --sdds-nav-item-bg-hover: var(--sdds-blue-900);
+  --sdds-header-nav-item-dropdown-opened-bg: var(--sdds-blue-800);
+  --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
+  --sdds-nav-item-core-bg-hover: var(--sdds-blue-900);
+  --sdds-nav-item-core-color-active: var(--sdds-white);
+  --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
+  --sdds-header-nav-item-bg-active: var(--sdds-blue-700);
 }
