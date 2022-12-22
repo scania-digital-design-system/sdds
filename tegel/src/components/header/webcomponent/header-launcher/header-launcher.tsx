@@ -10,18 +10,7 @@ export class SddsHeaderLauncher {
 
   @Element() el: HTMLElement;
 
-  headerEl: HTMLSddsHeaderElement;
-
-  connectedCallback() {
-    this.headerEl = this.el.closest('sdds-header');
-  }
-
   handleClick = () => {
-    if (this.open) {
-      this.headerEl.showOverlay = false;
-    } else {
-      this.headerEl.showOverlay = true;
-    }
     this.open = !this.open;
   };
 
@@ -31,11 +20,9 @@ export class SddsHeaderLauncher {
         <button class={this.open && 'sdds-launcher-open'} onClick={() => this.handleClick()}>
           <sdds-icon name="bento" size="20px"></sdds-icon>
         </button>
-        {this.open && (
-          <ul>
-            <slot></slot>
-          </ul>
-        )}
+        <ul class={this.open ? 'sdds-launcher-open' : ''}>
+          <slot></slot>
+        </ul>
       </Host>
     );
   }

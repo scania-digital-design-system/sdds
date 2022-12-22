@@ -28,6 +28,7 @@
  - [sdds-header-inline-menu-dropdown](../header/webcomponent/header-inline-menu-dropdown)
  - [sdds-header-launcher](../header/webcomponent/header-launcher)
  - [sdds-header-mobile-menu](../header/webcomponent/header-mobile-menu)
+ - [sdds-header-mobile-menu-dropdown](../header/webcomponent/header-mobile-menu/header-mobile-menu-dropdown)
 
 ### Graph
 ```mermaid
@@ -43,6 +44,7 @@ graph TD;
   sdds-header-inline-menu-dropdown --> sdds-icon
   sdds-header-launcher --> sdds-icon
   sdds-header-mobile-menu --> sdds-icon
+  sdds-header-mobile-menu-dropdown --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

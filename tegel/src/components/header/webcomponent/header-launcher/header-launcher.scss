@@ -3,7 +3,7 @@
   border-left: 1px solid var(--sdds-blue-700);
   height: 100%;
   position: relative;
-  
+
   button {
     height: 100%;
     width: 64px;
@@ -16,9 +16,9 @@
       background-color: var(--sdds-blue-700);
     }
 
-    &.sdds-launcher-open{
-        background-color: var(--sdds-white);
-        color: var(--sdds-grey-958)
+    &.sdds-launcher-open {
+      background-color: var(--sdds-white);
+      color: var(--sdds-grey-958);
     }
   }
 
@@ -28,6 +28,10 @@
     width: 320px;
     height: calc(100vh - 64px);
     background-color: var(--sdds-white);
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top;
+    transition: transform 150ms ease;
 
     // TODO - NEEDS PROPPER SOLUTION
     z-index: 1;
@@ -35,5 +39,10 @@
     right: 0;
     overflow-y: auto;
     overflow-x: hidden;
+
+    &.sdds-launcher-open {
+      transform: scaleY(1);
+      opacity: 1;
+    }
   }
 }

@@ -31,19 +31,15 @@ export class SddsHeaderAvatar {
         >
           <img src={this.avatarImg} alt={this.avatarImgAlt} />
         </button>
-        {this.open && (
-          <div>
-            <ul>
-              <li>
-                <div class="sdds-avatar-info">
-                  <p class="sdds-avatar-name">{this.avatarName}</p>
-                  <p class="sdds-avatar-subheading">{this.avatarSubheading}</p>
-                </div>
-              </li>
-              <slot></slot>
-            </ul>
-          </div>
-        )}
+        <ul class={this.open ? 'open' : 'closed'}>
+          <li>
+            <div class="sdds-avatar-info">
+              <p class="sdds-avatar-name">{this.avatarName}</p>
+              <p class="sdds-avatar-subheading">{this.avatarSubheading}</p>
+            </div>
+          </li>
+          <slot></slot>
+        </ul>
       </Host>
     );
   }
