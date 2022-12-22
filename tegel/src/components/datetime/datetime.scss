@@ -31,7 +31,7 @@
       color: var(--sdds-datetime-disabled-placeholder);
     }
 
-    ~  .sdds-datetime-label-inside {
+    ~  .sdds-datetime-label-inside {
       color: var(--sdds-datetime-disabled-label);
     }
   }
@@ -122,6 +122,10 @@
     transform: translateY(-50%);
     right: 18px;
     pointer-events: none;
+
+    path {
+      fill: var(--sdds-datetime-icon);
+    }
   }
 }
 
@@ -145,6 +149,14 @@ slot[name='sdds-label']::slotted(*) {
 
 @mixin placeholder-label {
   &::placeholder {
+    color: transparent;
+  }
+
+  &::input-placeholder {
+    color: transparent;
+  }
+
+  &:placeholder {
     color: transparent;
   }
 
@@ -309,6 +321,13 @@ slot[name='sdds-label']::slotted(*) {
 .sdds-form-datetime-success {
   .sdds-datetime-container {
     border-bottom-color: var(--sdds-datetime-border-bottom-success);
+    color: var(--sdds-datetime-color-success);
+  }
+  .sdds-datetime-bar {
+    &::before,
+    &::after {
+      background: var(--sdds-datetime-bar-sucess);
+    }
   }
 }
 
@@ -367,7 +386,7 @@ slot[name='sdds-suffix']::slotted(sdds-icon) {
 slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .sdds-datetime-input  {
+  & ~ .sdds-datetime-input  {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
