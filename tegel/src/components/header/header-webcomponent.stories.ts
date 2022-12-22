@@ -38,7 +38,28 @@ const Template = () =>
   formatHtmlPreview(
     `
   <sdds-header site-name="Test" icon-href="google.se">
-    <sdds-header-mobile-menu slot="mobile-menu"></sdds-header-mobile-menu>
+    <sdds-header-mobile-menu slot="mobile-menu">
+    <sdds-header-mobile-menu-item active
+        type="button"
+        text="Button 1">
+      </sdds-header-mobile-menu-item>
+      <sdds-header-mobile-menu-dropdown
+        text="Dropdown">
+        <sdds-header-mobile-menu-item
+          type="link"
+          text="Dropdown 1">
+        </sdds-header-mobile-menu-item>
+        <sdds-header-mobile-menu-item
+          type="link"
+          text="Dropdown 2">
+        </sdds-header-mobile-menu-item>
+      </sdds-header-mobile-menu-dropdown>
+      <sdds-header-mobile-menu-item
+        type="link"
+        text="Link 1">
+      </sdds-header-mobile-menu-item>
+
+    </sdds-header-mobile-menu>
     <sdds-header-inline-menu slot="lead">
       <sdds-header-inline-menu-item
         type="button"

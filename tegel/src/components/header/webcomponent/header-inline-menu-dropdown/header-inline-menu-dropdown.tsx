@@ -36,7 +36,9 @@ export class SddsHeaderInlineMenuDropdown {
             <sdds-icon name="chevron_down" size="16px"></sdds-icon>
           </button>
         </li>
-        <ul class="sdds-header-dropdown-menu">{this.open && <slot />}</ul>
+        <ul class={`sdds-header-dropdown-menu ${this.open ? 'open' : 'closed'}`}>
+          <slot></slot>
+        </ul>
       </Host>
     );
   }

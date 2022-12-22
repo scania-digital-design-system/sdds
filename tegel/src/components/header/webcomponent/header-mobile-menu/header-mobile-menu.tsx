@@ -14,10 +14,17 @@ export class SddsHeaderMobileMenu {
 
   render() {
     return (
-      <Host class={this.open ? 'sdds-mobile-menu-open' : ''}>
+      <Host class={`sdds-mobile-menu-${this.open ? 'open' : 'closed'}`}>
         <button onClick={() => this.handleClick()}>
-          <sdds-icon name="burger" size="20px"></sdds-icon>
+          {this.open ? (
+            <sdds-icon name="cross" size="20px"></sdds-icon>
+          ) : (
+            <sdds-icon name="burger" size="20px"></sdds-icon>
+          )}
         </button>
+        <ul class={this.open ? 'open' : 'closed'}>
+          <slot></slot>
+        </ul>
       </Host>
     );
   }
