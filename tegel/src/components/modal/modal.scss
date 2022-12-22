@@ -131,6 +131,7 @@ $modals: (
 }
 
 @mixin modal-headline {
+  color: var(--sdds-modal-text);
   font: var(--sdds-headline-05);
   letter-spacing: var(--sdds-headline-05-ls);
   margin: 0;
@@ -138,6 +139,7 @@ $modals: (
 }
 
 @mixin modal-body {
+  color: var(--sdds-modal-text);
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
@@ -162,6 +164,7 @@ $modals: (
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;
+  
   @include modal-scroll-outer;
 
   &__actions-sticky {
