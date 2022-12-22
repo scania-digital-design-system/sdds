@@ -17,8 +17,7 @@ export class SddsHeader {
   render() {
     return (
       <Host>
-        <slot name="mobile-menu"></slot>
-        <div class={'sdds-header-site-name-desktop'}>{this.siteName}</div>
+        <div class="sdds-header-app-name">{this.siteName}</div>
         <div class="sdds-header-content">
           <slot name="lead"></slot>
           {/* EMPTY DIV TO PUSH ELEMENTS */}
