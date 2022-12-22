@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property        | Attribute | Description | Type                                                          | Default |
-| --------------- | --------- | ----------- | ------------------------------------------------------------- | ------- |
-| `dropdownItems` | --        |             | `{ type: "button" \| "link"; text: string; href: string; }[]` | `[]`    |
-| `text`          | `text`    |             | `string`                                                      | `''`    |
+| Property | Attribute | Description | Type     | Default |
+| -------- | --------- | ----------- | -------- | ------- |
+| `text`   | `text`    |             | `string` | `''`    |
 
 
 ## Dependencies

@@ -38,9 +38,7 @@ const Template = () =>
   formatHtmlPreview(
     `
   <sdds-header site-name="Test" icon-href="google.se">
-    <div slot="mobile-menu">
-      <sdds-icon name='burger' size='20px'></sdds-icon>
-    </div>
+    <sdds-header-mobile-menu slot="mobile-menu"></sdds-header-mobile-menu>
     <sdds-header-inline-menu slot="lead">
       <sdds-header-inline-menu-item
         type="button"

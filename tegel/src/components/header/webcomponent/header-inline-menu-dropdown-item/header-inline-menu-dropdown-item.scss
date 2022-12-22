@@ -1,6 +1,7 @@
 :host {
   li {
     border-bottom: 1px solid var(--sdds-grey-300);
+    width: 100%;
 
     button,
     a {
@@ -8,7 +9,6 @@
       text-decoration: none;
       background-color: var(--sdds-white);
       border: none;
-      width: 100%;
       padding: 0 24px;
       text-align: left;
       height: 48px;

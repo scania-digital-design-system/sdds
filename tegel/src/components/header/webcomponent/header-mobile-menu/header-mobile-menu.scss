@@ -1,0 +1,34 @@
+:host {
+  height: 100%;
+  background-color: var(--sdds-header-bg);
+
+  button {
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid var(--sdds-blue-700);
+    height: 100%;
+    width: 64px;
+
+    sdds-icon {
+      color: var(--sdds-white);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--sdds-blue-700);
+    }
+  }
+}
+
+:host(.sdds-mobile-menu-open) {
+  background-color: var(--sdds-white);
+
+  button {
+    background-color: transparent;
+    border-right: 1px solid var(--sdds-blue-700);
+  }
+
+  sdds-icon {
+    color: var(--sdds-grey-958);
+  }
+}

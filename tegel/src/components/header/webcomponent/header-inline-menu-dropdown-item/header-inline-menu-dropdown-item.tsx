@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-inline-menu-dropdown-item',
@@ -16,12 +16,10 @@ export class SddsHeaderInlineMenuDropdownItem {
 
   render() {
     return (
-      <Host>
-        <li class={this.active && 'active'}>
-          {this.type === 'button' && <button>{this.text}</button>}
-          {this.type === 'link' && <a href={this.href}>{this.text}</a>}
-        </li>
-      </Host>
+      <li class={this.active && 'active'}>
+        {this.type === 'button' && <button>{this.text}</button>}
+        {this.type === 'link' && <a href={this.href}>{this.text}</a>}
+      </li>
     );
   }
 }

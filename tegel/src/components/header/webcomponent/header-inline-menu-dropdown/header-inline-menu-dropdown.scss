@@ -6,6 +6,7 @@
 
   li {
     height: 100%;
+    position: relative;
 
     button {
       font: var(--sdds-headline-07);
@@ -53,17 +54,6 @@
         transform: rotate(180deg);
       }
     }
-
-    ul.sdds-header-dropdown-menu {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      width: 190px;
-      border-radius: 0 0 5px 5px;
-      box-shadow: var(--sdds-nav-dropdown-menu-box);
-      border-radius: var(--sdds-nav-dropdown-item-border-radius);
-      overflow: hidden;
-    }
   }
 
   &:active {
@@ -78,6 +68,19 @@
         background-color: red;
       }
     }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: var(--sdds-nav-dropdown-menu-box);
+    border-radius: var(--sdds-nav-dropdown-item-border-radius);
+    position: absolute;
+    transform-origin: top;
+    width: 190px;
+    overflow: hidden;
   }
 }
 
