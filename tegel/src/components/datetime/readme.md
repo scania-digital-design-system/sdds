@@ -5,19 +5,20 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                    | Type                                   | Default            |
-| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------ |
-| `autofocus`    | `autofocus`     | Autofocus for input                                                                                            | `boolean`                              | `false`            |
-| `defaultValue` | `default-value` | Default value of the component. Needs to match the format of the type. Use 'now' to get the current date/time. | `string`                               | `'none'`           |
-| `disabled`     | `disabled`      | Set input in disabled state                                                                                    | `boolean`                              | `false`            |
-| `helper`       | `helper`        | Helper text for the component                                                                                  | `string`                               | `''`               |
-| `label`        | `label`         | Label text for the component                                                                                   | `string`                               | `''`               |
-| `name`         | `name`          | Name property                                                                                                  | `string`                               | `''`               |
-| `noMinWidth`   | `no-min-width`  | With setting                                                                                                   | `boolean`                              | `false`            |
-| `size`         | `size`          | Size of the input                                                                                              | `"" \| "md" \| "sm"`                   | `''`               |
-| `state`        | `state`         | Error state of input                                                                                           | `string`                               | `undefined`        |
-| `type`         | `type`          | Which input type, text, password or similar                                                                    | `"date" \| "datetime-local" \| "time"` | `'datetime-local'` |
-| `value`        | `value`         | Value of the input text                                                                                        | `string`                               | `''`               |
+| Property       | Attribute       | Description                                                            | Type                                   | Default            |
+| -------------- | --------------- | ---------------------------------------------------------------------- | -------------------------------------- | ------------------ |
+| `autofocus`    | `autofocus`     | Autofocus for input                                                    | `boolean`                              | `false`            |
+| `defaultValue` | `default-value` | Default value of the component. Needs to match the format of the type. | `string`                               | `'none'`           |
+| `disabled`     | `disabled`      | Set input in disabled state                                            | `boolean`                              | `false`            |
+| `format`       | `format`        |                                                                        | `"" \| "none"`                         | `undefined`        |
+| `helper`       | `helper`        | Helper text for the component                                          | `string`                               | `''`               |
+| `label`        | `label`         | Label text for the component                                           | `string`                               | `''`               |
+| `name`         | `name`          | Name property                                                          | `string`                               | `''`               |
+| `noMinWidth`   | `no-min-width`  | With setting                                                           | `boolean`                              | `false`            |
+| `size`         | `size`          | Size of the input                                                      | `"" \| "md" \| "sm"`                   | `''`               |
+| `state`        | `state`         | Error state of input                                                   | `string`                               | `undefined`        |
+| `type`         | `type`          | Which input type, text, password or similar                            | `"date" \| "datetime-local" \| "time"` | `'datetime-local'` |
+| `value`        | `value`         | Value of the input text                                                | `string`                               | `''`               |
 
 
 ## Events

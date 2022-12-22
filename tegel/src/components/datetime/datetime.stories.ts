@@ -34,7 +34,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Custom', 'Now'],
+      options: ['None', 'Custom'],
     },
     size: {
       name: 'Size',
@@ -152,8 +152,6 @@ const datetimeTemplate = ({
         default:
           return 'Invalid type';
       }
-    } else if (value === 'Now') {
-      return 'now';
     }
   };
 

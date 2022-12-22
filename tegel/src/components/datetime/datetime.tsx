@@ -15,6 +15,8 @@ export class Datetime {
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
 
+  @Prop() format: '' | 'none';
+
   /** Default value of the component. Needs to match the format of the type. */
   @Prop() defaultValue: string | 'none' = 'none';
 
@@ -68,7 +70,7 @@ export class Datetime {
       case 'date':
         return `${dateTimeObj.year}-${dateTimeObj.month}-${dateTimeObj.day}`;
       case 'time':
-        return `${dateTimeObj.hours}:${dateTimeObj.minutes}`;
+        return `${this.defaultValue.slice(0, 2)}:${this.defaultValue.slice(3, 5)}`;
       default:
         throw new Error('Invalid type.');
     }
@@ -76,6 +78,8 @@ export class Datetime {
 
   componentWillLoad() {
     if (this.defaultValue !== 'none') {
+      console.log(this.getDefaultValue());
+      console.log(this.defaultValue);
       this.value = this.getDefaultValue();
     }
   }
