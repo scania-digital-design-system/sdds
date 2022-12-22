@@ -38,28 +38,6 @@ const Template = () =>
   formatHtmlPreview(
     `
   <sdds-header site-name="Test" icon-href="google.se">
-    <sdds-header-mobile-menu slot="mobile-menu">
-    <sdds-header-mobile-menu-item active
-        type="button"
-        text="Button 1">
-      </sdds-header-mobile-menu-item>
-      <sdds-header-mobile-menu-dropdown
-        text="Dropdown">
-        <sdds-header-mobile-menu-item
-          type="link"
-          text="Dropdown 1">
-        </sdds-header-mobile-menu-item>
-        <sdds-header-mobile-menu-item
-          type="link"
-          text="Dropdown 2">
-        </sdds-header-mobile-menu-item>
-      </sdds-header-mobile-menu-dropdown>
-      <sdds-header-mobile-menu-item
-        type="link"
-        text="Link 1">
-      </sdds-header-mobile-menu-item>
-
-    </sdds-header-mobile-menu>
     <sdds-header-inline-menu slot="lead">
       <sdds-header-inline-menu-item
         type="button"
@@ -108,28 +86,7 @@ const Template = () =>
         </sdds-header-launcher-item>
         <sdds-header-launcher-item type="link" text="Link">
         </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="category" text="Category">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="button" text="Button">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="link" text="Link">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="button" text="Button">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="link" text="Link">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="button" text="Button">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="link" text="Link">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="button" text="Button">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="link" text="Link">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="button" text="Button">
-        </sdds-header-launcher-item>
-        <sdds-header-launcher-item type="link" text="Link">
-        </sdds-header-launcher-item>
+        
       </sdds-header-launcher>
     </sdds-header-toolbar>
   </sdds-header>

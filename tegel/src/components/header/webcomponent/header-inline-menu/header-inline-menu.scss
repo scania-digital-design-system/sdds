@@ -3,6 +3,8 @@
 :host {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  width: unset;
 
   ul {
     margin: 0;
@@ -12,5 +14,71 @@
     display: flex;
     align-items: center;
     height: 100%;
+  }
+
+  button {
+    display: none;
+    visibility: hidden;
+    background-color: var(--sdds-header-bg);
+    border: none;
+    border-right: 1px solid var(--sdds-blue-700);
+    color: var(--sdds-white);
+    width: 64px;
+
+    &.mobile-menu {
+      &-open {
+        background-color: var(--sdds-white);
+        color: var(--sdds-grey-958);
+        width: 272px;
+      }
+
+      &-closed {
+        &:hover {
+          background-color: var(--sdds-blue-700);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 992px) {
+    button.sdds-header-inline-menu-mobile {
+      display: block;
+      visibility: visible;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 64px;
+      height: 100vh;
+      width: 272px;
+      background-color: var(--sdds-white);
+
+      &.sdds-header-mobile-menu {
+        &-open {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+:host(.mobile-menu-open) {
+  width: 272px;
+
+  button {
+    border-bottom: 1px solid var(--sdds-grey-300);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+
+    sdds-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+    }
   }
 }

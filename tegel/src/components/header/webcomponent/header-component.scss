@@ -35,7 +35,7 @@
     }
   }
 
-  .sdds-header-site-name-desktop {
+  .sdds-header-app-name {
     @include sdds-flex-center;
 
     font-family: var(--sdds-font-family-headline);
@@ -80,33 +80,17 @@
     }
 
     slot[name='lead']::slotted(*) {
-      display: none;
-    }
-
-    .sdds-header-site-name-desktop {
       position: absolute;
-      left: 64px;
+      left: 0;
+
+      //      width: 64px;
       height: 64px;
     }
 
-    slot[name='mobile-menu']::slotted(.sdds-mobile-menu-open) + .sdds-header-content,
-    .sdds-header-site-name-desktop {
-      display: none;
-    }
-
-    slot[name='mobile-menu']::slotted(.sdds-mobile-menu-open) + .sdds-header-site-name-desktop {
-      display: none;
-      visibility: hidden;
-      background-color: red !important;
-    }
-
-    slot[name='trail']::slotter(*) + slot[name='mobile-menu']::slotted(.sdds-mobile-menu-open) {
-      display: none;
-    }
-
-    slot[name='mobile-menu']::slotted(*) {
-      display: block;
-      width: 100%;
+    .sdds-header-app-name {
+      position: absolute;
+      left: 64px;
+      height: 64px;
     }
   }
 }
