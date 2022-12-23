@@ -507,25 +507,13 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div
-                ref={(el) => {
-                  this.minusElement = el as HTMLElement;
-                }}
-                class="sdds-slider__control sdds-slider__control-minus"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <div ref={el => (this.minusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-minus">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M1.98975 8.00005C1.98975 8.27619 2.2136 8.50005 2.48975 8.50005H13.5104C13.7866 8.50005 14.0104 8.27619 14.0104 8.00005C14.0104 7.72391 13.7866 7.50005 13.5104 7.50005L2.48975 7.50005C2.2136 7.50005 1.98975 7.72391 1.98975 8.00005Z"
-                    fill="#0D0F13"
-                  />
+                     />
                 </svg>
               </div>
             </div>
@@ -630,24 +618,13 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div
-                ref={(el) => {
-                  this.plusElement = el as HTMLElement;
-                }}
-                class="sdds-slider__control sdds-slider__control-plus"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <div ref={el => (this.plusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-plus">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M8.50005 13.5104C8.50005 13.7865 8.27619 14.0104 8.00005 14.0104C7.7239 14.0104 7.50005 13.7865 7.50005 13.5104V8.5H2.48975C2.2136 8.5 1.98975 8.27614 1.98975 8C1.98975 7.72386 2.2136 7.5 2.48975 7.5H7.50005V2.48965C7.50005 2.21351 7.7239 1.98965 8.00005 1.98965C8.27619 1.98965 8.50005 2.21351 8.50005 2.48965V7.5H13.5104C13.7866 7.5 14.0104 7.72386 14.0104 8C14.0104 8.27614 13.7866 8.5 13.5104 8.5H8.50005V13.5104Z"
-                    fill="#0D0F13"
+                    
                   />
                 </svg>
               </div>
