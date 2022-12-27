@@ -1,13 +1,6 @@
 @import 'block-theme-vars';
 @import '../../mixins/box-sizing';
 
-:host,
-:root {
-  --sdds-block-bg-primary: var(--sdds-grey-50);
-  --sdds-block-bg-primary-nested: var(--sdds-white);
-  --sdds-block-bg-secondary: var(--sdds-white);
-  --sdds-block-bg-secondary-nested: var(--sdds-grey-50);
-}
 .sdds-block {
   @include sdds-box-sizing;
 
