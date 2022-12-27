@@ -11,6 +11,7 @@
     content: ' ';
     display: block;
     border-bottom: 1px solid var(--sdds-inline-tabs-fullbleed-horizontal-divider-bg);
+    opacity: var(--sdds-inline-tabs-fullbleed-horizontal-divider-opacity);
     left: 0;
     right: 0;
     bottom: 0;
@@ -104,7 +105,8 @@
     //fixme: headline-07 has a line-height that is not matching old storybook
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
-    color: rgb(0 21 51 / 60%);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color);
+    opacity: 0.6;
     padding: 16px 0;
     margin-right: 32px;
     text-decoration: none;
@@ -129,6 +131,16 @@
       z-index: 1;
     }
   }
+  
+  ::slotted(.sdds-inline-tabs-fullbleed--tab__active) {
+    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
+    opacity:1;
+
+    &::after {
+      width: 100%;
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-active-indicator-bg);
+    }
+  }
 
   ::slotted(&--tab:first-child) {
     margin-left: 32px;
@@ -141,6 +153,7 @@
   /* tab states */
   ::slotted(&--tab:hover) {
     color: var(--sdds-inline-tabs-fullbleed-tab-hover-color);
+    opacity:1;
 
     &::after {
       width: 100%;
@@ -151,18 +164,10 @@
     @include sdds-focus-state;
 
     color: var(--sdds-inline-tabs-fullbleed-tab-focus-color);
-
+    opacity:1;
+    
     &::after {
       width: 0;
-    }
-  }
-
-  ::slotted(&--tab__active) {
-    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
-
-    &::after {
-      width: 100%;
-      background-color: var(--sdds-inline-tabs-fullbleed-tab-active-indicator-bg);
     }
   }
 
@@ -171,32 +176,32 @@
   }
 
   ::slotted(&--tab__disabled) {
-    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color-disabled);
     pointer-events: none;
-    opacity: 0.16;
+    opacity: var(--sdds-inline-tabs-fullbleed-tab-color-disabled-opacity);
   }
 }
 
 .sdds-inline-tabs-fullbleed-primary {
-  background-color: var(--sdds-white);
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
 
   .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-white);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
   }
 
   .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-white);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
   }
 }
 
 .sdds-inline-tabs-fullbleed-secondary {
-  background-color: var(--sdds-grey-50);
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
 
   .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
   }
 
   .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
   }
 }
