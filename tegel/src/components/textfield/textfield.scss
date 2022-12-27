@@ -313,21 +313,21 @@
   display: none;
   position: absolute;
   right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 18px;
+  color: var(--sdds-textfield-icon-read-only-label-color);
 
   &-label {
     display: none;
     position: absolute;
     right: 18px;
-    bottom: -24px;
+    top: 48px;
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     padding: 8px;
-    color: var(--sdds-white);
-    background-color: var(--sdds-grey-800);
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
+  background-color: var(--sdds-textfield-icon-read-only-label-bg);
+
   }
 }
 
@@ -346,10 +346,6 @@
 
   .sdds-textfield-input {
     padding-right: 54px;
-    background-color: transparent;
-  }
-
-  .sdds-textfield-container {
     background-color: transparent;
   }
 }
