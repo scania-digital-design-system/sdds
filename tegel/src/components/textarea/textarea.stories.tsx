@@ -38,7 +38,7 @@ export default {
       },
     },
     readonly: {
-      description: 'Set textfield to disabled state',
+      description: 'Set textfield to read-only state',
       name: 'Read only',
       control: {
         type: 'boolean',

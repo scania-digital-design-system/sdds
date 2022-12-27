@@ -23,11 +23,11 @@
 
   // Helper
   --sdds-textarea-helper: var(--sdds-grey-700);
-  --sdds-textarea-helper-error: var(--sdds-red-500);
+  --sdds-textarea-helper-error: var(--sdds-negative);
 
   // Highlight bar
   --sdds-textarea-bar: var(--sdds-blue-400);
-  --sdds-textarea-bar-error: var(--sdds-red-500);
+  --sdds-textarea-bar-error: var(--sdds-negative);
 
   // Textcounter
   --sdds-textarea-textcounter: var(--sdds-grey-700);
@@ -37,10 +37,10 @@
   --sdds-textarea-border-bottom: var(--sdds-grey-400);
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
   --sdds-textarea-border-bottom-success: var(--sdds-grey-800);
-  --sdds-textarea-border-bottom-error: var(--sdds-red-500);
+  --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
-  --sdds-textarea-icon-read-only-color: var(--sdds-white);
+  --sdds-textarea-icon-read-only-color: var(--sdds-grey-600);
   --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-800);
 
   // Resize
@@ -48,48 +48,48 @@
 }
 
 .sdds-theme-dark {
-  --sdds-textarea-color: var(--sdds-grey-868);
-  --sdds-textarea-bg: var(--sdds-red);
-  --sdds-textarea-placeholder: var(--sdds-grey-500);
-  --sdds-textarea-placeholder-focus-color: var(--sdds-grey-500);
+  --sdds-textarea-color: var(--sdds-grey-200);
+  --sdds-textarea-bg: var(--sdds-grey-900);
+  --sdds-textarea-placeholder: var(--sdds-grey-600);
+  --sdds-textarea-placeholder-focus-color: var(--sdds-grey-700);
 
   //White background
-  --sdds-textarea-on-white-bg: var(--sdds-grey-50);
+  --sdds-textarea-on-white-bg: var(--sdds-grey-868);
 
   // Disabled
-  --sdds-textarea-disabled-color: var(--sdds-grey-400);
-  --sdds-textarea-disabled-bg: var(--sdds-red);
-  --sdds-textarea-disabled-placeholder: var(--sdds-grey-400);
-  --sdds-textarea-disabled-label: var(--sdds-grey-400);
+  --sdds-textarea-disabled-color: var(--sdds-grey-800);
+  --sdds-textarea-disabled-bg: var(--sdds-grey-868);
+  --sdds-textarea-disabled-placeholder: var(--sdds-grey-800);
+  --sdds-textarea-disabled-label: var(--sdds-grey-700);
 
   // Label
-  --sdds-textarea-label-color: var(--sdds-grey-958);
-  --sdds-textarea-label-inside-color: var(--sdds-grey-700);
+  --sdds-textarea-label-color: var(--sdds-grey-100);
+  --sdds-textarea-label-inside-color: var(--sdds-grey-400);
 
   // Placeholder
-  --sdds-textarea-placeholder-focus-color: var(--sdds-grey-500);
+  --sdds-textarea-placeholder-focus-color: var(--sdds-grey-700);
 
   // Helper
-  --sdds-textarea-helper: var(--sdds-grey-700);
-  --sdds-textarea-helper-error: var(--sdds-red-500);
+  --sdds-textarea-helper: var(--sdds-grey-600);
+  --sdds-textarea-helper-error: var(--sdds-negative);
 
   // Highlight bar
   --sdds-textarea-bar: var(--sdds-blue-400);
-  --sdds-textarea-bar-error: var(--sdds-red-500);
+  --sdds-textarea-bar-error: var(--sdds-negative);
 
   // Textcounter
-  --sdds-textarea-textcounter: var(--sdds-grey-700);
-  --sdds-textarea-textcounter-divider: var(--sdds-grey-500);
+  --sdds-textarea-textcounter: var(--sdds-grey-600);
+  --sdds-textarea-textcounter-divider: var(--sdds-grey-700);
 
   // Border bottom
-  --sdds-textarea-border-bottom: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
-  --sdds-textarea-border-bottom-success: var(--sdds-grey-800);
-  --sdds-textarea-border-bottom-error: var(--sdds-red-500);
+  --sdds-textarea-border-bottom: var(--sdds-grey-600);
+  --sdds-textarea-border-bottom-hover: var(--sdds-grey-400);
+  --sdds-textarea-border-bottom-success: var(--sdds-grey-400);
+  --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
-  --sdds-textarea-icon-read-only-color: var(--sdds-white);
-  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-800);
+  --sdds-textarea-icon-read-only-color: var(--sdds-grey-100);
+  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-50);
 
   // Resize
   --sdds-textarea-resize-icon: var(--sdds-grey-500);
