@@ -1,6 +1,7 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/box-sizing';
 
+
 .sdds-navigation-tabs {
   @include sdds-box-sizing;
 
@@ -12,6 +13,7 @@
     content: ' ';
     display: block;
     border-bottom: 1px solid var(--sdds-navigation-tabs-horizontal-divider-bg);
+    opacity: var(--sdds-navigation-tabs-horizontal-divider-opacity);
     left: 0;
     right: 0;
     bottom: 0;
@@ -102,7 +104,8 @@
     //fixme: headline-07 has a line-height that is not matching old storybook
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
-    color: rgb(0 21 51 / 60%);
+    color: var(--sdds-navigation-tabs-tab-color);
+    opacity:0.6;
     padding: 26px 0;
     margin-right: 32px;
     text-decoration: none;
@@ -140,6 +143,7 @@
   /* tab states */
   ::slotted(&-tab:hover) {
     color: var(--sdds-navigation-tabs-tab-hover-color);
+    opacity: 1;
 
     &::after {
       width: 100%;
@@ -150,6 +154,7 @@
     @include sdds-focus-state;
 
     color: var(--sdds-navigation-tabs-tab-focus-color);
+    opacity: 1;
 
     &::after {
       width: 0;
@@ -158,11 +163,10 @@
 
   ::slotted(&-tab-active) {
     color: var(--sdds-navigation-tabs-tab-active-color);
+    opacity:1;
 
     &::after {
       width: 100%;
-
-      --sdds-navigation-tabs-tab-active-indicator-bg: var(--sdds-blue-400);
 
       background-color: var(--sdds-navigation-tabs-tab-active-indicator-bg);
     }
@@ -173,8 +177,8 @@
   }
 
   ::slotted(&-tab-disabled) {
-    color: var(--sdds-navigation-tabs-tab-active-color);
-    opacity: 0.16;
+    color: var(--sdds-navigation-tabs-tab-color-disabled);
+    opacity: var(--sdds-navigation-tabs-tab-color-disabled-opacity);
     pointer-events: none;
   }
 }

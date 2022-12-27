@@ -132,7 +132,7 @@
     }
   }
   
-  ::slotted(.sdds-inline-tabs-fullbleed--tab__active) {
+  ::slotted(&--tab__active) {
     color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
     opacity:1;
 
