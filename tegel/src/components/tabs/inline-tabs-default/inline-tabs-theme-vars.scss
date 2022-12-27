@@ -15,6 +15,8 @@
   --sdds-inline-tabs-tab-active-color: var(--sdds-grey-958);
   --sdds-inline-tabs-tab-active-indicator-bg: var(--sdds-blue-400);
   --sdds-inline-tabs-tab-active-ongrey-bg: var(--sdds-white);
+  --sdds-navigation-tabs-tab-color-disabled: var(--sdds-blue-900);
+
 }
 
 .sdds-theme-dark {
@@ -33,4 +35,6 @@
   --sdds-inline-tabs-tab-active-color: var(--sdds-grey-50);
   --sdds-inline-tabs-tab-active-indicator-bg: var(--sdds-blue-300);
   --sdds-inline-tabs-tab-active-ongrey-bg: var(--sdds-grey-900);
+
+  --sdds-navigation-tabs-tab-color-disabled: var(--sdds-blue-50);
 }
