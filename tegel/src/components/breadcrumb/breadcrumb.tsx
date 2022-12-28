@@ -14,9 +14,11 @@ export class SddsBreadcrumb {
 
   render() {
     return (
-      <ul class={'sdds-breadcrumb'}>
-        <slot></slot>
-      </ul>
+      <nav>
+        <ol class={'sdds-breadcrumb'}>
+          <slot></slot>
+        </ol>
+      </nav>
     );
   }
 }

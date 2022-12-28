@@ -19,7 +19,6 @@ export default {
 const Template = () => `   
       <sdds-breadcrumb>
       <sdds-breadcrumb-item href="#" link-text="A breadcrumb"></sdds-breadcrumb-item>
-      <sdds-breadcrumb-item disabled href="#" link-text="Disabled one"></sdds-breadcrumb-item>
       <sdds-breadcrumb-item href="#" link-text="Another breadcrumb"></sdds-breadcrumb-item>
         <sdds-breadcrumb-item link-text="Current one" current></sdds-breadcrumb-item>
       </sdds-breadcrumb>
