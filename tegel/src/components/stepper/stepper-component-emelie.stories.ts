@@ -20,7 +20,7 @@ export default {
   argTypes: {
     direction: {
       name: 'Direction',
-      description: 'The direction which the stepper is displayed.',
+      description: 'DESCRIPTION',
       control: {
         type: 'radio',
       },
@@ -28,7 +28,7 @@ export default {
     },
     textPosition: {
       name: 'Text position',
-      description: 'The position of the text, only available when the direction is horizontal.',
+      description: 'DESCRIPTION',
       control: {
         type: 'radio',
       },
@@ -36,8 +36,8 @@ export default {
       if: { arg: 'direction', neq: 'Vertical' },
     },
     size: {
-      name: 'Size',
-      description: 'The size of the stepper.',
+      name: 'Text position',
+      description: 'DESCRIPTION',
       control: {
         type: 'radio',
       },
@@ -68,21 +68,21 @@ const Template = ({ direction, textPosition, size, showLabels }) =>
         <sdds-stepper size="${sizeLookUp[size]}" ${
       textPosition ? `text-position="${textPosition.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
-            <sdds-stepper-item state="success" ${
+            <sdds-stepper-item number="1"   ${
               showLabels ? `label-text="Step label"` : ''
             }></sdds-stepper-item>
             <sdds-stepper-item ${
-              showLabels ? `number="2" label-text="Step label"` : ''
+              showLabels ? `number="2" label-text="Step label" state="inactive"` : ''
             }></sdds-stepper-item>
             <sdds-stepper-item number="3" state="inactive" ${
               showLabels ? `label-text="Step label"` : ''
             }></sdds-stepper-item>
-            <sdds-stepper-item number="4" state="error" ${
+            <sdds-stepper-item number="4"  state="inactive"${
               showLabels ? `label-text="Step label"` : ''
             }></sdds-stepper-item>
         </sdds-stepper>
         `,
   );
 
-export const WebComponents = Template.bind({});
-WebComponents.args = {};
+export const Emelie = Template.bind({});
+Emelie.args = {};
