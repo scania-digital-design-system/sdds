@@ -7,7 +7,7 @@
   border-collapse: collapse;
   display: table;
 
-  .sdds-table__title {
+  & > caption {
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     text-align: left;
@@ -23,12 +23,10 @@
     border-top-right-radius: 4px;
   }
 
-  .sdds-table__header {
+  & > thead {
     display: table-header-group;
-  }
 
-  .sdds-table__header {
-    .sdds-table__header-cell {
+    & > tr > th {
       &:first-of-type {
         border-top-left-radius: 4px;
       }
@@ -39,8 +37,8 @@
     }
   }
 
-  .sdds-table__title + .sdds-table__header {
-    .sdds-table__header-cell {
+  & > caption + thead {
+    & > tr > th {
       &:first-of-type {
         border-top-left-radius: 0;
       }
@@ -51,8 +49,8 @@
     }
   }
 
-  .sdds-table__header {
-    .sdds-table__header-cell {
+  & > thead {
+    & > tr > th {
       font: var(--sdds-headline-07);
       letter-spacing: var(--sdds-headline-07-ls);
       display: table-cell;
@@ -77,107 +75,79 @@
     }
   }
 
-  .sdds-table__body {
+  & > tbody {
     display: table-row-group;
+
+    & > tr > td {
+      font: var(--sdds-detail-02);
+      letter-spacing: var(--sdds-detail-02-ls);
+      display: table-cell;
+      box-sizing: border-box;
+      color: var(--sdds-grey-958);
+      padding: var(--sdds-spacing-element-16);
+      min-width: 192px;
+      vertical-align: top;
+      background-color: transparent;
+      transition: background-color 200ms ease;
+    }
   }
 
-  .sdds-table__row {
-    display: table-row;
-    border-bottom: 1px solid var(--sdds-grey-400);
-    background-color: var(--sdds-white);
-    transition: background-color 200ms ease;
+  & > thead,
+  & > tbody {
+    & > tr {
+      display: table-row;
+      border-bottom: 1px solid var(--sdds-grey-400);
+      background-color: var(--sdds-white);
+      transition: background-color 200ms ease;
+    }
+
+    & > tr:hover {
+      background-color: var(--sdds-grey-100);
+    }
   }
 
-  .sdds-table__row:hover {
-    background-color: var(--sdds-grey-100);
-  }
-
-  .sdds-table__row--selected {
-    background-color: var(--sdds-grey-300);
-  }
-
-  .sdds-table__row--selected:hover {
-    background-color: var(--sdds-grey-400);
-  }
-
-  .sdds-table__row--hidden {
-    display: none;
-  }
-
-  .sdds-table__body-cell {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
-    display: table-cell;
-    box-sizing: border-box;
-    color: var(--sdds-grey-958);
-    padding: var(--sdds-spacing-element-16);
-    min-width: 192px;
-    vertical-align: top;
-    background-color: transparent;
-    transition: background-color 200ms ease;
-  }
-
-  .sdds-table__body-cell--hover {
-    background-color: var(--sdds-grey-200);
-  }
-
-  // SDDS GLOBAL STYLES:
   &.sdds-table--compact {
-    .sdds-table__title {
+    & > caption {
       // 24px to account for header component that overlaps
       height: 56px;
     }
 
-    .sdds-table__body-cell,
-    .sdds-table__header-cell {
+    & > thead > tr > th,
+    & > tbody > tr > td {
       padding: var(--sdds-spacing-element-8) var(--sdds-spacing-element-16);
     }
 
-    .sdds-table__body-cell--checkbox {
-      min-width: 32px;
-      width: 32px;
-      padding: 0;
-    }
-
-    .sdds-table__header-cell,
-    .sdds-form-label--data-table {
+    & > thead > tr > th {
       height: 32px;
     }
   }
 
   &.sdds-table--divider {
-    .sdds-table__header-cell,
-    .sdds-table__body-cell {
+    & > thead > tr > th,
+    & > tbody > tr > td {
       border-right: 1px solid var(--sdds-grey-400);
     }
 
-    .sdds-table__header-cell:last-child,
-    .sdds-table__body-cell:last-child {
+    & > thead > tr > th:last-child,
+    & > tbody > tr > td:last-child {
       border-right: none;
     }
   }
 
   &.sdds-table--no-min-width {
-    .sdds-table__header {
-      .sdds-table__header-cell {
-        min-width: unset;
-      }
-    }
-
-    .sdds-table__body {
-      .sdds-table__body-cell {
-        min-width: unset;
-      }
+    & > thead > tr > th,
+    & > tbody > tr > td {
+      min-width: unset;
     }
   }
 
   &.sdds-table--on-white-bg {
-    .sdds-table__row {
+    & > tbody > tr {
       background-color: var(--sdds-grey-50);
-    }
 
-    .sdds-table__row:hover {
-      background-color: var(--sdds-grey-200);
+      &:hover {
+        background-color: var(--sdds-grey-200);
+      }
     }
   }
 

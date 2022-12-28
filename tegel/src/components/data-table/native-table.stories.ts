@@ -114,18 +114,6 @@ export default {
       },
       if: { arg: 'noMinWidthArg', eq: true },
     },
-    column4Width: {
-      name: 'Column 4 width',
-      description:
-        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
-      if: { arg: 'noMinWidthArg', eq: true },
-    },
   },
   args: {
     tableTitle: 'Native table',
@@ -137,7 +125,6 @@ export default {
     column1Width: '',
     column2Width: '',
     column3Width: '',
-    column4Width: '',
   },
 };
 
@@ -151,47 +138,29 @@ const Template = (args) =>
         ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
         ${args.responsiveTable ? 'sdds-table--responsive' : ''}
     " >
-    ${args.tableTitle && `<caption class="sdds-table__title">${args.tableTitle}</caption>`}
-    <thead class="sdds-table__header">
-      <tr class="sdds-table__row">
-        <th class="sdds-table__header-cell" ${
-          args.column1Width ? `style="width: ${args.column1Width};"` : ''
-        }>Header</th>
-        <th class="sdds-table__header-cell" ${
-          args.column2Width ? `style="width: ${args.column2Width};"` : ''
-        }>Header</th>
-        <th class="sdds-table__header-cell" ${
-          args.column3Width ? `style="width: ${args.column3Width};"` : ''
-        }>Header</th>
-        <th class="sdds-table__header-cell" ${
-          args.column4Width ? `style="width: ${args.column4Width};"` : ''
-        }>Header</th>
+    ${args.tableTitle && `<caption>${args.tableTitle}</caption>`}
+    <thead>
+      <tr>
+        <th ${args.column1Width ? `style="width: ${args.column1Width};"` : ''}>Header</th>
+        <th ${args.column2Width ? `style="width: ${args.column2Width};"` : ''}>Header</th>
+        <th ${args.column3Width ? `style="width: ${args.column3Width};"` : ''}>Header</th>
       </tr>
     </thead>
-     <tbody class="sdds-table__body">
-      <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-       <td class="sdds-table__body-cell">Text</td>
+     <tbody>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
       </tr>
-      <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-       <td class="sdds-table__body-cell">Text</td>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
       </tr>
-      <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-       <td class="sdds-table__body-cell">Text</td>
-      </tr>
-      <tr class="sdds-table__row">
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-        <td class="sdds-table__body-cell">Text</td>
-       <td class="sdds-table__body-cell">Text</td>
+      <tr>
+        <td>Text</td>
+        <td>Text</td>
+        <td>Text</td>
       </tr>
     </tbody>
   </table>
