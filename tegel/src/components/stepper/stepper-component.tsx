@@ -30,11 +30,11 @@ export class SddsStepper {
   render() {
     return (
       <Host class={'sdds-stepper'}>
-        <div
+        <ul
           class={`sdds-stepper sdds-stepper-${this.direction} sdds-stepper-text-position-${this.textPosition} sdds-stepper-${this.size}`}
         >
           <slot></slot>
-        </div>
+        </ul>
       </Host>
     );
   }

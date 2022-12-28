@@ -44,21 +44,27 @@
       }
     }
 
-    .sdds-stepper-item-warning {
-      border-color: var(--sdds-negative);
-      color: var(--sdds-negative);
-    }
+    .sdds-stepper-item {
+      &-error {
+        border-color: var(--sdds-negative);
+        color: var(--sdds-negative);
+      }
 
-    .sdds-stepper-item-success {
-      background-color: var(--sdds-positive);
-      border-color: var(--sdds-positive);
-      color: var(--sdds-white);
-    }
+      &-success {
+        background-color: var(--sdds-positive);
+        border-color: var(--sdds-positive);
+        color: var(--sdds-white);
+      }
 
-    .sdds-stepper-item-inactive {
-      background-color: transparent;
-      border-color: rgb(0 21 51 / 16%);
-      color: rgb(0 21 51 / 38%);
+      &-inactive {
+        background-color: transparent;
+        border-color: rgb(0 21 51 / 16%);
+        color: rgb(0 21 51 / 38%);
+      }
+
+      &-label {
+        text-align: center;
+      }
     }
   }
 }

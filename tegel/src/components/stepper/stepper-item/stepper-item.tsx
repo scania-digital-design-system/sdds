@@ -10,7 +10,7 @@ export class SddsStepper {
   @Prop() labelText: string = '';
 
   /** State of the stepper-item */
-  @Prop() state: 'active' | 'warning' | 'success' | 'inactive' = 'active';
+  @Prop() state: 'current' | 'error' | 'success' | 'inactive' = 'current';
 
   /** Content of the stepper-item */
   @Prop() number: number = null;
@@ -30,18 +30,18 @@ export class SddsStepper {
   render() {
     return (
       <Host>
-        <div class={`sdds-stepper-item sdds-stepper-item-${this.size}`}>
+        <li class={`sdds-stepper-item sdds-stepper-item-${this.size}`}>
           <div class={`sdds-stepper-content sdds-stepper-item-${this.state}`}>
-            {this.number && (this.state === 'active' || this.state === 'inactive') && (
+            {this.number && (this.state === 'current' || this.state === 'inactive') && (
               <div class="stepper-item-number sdds-detail-05">{this.number}</div>
             )}
             {this.state === 'success' && <sdds-icon name="tick" size={this.iconSize}></sdds-icon>}
-            {this.state === 'warning' && (
+            {this.state === 'error' && (
               <sdds-icon name={this.state} size={this.iconSize}></sdds-icon>
             )}
           </div>
           <div class={`sdds-detail-05 sdds-stepper-item-label`}>{this.labelText}</div>
-        </div>
+        </li>
       </Host>
     );
   }
