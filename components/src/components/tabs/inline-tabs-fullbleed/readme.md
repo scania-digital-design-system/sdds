@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                  | Type                       | Default     |
-| --------- | --------- | ------------------------------------------------------------ | -------------------------- | ----------- |
-| `variant` | `variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `'primary'` |
+| Property      | Attribute      | Description                                                  | Type                       | Default     |
+| ------------- | -------------- | ------------------------------------------------------------ | -------------------------- | ----------- |
+| `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `'primary'` |
 
 
 ----------------------------------------------
