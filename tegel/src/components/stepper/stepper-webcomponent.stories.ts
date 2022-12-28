@@ -71,8 +71,8 @@ const Template = ({ direction, textPosition, size, showLabels }) =>
             <sdds-stepper-item state="success" ${
               showLabels ? `label-text="Step label"` : ''
             }></sdds-stepper-item>
-            <sdds-stepper-item ${
-              showLabels ? `number="2" label-text="Step label"` : ''
+            <sdds-stepper-item number="2" ${
+              showLabels ? `label-text="Step label"` : ''
             }></sdds-stepper-item>
             <sdds-stepper-item number="3" state="inactive" ${
               showLabels ? `label-text="Step label"` : ''
