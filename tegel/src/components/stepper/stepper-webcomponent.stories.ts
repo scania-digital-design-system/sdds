@@ -24,6 +24,10 @@ export default {
       control: {
         type: 'radio',
       },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'horizontal' },
+      },
       options: ['Horizontal', 'Vertical'],
     },
     textPosition: {
@@ -31,6 +35,10 @@ export default {
       description: 'The position of the text, only available when the direction is horizontal.',
       control: {
         type: 'radio',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'below' },
       },
       options: ['Below', 'Aside'],
       if: { arg: 'direction', neq: 'Vertical' },
@@ -40,6 +48,10 @@ export default {
       description: 'The size of the stepper.',
       control: {
         type: 'radio',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'lg' },
       },
       options: ['Large', 'Small'],
     },
