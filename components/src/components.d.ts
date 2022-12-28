@@ -155,6 +155,10 @@ export namespace Components {
          */
         "labelPosition": 'no-label' | 'inside' | 'outside';
         /**
+          * Direction that the dropdown will open. By default set to auto.
+         */
+        "openDirection": 'down' | 'up' | 'auto';
+        /**
           * Placeholder text for dropdown with no selectedLabel item
          */
         "placeholder": string;
@@ -274,9 +278,17 @@ export namespace Components {
           * either use this (default-tab="...") or read attribute "default" from one of the slotted children.
          */
         "defaultTab": string;
+        /**
+          * Variant of the tabs, primary= on white, secondary= on grey50
+         */
+        "modeVariant": 'primary' | 'secondary';
         "showTab": (key: string) => Promise<void>;
     }
     interface SddsInlineTabsFullbleed {
+        /**
+          * Variant of the tabs, primary= on white, secondary= on grey50
+         */
+        "modeVariant": 'primary' | 'secondary';
     }
     interface SddsModal {
         "openModal": () => Promise<void>;
@@ -996,6 +1008,10 @@ declare namespace LocalJSX {
         "labelPosition"?: 'no-label' | 'inside' | 'outside';
         "onInputSearch"?: (event: CustomEvent<any>) => void;
         /**
+          * Direction that the dropdown will open. By default set to auto.
+         */
+        "openDirection"?: 'down' | 'up' | 'auto';
+        /**
           * Placeholder text for dropdown with no selectedLabel item
          */
         "placeholder"?: string;
@@ -1117,8 +1133,16 @@ declare namespace LocalJSX {
           * either use this (default-tab="...") or read attribute "default" from one of the slotted children.
          */
         "defaultTab"?: string;
+        /**
+          * Variant of the tabs, primary= on white, secondary= on grey50
+         */
+        "modeVariant"?: 'primary' | 'secondary';
     }
     interface SddsInlineTabsFullbleed {
+        /**
+          * Variant of the tabs, primary= on white, secondary= on grey50
+         */
+        "modeVariant"?: 'primary' | 'secondary';
     }
     interface SddsModal {
         /**
