@@ -1,0 +1,40 @@
+li {
+  height: 48px;
+  width: 100%;
+
+  button {
+    width: 100%;
+  }
+
+  a,
+  button {
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--sdds-grey-958);
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
+  }
+
+  &:hover {
+    background-color: var(--sdds-header-mobile-avatar--item-btn-bg-hover);
+  }
+
+  &.sdds-side-menu-dropdown-open {
+    ul {
+      display: inline-block;
+    }
+  }
+
+  &.sdds-side-menu-dropdown-closed {
+    ul {
+      display: none;
+    }
+  }
+}
