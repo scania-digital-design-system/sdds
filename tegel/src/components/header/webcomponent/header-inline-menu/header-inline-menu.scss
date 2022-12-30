@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  width: unset;
 
   ul {
     margin: 0;
@@ -41,9 +40,14 @@
     }
   }
 
-  button.sdds-header-inline-menu-mobile {
-    display: none;
-    visibility: hidden;
+  @media all and (min-width: 992px) {
+    button {
+      &.mobile-menu {
+        &-open {
+          width: 0;
+        }
+      }
+    }
   }
 
   @media all and (max-width: 992px) {
@@ -60,8 +64,6 @@
 }
 
 :host(.mobile-menu-open) {
-  width: 272px;
-
   button {
     border-bottom: 1px solid var(--sdds-grey-300);
     cursor: pointer;
