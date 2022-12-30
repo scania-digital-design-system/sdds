@@ -67,11 +67,7 @@
     }
   }
 
-  li.side-menu-collapsed:hover {
-    button,
-    li {
-      width: 250%;
-      z-index: 1000;
-    }
+  li.side-menu-collapsed {
+    border-bottom: 1px solid var(--sdds-grey-300);
   }
 }

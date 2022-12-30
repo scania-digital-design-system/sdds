@@ -33,9 +33,6 @@ const Template = () =>
     <sdds-side-menu-item text="Link" type="link">
     test
     </sdds-side-menu-item>
-    <sdds-side-menu-item text="Link">
-    test
-    </sdds-side-menu-item>
   </div>
   <div slot="bottom">
     <sdds-side-menu-item avatar-header="Martin" avatar-subheader="Jarsäter" type="user-profile" position="bottom">
