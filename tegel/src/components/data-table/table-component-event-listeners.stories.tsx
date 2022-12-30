@@ -123,7 +123,6 @@ const EventListenersTemplate = ({
       });
     </script>
 
-  <h3>Disabled filtering, pagination and sorting - left to the user to listen to events</h3>
    <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
@@ -131,7 +130,7 @@ const EventListenersTemplate = ({
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
    >
-          <sdds-table-toolbar table-title="Disabled functionalities table" enable-filtering></sdds-table-toolbar>
+          <sdds-table-toolbar table-title="Disabled filtering, pagination and sorting - left to the user to listen to events" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable></sdds-header-cell>

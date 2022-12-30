@@ -1,14 +1,16 @@
 /* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
 @import '../../checkbox/checkbox';
 @import '../../../mixins/box-sizing';
+@import '../data-table-theme-vars.scss';
 
 :host(.sdds-table__row) {
   @include sdds-box-sizing;
 
   display: table-row;
-  border-bottom: 1px solid var(--sdds-grey-400);
-  background-color: var(--sdds-white);
+  border-bottom: 1px solid var(--sdds-data-table-divider);
+  background-color: var(--sdds-data-table-body-row-bg);
   transition: background-color 200ms ease;
+  color: var(--sdds-data-table-color);
 
   .sdds-table__body-cell--checkbox {
     min-width: 48px;
@@ -18,15 +20,15 @@
 }
 
 :host(.sdds-table__row:hover) {
-  background-color: var(--sdds-grey-100);
+  background-color: var(--sdds-data-table-body-row-bg-hover);
 }
 
 :host(.sdds-table__row--selected) {
-  background-color: var(--sdds-grey-300);
+  background-color: var(--sdds-data-table-body-row-bg-active);
 }
 
 :host(.sdds-table__row--selected:hover) {
-  background-color: var(--sdds-grey-400);
+  background-color: var(--sdds-data-table-body-row-bg-active-hover);
 }
 
 :host(.sdds-table__row--hidden) {
@@ -58,14 +60,14 @@
 
 :host(.sdds-table--divider) {
   .sdds-table__body-cell--checkbox {
-    border-right: 1px solid var(--sdds-grey-400);
+    border-right: 1px solid var(--sdds-data-table-divider);
   }
 }
 
 :host(.sdds-table--on-white-bg) {
-  background-color: var(--sdds-grey-50);
+  background-color: var(--sdds-data-table-body-row-bg-on-white);
 }
 
 :host(.sdds-table--on-white-bg:hover) {
-  background-color: var(--sdds-grey-200);
+  background-color: var(--sdds-data-table-body-row-bg-on-white-hover);
 }

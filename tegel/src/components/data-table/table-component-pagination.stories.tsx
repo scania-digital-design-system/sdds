@@ -119,7 +119,6 @@ const PaginationTemplate = ({
   noMinWidth,
 }) =>
   formatHtmlPreview(`
-  <h3>Pagination</h3>
     <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"

@@ -99,7 +99,6 @@ const SortingTemplate = ({
   noMinWidth,
 }) =>
   formatHtmlPreview(`
-  <h3>Sorting example</h3>
     <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
@@ -107,6 +106,7 @@ const SortingTemplate = ({
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
       >
+      <sdds-table-toolbar table-title="Sorting"></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}"></sdds-header-cell>

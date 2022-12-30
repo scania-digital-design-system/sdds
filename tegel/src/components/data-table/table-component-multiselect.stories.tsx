@@ -141,7 +141,6 @@ const MultiselectTemplate = ({
 
 </script>
 
-  <h3>Multiselect</h3>
     <sdds-table
         id="multiselect-table"
         ${enableMultiselect ? 'enable-multiselect' : ''}

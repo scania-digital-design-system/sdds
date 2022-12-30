@@ -120,7 +120,6 @@ const FilteringTemplate = ({
   noMinWidth,
 }) =>
   formatHtmlPreview(`
-  <h3>Filtering example</h3>
    <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"

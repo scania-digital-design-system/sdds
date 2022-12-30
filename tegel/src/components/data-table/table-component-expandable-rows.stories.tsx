@@ -105,7 +105,6 @@ const ExpandableRowTemplate = ({
   noMinWidth,
 }) =>
   formatHtmlPreview(`
-  <h3>Expandable rows</h3>
   <sdds-table
     enable-expandable-rows
     vertical-dividers="${verticalDivider}"
