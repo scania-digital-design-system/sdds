@@ -67,7 +67,12 @@ export class SddsSideMenuItem {
                 {!this.collapsed && this.text}
               </button>
             )}
-            {this.type === 'link' && <a href={this.href}>{!this.collapsed && this.text}</a>}
+            {this.type === 'link' && (
+              <a href={this.href}>
+                {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
+                {!this.collapsed && this.text}
+              </a>
+            )}
             {this.type === 'user-profile' &&
               (this.collapsed ? (
                 <div class="sdds-side-menu-user-profile-collapsed">

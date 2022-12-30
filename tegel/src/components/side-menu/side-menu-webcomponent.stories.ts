@@ -10,10 +10,34 @@ export default {
       },
     },
   },
+  argTypes: {
+    collapsable: {
+      name: 'Collapsable',
+      description: 'Sets the side menu as collapsable.',
+      control: {
+        type: 'boolean',
+      },
+    },
+
+    collapsed: {
+      name: 'Collapsed',
+      description: 'Toggle the side menus collapsed state.',
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
+  args: {
+    collapsable: true,
+    collapsed: false,
+  },
 };
 
-const Template = () =>
-  formatHtmlPreview(`<sdds-side-menu collapsable slot="side-menu">
+const Template = ({ collapsable, collapsed }) =>
+  formatHtmlPreview(`
+  <sdds-side-menu ${collapsed ? 'collapsed' : ''} ${
+    collapsable ? 'collapsable' : ''
+  } slot="side-menu">
   <div slot="top">
     <sdds-side-menu-item icon="truck" text="Button"  type="button">
     test
@@ -39,6 +63,8 @@ const Template = () =>
     test
     </sdds-side-menu-item>
     <sdds-side-menu-item icon="truck" text="Button" type="button" position="bottom">
+    </sdds-side-menu-item>
+    <sdds-side-menu-item icon="truck" text="Link" type="link" position="bottom">
     </sdds-side-menu-item>
   </div>
 </sdds-side-menu>`);
