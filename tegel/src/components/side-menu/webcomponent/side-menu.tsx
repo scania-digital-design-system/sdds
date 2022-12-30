@@ -6,7 +6,7 @@ import { Component, h, Host, Prop, Element, Watch, Event, EventEmitter } from '@
   shadow: true,
 })
 export class SddsSideMenu {
-  @Prop() collapsed: boolean = true;
+  @Prop() collapsed: boolean = false;
 
   @Prop() collapsable: boolean = false;
 

@@ -10,7 +10,7 @@
 | Property        | Attribute        | Description | Type      | Default        |
 | --------------- | ---------------- | ----------- | --------- | -------------- |
 | `collapsable`   | `collapsable`    |             | `boolean` | `false`        |
-| `collapsed`     | `collapsed`      |             | `boolean` | `true`         |
+| `collapsed`     | `collapsed`      |             | `boolean` | `false`        |
 | `collapserIcon` | `collapser-icon` |             | `string`  | `'arrow_left'` |
 | `collapserText` | `collapser-text` |             | `string`  | `'Collapse'`   |
 
