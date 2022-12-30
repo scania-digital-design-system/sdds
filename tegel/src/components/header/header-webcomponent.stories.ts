@@ -34,10 +34,10 @@ export default {
   },
 };
 
-const Template = () =>
+const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
-  <sdds-header site-name="Application" icon-href="https://www.scania.com">
+  <sdds-header site-name="${siteName}" icon-href="https://www.scania.com">
     <sdds-header-inline-menu slot="inline-menu">
         <sdds-header-inline-menu-item
           type="button"
