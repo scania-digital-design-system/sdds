@@ -118,7 +118,6 @@ const InlineMenuTemplate = ({ siteName }) =>
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-
     }
     </script>
     `,

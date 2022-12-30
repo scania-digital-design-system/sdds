@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type      | Default        |
-| --------------- | ---------------- | ----------- | --------- | -------------- |
-| `collapsable`   | `collapsable`    |             | `boolean` | `false`        |
-| `collapsed`     | `collapsed`      |             | `boolean` | `false`        |
-| `collapserIcon` | `collapser-icon` |             | `string`  | `'arrow_left'` |
-| `collapserText` | `collapser-text` |             | `string`  | `'Collapse'`   |
+| Property         | Attribute          | Description | Type      | Default        |
+| ---------------- | ------------------ | ----------- | --------- | -------------- |
+| `collapsable`    | `collapsable`      |             | `boolean` | `false`        |
+| `collapsed`      | `collapsed`        |             | `boolean` | `false`        |
+| `collapserIcon`  | `collapser-icon`   |             | `string`  | `'arrow_left'` |
+| `collapserText`  | `collapser-text`   |             | `string`  | `'Collapse'`   |
+| `headerSideMenu` | `header-side-menu` |             | `boolean` | `false`        |
 
 
 ## Events

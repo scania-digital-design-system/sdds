@@ -14,6 +14,8 @@ export class SddsSideMenu {
 
   @Prop() collapserIcon: string = 'arrow_left';
 
+  @Prop() headerSideMenu: boolean = false;
+
   @Element() host: HTMLElement;
 
   connectedCallback() {
@@ -40,7 +42,11 @@ export class SddsSideMenu {
 
   render() {
     return (
-      <Host class={`sdds-side-menu-${this.collapsed ? 'collapsed' : 'full-width'}`}>
+      <Host
+        class={`sdds-side-menu-${this.collapsed ? 'collapsed' : 'full-width'} ${
+          this.headerSideMenu ? 'side-menu-header' : ''
+        }`}
+      >
         <div class="sdds-side-menu-wrapper">
           <ul class={`sdds-side-menu-list ${this.collapsed ? 'collapsed' : 'full-width'}`}>
             <slot name="top"></slot>
