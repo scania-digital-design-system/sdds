@@ -37,7 +37,7 @@ export class SddsHeaderInlineMenu {
             <sdds-icon name="burger" size="20px"></sdds-icon>
           )}
         </button>
-        <ul class={`sdds-header-mobile-menu-${this.mobileMenuOpen ? 'open' : 'closed'}`}>
+        <ul class={''}>
           <slot></slot>
         </ul>
       </Host>
