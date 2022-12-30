@@ -1,4 +1,4 @@
-import { Component, h, Host, State } from '@stencil/core';
+import { Component, h, Host, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-inline-menu',
@@ -8,8 +8,18 @@ import { Component, h, Host, State } from '@stencil/core';
 export class SddsHeaderInlineMenu {
   @State() mobileMenuOpen: boolean = false;
 
+  @Element() host: HTMLElement;
+
+  sideMenuEl: HTMLSddsSideMenuElement;
+
+  connectedCallback() {
+    this.sideMenuEl = document.querySelector('sdds-side-menu');
+    this.sideMenuEl.classList.toggle('hide');
+  }
+
   handleClick = () => {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.sideMenuEl.classList.toggle('hide');
   };
 
   render() {

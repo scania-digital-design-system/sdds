@@ -80,3 +80,13 @@
     }
   }
 }
+
+:host(.side-menu-header) {
+  @media all and (min-width: 992px) {
+    display: none;
+  }
+}
+
+:host(.hide) {
+  display: none;
+}

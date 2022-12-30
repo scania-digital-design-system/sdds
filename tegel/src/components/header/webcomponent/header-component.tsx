@@ -19,10 +19,8 @@ export class SddsHeader {
       <Host>
         <div class="sdds-header-app-name">{this.siteName}</div>
         <div class="sdds-header-content">
-          <slot name="lead"></slot>
-          {/* EMPTY DIV TO PUSH ELEMENTS */}
-          <div></div>
-          <slot name="trail"></slot>
+          <slot name="inline-menu"></slot>
+          <slot name="toolbar"></slot>
         </div>
         <div class="sdds-header-logo">
           <a class="sdds-header-logo-holder" href={this.iconHref}></a>

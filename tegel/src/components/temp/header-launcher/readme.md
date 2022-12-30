@@ -16,7 +16,7 @@
 
 ### Depends on
 
-- [sdds-icon](../../../icon)
+- [sdds-icon](../../icon)
 
 ### Graph
 ```mermaid

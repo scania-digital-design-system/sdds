@@ -41,6 +41,11 @@
     }
   }
 
+  button.sdds-header-inline-menu-mobile {
+    display: none;
+    visibility: hidden;
+  }
+
   @media all and (max-width: 992px) {
     button.sdds-header-inline-menu-mobile {
       display: block;
@@ -49,17 +54,7 @@
 
     ul {
       display: none;
-      position: absolute;
-      top: 64px;
-      height: 100vh;
-      width: 272px;
-      background-color: var(--sdds-white);
-
-      &.sdds-header-mobile-menu {
-        &-open {
-          display: block;
-        }
-      }
+      visibility: hidden;
     }
   }
 }
