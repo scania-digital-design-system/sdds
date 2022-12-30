@@ -52,16 +52,17 @@ export class SddsSideMenuItem {
                   {!this.collapsed && this.text}
                 </button>
               )) ||
-                (this.type === 'link' && <a href={this.href}>{!this.collapsed && this.text}</a>))}
+                (this.type === 'link' && (
+                  <a href={this.href}>
+                    {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
+                    {!this.collapsed && this.text}
+                  </a>
+                )))}
           </li>
         ) : (
           <li class={`sdds-side-menu-item-${this.type} bottom`}>
             {this.type === 'button' && (
-              <button
-                onClick={() => {
-                  console.log('emitted');
-                }}
-              >
+              <button>
                 {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
                 {!this.collapsed && this.text}
               </button>
