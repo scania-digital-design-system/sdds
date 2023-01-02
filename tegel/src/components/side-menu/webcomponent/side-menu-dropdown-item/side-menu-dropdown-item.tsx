@@ -6,10 +6,13 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SddsSideMenuDropdownItem {
+  /** Text for the side menu dropdown item */
   @Prop() text: string = '';
 
-  @Prop() type: 'button' | 'link' = 'link';
+  /** Type of side menu dropdown item. */
+  @Prop() type: 'button' | 'link' | 'user-profile' = 'link';
 
+  /** Href for side menu dropdown item that are links */
   @Prop() href: string = '#';
 
   render() {

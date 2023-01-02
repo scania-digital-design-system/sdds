@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `open`   | `open`    |             | `boolean` | `false` |
-| `text`   | `text`    |             | `string`  | `''`    |
+| Property | Attribute | Description                     | Type      | Default |
+| -------- | --------- | ------------------------------- | --------- | ------- |
+| `open`   | `open`    | Open state for the dropdown.    | `boolean` | `false` |
+| `text`   | `text`    | Text for the side menu dropdown | `string`  | `''`    |
 
 
 ## Dependencies

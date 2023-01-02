@@ -6,14 +6,19 @@ import { Component, h, Prop, Element, Watch, Event, EventEmitter } from '@stenci
   shadow: true,
 })
 export class SddsSideMenu {
+  /** Set the side menu as collapsed. */
   @Prop() collapsed: boolean = false;
 
+  /** Make the side menu collapsable */
   @Prop() collapsable: boolean = false;
 
+  /** Text for the collapser, only needed if collapsable = true; */
   @Prop() collapserText: string = 'Collapse';
 
+  /** Icon for the collapser, only needed if collapsable = true; */
   @Prop() collapserIcon: string = 'arrow_left';
 
+  /** Should be true if the side menu is part of a header */
   @Prop() headerSideMenu: boolean = false;
 
   @Element() host: HTMLElement;
