@@ -1,13 +1,13 @@
 :root,
 .sdds-theme-light {
   --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-bg: var(--sdds-white);
+  --sdds-textfield-background: var(--sdds-white);
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //Disabled
-  --sdds-textfield-disabled-bg: var(--sdds-white);
+  --sdds-textfield-disabled-background: var(--sdds-white);
   --sdds-textfield-disabled-color: var(--sdds-grey-400);
   --sdds-textfield-disabled-placeholder: var(--sdds-grey-400);
   --sdds-textfield-disabled-label: var(--sdds-grey-400);
@@ -49,7 +49,7 @@
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //White background
-  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
+  --sdds-textfield-on-white-background: var(--sdds-grey-50);
 
     // Read only
     --sdds-textfield-icon-read-only-color: var(--sdds-grey-600);
@@ -58,7 +58,7 @@
 
 .sdds-theme-dark {
   --sdds-textfield-color: var(--sdds-grey-200);
-  --sdds-textfield-bg: var(--sdds-grey-900);
+  --sdds-textfield-background: var(--sdds-grey-900);
   --sdds-textfield-placeholder: var(--sdds-grey-600);
 
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
@@ -67,7 +67,7 @@
   //Disabled
   --sdds-textfield-disabled-ps-color: var(--sdds-grey-700);
   --sdds-textfield-disabled-color: var(--sdds-grey-800);
-  --sdds-textfield-disabled-bg: var(--sdds-grey-868);
+  --sdds-textfield-disabled-background: var(--sdds-grey-868);
   --sdds-textfield-disabled-placeholder: var(--sdds-grey-800);
   --sdds-textfield-disabled-label: var(--sdds-grey-700);
 
@@ -100,7 +100,7 @@
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
 
   //White background
-  --sdds-textfield-on-white-bg: var(--sdds-grey-868);
+  --sdds-textfield-on-white-background: var(--sdds-grey-868);
 
   // Border bottom
   --sdds-textfield-border-bottom: var(--sdds-grey-600);
