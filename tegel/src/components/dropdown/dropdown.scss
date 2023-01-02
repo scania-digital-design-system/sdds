@@ -140,7 +140,7 @@
 
     @include sdds-scrollbar;
 
-    background-color: var(--sdds-dropdown-bg);
+    background-color: var(--sdds-dropdown-background);
     position: absolute;
     top: 100%;
     left: 0;
@@ -253,7 +253,7 @@
   ::slotted(sdds-dropdown-option) {
     display: flex;
     padding: var(--sdds-spacing-element-16);
-    background-color: var(--sdds-dropdown-bg);
+    background-color: var(--sdds-dropdown-background);
     border-top: 1px solid transparent;
     border-bottom: 1px solid var(--sdds-dropdown-border);
     opacity: 0;
@@ -270,11 +270,11 @@
 
   ::slotted(sdds-dropdown-option:hover),
   ::slotted(sdds-dropdown-option:focus) {
-    background-color: var(--sdds-dropdown-bg-hover);
+    background-color: var(--sdds-dropdown-background-hover);
   }
 
   ::slotted(sdds-dropdown-option:hover:not(:focus):not(sdds-dropdown-option.selected)) {
-    background-color: var(--sdds-dropdown-bg-hover);
+    background-color: var(--sdds-dropdown-background-hover);
   }
 
   ::slotted(sdds-dropdown-option:hover:focus) {
@@ -290,7 +290,7 @@
   ::slotted(sdds-dropdown-option.selected),
   ::slotted(sdds-dropdown-option.active),
   ::slotted(sdds-dropdown-option:active) {
-    background-color: var(--sdds-dropdown-bg-hover);
+    background-color: var(--sdds-dropdown-background-hover);
     border-top: 1px solid var(--sdds-dropdown-border);
     border-bottom: 1px solid var(--sdds-dropdown-border);
   }
@@ -304,7 +304,7 @@
   ::slotted(sdds-dropdown-option.selected.sdds-dropdown-option-disabled) {
     cursor: not-allowed;
     color: var(--sdds-dropdown-disabled);
-    background-color: var(--sdds-dropdown-bg-disabled);
+    background-color: var(--sdds-dropdown-background-disabled);
   }
 }
 

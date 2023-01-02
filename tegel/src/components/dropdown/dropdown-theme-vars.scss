@@ -8,18 +8,18 @@
 
   /* --sdds-link: var(--sdds-grey-958); */
   --sdds-link-text-decoration: none;
-  --sdds-dropdown-bg: var(--sdds-white);
-  --sdds-dropdown-bg-disabled: var(--sdds-white);
+  --sdds-dropdown-background: var(--sdds-white);
+  --sdds-dropdown-background-disabled: var(--sdds-white);
   --sdds-dropdown-disabled: var(--sdds-grey-400);
-  --sdds-dropdown-bg-hover: var(--sdds-grey-50);
+  --sdds-dropdown-background-hover: var(--sdds-grey-50);
   --sdds-dropdown-border: var(--sdds-grey-100);
   --sdds-dropdown-label-inside: var(--sdds-grey-700);
   --sdds-dropdown-label-outside: var(--sdds-grey-958);
   --sdds-dropdown-placeholder: var(--sdds-grey-700);
 
-  .sdds-on-white-bg {
-    --sdds-dropdown-bg: var(--sdds-grey-50);
-    --sdds-dropdown-bg-hover: var(--sdds-grey-100);
+  .sdds-on-white-background {
+    --sdds-dropdown-background: var(--sdds-grey-50);
+    --sdds-dropdown-background-hover: var(--sdds-grey-100);
   }
 }
 
@@ -28,17 +28,17 @@
 .sdds-theme-dark {
   --sdds-link: var(--sdds-grey-400);
   --sdds-link-text-decoration: none;
-  --sdds-dropdown-bg: var(--sdds-grey-900);
-  --sdds-dropdown-bg-disabled: var(--sdds-grey-900);
+  --sdds-dropdown-background: var(--sdds-grey-900);
+  --sdds-dropdown-background-disabled: var(--sdds-grey-900);
   --sdds-dropdown-disabled: var(--sdds-grey-800);
-  --sdds-dropdown-bg-hover: var(--sdds-grey-800);
+  --sdds-dropdown-background-hover: var(--sdds-grey-800);
   --sdds-dropdown-border: var(--sdds-grey-800);
   --sdds-dropdown-label-inside: var(--sdds-grey-400);
   --sdds-dropdown-label-outside: var(--sdds-grey-100);
   --sdds-dropdown-placeholder: var(--sdds-grey-400);
 
-  .sdds-on-white-bg {
-    --sdds-dropdown-bg: var(--sdds-grey-868);
-    --sdds-dropdown-bg-hover: var(--sdds-grey-800);
+  .sdds-on-white-background {
+    --sdds-dropdown-background: var(--sdds-grey-868);
+    --sdds-dropdown-background-hover: var(--sdds-grey-800);
   }
 }
