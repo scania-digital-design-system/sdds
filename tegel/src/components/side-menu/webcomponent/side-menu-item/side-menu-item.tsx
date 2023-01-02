@@ -6,23 +6,29 @@ import { Component, h, Host, Prop, Element, State, Listen } from '@stencil/core'
   shadow: true,
 })
 export class SddsSideMenuItem {
-  @Prop() position: 'top' | 'bottom' = 'top';
-
+  /** Type of side menu item. */
   @Prop() type: 'button' | 'link' | 'user-profile' = 'link';
 
-  @Prop() href: string = '#';
-
+  /** Text for the side menu item */
   @Prop() text: string = '';
 
+  /** Icon for the side menu item */
+  @Prop() icon: string = '';
+
+  /** Href for side menu item that are links */
+  @Prop() href: string = '#';
+
+  /** Image for side menu items that are 'user-profile' */
   @Prop() avatarImg: string = 'https://www.svgrepo.com/show/170303/avatar.svg';
 
+  /** Alt for image for side menu items that are 'user-profile' */
   @Prop() avatarImgAlt: string = '';
 
+  /** Header for image for side menu items that are 'user-profile' */
   @Prop() avatarHeader: string = '';
 
+  /** Subheader for image for side menu items that are 'user-profile' */
   @Prop() avatarSubheader: string = '';
-
-  @Prop() icon: string = '';
 
   @State() collapsed: boolean = false;
 
@@ -43,60 +49,42 @@ export class SddsSideMenuItem {
   render() {
     return (
       <Host class={`sdds-side-menu-item-${this.collapsed ? 'collapsed' : 'full-width'}`}>
-        {this.position === 'top' ? (
-          <li class={`sdds-side-menu-item-${this.type} top`}>
-            {this.position === 'top' &&
-              ((this.type === 'button' && (
-                <button>
-                  {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
-                  {!this.collapsed && this.text}
-                </button>
-              )) ||
-                (this.type === 'link' && (
-                  <a href={this.href}>
-                    {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
-                    {!this.collapsed && this.text}
-                  </a>
-                )))}
-          </li>
-        ) : (
-          <li class={`sdds-side-menu-item-${this.type} bottom`}>
-            {this.type === 'button' && (
-              <button>
-                {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
-                {!this.collapsed && this.text}
-              </button>
-            )}
-            {this.type === 'link' && (
-              <a href={this.href}>
-                {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
-                {!this.collapsed && this.text}
-              </a>
-            )}
-            {this.type === 'user-profile' &&
-              (this.collapsed ? (
-                <div class="sdds-side-menu-user-profile-collapsed">
-                  <img
-                    class="sdds-side-menu-user-profile-image"
-                    src={this.avatarImg}
-                    alt={this.avatarImgAlt}
-                  />
+        <li class={`sdds-side-menu-item-${this.type}`}>
+          {this.type === 'button' && (
+            <button>
+              {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
+              {!this.collapsed && this.text}
+            </button>
+          )}
+          {this.type === 'link' && (
+            <a href={this.href}>
+              {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}
+              {!this.collapsed && this.text}
+            </a>
+          )}
+          {this.type === 'user-profile' &&
+            (this.collapsed ? (
+              <div class="sdds-side-menu-user-profile-collapsed">
+                <img
+                  class="sdds-side-menu-user-profile-image"
+                  src={this.avatarImg}
+                  alt={this.avatarImgAlt}
+                />
+              </div>
+            ) : (
+              <div class="sdds-side-menu-user-profile">
+                <img
+                  class="sdds-side-menu-user-profile-image"
+                  src={this.avatarImg}
+                  alt={this.avatarImgAlt}
+                />
+                <div class="sdds-side-menu-user-profile-info">
+                  <div class="sdds-side-menu-user-profile-header">{this.avatarHeader}</div>
+                  <div class="sdds-side-menu-user-profile-subheader">{this.avatarSubheader}</div>
                 </div>
-              ) : (
-                <div class="sdds-side-menu-user-profile">
-                  <img
-                    class="sdds-side-menu-user-profile-image"
-                    src={this.avatarImg}
-                    alt={this.avatarImgAlt}
-                  />
-                  <div class="sdds-side-menu-user-profile-info">
-                    <div class="sdds-side-menu-user-profile-header">{this.avatarHeader}</div>
-                    <div class="sdds-side-menu-user-profile-subheader">{this.avatarSubheader}</div>
-                  </div>
-                </div>
-              ))}
-          </li>
-        )}
+              </div>
+            ))}
+        </li>
       </Host>
     );
   }

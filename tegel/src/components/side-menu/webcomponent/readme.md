@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property         | Attribute          | Description | Type      | Default        |
-| ---------------- | ------------------ | ----------- | --------- | -------------- |
-| `collapsable`    | `collapsable`      |             | `boolean` | `false`        |
-| `collapsed`      | `collapsed`        |             | `boolean` | `false`        |
-| `collapserIcon`  | `collapser-icon`   |             | `string`  | `'arrow_left'` |
-| `collapserText`  | `collapser-text`   |             | `string`  | `'Collapse'`   |
-| `headerSideMenu` | `header-side-menu` |             | `boolean` | `false`        |
+| Property         | Attribute          | Description                                                | Type      | Default        |
+| ---------------- | ------------------ | ---------------------------------------------------------- | --------- | -------------- |
+| `collapsable`    | `collapsable`      | Make the side menu collapsable                             | `boolean` | `false`        |
+| `collapsed`      | `collapsed`        | Set the side menu as collapsed.                            | `boolean` | `false`        |
+| `collapserIcon`  | `collapser-icon`   | Icon for the collapser, only needed if collapsable = true; | `string`  | `'arrow_left'` |
+| `collapserText`  | `collapser-text`   | Text for the collapser, only needed if collapsable = true; | `string`  | `'Collapse'`   |
+| `headerSideMenu` | `header-side-menu` | Should be true if the side menu is part of a header        | `boolean` | `false`        |
 
 
 ## Events

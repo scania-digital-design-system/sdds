@@ -1,8 +1,18 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './webcomponent/readme.md';
+import readmeSideMenuItem from './webcomponent/side-menu-item/readme.md';
+import readmeSideMenuDropdown from './webcomponent/side-menu-dropdown/readme.md';
+import readmeSideMenuDropdownItem from './webcomponent/side-menu-dropdown-item/readme.md';
 
 export default {
   title: 'Components/Side Menu',
   parameters: {
+    notes: {
+      'Side menu': readme,
+      'Side menu item': readmeSideMenuItem,
+      'Side menu dropdown': readmeSideMenuDropdown,
+      'Side menu dropdown item': readmeSideMenuDropdownItem,
+    },
     layout: 'fullscreen',
     docs: {
       source: {
@@ -59,12 +69,12 @@ const Template = ({ collapsable, collapsed }) =>
     </sdds-side-menu-item>
   </div>
   <div slot="bottom">
-    <sdds-side-menu-item avatar-header="Martin" avatar-subheader="Jarsäter" type="user-profile" position="bottom">
+    <sdds-side-menu-item avatar-header="Martin" avatar-subheader="Jarsäter" type="user-profile" >
     test
     </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Button" type="button" position="bottom">
+    <sdds-side-menu-item icon="truck" text="Button" type="button">
     </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Link" type="link" position="bottom">
+    <sdds-side-menu-item icon="truck" text="Link" type="link">
     </sdds-side-menu-item>
   </div>
 </sdds-side-menu>`);

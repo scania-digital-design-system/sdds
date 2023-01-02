@@ -6,8 +6,10 @@ import { Component, h, Host, Prop, Listen, State, Element } from '@stencil/core'
   shadow: true,
 })
 export class SddsSideMenuDropdown {
+  /** Text for the side menu dropdown */
   @Prop() text: string = '';
 
+  /** Open state for the dropdown. */
   @Prop() open: boolean = false;
 
   @State() collapsed: boolean = false;
