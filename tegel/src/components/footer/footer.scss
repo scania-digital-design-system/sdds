@@ -45,7 +45,7 @@
   &:hover,
   &.hover {
     &::after {
-      background-color: var(--sdds-footer-top-links-bg-hover);
+      background-color: var(--sdds-footer-top-links-background-hover);
     }
   }
 
@@ -75,7 +75,7 @@
 }
 
 .sdds-footer-top {
-  background-color: var(--sdds-footer-top-bg);
+  background-color: var(--sdds-footer-top-background);
 
   .sdds-footer-title {
     font: var(--sdds-headline-07);
@@ -127,7 +127,7 @@
 }
 
 .sdds-footer-main {
-  background-color: var(--sdds-footer-main-bg);
+  background-color: var(--sdds-footer-main-background);
   padding: 24px 24px 32px;
   display: flex;
   width: 100%;

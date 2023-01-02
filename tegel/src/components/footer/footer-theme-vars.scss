@@ -1,14 +1,14 @@
 // TODO - Check hover states
 :root,
 .sdds-theme-light {
-  --sdds-footer-top-bg: var(--sdds-grey-50);
+  --sdds-footer-top-background: var(--sdds-grey-50);
   --sdds-footer-top-divider: var(--sdds-grey-300);
   --sdds-footer-top-links: var(--sdds-blue-800);
-  --sdds-footer-top-links-bg-hover: var(--sdds-grey-300);
+  --sdds-footer-top-links-background-hover: var(--sdds-grey-300);
   --sdds-footer-top-links-opacity: 0.87;
   --sdds-footer-top-title-opacity-mobile: 0.87;
   --sdds-footer-top-title-opacity: 0.3;
-  --sdds-footer-main-bg: var(--sdds-blue-800);
+  --sdds-footer-main-background: var(--sdds-blue-800);
   --sdds-footer-main-links: var(--sdds-white);
   --sdds-footer-main-divider: var(--sdds-blue-600);
   --sdds-footer-main-links-opacity: 0.87;
@@ -17,14 +17,14 @@
 
 :root,
 .sdds-theme-dark {
-  --sdds-footer-top-bg: var(--sdds-grey-868);
+  --sdds-footer-top-background: var(--sdds-grey-868);
   --sdds-footer-top-divider: var(--sdds-grey-300);
   --sdds-footer-top-links: var(--sdds-grey-50);
-  --sdds-footer-top-links-bg-hover: var(--sdds-grey-300);
+  --sdds-footer-top-links-background-hover: var(--sdds-grey-300);
   --sdds-footer-top-links-opacity: 0.87;
   --sdds-footer-top-title-opacity-mobile: 0.87;
   --sdds-footer-top-title-opacity: 0.3;
-  --sdds-footer-main-bg: var(--sdds-blue-900);
+  --sdds-footer-main-background: var(--sdds-blue-900);
   --sdds-footer-main-links: var(--sdds-white);
   --sdds-footer-main-divider: var(--sdds-blue-600);
   --sdds-footer-main-links-opacity: 0.87;
