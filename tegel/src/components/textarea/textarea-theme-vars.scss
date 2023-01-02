@@ -1,16 +1,16 @@
 :root,
 .sdds-theme-light {
   --sdds-textarea-color: var(--sdds-grey-868);
-  --sdds-textarea-bg: var(--sdds-white);
+  --sdds-textarea-background: var(--sdds-white);
   --sdds-textarea-placeholder: var(--sdds-grey-500);
   --sdds-textarea-placeholder-focus-color: var(--sdds-grey-500);
 
   //White background
-  --sdds-textarea-on-white-bg: var(--sdds-grey-50);
+  --sdds-textarea-on-white-background: var(--sdds-grey-50);
 
   // Disabled
   --sdds-textarea-disabled-color: var(--sdds-grey-400);
-  --sdds-textarea-disabled-bg: var(--sdds-white);
+  --sdds-textarea-disabled-background: var(--sdds-white);
   --sdds-textarea-disabled-placeholder: var(--sdds-grey-400);
   --sdds-textarea-disabled-label: var(--sdds-grey-400);
 
@@ -49,16 +49,16 @@
 
 .sdds-theme-dark {
   --sdds-textarea-color: var(--sdds-grey-200);
-  --sdds-textarea-bg: var(--sdds-grey-900);
+  --sdds-textarea-background: var(--sdds-grey-900);
   --sdds-textarea-placeholder: var(--sdds-grey-600);
   --sdds-textarea-placeholder-focus-color: var(--sdds-grey-700);
 
   //White background
-  --sdds-textarea-on-white-bg: var(--sdds-grey-868);
+  --sdds-textarea-on-white-background: var(--sdds-grey-868);
 
   // Disabled
   --sdds-textarea-disabled-color: var(--sdds-grey-800);
-  --sdds-textarea-disabled-bg: var(--sdds-grey-868);
+  --sdds-textarea-disabled-background: var(--sdds-grey-868);
   --sdds-textarea-disabled-placeholder: var(--sdds-grey-800);
   --sdds-textarea-disabled-label: var(--sdds-grey-700);
 
