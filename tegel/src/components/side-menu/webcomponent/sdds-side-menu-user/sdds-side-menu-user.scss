@@ -1,0 +1,33 @@
+:host {
+  border-top: 1px solid var(--sdds-side-menu-item-border-color);
+  height: 68px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  img {
+    height: 34px;
+    border-radius: 100%;
+  }
+
+  .header-wrapper {
+    display: block;
+
+    .header {
+      font: var(--sdds-headline-07);
+      letter-spacing: var(--sdds-headline-07-ls);
+    }
+
+    .subheader {
+      font: var(--sdds-headline-07);
+      letter-spacing: var(--sdds-headline-07-ls);
+      color: var(--sdds-grey-600);
+    }
+  }
+}
+
+:host(.collapsed)  {
+  padding: 0;
+  justify-content: center;
+}
