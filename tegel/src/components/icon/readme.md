@@ -35,9 +35,9 @@
  - [sdds-header-toolbar-dropdown](../header/webcomponent/header-toolbar-dropdown)
  - [sdds-header-toolbar-item](../header/webcomponent/header-toolbar-item)
  - [sdds-side-menu](../side-menu/webcomponent)
- - [sdds-side-menu-button](../side-menu/webcomponent/sdds-side-menu-button)
- - [sdds-side-menu-dropdown](../side-menu/webcomponent/sdds-side-menu-dropdown)
- - [sdds-side-menu-link](../side-menu/webcomponent/sdds-side-menu-link)
+ - [sdds-side-menu-button](../side-menu/webcomponent/side-menu-button)
+ - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
+ - [sdds-side-menu-link](../side-menu/webcomponent/side-menu-link)
 
 ### Graph
 ```mermaid

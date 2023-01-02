@@ -2,7 +2,7 @@ import { Component, h, Prop, Element, Watch, Event, EventEmitter } from '@stenci
 
 @Component({
   tag: 'sdds-side-menu',
-  styleUrl: 'side-menu-component.scss',
+  styleUrl: 'side-menu.scss',
   shadow: true,
 })
 export class SddsSideMenu {

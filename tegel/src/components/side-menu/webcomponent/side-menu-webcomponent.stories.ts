@@ -1,9 +1,9 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeSideMenuLink from './sdds-side-menu-link/readme.md';
-import readmeSideMenuButton from './sdds-side-menu-button/readme.md';
-import readmeSideMenUser from './sdds-side-menu-user/readme.md';
-import readmeSideMenuDropdown from './sdds-side-menu-dropdown/readme.md';
+import readmeSideMenuLink from './side-menu-link/readme.md';
+import readmeSideMenuButton from './side-menu-button/readme.md';
+import readmeSideMenUser from './side-menu-user/readme.md';
+import readmeSideMenuDropdown from './side-menu-dropdown/readme.md';
 
 export default {
   title: 'Components/Side Menu',
