@@ -1,17 +1,19 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeSideMenuItem from './side-menu-item/readme.md';
-import readmeSideMenuDropdown from './side-menu-dropdown/readme.md';
-import readmeSideMenuDropdownItem from './side-menu-dropdown-item/readme.md';
+import readmeSideMenuLink from './sdds-side-menu-link/readme.md';
+import readmeSideMenuButton from './sdds-side-menu-button/readme.md';
+import readmeSideMenUser from './sdds-side-menu-user/readme.md';
+import readmeSideMenuDropdown from './sdds-side-menu-dropdown/readme.md';
 
 export default {
   title: 'Components/Side Menu',
   parameters: {
     notes: {
       'Side menu': readme,
-      'Side menu item': readmeSideMenuItem,
+      'Side menu link': readmeSideMenuLink,
+      'Side menu button': readmeSideMenuButton,
+      'Side menu user': readmeSideMenUser,
       'Side menu dropdown': readmeSideMenuDropdown,
-      'Side menu dropdown item': readmeSideMenuDropdownItem,
     },
     layout: 'fullscreen',
     docs: {
@@ -49,33 +51,37 @@ const Template = ({ collapsable, collapsed }) =>
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
   <div slot="top">
-    <sdds-side-menu-item icon="truck" text="Button"  type="button">
-    test
-    </sdds-side-menu-item>
-    <sdds-side-menu-dropdown text="Dropdown">
-      <sdds-side-menu-dropdown-item type="button" text="Button">
-      </sdds-side-menu-dropdown-item>
-      <sdds-side-menu-dropdown-item type="link" text="Link">
-      </sdds-side-menu-dropdown-item>
+    <sdds-side-menu-button icon="truck">
+      Button
+    </sdds-side-menu-button>
+    <sdds-side-menu-link icon="truck">
+      Link
+    </sdds-side-menu-link>
+    <sdds-side-menu-dropdown>
+      <div slot="label">Dropdown</div>
+      <sdds-side-menu-button>
+        Button
+      </sdds-side-menu-button>
+      <sdds-side-menu-link >
+        Link
+      </sdds-side-menu-link>
     </sdds-side-menu-dropdown>
-    <sdds-side-menu-dropdown text="Dropdown">
-      <sdds-side-menu-dropdown-item type="button" text="Button">
-      </sdds-side-menu-dropdown-item>
-      <sdds-side-menu-dropdown-item type="link" text="Link">
-      </sdds-side-menu-dropdown-item>
+    <sdds-side-menu-dropdown>
+      <div slot="label">Dropdown</div>
+      <sdds-side-menu-button >
+        Button
+      </sdds-side-menu-button>
+      <sdds-side-menu-link >
+        Link
+      </sdds-side-menu-link>
     </sdds-side-menu-dropdown>
-    <sdds-side-menu-item text="Link" type="link">
-    test
-    </sdds-side-menu-item>
   </div>
   <div slot="bottom">
-    <sdds-side-menu-item avatar-header="Martin" avatar-subheader="Jarsäter" type="user-profile" >
-    test
-    </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Button" type="button">
-    </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Link" type="link">
-    </sdds-side-menu-item>
+  <sdds-side-menu-user header="Martin" subheader="Jarsäter">
+  </sdds-side-menu-user>
+  <sdds-side-menu-button icon="print" >
+    Button
+  </sdds-side-menu-button>
   </div>
 </sdds-side-menu>`);
 
