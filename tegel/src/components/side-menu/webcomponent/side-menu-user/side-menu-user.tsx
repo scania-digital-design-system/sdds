@@ -2,7 +2,7 @@ import { Component, Host, h, Prop, State, Element, Listen } from '@stencil/core'
 
 @Component({
   tag: 'sdds-side-menu-user',
-  styleUrl: 'sdds-side-menu-user.scss',
+  styleUrl: 'side-menu-user.scss',
   shadow: true,
 })
 export class SddsSideMenuUser {

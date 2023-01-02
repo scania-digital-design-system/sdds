@@ -2,7 +2,7 @@ import { Component, h, Prop, State, Element, Listen, Host } from '@stencil/core'
 
 @Component({
   tag: 'sdds-side-menu-dropdown',
-  styleUrl: 'sdds-side-menu-dropdown.scss',
+  styleUrl: 'side-menu-dropdown.scss',
   shadow: true,
 })
 export class SddsSideMenuDropdown {
@@ -26,6 +26,7 @@ export class SddsSideMenuDropdown {
   @Listen('collapseSideMenuEvent', { target: 'body' })
   collapseSideMenuEventHandeler(event: CustomEvent<any>) {
     this.collapsed = event.detail.collapsed;
+    this.open = false;
   }
 
   handleClick = () => {
@@ -41,9 +42,6 @@ export class SddsSideMenuDropdown {
               class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}  ${
                 this.open ? 'expanded' : 'contracted'
               }`}
-              onClick={() => {
-                this.handleClick();
-              }}
               onMouseEnter={() => {
                 if (this.collapsed) {
                   this.open = !this.open;
