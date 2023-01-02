@@ -4,7 +4,7 @@
 .sdds-card {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-card-bg);
+  background-color: var(--sdds-card-background);
   border-radius: 4px;
   box-shadow: var(--sdds-card-box);
 
