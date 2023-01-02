@@ -1,10 +1,10 @@
 :root,
 .sdds-theme-light {
   --sdds-popover-canvas-color-default: var(--sdds-grey-958);
-  --sdds-popover-canvas-bg-default: var(--sdds-white);
+  --sdds-popover-canvas-background-default: var(--sdds-white);
 }
 :root,
 .sdds-theme-dark {
   --sdds-popover-canvas-color-default: var(--sdds-grey-50);
-  --sdds-popover-canvas-bg-default: var(--sdds-grey-900);
+  --sdds-popover-canvas-background-default: var(--sdds-grey-900);
 }
