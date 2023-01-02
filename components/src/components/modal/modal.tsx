@@ -25,6 +25,11 @@ export class Modal {
     this.show = true;
   }
 
+  @Method()
+  async closeModal() {
+    this.show = false;
+  }
+
   componentDidLoad() {
     const targets = document.querySelectorAll(this.selector);
     this.dismissModal();
