@@ -10,7 +10,7 @@
   &::after {
     content: ' ';
     display: block;
-    border-bottom: 1px solid var(--sdds-inline-tabs-fullbleed-horizontal-divider-bg);
+    border-bottom: 1px solid var(--sdds-inline-tabs-fullbleed-horizontal-divider-background);
     opacity: var(--sdds-inline-tabs-fullbleed-horizontal-divider-opacity);
     left: 0;
     right: 0;
@@ -38,7 +38,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-bg);
+    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,11 +51,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-hover-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-hover);
     }
 
     &:active {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-active-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-active);
     }
 
     &:focus {
@@ -71,7 +71,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-bg);
+    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,11 +84,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-hover-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-hover);
     }
 
     &:active {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-active-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-active);
     }
 
     &:focus {
@@ -126,19 +126,19 @@
       width: 0;
       margin-right: auto;
       height: 2px;
-      background-color: var(--sdds-inline-tabs-fullbleed-tab-hover-indicator-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-indicator-background-hover);
       transition: width 0.15s ease-in-out;
       z-index: 1;
     }
   }
   
   ::slotted(&--tab__active) {
-    color: var(--sdds-inline-tabs-fullbleed-tab-active-color);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color-active);
     opacity:1;
 
     &::after {
       width: 100%;
-      background-color: var(--sdds-inline-tabs-fullbleed-tab-active-indicator-bg);
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-indicator-background-active);
     }
   }
 
@@ -152,7 +152,7 @@
 
   /* tab states */
   ::slotted(&--tab:hover) {
-    color: var(--sdds-inline-tabs-fullbleed-tab-hover-color);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color-hover);
     opacity:1;
 
     &::after {
@@ -163,7 +163,7 @@
   ::slotted(&--tab:focus) {
     @include sdds-focus-state;
 
-    color: var(--sdds-inline-tabs-fullbleed-tab-focus-color);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color-focus);
     opacity:1;
     
     &::after {
@@ -178,30 +178,30 @@
   ::slotted(&--tab__disabled) {
     color: var(--sdds-inline-tabs-fullbleed-tab-color-disabled);
     pointer-events: none;
-    opacity: var(--sdds-inline-tabs-fullbleed-tab-color-disabled-opacity);
+    opacity: var(--sdds-inline-tabs-fullbleed-tab-color-opacity-disabled);
   }
 }
 
 .sdds-inline-tabs-fullbleed-primary {
-  background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
 
   .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
   }
 
   .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-primary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
   }
 }
 
 .sdds-inline-tabs-fullbleed-secondary {
-  background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
 
   .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
   }
 
   .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-bg-secondary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
   }
 }

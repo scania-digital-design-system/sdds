@@ -1,45 +1,45 @@
-:root,
+:root,-hover--sdds-inline-tabs-fullbleed-tab-color-opacity-disabledleed-tab-color-disabled-opacityinline
 .sdds-theme-light {
   /* Horizontal divider */
-  --sdds-inline-tabs-fullbleed-horizontal-divider-bg: var(--sdds-blue-900);
+  --sdds-inline-tabs-fullbleed-horizontal-divider-background: var(--sdds-blue-900);
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.16;
-  --sdds-inline-tabs-fullbleed-tab-bg-primary: var(--sdds-white);
-  --sdds-inline-tabs-fullbleed-tab-bg-secondary: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-white);
+  --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-50);
 
   /* Scroll button */
-  --sdds-inline-tabs-fullbleed-scroll-btn-bg: var(--sdds-grey-50);
-  --sdds-inline-tabs-fullbleed-scroll-btn-hover-bg: var(--sdds-grey-300);
-  --sdds-inline-tabs-fullbleed-scroll-btn-active-bg: var(--sdds-grey-400);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background-hover: var(--sdds-grey-300);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background-active: var(--sdds-grey-400);
 
   /* Tab */
   --sdds-inline-tabs-fullbleed-tab-color: var(--sdds-grey-900);
   --sdds-inline-tabs-fullbleed-tab-color-disabled: var(--sdds-blue-900);
-  --sdds-inline-tabs-fullbleed-tab-color-disabled-opacity: 0.60;
-  --sdds-inline-tabs-fullbleed-tab-hover-indicator-bg: #D1D5DB;
-  --sdds-inline-tabs-fullbleed-tab-hover-color: var(--sdds-grey-958);
-  --sdds-inline-tabs-fullbleed-tab-focus-color: var(--sdds-grey-958);
-  --sdds-inline-tabs-fullbleed-tab-active-color: var(--sdds-grey-958);
-  --sdds-inline-tabs-fullbleed-tab-active-indicator-bg: var(--sdds-blue-400);
+  --sdds-inline-tabs-fullbleed-tab-color-opacity-disabled: 0.60;
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover: #D1D5DB;
+  --sdds-inline-tabs-fullbleed-tab-color-hover: var(--sdds-grey-958);
+  --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-958);
+  --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-958);
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-400);
 }
 
 .sdds-theme-dark {
-  --sdds-inline-tabs-fullbleed-horizontal-divider-bg: var(--sdds-blue-100);
+  --sdds-inline-tabs-fullbleed-horizontal-divider-background: var(--sdds-blue-100);
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.24;
-  --sdds-inline-tabs-fullbleed-tab-bg-primary: var(--sdds-grey-900);
-  --sdds-inline-tabs-fullbleed-tab-bg-secondary: var(--sdds-grey-846);
+  --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-grey-900);
+  --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-846);
 
   /* Scroll button */
-  --sdds-inline-tabs-fullbleed-scroll-btn-bg: var(--sdds-grey-800);
-  --sdds-inline-tabs-fullbleed-scroll-btn-hover-bg: var(--sdds-grey-900);
-  --sdds-inline-tabs-fullbleed-scroll-btn-active-bg: var(--sdds-grey-900);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background: var(--sdds-grey-800);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background-hover: var(--sdds-grey-900);
+  --sdds-inline-tabs-fullbleed-scroll-btn-background-active: var(--sdds-grey-900);
 
   /* Tab */
   --sdds-inline-tabs-fullbleed-tab-color: var(--sdds-blue-50);
   --sdds-inline-tabs-fullbleed-tab-color-disabled: var(--sdds-blue-50);
-  --sdds-inline-tabs-fullbleed-tab-color-disabled-opacity: 0.38;
-  --sdds-inline-tabs-fullbleed-tab-hover-indicator-bg:#373D46;
-  --sdds-inline-tabs-fullbleed-tab-hover-color: var(--sdds-grey-50);
-  --sdds-inline-tabs-fullbleed-tab-focus-color: var(--sdds-grey-50);
-  --sdds-inline-tabs-fullbleed-tab-active-color: var(--sdds-grey-50);
-  --sdds-inline-tabs-fullbleed-tab-active-indicator-bg: var(--sdds-blue-300);
+  --sdds-inline-tabs-fullbleed-tab-color-opacity-disabled: 0.38;
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover:#373D46;
+  --sdds-inline-tabs-fullbleed-tab-color-hover: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-300);
 }
