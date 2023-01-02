@@ -1,4 +1,4 @@
-:host(.sdds-side-menu-full-width) {
+aside.sdds-side-menu-full-width {
   * {
     padding: 0;
     margin: 0;
@@ -19,7 +19,7 @@
   }
 }
 
-:host(.sdds-side-menu-collapsed) {
+aside.sdds-side-menu-collapsed {
   * {
     padding: 0;
     margin: 0;
@@ -36,7 +36,7 @@
   width: 68px;
 }
 
-:host {
+aside {
   ul {
     overflow-y: auto;
   }
@@ -81,12 +81,12 @@
   }
 }
 
-:host(.side-menu-header) {
+aside.side-menu-header {
   @media all and (min-width: 992px) {
     display: none;
   }
 }
 
-:host(.hide) {
+aside.hide {
   display: none;
 }
