@@ -19,20 +19,20 @@
   }
 
   &:focus::placeholder {
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-datetime-placeholder-color-focus);
   }
 
   &:disabled {
-    background-color: var(--sdds-datetime-disabled-background);
-    color: var(--sdds-datetime-disabled-color);
+    background-color: var(--sdds-datetime-background-disabled);
+    color: var(--sdds-datetime-color-disabled);
     cursor: not-allowed;
 
     &::placeholder {
-      color: var(--sdds-datetime-disabled-placeholder);
+      color: var(--sdds-datetime-placeholder-disabled);
     }
 
     ~  .sdds-datetime-label-inside {
-      color: var(--sdds-datetime-disabled-label);
+      color: var(--sdds-datetime-placeholder-color-focus);
     }
   }
 }
@@ -167,7 +167,7 @@ slot[name='sdds-label']::slotted(*) {
   //Input field in focus
   &:focus::placeholder {
     transition: color 0.35s ease;
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-datetime-placeholder-color-focus);
   }
 }
 
@@ -306,13 +306,13 @@ slot[name='sdds-label']::slotted(*) {
   .datetime-icon {
     svg {
       path {
-        fill: var(--sdds-datetime-disabled-color);
+        fill: var(--sdds-datetime-color-disabled);
       }
     }
   }
 
   slot[name='sdds-label']::slotted(*) {
-    color: var(--sdds-datetime-disabled-label);
+    color: var(--sdds-datetime-placeholder-color-focus);
     cursor: not-allowed;
   }
 }
