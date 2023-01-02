@@ -304,6 +304,7 @@ export class InlineTabs {
                 class={`sdds-inline-tabs--forward ${
                   this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''
                 }`}
+                disabled={!this.showRightScroll}
                 onClick={() => this.scrollRight()}
               >
                 <svg
@@ -325,6 +326,7 @@ export class InlineTabs {
                 class={`sdds-inline-tabs--back ${
                   this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''
                 }`}
+                disabled={!this.showLeftScroll}
                 onClick={() => this.scrollLeft()}
               >
                 <svg
