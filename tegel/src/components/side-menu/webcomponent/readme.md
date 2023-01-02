@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event                   | Description                            | Type               |
-| ----------------------- | -------------------------------------- | ------------------ |
-| `collapseSideMenuEvent` | Broadcasts changes to the tables props | `CustomEvent<any>` |
+| Event                   | Description                                    | Type               |
+| ----------------------- | ---------------------------------------------- | ------------------ |
+| `collapseSideMenuEvent` | Broadcasts collapsed state to child components | `CustomEvent<any>` |
 
 
 ## Dependencies

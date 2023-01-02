@@ -9,7 +9,6 @@
   width: 100%;
   z-index: 3;
   display: flex;
-  justify-content: space-between;
 
   .sdds-header-overlay {
     &-show {
@@ -63,10 +62,22 @@
     }
   }
 
-  .sdds-header-content {
+  nav.sdds-header-nav-content {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      height: 100%;
+
+      li {
+        height: 100%;
+      }
+    }
   }
 
   slot[name='mobile-menu']::slotted(*) {

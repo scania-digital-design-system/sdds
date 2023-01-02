@@ -18,10 +18,16 @@ export class SddsHeader {
     return (
       <Host>
         <div class="sdds-header-app-name">{this.siteName}</div>
-        <div class="sdds-header-content">
-          <slot name="inline-menu"></slot>
-          <slot name="toolbar"></slot>
-        </div>
+        <nav class="sdds-header-nav-content">
+          <ul>
+            <li>
+              <slot name="inline-menu"></slot>
+            </li>
+            <li>
+              <slot name="toolbar"></slot>
+            </li>
+          </ul>
+        </nav>
         <div class="sdds-header-logo">
           <a class="sdds-header-logo-holder" href={this.iconHref}></a>
         </div>

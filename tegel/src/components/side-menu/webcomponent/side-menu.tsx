@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element, Watch, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu',
@@ -24,7 +24,7 @@ export class SddsSideMenu {
     });
   }
 
-  /** Broadcasts changes to the tables props */
+  /** Broadcasts collapsed state to child components */
   @Event({
     eventName: 'collapseSideMenuEvent',
     bubbles: true,
@@ -42,7 +42,7 @@ export class SddsSideMenu {
 
   render() {
     return (
-      <Host
+      <aside
         class={`sdds-side-menu-${this.collapsed ? 'collapsed' : 'full-width'} ${
           this.headerSideMenu ? 'side-menu-header' : ''
         }`}
@@ -66,7 +66,7 @@ export class SddsSideMenu {
             {!this.collapsed && this.collapserText}
           </button>
         )}
-      </Host>
+      </aside>
     );
   }
 }
