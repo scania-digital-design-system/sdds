@@ -11,7 +11,7 @@
   outline: none;
   height: 100%;
   color: var(--sdds-datetime-color);
-  background-color: var(--sdds-datetime-bg);
+  background-color: var(--sdds-datetime-background);
 
   &::placeholder {
     opacity: 1;
@@ -23,7 +23,7 @@
   }
 
   &:disabled {
-    background-color: var(--sdds-datetime-disabled-bg);
+    background-color: var(--sdds-datetime-disabled-background);
     color: var(--sdds-datetime-disabled-color);
     cursor: not-allowed;
 
@@ -93,7 +93,7 @@
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  background-color: var(--sdds-datetime-bg);
+  background-color: var(--sdds-datetime-background);
   border-bottom: 1px solid var(--sdds-datetime-border-bottom);
   transition: border-bottom-color 200ms ease;
 
