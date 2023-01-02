@@ -1,8 +1,8 @@
-import { formatHtmlPreview } from '../../utils/utils';
-import readme from './webcomponent/readme.md';
-import readmeSideMenuItem from './webcomponent/side-menu-item/readme.md';
-import readmeSideMenuDropdown from './webcomponent/side-menu-dropdown/readme.md';
-import readmeSideMenuDropdownItem from './webcomponent/side-menu-dropdown-item/readme.md';
+import { formatHtmlPreview } from '../../../utils/utils';
+import readme from './readme.md';
+import readmeSideMenuItem from './side-menu-item/readme.md';
+import readmeSideMenuDropdown from './side-menu-dropdown/readme.md';
+import readmeSideMenuDropdownItem from './side-menu-dropdown-item/readme.md';
 
 export default {
   title: 'Components/Side Menu',

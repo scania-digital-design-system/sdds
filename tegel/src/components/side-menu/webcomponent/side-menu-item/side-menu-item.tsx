@@ -32,6 +32,8 @@ export class SddsSideMenuItem {
 
   @State() collapsed: boolean = false;
 
+  @State() position: string;
+
   @Element() host: HTMLElement;
 
   sideMenuEl: HTMLSddsSideMenuElement;
@@ -39,6 +41,7 @@ export class SddsSideMenuItem {
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
+    this.position = this.host.parentElement.slot;
   }
 
   @Listen('collapseSideMenuEvent', { target: 'body' })
@@ -49,7 +52,7 @@ export class SddsSideMenuItem {
   render() {
     return (
       <Host class={`sdds-side-menu-item-${this.collapsed ? 'collapsed' : 'full-width'}`}>
-        <li class={`sdds-side-menu-item-${this.type}`}>
+        <li class={`sdds-side-menu-item-${this.type} ${this.position}`}>
           {this.type === 'button' && (
             <button>
               {this.icon !== '' && <sdds-icon size="24px" name={this.icon}></sdds-icon>}

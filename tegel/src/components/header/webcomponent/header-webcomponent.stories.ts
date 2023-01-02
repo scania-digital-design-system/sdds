@@ -1,4 +1,4 @@
-import { formatHtmlPreview } from '../../utils/utils';
+import { formatHtmlPreview } from '../../../utils/utils';
 
 export default {
   title: 'Components/Header',
