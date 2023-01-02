@@ -117,7 +117,7 @@ $modals: (
   padding-bottom: var(--sdds-spacing-element-8);
   position: sticky;
   top: 0;
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   z-index: 1;
 
   &::before {
@@ -126,7 +126,7 @@ $modals: (
     height: 16px;
     top: -16px;
     width: 100%;
-    background-color: var(--sdds-modal-bg);
+    background-color: var(--sdds-modal-background);
   }
 }
 
@@ -157,7 +157,7 @@ $modals: (
 .sdds-modal {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   margin: auto;
   position: relative;
   border-radius: 4px;
@@ -184,7 +184,7 @@ $modals: (
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       padding: var(--sdds-spacing-element-16);
       display: flex;
       gap: 16px;
@@ -193,7 +193,7 @@ $modals: (
 
   &__actions-static {
     .sdds-modal-actions {
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       display: flex;
       gap: 16px;
     }
