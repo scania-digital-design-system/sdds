@@ -9,8 +9,8 @@
   display: table-cell;
   text-align: left;
   color: var(--sdds-data-table-color);
-  background-color: var(--sdds-data-table-header-bg);
-  border-bottom: 1px solid var(--sdds-data-table-header-bg-hover);
+  background-color: var(--sdds-data-table-header-background);
+  border-bottom: 1px solid var(--sdds-data-table-header-background-hover);
   padding: 0;
   height: 48px;
   min-width: 192px;
@@ -84,10 +84,10 @@
 
 :host(.sdds-table__header-cell--is-sorted) {
   .sdds-table__header-button {
-    background-color: var(--sdds-data-table-header-btn-bg);
+    background-color: var(--sdds-data-table-header-btn-background);
 
     &:hover {
-      background-color: var(--sdds-data-table-header-btn-bg-hover);
+      background-color: var(--sdds-data-table-header-btn-background-hover);
     }
 
     .sdds-table__header-button-icon {

@@ -8,7 +8,7 @@
   height: 48px;
 
   .sdds-table__footer-row {
-    background-color: var(--sdds-data-table-footer-bg);
+    background-color: var(--sdds-data-table-footer-background);
     color: var(--sdds-data-table-color);
   }
 
@@ -30,7 +30,7 @@
       .sdds-table__page-selector-input {
         font: var(--sdds-detail-02);
         letter-spacing: var(--sdds-detail-02-ls);
-        background-color: var(--sdds-data-table-footer-page-selector-input-bg);
+        background-color: var(--sdds-data-table-footer-page-selector-input-background);
         color: var(--sdds-data-table-color);
         width: 36px;
         height: 30px;
@@ -41,7 +41,7 @@
         padding-right: 8px;
 
         &:hover {
-          background-color: var(--sdds-data-table-footer-page-selector-input-bg-hover);
+          background-color: var(--sdds-data-table-footer-page-selector-input-background-hover);
         }
 
         &:disabled {

@@ -14,7 +14,7 @@
     display: table-cell;
     text-align: left;
     color: var(--sdds-data-table-color);
-    background-color: var(--sdds-data-table-header-bg);
+    background-color: var(--sdds-data-table-header-background);
     border-bottom: 1px solid var(--sdds-data-table-divider);
     height: 48px;
     box-sizing: border-box;
@@ -62,7 +62,7 @@
   }
 
   ::slotted(sdds-header-cell:hover) {
-    background-color: var(--sdds-data-table-header-bg-hover);
+    background-color: var(--sdds-data-table-header-background-hover);
   }
 }
 

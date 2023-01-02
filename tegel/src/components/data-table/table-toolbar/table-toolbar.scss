@@ -6,7 +6,7 @@
 
   display: table-caption;
   position: relative;
-  background-color: var(--sdds-data-table-toolbar-bg);
+  background-color: var(--sdds-data-table-toolbar-background);
   color: var(--sdds-data-table-color);
   padding: 0 var(--sdds-spacing-element-16);
   height: 64px;
@@ -64,10 +64,10 @@
     &:focus-within,
     &.sdds-table__searchbar--active {
       width: 208px;
-      background-color: var(--sdds-data-table-toolbar-searchbar-bg);
+      background-color: var(--sdds-data-table-toolbar-searchbar-background);
 
       &:hover {
-        background-color: var(--sdds-data-table-toolbar-searchbar-bg);
+        background-color: var(--sdds-data-table-toolbar-searchbar-background);
       }
     }
 
@@ -85,12 +85,12 @@
       cursor: pointer;
 
       :focus {
-        background-color: var(--sdds-data-table-toolbar-searchbar-bg);
+        background-color: var(--sdds-data-table-toolbar-searchbar-background);
       }
     }
 
     &:hover {
-      background-color: var(--sdds-data-table-toolbar-searchbar-bg-hover);
+      background-color: var(--sdds-data-table-toolbar-searchbar-background-hover);
     }
 
     .sdds-table__searchbar-icon {

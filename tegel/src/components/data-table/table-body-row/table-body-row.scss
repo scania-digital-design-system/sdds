@@ -8,7 +8,7 @@
 
   display: table-row;
   border-bottom: 1px solid var(--sdds-data-table-divider);
-  background-color: var(--sdds-data-table-body-row-bg);
+  background-color: var(--sdds-data-table-body-row-background);
   transition: background-color 200ms ease;
   color: var(--sdds-data-table-color);
 
@@ -20,15 +20,15 @@
 }
 
 :host(.sdds-table__row:hover) {
-  background-color: var(--sdds-data-table-body-row-bg-hover);
+  background-color: var(--sdds-data-table-body-row-background-hover);
 }
 
 :host(.sdds-table__row--selected) {
-  background-color: var(--sdds-data-table-body-row-bg-active);
+  background-color: var(--sdds-data-table-body-row-background-active);
 }
 
 :host(.sdds-table__row--selected:hover) {
-  background-color: var(--sdds-data-table-body-row-bg-active-hover);
+  background-color: var(--sdds-data-table-body-row-background-active-hover);
 }
 
 :host(.sdds-table__row--hidden) {
@@ -64,10 +64,10 @@
   }
 }
 
-:host(.sdds-table--on-white-bg) {
-  background-color: var(--sdds-data-table-body-row-bg-on-white);
+:host(.sdds-table--on-white-background) {
+  background-color: var(--sdds-data-table-body-row-background-on-white);
 }
 
-:host(.sdds-table--on-white-bg:hover) {
-  background-color: var(--sdds-data-table-body-row-bg-on-white-hover);
+:host(.sdds-table--on-white-background:hover) {
+  background-color: var(--sdds-data-table-body-row-background-on-white-hover);
 }
