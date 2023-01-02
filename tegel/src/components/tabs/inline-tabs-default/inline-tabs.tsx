@@ -1,5 +1,12 @@
 import { Component, Host, State, Element, Prop, h, Method } from '@stencil/core';
 
+function generateKeyFromName(name: string) {
+  return name
+    .replace(/\s/g, '-')
+    .replace(/[^a-z0-9-]/gi, '')
+    .toLowerCase();
+}
+
 @Component({
   tag: 'sdds-inline-tabs',
   styleUrl: 'inline-tabs.scss',
@@ -15,7 +22,7 @@ export class InlineTabs {
   @Prop() autoHeight: boolean = false;
 
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary'; 
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** array with metadata for slotted children */
   @State() tabs: Array<any> = [];
@@ -50,62 +57,67 @@ export class InlineTabs {
 
   useAutoHeight: boolean = false; // set height for slotted children or not
 
-  _generateKeyFromName(name: string) {
-    return name
-      .replace(/\s/g, '-')
-      .replace(/[^a-z0-9-]/gi, '')
-      .toLowerCase();
-  }
-
   componentWillLoad() {
-    this._initComponent();
+    this.initComponent();
   }
 
-  _initComponent(createInitialState = true) {
-    this.tabs = [];
-
+  initComponent(createInitialState = true) {
     if (this.autoHeight) {
       this.useAutoHeight = true;
     }
 
-    Array.from(this.host.children).map((item: HTMLElement, index) => {
-      const name = item.dataset.name ? item.dataset.name : item.getAttribute('name') || `Tab ${index + 1}`;
+    this.tabs = Array.from(this.host.children).map((item: HTMLElement, index) => {
+      const name = item.dataset.name
+        ? item.dataset.name
+        : item.getAttribute('name') || `Tab ${index + 1}`;
 
       let key = item.dataset.tabKey ? item.dataset.tabKey : item.getAttribute('tab-key');
       if (!key) {
-        key = this._generateKeyFromName(name);
+        key = generateKeyFromName(name);
       }
 
-      if ((item.getAttribute('data-default') ? item.getAttribute('data-default') : item.getAttribute('default')) !== null) {
+      if (
+        (item.getAttribute('data-default')
+          ? item.getAttribute('data-default')
+          : item.getAttribute('default')) !== null
+      ) {
         this.startingTab = key;
       }
 
       let disabled = false;
-      if ((item.getAttribute('aria-disabled') ? item.getAttribute('aria-disabled') : item.getAttribute('disabled')) !== null) {
+      if (
+        (item.getAttribute('aria-disabled')
+          ? item.getAttribute('aria-disabled')
+          : item.getAttribute('disabled')) !== null
+      ) {
         disabled = true;
       }
 
-      this.tabs.push({
+      return {
         name,
         key,
         element: item,
         disabled,
         visible: true,
         initialDisplay: window.getComputedStyle(item).display,
-      });
+      };
     });
 
-    createInitialState && this._setInitialState();
+    if (createInitialState) {
+      this.setInitialState();
+    }
     this.tabs = Array.from(this.tabs);
   }
 
-  _calculateButtonWidth() {
+  calculateButtonWidth() {
     const navButtons = this.navWrapperElement.querySelectorAll('button.sdds-inline-tabs--tab');
     let best = 0;
     Array.from(navButtons).forEach((navButton: HTMLElement) => {
       const oldStyle = navButton.style.width;
+      // eslint-disable-next-line no-param-reassign
       navButton.style.width = '';
       const width = navButton.clientWidth;
+      // eslint-disable-next-line no-param-reassign
       navButton.style.width = oldStyle;
 
       if (navButton.clientWidth > best) {
@@ -116,9 +128,11 @@ export class InlineTabs {
     this.buttonWidth = best;
   }
 
-  _calculateTabHeight() {
+  calculateTabHeight() {
     let best = 0;
-    this.tabs.forEach(tab => {
+    this.tabs.forEach((_, tabIndex) => {
+      const tab = this.tabs[tabIndex];
+      // TODO: add comment on what this does
       const oldStyle = tab.element.style.display;
       tab.element.style.display = '';
       const height = tab.element.clientHeight;
@@ -133,21 +147,23 @@ export class InlineTabs {
   }
 
   componentDidRender() {
-    this._calculateTabHeight();
-    this._calculateButtonWidth();
+    this.calculateTabHeight();
+    this.calculateButtonWidth();
   }
 
   componentDidLoad() {
     const mutationObserver = new MutationObserver((/* mutations, observer */) => {
-      const visibleTab = this.tabs.find(tab => tab.visible);
-      this._initComponent(false);
-      this._calculateTabHeight();
-      this._calculateButtonWidth();
-      visibleTab && this.switchToTab(visibleTab.key);
+      const visibleTab = this.tabs.find((tab) => tab.visible);
+      this.initComponent(false);
+      this.calculateTabHeight();
+      this.calculateButtonWidth();
+      if (visibleTab) {
+        this.switchToTab(visibleTab.key);
+      }
     });
 
-    const resizeObserver = new ResizeObserver(entries => {
-      for (const entry of entries) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
 
@@ -161,14 +177,14 @@ export class InlineTabs {
         this.scrollWidth = buttonsWidth - componentWidth;
 
         if (this.buttonsWidth > this.componentWidth) {
-          this._evaluateScrollButtons();
+          this.evaluateScrollButtons();
         } else {
           this.showLeftScroll = false;
           this.showRightScroll = false;
         }
 
-        this._calculateTabHeight();
-      }
+        this.calculateTabHeight();
+      });
     });
 
     mutationObserver.observe(this.host, {
@@ -178,65 +194,67 @@ export class InlineTabs {
 
     resizeObserver.observe(this.navWrapperElement);
 
-    this._calculateButtonWidth();
-    this._calculateTabHeight();
+    this.calculateButtonWidth();
+    this.calculateTabHeight();
   }
 
-  _setInitialState() {
+  setInitialState() {
     if (this.defaultTab) {
       this.startingTab = this.defaultTab;
     }
 
-    this.tabs.map((tab, index) => {
+    this.tabs.forEach((tab, index) => {
       if (this.startingTab) {
-        if (tab.key != this.startingTab) {
-          this._hideTab(tab);
+        if (tab.key !== this.startingTab) {
+          this.hideTab(index);
         }
       } else {
         if (index > 0) {
-          this._hideTab(tab);
+          this.hideTab(index);
         }
       }
     });
   }
 
-  _showTab(tab) {
+  unhideTab(tabIndex) {
+    const tab = this.tabs[tabIndex];
     tab.element.style.display = '';
     tab.visible = true;
   }
 
-  _hideTab(tab) {
+  hideTab(tabIndex) {
+    const tab = this.tabs[tabIndex];
     tab.element.style.display = 'none';
     tab.visible = false;
   }
 
   switchToTab(key: string) {
-    this.tabs.map(tab => {
-      if (tab.key == key) {
-        this._showTab(tab);
+    this.tabs.forEach((tab, index) => {
+      if (tab.key === key) {
+        this.unhideTab(index);
       } else {
-        this._hideTab(tab);
+        this.hideTab(index);
       }
     });
 
     this.tabs = Array.from(this.tabs);
   }
 
-  _scrollRight() {
+  scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
     this.navWrapperElement.scrollLeft = scroll + this.buttonWidth;
 
-    this._evaluateScrollButtons();
+    this.evaluateScrollButtons();
   }
 
-  _scrollLeft() {
+  scrollLeft() {
     const scroll = this.navWrapperElement.scrollLeft;
     this.navWrapperElement.scrollLeft = scroll - this.buttonWidth;
 
-    this._evaluateScrollButtons();
+    this.evaluateScrollButtons();
   }
 
-  _evaluateScrollButtons() {
+  evaluateScrollButtons() {
     const scroll = this.navWrapperElement.scrollLeft;
 
     if (scroll >= this.scrollWidth) {
@@ -253,21 +271,28 @@ export class InlineTabs {
   }
 
   render() {
-    const heightStyle = {};
+    const style: Record<string, string> = {};
     if (this.useAutoHeight) {
-      heightStyle['height'] = `${this.tabHeight}px`;
+      style.height = `${this.tabHeight}px`;
     }
 
     return (
       <Host>
         <div class={`sdds-inline-tabs sdds-inline-tabs sdds-inline-tabs-${this.modeVariant}`}>
           <nav class="sdds-inline-tabs-header">
-            <div ref={el => (this.navWrapperElement = el as HTMLElement)} class="sdds-inline-tabs-wrapper">
-              {this.tabs.map(tab => (
+            <div
+              ref={(el) => {
+                this.navWrapperElement = el as HTMLElement;
+              }}
+              class="sdds-inline-tabs-wrapper"
+            >
+              {this.tabs.map((tab) => (
                 <button
                   style={{ width: `${this.buttonWidth}px` }}
                   disabled={tab.disabled}
-                  class={`sdds-inline-tabs--tab ${tab.visible ? 'sdds-inline-tabs--tab__active' : ''}`}
+                  class={`sdds-inline-tabs--tab ${
+                    tab.visible ? 'sdds-inline-tabs--tab__active' : ''
+                  }`}
                   onClick={() => this.switchToTab(tab.key)}
                 >
                   <span>{tab.name}</span>
@@ -275,8 +300,19 @@ export class InlineTabs {
               ))}
             </div>
             <div class="sdds-inline-tabs-header-navigation">
-              <button class={`sdds-inline-tabs--forward ${this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''}`} onClick={() => this._scrollRight()}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button
+                class={`sdds-inline-tabs--forward ${
+                  this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''
+                }`}
+                onClick={this.scrollRight}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -285,8 +321,19 @@ export class InlineTabs {
                   />
                 </svg>
               </button>
-              <button class={`sdds-inline-tabs--back ${this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''}`} onClick={() => this._scrollLeft()}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button
+                class={`sdds-inline-tabs--back ${
+                  this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''
+                }`}
+                onClick={this.scrollLeft}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -297,7 +344,13 @@ export class InlineTabs {
               </button>
             </div>
           </nav>
-          <div ref={el => (this.tabWrapperElement = el as HTMLElement)} class="sdds-inline-tabs-main" style={heightStyle}>
+          <div
+            ref={(el) => {
+              this.tabWrapperElement = el as HTMLElement;
+            }}
+            class="sdds-inline-tabs-main"
+            style={style}
+          >
             <slot />
           </div>
         </div>
