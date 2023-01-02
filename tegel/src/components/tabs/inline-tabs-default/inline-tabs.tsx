@@ -282,7 +282,7 @@ export class InlineTabs {
           <nav class="sdds-inline-tabs-header">
             <div
               ref={(el) => {
-                this.navWrapperElement = el as HTMLElement;
+                this.navWrapperElement = el as HTMLDivElement;
               }}
               class="sdds-inline-tabs-wrapper"
             >
@@ -304,7 +304,7 @@ export class InlineTabs {
                 class={`sdds-inline-tabs--forward ${
                   this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''
                 }`}
-                onClick={this.scrollRight}
+                onClick={() => this.scrollRight()}
               >
                 <svg
                   width="20"
@@ -325,7 +325,7 @@ export class InlineTabs {
                 class={`sdds-inline-tabs--back ${
                   this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''
                 }`}
-                onClick={this.scrollLeft}
+                onClick={() => this.scrollLeft()}
               >
                 <svg
                   width="20"
