@@ -56,14 +56,14 @@
 
     &:hover {
       &::before {
-        background-color: var(--sdds-checkbox-bg-hover);
+        background-color: var(--sdds-checkbox-background-hover);
         opacity: 0.12;
       }
     }
 
     &:focus {
       &::before {
-        background-color: var(--sdds-checkbox-bg-focus);
+        background-color: var(--sdds-checkbox-background-focus);
         opacity: 0.24;
         animation: cb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
       }
@@ -93,7 +93,7 @@
 
 .sdds-form-input[type='checkbox']:checked {
   &::after {
-    background-image: var(--sdds-checkbox-bg-img);
+    background-image: var(--sdds-checkbox-background-img);
     background-color: var(--sdds-checkbox-interaction-01);
     background-repeat: no-repeat;
     background-position: center;
@@ -112,7 +112,7 @@
     }
 
     &::after {
-      background-image: var(--sdds-checkbox-bg-img-disabled);
+      background-image: var(--sdds-checkbox-background-img-disabled);
       background-color: var(--sdds-checkbox-interaction-02);
       color: var(--sdds-checkbox-color-disabled-after);
     }

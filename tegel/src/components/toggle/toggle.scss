@@ -89,7 +89,7 @@
   .sdds-toggle-label {
     font: var(--sdds-detail-01);
     letter-spacing: var(--sdds-detail-01-ls);
-    color: var(--sdds-toggle-label-colour);
+    color: var(--sdds-toggle-label-color);
     padding-left: var(--sdds-spacing-element-8);
   }
 
@@ -221,7 +221,7 @@
     }
 
     .sdds-toggle-label {
-      color: var(--sdds-toggle-label-colour-disabled);
+      color: var(--sdds-toggle-label-color-disabled);
       pointer-events: none;
     }
 

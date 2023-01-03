@@ -1,32 +1,32 @@
 :root,
 .sdds-theme-light {
   --sdds-accordion-border: var(--sdds-grey-300);
-  --sdds-accordion-bg: transparent;
-  --sdds-accordion-bg-hover: var(--sdds-white);
-  --sdds-accordion-bg-hover-on-white: var(--sdds-grey-50);
-  --sdds-accordion-bg-focus: transparent;
-  --sdds-accordion-bg-active: var(--sdds-grey-100);
-  --sdds-accordion-colour: var(--sdds-grey-958);
+  --sdds-accordion-background: transparent;
+  --sdds-accordion-background-hover: var(--sdds-white);
+  --sdds-accordion-background-hover-on-white: var(--sdds-grey-50);
+  --sdds-accordion-background-focus: transparent;
+  --sdds-accordion-background-active: var(--sdds-grey-100);
+  --sdds-accordion-color: var(--sdds-grey-958);
   --sdds-accordion-border-focus: var(--sdds-grey-500);
-  --sdds-accordion-colour-disabled: var(--sdds-grey-400);
+  --sdds-accordion-color-disabled: var(--sdds-grey-400);
 
   .secondary {
-    --sdds-accordion-bg-hover: var(--sdds-accordion-bg-hover-on-white);
+    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-white);
   }
 }
 
 .sdds-theme-dark {
   --sdds-accordion-border: var(--sdds-grey-700);
-  --sdds-accordion-bg: transparent;
-  --sdds-accordion-bg-hover: var(--sdds-grey-900);
-  --sdds-accordion-bg-hover-on-white: var(--sdds-grey-50);
-  --sdds-accordion-bg-focus: transparent;
-  --sdds-accordion-bg-active: var(--sdds-grey-900);
-  --sdds-accordion-colour: var(--sdds-white);
+  --sdds-accordion-background: transparent;
+  --sdds-accordion-background-hover: var(--sdds-grey-900);
+  --sdds-accordion-background-hover-on-white: var(--sdds-grey-50);
+  --sdds-accordion-background-focus: transparent;
+  --sdds-accordion-background-active: var(--sdds-grey-900);
+  --sdds-accordion-color: var(--sdds-white);
   --sdds-accordion-border-focus: var(--sdds-grey-500);
-  --sdds-accordion-colour-disabled: var(--sdds-grey-800);
+  --sdds-accordion-color-disabled: var(--sdds-grey-800);
 
-  .sdds-on-white-bg {
-    --sdds-accordion-bg-hover: var(--sdds-accordion-bg-hover-on-white);
+  .sdds-on-white-background {
+    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-white);
   }
 }
