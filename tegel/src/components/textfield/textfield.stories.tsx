@@ -32,7 +32,7 @@ export default {
       description: 'Which type of textfield',
       control: {
         type: 'radio',
-        options: ['password', 'text'],
+        options: ['Password', 'Text'],
       },
     },
     size: {
@@ -141,15 +141,7 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Success', 'Error'],
-    },
-    variant: {
-      name: 'Mode Variant',
-      description: 'The variant of the textarea',
-      control: {
-        type: 'radio',
-      },
-      options: ['Primary', 'Secondary'],
-    },
+    }
   },
   args: {
     placeholderText: 'Placeholder',
@@ -160,7 +152,6 @@ export default {
     helper: '',
     maxLength: 0,
     state: 'Default',
-    variant: 'Secondary',
     suffix: false,
     suffixType: 'Icon',
     prefix: false,
@@ -181,7 +172,6 @@ const Template = ({
   label,
   labelPosition,
   state,
-  variant,
   helper,
   prefix,
   prefixType,
@@ -190,7 +180,6 @@ const Template = ({
   maxLength,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
-  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const sizeLookUp = {
     Large: 'lg',
@@ -213,7 +202,6 @@ const Template = ({
       type="${type}"
       size="${sizeLookUp[size]}"
       state="${stateValue}"
-      mode-variant="${variantValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
       ${maxlength}
