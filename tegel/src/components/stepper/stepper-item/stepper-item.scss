@@ -20,9 +20,9 @@
     }
 
     &.lg {
+      padding: 0 20px;
       font: var(--sdds-detail-01);
       letter-spacing: var(--sdds-detail-01-ls);
-      padding: 0 20px;
 
       .stepper-content-container {
         height: 32px;
@@ -53,9 +53,9 @@
     }
 
     &.sm {
+      padding: 0 20px;
       font: var(--sdds-detail-05);
       letter-spacing: var(--sdds-detail-05-ls);
-      padding: 0 20px;
 
       .stepper-content-container {
         height: 24px;
@@ -135,8 +135,15 @@
     }
 
     .sdds-stepper-item-label {
-      font: var(--sdds-detail-05);
-      letter-spacing: var(--sdds-detail-05-ls);
+      &.lg {
+        font: var(--sdds-detail-01);
+        letter-spacing: var(--sdds-detail-01-ls);
+      }
+
+      &.sm {
+        font: var(--sdds-detail-05);
+        letter-spacing: var(--sdds-detail-05-ls);
+      }
     }
   }
 }

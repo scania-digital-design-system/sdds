@@ -55,7 +55,9 @@ export class SddsStepper {
               <div class="stepper-item-number sdds-detail-05">{this.number}</div>
             )}
           </div>
-          {!this.hideLabel && <div class={`sdds-stepper-item-label`}>{this.labelText}</div>}
+          {!this.hideLabel && (
+            <div class={`sdds-stepper-item-label ${this.size}`}>{this.labelText}</div>
+          )}
         </li>
       </Host>
     );
