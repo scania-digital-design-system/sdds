@@ -104,6 +104,10 @@
         cursor: pointer;
         padding-left: 20px;
         border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+
+        &.collapsed {
+          padding-left: 0;
+        }
       }
     }
 
