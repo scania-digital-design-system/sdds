@@ -30,7 +30,8 @@
     }
   }
 
-  &--forward {
+  &--forward,
+  &--back {
     cursor: pointer;
     width: 48px;
     height: 100%;
@@ -61,38 +62,8 @@
     &:focus {
       @include sdds-focus-state;
     }
-  }
-
-  &--back {
-    cursor: pointer;
-    width: 48px;
-    height: 100%;
-    border: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-
-    &__show {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    &:hover {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-hover);
-    }
-
-    &:active {
-      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-active);
-    }
-
-    &:focus {
-      @include sdds-focus-state;
+    svg{
+      fill:var(--sdds-inline-tabs-scroll-btn-color);
     }
   }
 

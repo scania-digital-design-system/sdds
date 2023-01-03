@@ -2,7 +2,8 @@
 .sdds-theme-light {
   --sdds-inline-tabs-main-background: var(--sdds-grey-50);
   --sdds-inline-tabs-main-ongrey-background: var(--sdds-white);
-  --sdds-inline-tabs-scroll-btn-background: var(--sdds-grey-200);
+  --sdds-inline-tabs-scroll-btn-color: var(--sdds-grey-958);
+  --sdds-inline-tabs-scroll-btn-background: var(--sdds-grey-50);
   --sdds-inline-tabs-scroll-btn-background-hover: var(--sdds-grey-300);
   --sdds-inline-tabs-scroll-btn-background-active: var(--sdds-grey-400);
   --sdds-inline-tabs-tab-color: var(--sdds-blue-900);
@@ -23,7 +24,8 @@
 .sdds-theme-dark {
   --sdds-inline-tabs-main-background: var(--sdds-grey-868);
   --sdds-inline-tabs-main-ongrey-background: var(--sdds-grey-900);
-  --sdds-inline-tabs-scroll-btn-background: var(--sdds-grey-800);
+  --sdds-inline-tabs-scroll-btn-color: var(--sdds-grey-50);
+  --sdds-inline-tabs-scroll-btn-background: var(--sdds-grey-868);
   --sdds-inline-tabs-scroll-btn-background-hover: var(--sdds-grey-900);
   --sdds-inline-tabs-scroll-btn-background-active: var(--sdds-grey-900);
   --sdds-inline-tabs-tab-color: var(--sdds-grey-50);
