@@ -47,7 +47,7 @@ export default {
 
 const Template = ({ collapsable, collapsed }) =>
   formatHtmlPreview(`
-  <sdds-side-menu collapsed ${collapsed ? 'collapsed' : ''} ${
+  <sdds-side-menu ${collapsed ? 'collapsed' : ''} ${
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
   <div slot="top">
