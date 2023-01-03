@@ -58,22 +58,26 @@ const Template = ({ collapsable, collapsed }) =>
       Link with a veeeeery long name
     </sdds-side-menu-link>
     <sdds-side-menu-dropdown selected>
-      <div slot="label">Dropdown with a veeeery long name</div>
-      <sdds-side-menu-button selected>
-        Button with a veeeeeeeeerey long name
-      </sdds-side-menu-button>
-      <sdds-side-menu-link >
-        Link
-      </sdds-side-menu-link>
+      Dropdown with a veeeery long name
+      <div slot="children">
+        <sdds-side-menu-button selected>
+          Button with a veeeeeeeeerey long name
+        </sdds-side-menu-button>
+        <sdds-side-menu-link >
+          Link
+        </sdds-side-menu-link>
+      </div>
     </sdds-side-menu-dropdown>
     <sdds-side-menu-dropdown>
-      <div slot="label">Dropdown</div>
-      <sdds-side-menu-button >
-        Button
-      </sdds-side-menu-button>
-      <sdds-side-menu-link >
-        Link
-      </sdds-side-menu-link>
+    Dropdown
+      <div slot="children">
+        <sdds-side-menu-button >
+          Button
+        </sdds-side-menu-button>
+        <sdds-side-menu-link >
+          Link
+        </sdds-side-menu-link>
+      </div>
     </sdds-side-menu-dropdown>
   </div>
   <div slot="bottom">

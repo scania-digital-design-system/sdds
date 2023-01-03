@@ -67,7 +67,7 @@ export class SddsSideMenuDropdown {
                 this.handleClick();
               }}
             >
-              <slot name="label"></slot>
+              <slot></slot>
               <sdds-icon name={this.collapsed ? 'kebab' : 'chevron_down'} size="24px"></sdds-icon>
             </button>
           )}
@@ -90,7 +90,7 @@ export class SddsSideMenuDropdown {
             this.handleClick();
           }}
         >
-          <slot></slot>
+          <slot name="children"></slot>
         </ul>
       </Host>
     );
