@@ -15,9 +15,7 @@ export class Datetime {
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
 
-  @Prop() format: '' | 'none';
-
-  /** Default value of the component. Needs to match the format of the type. */
+  /** Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM */
   @Prop() defaultValue: string | 'none' = 'none';
 
   /** Set input in disabled state */
@@ -32,7 +30,6 @@ export class Datetime {
   /** Name property */
   @Prop() name = '';
 
-  // TODO: This one needs better naming
   /** Error state of input */
   @Prop() state: string;
 
@@ -78,8 +75,6 @@ export class Datetime {
 
   componentWillLoad() {
     if (this.defaultValue !== 'none') {
-      console.log(this.getDefaultValue());
-      console.log(this.defaultValue);
       this.value = this.getDefaultValue();
     }
   }
