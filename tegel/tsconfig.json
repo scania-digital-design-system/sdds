@@ -11,7 +11,5 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": ["src", "node_modules/@types/jest/index.d.ts"],
-  "exclude": ["**/*.stories.ts", "**/*.stories.js"]
-
+  "include": ["src", "node_modules/@types/jest/index.d.ts"]
 }
