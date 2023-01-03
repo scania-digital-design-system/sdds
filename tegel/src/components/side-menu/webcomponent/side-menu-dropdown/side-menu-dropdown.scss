@@ -19,13 +19,18 @@
       justify-content: space-between;
       font: var(--sdds-headline-07);
       letter-spacing: var(--sdds-headline-07-ls);
-      color: var(--sdds-side-menu-item-color);
+      color: var(--sdds-sidebar-side-menu-single-item-color);
 
       &.top {
-        border-bottom: 1px solid var(--sdds-side-menu-item-border-color);
+        border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
+      }
+
+      &.bottom {
+        border-top: 1px solid var(--sdds-sidebar-side-menu-single-item-border-bottom);
       }
 
       sdds-icon {
+        padding-left: 10px;
         transition: all 0.2s ease-in-out;
       }
 
@@ -34,6 +39,8 @@
 
         sdds-icon {
           transform: rotate(180deg);
+          padding-left: 0;
+          padding-right: 10px;
         }
       }
 
@@ -42,11 +49,43 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        sdds-icon {
+          padding-left: 0;
+        }
+      }
+
+      &.selected {
+        background-color: var(--sdds-sidebar-side-menu-single-item-active-background);
+        border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
+        padding-left: 20px;
+
+        &.collapsed {
+          padding: 0;
+
+          &:hover {
+            sdds-icon {
+              padding-right: 0;
+            }
+          }
+        }
       }
 
       &:hover {
         cursor: pointer;
-        background-color: var(--sdds-side-menu-item-background-hover);
+        background-color: var(--sdds-sidebar-item-state-hover);
+      }
+
+      &:active {
+        cursor: pointer;
+        padding-left: 20px;
+        border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+      }
+
+      &:focus {
+        cursor: pointer;
+        padding-left: 20px;
+        border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
       }
     }
   }
@@ -73,12 +112,12 @@
       left: 68px;
       transform: translateY(-69px);
       position: absolute;
-      background: var(--sdds-white);
+      background-color: var(--sdds-sidebar-side-menu);
       height: unset;
     }
   }
 }
 
 :host(.open) {
-  border-bottom: 1px solid var(--sdds-side-menu-item-border-color);
+  border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
 }
