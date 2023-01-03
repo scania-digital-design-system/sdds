@@ -1,4 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Stepper',
@@ -16,6 +17,7 @@ export default {
         url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=10508%3A32221&t=Ne6myqwca5m00de7-1',
       },
     ],
+    notes: readme,
   },
   argTypes: {
     direction: {
@@ -55,7 +57,7 @@ export default {
       },
       options: ['Large', 'Small'],
     },
-    showLabels: {
+    hideLabels: {
       name: 'Show/Hide labels',
       control: {
         type: 'boolean',
@@ -65,7 +67,7 @@ export default {
   args: {
     direction: 'Horizontal',
     textPosition: 'Below',
-    showLabels: true,
+    hideLabels: false,
     size: 'Large',
   },
 };
@@ -74,27 +76,20 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ direction, textPosition, size, showLabels }) =>
-  formatHtmlPreview(
-    `
-        <sdds-stepper size="${sizeLookUp[size]}" ${
-      textPosition ? `text-position="${textPosition.toLowerCase()}"` : ''
-    } direction="${direction.toLowerCase()}">
-            <sdds-stepper-item state="success" ${
-              showLabels ? `label-text="Step label"` : ''
-            }></sdds-stepper-item>
-            <sdds-stepper-item number="2" ${
-              showLabels ? `label-text="Step label"` : ''
-            }></sdds-stepper-item>
-            <sdds-stepper-item number="3" state="inactive" ${
-              showLabels ? `label-text="Step label"` : ''
-            }></sdds-stepper-item>
-            <sdds-stepper-item number="4" state="error" ${
-              showLabels ? `label-text="Step label"` : ''
-            }></sdds-stepper-item>
-        </sdds-stepper>
+const Template = ({ size, hideLabels, textPosition, direction }) => {
+  console.log(size, hideLabels, textPosition, direction);
+  return formatHtmlPreview(
+    `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${
+      sizeLookUp[size]
+    }" text-position="${textPosition?.toLowerCase()}" direction="${direction.toLowerCase()}">
+    <sdds-stepper-item state="success" label-text="Step label"></sdds-stepper-item>
+    <sdds-stepper-item number="2" label-text="Step label"></sdds-stepper-item>
+    <sdds-stepper-item number="3" state="inactive" label-text="Step label"></sdds-stepper-item>
+    <sdds-stepper-item number="4" state="error" label-text="Step label"></sdds-stepper-item>
+  </sdds-stepper>
         `,
   );
+};
 
 export const WebComponents = Template.bind({});
 WebComponents.args = {};

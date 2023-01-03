@@ -12,17 +12,15 @@ export class SddsStepper {
   /** Text position, only available on direction:horizontal */
   @Prop() textPosition: 'aside' | 'below' = 'below';
 
-  /** */
+  /** Size of the component and it's children. */
   @Prop() size: 'sm' | 'lg' = 'lg';
+
+  /** Hides the label for the child components if true. */
+  @Prop() hideLabels: boolean = false;
 
   @Element() el: HTMLElement;
 
   componentWillLoad() {
-    for (let i = 0; i < this.el.children.length; i++) {
-      this.el.children[i].classList.add(`sdds-stepper-item-${this.direction}`);
-      this.el.children[i].classList.add(`sdds-stepper-item-text-position-${this.textPosition}`);
-      this.el.children[i].classList.add(`sdds-stepper-item-${this.size}`);
-    }
     this.el.children[0].classList.add('sdds-stepper-item-first');
     this.el.children[this.el.children.length - 1].classList.add('sdds-stepper-item-last');
   }

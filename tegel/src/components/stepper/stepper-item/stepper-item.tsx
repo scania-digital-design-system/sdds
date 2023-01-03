@@ -19,28 +19,43 @@ export class SddsStepper {
 
   @State() iconSize: string;
 
+  @Prop() hideLabel: boolean;
+
+  @State() direction: string;
+
+  @State() textPosition: string;
+
   @Element() el: HTMLElement;
 
+  stepperEl: HTMLSddsStepperElement;
+
   componentWillLoad() {
-    const size = this.el.closest('sdds-stepper').getAttribute('size');
-    this.size = size;
-    this.iconSize = size === 'lg' ? '20px' : '16px';
+    this.stepperEl = this.el.closest('sdds-stepper');
+    this.direction = this.stepperEl.direction;
+    this.textPosition = this.stepperEl.textPosition;
+    this.size = this.stepperEl.size;
+    this.hideLabel = this.stepperEl.hideLabels;
   }
 
   render() {
     return (
       <Host>
-        <li class={`sdds-stepper-item sdds-stepper-item-${this.size}`}>
-          <div class={`sdds-stepper-content sdds-stepper-item-${this.state}`}>
-            {this.number && (this.state === 'current' || this.state === 'inactive') && (
+        <li
+          class={`${this.size} ${this.direction} text-${this.textPosition} ${
+            this.hideLabel ? 'hide-labels' : ''
+          }`}
+        >
+          <div class={`${this.state} stepper-content-container`}>
+            {this.state === 'success' || this.state === 'error' ? (
+              <sdds-icon
+                name={this.state === 'success' ? 'tick' : 'error'}
+                size={this.size === 'lg' ? '20px' : '16px'}
+              ></sdds-icon>
+            ) : (
               <div class="stepper-item-number sdds-detail-05">{this.number}</div>
             )}
-            {this.state === 'success' && <sdds-icon name="tick" size={this.iconSize}></sdds-icon>}
-            {this.state === 'error' && (
-              <sdds-icon name={this.state} size={this.iconSize}></sdds-icon>
-            )}
           </div>
-          <div class={`sdds-detail-05 sdds-stepper-item-label`}>{this.labelText}</div>
+          {!this.hideLabel && <div class={`sdds-stepper-item-label`}>{this.labelText}</div>}
         </li>
       </Host>
     );
