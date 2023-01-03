@@ -77,3 +77,12 @@ body {
   margin: 0;
   flex: 1;
 }
+
+html,
+.sdds-theme-light {
+  color: var(--sdds-grey-958);
+}
+
+.sdds-theme-dark {
+  color: var(--sdds-white);
+}
