@@ -6,7 +6,7 @@ aside.sdds-side-menu-full-width {
   }
 
   height: 100vh;
-  background-color: var(--sdds-white);
+  background-color: var(--sdds-sidebar-side-menu-background-cover);
   position: relative;
   left: 0;
   display: flex;
@@ -27,7 +27,7 @@ aside.sdds-side-menu-collapsed {
   }
 
   height: 100vh;
-  background-color: var(--sdds-white);
+  background-color: var(--sdds-sidebar-side-menu-background-cover);
   position: relative;
   left: 0;
   display: flex;
@@ -52,7 +52,7 @@ aside {
     height: 68px;
     background-color: transparent;
     border: none;
-    border-top: 1px solid var(--sdds-grey-300);
+    border-top: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
     display: flex;
     align-items: center;
     padding: 0 24px;
@@ -76,7 +76,13 @@ aside {
 
     &:hover {
       cursor: pointer;
-      background-color: var(--sdds-header-mobile-avatar--item-btn-bg-hover);
+      background-color: var(--sdds-sidebar-item-state-hover);
+    }
+
+    &:active {
+      cursor: pointer;
+      padding-left: 20px;
+      border: 1px  solid var(--sdds-sidebar-item-state-focus-border);
     }
   }
 }

@@ -12,6 +12,9 @@ export class SddsSideMenuLink {
   /** Href for side menu item that are links */
   @Prop() href: string = '#';
 
+  /** Sets the link as into a selected state */
+  @Prop() selected: boolean = false;
+
   @State() collapsed: boolean = false;
 
   @Element() host: HTMLElement;
@@ -42,7 +45,9 @@ export class SddsSideMenuLink {
         <li class={`${this.isDropdownChild ? 'dropdown-item' : ''}`}>
           <a
             href={this.href}
-            class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}`}
+            class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
+              this.selected ? 'selected' : ''
+            }`}
           >
             {this.icon !== '' && <sdds-icon name={this.icon} size="24px"></sdds-icon>}
             {!this.collapsed && <slot></slot>}

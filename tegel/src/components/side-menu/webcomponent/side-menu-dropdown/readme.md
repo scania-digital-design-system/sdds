@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                  | Type      | Default |
-| -------- | --------- | ---------------------------- | --------- | ------- |
-| `open`   | `open`    | Open state for the dropdown. | `boolean` | `false` |
+| Property   | Attribute  | Description                                | Type      | Default |
+| ---------- | ---------- | ------------------------------------------ | --------- | ------- |
+| `open`     | `open`     | Open state for the dropdown.               | `boolean` | `false` |
+| `selected` | `selected` | Sets the dropdown as into a selected state | `boolean` | `false` |
 
 
 ## Dependencies

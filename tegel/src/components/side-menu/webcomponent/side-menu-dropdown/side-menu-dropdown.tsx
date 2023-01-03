@@ -9,6 +9,9 @@ export class SddsSideMenuDropdown {
   /** Open state for the dropdown. */
   @Prop() open: boolean = false;
 
+  /** Sets the dropdown as into a selected state */
+  @Prop() selected: boolean = false;
+
   @State() collapsed: boolean = false;
 
   @Element() host: HTMLElement;
@@ -39,9 +42,9 @@ export class SddsSideMenuDropdown {
         <li class={`${this.open ? 'expanded' : 'contracted'}`}>
           {this.collapsed ? (
             <button
-              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}  ${
-                this.open ? 'expanded' : 'contracted'
-              }`}
+              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
+                this.selected ? 'selected' : ''
+              }  ${this.open ? 'expanded' : 'contracted'}`}
               onMouseEnter={() => {
                 if (this.collapsed) {
                   this.open = !this.open;
@@ -57,9 +60,9 @@ export class SddsSideMenuDropdown {
             </button>
           ) : (
             <button
-              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}  ${
-                this.open ? 'expanded' : 'contracted'
-              }`}
+              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
+                this.selected ? 'selected' : ''
+              }  ${this.open ? 'expanded' : 'contracted'}`}
               onClick={() => {
                 this.handleClick();
               }}

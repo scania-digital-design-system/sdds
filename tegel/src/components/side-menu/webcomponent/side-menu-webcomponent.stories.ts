@@ -51,16 +51,16 @@ const Template = ({ collapsable, collapsed }) =>
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
   <div slot="top">
-    <sdds-side-menu-button icon="truck">
-      Button
+    <sdds-side-menu-button selected icon="truck">
+      Button with a veeeery long name
     </sdds-side-menu-button>
     <sdds-side-menu-link icon="truck">
-      Link
+      Link with a veeeeery long name
     </sdds-side-menu-link>
-    <sdds-side-menu-dropdown>
-      <div slot="label">Dropdown</div>
-      <sdds-side-menu-button>
-        Button
+    <sdds-side-menu-dropdown selected>
+      <div slot="label">Dropdown with a veeeery long name</div>
+      <sdds-side-menu-button selected>
+        Button with a veeeeeeeeerey long name
       </sdds-side-menu-button>
       <sdds-side-menu-link >
         Link

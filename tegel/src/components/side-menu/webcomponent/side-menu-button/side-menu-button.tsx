@@ -9,6 +9,9 @@ export class SddsSideMenuButton {
   /** Icon for the side menu item */
   @Prop() icon: string = '';
 
+  /** Sets the button as into a selected state */
+  @Prop() selected: boolean = false;
+
   @State() collapsed: boolean = false;
 
   @Element() host: HTMLElement;
@@ -36,7 +39,11 @@ export class SddsSideMenuButton {
   render() {
     return (
       <li class={`${this.isDropdownChild ? 'dropdown-item' : ''}`}>
-        <button class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}`}>
+        <button
+          class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
+            this.selected ? 'selected' : ''
+          }`}
+        >
           {this.icon !== '' && <sdds-icon name={this.icon} size="24px"></sdds-icon>}
           {!this.collapsed && <slot></slot>}
           {!this.collapsed || (this.isDropdownChild && <slot></slot>)}
