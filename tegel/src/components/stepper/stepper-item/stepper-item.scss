@@ -1,7 +1,7 @@
 @mixin divider {
   content: ' ';
   position: absolute;
-  background-color: var(--sdds-stepper-icon-step-bg-after);
+  background-color: var(--sdds-stepper-icon-step-background-after);
   opacity: 0.16;
 }
 
@@ -106,7 +106,7 @@
 
     .stepper-content-container {
       border-radius: 100px;
-      border: 1px solid var(--sdds-stepper-icon-bg);
+      border: 1px solid var(--sdds-stepper-icon-background);
       display: flex;
       justify-content: center;
       align-items: center;
