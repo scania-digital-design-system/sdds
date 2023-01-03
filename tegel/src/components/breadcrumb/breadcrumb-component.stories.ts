@@ -1,6 +1,11 @@
+import readme from './readme.md';
+import itemReadme from './breadcrumb-item/readme.md';
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Components/Breadcrumb',
   parameters: {
+    notes: { 'Breadcrumb': readme, 'Breadcumb Item': itemReadme },
     design: [
       {
         name: 'Figma',
@@ -16,13 +21,16 @@ export default {
   },
 };
 
-const Template = () => `   
+const Template = () =>
+  formatHtmlPreview(
+    `   
       <sdds-breadcrumb>
       <sdds-breadcrumb-item href="#" link-text="A breadcrumb"></sdds-breadcrumb-item>
       <sdds-breadcrumb-item href="#" link-text="Another breadcrumb"></sdds-breadcrumb-item>
         <sdds-breadcrumb-item link-text="Current one" current></sdds-breadcrumb-item>
       </sdds-breadcrumb>
-      `;
+      `,
+  );
 
 export const WebComponent = Template.bind({});
 
