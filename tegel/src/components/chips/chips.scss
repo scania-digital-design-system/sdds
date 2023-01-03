@@ -5,7 +5,7 @@
   @include sdds-box-sizing;
 
   color: var(--sdds-chips-color);
-  background-color: var(--sdds-chips-bg);
+  background-color: var(--sdds-chips-background);
   display: inline-flex;
   padding: 8px 16px;
   border-radius: 100px;
@@ -20,7 +20,7 @@
   }
 
   &:hover {
-    background-color: var(--sdds-chips-bg-hover);
+    background-color: var(--sdds-chips-background-hover);
   }
 
   &-icon {
@@ -36,7 +36,7 @@
 
   &__active {
     color: var(--sdds-chips-color-active);
-    background-color: var(--sdds-chips-bg-active);
+    background-color: var(--sdds-chips-background-active);
 
     .sdds-chip-icon {
       path {
@@ -45,7 +45,7 @@
     }
 
     &:hover {
-      background-color: var(--sdds-chips-bg-active-hover);
+      background-color: var(--sdds-chips-background-active-hover);
     }
   }
 

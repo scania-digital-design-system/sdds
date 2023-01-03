@@ -4,7 +4,7 @@
 
 :host {
   // Variables
-  --sdds-badges-bg-color: var(--sdds-negative);
+  --sdds-badges-background-color: var(--sdds-negative);
   --sdds-badges-color-text: var(--sdds-white);
 
   // Styling
@@ -16,7 +16,7 @@
 .sdds-badges {
   display: block;
   border-radius: 12px;
-  background-color: var(--sdds-badges-bg-color);
+  background-color: var(--sdds-badges-background-color);
   text-align: center;
 
   &.sdds-badges-sm {

@@ -18,7 +18,7 @@
   .sdds-accordion-item {
     .sdds-accordion-header-icon-start,
     .sdds-accordion-header-icon-end {
-      background-color: var(--sdds-accordion-bg-focus);
+      background-color: var(--sdds-accordion-background-focus);
       outline: none;
 
       &::after {
@@ -35,7 +35,7 @@
 :host(:active) {
   .sdds-accordion-header-icon-start,
   .sdds-accordion-header-icon-end {
-    background-color: var(--sdds-accordion-bg-active);
+    background-color: var(--sdds-accordion-background-active);
     outline: none;
   }
 

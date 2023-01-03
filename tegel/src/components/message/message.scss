@@ -99,10 +99,10 @@
   &-type {
     &-informative {
       color: var(--sdds-message-type-informative-color);
-      background-color: var(--sdds-message-type-informative-bg);
+      background-color: var(--sdds-message-type-informative-background);
 
       &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-informative-bg-ongrey);
+        background-color: var(--sdds-message-type-informative-background-ongrey);
       }
 
       &::before {
@@ -125,7 +125,7 @@
 
     &-error {
       color: var(--sdds-message-type-error-color);
-      background-color: var(--sdds-message-type-error-bg);
+      background-color: var(--sdds-message-type-error-background);
 
       &::before {
         background-color: var(--sdds-negative);
@@ -147,10 +147,10 @@
 
     &-warning {
       color: var(--sdds-message-type-warning-color);
-      background-color: var(--sdds-message-type-warning-bg);
+      background-color: var(--sdds-message-type-warning-background);
 
       &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-warning-bg-ongrey);
+        background-color: var(--sdds-message-type-warning-background-ongrey);
       }
 
       &::before {
@@ -173,10 +173,10 @@
 
     &-success {
       color: var(--sdds-message-type-success-color);
-      background-color: var(--sdds-message-type-success-bg);
+      background-color: var(--sdds-message-type-success-background);
 
       &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-success-bg-ongrey);
+        background-color: var(--sdds-message-type-success-background-ongrey);
       }
 
       &::before {
