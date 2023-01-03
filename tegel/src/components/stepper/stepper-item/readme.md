@@ -9,6 +9,7 @@
 
 | Property    | Attribute    | Description                      | Type                                              | Default     |
 | ----------- | ------------ | -------------------------------- | ------------------------------------------------- | ----------- |
+| `hideLabel` | `hide-label` |                                  | `boolean`                                         | `undefined` |
 | `labelText` | `label-text` | Label text for the stepper-item. | `string`                                          | `''`        |
 | `number`    | `number`     | Content of the stepper-item      | `number`                                          | `null`      |
 | `state`     | `state`      | State of the stepper-item        | `"current" \| "error" \| "inactive" \| "success"` | `'current'` |
