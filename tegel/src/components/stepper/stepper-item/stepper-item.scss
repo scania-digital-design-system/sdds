@@ -49,6 +49,20 @@
           right: calc(-50% + 24px);
           top: 16px;
         }
+
+        &.text-aside {
+          &:not(.hide-labels) {
+            &::after {
+              @include divider;
+
+              height: 1px;
+              left: auto;
+              top: 16px;
+              width: 20px;
+              right: -12px;
+            }
+          }
+        }
       }
     }
 
@@ -84,20 +98,15 @@
         }
 
         &.text-aside {
-          &::after {
-            @include divider;
-
-            height: 1px;
-            left: auto;
-            top: 13px;
-            width: 20px;
-            right: -12px;
-          }
-
-          &.hide-labels {
+          &:not(.hide-labels) {
             &::after {
-              left: unset;
-              right: unset;
+              @include divider;
+
+              height: 1px;
+              left: auto;
+              top: 13px;
+              width: 20px;
+              right: -12px;
             }
           }
         }
