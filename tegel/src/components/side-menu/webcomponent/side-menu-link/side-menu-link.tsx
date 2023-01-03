@@ -29,7 +29,7 @@ export class SddsSideMenuLink {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
     this.position = this.host.parentElement.slot;
-    if (this.host.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
+    if (this.host.parentElement.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
       this.isDropdownChild = true;
     }
   }

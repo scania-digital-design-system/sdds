@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Element, Listen } from '@stencil/core';
+import { Component, h, Prop, State, Element, Listen, Host } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu-button',
@@ -16,6 +16,8 @@ export class SddsSideMenuButton {
 
   @Element() host: HTMLElement;
 
+  dropdownEl: any;
+
   sideMenuEl: HTMLSddsSideMenuElement;
 
   position: string;
@@ -26,8 +28,13 @@ export class SddsSideMenuButton {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
     this.position = this.host.parentElement.slot;
-    if (this.host.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
+    console.log(this.host.parentElement);
+    if (this.host.parentElement.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
       this.isDropdownChild = true;
+      if (this.selected) {
+        this.dropdownEl = this.host.parentElement.parentElement;
+        this.dropdownEl.selected = true;
+      }
     }
   }
 
@@ -38,17 +45,19 @@ export class SddsSideMenuButton {
 
   render() {
     return (
-      <li class={`${this.isDropdownChild ? 'dropdown-item' : ''}`}>
-        <button
-          class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
-            this.selected ? 'selected' : ''
-          }`}
-        >
-          {this.icon !== '' && <sdds-icon name={this.icon} size="24px"></sdds-icon>}
-          {!this.collapsed && <slot></slot>}
-          {!this.collapsed || (this.isDropdownChild && <slot></slot>)}
-        </button>
-      </li>
+      <Host>
+        <li class={`${this.isDropdownChild ? 'dropdown-item' : ''}`}>
+          <button
+            class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
+              this.selected ? 'selected' : ''
+            }`}
+          >
+            {this.icon !== '' && <sdds-icon name={this.icon} size="24px"></sdds-icon>}
+            {!this.collapsed && <slot></slot>}
+            {!this.collapsed || (this.isDropdownChild && <slot></slot>)}
+          </button>
+        </li>
+      </Host>
     );
   }
 }

@@ -47,7 +47,7 @@ export default {
 
 const Template = ({ collapsable, collapsed }) =>
   formatHtmlPreview(`
-  <sdds-side-menu ${collapsed ? 'collapsed' : ''} ${
+  <sdds-side-menu collapsed ${collapsed ? 'collapsed' : ''} ${
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
   <div slot="top">
@@ -60,10 +60,10 @@ const Template = ({ collapsable, collapsed }) =>
     <sdds-side-menu-dropdown selected>
       Dropdown with a veeeery long name
       <div slot="children">
-        <sdds-side-menu-button selected>
+        <sdds-side-menu-button>
           Button with a veeeeeeeeerey long name
         </sdds-side-menu-button>
-        <sdds-side-menu-link >
+        <sdds-side-menu-link selected >
           Link
         </sdds-side-menu-link>
       </div>

@@ -9,7 +9,6 @@ export class SddsSideMenuDropdown {
   /** Open state for the dropdown. */
   @Prop() open: boolean = false;
 
-  /** Sets the dropdown as into a selected state */
   @Prop() selected: boolean = false;
 
   @State() collapsed: boolean = false;
@@ -24,6 +23,7 @@ export class SddsSideMenuDropdown {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
     this.position = this.host.parentElement.slot;
+    console.log('this', this.selected);
   }
 
   @Listen('collapseSideMenuEvent', { target: 'body' })
@@ -39,22 +39,16 @@ export class SddsSideMenuDropdown {
   render() {
     return (
       <Host class={`${this.open ? 'open' : 'closed'}`}>
-        <li class={`${this.open ? 'expanded' : 'contracted'}`}>
+        <li
+          class={`${this.open ? 'expanded' : 'contracted'} ${
+            this.collapsed ? 'collapsed' : 'full-width'
+          }`}
+        >
           {this.collapsed ? (
             <button
               class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
                 this.selected ? 'selected' : ''
               }  ${this.open ? 'expanded' : 'contracted'}`}
-              onMouseEnter={() => {
-                if (this.collapsed) {
-                  this.open = !this.open;
-                }
-              }}
-              onMouseLeave={() => {
-                if (this.collapsed) {
-                  this.open = !this.open;
-                }
-              }}
             >
               <sdds-icon name={this.collapsed ? 'kebab' : 'chevron_down'} size="24px"></sdds-icon>
             </button>
@@ -76,16 +70,6 @@ export class SddsSideMenuDropdown {
           class={`dropdown-${this.open ? 'open' : 'closed'} ${
             this.collapsed ? 'collapsed' : 'full-width'
           }`}
-          onMouseEnter={() => {
-            if (this.collapsed) {
-              this.open = !this.open;
-            }
-          }}
-          onMouseLeave={() => {
-            if (this.collapsed) {
-              this.open = !this.open;
-            }
-          }}
           onClick={() => {
             this.handleClick();
           }}
