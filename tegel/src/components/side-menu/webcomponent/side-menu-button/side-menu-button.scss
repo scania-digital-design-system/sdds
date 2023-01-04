@@ -32,6 +32,7 @@ li {
     color: var(--sdds-sidebar-side-menu-single-item-color);
     display: flex;
     align-items: center;
+    gap: 8px;
 
     &.top {
       border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);

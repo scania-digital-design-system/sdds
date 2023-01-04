@@ -29,18 +29,15 @@
         border-top: 1px solid var(--sdds-sidebar-side-menu-single-item-border-bottom);
       }
 
-      sdds-icon {
-        padding-left: 10px;
+      ::slotted(sdds-icon) {
         transition: all 0.2s ease-in-out;
       }
 
       &.expanded {
         border-bottom: none;
 
-        sdds-icon {
-          transform: rotate(180deg);
-          padding-left: 0;
-          padding-right: 10px;
+        ::slotted(sdds-icon) {
+          transform: rotateX(180deg);
         }
       }
 
@@ -139,7 +136,7 @@
       }
     }
 
-    &:hover {
+    &:not(.full-width):hover {
       display: block;
       width: 245px;
       left: 68px;

@@ -31,9 +31,7 @@
  - [sdds-header-toolbar-dropdown](../header/webcomponent/header-toolbar-dropdown)
  - [sdds-header-toolbar-item](../header/webcomponent/header-toolbar-item)
  - [sdds-side-menu](../side-menu/webcomponent)
- - [sdds-side-menu-button](../side-menu/webcomponent/side-menu-button)
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
- - [sdds-side-menu-link](../side-menu/webcomponent/side-menu-link)
 
 ### Graph
 ```mermaid
@@ -52,9 +50,7 @@ graph TD;
   sdds-header-toolbar-dropdown --> sdds-icon
   sdds-header-toolbar-item --> sdds-icon
   sdds-side-menu --> sdds-icon
-  sdds-side-menu-button --> sdds-icon
   sdds-side-menu-dropdown --> sdds-icon
-  sdds-side-menu-link --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
