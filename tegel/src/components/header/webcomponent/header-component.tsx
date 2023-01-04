@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element } from '@stencil/core';
+import { Component, h, Host, Prop, Element, Listen, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header',
@@ -14,18 +14,29 @@ export class SddsHeader {
 
   @Element() host: HTMLElement;
 
+  @Event({
+    eventName: 'closeAllEvent',
+    bubbles: true,
+    composed: true,
+    cancelable: true,
+  })
+  closeAllEvent: EventEmitter;
+
+  @Listen('childOpenedEvent', { target: 'body' })
+  handleChildOpenedEvent() {
+    this.closeAllEvent.emit();
+  }
+
   render() {
     return (
       <Host>
         <div class="sdds-header-app-name">{this.siteName}</div>
-        <nav class="sdds-header-nav-content">
+        <nav class="nav-content">
           <ul>
-            <li>
-              <slot name="inline-menu"></slot>
-            </li>
-            <li>
-              <slot name="toolbar"></slot>
-            </li>
+            <slot name="inline-menu"></slot>
+          </ul>
+          <ul>
+            <slot name="toolbar"></slot>
           </ul>
         </nav>
         <div class="sdds-header-logo">

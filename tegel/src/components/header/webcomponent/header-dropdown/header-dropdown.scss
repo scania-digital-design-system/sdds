@@ -1,0 +1,93 @@
+:host {
+  height: 64px;
+  position: relative;
+
+  button {
+    font: var(--sdds-headline-07);
+    letter-spacing: var(--sdds-headline-07-ls);
+    border: none;
+    border-right: 1px solid var(--sdds-nav-item-border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--sdds-header--basic-element-bg);
+    color: var(--sdds-header-nav-item-color);
+    height: 100%;
+    padding: 0 24px;
+
+    &:hover {
+      background-color: var(--sdds-header--basic-element-bg-hover);
+      cursor: pointer;
+    }
+
+    ::slotted(sdds-icon) {
+      transition: all 0.2s ease-in-out;
+    }
+
+    &.open {
+      ::slotted(sdds-icon.dropdown) {
+        transform: rotateX(180deg);
+      }
+    }
+
+    &.open {
+      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      color: var(--sdds-header-nav-item-dropdown-opened-color);
+
+      sdds-icon {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    width: 190px;
+
+    &.open {
+      display: block;
+      border-radius: 0 4px;
+      overflow: hidden;
+      box-shadow: var(--sdds-nav-dropdown-menu-box);
+    }
+
+    &.toolbar {
+      right: 0;
+    }
+
+    &.dropdown {
+    }
+
+    &.launcher {
+      width: 320px;
+      right: 0;
+      height: calc(100vh - 64px);
+      box-shadow: none;
+      border-radius: none;
+      overflow: visible;
+      background-color: var(--sdds-header-app-launcher-menu-bg);
+
+      &.toolbar {
+      }
+    }
+
+    &.closed {
+      display: none;
+    }
+
+    slot[name='launcher-category']::slotted(*) {
+      font: var(--sdds-detail-06);
+      letter-spacing: var(--sdds-detail-06-ls);
+      color: var(--sdds-header-app-launcher-category-title-color);
+      text-transform: uppercase;
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
+    }
+  }
+}
