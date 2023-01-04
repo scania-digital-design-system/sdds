@@ -23,6 +23,9 @@ export class SddsStepper {
   componentWillLoad() {
     this.el.children[0].classList.add('sdds-stepper-item-first');
     this.el.children[this.el.children.length - 1].classList.add('sdds-stepper-item-last');
+    if (this.direction === 'vertical') {
+      this.textPosition = 'aside';
+    }
   }
 
   render() {
