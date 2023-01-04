@@ -20,19 +20,19 @@ export default {
   },
   argTypes: {
     modeVariant: {
-      name: "Variant",
+      name: 'Variant',
       control: {
-        type: 'radio'
-      }, 
+        type: 'radio',
+      },
       options: ['Primary', 'Secondary'],
-    }
+    },
   },
   args: {
-    modeVariant: 'Primary'
-  }
+    modeVariant: 'Primary',
+  },
 };
 
-const Template = ({modeVariant}) =>
+const Template = ({ modeVariant }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" mode-variant="${modeVariant.toLowerCase()}">
       <a href="#">Tab name</a>
