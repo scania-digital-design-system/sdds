@@ -196,19 +196,19 @@ const Template = ({
   disabled,
   readonly,
   small,
-}) => {
-  return formatHtmlPreview(`
+}) =>
+  formatHtmlPreview(`
     ${style}
     <div class="demo-wrapper">
       <sdds-slider id="sdds-slider"
         min="${min}" 
         max="${max}" 
-        ${showControls && step ? 'step="' + step + '"' : ''}
+        ${showControls && step ? `step="${step}"` : ''}
         value="${initialValue}" 
-        ${showTicks ? 'ticks="' + numTicks + '"' : ''} 
+        ${showTicks ? `ticks="${numTicks}"` : ''} 
         ${showTickNumbers ? 'show-tick-numbers' : ''} 
         ${snapToTicks ? 'snap' : ''} 
-        ${showLabel ? 'label="' + labelText + '"' : ''} 
+        ${showLabel ? `label="${labelText}"` : ''} 
         ${showTooltip ? 'tooltip' : ''} 
         ${showControls ? 'controls' : ''} 
         ${showInput ? 'input' : ''} 
@@ -220,7 +220,6 @@ const Template = ({
       </sdds-slider>
     </div>
   `);
-};
 
 let sliderStoryLoaded = false;
 
@@ -253,8 +252,8 @@ ready(() => {
 
   console.log('adding slider event');
 
-  slider.addEventListener('sliderChange', event => {
-    console.log('Got a sliderChange event', event['detail'].value);
+  slider.addEventListener('sliderChange', (event) => {
+    console.log('Got a sliderChange event', (event as any).detail.value);
   });
 });
 
