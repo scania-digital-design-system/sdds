@@ -64,6 +64,11 @@ li {
 
       &.collapsed {
         padding: 0;
+
+        slot[name='icon']::slotted(*) {
+          position: relative;
+          left: -2px;
+        }
       }
     }
 

@@ -47,6 +47,15 @@
         justify-content: center;
         align-items: center;
 
+        &.selected {
+          padding: 0;
+
+          sdds-icon {
+            position: relative;
+            left: -2px;
+          }
+        }
+
         sdds-icon {
           padding-left: 0;
         }
