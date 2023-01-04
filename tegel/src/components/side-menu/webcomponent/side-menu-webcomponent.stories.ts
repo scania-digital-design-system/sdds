@@ -46,7 +46,7 @@ export default {
 };
 
 const Template = ({ collapsable, collapsed }) =>
-  formatHtmlPreview(`
+  formatHtmlPreview(`  
   <sdds-side-menu collapsed ${collapsed ? 'collapsed' : ''} ${
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
@@ -91,6 +91,7 @@ const Template = ({ collapsable, collapsed }) =>
     Button
   </sdds-side-menu-button>
   </div>
-</sdds-side-menu>`);
+</sdds-side-menu>
+`);
 
 export const WebComponent = Template.bind({});

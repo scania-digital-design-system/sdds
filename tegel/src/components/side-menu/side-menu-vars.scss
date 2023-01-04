@@ -24,6 +24,7 @@
   --sdds-sidebar-side-menu-single-subitem-backgrund: var(--sdds-white);
   --sdds-sidebar-side-menu-single-subitem-divider: var(--sdds-grey-300);
   --sdds-sidebar-side-menu-subnav-backgrund: var(--sdds-white);
+  --sdds-sidebar-side-menu-single-subitem-selected-border-color: var(--sdds-blue-400);
 }
 
 .sdds-mode-dark {
@@ -35,7 +36,7 @@
   --sdds-sidebar-item-state-active: var(--sdds-grey-800);
   --sdds-sidebar-side-menu: var(--sdds-grey-958);
   --sdds-sidebar-side-menu-border-right: var(--sdds-grey-868);
-  --sdds-sidebar-side-menu-backgrund-cover: var(--sdds-black);
+  --sdds-sidebar-side-menu-background-cover: var(--sdds-black);
   --sdds-sidebar-side-menu-mobile-header-border-bottom: var(--sdds-grey-868);
   --sdds-sidebar-side-menu-bottom-menu-background: var(--sdds-grey-958);
   --sdds-sidebar-side-menu-bottom-menu-border-top: var(--sdds-grey-868);
@@ -49,4 +50,5 @@
   --sdds-sidebar-side-menu-single-subitem-backgrund: var(--sdds-grey-958);
   --sdds-sidebar-side-menu-single-subitem-divider: var(--sdds-grey-700);
   --sdds-sidebar-side-menu-subnav-backgrund: var(--sdds-grey-800);
+  --sdds-sidebar-side-menu-single-subitem-selected-border-color: var(--sdds-blue-400);
 }

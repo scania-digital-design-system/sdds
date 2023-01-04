@@ -22,11 +22,14 @@ export class SddsSideMenuUser {
 
   @Element() host: HTMLElement;
 
+  position: string;
+
   sideMenuEl: HTMLSddsSideMenuElement;
 
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
+    this.position = this.host.parentElement.slot;
   }
 
   @Listen('collapseSideMenuEvent', { target: 'body' })
@@ -36,7 +39,7 @@ export class SddsSideMenuUser {
 
   render() {
     return (
-      <Host class={`${this.collapsed ? 'collapsed' : 'full-width'}`}>
+      <Host class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'}`}>
         <img src={this.image} alt={this.imageAlt} />
         {!this.collapsed && (
           <div class="header-wrapper">

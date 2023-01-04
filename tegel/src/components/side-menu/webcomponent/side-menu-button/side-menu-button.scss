@@ -58,8 +58,7 @@ li {
     }
 
     &.selected {
-      background-color: var(--sdds-sidebar-side-menu-single-item-active-background);
-      border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
+      border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
       padding-left: 20px;
 
       &.collapsed {
@@ -79,7 +78,7 @@ li {
 
     &:focus {
       cursor: pointer;
-      border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+      border: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
     }
   }
 }
