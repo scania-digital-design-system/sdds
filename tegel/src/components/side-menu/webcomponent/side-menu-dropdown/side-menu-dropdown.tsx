@@ -61,7 +61,6 @@ export class SddsSideMenuDropdown {
               }}
             >
               <slot></slot>
-              <sdds-icon name={this.collapsed ? 'kebab' : 'chevron_down'} size="24px"></sdds-icon>
             </button>
           )}
         </li>

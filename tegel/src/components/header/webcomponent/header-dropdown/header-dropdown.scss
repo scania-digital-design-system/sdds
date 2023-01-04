@@ -33,10 +33,6 @@
     &.open {
       background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
-
-      sdds-icon {
-        transform: rotateX(180deg);
-      }
     }
   }
 

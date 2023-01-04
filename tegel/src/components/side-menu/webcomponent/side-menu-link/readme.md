@@ -14,19 +14,6 @@
 | `selected` | `selected` | Sets the link as into a selected state | `boolean` | `false` |
 
 
-## Dependencies
-
-### Depends on
-
-- [sdds-icon](../../../icon)
-
-### Graph
-```mermaid
-graph TD;
-  sdds-side-menu-link --> sdds-icon
-  style sdds-side-menu-link fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
