@@ -12,7 +12,7 @@ ul.sdds-popover-menu-wrapper {
   li {
     font: var(--sdds-detail-02);
     letter-spacing: var(--sdds-detail-02-ls);
-    color: var(--sdds-grey-958);
+    color: var(--sdds-popover-menu-color);
     margin-bottom: 16px;
     position: relative;
     width: 100%;
@@ -25,7 +25,7 @@ ul.sdds-popover-menu-wrapper {
       text-decoration: none;
       position: relative;
       width: 100%;
-      color: var(--sdds-grey-958);
+      color: var(--sdds-popover-menu-color);
       display: flex;
       flex-wrap: nowrap;
 
@@ -54,7 +54,7 @@ ul.sdds-popover-menu-wrapper {
           height: calc(100% + 16px);
           top: -8px;
           left: -16px;
-          background-color: var(--sdds-grey-100);
+          background-color: var(--sdds-popover-menu-background-hover);
         }
       }
     }
@@ -68,7 +68,7 @@ ul.sdds-popover-menu-wrapper {
         position: relative;
         content: ' ';
         display: block;
-        background-color: var(--sdds-grey-300);
+        background-color: var(--sdds-popover-menu-divider-color);
         height: 1px;
         left: -16px;
         width: calc(100% + 32px);
