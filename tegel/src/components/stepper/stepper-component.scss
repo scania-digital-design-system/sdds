@@ -2,20 +2,17 @@
   ol {
     padding: 0;
     margin: 0;
-  }
-
-  .sdds-stepper {
     display: flex;
     justify-content: space-evenly;
 
-    &-vertical {
+    &.vertical {
       height: 100%;
       flex-direction: column;
       justify-content: unset;
       gap: 48px;
     }
 
-    &-vertical.sdds-stepper-sm {
+    &.vertical.sm {
       gap: 36px;
     }
   }

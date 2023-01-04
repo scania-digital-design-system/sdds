@@ -28,7 +28,7 @@
       font: var(--sdds-detail-01);
       letter-spacing: var(--sdds-detail-01-ls);
 
-      .stepper-content-container {
+      .content-container {
         height: 32px;
         width: 32px;
       }
@@ -94,7 +94,7 @@
       font: var(--sdds-detail-05);
       letter-spacing: var(--sdds-detail-05-ls);
 
-      .stepper-content-container {
+      .content-container {
         height: 24px;
         width: 24px;
       }
@@ -164,7 +164,7 @@
       }
     }
 
-    .stepper-content-container {
+    .content-container {
       border-radius: 100px;
       border: 1px solid var(--sdds-stepper-icon-background);
       display: flex;
@@ -188,13 +188,11 @@
         border-color: rgb(0 21 51 / 16%);
         color: rgb(0 21 51 / 38%);
       }
-
-      &.label {
-        text-align: center;
-      }
     }
 
-    .sdds-stepper-item-label {
+    .label {
+      text-align: center;
+
       &.lg {
         font: var(--sdds-detail-01);
         letter-spacing: var(--sdds-detail-01-ls);
@@ -208,9 +206,10 @@
   }
 }
 
-:host(.sdds-stepper-item-last) {
+:host(.last) {
   li {
-    &.sm, &.lg {
+    &.sm,
+    &.lg {
       &::after {
         display: none;
       }
@@ -228,9 +227,10 @@
   }
 }
 
-:host(.sdds-stepper-item-first) {
+:host(.first) {
   li {
-    &.sm, &.lg {
+    &.sm,
+    &.lg {
       &::before {
         display: none;
       }
