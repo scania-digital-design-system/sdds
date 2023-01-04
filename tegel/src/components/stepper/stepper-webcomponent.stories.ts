@@ -67,9 +67,9 @@ export default {
   },
   args: {
     direction: 'Horizontal',
-    textPosition: 'Aside',
+    textPosition: 'Below',
     hideLabels: false,
-    size: 'Small',
+    size: 'Large',
   },
 };
 
