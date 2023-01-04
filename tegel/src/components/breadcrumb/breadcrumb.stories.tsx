@@ -24,6 +24,6 @@ const Template = () => `
     </div>
     `;
 
-export const Default = Template.bind({});
+export const Native = Template.bind({});
 
-Default.args = {};
+Native.args = {};
