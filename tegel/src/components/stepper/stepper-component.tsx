@@ -31,11 +31,11 @@ export class SddsStepper {
   render() {
     return (
       <Host class={'sdds-stepper'}>
-        <ul
+        <ol
           class={`sdds-stepper sdds-stepper-${this.direction} sdds-stepper-text-position-${this.textPosition} sdds-stepper-${this.size}`}
         >
           <slot></slot>
-        </ul>
+        </ol>
       </Host>
     );
   }
