@@ -28,7 +28,6 @@ export class SddsSideMenuButton {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
     this.position = this.host.parentElement.slot;
-    console.log(this.host.parentElement);
     if (this.host.parentElement.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
       this.isDropdownChild = true;
       if (this.selected) {

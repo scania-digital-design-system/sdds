@@ -53,20 +53,20 @@ const Template = ({ collapsable, collapsed }) =>
   <div slot="top">
     <sdds-side-menu-button selected icon="truck">
       <sdds-icon name="truck" size="24px"> </sdds-icon>
-      Active button
+      Selected button
     </sdds-side-menu-button>
     <sdds-side-menu-link icon="truck">
       <sdds-icon name="truck" size="24px"> </sdds-icon>
       Link
     </sdds-side-menu-link>
-    <sdds-side-menu-dropdown selected>
-      Dropdown with active child
+    <sdds-side-menu-dropdown>
+      Dropdown with selected child
       <sdds-icon name="chevron_down" size="24px"> </sdds-icon>
       <div slot="children">
-        <sdds-side-menu-button>
+        <sdds-side-menu-button selected>
           Button with a veeeeeeeeerey long name
         </sdds-side-menu-button>
-        <sdds-side-menu-link selected >
+        <sdds-side-menu-link >
           Link
         </sdds-side-menu-link>
       </div>
