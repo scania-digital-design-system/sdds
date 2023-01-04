@@ -67,16 +67,17 @@ const Template = ({ siteName }) =>
     </div>
 
     <div slot="toolbar">
-      <sdds-header-dropdown>
-      <sdds-icon name="profile" size="16px"> </sdds-icon>
-        <sdds-header-user 
-          img="https://www.svgrepo.com/show/170303/avatar.svg" 
-          alt="Alt"
+      <sdds-header-dropdown wide>
+        <sdds-icon name="profile" size="20px"> </sdds-icon>
+        <sdds-header-user tall
           header="Header"
           subheader="Subeader"
           slot="child"
           >
         </sdds-header-user>
+        <sdds-header-button slot="child">
+          Button
+        </sdds-header-button>
       </sdds-header-dropdown>
       <sdds-header-launcher>
         <sdds-icon name="bento" size="20px"> </sdds-icon>

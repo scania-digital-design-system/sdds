@@ -19,6 +19,8 @@ export class HeaderDropdown {
   /** Opens and closes the dropdown */
   @Prop() open: boolean = false;
 
+  @Prop() wide: boolean = false;
+
   parentSlot: string;
 
   @Element() host: HTMLElement;
@@ -59,7 +61,9 @@ export class HeaderDropdown {
         >
           <slot></slot>
         </button>
-        <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot}`}>
+        <ul
+          class={`${this.open ? 'open' : 'closed'} ${this.wide ? 'wide' : ''} ${this.parentSlot}`}
+        >
           <slot name="child"></slot>
         </ul>
       </Host>

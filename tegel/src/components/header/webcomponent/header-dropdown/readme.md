@@ -10,6 +10,7 @@
 | Property | Attribute | Description                   | Type      | Default |
 | -------- | --------- | ----------------------------- | --------- | ------- |
 | `open`   | `open`    | Opens and closes the dropdown | `boolean` | `false` |
+| `wide`   | `wide`    |                               | `boolean` | `false` |
 
 
 ## Events
