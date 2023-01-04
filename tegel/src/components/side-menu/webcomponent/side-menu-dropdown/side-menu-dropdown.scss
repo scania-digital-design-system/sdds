@@ -62,26 +62,27 @@
       }
 
       &.selected {
-        background-color: var(--sdds-sidebar-side-menu-single-item-active-background);
-        border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
+        border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
         padding-left: 20px;
 
         &:focus {
           cursor: pointer;
           padding-left: 20px;
-          border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
-          border-top: 1px solid var(--sdds-sidebar-item-state-focus-border);
-          border-right: 1px solid var(--sdds-sidebar-item-state-focus-border);
-          border-bottom: 1px solid var(--sdds-sidebar-item-state-focus-border);
+          border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-top: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-right: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-bottom: 1px solid
+            var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
         }
 
         &:active {
           cursor: pointer;
           padding-left: 20px;
-          border-left: 4px solid var(--sdds-sidebar-item-state-focus-border);
-          border-top: 1px solid var(--sdds-sidebar-item-state-focus-border);
-          border-right: 1px solid var(--sdds-sidebar-item-state-focus-border);
-          border-bottom: 1px solid var(--sdds-sidebar-item-state-focus-border);
+          border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-top: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-right: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+          border-bottom: 1px solid
+            var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
         }
 
         &.collapsed {
@@ -102,14 +103,12 @@
 
       &:active {
         cursor: pointer;
-        padding-left: 20px;
-        border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+        border: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
       }
 
       &:focus {
         cursor: pointer;
-        padding-left: 20px;
-        border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+        border: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
 
         &.collapsed {
           padding-left: 0;

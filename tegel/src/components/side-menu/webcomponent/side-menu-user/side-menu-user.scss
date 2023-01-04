@@ -1,5 +1,4 @@
 :host {
-  border-top: 1px solid var(--sdds-side-menu-item-border-color);
   height: 68px;
   padding: 0 24px;
   display: flex;
@@ -25,9 +24,25 @@
       color: var(--sdds-grey-600);
     }
   }
+
+  &.top {
+    border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
+  }
+
+  &.bottom {
+    border-top: 1px solid red;
+  }
 }
 
 :host(.collapsed)  {
   padding: 0;
   justify-content: center;
+}
+
+:host(.top) {
+  border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
+}
+
+:host(.bottom) {
+  border-top: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
 }

@@ -58,6 +58,7 @@ aside {
     padding: 0 24px;
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
+    color: var(--sdds-sidebar-side-menu-single-item-color);
 
     sdds-icon {
       padding-right: 12px;
@@ -69,7 +70,7 @@ aside {
       justify-content: center;
 
       sdds-icon {
-        transform: rotate(180deg);
+        transform: rotateY(180deg);
         padding-right: 0;
       }
     }
@@ -82,7 +83,7 @@ aside {
     &:active {
       cursor: pointer;
       padding-left: 20px;
-      border: 1px  solid var(--sdds-sidebar-item-state-focus-border);
+      border: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
     }
   }
 }
