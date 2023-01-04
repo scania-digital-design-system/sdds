@@ -194,6 +194,7 @@ sdds-slider {
       transform: translateY(-50%);
       height: 16px;
       background-color: var(--sdds-slider-divider-color);
+      color:var(--sdds-slider-divider-values-color);
       width: 1px;
 
       span {
@@ -265,7 +266,6 @@ sdds-slider {
 
         &.sdds-slider__control-minus,
         &.sdds-slider__control-plus {
-          background-color: red;
           svg {
               fill: var(--sdds-slider-controls-color);
           }
