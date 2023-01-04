@@ -128,6 +128,7 @@ export class InlineTabsFullbleed {
                 this.showRightScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
               onClick={() => this.scrollRight()}
+              disabled={!this.showRightScroll}
             >
               <svg
                 width="20"
@@ -149,6 +150,7 @@ export class InlineTabsFullbleed {
                 this.showLeftScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
               onClick={() => this.scrollLeft()}
+              disabled={!this.showLeftScroll}
             >
               <svg
                 width="20"
