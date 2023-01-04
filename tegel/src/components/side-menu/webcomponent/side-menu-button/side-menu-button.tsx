@@ -51,7 +51,8 @@ export class SddsSideMenuButton {
               this.selected ? 'selected' : ''
             }`}
           >
-            <slot></slot>
+            <slot name="icon"></slot>
+            {(!this.collapsed || this.isDropdownChild) && <slot></slot>}
           </button>
         </li>
       </Host>

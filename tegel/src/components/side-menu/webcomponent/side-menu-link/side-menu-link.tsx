@@ -49,7 +49,8 @@ export class SddsSideMenuLink {
               this.selected ? 'selected' : ''
             }`}
           >
-            <slot></slot>
+            <slot name="icon"></slot>
+            {(!this.collapsed || this.isDropdownChild) && <slot></slot>}
           </a>
         </li>
       </Host>

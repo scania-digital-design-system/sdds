@@ -47,16 +47,16 @@ export default {
 
 const Template = ({ collapsable, collapsed }) =>
   formatHtmlPreview(`
-  <sdds-side-menu ${collapsed ? 'collapsed' : ''} ${
+  <sdds-side-menu collapsed ${collapsed ? 'collapsed' : ''} ${
     collapsable ? 'collapsable' : ''
   } slot="side-menu">
   <div slot="top">
     <sdds-side-menu-button selected icon="truck">
-      <sdds-icon name="truck" size="24px"> </sdds-icon>
+      <sdds-icon slot="icon" name="truck" size="24px"> </sdds-icon>
       Selected button
     </sdds-side-menu-button>
     <sdds-side-menu-link icon="truck">
-      <sdds-icon name="truck" size="24px"> </sdds-icon>
+      <sdds-icon slot="icon" name="truck" size="24px"> </sdds-icon>
       Link
     </sdds-side-menu-link>
     <sdds-side-menu-dropdown>
