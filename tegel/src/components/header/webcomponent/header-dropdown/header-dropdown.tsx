@@ -52,7 +52,7 @@ export class HeaderDropdown {
     return (
       <Host>
         <button
-          class={`${this.open ? 'open' : 'closed'}`}
+          class={`${this.open ? 'open' : 'closed'} ${this.parentSlot}`}
           onClick={() => {
             this.toggleDropdown();
           }}

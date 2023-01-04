@@ -39,9 +39,6 @@ const Template = ({ siteName }) =>
     `
   <sdds-header site-name="${siteName}" icon-href="https://www.scania.com">
     <div slot="inline-menu">
-      <sdds-header-button>
-        <sdds-icon name="truck" size="16px"> </sdds-icon>
-      </sdds-header-button >
       <sdds-header-link>
         Link
       </sdds-header-link>
@@ -70,24 +67,6 @@ const Template = ({ siteName }) =>
     </div>
 
     <div slot="toolbar">
-    <sdds-header-dropdown>
-    Dropdown
-    <sdds-icon class="dropdown" name="chevron_down" size="16px"> </sdds-icon>
-    <sdds-header-link slot="child">
-      Link
-    </sdds-header-link>
-    <sdds-header-button slot="child">
-      Button
-    </sdds-header-button>
-    <sdds-header-user 
-      img="https://www.svgrepo.com/show/170303/avatar.svg" 
-      alt="Alt"
-      header="Header"
-      subheader="Subeader"
-      slot="child"
-      >
-    </sdds-header-user>
-  </sdds-header-dropdown>
       <sdds-header-dropdown>
       <sdds-icon name="profile" size="16px"> </sdds-icon>
         <sdds-header-user 

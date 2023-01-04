@@ -11,16 +11,18 @@
   display: flex;
 
   ::slotted([slot='inline-menu']) {
+    border-left: 1px solid var(--sdds-nav-item-border-color);
     display: flex;
     list-style: none;
   }
 
   ::slotted([slot='toolbar']) {
+    border-left: 1px solid var(--sdds-nav-item-border-color);
     display: flex;
     list-style: none;
   }
 
-  .sdds-header-app-name {
+  .header-app-name {
     @include sdds-flex-center;
 
     font-family: var(--sdds-font-family-headline);
@@ -30,11 +32,10 @@
     white-space: nowrap;
   }
 
-  .sdds-header-logo {
+  .header-logo {
     display: flex;
-    border-left: 1px solid var(--sdds-nav-item-border-color);
 
-    .sdds-header-logo-holder {
+    a {
       background-color: var(--sdds-header-bg);
       transition: background-color 150ms ease;
       display: block;
@@ -59,7 +60,38 @@
     }
   }
 
-  slot[name='mobile-menu']::slotted(*) {
+  nav.mobile-menu {
     display: none;
+  }
+
+  /* IPAD */
+  // TODO - Should use token
+  @media all and (max-width: 672px) {
+    ul.inline-menu {
+      display: none;
+    }
+
+    ul.toolbar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .header-logo {
+      display: none;
+    }
+  }
+
+  // TODO - Should use token
+  @media all and (max-width: 384px) {
+    ul.inline-menu {
+      display: none;
+    }
+
+    ul.toolbar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
   }
 }

@@ -16,7 +16,7 @@ import {
   shadow: true,
 })
 export class SddsHeader {
-  /** The na that is displayed in the header */
+  /** The name that is displayed in the header */
   @Prop() siteName: string = 'Application';
 
   /** Href for the header icon */
@@ -38,24 +38,29 @@ export class SddsHeader {
   }
 
   @Method()
-  closeChildren() {
+  async closeChildren() {
     this.closeAllEvent.emit();
   }
 
   render() {
     return (
       <Host>
-        <div class="sdds-header-app-name">{this.siteName}</div>
+        <div class="header-app-name">{this.siteName}</div>
         <nav class="nav-content">
-          <ul>
+          <nav class="mobile-menu">
+            <ul>
+              <slot name="mobile-menu"></slot>
+            </ul>
+          </nav>
+          <ul class="inline-menu">
             <slot name="inline-menu"></slot>
           </ul>
-          <ul>
+          <ul class="toolbar">
             <slot name="toolbar"></slot>
           </ul>
         </nav>
-        <div class="sdds-header-logo">
-          <a class="sdds-header-logo-holder" href={this.iconHref}></a>
+        <div class="header-logo">
+          <a href={this.iconHref}></a>
         </div>
       </Host>
     );
