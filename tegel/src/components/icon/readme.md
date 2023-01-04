@@ -16,11 +16,13 @@
 ### Used by
 
  - [sdds-accordion-item](../accordion/accordion-item)
+ - [sdds-datetime](../datetime)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-accordion-item --> sdds-icon
+  sdds-datetime --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
