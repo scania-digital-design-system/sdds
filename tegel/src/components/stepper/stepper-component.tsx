@@ -21,8 +21,8 @@ export class SddsStepper {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
-    this.el.children[0].classList.add('sdds-stepper-item-first');
-    this.el.children[this.el.children.length - 1].classList.add('sdds-stepper-item-last');
+    this.el.children[0].classList.add('first');
+    this.el.children[this.el.children.length - 1].classList.add('last');
     if (this.direction === 'vertical') {
       this.textPosition = 'aside';
     }
@@ -30,9 +30,9 @@ export class SddsStepper {
 
   render() {
     return (
-      <Host class={'sdds-stepper'}>
+      <Host>
         <ol
-          class={`sdds-stepper sdds-stepper-${this.direction} sdds-stepper-text-position-${this.textPosition} sdds-stepper-${this.size}`}
+          class={`${this.direction} sdds-stepper-text-position-${this.textPosition} ${this.size}`}
         >
           <slot></slot>
         </ol>
