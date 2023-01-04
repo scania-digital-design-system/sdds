@@ -49,19 +49,19 @@ export default {
         },
       },
     },
-    onWhiteBackground: {
-      name: 'On white background',
-      description:
-        'Changes BG color of table element to grey variation for better visibility on white layouts',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
+    // onWhiteBackground: {
+    //   name: 'On white background',
+    //   description:
+    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
+    //   control: {
+    //     type: 'boolean',
+    //   },
+    //   table: {
+    //     defaultValue: {
+    //       summary: false,
+    //     },
+    //   },
+    // },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -139,7 +139,7 @@ export default {
   },
   args: {
     compactDesign: false,
-    onWhiteBackground: false,
+    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: true,
@@ -155,7 +155,6 @@ const BasicTemplate = (args) =>
   <sdds-table
       vertical-dividers="${args.verticalDivider}"
       compact-design="${args.compactDesign}"
-      white-background="${args.onWhiteBackground}"
       enable-responsive="${args.responsiveDesign}"
       ${args.noMinWidth ? 'no-min-width' : ''}
             >

@@ -49,19 +49,19 @@ export default {
         },
       },
     },
-    onWhiteBackground: {
-      name: 'On white background',
-      description:
-        'Changes BG color of table element to grey variation for better visibility on white layouts',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
+    // onWhiteBackground: {
+    //   name: 'On white background',
+    //   description:
+    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
+    //   control: {
+    //     type: 'boolean',
+    //   },
+    //   table: {
+    //     defaultValue: {
+    //       summary: false,
+    //     },
+    //   },
+    // },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -77,7 +77,7 @@ export default {
     },
     noMinWidth: {
       name: 'No column minimum width limitation',
-      description: 'If columns should be able to shrink below 192px width.',
+      description: 'Enable columns to shrink below width 192px.',
       control: {
         type: 'boolean',
       },
@@ -90,7 +90,7 @@ export default {
   },
   args: {
     compactDesign: false,
-    onWhiteBackground: false,
+    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,
@@ -126,7 +126,6 @@ const EventListenersTemplate = ({
    <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
-      white-background="${onWhiteBackground}"
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
    >

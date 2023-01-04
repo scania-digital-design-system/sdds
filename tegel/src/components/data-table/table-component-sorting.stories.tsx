@@ -27,48 +27,68 @@ export default {
   argTypes: {
     verticalDivider: {
       name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
     },
     compactDesign: {
       name: 'Compact Design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
     },
-    onWhiteBackground: {
-      name: 'On white background',
-      control: {
-        type: 'boolean',
-      },
-    },
+    // onWhiteBackground: {
+    //   name: 'On white background',
+    //   control: {
+    //     type: 'boolean',
+    //   },
+    // },
     responsiveDesign: {
       name: 'Responsive design',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description:
+        'Enable columns to shrink below width 192px.',
       control: {
         type: 'boolean',
       },
     },
     column1sortable: {
       name: 'Column 1 is sortable',
+      description:
+      'Enabling column 1 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
+      description:
+      'Enabling column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column3sortable: {
       name: 'Column 3 is sortable',
+      description:
+      'Enabling column 3 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
+      description:
+      'Enabling column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
@@ -77,7 +97,7 @@ export default {
   args: {
     verticalDivider: false,
     compactDesign: false,
-    onWhiteBackground: false,
+    // onWhiteBackground: false,
     responsiveDesign: false,
     column1sortable: true,
     column2sortable: true,
@@ -90,7 +110,7 @@ export default {
 const SortingTemplate = ({
   verticalDivider,
   compactDesign,
-  onWhiteBackground,
+  // onWhiteBackground,
   responsiveDesign,
   column1sortable,
   column2sortable,
@@ -102,7 +122,6 @@ const SortingTemplate = ({
     <sdds-table
       vertical-dividers="${verticalDivider}"
       compact-design="${compactDesign}"
-      white-background="${onWhiteBackground}"
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
       >

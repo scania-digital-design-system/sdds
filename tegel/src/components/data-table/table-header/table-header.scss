@@ -1,7 +1,6 @@
 /* As checkbox is not a web component, we have to import them here in order to have styles available - shadow DOM is a reason */
 @import '../../checkbox/checkbox';
 @import '../../../mixins/box-sizing';
-@import '../data-table-theme-vars.scss';
 
 :host {
   @include sdds-box-sizing;
