@@ -1,4 +1,14 @@
-import { Component, h, Host, Prop, Element, Listen, Event, EventEmitter } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  Element,
+  Listen,
+  Event,
+  EventEmitter,
+  Method,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-header',
@@ -9,7 +19,7 @@ export class SddsHeader {
   /** The na that is displayed in the header */
   @Prop() siteName: string = 'Application';
 
-  /** URL for the sdds-header-icon */
+  /** Href for the header icon */
   @Prop() iconHref: string = '#';
 
   @Element() host: HTMLElement;
@@ -24,6 +34,11 @@ export class SddsHeader {
 
   @Listen('childOpenedEvent', { target: 'body' })
   handleChildOpenedEvent() {
+    this.closeAllEvent.emit();
+  }
+
+  @Method()
+  closeChildren() {
     this.closeAllEvent.emit();
   }
 
