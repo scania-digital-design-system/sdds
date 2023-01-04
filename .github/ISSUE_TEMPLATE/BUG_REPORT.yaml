@@ -42,7 +42,7 @@ body:
     attributes:
       label: Package versions
       description: 'What version do you use? You can find it in package.json, see all avaliable versions at [npmJS.com](https://www.npmjs.com/search?q=%40scania).'
-      placeholder: '@scania/components 4.10.4, @scania/theme-light 3.5.3'
+      placeholder: '@scania/components 4.10.4, @scania/theme-light 4.4.1'
     validations:
       required: true
   - type: dropdown
