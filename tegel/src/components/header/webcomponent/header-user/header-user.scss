@@ -1,14 +1,27 @@
 li {
   background-color: var(--sdds-header-avatar-item-bg);
-  width: 100%;
   display: flex;
-  padding: 16px;
-  gap: 16px;
+  height: 68px;
+
+  &.tall {
+    height: 84px;
+  }
+  
+  
+  .user-box {
+    gap: 16px;
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
+  }
 
   img {
     width: 34px;
     border-radius: 100%;
   }
+
 
   .user-content {
     display: flex;
@@ -25,4 +38,6 @@ li {
       color: var(--sdds-header-avatar-item-color);
     }
   }
+
+
 }

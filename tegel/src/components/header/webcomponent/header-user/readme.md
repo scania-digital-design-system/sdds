@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type     | Default     |
-| ----------- | ----------- | ----------- | -------- | ----------- |
-| `header`    | `header`    |             | `string` | `undefined` |
-| `img`       | `img`       |             | `string` | `undefined` |
-| `imgAlt`    | `img-alt`   |             | `string` | `undefined` |
-| `subheader` | `subheader` |             | `string` | `undefined` |
+| Property    | Attribute   | Description                   | Type      | Default     |
+| ----------- | ----------- | ----------------------------- | --------- | ----------- |
+| `header`    | `header`    | Header text                   | `string`  | `undefined` |
+| `img`       | `img`       | Image src for the component.  | `string`  | `undefined` |
+| `imgAlt`    | `img-alt`   | Image alt for the component.  | `string`  | `undefined` |
+| `subheader` | `subheader` | Subheader text                | `string`  | `undefined` |
+| `tall`      | `tall`      | Makes the component 84px tall | `boolean` | `false`     |
 
 
 ----------------------------------------------

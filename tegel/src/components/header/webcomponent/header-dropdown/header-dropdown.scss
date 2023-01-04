@@ -43,9 +43,13 @@
     position: absolute;
     width: 190px;
 
+    &.wide {
+      width: 320px;
+    }
+
     &.open {
       display: block;
-      border-radius: 0 4px;
+      border-radius: 0 0 4px 4px;
       overflow: hidden;
       box-shadow: var(--sdds-nav-dropdown-menu-box);
     }
