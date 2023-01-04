@@ -9,7 +9,7 @@
 
 | Property   | Attribute   | Description                            | Type     | Default         |
 | ---------- | ----------- | -------------------------------------- | -------- | --------------- |
-| `iconHref` | `icon-href` | URL for the sdds-header-icon           | `string` | `'#'`           |
+| `iconHref` | `icon-href` | Href for the header icon               | `string` | `'#'`           |
 | `siteName` | `site-name` | The na that is displayed in the header | `string` | `'Application'` |
 
 
@@ -18,6 +18,19 @@
 | Event           | Description | Type               |
 | --------------- | ----------- | ------------------ |
 | `closeAllEvent` |             | `CustomEvent<any>` |
+
+
+## Methods
+
+### `closeChildren() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
