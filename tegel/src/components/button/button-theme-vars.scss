@@ -141,8 +141,8 @@
   --sdds-btn-secondary-border-color-disabled: rgb(255 255 255 / 38%);
 
   /* ICON */
-  --sdds-btn-icon-secondary-fill: var(--sdds-black);
-  --sdds-btn-icon-secondary-color: var(--sdds-black);
+  --sdds-btn-icon-secondary-fill: var(--sdds-grey-50);
+  --sdds-btn-icon-secondary-color: var(--sdds-grey-50);
 
   //Ghost
   --sdds-btn-ghost-background: transparent;
@@ -164,8 +164,8 @@
   --sdds-btn-ghost-border-color-disabled: transparent;
 
   /* ICON */
-  --sdds-btn-icon-ghost-fill: var(--sdds-black);
-  --sdds-btn-icon-ghost-color: var(--sdds-black);
+  --sdds-btn-icon-ghost-fill: var(--sdds-grey-50);
+  --sdds-btn-icon-ghost-color: var(--sdds-grey-50);
 
   //Danger
   --sdds-btn-danger-background: var(--sdds-negative);
@@ -186,6 +186,6 @@
   --sdds-btn-danger-border-color-disabled: transparent;
 
   /* ICON */
-  --sdds-btn-icon-danger-fill: var(--sdds-black);
-  --sdds-btn-icon-danger-color: var(--sdds-black);
+  --sdds-btn-icon-danger-fill: var(--sdds-white);
+  --sdds-btn-icon-danger-color: var(--sdds-white);
 }
