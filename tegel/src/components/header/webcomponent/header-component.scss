@@ -10,28 +10,14 @@
   z-index: 3;
   display: flex;
 
-  .sdds-header-overlay {
-    &-show {
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      top: 64px;
-      background: var(--sdds-header-overlay);
-      opacity: 0.4;
-      visibility: visible;
-    }
+  ::slotted([slot='inline-menu']) {
+    display: flex;
+    list-style: none;
+  }
 
-    &-hide {
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      top: 64px;
-      background: var(--sdds-header-overlay);
-      opacity: 0;
-      visibility: hidden;
-    }
+  ::slotted([slot='toolbar']) {
+    display: flex;
+    list-style: none;
   }
 
   .sdds-header-app-name {
@@ -62,46 +48,18 @@
     }
   }
 
-  nav.sdds-header-nav-content {
+  nav.nav-content {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 
     ul {
       padding: 0;
       margin: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      height: 100%;
-
-      li {
-        height: 100%;
-      }
     }
   }
 
   slot[name='mobile-menu']::slotted(*) {
     display: none;
-  }
-
-  // should use the token
-  @media all and (max-width: 992px) {
-    .sdds-header-logo {
-      display: none;
-    }
-
-    slot[name='lead']::slotted(*) {
-      position: absolute;
-      left: 0;
-
-      //      width: 64px;
-      height: 64px;
-    }
-
-    .sdds-header-app-name {
-      position: absolute;
-      left: 64px;
-      height: 64px;
-    }
   }
 }

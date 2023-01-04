@@ -38,88 +38,84 @@ const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
   <sdds-header site-name="${siteName}" icon-href="https://www.scania.com">
-    <sdds-header-inline-menu slot="inline-menu">
-        <sdds-header-inline-menu-item
-          type="button"
-          text="Item 2">
-        </sdds-header-inline-menu-item>
-        <sdds-header-inline-menu-item
-          type="link"
-          text="Item 2">
-        </sdds-header-inline-menu-item>
-      <sdds-header-inline-menu-dropdown text="Item 3">
-        <sdds-header-inline-menu-dropdown-item
-            text="Item 2"
-            type="button"
-          >
-        </sdds-header-inline-menu-dropdown-item>
-        <sdds-header-inline-menu-dropdown-item
-            text="Item 2"
-            type="link"
-            href="/"
-            active
-          >
-        </sdds-header-inline-menu-dropdown-item>
-      </sdds-header-inline-menu-dropdown>
-        <sdds-header-inline-menu-item
-          type="link"
-          text="Item 2">
-      </sdds-header-inline-menu-item>
-    </sdds-header-inline-menu>
+    <div slot="inline-menu">
+      <sdds-header-button>
+        <sdds-icon name="truck" size="16px"> </sdds-icon>
+      </sdds-header-button >
+      <sdds-header-link>
+        Link
+      </sdds-header-link>
 
-    <sdds-header-toolbar slot="toolbar">
-      <sdds-header-toolbar-dropdown show-on-mobile full-height>
-        <sdds-header-toolbar-dropdown-item type="button" text="Button">
-        </sdds-header-toolbar-dropdown-item>
-        <sdds-header-toolbar-dropdown-item type="category" text="Category">
-        </sdds-header-toolbar-dropdown-item>
-        <sdds-header-toolbar-dropdown-item type="link" text="Link">
-        </sdds-header-toolbar-dropdown-item>
-      </sdds-header-toolbar-dropdown>
-      <sdds-header-toolbar-dropdown avatar>
-        <sdds-header-toolbar-dropdown-item type="avatar" avatar-subheading="Subheading" avatar-heading="Heading">
-        </sdds-header-toolbar-dropdown-item>
-        <sdds-header-toolbar-dropdown-item type="link" text="Link">
-        </sdds-header-toolbar-dropdown-item>
-        <sdds-header-toolbar-dropdown-item type="button" text="Button">
-        </sdds-header-toolbar-dropdown-item>
-      </sdds-header-toolbar-dropdown>
-      <sdds-header-toolbar-item type="link">
-      </sdds-header-toolbar-item>
-    </sdds-header-toolbar>
+      <sdds-header-dropdown>
+        Dropdown
+        <sdds-icon class="dropdown" name="chevron_down" size="16px"> </sdds-icon>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-button active slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-user 
+          img="https://www.svgrepo.com/show/170303/avatar.svg" 
+          alt="Alt"
+          header="Header"
+          subheader="Subeader"
+          slot="child"
+          >
+        </sdds-header-user>
+      </sdds-header-dropdown>
+      <sdds-header-link>
+        Link
+      </sdds-header-link>
+    </div>
+
+    <div slot="toolbar">
+    <sdds-header-dropdown>
+    Dropdown
+    <sdds-icon class="dropdown" name="chevron_down" size="16px"> </sdds-icon>
+    <sdds-header-link slot="child">
+      Link
+    </sdds-header-link>
+    <sdds-header-button slot="child">
+      Button
+    </sdds-header-button>
+    <sdds-header-user 
+      img="https://www.svgrepo.com/show/170303/avatar.svg" 
+      alt="Alt"
+      header="Header"
+      subheader="Subeader"
+      slot="child"
+      >
+    </sdds-header-user>
+  </sdds-header-dropdown>
+      <sdds-header-dropdown>
+      <sdds-icon name="profile" size="16px"> </sdds-icon>
+        <sdds-header-user 
+          img="https://www.svgrepo.com/show/170303/avatar.svg" 
+          alt="Alt"
+          header="Header"
+          subheader="Subeader"
+          slot="child"
+          >
+        </sdds-header-user>
+      </sdds-header-dropdown>
+      <sdds-header-launcher>
+        <sdds-icon name="bento" size="20px"> </sdds-icon>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-button divider="divider" slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-button slot="child">
+          Button
+        </sdds-header-button>
+      </sdds-header-launcher>
+    </div>
   </sdds-header>
-
-  <sdds-side-menu slot="side-menu" header-side-menu>
-  <div slot="top">
-    <sdds-side-menu-item icon="truck" text="Button"  type="button">
-    test
-    </sdds-side-menu-item>
-    <sdds-side-menu-dropdown text="Dropdown">
-      <sdds-side-menu-dropdown-item type="button" text="Button">
-      </sdds-side-menu-dropdown-item>
-      <sdds-side-menu-dropdown-item type="link" text="Link">
-      </sdds-side-menu-dropdown-item>
-    </sdds-side-menu-dropdown>
-    <sdds-side-menu-dropdown text="Dropdown">
-      <sdds-side-menu-dropdown-item type="button" text="Button">
-      </sdds-side-menu-dropdown-item>
-      <sdds-side-menu-dropdown-item type="link" text="Link">
-      </sdds-side-menu-dropdown-item>
-    </sdds-side-menu-dropdown>
-    <sdds-side-menu-item text="Link" type="link">
-    test
-    </sdds-side-menu-item>
-  </div>
-  <div slot="bottom">
-    <sdds-side-menu-item avatar-header="Martin" avatar-subheader="Jarsäter" type="user-profile" position="bottom">
-    test
-    </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Button" type="button" position="bottom">
-    </sdds-side-menu-item>
-    <sdds-side-menu-item icon="truck" text="Link" type="link" position="bottom">
-    </sdds-side-menu-item>
-  </div>
-</sdds-side-menu>
   `,
   );
 

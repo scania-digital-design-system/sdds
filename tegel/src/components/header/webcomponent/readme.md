@@ -13,6 +13,13 @@
 | `siteName` | `site-name` | The na that is displayed in the header | `string` | `'Application'` |
 
 
+## Events
+
+| Event           | Description | Type               |
+| --------------- | ----------- | ------------------ |
+| `closeAllEvent` |             | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

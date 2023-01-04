@@ -23,7 +23,6 @@ export class SddsSideMenuDropdown {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
     this.position = this.host.parentElement.slot;
-    console.log('this', this.selected);
   }
 
   @Listen('collapseSideMenuEvent', { target: 'body' })
