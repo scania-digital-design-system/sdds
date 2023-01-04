@@ -52,7 +52,7 @@ const Template = (args) =>
   <fieldset class="demo-fieldset-reset" ${args.disabled ? 'disabled' : ''}>
     <div class="sdds-radio-button-group">
       <div class="sdds-radio-item">
-        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1">
+        <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" checked>
         <label class="sdds-form-label" for="rb-option-1">
           ${args.label} 1
         </label>
