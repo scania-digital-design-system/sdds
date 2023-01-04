@@ -131,29 +131,5 @@ const Template = ({ size, style, showLabel, iconType }) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'Small',
-};
-
-export const TextOnSide = Template.bind({});
-TextOnSide.args = {
-  size: 'Default',
-  style: 'Text on side',
-};
-
-export const Vertical = Template.bind({});
-Vertical.args = {
-  size: 'Default',
-  style: 'Vertical',
-};
-
-export const HideLabel = Template.bind({});
-HideLabel.args = {
-  size: 'Default',
-  style: 'Default',
-  label: 'Hide',
-};
+export const Native = Template.bind({});
+Native.args = {};
