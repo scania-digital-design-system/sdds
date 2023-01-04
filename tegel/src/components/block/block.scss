@@ -4,24 +4,25 @@
 .sdds-block {
   @include sdds-box-sizing;
 
+  color: var(--sdds-block-color);
   border-radius: 4px;
   padding: 16px;
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
 
   &-primary {
-    background-color: var(--sdds-block-bg-primary);
+    background-color: var(--sdds-block-background-primary);
 
     .sdds-block {
-      background-color: var(--sdds-block-bg-primary-nested);
+      background-color: var(--sdds-block-background-primary-nested);
     }
   }
 
   &-secondary {
-    background-color: var(--sdds-block-bg-secondary);
+    background-color: var(--sdds-block-background-secondary);
 
     .sdds-block {
-      background-color: var(--sdds-block-bg-secondary-nested);
+      background-color: var(--sdds-block-background-secondary-nested);
     }
   }
 }
