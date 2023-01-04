@@ -25,9 +25,9 @@ const Template = () =>
   formatHtmlPreview(
     `   
       <sdds-breadcrumb>
-      <sdds-breadcrumb-item href="#" link-text="A breadcrumb"></sdds-breadcrumb-item>
-      <sdds-breadcrumb-item href="#" link-text="Another breadcrumb"></sdds-breadcrumb-item>
-        <sdds-breadcrumb-item link-text="Current one" current></sdds-breadcrumb-item>
+        <sdds-breadcrumb-item href="#">Page 1</sdds-breadcrumb-item>
+        <sdds-breadcrumb-item href="#">Page 2</sdds-breadcrumb-item>
+        <sdds-breadcrumb-item current>Page 3</sdds-breadcrumb-item>
       </sdds-breadcrumb>
       `,
   );

@@ -12,9 +12,6 @@ export class SddsBreadcrumbItem {
   /** Href for the link */
   @Prop() href: string;
 
-  /** The text for the breadcrumb */
-  @Prop() linkText: string;
-
   /** Toggle the disabled state for the breadcrumb */
   @Prop() disabled: boolean = false;
 
@@ -29,7 +26,7 @@ export class SddsBreadcrumbItem {
           // eslint-disable-next-line no-script-url
           href={this.disabled ? 'javascript:void(0)' : this.href}
         >
-          {this.linkText}
+          <slot></slot>
         </a>
       </li>
     );
