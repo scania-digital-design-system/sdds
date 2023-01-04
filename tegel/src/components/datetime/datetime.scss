@@ -11,7 +11,7 @@
   outline: none;
   height: 100%;
   color: var(--sdds-datetime-color);
-  background-color: var(--sdds-datetime-bg);
+  background-color: var(--sdds-datetime-background);
 
   &::placeholder {
     opacity: 1;
@@ -19,20 +19,20 @@
   }
 
   &:focus::placeholder {
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-datetime-placeholder-color-focus);
   }
 
   &:disabled {
-    background-color: var(--sdds-datetime-disabled-bg);
-    color: var(--sdds-datetime-disabled-color);
+    background-color: var(--sdds-datetime-background-disabled);
+    color: var(--sdds-datetime-color-disabled);
     cursor: not-allowed;
 
     &::placeholder {
-      color: var(--sdds-datetime-disabled-placeholder);
+      color: var(--sdds-datetime-placeholder-disabled);
     }
 
-    ~  .sdds-datetime-label-inside {
-      color: var(--sdds-datetime-disabled-label);
+    ~  .sdds-datetime-label-inside {
+      color: var(--sdds-datetime-placeholder-color-focus);
     }
   }
 }
@@ -93,7 +93,7 @@
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  background-color: var(--sdds-datetime-bg);
+  background-color: var(--sdds-datetime-background);
   border-bottom: 1px solid var(--sdds-datetime-border-bottom);
   transition: border-bottom-color 200ms ease;
 
@@ -122,6 +122,10 @@
     transform: translateY(-50%);
     right: 18px;
     pointer-events: none;
+
+    path {
+      fill: var(--sdds-datetime-icon);
+    }
   }
 }
 
@@ -148,6 +152,14 @@ slot[name='sdds-label']::slotted(*) {
     color: transparent;
   }
 
+  &::input-placeholder {
+    color: transparent;
+  }
+
+  &:placeholder {
+    color: transparent;
+  }
+
   ::placeholder {
     color: transparent;
   }
@@ -155,7 +167,7 @@ slot[name='sdds-label']::slotted(*) {
   //Input field in focus
   &:focus::placeholder {
     transition: color 0.35s ease;
-    color: var(--sdds-datetime-placeholder-focus-color);
+    color: var(--sdds-datetime-placeholder-color-focus);
   }
 }
 
@@ -299,13 +311,13 @@ slot[name='sdds-label']::slotted(*) {
   .datetime-icon {
     svg {
       path {
-        fill: var(--sdds-datetime-disabled-color);
+        fill: var(--sdds-datetime-color-disabled);
       }
     }
   }
 
   slot[name='sdds-label']::slotted(*) {
-    color: var(--sdds-datetime-disabled-label);
+    color: var(--sdds-datetime-placeholder-color-focus);
     cursor: not-allowed;
   }
 }
@@ -314,6 +326,13 @@ slot[name='sdds-label']::slotted(*) {
 .sdds-form-datetime-success {
   .sdds-datetime-container {
     border-bottom-color: var(--sdds-datetime-border-bottom-success);
+    color: var(--sdds-datetime-color-success);
+  }
+  .sdds-datetime-bar {
+    &::before,
+    &::after {
+      background: var(--sdds-datetime-bar-sucess);
+    }
   }
 }
 
@@ -372,7 +391,7 @@ slot[name='sdds-suffix']::slotted(sdds-icon) {
 slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .sdds-datetime-input  {
+  & ~ .sdds-datetime-input  {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
