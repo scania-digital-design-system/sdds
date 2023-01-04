@@ -50,7 +50,16 @@
 
           height: 1px;
           left: calc(50% + 24px);
-          right: calc(-50% + 24px);
+          right: 0;
+          top: 16px;
+        }
+
+        &::before {
+          @include divider;
+
+          height: 1px;
+          right: calc(50% + 24px);
+          left: 0;
           top: 16px;
         }
 
@@ -60,10 +69,20 @@
               @include divider;
 
               height: 1px;
-              left: auto;
               top: 16px;
-              width: 20px;
-              right: -12px;
+              width: 10px;
+              left: auto;
+              right: -10px;
+            }
+
+            &::before {
+              @include divider;
+
+              height: 1px;
+              top: 16px;
+              width: 10px;
+              left: -10px;
+              right: auto;
             }
           }
         }
@@ -89,6 +108,15 @@
           top: 34px;
           left: 32px;
         }
+
+        &::before {
+          @include divider;
+
+          height: 20px;
+          width: 1px;
+          top: 34px;
+          left: 32px;
+        }
       }
 
       &.horizontal {
@@ -97,7 +125,16 @@
 
           height: 1px;
           left: calc(50% + 16px + 8px);
-          right: calc(-50% + 24px);
+          right: 0;
+          top: 13px;
+        }
+
+        &::before {
+          @include divider;
+
+          height: 1px;
+          left: 0;
+          right: calc(50% + 24px);
           top: 13px;
         }
 
@@ -107,10 +144,20 @@
               @include divider;
 
               height: 1px;
-              left: auto;
               top: 13px;
-              width: 20px;
-              right: -12px;
+              width: 10px;
+              left: auto;
+              right: -10px;
+            }
+
+            &::before {
+              @include divider;
+
+              height: 1px;
+              top: 13px;
+              width: 10px;
+              left: -10px;
+              right: auto;
             }
           }
         }
@@ -163,16 +210,30 @@
 
 :host(.sdds-stepper-item-last) {
   li {
-    &::after {
-      display: none;
+    &.sm, &.lg {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  li {
+    &.sm {
+      &.vertical {
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 }
 
 :host(.sdds-stepper-item-first) {
   li {
-    &::before {
-      display: none;
+    &.sm, &.lg {
+      &::before {
+        display: none;
+      }
     }
   }
 }
