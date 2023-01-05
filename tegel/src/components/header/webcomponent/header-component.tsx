@@ -37,6 +37,7 @@ export class SddsHeader {
   @Listen('childOpenedEvent', { target: 'body' })
   handleChildOpenedEvent() {
     this.closeAllEvent.emit();
+    this.mobileMenuOpen = false;
   }
 
   @Method()
@@ -46,6 +47,7 @@ export class SddsHeader {
 
   handleClick = () => {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.closeAllEvent.emit();
   };
 
   render() {

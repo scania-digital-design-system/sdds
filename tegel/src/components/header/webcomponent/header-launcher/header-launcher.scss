@@ -33,6 +33,7 @@
     &.open {
       background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
+      border-right: 1px solid var(--sdds-header-nav-item-dropdown-opened-bg);
 
       sdds-icon {
         transform: rotateX(180deg);
