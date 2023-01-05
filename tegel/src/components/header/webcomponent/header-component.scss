@@ -22,6 +22,10 @@
     list-style: none;
   }
 
+  button.mobile-menu-button {
+    display: none;
+  }
+
   .header-app-name {
     @include sdds-flex-center;
 
@@ -67,31 +71,95 @@
   /* IPAD */
   // TODO - Should use token
   @media all and (max-width: 672px) {
+    .header-app-name {
+      position: absolute;
+      left: 68px;
+      top: 23.75px;
+      display: flex;
+      align-items: center;
+    }
+
     ul.inline-menu {
       display: none;
     }
 
-    ul.toolbar {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
+    nav.nav-content {
+      width: unset;
+      margin-left: auto;
     }
 
     .header-logo {
       display: none;
     }
+
+    button.mobile-menu-button {
+      z-index: 10;
+      height: 64px;
+      color: var(--sdds-header-mob-menu-color);
+      background-color: var(--sdds-header-mob-menu-bg);
+      border: none;
+      border-right: 1px solid var(--sdds-header-mob-menu-border);
+      width: 100%;
+      display: block;
+
+      &.open {
+        max-width: 272px;
+        background-color: var(--sdds-header-mob-menu-open-bg);
+        border-bottom: 1px solid var(--sdds-header-mob-menu-open-border);
+        color: var(--sdds-header-mob-menu-open-color);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 22px;
+      }
+
+      &.closed {
+        max-width: 64px;
+      }
+    }
+
+    nav.mobile-menu {
+      position: absolute;
+      left: 0;
+      top: 64px;
+      width: 100%;
+      max-width: 272px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100vh - 64px);
+      background-color: var(--sdds-header-mobile-menu-background);
+      overflow-y: scroll;
+
+      ul.mobile-menu-top {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul.mobile-menu-bottom {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 
+  /* MOBILE */
   // TODO - Should use token
   @media all and (max-width: 384px) {
+    nav.nav-content {
+      width: unset;
+      margin-left: auto;
+    }
+
     ul.inline-menu {
       display: none;
     }
 
     ul.toolbar {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
+      margin: 0;
+      margin-left: auto;
     }
   }
 }
