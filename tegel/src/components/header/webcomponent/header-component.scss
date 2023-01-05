@@ -1,5 +1,6 @@
 @import '../../../mixins/box-sizing';
 @import '../../../mixins/flex-center';
+@import '../../../mixins/scrollbar';
 
 :host {
   @include sdds-box-sizing;
@@ -119,6 +120,8 @@
     }
 
     nav.mobile-menu {
+      @include sdds-scrollbar;
+
       position: absolute;
       left: 0;
       top: 64px;
