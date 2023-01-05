@@ -90,7 +90,7 @@ const Template = ({ headline, size, actions, showModal }) =>
       } sdds-modal__actions-${actions.toLowerCase()}">
         <div class="sdds-modal-header">
             <h5 class="sdds-modal-headline">${headline}</h5>
-          <span class="sdds-modal-close"></span>
+          <button class="sdds-modal-close" aria-label="close"></button>
         </div>
           <div class="sdds-modal-body">
             <p>

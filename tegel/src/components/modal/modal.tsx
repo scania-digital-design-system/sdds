@@ -65,7 +65,7 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <button class="sdds-modal-close"></button>
+            <button class="sdds-modal-close" aria-label="close"></button>
           </div>
 
           <div class="sdds-modal-body">
