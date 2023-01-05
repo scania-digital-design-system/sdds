@@ -12,17 +12,29 @@ export class HeaderButton {
 
   @Element() host: HTMLElement;
 
+  dropdownEl: any;
+
   sideMenuEl: HTMLSddsSideMenuElement;
 
   position: string;
 
-  type: 'dropdown-child' | 'launcher-child' | null = null;
+  type: 'dropdown-child' | 'launcher-child' | 'mobile-menu-top-child' | 'mobile-menu-bottom-child';
 
   connectedCallback() {
     if (this.host.parentElement.tagName === 'SDDS-HEADER-DROPDOWN') {
       this.type = 'dropdown-child';
+      if (this.host.parentElement.parentElement.slot === 'mobile-menu-top') {
+        this.type = 'mobile-menu-top-child';
+        if (this.active) {
+          this.host.closest('sdds-header-dropdown').active = true;
+        }
+      }
     } else if (this.host.parentElement.tagName === 'SDDS-HEADER-LAUNCHER') {
       this.type = 'launcher-child';
+    } else if (this.host.parentElement.slot === 'mobile-menu-top') {
+      this.type = 'mobile-menu-top-child';
+    } else if (this.host.parentElement.slot === 'mobile-menu-bottom') {
+      this.type = 'mobile-menu-bottom-child';
     }
   }
 

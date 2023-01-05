@@ -20,12 +20,12 @@
       cursor: pointer;
     }
 
-    ::slotted(sdds-icon) {
+    .chevron_down {
       transition: all 0.2s ease-in-out;
     }
 
     &.open {
-      ::slotted(sdds-icon.dropdown) {
+      .chevron_down {
         transform: rotateX(180deg);
       }
     }
@@ -33,6 +33,26 @@
     &.open {
       background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
+    }
+
+    &.mobile-menu-top {
+      height: 68px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--sdds-header-mobile-menu-item-border-color);
+      background-color: var(--sdds-header-mobile-menu-item-background);
+      color: var(--sdds-header-mobile-menu-item-color);
+      display: flex;
+
+      // TODO - Should use correct variable.
+      &.active {
+        border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+        padding-left: 20px;
+      }
+
+      .chevron_down {
+        margin-left: auto;
+      }
     }
   }
 
@@ -58,7 +78,10 @@
       right: 0;
     }
 
-    &.dropdown {
+    &.mobile-menu-top {
+      width: 100%;
+      box-shadow: none;
+      position: unset;
     }
 
     &.launcher {

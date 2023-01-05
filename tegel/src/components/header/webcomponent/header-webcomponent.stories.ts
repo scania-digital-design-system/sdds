@@ -45,7 +45,6 @@ const Template = ({ siteName }) =>
 
       <sdds-header-dropdown>
         Dropdown
-        <sdds-icon class="dropdown" name="chevron_down" size="16px"> </sdds-icon>
         <sdds-header-link slot="child">
           Link
         </sdds-header-link>
@@ -67,7 +66,7 @@ const Template = ({ siteName }) =>
     </div>
 
     <div slot="toolbar">
-      <sdds-header-dropdown wide>
+      <sdds-header-dropdown no-dropdown-icon wide>
         <sdds-icon name="profile" size="20px"> </sdds-icon>
         <sdds-header-user tall
           header="Header"
@@ -94,6 +93,42 @@ const Template = ({ siteName }) =>
           Button
         </sdds-header-button>
       </sdds-header-launcher>
+    </div>
+
+    <div slot="mobile-menu-top">
+      <sdds-header-link>
+        <sdds-icon name="truck" size="24px"> </sdds-icon>
+          Link - top
+        </sdds-header-link>
+        <sdds-header-button>
+        <sdds-icon name="truck" size="24px"> </sdds-icon>
+          Button - top
+      </sdds-header-button>
+      <sdds-header-dropdown>
+        <sdds-icon name="settings" size="24px"></sdds-icon>
+        Dropdown
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-button active slot="child">
+          Button
+        </sdds-header-button>
+      </sdds-header-dropdown>
+    </div>
+    <div slot="mobile-menu-bottom">
+      <sdds-header-user tall
+          img="https://www.svgrepo.com/show/170303/avatar.svg" 
+          alt="Alt"
+          header="Header"
+          subheader="Subeader"
+          slot="child">
+      </sdds-header-user>
+      <sdds-header-link>
+        Link - bottom
+      </sdds-header-link>
+      <sdds-header-button>
+        Button - bottom
+      </sdds-header-button>
     </div>
   </sdds-header>
   `,

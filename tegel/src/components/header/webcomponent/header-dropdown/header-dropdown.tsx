@@ -21,6 +21,10 @@ export class HeaderDropdown {
 
   @Prop() wide: boolean = false;
 
+  @Prop() active: boolean = false;
+
+  @Prop() noDropdownIcon: boolean = false;
+
   parentSlot: string;
 
   @Element() host: HTMLElement;
@@ -54,12 +58,17 @@ export class HeaderDropdown {
     return (
       <Host>
         <button
-          class={`${this.open ? 'open' : 'closed'} ${this.parentSlot}`}
+          class={`${this.active ? 'active' : ''} ${this.open ? 'open' : 'closed'} ${
+            this.parentSlot
+          }`}
           onClick={() => {
             this.toggleDropdown();
           }}
         >
           <slot></slot>
+          {!this.noDropdownIcon && (
+            <sdds-icon class="chevron_down" name="chevron_down" size="16px"></sdds-icon>
+          )}
         </button>
         <ul
           class={`${this.open ? 'open' : 'closed'} ${this.wide ? 'wide' : ''} ${this.parentSlot}`}

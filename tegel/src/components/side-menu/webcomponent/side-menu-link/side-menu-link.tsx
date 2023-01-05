@@ -19,6 +19,8 @@ export class SddsSideMenuLink {
 
   @Element() host: HTMLElement;
 
+  dropdownEl: any;
+
   sideMenuEl: HTMLSddsSideMenuElement;
 
   position: string;
@@ -31,6 +33,10 @@ export class SddsSideMenuLink {
     this.position = this.host.parentElement.slot;
     if (this.host.parentElement.parentElement.tagName === 'SDDS-SIDE-MENU-DROPDOWN') {
       this.isDropdownChild = true;
+      if (this.selected) {
+        this.dropdownEl = this.host.parentElement.parentElement;
+        this.dropdownEl.selected = true;
+      }
     }
   }
 

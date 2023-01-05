@@ -3,11 +3,17 @@ li {
   display: flex;
   height: 68px;
 
+  &.mobile-menu-bottom-child {
+    .user-box {
+      border: none;
+      border-top: 1px solid var(--sdds-nav-dropdown-item-border-color);
+    }
+  }
+
   &.tall {
     height: 84px;
   }
-  
-  
+
   .user-box {
     gap: 16px;
     width: 100%;
@@ -21,7 +27,6 @@ li {
     width: 34px;
     border-radius: 100%;
   }
-
 
   .user-content {
     display: flex;
@@ -38,6 +43,4 @@ li {
       color: var(--sdds-header-avatar-item-color);
     }
   }
-
-
 }

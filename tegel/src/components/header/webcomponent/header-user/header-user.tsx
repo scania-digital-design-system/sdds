@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-user',
@@ -21,9 +21,28 @@ export class HeaderUser {
   /** Makes the component 84px tall */
   @Prop() tall: boolean = false;
 
+  @Element() host: HTMLElement;
+
+  type: 'dropdown-child' | 'launcher-child' | 'mobile-menu-top-child' | 'mobile-menu-bottom-child';
+
+  connectedCallback() {
+    if (this.host.parentElement.tagName === 'SDDS-HEADER-DROPDOWN') {
+      this.type = 'dropdown-child';
+      if (this.host.parentElement.parentElement.slot === 'mobile-menu-top') {
+        this.type = 'mobile-menu-top-child';
+      }
+    } else if (this.host.parentElement.tagName === 'SDDS-HEADER-LAUNCHER') {
+      this.type = 'launcher-child';
+    } else if (this.host.parentElement.slot === 'mobile-menu-top') {
+      this.type = 'mobile-menu-top-child';
+    } else if (this.host.parentElement.slot === 'mobile-menu-bottom') {
+      this.type = 'mobile-menu-bottom-child';
+    }
+  }
+
   render() {
     return (
-      <li class={`${this.tall ? 'tall' : ''}`}>
+      <li class={`${this.type} ${this.tall ? 'tall' : ''}`}>
         <div class="user-box">
           {this.img && <img src={this.img} alt={this.imgAlt} />}
           <div class="user-content">

@@ -78,4 +78,10 @@
       border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
     }
   }
+
+  @media all and (max-width: 384px) {
+    ul {
+      width: 272px;
+    }
+  }
 }
