@@ -1,0 +1,57 @@
+@import '../../../mixins/focus-state';
+
+li {
+  display: flex;
+  align-items: center;
+  color: var(--sdds-breadcrumb-color);
+
+  a {
+    color: var(--sdds-breadcrumb-color);
+    text-decoration: none;
+  }
+
+  &:hover {
+    a {
+      color: var(--sdds-breadcrumb-color-hover);
+      text-decoration: underline;
+    }
+
+    cursor: pointer;
+  }
+
+  &.sdds-breadcrumb-item-disabled,
+  &.sdds-breadcrumb-item-current,
+  [aria-current='page'] {
+    a {
+      cursor: default;
+      color: var(--sdds-breadcrumb-color-disabled);
+    }
+
+    &:hover {
+      a {
+        color: var(--sdds-breadcrumb-color-disabled);
+        text-decoration: none;
+      }
+    }
+  }
+
+  a::after {
+    content: '\203A';
+    color: var(--sdds-breadcrumb-separator-color);
+    margin-right: 4px;
+    margin-left: 4px;
+    display: inline-block;
+    width: 4px;
+    height: 8px;
+  }
+
+  &:last-child {
+    color: red;
+  }
+}
+
+:host(.sdds-breadcrumb-item-last) {
+  a::after {
+    display: none;
+  }
+}
