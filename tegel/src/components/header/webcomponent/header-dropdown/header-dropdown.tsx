@@ -31,7 +31,10 @@ export class HeaderDropdown {
 
   @Method()
   async toggleDropdown() {
-    if (!this.open) {
+    if (
+      !this.open &&
+      !(this.parentSlot === 'mobile-menu-top' || this.parentSlot === 'mobile-menu-bottom')
+    ) {
       this.childOpenedEvent.emit();
     }
     this.open = !this.open;
@@ -39,6 +42,7 @@ export class HeaderDropdown {
 
   connectedCallback() {
     this.parentSlot = this.host.parentElement.slot;
+    console.log(this.parentSlot);
   }
 
   @Event({

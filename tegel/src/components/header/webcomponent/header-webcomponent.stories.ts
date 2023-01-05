@@ -131,6 +131,17 @@ const Template = ({ siteName }) =>
       </sdds-header-button>
     </div>
   </sdds-header>
+
+  <button id="button">CLICK</button>
+
+  <script>  
+    document.getElementById('button').addEventListener('click', (event) => {
+      header = document.getElementsByTagName('body')[0]
+      const newEvent = new CustomEvent('closeAllEvent')
+      header.dispatchEvent(newEvent)
+      console.log(newEvent)
+    })
+  </script>
   `,
   );
 
