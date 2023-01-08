@@ -10,6 +10,7 @@
 | Property         | Attribute          | Description                              | Type      | Default         |
 | ---------------- | ------------------ | ---------------------------------------- | --------- | --------------- |
 | `iconHref`       | `icon-href`        | Href for the header icon                 | `string`  | `'#'`           |
+| `mobileMenu`     | `mobile-menu`      |                                          | `boolean` | `true`          |
 | `mobileMenuOpen` | `mobile-menu-open` |                                          | `boolean` | `true`          |
 | `siteName`       | `site-name`        | The name that is displayed in the header | `string`  | `'Application'` |
 

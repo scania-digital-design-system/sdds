@@ -72,7 +72,7 @@
   /* IPAD */
   // TODO - Should use token
   @media all and (max-width: 672px) {
-    .header-app-name {
+    .header-app-name + button.mobile-menu-button {
       position: absolute;
       left: 68px;
       top: 23.75px;

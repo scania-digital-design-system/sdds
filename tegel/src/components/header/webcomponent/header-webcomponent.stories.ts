@@ -79,7 +79,6 @@ const Template = ({ siteName }) =>
         </sdds-header-button>
       </sdds-header-dropdown>
       <sdds-header-launcher>
-        <sdds-icon name="bento" size="20px"> </sdds-icon>
         <sdds-header-link slot="child">
           Link
         </sdds-header-link>
