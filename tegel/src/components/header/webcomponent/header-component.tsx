@@ -22,6 +22,8 @@ export class SddsHeader {
   /** Href for the header icon */
   @Prop() iconHref: string = '#';
 
+  @Prop() mobileMenu: boolean = true;
+
   @Prop() mobileMenuOpen: boolean = true;
 
   @Element() host: HTMLElement;
@@ -53,17 +55,19 @@ export class SddsHeader {
   render() {
     return (
       <Host>
-        <button
-          class={`mobile-menu-button ${this.mobileMenuOpen ? 'open' : 'closed'}`}
-          onClick={() => {
-            this.handleClick();
-          }}
-        >
-          <sdds-icon name={this.mobileMenuOpen ? 'cross' : 'burger'} size="24px"></sdds-icon>
-        </button>
+        {this.mobileMenu && (
+          <button
+            class={`mobile-menu-button ${this.mobileMenuOpen ? 'open' : 'closed'}`}
+            onClick={() => {
+              this.handleClick();
+            }}
+          >
+            <sdds-icon name={this.mobileMenuOpen ? 'cross' : 'burger'} size="24px"></sdds-icon>
+          </button>
+        )}
         <div class="header-app-name">{this.siteName}</div>
         <nav class="nav-content">
-          {this.mobileMenuOpen && (
+          {this.mobileMenu && this.mobileMenuOpen && (
             <nav class="mobile-menu">
               <ul class="mobile-menu-top">
                 <slot name="mobile-menu-top"></slot>

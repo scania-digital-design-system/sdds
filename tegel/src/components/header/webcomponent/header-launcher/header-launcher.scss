@@ -1,3 +1,5 @@
+@import '../../../../mixins/scrollbar';
+
 :host {
   height: 64px;
   position: relative;
@@ -51,15 +53,16 @@
     height: calc(100vh - 64px);
     box-shadow: none;
     border-radius: none;
-    overflow: visible;
     background-color: var(--sdds-header-app-launcher-menu-bg);
 
     &.toolbar {
     }
 
     &.open {
+      @include sdds-scrollbar;
+
       display: block;
-      overflow: hidden;
+      overflow-y: scroll;
       box-shadow: var(--sdds-nav-dropdown-menu-box);
     }
 

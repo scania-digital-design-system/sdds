@@ -57,7 +57,7 @@ export class HeaderLauncher {
             this.toggleLauncher();
           }}
         >
-          <slot></slot>
+          <sdds-icon name="bento" size="20px"></sdds-icon>
         </button>
         <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot}`}>
           <slot name="child"></slot>
