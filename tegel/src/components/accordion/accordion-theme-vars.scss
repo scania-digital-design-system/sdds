@@ -3,7 +3,7 @@
   --sdds-accordion-border: var(--sdds-grey-300);
   --sdds-accordion-background: transparent;
   --sdds-accordion-background-hover: var(--sdds-white);
-  --sdds-accordion-background-hover-on-white: var(--sdds-grey-50);
+  --sdds-accordion-background-hover-on-secondary: var(--sdds-grey-50);
   --sdds-accordion-background-focus: transparent;
   --sdds-accordion-background-active: var(--sdds-grey-100);
   --sdds-accordion-color: var(--sdds-grey-958);
@@ -11,7 +11,7 @@
   --sdds-accordion-color-disabled: var(--sdds-grey-400);
 
   .secondary {
-    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-white);
+    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-secondary);
   }
 }
 
@@ -19,14 +19,14 @@
   --sdds-accordion-border: var(--sdds-grey-700);
   --sdds-accordion-background: transparent;
   --sdds-accordion-background-hover: var(--sdds-grey-900);
-  --sdds-accordion-background-hover-on-white: var(--sdds-grey-50);
+  --sdds-accordion-background-hover-on-secondary: var(--sdds-grey-868);
   --sdds-accordion-background-focus: transparent;
   --sdds-accordion-background-active: var(--sdds-grey-900);
   --sdds-accordion-color: var(--sdds-white);
   --sdds-accordion-border-focus: var(--sdds-grey-500);
   --sdds-accordion-color-disabled: var(--sdds-grey-800);
 
-  .sdds-on-white-background {
-    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-white);
+  .secondary {
+    --sdds-accordion-background-hover: var(--sdds-accordion-background-hover-on-secondary);
   }
 }
