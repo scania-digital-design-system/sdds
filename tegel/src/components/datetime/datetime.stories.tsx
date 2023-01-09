@@ -20,7 +20,7 @@ export default {
     ],
   },
   argTypes: {
-    ç: {
+    type: {
       name: 'Type',
       description: 'Set the field to display date, time or both',
       control: {
