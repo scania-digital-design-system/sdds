@@ -210,11 +210,11 @@ ErrorState.args = {
 export const Time = datetimeTemplate.bind({});
 
 Time.args = {
-  type: 'time',
+  type: 'Time',
 };
 
 export const Date = datetimeTemplate.bind({});
 
 Date.args = {
-  type: 'date',
+  type: 'Date',
 };
