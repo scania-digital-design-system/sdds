@@ -147,7 +147,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
                 ${
                   avatar
                     ? `<div class="sdds-card-headlines">
-                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}${modeVariant}</h6>` : ''}
                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
                   </div>`
                     : `${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
