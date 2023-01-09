@@ -30,6 +30,7 @@ export default {
       control: {
         type: 'text',
       },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     btnType: {
       name: 'Type',
@@ -164,7 +165,7 @@ const WebComponentTemplate = ({
       font-size: ${size === 'Large' || size === 'Medium' ? '20' : '16'}px;
     }`
         : ''
-    }
+    },
     .demo-wrapper{
       width: 100%;
     }
@@ -183,7 +184,7 @@ const WebComponentTemplate = ({
       iconType === 'Native'
         ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
         : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${
-            sizeLookUp[size] == 'sm' ? '16px' : '20px'
+            sizeLookUp[size] === 'sm' ? '16px' : '20px'
           }' name='${icon}'></sdds-icon>`
     }
   `

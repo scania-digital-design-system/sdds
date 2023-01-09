@@ -28,6 +28,7 @@ export default {
       control: {
         type: 'text',
       },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     btnType: {
       name: 'Type',
@@ -166,9 +167,9 @@ const NativeTemplate = ({
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
     i.sdds-btn-icon{
       font-size: ${size === 'Small' ? '16' : '20'}px;
-    }\n `
+    }`
         : ''
-    }\ .demo-wrapper{
+    } .demo-wrapper{
       width: 100%;
     }
   </style>
