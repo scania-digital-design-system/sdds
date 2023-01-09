@@ -92,6 +92,17 @@ export default {
         type: 'boolean',
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Change the components mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
   },
   args: {
     headline: 'Header text',
@@ -103,10 +114,11 @@ export default {
     image: false,
     imageTop: false,
     avatar: false,
+    modeVariant: 'Primary',
   },
 };
 
-const Template = ({ headline, subheadline, footer, clickable, text, divider, imageTop, avatar }) =>
+const Template = ({ headline, subheadline, footer, clickable, text, divider, imageTop, avatar, modeVariant }) =>
   formatHtmlPreview(
     `
 <style>
@@ -117,7 +129,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 </style>
 
     <div class="demo-wrapper">
-          <div class="sdds-card${clickable ? ' sdds-clickable' : ''}">
+          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-secondary' : ''}">
             ${
               imageTop === true
                 ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
@@ -135,7 +147,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
                 ${
                   avatar
                     ? `<div class="sdds-card-headlines">
-                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}${modeVariant}</h6>` : ''}
                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
                   </div>`
                     : `${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
