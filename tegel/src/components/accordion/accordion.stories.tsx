@@ -77,8 +77,8 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
 
   return formatHtmlPreview(`
-    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}">
-      <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
+    <sdds-accordion mode-variant="${modeVariant.toLowerCase()} ${modeVariant === 'Secondary' ? 'sdds-mode-secondary' : ''}">
+    <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
