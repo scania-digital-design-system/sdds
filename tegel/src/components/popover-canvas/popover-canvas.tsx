@@ -1,5 +1,5 @@
 import { Component, Host, Element, Listen, h, Prop, State } from '@stencil/core';
-import { createPopper } from '@popperjs/core';
+import { createPopper, Instance } from '@popperjs/core';
 import type { Placement } from '@popperjs/core';
 
 @Component({
@@ -25,6 +25,8 @@ export class PopoverCanvas {
   /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
+  @State() popperInstance: Instance;
+
   @State() target: any;
 
   @Listen('mousedown', { target: 'window' })
@@ -36,9 +38,9 @@ export class PopoverCanvas {
 
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
-    const _this = this;
-    createPopper(this.target, this.popoverCanvasElement, {
-      placement: _this.placement,
+
+    this.popperInstance = createPopper(this.target, this.popoverCanvasElement, {
+      placement: this.placement,
       modifiers: [
         {
           name: 'positionCalc',
@@ -65,7 +67,7 @@ export class PopoverCanvas {
       this.show = false;
     };
 
-    this.target.addEventListener('mousedown', event => {
+    this.target.addEventListener('mousedown', (event) => {
       event.stopPropagation();
 
       if (this.show) {
@@ -75,13 +77,21 @@ export class PopoverCanvas {
       }
     });
 
-    this.popoverCanvasElement.addEventListener('mousemove', event => {
+    this.popoverCanvasElement.addEventListener('mousemove', (event) => {
       event.stopPropagation();
     });
 
-    this.popoverCanvasElement.addEventListener('mousedown', event => {
+    this.popoverCanvasElement.addEventListener('mousedown', (event) => {
       event.stopPropagation();
     });
+  }
+
+  componentDidRender() {
+    if (this.show) {
+      // Here we update the popper position since its position is wrong
+      // before it is rendered.
+      this.popperInstance.update();
+    }
   }
 
   render() {
