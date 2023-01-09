@@ -43,7 +43,7 @@ export default {
     },
   },
   args: {
-    menuPosition: 'Bottom',
+    menuPosition: 'Bottom start',
   },
 };
 
@@ -66,48 +66,48 @@ const Template = ({ menuPosition }) => {
   return formatHtmlPreview(
     `
     <style>
-    /* demo-wrapper styles is for demonstration purposes only */
+      /* demo-wrapper styles is for demonstration purposes only */
       .demo-wrapper {
         display: flex;
         flex-wrap: nowrap;
-        alignt-items: center;
-      }
-      sdds-icon:hover {
-        cursor:pointer;
+        align-items: center;
       }
     </style>
 
     <sdds-popover-menu
-        placement="${menuPosLookup[menuPosition]}"
-        selector="#trigger">
-        <ul class="sdds-popover-menu-wrapper">
-          <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 1</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">
-              Menu item 2
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 3</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 4</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 5</a>
-          </li>
-        </ul>
-      </sdds-popover-menu>
+      placement="${menuPosLookup[menuPosition]}"
+      selector="#trigger">
+      <ul class="sdds-popover-menu-wrapper">
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 1</a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            Menu item 2
+          </a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 3</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 4</a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 5</a>
+        </li>
+      </ul>
+    </sdds-popover-menu>
 
-      <!-- demo-wrapper code below is for demonstration purposes only -->
-      <div class="demo-wrapper">
-        <span style="user-select: none;margin-right: 16px;">Click icon for popover menu</span>
-        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
-      </div>
-  `,
+    <!-- demo-wrapper code below is for demonstration purposes only -->
+    <div class="demo-wrapper">
+      <span class="sdds-u-mr2">Click icon for popover menu</span>
+      
+      <sdds-button aria-label="menu" onlyIcon id="trigger" type="ghost" size="sm">
+        <sdds-icon slot="icon" class="sdds-btn-icon" size="16px" name="kebab"></sdds-icon>
+      </sdds-button>
+    </div>
+    `,
   );
 };
 

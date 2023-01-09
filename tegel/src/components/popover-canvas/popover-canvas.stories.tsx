@@ -32,7 +32,7 @@ export default {
     },
   },
   args: {
-    canvasPosition: 'Bottom',
+    canvasPosition: 'Bottom start',
   },
 };
 
@@ -54,17 +54,14 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
 
   return formatHtmlPreview(
     `
-    <style>
-  /* demo-wrapper and demo-styles is for demonstration purposes only */
-  .demo-wrapper {
-    display: flex;
-    flex-wrap; nowrap;
-    align-items: center;
-  }
-  sdds-icon:hover {
-    cursor:pointer;
-  }
-    </style>
+      <style>
+        /* demo-wrapper and demo-styles is for demonstration purposes only */
+        .demo-wrapper {
+          display: flex;
+          flex-wrap; nowrap;
+          align-items: center;
+        }
+      </style>
 
       <sdds-popover-canvas
         placement="${canvasPosLookup[canvasPosition]}"
@@ -75,15 +72,18 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
             Where you can put anything you want!
           </p>
           <p>
-            <a target="_blank" href="https://digitaldesign.scania.com">Even links!</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Even links!</a>
           </p>
         </div>
       </sdds-popover-canvas>
 
-     <!-- demo-wrapper and demo-styles is for demonstration purposes only -->
+      <!-- demo-wrapper code below is for demonstration purposes only -->
       <div class="demo-wrapper">
-        <span style="user-select: none;margin-right: 16px;">Click icon for popover canvas</span>
-        <sdds-icon id="trigger" name="kebab" size="16px"></sdds-icon> 
+        <span class="sdds-u-mr2">Click icon for popover canvas</span>
+        
+        <sdds-button aria-label="menu" onlyIcon id="trigger" type="ghost" size="sm">
+          <sdds-icon slot="icon" class="sdds-btn-icon" size="16px" name="kebab"></sdds-icon>
+        </sdds-button>
       </div>
     `,
   );
