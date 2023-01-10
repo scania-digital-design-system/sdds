@@ -74,7 +74,7 @@
       box-shadow: var(--sdds-nav-dropdown-menu-box);
     }
 
-    &.toolbar {
+    &.header-right {
       right: 0;
     }
 
@@ -92,9 +92,6 @@
       border-radius: none;
       overflow: visible;
       background-color: var(--sdds-header-app-launcher-menu-bg);
-
-      &.toolbar {
-      }
     }
 
     &.closed {
