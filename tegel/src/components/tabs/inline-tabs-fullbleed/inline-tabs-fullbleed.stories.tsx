@@ -39,7 +39,7 @@ const Template = ({ modeVariant }) =>
       <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Active tab</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
-      <a href="#" class="sdds-inline-tabs-fullbleed--tab__disabled">Disabled tab</a>
+      <a href="#" class="sdds-inline-tabs-fullbleed--tab__disabled" aria-disabled="true" tabindex="-1">Disabled tab</a>
     </sdds-inline-tabs-fullbleed>
 `);
 

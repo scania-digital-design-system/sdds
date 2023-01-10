@@ -1,6 +1,7 @@
 @import '../../mixins/z-index';
 @import 'modal-theme-vars';
 @import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
 //Media rules doesn't calculate correct with using rem
@@ -143,7 +144,6 @@ $modals: (
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
-  margin: 0 -16px 0 0;
   overflow-y: visible;
   @include modal-scroll-inner;
 
@@ -164,7 +164,7 @@ $modals: (
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;
-  
+
   @include modal-scroll-outer;
 
   &__actions-sticky {
@@ -231,6 +231,7 @@ $modals: (
 
 .sdds-modal-headline {
   @include modal-headline;
+
   color: var(--sdds-modal-text);
 }
 
@@ -239,16 +240,26 @@ $modals: (
 }
 
 .sdds-modal-backdrop {
+  @include sdds-box-sizing;
   @include modal-host;
+}
+
+button.sdds-modal-close {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  appearance: unset;
 }
 
 .sdds-modal-close {
   display: inline-block;
-  width: 16px;
   height: auto;
-  background-image: var(--sdds-modal-icon-native);
-  background-repeat: no-repeat;
+  color: var(--sdds-modal-icon);
   cursor: pointer;
+
+  &:focus {
+    @include sdds-focus-state;
+  }
 
   @media (min-width: $screen-s) {
     margin-left: var(--sdds-spacing-element-16);
@@ -263,7 +274,7 @@ $modals: (
 .sdds-modal-close-btn {
   display: inline-block;
   height: auto;
-   background-repeat: no-repeat;
+  background-repeat: no-repeat;
   cursor: pointer;
 
   @media (min-width: $screen-s) {
@@ -273,10 +284,12 @@ $modals: (
   @media (min-width: $screen-l) {
     margin-left: var(--sdds-spacing-element-48);
   }
-  svg{
+
+  svg {
     fill: var(--sdds-modal-icon);
   }
 }
+
 .sdds-modal-overflow {
   overflow: hidden;
 }
@@ -289,15 +302,11 @@ $modals: (
   .sdds-modal-close {
     border: none;
     background-color: transparent;
-
-    /* &:focus {
-      //@include sdds-focus-state; FIXME: THIS INCLUDE IS NOT WORKING
-    } */
   }
+
   .sdds-modal-close-btn {
     border: none;
     background-color: transparent;
-
   }
 }
 

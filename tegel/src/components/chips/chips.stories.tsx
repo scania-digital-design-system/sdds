@@ -104,12 +104,13 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
           </style>`
       : ''
   }
-
-    <div class="sdds-chip ${
+    <!-- Below is a chip button implementation. Please use the proper html element 
+    depending on usage (button, checkbox, radio, etc) -->
+    <button class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${stateValue} ${sizeValue}">
       ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
-    </div>
+    </button>
     `);
 };
 

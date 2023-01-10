@@ -7,12 +7,23 @@
 
   list-style: none;
   color: var(--sdds-accordion-color);
+  position: relative;
+
+  button.sdds-accordion-header-icon-start,
+  button.sdds-accordion-header-icon-end {
+    all: unset;
+  }
 
   .sdds-accordion-header-icon-start,
-  .sdds-accordion-header-icon-end {
+  .sdds-accordion-header-icon-end,
+  button.sdds-accordion-header-icon-start,
+  button.sdds-accordion-header-icon-end {
+    @include sdds-box-sizing;
+
     cursor: pointer;
     display: flex;
     align-items: center;
+    width: 100%;
 
     // fixme: wrong line-height compared to production
     font: var(--sdds-headline-07);

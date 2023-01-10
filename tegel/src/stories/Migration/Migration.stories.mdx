@@ -363,9 +363,15 @@ with a single dash (`-`).
 
 The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with other class names.
 
+#### Replaced built in icon with icon component
+
+Support for just adding a `.sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
+For accessibility reasons, we recommend wrapping the icon in a native `button` element.
+
 ##### What action is required?
 
 Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is required if you are using the web component).
+Also use a button element for the button, and set the icon by adding an sdds-icon child. See example below.
 
 ```jsx
 // Old ❌
@@ -378,7 +384,9 @@ Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is req
 // New ✅
 <div class="sdds-modal">
   <div class="sdds-modal-header">
-    <span class="sdds-modal-close"></span>
+    <button class="sdds-modal-close" aria-label="close">
+      <sdds-icon name="cross" size="20px"></sdds-icon>
+    </button>
   </div>
 </div>
 ```
@@ -956,7 +964,7 @@ Change all instances the toast dismiss button like shown below:
 
 [Web component](/docs/components-modal--web-component)
 
-#### Refactored how the modal is opened and removed dependacy to trigger
+#### Refactored how the modal is opened and removed dependency to trigger
 The modal component has previously been opened via a trigger that was added on a button,
 which would be the controler of the button. This has now been refactored and the modal is
 now opened based on its own boolean prop, called `open`. This change is done in order to

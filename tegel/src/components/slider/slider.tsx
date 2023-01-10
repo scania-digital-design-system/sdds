@@ -295,12 +295,12 @@ export class Slider {
     if (!this.eventListenersAdded) {
       this.eventListenersAdded = true;
 
-      this.scrubberElement.addEventListener('mousedown', event => {
+      this.scrubberElement.addEventListener('mousedown', (event) => {
         event.preventDefault();
         this.grabScrubber(event.offsetX, event.offsetY);
       });
 
-      this.scrubberElement.addEventListener('touchstart', event => {
+      this.scrubberElement.addEventListener('touchstart', (event) => {
         const rect = this.scrubberElement.getBoundingClientRect();
         const x = event.targetTouches[0].pageX - rect.left;
         const y = event.targetTouches[0].pageY - rect.top;
@@ -318,7 +318,7 @@ export class Slider {
       }
 
       if (this.inputElement) {
-        this.inputElement.addEventListener('keydown', event => {
+        this.inputElement.addEventListener('keydown', (event) => {
           event.stopPropagation();
 
           if (event.key === 'Enter') {
@@ -364,7 +364,7 @@ export class Slider {
   }
 
   controlsStep(delta) {
-    if (this.readonlyState) {
+    if (this.readonlyState || this.disabled) {
       return;
     }
 
@@ -461,28 +461,45 @@ export class Slider {
     const max = this.getMax();
 
     if (min > max) {
-      console.warn('min-prop must have a higher value than max-prop for the component to work correctly.');
+      console.warn(
+        'min-prop must have a higher value than max-prop for the component to work correctly.',
+      );
       this.disabledState = true;
     }
   }
 
   render() {
     return (
-      <div class={'sdds-slider-wrapper ' + (this.readonlyState && 'read-only')}>
+      <div class={`sdds-slider-wrapper ${this.readonlyState ? 'read-only' : ''}`}>
         <input
-          ref={el => (this.nativeRangeInputElement = el as HTMLInputElement)}
+          ref={(el) => {
+            this.nativeRangeInputElement = el as HTMLInputElement;
+          }}
           class="sdds-slider-native-element"
           type="range"
           value={this.value}
           name={this.name}
           min={this.min}
           max={this.max}
+          disabled={this.disabled}
         ></input>
 
-        <div class={`sdds-slider ${this.disabledState ? 'disabled' : ''} ${this.useSmall ? 'sdds-slider-small' : ''}`} ref={el => (this.wrapperElement = el as HTMLElement)}>
+        <div
+          class={`sdds-slider ${this.disabledState ? 'disabled' : ''} ${
+            this.useSmall ? 'sdds-slider-small' : ''
+          }`}
+          ref={(el) => {
+            this.wrapperElement = el as HTMLElement;
+          }}
+        >
           {this.useInput && (
             <div class="sdds-slider__input-values">
-              <div ref={el => (this.minusElement = el as HTMLElement)} class="sdds-slider__input-value">
+              <div
+                ref={(el) => {
+                  this.minusElement = el as HTMLElement;
+                }}
+                class="sdds-slider__input-value"
+              >
                 {this.min}
               </div>
             </div>
@@ -490,8 +507,19 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div ref={el => (this.minusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-minus">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div
+                ref={(el) => {
+                  this.minusElement = el as HTMLElement;
+                }}
+                class="sdds-slider__control sdds-slider__control-minus"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -508,22 +536,51 @@ export class Slider {
 
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
-                <div ref={el => (this.dividersElement = el as HTMLElement)} class="sdds-slider__value-dividers">
-                  {this.tickValues.map(value => (
-                    <div class="sdds-slider__value-divider">{this.showTickNumbers && <span>{value}</span>}</div>
+                <div
+                  ref={(el) => {
+                    this.dividersElement = el as HTMLElement;
+                  }}
+                  class="sdds-slider__value-dividers"
+                >
+                  {this.tickValues.map((value) => (
+                    <div class="sdds-slider__value-divider">
+                      {this.showTickNumbers && <span>{value}</span>}
+                    </div>
                   ))}
                 </div>
               </div>
             )}
 
-            <div class="sdds-slider__track" ref={el => (this.trackElement = el as HTMLElement)} tabindex="1">
-              <div class="sdds-slider__track-fill" ref={el => (this.trackFillElement = el as HTMLElement)}></div>
+            <div
+              class="sdds-slider__track"
+              ref={(el) => {
+                this.trackElement = el as HTMLElement;
+              }}
+              tabindex={this.disabled ? '-1' : '0'}
+            >
+              <div
+                class="sdds-slider__track-fill"
+                ref={(el) => {
+                  this.trackFillElement = el as HTMLElement;
+                }}
+              ></div>
 
-              <div class="sdds-slider__scrubber" ref={el => (this.scrubberElement = el as HTMLElement)}>
+              <div
+                class="sdds-slider__scrubber"
+                ref={(el) => {
+                  this.scrubberElement = el as HTMLElement;
+                }}
+              >
                 {this.tooltip !== null && (
                   <div class="sdds-slider__value">
                     {this.value}
-                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="18"
+                      height="14"
+                      viewBox="0 0 18 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         d="M8.15882 12.6915L0.990487 1.54076C0.562658 0.875246 1.0405 0 1.83167 0H16.1683C16.9595 0 17.4373 0.875246 17.0095 1.54076L9.84118 12.6915C9.44754 13.3038 8.55246 13.3038 8.15882 12.6915Z"
                         fill="#37414F"
@@ -532,19 +589,29 @@ export class Slider {
                   </div>
                 )}
 
-                <div class="sdds-slider__scrubber-inner" ref={el => (this.scrubberInnerElement = el as HTMLElement)}></div>
+                <div
+                  class="sdds-slider__scrubber-inner"
+                  ref={(el) => {
+                    this.scrubberInnerElement = el as HTMLElement;
+                  }}
+                ></div>
               </div>
             </div>
           </div>
 
           {this.useInput && (
             <div class="sdds-slider__input-values">
-              <div ref={el => (this.minusElement = el as HTMLElement)} class="sdds-slider__input-value" tabindex="2">
+              <div
+                ref={(el) => {
+                  this.minusElement = el as HTMLElement;
+                }}
+                class="sdds-slider__input-value"
+              >
                 {this.max}
               </div>
               <div class="sdds-slider__input-field-wrapper">
                 <input
-                  onFocus={e => {
+                  onFocus={(e) => {
                     if (this.readonlyState) {
                       e.preventDefault();
                       this.inputElement.blur();
@@ -553,7 +620,9 @@ export class Slider {
                   size={this.calculateInputSizeFromMax()}
                   class="sdds-slider__input-field"
                   value={this.value}
-                  ref={el => (this.inputElement = el as HTMLInputElement)}
+                  ref={(el) => {
+                    this.inputElement = el as HTMLInputElement;
+                  }}
                 />
               </div>
             </div>
@@ -561,8 +630,19 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div ref={el => (this.plusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-plus">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div
+                ref={(el) => {
+                  this.plusElement = el as HTMLElement;
+                }}
+                class="sdds-slider__control sdds-slider__control-plus"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"

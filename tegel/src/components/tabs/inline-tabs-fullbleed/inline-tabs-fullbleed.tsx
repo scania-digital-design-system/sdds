@@ -28,12 +28,12 @@ export class InlineTabsFullbleed {
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
   componentDidRender() {
-    this._calculateButtonWidth();
+    this.calculateButtonWidth();
   }
 
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
+      entries.forEach((entry) => {
         const componentWidth = entry.contentRect.width;
         let buttonsWidth = 0;
 
@@ -51,20 +51,20 @@ export class InlineTabsFullbleed {
         this.scrollWidth = buttonsWidth - componentWidth;
 
         if (this.buttonsWidth > this.componentWidth) {
-          this._evaluateScrollButtons();
+          this.evaluateScrollButtons();
         } else {
           this.showLeftScroll = false;
           this.showRightScroll = false;
         }
-      }
+      });
     });
 
     resizeObserver.observe(this.navWrapperElement);
 
-    this._calculateButtonWidth();
+    this.calculateButtonWidth();
   }
 
-  _calculateButtonWidth() {
+  calculateButtonWidth() {
     let best = 0;
     const navButtons = Array.from(this.host.children);
     navButtons.forEach((navButton: HTMLElement) => {
@@ -80,21 +80,21 @@ export class InlineTabsFullbleed {
     this.buttonWidth = best;
   }
 
-  _scrollRight() {
+  scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
     this.navWrapperElement.scrollLeft = scroll + this.buttonWidth;
 
-    this._evaluateScrollButtons();
+    this.evaluateScrollButtons();
   }
 
-  _scrollLeft() {
+  scrollLeft() {
     const scroll = this.navWrapperElement.scrollLeft;
     this.navWrapperElement.scrollLeft = scroll - this.buttonWidth;
 
-    this._evaluateScrollButtons();
+    this.evaluateScrollButtons();
   }
 
-  _evaluateScrollButtons() {
+  evaluateScrollButtons() {
     const scroll = this.navWrapperElement.scrollLeft;
 
     if (scroll >= this.scrollWidth) {
@@ -116,7 +116,9 @@ export class InlineTabsFullbleed {
         <div class={`sdds-inline-tabs-fullbleed sdds-inline-tabs-fullbleed-${this.modeVariant}`}>
           <div
             class="sdds-inline-tabs-fullbleed-wrapper"
-            ref={(el) => (this.navWrapperElement = el as HTMLElement)}
+            ref={(el) => {
+              this.navWrapperElement = el as HTMLElement;
+            }}
           >
             <slot />
           </div>
@@ -125,7 +127,8 @@ export class InlineTabsFullbleed {
               class={`sdds-inline-tabs-fullbleed--forward ${
                 this.showRightScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
-              onClick={() => this._scrollRight()}
+              onClick={() => this.scrollRight()}
+              disabled={!this.showRightScroll}
             >
               <svg
                 width="20"
@@ -146,7 +149,8 @@ export class InlineTabsFullbleed {
               class={`sdds-inline-tabs-fullbleed--back ${
                 this.showLeftScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
               }`}
-              onClick={() => this._scrollLeft()}
+              onClick={() => this.scrollLeft()}
+              disabled={!this.showLeftScroll}
             >
               <svg
                 width="20"
