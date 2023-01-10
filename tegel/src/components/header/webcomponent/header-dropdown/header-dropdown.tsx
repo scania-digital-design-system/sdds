@@ -42,7 +42,6 @@ export class HeaderDropdown {
 
   connectedCallback() {
     this.parentSlot = this.host.parentElement.slot;
-    console.log(this.parentSlot);
   }
 
   @Event({
@@ -69,7 +68,7 @@ export class HeaderDropdown {
             this.toggleDropdown();
           }}
         >
-          <slot></slot>
+          <slot name="dropdown-button"></slot>
           {!this.noDropdownIcon && (
             <sdds-icon class="chevron_down" name="chevron_down" size="16px"></sdds-icon>
           )}
@@ -77,7 +76,7 @@ export class HeaderDropdown {
         <ul
           class={`${this.open ? 'open' : 'closed'} ${this.wide ? 'wide' : ''} ${this.parentSlot}`}
         >
-          <slot name="child"></slot>
+          <slot name="dropdown-menu"></slot>
         </ul>
       </Host>
     );
