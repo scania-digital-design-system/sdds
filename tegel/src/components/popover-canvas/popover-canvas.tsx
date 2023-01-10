@@ -25,6 +25,8 @@ export class PopoverCanvas {
   /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
+  @State() renderedShowValue: boolean = false;
+
   @State() popperInstance: Instance;
 
   @State() target: any;
@@ -38,18 +40,11 @@ export class PopoverCanvas {
 
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
+    this.renderedShowValue = this.show;
 
     this.popperInstance = createPopper(this.target, this.popoverCanvasElement, {
       placement: this.placement,
       modifiers: [
-        {
-          name: 'positionCalc',
-          enabled: true,
-          phase: 'main',
-          fn({ state }) {
-            console.log('popover fn', state);
-          },
-        },
         {
           name: 'offset',
           options: {
@@ -87,11 +82,12 @@ export class PopoverCanvas {
   }
 
   componentDidRender() {
-    if (this.show) {
+    if (this.show && !this.renderedShowValue) {
       // Here we update the popper position since its position is wrong
       // before it is rendered.
       this.popperInstance.update();
     }
+    this.renderedShowValue = this.show;
   }
 
   render() {
