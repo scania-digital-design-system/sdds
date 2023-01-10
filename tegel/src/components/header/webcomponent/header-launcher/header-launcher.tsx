@@ -62,7 +62,7 @@ export class HeaderLauncher {
           <sdds-icon name="bento" size="20px"></sdds-icon>
         </button>
         <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot} ${this.variant}`}>
-          <slot name="child"></slot>
+          <slot></slot>
         </ul>
       </Host>
     );

@@ -82,28 +82,28 @@ const Template = ({ siteName }) =>
         </sdds-header-button>
       </sdds-header-dropdown>
       <sdds-header-launcher variant="list">
-        <sdds-header-button slot="child">
+        <sdds-header-button>
           Button
         </sdds-header-button>
-        <sdds-header-button slot="child">
+        <sdds-header-button>
           Button
         </sdds-header-button>
-        <sdds-header-button divider="test" slot="child">
+        <sdds-header-button divider="Divider">
           Button
         </sdds-header-button>
-        <sdds-header-button slot="child">
+        <sdds-header-button>
           Button
         </sdds-header-button>
-        <sdds-header-button slot="child">
+        <sdds-header-button>
           Button
         </sdds-header-button>
-        <sdds-header-link slot="child">
+        <sdds-header-link>
           Link
         </sdds-header-link>
-        <sdds-header-link slot="child">
+        <sdds-header-link>
           Link
         </sdds-header-link>
-        <sdds-header-link slot="child">
+        <sdds-header-link>
           Link
         </sdds-header-link>
       </sdds-header-launcher>
