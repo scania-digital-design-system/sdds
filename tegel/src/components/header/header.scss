@@ -370,8 +370,6 @@ html,
     height: 100%;
     width: 64px;
     border: none;
-
-    // TODO  Continue theming from here
     color: var(--sdds-header-app-launcher-btn-color);
     transition: color 150ms ease;
 
@@ -383,6 +381,7 @@ html,
       width: 20px;
       height: auto;
       transition: fill 150ms ease;
+      color: var(--sdds-header-app-launcher-btn-color);
     }
   }
 

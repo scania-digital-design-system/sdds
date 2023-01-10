@@ -90,12 +90,6 @@
   --sdds-header-mobile-nav-center-dropdown-item--last-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-nav-toolbar-border-color: var(--sdds-grey-300);
 
-  // TODO - Can be removed?
-
-  /*   --sdds-header-mobile-avatar-btn-background: var(--sdds-grey-100);
-  --sdds-header-mobile-avatar-btn-background-hover: var(--sdds-white);
-  --sdds-header-mobile-avatar-btn-color: var(--sdds-grey-958);
-  --sdds-header-mobile-avatar-btn-border-color: var(--sdds-grey-300); */
   --sdds-header-mobile-searchbar-container-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-searchbar-input-background: var(--sdds-white);
   --sdds-header-mobile-searchbar-input-color: var(--sdds-black);
@@ -132,7 +126,7 @@
   --sdds-header-nav-item-color: var(--sdds-white);
   --sdds-header-nav-item-background-active: var(--sdds-blue-800);
   --sdds-nav-dropdown-item-background: var(--sdds-grey-800);
-  --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800); //is this right?
+  --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800); 
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
 
   // /* Searchbar */
@@ -185,8 +179,6 @@
   --sdds-header-app-launcher-item-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-700);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-50);
-
-  // --sdds-header-app-launcher-open-btn-color: red;
 
   // /* MOBILE AND TABLET */
   --sdds-header-mobile-nav-center-background: var(--sdds-grey-958);
