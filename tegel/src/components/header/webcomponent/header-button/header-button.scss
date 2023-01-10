@@ -55,7 +55,7 @@ li {
     }
   }
 
-  &.launcher-child {
+  &.launcher-list-child {
     height: 64px;
     width: 100%;
     border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
@@ -75,6 +75,31 @@ li {
 
       &:hover {
         background-color: var(--sdds-nav-item-bg-hover);
+      }
+    }
+  }
+
+  &.launcher-grid-child {
+    width: 96px;
+    height: 96px;
+
+    button {
+      border: none;
+      padding: 0 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      font: var(--sdds-detail-05);
+      letter-spacing: var(--sdds-detail-05-ls);
+      background-color: var(--sdds-white);
+      color: var(--sdds-grey-800);
+      border-radius: 4px;
+
+      &:hover {
+        background-color: var(--sdds-grey-100);
       }
     }
   }

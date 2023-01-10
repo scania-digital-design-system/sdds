@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                   | Type      | Default |
-| -------- | --------- | ----------------------------- | --------- | ------- |
-| `open`   | `open`    | Opens and closes the launcher | `boolean` | `false` |
+| Property  | Attribute | Description                   | Type               | Default  |
+| --------- | --------- | ----------------------------- | ------------------ | -------- |
+| `open`    | `open`    | Opens and closes the launcher | `boolean`          | `false`  |
+| `variant` | `variant` |                               | `"grid" \| "list"` | `'list'` |
 
 
 ## Events

@@ -44,21 +44,24 @@ const Template = ({ siteName }) =>
       </sdds-header-link>
 
       <sdds-header-dropdown>
-        Dropdown
-        <sdds-header-link slot="child">
-          Link
-        </sdds-header-link>
-        <sdds-header-button active slot="child">
-          Button
-        </sdds-header-button>
-        <sdds-header-user 
-          img="https://www.svgrepo.com/show/170303/avatar.svg" 
-          alt="Alt"
-          header="Header"
-          subheader="Subeader"
-          slot="child"
-          >
-        </sdds-header-user>
+        <div slot="dropdown-button">
+          Dropdown
+        </div>
+        <div slot="dropdown-menu">
+          <sdds-header-link>
+            Link
+          </sdds-header-link>
+          <sdds-header-button active>
+            Button
+          </sdds-header-button>
+          <sdds-header-user 
+            img="https://www.svgrepo.com/show/170303/avatar.svg" 
+            alt="Alt"
+            header="Header"
+            subheader="Subeader"
+            >
+          </sdds-header-user>
+        </div>
       </sdds-header-dropdown>
       <sdds-header-link>
         Link
@@ -78,19 +81,31 @@ const Template = ({ siteName }) =>
           Button
         </sdds-header-button>
       </sdds-header-dropdown>
-      <sdds-header-launcher>
-        <sdds-header-link slot="child">
-          Link
-        </sdds-header-link>
-        <sdds-header-button divider="divider" slot="child">
-          Button
-        </sdds-header-button>
-        <sdds-header-link slot="child">
-          Link
-        </sdds-header-link>
+      <sdds-header-launcher variant="list">
         <sdds-header-button slot="child">
           Button
         </sdds-header-button>
+        <sdds-header-button slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-button divider="test" slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-button slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-button slot="child">
+          Button
+        </sdds-header-button>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
+        <sdds-header-link slot="child">
+          Link
+        </sdds-header-link>
       </sdds-header-launcher>
     </div>
 
@@ -104,14 +119,24 @@ const Template = ({ siteName }) =>
           Button - top
       </sdds-header-button>
       <sdds-header-dropdown>
-        <sdds-icon name="settings" size="24px"></sdds-icon>
-        Dropdown
-        <sdds-header-link slot="child">
-          Link
-        </sdds-header-link>
-        <sdds-header-button active slot="child">
-          Button
-        </sdds-header-button>
+        <div slot="dropdown-button">
+          Dropdown
+        </div>
+        <div slot="dropdown-menu">
+          <sdds-header-link>
+            Link
+          </sdds-header-link>
+          <sdds-header-button active>
+            Button
+          </sdds-header-button>
+          <sdds-header-user 
+            img="https://www.svgrepo.com/show/170303/avatar.svg" 
+            alt="Alt"
+            header="Header"
+            subheader="Subeader"
+            >
+          </sdds-header-user>
+        </div>
       </sdds-header-dropdown>
     </div>
     <div slot="mobile-menu-bottom">

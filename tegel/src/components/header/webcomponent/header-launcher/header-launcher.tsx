@@ -19,6 +19,8 @@ export class HeaderLauncher {
   /** Opens and closes the launcher */
   @Prop() open: boolean = false;
 
+  @Prop() variant: 'list' | 'grid' = 'list';
+
   parentSlot: string;
 
   @Element() host: HTMLElement;
@@ -59,7 +61,7 @@ export class HeaderLauncher {
         >
           <sdds-icon name="bento" size="20px"></sdds-icon>
         </button>
-        <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot}`}>
+        <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot} ${this.variant}`}>
           <slot name="child"></slot>
         </ul>
       </Host>
