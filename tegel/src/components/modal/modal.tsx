@@ -20,6 +20,8 @@ export class Modal {
 
   @Element() el: HTMLElement;
 
+  closeButtonEl: HTMLElement;
+
   /** Shows the modal  */
   @Method()
   async openModal() {
@@ -28,7 +30,8 @@ export class Modal {
 
   setDissmissButtons() {
     const nodes = this.el.querySelectorAll('[data-dismiss-modal]');
-    nodes.forEach((el) => {
+
+    [...Array.from(nodes), this.closeButtonEl].forEach((el) => {
       el.addEventListener('click', () => {
         this.open = false;
       });
@@ -65,7 +68,15 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <button class="sdds-modal-close" aria-label="close"></button>
+            <button
+              class="sdds-modal-close"
+              aria-label="close"
+              ref={(el) => {
+                this.closeButtonEl = el as HTMLElement;
+              }}
+            >
+              <sdds-icon name="cross" size="20px"></sdds-icon>
+            </button>
           </div>
 
           <div class="sdds-modal-body">

@@ -17,12 +17,14 @@
 
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-datetime](../datetime)
+ - [sdds-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-datetime --> sdds-icon
+  sdds-modal --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
