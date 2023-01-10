@@ -32,7 +32,7 @@ export default {
     },
   },
   args: {
-    canvasPosition: 'Bottom start',
+    canvasPosition: 'Bottom',
   },
 };
 
