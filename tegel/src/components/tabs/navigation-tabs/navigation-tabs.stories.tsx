@@ -28,7 +28,7 @@ const Template = () =>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
-      <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
+      <a role="link" aria-disabled="true" tabindex="-1" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
     </sdds-navigation-tabs>
     `);
 

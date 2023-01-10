@@ -54,7 +54,7 @@ const Template = ({ size, disabled = false, headline = '' }) => {
     headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>` : '';
 
   return formatHtmlPreview(`
-      <div class="sdds-toggle ${sizeValue} ${disabled ? 'disabled' : ''}" tabindex="0">
+      <div class="sdds-toggle ${sizeValue} ${disabled ? 'disabled' : ''}">
         ${headlineDiv}
         <input type="checkbox" class="sdds-toggle-input" id="customSwitch1" ${
           disabled ? 'disabled' : ''

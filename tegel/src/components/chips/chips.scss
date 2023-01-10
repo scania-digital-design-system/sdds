@@ -1,7 +1,11 @@
 @import './chips-theme-vars.scss';
 @import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
-.sdds-chip {
+.sdds-chip,
+button.sdds-chip {
+  all: unset;
+
   @include sdds-box-sizing;
 
   color: var(--sdds-chips-color);
@@ -21,6 +25,10 @@
 
   &:hover {
     background-color: var(--sdds-chips-background-hover);
+  }
+
+  &:focus {
+    @include sdds-focus-state;
   }
 
   &-icon {

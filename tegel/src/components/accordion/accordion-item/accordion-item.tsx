@@ -45,15 +45,18 @@ export class AccordionItem {
         ${this.expanded ? 'expanded' : ''}
         `}
         >
-          <div
+          <button
+            type="button"
+            aria-expanded={this.expanded}
             class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
             onClick={() => this.openAccordion()}
+            disabled={this.disabled}
           >
             <div class="sdds-accordion-title">{this.header}</div>
             <div class="sdds-accordion-icon">
               <sdds-icon name="chevron_down" size="16px"></sdds-icon>
             </div>
-          </div>
+          </button>
           <div
             class={`sdds-accordion-panel 
             ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
