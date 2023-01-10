@@ -1,6 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core';
-import { createPopper, Instance, VirtualElement } from '@popperjs/core';
-import type { Placement } from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
+import type { Placement, Instance } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-tooltip',
@@ -15,7 +15,7 @@ export class Tooltip {
   @Prop() selector: string = '';
 
   /** Element that will trigger the tooltip (takes priority over selector) */
-  @Prop() referenceEl: Element | VirtualElement;
+  @Prop() referenceEl: HTMLElement;
 
   /** Allow mouse over tooltip. Useful when tooltip contains clickable elements like link or button. */
   @Prop() mouseOverTooltip: boolean = false;

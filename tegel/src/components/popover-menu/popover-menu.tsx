@@ -1,6 +1,6 @@
 import { Component, Element, Host, Listen, h, Prop, State } from '@stencil/core';
-import { createPopper, Instance, VirtualElement } from '@popperjs/core';
-import type { Placement } from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
+import type { Placement, Instance } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-popover-menu',
@@ -14,7 +14,7 @@ export class PopoverMenu {
   @Prop() selector: string = '';
 
   /** Element that will trigger the popover (takes priority over selector) */
-  @Prop() referenceEl: Element | VirtualElement;
+  @Prop() referenceEl: HTMLElement;
 
   /** Decides if the Popover Menu should be visible from the start */
   @Prop() show: boolean = false;
