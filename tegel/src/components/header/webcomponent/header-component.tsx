@@ -77,11 +77,11 @@ export class SddsHeader {
               </ul>
             </nav>
           )}
-          <ul class="inline-menu">
-            <slot name="inline-menu"></slot>
+          <ul class="header-left">
+            <slot name="header-left"></slot>
           </ul>
-          <ul class="toolbar">
-            <slot name="toolbar"></slot>
+          <ul class="header-right">
+            <slot name="header-right"></slot>
           </ul>
         </nav>
         <div class="header-logo">

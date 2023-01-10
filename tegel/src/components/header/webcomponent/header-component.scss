@@ -11,13 +11,13 @@
   z-index: 3;
   display: flex;
 
-  ::slotted([slot='inline-menu']) {
+  ::slotted([slot='header-left']) {
     border-left: 1px solid var(--sdds-nav-item-border-color);
     display: flex;
     list-style: none;
   }
 
-  ::slotted([slot='toolbar']) {
+  ::slotted([slot='header-right']) {
     border-left: 1px solid var(--sdds-nav-item-border-color);
     display: flex;
     list-style: none;
@@ -80,7 +80,7 @@
       align-items: center;
     }
 
-    ul.inline-menu {
+    ul.header-left {
       display: none;
     }
 
@@ -156,11 +156,11 @@
       margin-left: auto;
     }
 
-    ul.inline-menu {
+    ul.header-left {
       display: none;
     }
 
-    ul.toolbar {
+    ul.header-right {
       margin: 0;
       margin-left: auto;
     }

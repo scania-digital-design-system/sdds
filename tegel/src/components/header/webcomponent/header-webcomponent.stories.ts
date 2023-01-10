@@ -38,7 +38,7 @@ const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
   <sdds-header site-name="${siteName}" icon-href="https://www.scania.com">
-    <div slot="inline-menu">
+    <div slot="header-left">
       <sdds-header-link>
         Link
       </sdds-header-link>
@@ -68,18 +68,26 @@ const Template = ({ siteName }) =>
       </sdds-header-link>
     </div>
 
-    <div slot="toolbar">
-      <sdds-header-dropdown no-dropdown-icon wide>
-        <sdds-icon name="profile" size="20px"> </sdds-icon>
-        <sdds-header-user tall
-          header="Header"
-          subheader="Subeader"
-          slot="child"
-          >
-        </sdds-header-user>
-        <sdds-header-button slot="child">
-          Button
-        </sdds-header-button>
+    <div slot="header-right">
+      <sdds-header-dropdown no-dropdown-icon>
+        <div slot="dropdown-button">
+          <sdds-icon name="profile" size="20px"></sdds-icon>
+        </div>
+        <div slot="dropdown-menu">
+          <sdds-header-link>
+            Link
+          </sdds-header-link>
+          <sdds-header-button active>
+            Button
+          </sdds-header-button>
+          <sdds-header-user 
+            img="https://www.svgrepo.com/show/170303/avatar.svg" 
+            alt="Alt"
+            header="Header"
+            subheader="Subeader"
+            >
+          </sdds-header-user>
+        </div>
       </sdds-header-dropdown>
       <sdds-header-launcher variant="list">
         <sdds-header-button>
