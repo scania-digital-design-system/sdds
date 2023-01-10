@@ -1,5 +1,5 @@
 import { Component, Element, Host, Listen, h, Prop, State } from '@stencil/core';
-import { createPopper, Instance } from '@popperjs/core';
+import { createPopper, Instance, VirtualElement } from '@popperjs/core';
 import type { Placement } from '@popperjs/core';
 
 @Component({
@@ -10,8 +10,11 @@ import type { Placement } from '@popperjs/core';
 export class PopoverMenu {
   @Element() popoverMenuElement!: HTMLElement;
 
-  /** The CSS-selector that will trigger this Popover Menu */
+  /** The CSS-selector for an element that will trigger the popover */
   @Prop() selector: string = '';
+
+  /** Element that will trigger the popover (takes priority over selector) */
+  @Prop() referenceEl: Element | VirtualElement;
 
   /** Decides if the Popover Menu should be visible from the start */
   @Prop() show: boolean = false;
@@ -39,7 +42,7 @@ export class PopoverMenu {
   }
 
   componentDidLoad() {
-    this.target = document.querySelector(this.selector);
+    this.target = this.referenceEl ?? document.querySelector(this.selector);
     this.renderedShowValue = this.show;
 
     this.popperInstance = createPopper(this.target, this.popoverMenuElement, {
@@ -89,6 +92,10 @@ export class PopoverMenu {
       this.popperInstance.update();
     }
     this.renderedShowValue = this.show;
+  }
+
+  disconnectedCallback() {
+    this.popperInstance?.destroy();
   }
 
   render() {
