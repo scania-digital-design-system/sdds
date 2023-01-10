@@ -1,5 +1,5 @@
 import { Component, Element, Host, Listen, h, Prop, State } from '@stencil/core';
-import { createPopper } from '@popperjs/core';
+import { createPopper, Instance } from '@popperjs/core';
 import type { Placement } from '@popperjs/core';
 
 @Component({
@@ -25,6 +25,10 @@ export class PopoverMenu {
   /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
+  @State() renderedShowValue: boolean = false;
+
+  @State() popperInstance: Instance;
+
   @State() target: any;
 
   @Listen('mousedown', { target: 'window' })
@@ -36,17 +40,12 @@ export class PopoverMenu {
 
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
-    const _this = this;
-    createPopper(this.target, this.popoverMenuElement, {
+    this.renderedShowValue = this.show;
+
+    this.popperInstance = createPopper(this.target, this.popoverMenuElement, {
       strategy: 'fixed',
-      placement: _this.placement,
+      placement: this.placement,
       modifiers: [
-        {
-          name: 'positionCalc',
-          enabled: true,
-          phase: 'main',
-          fn({}) {},
-        },
         {
           name: 'offset',
           options: {
@@ -64,7 +63,7 @@ export class PopoverMenu {
       this.show = false;
     };
 
-    this.target.addEventListener('mousedown', event => {
+    this.target.addEventListener('mousedown', (event) => {
       event.stopPropagation();
 
       if (this.show) {
@@ -74,13 +73,22 @@ export class PopoverMenu {
       }
     });
 
-    this.popoverMenuElement.addEventListener('mousemove', event => {
+    this.popoverMenuElement.addEventListener('mousemove', (event) => {
       event.stopPropagation();
     });
 
-    this.popoverMenuElement.addEventListener('mousedown', event => {
+    this.popoverMenuElement.addEventListener('mousedown', (event) => {
       event.stopPropagation();
     });
+  }
+
+  componentDidRender() {
+    if (this.show && !this.renderedShowValue) {
+      // Here we update the popper position since its position is wrong
+      // before it is rendered.
+      this.popperInstance.update();
+    }
+    this.renderedShowValue = this.show;
   }
 
   render() {
