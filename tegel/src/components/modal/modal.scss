@@ -118,7 +118,7 @@ $modals: (
   padding-bottom: var(--sdds-spacing-element-8);
   position: sticky;
   top: 0;
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   z-index: 1;
 
   &::before {
@@ -127,11 +127,12 @@ $modals: (
     height: 16px;
     top: -16px;
     width: 100%;
-    background-color: var(--sdds-modal-bg);
+    background-color: var(--sdds-modal-background);
   }
 }
 
 @mixin modal-headline {
+  color: var(--sdds-modal-text);
   font: var(--sdds-headline-05);
   letter-spacing: var(--sdds-headline-05-ls);
   margin: 0;
@@ -139,6 +140,7 @@ $modals: (
 }
 
 @mixin modal-body {
+  color: var(--sdds-modal-text);
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
@@ -155,13 +157,14 @@ $modals: (
 .sdds-modal {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   margin: auto;
   position: relative;
   border-radius: 4px;
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;
+
   @include modal-scroll-outer;
 
   &__actions-sticky {
@@ -181,7 +184,7 @@ $modals: (
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       padding: var(--sdds-spacing-element-16);
       display: flex;
       gap: 16px;
@@ -190,7 +193,7 @@ $modals: (
 
   &__actions-static {
     .sdds-modal-actions {
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       display: flex;
       gap: 16px;
     }
@@ -228,6 +231,8 @@ $modals: (
 
 .sdds-modal-headline {
   @include modal-headline;
+
+  color: var(--sdds-modal-text);
 }
 
 .sdds-modal-body {
@@ -265,6 +270,26 @@ button.sdds-modal-close {
   }
 }
 
+//web component with nested svg
+.sdds-modal-close-btn {
+  display: inline-block;
+  height: auto;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  @media (min-width: $screen-s) {
+    margin-left: var(--sdds-spacing-element-16);
+  }
+
+  @media (min-width: $screen-l) {
+    margin-left: var(--sdds-spacing-element-48);
+  }
+
+  svg {
+    fill: var(--sdds-modal-icon);
+  }
+}
+
 .sdds-modal-overflow {
   overflow: hidden;
 }
@@ -275,6 +300,11 @@ button.sdds-modal-close {
   @include modal-host;
 
   .sdds-modal-close {
+    border: none;
+    background-color: transparent;
+  }
+
+  .sdds-modal-close-btn {
     border: none;
     background-color: transparent;
   }
