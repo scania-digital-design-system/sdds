@@ -8,8 +8,6 @@ import { Component, h, Element, Prop, Host } from '@stencil/core';
 export class HeaderButton {
   @Prop() active: boolean = false;
 
-  @Prop() divider: string;
-
   @Element() host: HTMLElement;
 
   parentEl: HTMLSddsHeaderLauncherElement | HTMLSddsHeaderDropdownElement;
@@ -21,6 +19,7 @@ export class HeaderButton {
   position: string;
 
   type:
+    | 'header-child'
     | 'dropdown-child'
     | 'launcher-list-child'
     | 'launcher-grid-child'
@@ -31,6 +30,7 @@ export class HeaderButton {
   connectedCallback() {
     console.log(this.host, this.host.parentElement.slot);
 
+    // should be switch case ?
     if (this.host.parentElement.slot === 'mobile-menu-top') {
       // If mobile menu direct child
       this.type = 'mobile-menu-top-child';
@@ -67,9 +67,6 @@ export class HeaderButton {
   render() {
     return (
       <Host>
-        {this.divider && this.type === 'launcher-list-child' && (
-          <div class="divider">{this.divider}</div>
-        )}
         <li class={`${this.type}`}>
           <button class={`${this.active ? 'active' : ''}`}>
             <slot></slot>

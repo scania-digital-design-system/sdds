@@ -37,7 +37,23 @@ export default {
 const Template = ({ siteName }) =>
   formatHtmlPreview(
     `
-  <sdds-header site-name="${siteName}" icon-href="https://www.scania.com">
+    <style>
+    /* sdds-side-menu {
+      display: none;
+    }
+
+    sdds-side-menu.open {
+      display: block;
+    }
+
+    @media all and (min-width: 672px) {
+      sdds-side-menu,
+      sdds-side-menu.open {
+        display: none;
+      }
+    } */
+    </style>
+  <sdds-header mobileMenu="true" side-menu-id="my-side-menu" site-name="${siteName}" icon-href="https://www.scania.com">
     <div slot="header-left">
       <sdds-header-link>
         Link
@@ -69,7 +85,7 @@ const Template = ({ siteName }) =>
     </div>
 
     <div slot="header-right">
-      <sdds-header-dropdown no-dropdown-icon>
+    <sdds-header-dropdown no-dropdown-icon>
         <div slot="dropdown-button">
           <sdds-icon name="profile" size="20px"></sdds-icon>
         </div>
@@ -96,7 +112,7 @@ const Template = ({ siteName }) =>
         <sdds-header-button>
           Button
         </sdds-header-button>
-        <sdds-header-button divider="Divider">
+        <sdds-header-button>
           Button
         </sdds-header-button>
         <sdds-header-button>
@@ -116,63 +132,56 @@ const Template = ({ siteName }) =>
         </sdds-header-link>
       </sdds-header-launcher>
     </div>
-
-    <div slot="mobile-menu-top">
-      <sdds-header-link>
-        <sdds-icon name="truck" size="24px"> </sdds-icon>
-          Link - top
-        </sdds-header-link>
-        <sdds-header-button>
-        <sdds-icon name="truck" size="24px"> </sdds-icon>
-          Button - top
-      </sdds-header-button>
-      <sdds-header-dropdown>
-        <div slot="dropdown-button">
-          Dropdown
-        </div>
-        <div slot="dropdown-menu">
-          <sdds-header-link>
+    <sdds-side-menu slot="mobile-menu" id="my-side-menu">
+    <div slot="top">
+      <sdds-side-menu-button selected icon="truck">
+        <sdds-icon slot="icon" name="truck" size="24px"> </sdds-icon>
+        Selected button
+      </sdds-side-menu-button>
+      <sdds-side-menu-link icon="truck">
+        <sdds-icon slot="icon" name="truck" size="24px"> </sdds-icon>
+        Link
+      </sdds-side-menu-link>
+      <sdds-side-menu-dropdown>
+        Dropdown with selected child
+        <sdds-icon name="chevron_down" size="24px"> </sdds-icon>
+        <div slot="children">
+          <sdds-side-menu-button>
+            Button with a veeeeeeeeerey long name
+          </sdds-side-menu-button>
+          <sdds-side-menu-link  selected>
             Link
-          </sdds-header-link>
-          <sdds-header-button active>
-            Button
-          </sdds-header-button>
-          <sdds-header-user 
-            img="https://www.svgrepo.com/show/170303/avatar.svg" 
-            alt="Alt"
-            header="Header"
-            subheader="Subeader"
-            >
-          </sdds-header-user>
+          </sdds-side-menu-link>
         </div>
-      </sdds-header-dropdown>
-    </div>
-    <div slot="mobile-menu-bottom">
-      <sdds-header-user tall
-          img="https://www.svgrepo.com/show/170303/avatar.svg" 
-          alt="Alt"
-          header="Header"
-          subheader="Subeader"
-          slot="child">
-      </sdds-header-user>
-      <sdds-header-link>
-        Link - bottom
-      </sdds-header-link>
-      <sdds-header-button>
-        Button - bottom
-      </sdds-header-button>
-    </div>
-  </sdds-header>
-
-  <button id="button">CLICK</button>
-
+      </sdds-side-menu-dropdown>
+      <sdds-side-menu-dropdown>
+      Dropdown
+      <sdds-icon name="chevron_down" size="24px"> </sdds-icon>
+        <div slot="children">
+          <sdds-side-menu-button >
+            Button
+          </sdds-side-menu-button>
+          <sdds-side-menu-link >
+            Link
+          </sdds-side-menu-link>
+        </div>
+      </sdds-side-menu-dropdown>
+  </div>
+  <div slot="bottom">
+    <sdds-side-menu-user header="Martin" subheader="Jarsäter">
+    </sdds-side-menu-user>
+    <sdds-side-menu-button icon="print" >
+      Button
+    </sdds-side-menu-button>
+  </div>
+</sdds-side-menu>
+    </sdds-header>
+  
   <script>  
-    document.getElementById('button').addEventListener('click', (event) => {
-      header = document.getElementsByTagName('body')[0]
-      const newEvent = new CustomEvent('closeAllEvent')
-      header.dispatchEvent(newEvent)
-      console.log(newEvent)
-    })
+    toggleMobileMenu = () => {
+        document.getElementsByTagName('sdds-side-menu')[0].classList.toggle('open')
+        document.getElementsByClassName('mobile-menu-button')[0].classList.toggle('open')
+      }
   </script>
   `,
   );
