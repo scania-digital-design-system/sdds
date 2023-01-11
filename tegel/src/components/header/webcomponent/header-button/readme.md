@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default     |
-| --------- | --------- | ----------- | --------- | ----------- |
-| `active`  | `active`  |             | `boolean` | `false`     |
-| `divider` | `divider` |             | `string`  | `undefined` |
+| Property | Attribute | Description | Type      | Default |
+| -------- | --------- | ----------- | --------- | ------- |
+| `active` | `active`  |             | `boolean` | `false` |
 
 
 ----------------------------------------------

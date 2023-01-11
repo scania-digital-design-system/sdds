@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                              | Type      | Default         |
-| ---------------- | ------------------ | ---------------------------------------- | --------- | --------------- |
-| `iconHref`       | `icon-href`        | Href for the header icon                 | `string`  | `'#'`           |
-| `mobileMenu`     | `mobile-menu`      |                                          | `boolean` | `true`          |
-| `mobileMenuOpen` | `mobile-menu-open` |                                          | `boolean` | `true`          |
-| `siteName`       | `site-name`        | The name that is displayed in the header | `string`  | `'Application'` |
+| Property     | Attribute      | Description                                               | Type      | Default         |
+| ------------ | -------------- | --------------------------------------------------------- | --------- | --------------- |
+| `appName`    | `app-name`     | The name that is displayed in the header                  | `string`  | `'Application'` |
+| `iconHref`   | `icon-href`    | Href for the header icon                                  | `string`  | `'#'`           |
+| `mobileMenu` | `mobile-menu`  | Adds a mobilemenu button to the header on smaller screens | `boolean` | `true`          |
+| `sideMenuId` | `side-menu-id` | The ID of the side menu that should act as mobile menu    | `string`  | `undefined`     |
 
 
 ## Events

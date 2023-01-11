@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   Method,
+  State,
 } from '@stencil/core';
 
 @Component({
@@ -17,14 +18,18 @@ import {
 })
 export class SddsHeader {
   /** The name that is displayed in the header */
-  @Prop() siteName: string = 'Application';
+  @Prop() appName: string = 'Application';
 
   /** Href for the header icon */
   @Prop() iconHref: string = '#';
 
+  /** Adds a mobilemenu button to the header on smaller screens */
   @Prop() mobileMenu: boolean = true;
 
-  @Prop() mobileMenuOpen: boolean = true;
+  /** The ID of the side menu that should act as mobile menu */
+  @Prop() sideMenuId: string;
+
+  @State() mobileMenuOpen: boolean = false;
 
   @Element() host: HTMLElement;
 
@@ -39,18 +44,12 @@ export class SddsHeader {
   @Listen('childOpenedEvent', { target: 'body' })
   handleChildOpenedEvent() {
     this.closeAllEvent.emit();
-    this.mobileMenuOpen = false;
   }
 
   @Method()
   async closeChildren() {
     this.closeAllEvent.emit();
   }
-
-  handleClick = () => {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
-    this.closeAllEvent.emit();
-  };
 
   render() {
     return (
@@ -59,15 +58,15 @@ export class SddsHeader {
           <button
             class={`mobile-menu-button ${this.mobileMenuOpen ? 'open' : 'closed'}`}
             onClick={() => {
-              this.handleClick();
+              this.mobileMenuOpen = !this.mobileMenuOpen;
             }}
           >
-            <sdds-icon name={this.mobileMenuOpen ? 'cross' : 'burger'} size="24px"></sdds-icon>
+            <sdds-icon name={this.mobileMenuOpen ? 'cross' : 'burger'} size="20px"></sdds-icon>
           </button>
         )}
-        <div class="header-app-name">{this.siteName}</div>
+        <div class="header-app-name">{this.appName}</div>
         <nav class="nav-content">
-          {this.mobileMenu && this.mobileMenuOpen && (
+          {/*  {this.mobileMenu && this.mobileMenuOpen && (
             <nav class="mobile-menu">
               <ul class="mobile-menu-top">
                 <slot name="mobile-menu-top"></slot>
@@ -76,7 +75,7 @@ export class SddsHeader {
                 <slot name="mobile-menu-bottom"></slot>
               </ul>
             </nav>
-          )}
+          )} */}
           <ul class="header-left">
             <slot name="header-left"></slot>
           </ul>
@@ -87,6 +86,7 @@ export class SddsHeader {
         <div class="header-logo">
           <a href={this.iconHref}></a>
         </div>
+        {this.mobileMenuOpen && <slot name="mobile-menu"></slot>}
       </Host>
     );
   }

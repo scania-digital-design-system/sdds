@@ -81,7 +81,7 @@
 
     &.open.grid {
       width: calc(288px + 8px);
-      display: flex;
+      display: inline;
       flex-wrap: wrap;
 
       slot[name='child']::slotted(sdds-header-button) {

@@ -69,18 +69,30 @@
     display: none;
   }
 
+  slot[name="mobile-menu"]::slotted(*) {
+    position: absolute;
+    top: 64px;
+    left: 0;
+  }
+
   /* IPAD */
-  // TODO - Should use token
-  @media all and (max-width: 672px) {
-    .header-app-name + button.mobile-menu-button {
-      position: absolute;
-      left: 68px;
-      top: 23.75px;
-      display: flex;
-      align-items: center;
+  @media all and (min-width: 672px) {
+    slot[name='mobile-menu-button']::slotted(*) {
+      display: none;
     }
 
+    slot[name='mobile-menu']::slotted(*) {
+      display: none;
+    }
+  }
+
+  // TODO - Should use token
+  @media all and (max-width: 672px) {
     ul.header-left {
+      display: none;
+    }
+
+    ul.header-right {
       display: none;
     }
 
@@ -93,8 +105,12 @@
       display: none;
     }
 
+    button.mobile-menu-button.open + .header-app-name {
+      display: none;
+    }
+
     button.mobile-menu-button {
-      z-index: 10;
+      overflow: hidden;
       height: 64px;
       color: var(--sdds-header-mob-menu-color);
       background-color: var(--sdds-header-mob-menu-bg);
