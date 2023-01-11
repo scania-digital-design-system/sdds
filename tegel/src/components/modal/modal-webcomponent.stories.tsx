@@ -74,9 +74,9 @@ const ModalTemplate = ({ size, headline, bodyText, actions }) =>
 
   <sdds-modal open id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
-      <div class="sdds-modal-body" slot="sdds-modal-body">
+      <span slot="sdds-modal-body">
           ${bodyText}
-      </div>
+      </span>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
       <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
