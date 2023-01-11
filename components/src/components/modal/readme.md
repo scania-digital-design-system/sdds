@@ -14,6 +14,16 @@
 
 ## Methods
 
+### `closeModal() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `openModal() => Promise<void>`
 
 

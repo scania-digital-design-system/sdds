@@ -291,6 +291,7 @@ export namespace Components {
         "modeVariant": 'primary' | 'secondary';
     }
     interface SddsModal {
+        "closeModal": () => Promise<void>;
         "openModal": () => Promise<void>;
         /**
           * Disables closing modal on clicking on overlay area.
