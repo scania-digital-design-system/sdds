@@ -72,7 +72,7 @@ const Template = ({ headline, size, actions, showModal }) =>
     position: relative;
     top: 0;
     left: 0;
-    height: 500px;
+    height: 100vh;
   }
   .demo-styles {
     position: absolute;
