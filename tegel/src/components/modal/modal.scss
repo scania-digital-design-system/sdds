@@ -145,6 +145,7 @@ $modals: (
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
   overflow-y: visible;
+  padding-right: 16px;
   @include modal-scroll-inner;
 
   @media (min-width: $screen-l) {
