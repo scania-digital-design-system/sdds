@@ -9,7 +9,7 @@
   --sdds-card-body: var(--sdds-grey-958);
   --sdds-card-divider: var(--sdds-grey-300);
 
-  .sdds-mode-secondary {
+  .sdds-mode-variant-secondary  {
     --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
   }
 }
@@ -24,7 +24,7 @@
   --sdds-card-body: var(--sdds-white);
   --sdds-card-divider: var(--sdds-grey-700);
 
-  .sdds-mode-secondary {
+  .sdds-mode-variant-secondary  {
     --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
     --sdds-card-background: var(--sdds-grey-868);
   }
