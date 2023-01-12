@@ -101,10 +101,6 @@
       color: var(--sdds-message-type-informative-color);
       background-color: var(--sdds-message-type-informative-background);
 
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-informative-background-ongrey);
-      }
-
       &::before {
         background-color: var(--sdds-information);
       }
@@ -149,10 +145,6 @@
       color: var(--sdds-message-type-warning-color);
       background-color: var(--sdds-message-type-warning-background);
 
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-warning-background-ongrey);
-      }
-
       &::before {
         background-color: var(--sdds-warning);
       }
@@ -174,10 +166,6 @@
     &-success {
       color: var(--sdds-message-type-success-color);
       background-color: var(--sdds-message-type-success-background);
-
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-success-background-ongrey);
-      }
 
       &::before {
         background-color: var(--sdds-positive);
