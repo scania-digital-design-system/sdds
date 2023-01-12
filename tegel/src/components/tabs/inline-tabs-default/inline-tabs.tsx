@@ -66,33 +66,17 @@ export class InlineTabs {
       this.useAutoHeight = true;
     }
 
-    this.tabs = Array.from(this.host.children).map((item: HTMLElement, index) => {
-      const name = item.dataset.name
-        ? item.dataset.name
-        : item.getAttribute('name') || `Tab ${index + 1}`;
-
-      let key = item.dataset.tabKey ? item.dataset.tabKey : item.getAttribute('tab-key');
-      if (!key) {
-        key = generateKeyFromName(name);
-      }
-
-      if (
-        (item.getAttribute('data-default')
-          ? item.getAttribute('data-default')
-          : item.getAttribute('default')) !== null
-      ) {
+    this.tabs = Array.from(this.host.children).map((item: HTMLSddsInlineTabElement, index) => {
+      const name = item.label ? item.label : item.getAttribute('name') || `Tab ${index + 1}`;
+      const key = generateKeyFromName(name);
+      console.log(key);
+      if (item.default) {
         this.startingTab = key;
       }
-
       let disabled = false;
-      if (
-        (item.getAttribute('aria-disabled')
-          ? item.getAttribute('aria-disabled')
-          : item.getAttribute('disabled')) !== null
-      ) {
+      if (item.disabled) {
         disabled = true;
       }
-
       return {
         name,
         key,
