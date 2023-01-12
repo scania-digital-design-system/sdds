@@ -32,7 +32,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['On dark', 'On light'],
+      options: ['Primary', 'Secondary'],
     },
     icon: {
       name: 'Icon',
@@ -60,7 +60,7 @@ export default {
   },
   args: {
     messageType: 'Information',
-    variant: 'On light',
+    variant: 'Primary',
     icon: false,
     iconType: 'Web Component',
     showExtendedMessage: false,
@@ -83,7 +83,7 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
     messageType === 'Information'
       ? 'sdds-message-icon-informative'
       : `sdds-message-icon-${messageType.toLowerCase()}`;
-  const variantValue = variant === 'On dark' ? 'sdds-message-ongrey' : '';
+  const variantValue = variant === 'Secondary' ? 'sdds-mode-variant-secondary' : '';
   const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
