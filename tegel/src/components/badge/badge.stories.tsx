@@ -20,16 +20,6 @@ export default {
     ],
   },
   argTypes: {
-    visible: {
-      name: 'Visible',
-      description: 'Toggle visibility of badge',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
     value: {
       name: 'Value',
       description: 'Set a value to show on the badge',
@@ -55,11 +45,21 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
+    visible: {
+      name: 'Visible',
+      description: 'Toggle visibility of badge',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
   args: {
-    visible: true,
-    size: 'lg',
     value: 1,
+    size: 'lg',
+    visible: true,
   },
 };
 
