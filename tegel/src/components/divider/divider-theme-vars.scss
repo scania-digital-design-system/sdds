@@ -4,13 +4,11 @@ $border-types: top, right, bottom, left;
 .sdds-theme-light {
   --sdds-divider-background: var(--sdds-grey-300);
 }
-
-:host-context(body.sdds-theme-dark),
+:root,
 .sdds-theme-dark {
   --sdds-divider-background: var(--sdds-grey-700);
 }
-
-:host-context(body.sdds-theme-colored),
+:root,
 .sdds-theme-colored {
   --sdds-divider-background: var(--sdds-blue-700);
 }
