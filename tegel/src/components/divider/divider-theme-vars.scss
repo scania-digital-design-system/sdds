@@ -1,36 +1,16 @@
-$types: (
-  'light': var(--sdds-grey-300),
-  'dark': var(--sdds-grey-868),
-  'coloured': var(--sdds-blue-600),
-);
 $border-types: top, right, bottom, left;
 
 :root,
 .sdds-theme-light {
-  @each $type, $value in $types {
-    --sdds-divider-#{$type}: #{$value};
-    --sdds-divider-#{$type}-vertical: #{$value};
-
-    @each $border-type in $border-types {
-      --sdds-divider-#{$type}-border-#{$border-type}: #{$value};
-    }
-  }
+  --sdds-divider-background: var(--sdds-grey-300);
 }
 
 :host-context(body.sdds-theme-dark),
 .sdds-theme-dark {
-  $types: (
-    'light': var(--sdds-white),
-    'dark': var(--sdds-grey-700),
-    'coloured': var(--sdds-blue-200),
-  );
+  --sdds-divider-background: var(--sdds-grey-700);
+}
 
-  @each $type, $value in $types {
-    --sdds-divider-#{$type}: #{$value};
-    --sdds-divider-#{$type}-vertical: #{$value};
-
-    @each $border-type in $border-types {
-      --sdds-divider-#{$type}-border-#{$border-type}: #{$value};
-    }
-  }
+:host-context(body.sdds-theme-colored),
+.sdds-theme-colored {
+  --sdds-divider-background: var(--sdds-blue-700);
 }

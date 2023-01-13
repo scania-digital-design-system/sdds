@@ -286,6 +286,29 @@ Rename all instances of `sdds-chip__small` to `sdds-chip-sm`.
 </div>
 ```
 
+## Divider
+
+[Native](/docs/components-divider--default)
+
+#### All class names changed and divider color is now controled by dark/light mode
+
+Current classes is replaced by `sdds-divider`, `sdds-divider-vertical` and `sdds-divider-border-#{direction}`. 
+To change the color a color mode needs to be applied to the element och parent element; `sdds-mode-light`, `sdds-mode-dark` or `sdds-mode-colored`. 
+
+##### What action is required?
+
+Rename all classes.
+
+```jsx
+// Old ❌
+<div class="sdds-divider-dark"></div> 
+
+// New ✅
+<div class="sdds-mode-dark">
+  <<div class="sdds-divider"></div> 
+</div>
+```
+
 ## Dropdown
 
 [Native](/docs/components-dropdown--native)
