@@ -5,6 +5,17 @@ import readmeItem from './accordion-item/readme.md';
 export default {
   title: 'Components/Accordion',
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      }
+    },
     iconPosition: {
       name: 'Expand icon position',
       control: {
@@ -14,16 +25,6 @@ export default {
       description: 'The horizontal position of the expand icon.',
       table: {
         defaultValue: { summary: 'end' },
-      },
-    },
-    disabled: {
-      name: 'Disable all items',
-      description: 'Disable all accordion items.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
       },
     },
     paddingReset: {
@@ -36,15 +37,14 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'Mode variant of the component.',
+    disabled: {
+      name: 'Disable all items',
+      description: 'Disable all accordion items.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Inherit from parent' },
+        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -64,10 +64,10 @@ export default {
     ],
   },
   args: {
-    disabled: false,
-    paddingReset: false,
-    iconPosition: 'end',
     modeVariant: 'Inherit from parent',
+    iconPosition: 'end',
+    paddingReset: false,
+    disabled: false,
   },
 };
 
