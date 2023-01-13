@@ -24,14 +24,6 @@ export default {
     ],
   },
   argTypes: {
-    text: {
-      name: 'Text',
-      description: 'The text to be displayed on the button',
-      control: {
-        type: 'text',
-      },
-      if: { arg: 'onlyIcon', truthy: false },
-    },
     btnType: {
       name: 'Type',
       description:
@@ -75,13 +67,13 @@ export default {
       },
       if: { arg: 'onlyIcon', truthy: false },
     },
-    disabled: {
-      name: 'Disabled',
-      type: 'boolean',
-      description: 'Choose to disable the button',
-      table: {
-        defaultValue: { summary: false },
+    text: {
+      name: 'Text',
+      description: 'The text to be displayed on the button',
+      control: {
+        type: 'text',
       },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     onlyIcon: {
       name: 'Only Icon',
@@ -112,30 +104,38 @@ export default {
       options: ['Native', 'Web Component'],
       if: { arg: 'size', neq: 'Extra small' },
     },
+    disabled: {
+      name: 'Disabled',
+      type: 'boolean',
+      description: 'Choose to disable the button',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
   args: {
-    text: 'Button',
     btnType: 'Primary',
     size: 'Large',
     modeVariant: 'Primary',
     fullbleed: false,
-    disabled: false,
+    text: 'Button',
     onlyIcon: false,
     icon: 'none',
     iconType: 'Web Component',
+    disabled: false,
   },
 };
 
 const WebComponentTemplate = ({
-  onlyIcon,
-  size,
   modeVariant,
   btnType,
+  size,
   fullbleed,
-  disabled,
+  text = 'Button',
+  onlyIcon,
   icon,
   iconType,
-  text = 'Button',
+  disabled,
 }) => {
   const btnTypeLookUp = {
     Primary: 'primary',
