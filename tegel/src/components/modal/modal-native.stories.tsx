@@ -104,7 +104,7 @@ const Template = ({ headline, bodyText, size, actions, showModal }) =>
           </button>
         </div>
           <div class="sdds-modal-body">
-            ${bodyText}
+            <p>${bodyText}</p>
           </div>
           <div class="sdds-modal-actions">
               <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>
