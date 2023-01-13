@@ -9,9 +9,8 @@ export default {
       name: 'Mode variant',
       description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       }
