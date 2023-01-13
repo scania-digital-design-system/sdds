@@ -14,8 +14,6 @@
   --sdds-nav-item-border-color-active: var(--sdds-blue-400);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-100);
   --sdds-nav-item-core-color-active: var(--sdds-grey-800);
-  --sdds-nav-item-core-border-color: var(--sdds-blue-700); //not used
-  --sdds-nav-item-core-border-color-after: var(--sdds-blue-400); //not used
   --sdds-header-nav-item-color: var(--sdds-white);
   --sdds-header-nav-item-background-active: var(--sdds-blue-700);
   --sdds-nav-dropdown-item-background: var(--sdds-white);
@@ -134,7 +132,7 @@
   --sdds-header-searchbar-input-color: var(--sdds-white);
   --sdds-header-searchbar-input-placeholder-color: var(--sdds-grey-400);
   --sdds-header-searchbar-input-expanded-after-border-bottom: var(--sdds-grey-700);
-  --sdds-header-searchbar-border-color: var(--sdds-blue-800);
+  --sdds-header-searchbar-border-color: var(--sdds-blue-700);
   --sdds-header-searchbar-x-btn-background: var(--sdds-grey-958);
   --sdds-header-searchbar-x-btn-background-hover: var(--sdds-grey-868); //400?
   --sdds-header-searchbar-btn-svg-fill: var(--sdds-white);
@@ -142,7 +140,7 @@
   // /* Searchbar Results */
   --sdds-header-searchbar-result-item-background: var(--sdds-grey-958);
   --sdds-header-searchbar-result-item-background-hover: var(--sdds-grey-868);
-  --sdds-header-searchbar-result-item-background-active: var(--sdds-grey-868);
+  --sdds-header-searchbar-result-item-background-active: var(--sdds-grey-800);
   --sdds-header-searchbar-result-item-background-visited: var(--sdds-grey-600);
   --sdds-header-searchbar-result-item-anchor-background-hover: var(--sdds-grey-868);
   --sdds-header-searchbar-result-item-top-border-color: var(--sdds-grey-700);
