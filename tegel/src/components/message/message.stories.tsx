@@ -27,8 +27,8 @@ export default {
       options: ['Information', 'Error', 'Warning', 'Success'],
     },
     variant: {
-      name: 'Variant',
-      description: 'The variant of the message, on-dark/on-light',
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
         type: 'radio',
       },
