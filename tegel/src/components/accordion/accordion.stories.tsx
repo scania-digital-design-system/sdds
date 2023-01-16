@@ -38,7 +38,7 @@ export default {
     },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Variant of the component.',
+      description: 'Mode variant of the component.',
       control: {
         type: 'radio',
       },
@@ -77,7 +77,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
 
   return formatHtmlPreview(`
-    <sdds-accordion mode-variant="${modeVariant.toLowerCase()} ${modeVariant === 'Secondary' ? 'modeVariant = secondary' : 'modeVariant = primary'}">
+    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}">
       <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
