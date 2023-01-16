@@ -129,7 +129,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 </style>
 
     <div class="demo-wrapper">
-          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-secondary' : ''}">
+          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}">
             ${
               imageTop === true
                 ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
