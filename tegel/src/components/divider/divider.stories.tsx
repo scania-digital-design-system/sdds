@@ -16,16 +16,30 @@ export default {
         url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
       },
     ],
+    backgrounds: {
+      defaultBackground: "white"
+      // default: "white",
+      // values: [
+      //   {
+      //     name: 'grey-50',
+      //     value: '#F9FAFB',
+      //   },
+      //   {
+      //     name: 'white',
+      //     value: '#FFFFFF',
+      //   },
+      //   {
+      //     name: 'grey-900',
+      //     value: '#1d2229',
+      //   },
+      //   {
+      //     name: 'grey-958',
+      //     value: '#0d0f13',
+      //   },
+      // ],
+    }
   },
   argTypes: {
-    style: {
-      name: 'Style',
-      description: 'Set the style of the divider.',
-      control: {
-        type: 'select',
-      },
-      options: ['Light', 'Dark', 'Coloured'],
-    },
     type: {
       name: 'Type',
       description: 'Choose divider type.',
@@ -61,18 +75,11 @@ export default {
     },
   },
   args: {
-    style: 'Dark',
     type: 'Horizontal',
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     direction: 'Top',
   },
-};
-
-const styleLookup = {
-  Light: 'light',
-  Dark: 'dark',
-  Coloured: 'coloured',
 };
 
 const directionLookup = {
@@ -82,50 +89,56 @@ const directionLookup = {
   Left: 'left',
 };
 
-const Template = ({ type, style, width, direction, height }) => {
+const Template = ({ type, width, direction, height }) => {
   const classLookup = {
-    Horizontal: `sdds-divider-${styleLookup[style]}`,
-    Vertical: `sdds-divider-${styleLookup[style]}-vertical`,
-    Border: `divider-border-demo sdds-divider-${styleLookup[style]}-border-${directionLookup[direction]}`,
+    Horizontal: `sdds-divider`,
+    Vertical: `sdds-divider-vertical`,
+    Border: `sdds-divider-border-${directionLookup[direction]}`,
   };
-
+  
   return formatHtmlPreview(
     `
       <style>
+      .demo-wrapper{
+        padding: 50px;
+        background-color: var(--sdds-grey-958)
+      }
         ${
           direction
-            ? `/* demo-wrapper is for demonstration purposes only*/
-        .demo-wrapper {
+            ? `/* demo-div is for demonstration purposes only*/
+        .demo-div {
           height: 200px;
           width: 200px;
-          background-color: var(--sdds-grey-100);
+          background-color: var(--sdds-grey-868);
+          color: var(--sdds-grey-50);
+          text-align: center;
+          padding: 10px;
         }
         `
             : ''
         } ${
       height
-        ? `/* demo-wrapper is for demonstration purposes only*/
-        .demo-wrapper {
+        ? `/* demo-div is for demonstration purposes only*/
+        .demo-div {
           height: ${height}px;
         }`
         : ''
     }    ${
       width
-        ? `/* demo-wrapper is for demonstration purposes only*/
-            .demo-wrapper {
+        ? `/* demo-div is for demonstration purposes only*/
+            .demo-div {
               width: ${width}px;
             }`
         : ''
     }
       </style>
-
-        <div
-    class="${classLookup[type]} demo-wrapper ">
-    ${direction ? 'DEMO' : ''}</div>
-    `,
-  );
+      ${direction ? '<div class= "demo-wrapper">' : ''}
+      
+      <div
+  class="demo-div ${classLookup[type]}">
+  ${direction ? '<H4>DEMO</H4></div>' : ''}</div>
+  `,
+);
 };
-
 export const Default = Template.bind({});
-
 Default.args = {};
