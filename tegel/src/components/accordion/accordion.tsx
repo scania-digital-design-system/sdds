@@ -15,7 +15,7 @@ export class Accordion {
   render() {
     return (
       <Host
-        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''} ${this.modeVariant}`}
+        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''} sdds-mode-variant-${this.modeVariant}`}
       >
         <slot></slot>
       </Host>
