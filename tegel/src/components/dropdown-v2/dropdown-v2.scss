@@ -11,9 +11,9 @@
     flex-direction: row-reverse;
     align-items: center;
     padding: 0 16px;
-    
+
     sdds-icon {
-      transition: transform .2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
 
       &.lg {
         padding-top: 4px;
@@ -33,7 +33,7 @@
         transform: rotate(180deg);
       }
     }
- 
+
     &.lg {
       height: 56px;
     }
@@ -59,6 +59,9 @@
       border-bottom: 1px solid var(--sdds-grey-800);
       text-align: left;
 
+      &.error {
+        border-bottom: 1px solid var(--sdds-negative);
+      }
 
       &.lg.inside {
         padding-top: 4px;
@@ -66,10 +69,6 @@
 
       &.md.inside {
         padding-top: 4px;
-      }
-
-      &::placeholder{
-        color: pink;
       }
     }
   }
@@ -109,7 +108,7 @@
         font: var(--sdds-detail-07);
         letter-spacing: var(--sdds-detail-07-ls);
         top: 12px;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
     }
 
@@ -121,7 +120,6 @@
     &.sm {
       display: none;
     }
-    
   }
 
   .label-outside {
@@ -129,6 +127,20 @@
     letter-spacing: var(--sdds-detail-05-ls);
     color: var(--sdds-grey-958);
     margin-bottom: 8px;
+  }
+
+  .helper {
+    margin-top: 4px;
+    color: var(--sdds-grey-700);
+    font: var(--sdds-detail-05);
+    letter-spacing: var(--sdds-detail-05-ls);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &.error {
+      color: var(--sdds-negative);
+    }
   }
 
   .dropdown-menu {
@@ -145,12 +157,11 @@
       box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
       transform: scaleY(0);
       transform-origin: top;
-      transition: transform .2s ease-in-out;
-
+      transition: transform 0.2s ease-in-out;
     }
 
     &.open-up {
-      ul{
+      ul {
         top: auto;
         transform-origin: bottom;
         box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
@@ -167,10 +178,34 @@
           bottom: 40px;
         }
       }
+
+      &.label-outside {
+        ul {
+          &.lg {
+            bottom: calc(56px + 20px);
+          }
+
+          &.md {
+            bottom: calc(48px + 20px);
+          }
+
+          &.sm {
+            bottom: calc(40px + 20px);
+          }
+        }
+      }
+    }
+
+    &.open-down {
+      &.helper-bottom {
+        ul {
+          top: calc(100% - 20px);
+        }
+      }
     }
 
     &.open {
-      ul{
+      ul {
         transform: scaleY(1);
       }
     }

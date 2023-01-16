@@ -6,29 +6,35 @@ import { Component, Host, h, Prop, State, Element } from '@stencil/core';
   shadow: true,
 })
 export class SddsDropdownV2 {
-  @Prop() state: 'none' | 'error' = 'none';
+  /** Error state for the component, */
+  @Prop() error: boolean = false;
 
+  /** Data is an array of objects that contains label and value that will be rendered as dropdown-options. */
   @Prop() data: string = null;
 
-  @State() parsedData: Array<{
-    value: string;
-    label: string;
-    selected: boolean;
-    disabled: boolean;
-  }> = [];
-
+  /** The size of the component */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
+  /** Label text */
   @Prop() label: string = 'Placeholder';
+
+  /** Helper text in the bottom of dropdown */
+  @Prop() helper: string = '';
 
   /** Controls position of label */
   @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'outside';
 
+  /** Placeholder for the dropdown */
   @Prop() placeholder: string;
 
+  /** Open state of the dropdown */
   @Prop() open: boolean = false;
 
+  /** The value of the dropdown - selected option value. */
   @Prop({ reflect: true }) value: string;
+
+  /** The label of the selected value. */
+  @Prop({ reflect: true }) valueLabel: string;
 
   /** Direction that the dropdown will open. By default set to auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'up';
@@ -36,6 +42,13 @@ export class SddsDropdownV2 {
   @State() selectionMade: boolean = false;
 
   @State() dropdownMenuSelector: HTMLElement;
+
+  @State() parsedData: Array<{
+    value: string;
+    label: string;
+    selected: boolean;
+    disabled: boolean;
+  }> = [];
 
   @Element() host: HTMLElement;
 
@@ -56,6 +69,9 @@ export class SddsDropdownV2 {
           element.addEventListener('click', () => {
             element.setAttribute('selected', 'true');
             this.value = element.getAttribute('value');
+            this.valueLabel = element.getAttribute('label');
+
+            // Remove?
             this.selectedValueLabel = element.getAttribute('label');
             this.selectionMade = true;
             this.children.forEach((el) => {
@@ -77,6 +93,8 @@ export class SddsDropdownV2 {
     this.parsedData = this.parsedData.map((item, itemIndex) => {
       if (itemIndex === index) {
         this.value = item.value;
+        // Remove?
+        this.valueLabel = item.label;
         this.selectedValueLabel = item.label;
         this.selectionMade = true;
         this.host.setAttribute('value', item.value);
@@ -110,7 +128,7 @@ export class SddsDropdownV2 {
 
   render() {
     return (
-      <Host>
+      <Host class={this.size}>
         {this.labelPosition === 'outside' && <div class="label-outside">{this.label}</div>}
         <div class={`dropdown-button ${this.size} ${this.open ? 'open' : 'closed'}`}>
           {/* If label inside and no placeholder */}
@@ -140,12 +158,26 @@ export class SddsDropdownV2 {
             type="button"
             value={this.selectedValueLabel ? this.selectedValueLabel : this.placeholder}
             placeholder={this.placeholder}
-            class={`${this.size} ${this.labelPosition}`}
+            class={`${this.size} ${this.labelPosition} ${this.error ? 'error' : ''}`}
             onFocus={() => {}}
           ></input>
           <sdds-icon class={`${this.size}`} name="chevron_down" size="16px"></sdds-icon>
         </div>
-        <div class={`dropdown-menu ${this.open ? 'open' : 'closed'} open-${this.openDirection}`}>
+        {this.helper && (
+          <div class={`helper ${this.error ? 'error' : ''}`}>
+            {this.error && <sdds-icon name="error" size="16px"></sdds-icon>}
+            {this.helper}
+          </div>
+        )}
+        <div
+          class={`
+          dropdown-menu
+          ${this.open ? 'open' : 'closed'}
+          open-${this.openDirection}
+          ${this.helper || this.error ? 'helper-bottom' : ''}
+          ${this.labelPosition === 'outside' ? 'label-outside' : ''}
+          `}
+        >
           <ul
             class={`${this.size}`}
             ref={(element) => (this.dropdownList = element as HTMLElement)}

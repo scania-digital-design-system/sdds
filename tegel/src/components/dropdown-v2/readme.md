@@ -7,17 +7,19 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                    | Type                                  | Default         |
-| --------------- | ---------------- | -------------------------------------------------------------- | ------------------------------------- | --------------- |
-| `data`          | `data`           |                                                                | `string`                              | `null`          |
-| `label`         | `label`          |                                                                | `string`                              | `'Placeholder'` |
-| `labelPosition` | `label-position` | Controls position of label                                     | `"inside" \| "no-label" \| "outside"` | `'outside'`     |
-| `open`          | `open`           |                                                                | `boolean`                             | `false`         |
-| `openDirection` | `open-direction` | Direction that the dropdown will open. By default set to auto. | `"auto" \| "down" \| "up"`            | `'up'`          |
-| `placeholder`   | `placeholder`    |                                                                | `string`                              | `undefined`     |
-| `size`          | `size`           |                                                                | `"lg" \| "md" \| "sm"`                | `'lg'`          |
-| `state`         | `state`          |                                                                | `"error" \| "none"`                   | `'none'`        |
-| `value`         | `value`          |                                                                | `string`                              | `undefined`     |
+| Property        | Attribute        | Description                                                                                          | Type                                  | Default         |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------- |
+| `data`          | `data`           | Data is an array of objects that contains label and value that will be rendered as dropdown-options. | `string`                              | `null`          |
+| `error`         | `error`          | Error state for the component,                                                                       | `boolean`                             | `false`         |
+| `helper`        | `helper`         | Helper text in the bottom of dropdown                                                                | `string`                              | `''`            |
+| `label`         | `label`          | Label text                                                                                           | `string`                              | `'Placeholder'` |
+| `labelPosition` | `label-position` | Controls position of label                                                                           | `"inside" \| "no-label" \| "outside"` | `'outside'`     |
+| `open`          | `open`           | Open state of the dropdown                                                                           | `boolean`                             | `false`         |
+| `openDirection` | `open-direction` | Direction that the dropdown will open. By default set to auto.                                       | `"auto" \| "down" \| "up"`            | `'up'`          |
+| `placeholder`   | `placeholder`    | Placeholder for the dropdown                                                                         | `string`                              | `undefined`     |
+| `size`          | `size`           | The size of the component                                                                            | `"lg" \| "md" \| "sm"`                | `'lg'`          |
+| `value`         | `value`          | The value of the dropdown - selected option value.                                                   | `string`                              | `undefined`     |
+| `valueLabel`    | `value-label`    | The label of the selected value.                                                                     | `string`                              | `undefined`     |
 
 
 ## Dependencies
