@@ -55,15 +55,15 @@ export default {
       },
       description: 'Size of the button',
     },
-    variant: {
-      name: 'Variant',
+    modeVariant: {
+      name: 'Mode variant',
       control: {
         type: 'radio',
       },
-      options: ['On light', 'On dark'],
-      description: 'Button variant.',
+      options: ['Primary', 'Secondary'],
+      description: 'Button mode variant.',
       table: {
-        defaultValue: { summary: 'on-dark' },
+        defaultValue: { summary: 'Primary' },
       },
     },
     fullbleed: {
@@ -117,7 +117,7 @@ export default {
     text: 'Button',
     btnType: 'Primary',
     size: 'Large',
-    variant: 'On dark',
+    modeVariant: 'Primary',
     fullbleed: false,
     disabled: false,
     onlyIcon: false,
@@ -129,7 +129,7 @@ export default {
 const WebComponentTemplate = ({
   onlyIcon,
   size,
-  variant,
+  modeVariant,
   btnType,
   fullbleed,
   disabled,
@@ -150,9 +150,9 @@ const WebComponentTemplate = ({
     'Extra small': 'xs',
   };
 
-  const varaintLookup = {
-    'On light': 'on-light',
-    'On dark': 'on-dark',
+  const modeVariantLookup = {
+    'Primary': 'primary',
+    'Secondary': 'secondary',
   };
 
   return formatHtmlPreview(
@@ -176,7 +176,7 @@ const WebComponentTemplate = ({
       sizeLookUp[size]
     }" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
-    }" variant="${varaintLookup[variant]}" >
+    }" mode-variant="${modeVariantLookup[modeVariant]}" >
     ${
       onlyIcon || (icon && icon !== 'none')
         ? `

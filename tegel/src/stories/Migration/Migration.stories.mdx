@@ -199,6 +199,45 @@ If the child of the native `sdds-btn` is a text it will need a class of `sdds-bt
 </button>
 ```
 
+#### Changed prop `variant` to `mode-variant` in web component
+
+We removed the `variant` prop and replaced it with a new prop, `mode-variant`. New available types are `primary`(prev. `variant`) and `secondary`(prev. `default`).
+
+##### What action is required?
+
+Rename `variant` to `mode-variant` and change type name.
+
+```jsx
+// Old ❌
+<sdds-button variant="variant">
+  Button text
+</sdds-button>
+
+// New ✅
+<sdds-button mode-variant="primary">
+  Button text
+</sdds-button>
+```
+
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
+
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+
+##### What action is required?
+
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary`.
+
+```jsx
+// Old ❌
+<button class="sdds-on-white-bg">
+  Some text
+</button>
+
+// New ✅
+<button class="sdds-mode-variant-primary">
+</button>
+```
+
 ## Datetime
 
 [Web Component](/docs/components-datetime--default)
