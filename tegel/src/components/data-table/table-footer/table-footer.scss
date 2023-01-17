@@ -7,7 +7,8 @@
   height: 48px;
 
   .sdds-table__footer-row {
-    background-color: var(--sdds-grey-100);
+    background-color: var(--sdds-data-table-footer-background);
+    color: var(--sdds-data-table-color);
   }
 
   .sdds-table__footer-cell {
@@ -28,7 +29,8 @@
       .sdds-table__page-selector-input {
         font: var(--sdds-detail-02);
         letter-spacing: var(--sdds-detail-02-ls);
-        background-color: var(--sdds-grey-50);
+        background-color: var(--sdds-data-table-footer-page-selector-input-background);
+        color: var(--sdds-data-table-color);
         width: 36px;
         height: 30px;
         border: none;
@@ -38,11 +40,11 @@
         padding-right: 8px;
 
         &:hover {
-          background-color: var(--sdds-white);
+          background-color: var(--sdds-data-table-footer-page-selector-input-background-hover);
         }
 
         &:disabled {
-          color: var(--sdds-grey-600);
+          color: var(--sdds-data-table-footer-page-selector-input-color-disabled);
         }
       }
 
@@ -72,11 +74,12 @@
         transition: background-color 250ms ease;
 
         &:hover {
-          background-color: var(--sdds-grey-300);
+          background-color: var(--sdds-data-table-footer-btn-hover);
         }
 
         &:disabled {
           cursor: default;
+          opacity: 0.38;
 
           &:hover {
             background-color: transparent;
@@ -87,6 +90,7 @@
       .sdds-table__footer-btn-svg {
         height: 20px;
         width: 20px;
+        fill: var(--sdds-data-table-color)
       }
     }
   }
