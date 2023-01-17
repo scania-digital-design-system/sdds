@@ -68,7 +68,7 @@ export default {
     noMinWidthArg: {
       name: 'No minimum width',
       description:
-        'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
+        'Resets min-width rule and enabled setting column width value to less than 192px which is default. When enabled, controls for columns width will show here.',
       control: {
         type: 'boolean',
       },
