@@ -13,6 +13,7 @@
 | `error`         | `error`          | Error state for the component,                                                                       | `boolean`                  | `false`       |
 | `helper`        | `helper`         | Helper text in the bottom of dropdown                                                                | `string`                   | `undefined`   |
 | `label`         | `label`          | Label text                                                                                           | `string`                   | `undefined`   |
+| `modeVariant`   | `mode-variant`   |                                                                                                      | `"primary" \| "secondary"` | `'primary'`   |
 | `noResultText`  | `no-result-text` |                                                                                                      | `string`                   | `'No result'` |
 | `open`          | `open`           | Open state of the dropdown                                                                           | `boolean`                  | `false`       |
 | `openDirection` | `open-direction` | Direction that the dropdown will open. By default set to auto.                                       | `"auto" \| "down" \| "up"` | `'down'`      |

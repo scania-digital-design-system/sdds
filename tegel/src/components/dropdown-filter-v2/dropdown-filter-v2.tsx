@@ -36,6 +36,8 @@ export class DropdownFilterV2 {
   /** Direction that the dropdown will open. By default set to auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'down';
 
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+
   @Prop() noResultText: string = 'No result';
 
   @State() selectionMade: boolean = false;
@@ -254,7 +256,6 @@ export class DropdownFilterV2 {
             {this.data &&
               this.parsedData.map((item, index) => (
                 <sdds-dropdown-filter-option-v2
-                  size={this.size}
                   label={item.label}
                   value={item.value}
                   selected={item.selected}

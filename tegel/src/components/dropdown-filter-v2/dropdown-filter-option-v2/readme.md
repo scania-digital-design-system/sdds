@@ -7,14 +7,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                   | Default     |
-| ---------- | ---------- | ----------- | ---------------------- | ----------- |
-| `disabled` | `disabled` |             | `boolean`              | `false`     |
-| `hidden`   | `hidden`   |             | `boolean`              | `false`     |
-| `label`    | `label`    |             | `string`               | `undefined` |
-| `selected` | `selected` |             | `boolean`              | `false`     |
-| `size`     | `size`     |             | `"lg" \| "md" \| "sm"` | `'lg'`      |
-| `value`    | `value`    |             | `string`               | `undefined` |
+| Property   | Attribute  | Description | Type      | Default     |
+| ---------- | ---------- | ----------- | --------- | ----------- |
+| `disabled` | `disabled` |             | `boolean` | `false`     |
+| `hidden`   | `hidden`   |             | `boolean` | `false`     |
+| `label`    | `label`    |             | `string`  | `undefined` |
+| `selected` | `selected` |             | `boolean` | `false`     |
+| `value`    | `value`    |             | `string`  | `undefined` |
 
 
 ## Dependencies

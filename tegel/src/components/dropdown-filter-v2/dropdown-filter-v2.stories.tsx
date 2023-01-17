@@ -109,13 +109,13 @@ const Template = ({ data, size, placeholder, openDirection, error, helper, label
       ${
         data === 'Children'
           ? `
-        <sdds-dropdown-filter-option-v2 value="value-1" disabled label="test 1">
+        <sdds-dropdown-filter-option-v2 value="value-1" disabled label="Value-1">
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="value-2" label="test 2">
+        <sdds-dropdown-filter-option-v2 value="value-2" label="Value-2">
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="value-3" label="test 3">
+        <sdds-dropdown-filter-option-v2 value="value-3" label="Value-3">
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="ööö" label="test 4">
+        <sdds-dropdown-filter-option-v2 value="value-4" label="Value-4" selected>
         </sdds-dropdown-filter-option-v2>
       `
           : ''
