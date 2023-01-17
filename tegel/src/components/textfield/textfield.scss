@@ -1,7 +1,7 @@
 @import './textfield-theme-vars.scss';
 
-.sdds-on-white-bg {
-  --sdds-textfield-bg: var(--sdds-textfield-on-white-bg);
+.sdds-on-white-background {
+  --sdds-textfield-background: var(--sdds-textfield-on-white-background);
 }
 
 @mixin textfield-base {
@@ -13,7 +13,7 @@
   outline: none;
   height: 100%;
   color: var(--sdds-textfield-color);
-  background-color: var(--sdds-textfield-bg);
+  background-color: var(--sdds-textfield-background);
 
   &::placeholder {
     opacity: 1;
@@ -26,7 +26,7 @@
 
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--sdds-textfield-disabled-bg);
+    background-color: var(--sdds-textfield-disabled-background);
     color: var(--sdds-textfield-disabled-color);
 
     &::placeholder {
@@ -71,7 +71,7 @@
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  background-color: var(--sdds-textfield-bg);
+  background-color: var(--sdds-textfield-background);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
   transition: border-bottom-color 200ms ease;
 
@@ -313,21 +313,21 @@
   display: none;
   position: absolute;
   right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 18px;
+  color: var(--sdds-textfield-icon-read-only-label-color);
 
   &-label {
     display: none;
     position: absolute;
     right: 18px;
-    bottom: -24px;
+    top: 48px;
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     padding: 8px;
-    color: var(--sdds-white);
-    background-color: var(--sdds-grey-800);
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
+  background-color: var(--sdds-textfield-icon-read-only-label-background);
+
   }
 }
 
@@ -346,10 +346,6 @@
 
   .sdds-textfield-input {
     padding-right: 54px;
-    background-color: transparent;
-  }
-
-  .sdds-textfield-container {
     background-color: transparent;
   }
 }
