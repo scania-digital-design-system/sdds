@@ -18,12 +18,10 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the checkbox',
-      control: {
-        type: 'boolean',
-      },
+    label: {
+      name: 'Label text',
+      description: 'The label of the component',
+      type: 'string',
     },
     checked: {
       name: 'Checked',
@@ -32,16 +30,18 @@ export default {
         type: 'boolean',
       },
     },
-    label: {
-      name: 'Label text',
-      description: 'The label of the component',
-      type: 'string',
-    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the checkbox',
+      control: {
+        type: 'boolean',
+      },
+    }, 
   },
   args: {
-    disabled: false,
-    checked: false,
     label: 'Label',
+    checked: false,
+    disabled: false,
   },
 };
 
