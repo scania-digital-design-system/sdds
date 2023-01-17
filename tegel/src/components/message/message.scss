@@ -10,7 +10,7 @@
   position: relative;
   overflow: hidden;
   color: var(--sdds-grey-958);
-  background-color: var(--sdds-grey-50);
+  background-color: var(--sdds-message-background);
   margin-bottom: 12px;
 
   &-single {
@@ -98,8 +98,8 @@
 
   &-type {
     &-informative {
-      color: var(--sdds-message-type-informative-color);
-      background-color: var(--sdds-message-type-informative-background);
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-information);
@@ -120,7 +120,7 @@
     }
 
     &-error {
-      color: var(--sdds-message-type-error-color);
+      color: var(--sdds-message-color);
       background-color: var(--sdds-message-type-error-background);
 
       &::before {
@@ -142,8 +142,8 @@
     }
 
     &-warning {
-      color: var(--sdds-message-type-warning-color);
-      background-color: var(--sdds-message-type-warning-background);
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-warning);
@@ -164,8 +164,8 @@
     }
 
     &-success {
-      color: var(--sdds-message-type-success-color);
-      background-color: var(--sdds-message-type-success-background);
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-positive);
