@@ -65,15 +65,21 @@ export class SddsDropdownV2 {
       this.children = Array.from(this.host.children) as [HTMLSddsDropdownOptionV2Element];
       this.children.forEach((element: HTMLSddsDropdownOptionV2Element, index) => {
         if (
+          element.getAttribute('selected') !== null ||
+          element.getAttribute('selected') === 'false'
+        ) {
+          this.value = element.getAttribute('value');
+          this.selectedValueLabel = element.getAttribute('label');
+
+          element.setAttribute('selected', 'true');
+        }
+        if (
           element.getAttribute('disabled') !== '' &&
           element.getAttribute('disabled') !== ' true'
         ) {
           element.addEventListener('click', () => {
             element.setAttribute('selected', 'true');
             this.value = element.getAttribute('value');
-            this.valueLabel = element.getAttribute('label');
-
-            // Remove?
             this.selectedValueLabel = element.getAttribute('label');
             this.selectionMade = true;
             this.children.forEach((el) => {
@@ -95,9 +101,8 @@ export class SddsDropdownV2 {
     this.parsedData = this.parsedData.map((item, itemIndex) => {
       if (itemIndex === index) {
         this.value = item.value;
-        // Remove?
-        this.valueLabel = item.label;
         this.selectedValueLabel = item.label;
+
         this.selectionMade = true;
         this.host.setAttribute('value', item.value);
         return {

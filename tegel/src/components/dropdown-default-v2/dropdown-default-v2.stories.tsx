@@ -16,7 +16,7 @@ export default {
     },
     data: {
       name: 'Type of data',
-      description: 'Toggle between data being passed children or via the data prop.',
+      description: 'Toggle between data being passed as children or via the data prop (JSON).',
       control: {
         type: 'radio',
       },
@@ -66,6 +66,15 @@ export default {
         type: 'boolean',
       },
     },
+    defaultOption: {
+      name: 'Default options',
+      description: 'Sets a pre-selected option and replaces placeholder',
+      if: { arg: 'type', neq: 'Default' },
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3', 'Option 3'],
+    },
   },
   args: {
     size: 'Large',
@@ -76,12 +85,22 @@ export default {
     helper: 'Helper',
     openDirection: 'Auto',
     error: false,
+    defaultOption: 'No default',
   },
 };
 
 const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
 
-const Template = ({ data, size, labelPosition, placeholder, openDirection, error, helper }) =>
+const Template = ({
+  data,
+  size,
+  labelPosition,
+  placeholder,
+  openDirection,
+  error,
+  helper,
+  defaultOption,
+}) =>
   formatHtmlPreview(`
     <style>
       .demo-wrapper {
@@ -102,16 +121,25 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
           ? `data='[
           {
             "value": "option-1",
-            "label":"Jakarta",
-            "disabled":"true"
+            "label":"Option 1",
+            "disabled":"true",
+            ${defaultOption === 'Option 1' ? `"selected": "true"` : ''}
           },
           {
-            "value":"option-2"
-            ,"label":"Stockholm"
+            "value":"option-2",
+            "label":"Option 2",
+            ${defaultOption === 'Option 2' ? `"selected": "true"` : ''}
+
           },
           {
             "value":"option-3",
-            "label":"Barcelona"
+            "label":"Option 3",
+            ${defaultOption === 'Option 3' ? `"selected": "true"` : ''}
+          },
+          {
+            "value":"option-4",
+            "label":"Option 4",
+            ${defaultOption === 'Option 4' ? `"selected": "true"` : ''}
           }
         ]'`
           : ''
@@ -119,13 +147,21 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
       ${
         data === 'Children'
           ? `
-      <sdds-dropdown-option-v2 value="value-1" disabled label="test 1">
+      <sdds-dropdown-option-v2 value="value-1" ${
+        defaultOption === 'Option 1' ? 'selected' : ''
+      } disabled label="Option 1">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 value="value-2" label="test 2">
+      <sdds-dropdown-option-v2 ${
+        defaultOption === 'Option 2' ? 'selected' : ''
+      } value="value-2" label="Option 2">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 value="value-3" label="test 3">
+      <sdds-dropdown-option-v2 ${
+        defaultOption === 'Option 3' ? 'selected' : ''
+      } value="value-3" label="Option 3">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 value="value-4" label="test 4">
+      <sdds-dropdown-option-v2 ${
+        defaultOption === 'Option 4' ? 'selected' : ''
+      } value="value-4" label="Option 4">
       </sdds-dropdown-option-v2>
       `
           : ''
