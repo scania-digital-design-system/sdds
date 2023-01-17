@@ -123,6 +123,59 @@ export default {
         },
       },
     },
+    defaultValue: {
+      name: 'Default value',
+      description:
+        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Custom'],
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    label: {
+      name: 'Label',
+      description: 'Toggles a label text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    labelText: {
+      description: 'Sets label text for specific textfield',
+      name: 'Label text',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'label', eq: true },
+    },
+    helper: {
+      name: 'Helper',
+      description: 'Toggles a helper text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    helperText: {
+      name: 'Helper text',
+      description: 'Sets helper text for the textfield',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'helper', eq: true },
+    },
+    disabled: {
+      description: 'Sets textfield to disabled state',
+      name: 'Disabled',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
