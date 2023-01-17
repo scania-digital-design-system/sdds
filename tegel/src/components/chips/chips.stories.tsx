@@ -50,14 +50,6 @@ export default {
       options: ['Icon left', 'Icon right'],
       if: { arg: 'icon', eq: true },
     },
-    state: {
-      name: 'State',
-      description: 'Set the chips state as active or default',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Active'],
-    },
     size: {
       name: 'Size',
       description: 'Set the chip size',
@@ -66,14 +58,22 @@ export default {
       },
       options: ['Default', 'Small'],
     },
+    state: {
+      name: 'State',
+      description: 'Set the chips state as active or default',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Active'],
+    },
   },
   args: {
     placeholderText: 'Chip text',
     icon: false,
     iconType: 'Native',
     iconPosition: 'Icon right',
-    state: 'Default',
     size: 'Default',
+    state: 'Default',
   },
 };
 
