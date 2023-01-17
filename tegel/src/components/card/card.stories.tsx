@@ -21,21 +21,21 @@ export default {
   argTypes: {
     header: {
       name: 'Header text',
-      description: 'The header text of the card',
+      description: 'Sets the header text of the card.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader text',
-      description: 'The subheader text of the card',
+      description: 'Sets the subheader text of the card.',
       control: {
         type: 'text',
       },
     },
     bodyText: {
       name: 'Body text',
-      description: 'The body text of the card',
+      description: 'Sets the body text of the card.',
       control: {
         type: 'text',
       },
@@ -76,7 +76,7 @@ export default {
     },
     imageTop: {
       name: 'Image on top',
-      description: 'Places the image above the text of the card',
+      description: 'Places the image above the text of the card.',
       control: {
         type: 'boolean',
       },
@@ -95,19 +95,9 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    clickable: {
-      name: 'Clickable',
-      description: 'Toggles if the card is clickable or not',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
     footer: {
       name: 'Footer',
-      description: 'The footer of the card',
+      description: 'Sets custom text or HTML in the footer of the card.',
       control: {
         type: 'text',
       },

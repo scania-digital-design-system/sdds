@@ -1,7 +1,5 @@
 # sdds-icon
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -24,7 +22,6 @@
  - [sdds-modal](../modal)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
- - [sdds-toast](../toast)
 
 ### Graph
 ```mermaid
@@ -36,7 +33,6 @@ graph TD;
   sdds-modal --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
-  sdds-toast --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
