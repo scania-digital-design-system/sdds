@@ -91,6 +91,26 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    clickable: {
+      name: 'Clickable',
+      description: 'Toggles if the card is clickable or not',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    footer: {
+      name: 'Footer',
+      description: 'The footer of the card',
+      control: {
+        type: 'text',
+      },
     },
     headerPlacement: {
       name: 'Header placement',
