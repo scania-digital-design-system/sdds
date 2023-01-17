@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Element, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, State, Element, Watch, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-multiselect-v2',
@@ -54,9 +54,23 @@ export class DropdownMultiselectV2 {
 
   @Element() host: HTMLElement;
 
-  children: Array<HTMLElement> = [];
+  @State() children: Array<HTMLElement> = [];
 
   dropdownList: HTMLElement;
+
+  @Method()
+  async reset() {
+    this.children = this.children.map((childElement) => {
+      childElement.setAttribute('selected', 'false');
+      return childElement;
+    });
+    this.parsedData = this.parsedData.map((dataElement) => ({
+      ...dataElement,
+      selected: false,
+    }));
+    this.valueLabels = [];
+    this.value = [];
+  }
 
   @Watch('value')
   updatePropValue() {
@@ -71,7 +85,16 @@ export class DropdownMultiselectV2 {
   connectedCallback() {
     if (!this.data) {
       this.children = Array.from(this.host.children) as [HTMLSddsDropdownOptionV2Element];
-      this.children.forEach((element: HTMLSddsDropdownOptionV2Element) => {
+      this.children.forEach((element) => {
+        if (
+          element.getAttribute('selected') !== null ||
+          element.getAttribute('selected') === 'false'
+        ) {
+          this.value = [...this.value, element.getAttribute('value')];
+          this.valueLabels = [...this.valueLabels, element.getAttribute('label')];
+          element.setAttribute('selected', 'true');
+        }
+
         if (
           element.getAttribute('disabled') !== '' &&
           element.getAttribute('disabled') !== ' true'
@@ -83,16 +106,23 @@ export class DropdownMultiselectV2 {
               this.valueLabels = [...this.valueLabels, element.getAttribute('label')];
             } else {
               element.setAttribute('selected', 'false');
-              this.value = this.value.filter((item) => item !== element.value);
-              this.valueLabels = this.valueLabels.filter((item) => item !== element.label);
+              this.value = this.value.filter((item) => item !== element.getAttribute('value'));
+              this.valueLabels = this.valueLabels.filter(
+                (item) => item !== element.getAttribute('label'),
+              );
             }
             this.selectionMade = true;
           });
         }
       });
-    }
-    if (this.data) {
+    } else if (this.data) {
       this.parsedData = JSON.parse(this.data);
+      this.parsedData.forEach((dataElement, index) => {
+        if (dataElement.selected) {
+          this.valueLabels = [...this.valueLabels, this.parsedData[index].label];
+          this.value = [...this.value, this.parsedData[index].value];
+        }
+      });
     }
   }
 
@@ -145,6 +175,8 @@ export class DropdownMultiselectV2 {
     }
   };
 
+  formatSelection = (valueLabels: string[]) => valueLabels.join(', ');
+
   render() {
     return (
       <Host class={this.size}>
@@ -175,7 +207,9 @@ export class DropdownMultiselectV2 {
               this.open = !this.open;
             }}
             type="button"
-            value={this.valueLabels.length ? this.valueLabels : this.placeholder}
+            value={
+              this.valueLabels.length ? this.formatSelection(this.valueLabels) : this.placeholder
+            }
             placeholder={this.placeholder}
             class={`
               ${this.size}

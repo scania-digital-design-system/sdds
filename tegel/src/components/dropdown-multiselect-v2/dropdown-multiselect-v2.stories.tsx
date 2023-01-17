@@ -16,7 +16,7 @@ export default {
     },
     data: {
       name: 'Type of data',
-      description: 'Toggle between data being passed children or via the data prop.',
+      description: 'Toggle between data being passed as children or via the data prop.',
       control: {
         type: 'radio',
       },
@@ -73,7 +73,7 @@ export default {
       control: {
         type: 'check',
       },
-      options: ['Option 1', 'Option 2', 'Option 3'],
+      options: ['Option 1', 'Option 2', 'Option 3', 'Option 3'],
     },
   },
   args: {
@@ -85,13 +85,22 @@ export default {
     helper: 'Helper',
     openDirection: 'Auto',
     error: false,
-    multiDefaultOption: ['Option 1', 'Option 2'],
+    multiDefaultOption: ['Option 2'],
   },
 };
 
 const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
 
-const Template = ({ data, size, labelPosition, placeholder, openDirection, error, helper }) =>
+const Template = ({
+  data,
+  size,
+  labelPosition,
+  placeholder,
+  openDirection,
+  error,
+  helper,
+  multiDefaultOption,
+}) =>
   formatHtmlPreview(`
     <style>
       .demo-wrapper {
@@ -100,6 +109,7 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
     </style>
     <div class="demo-wrapper">
       <sdds-dropdown-multiselect-v2
+      id="dropdown"
       ${error ? 'error' : ''}
       ${helper ? `helper="${helper}"` : ''}
       open-direction="${openDirection.toLowerCase()}" 
@@ -112,16 +122,24 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
           ? `data='[
           {
             "value": "option-1",
-            "label":"Jakarta",
-            "disabled":"true"
+            "label":"Option 1",
+            "disabled":"true",
+            "selected":${multiDefaultOption.includes('Option 1') ? 'true' : 'false'}
           },
           {
-            "value":"option-2"
-            ,"label":"Stockholm"
+            "value":"option-2",
+            "label":"Option 2",
+            "selected":${multiDefaultOption.includes('Option 2') ? 'true' : 'false'}
           },
           {
             "value":"option-3",
-            "label":"Barcelona"
+            "label":"Option 3",
+            "selected":${multiDefaultOption.includes('Option 3') ? 'true' : 'false'}
+          },
+          {
+            "value":"option-4",
+            "label":"Option 4",
+            "selected":${multiDefaultOption.includes('Option 4') ? 'true' : 'false'}
           }
         ]'`
           : ''
@@ -129,18 +147,32 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
       ${
         data === 'Children'
           ? `
-      <sdds-dropdown-multiselect-option-v2 value="value-1" disabled label="test 1">
+      <sdds-dropdown-multiselect-option-v2 ${
+        multiDefaultOption.includes('Option 1') ? 'selected' : ''
+      } value="option-1" disabled label="Option 1">
       </sdds-dropdown-multiselect-option-v2>
-      <sdds-dropdown-multiselect-option-v2 value="value-2" label="test 2">
+      <sdds-dropdown-multiselect-option-v2 ${
+        multiDefaultOption.includes('Option 2') ? 'selected' : ''
+      } value="option-2" label="Option 2">
       </sdds-dropdown-multiselect-option-v2>
-      <sdds-dropdown-multiselect-option-v2 value="value-3" label="test 3">
+      <sdds-dropdown-multiselect-option-v2 ${
+        multiDefaultOption.includes('Option 3') ? 'selected' : ''
+      } value="option-3" label="Option 3">
       </sdds-dropdown-multiselect-option-v2>
-      <sdds-dropdown-multiselect-option-v2 value="value-4" label="test 4">
+      <sdds-dropdown-multiselect-option-v2 ${
+        multiDefaultOption.includes('Option 4') ? 'selected' : ''
+      } value="option-4" label="Option 4">
       </sdds-dropdown-multiselect-option-v2>
       `
           : ''
       }
       </sdds-dropdown-multiselect-v2>
+      <button id="button-id">Reset</button>
     </div>
+    <script>
+      document.getElementById('button-id').addEventListener('click', () => {
+        document.getElementById('dropdown').reset();
+      })
+    </script>
     `);
 export const WebComponentMultiselect = Template.bind({});

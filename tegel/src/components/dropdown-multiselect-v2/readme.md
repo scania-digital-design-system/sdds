@@ -23,6 +23,19 @@
 | `valueLabels`   | --               | The label of the selected value.                                                                     | `string[]`                            | `[]`            |
 
 
+## Methods
+
+### `reset() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

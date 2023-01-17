@@ -15,6 +15,29 @@
 | `value`    | `value`    |             | `string`  | `undefined` |
 
 
+## Methods
+
+### `getSelected() => boolean`
+
+
+
+#### Returns
+
+Type: `boolean`
+
+
+
+### `setSelected(value: boolean) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Element } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { HostElement, Method } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-dropdown-multiselect-option-v2',
@@ -21,10 +21,20 @@ export class DropdownMultiselectOptionV2 {
 
   @Element() host: HostElement;
 
-  parentEl: HTMLSddsDropdownV2Element;
+  parentEl: HTMLSddsDropdownMultiselectV2Element;
+
+  @Method()
+  setSelected(value: boolean) {
+    this.selected = value;
+  }
+
+  @Method()
+  getSelected() {
+    return this.selected;
+  }
 
   connectedCallback = () => {
-    this.parentEl = this.host.closest('sdds-dropdown-v2');
+    this.parentEl = this.host.closest('sdds-dropdown-multiselect-v2');
     if (this.parentEl) {
       this.size = this.parentEl.size;
       this.modeVariant = this.parentEl.modeVariant;
