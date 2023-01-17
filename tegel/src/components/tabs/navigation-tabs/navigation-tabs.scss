@@ -1,17 +1,19 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/box-sizing';
 
+
 .sdds-navigation-tabs {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-navigation-tabs-bg);
+  background-color: var(--sdds-navigation-tabs-background);
   position: relative;
   display: flex;
 
   &::after {
     content: ' ';
     display: block;
-    border-bottom: 1px solid var(--sdds-navigation-tabs-horizontal-divider-bg);
+    border-bottom: 1px solid var(--sdds-navigation-tabs-horizontal-divider-background);
+    opacity: var(--sdds-navigation-tabs-horizontal-divider-opacity);
     left: 0;
     right: 0;
     bottom: 0;
@@ -38,7 +40,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--sdds-navigation-tabs-scroll-btn-bg);
+    background-color: var(--sdds-navigation-tabs-scroll-btn-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,12 +53,12 @@
     }
 
     &:hover {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-hover-bg);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-background-hover);
       text-decoration: none;
     }
 
     &:active {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-active-bg);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-background-active);
     }
 
     &:focus {
@@ -72,7 +74,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--sdds-navigation-tabs-scroll-btn-bg);
+    background-color: var(--sdds-navigation-tabs-scroll-btn-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,11 +87,11 @@
     }
 
     &:hover {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-hover-bg);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-background-hover);
     }
 
     &:active {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-active-bg);
+      background-color: var(--sdds-navigation-tabs-scroll-btn-background-active);
     }
 
     &:focus {
@@ -102,7 +104,8 @@
     //fixme: headline-07 has a line-height that is not matching old storybook
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
-    color: rgb(0 21 51 / 60%);
+    color: var(--sdds-navigation-tabs-tab-color);
+    opacity:0.6;
     padding: 26px 0;
     margin-right: 32px;
     text-decoration: none;
@@ -123,7 +126,7 @@
       width: 0;
       margin-right: auto;
       height: 2px;
-      background-color: var(--sdds-navigation-tabs-tab-hover-indicator-bg);
+      background-color: var(--sdds-navigation-tabs-tab-indicator-background-hover);
       transition: width 0.15s ease-in-out;
       z-index: 1;
     }
@@ -139,7 +142,8 @@
 
   /* tab states */
   ::slotted(&-tab:hover) {
-    color: var(--sdds-navigation-tabs-tab-hover-color);
+    color: var(--sdds-navigation-tabs-tab-color-hover);
+    opacity: 1;
 
     &::after {
       width: 100%;
@@ -149,7 +153,8 @@
   ::slotted(&-tab:focus) {
     @include sdds-focus-state;
 
-    color: var(--sdds-navigation-tabs-tab-focus-color);
+    color: var(--sdds-navigation-tabs-tab-color-focus);
+    opacity: 1;
 
     &::after {
       width: 0;
@@ -157,14 +162,13 @@
   }
 
   ::slotted(&-tab-active) {
-    color: var(--sdds-navigation-tabs-tab-active-color);
+    color: var(--sdds-navigation-tabs-tab-color-active);
+    opacity:1;
 
     &::after {
       width: 100%;
 
-      --sdds-navigation-tabs-tab-active-indicator-bg: var(--sdds-blue-400);
-
-      background-color: var(--sdds-navigation-tabs-tab-active-indicator-bg);
+      background-color: var(--sdds-navigation-tabs-tab-indicator-background-active);
     }
   }
 
@@ -173,8 +177,8 @@
   }
 
   ::slotted(&-tab-disabled) {
-    color: var(--sdds-navigation-tabs-tab-active-color);
-    opacity: 0.16;
+    color: var(--sdds-navigation-tabs-tab-color-disabled);
+    opacity: var(--sdds-navigation-tabs-tab-color-opacity-disabled);
     pointer-events: none;
   }
 }
