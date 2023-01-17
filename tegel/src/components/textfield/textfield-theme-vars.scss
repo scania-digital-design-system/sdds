@@ -1,13 +1,13 @@
 :root,
 .sdds-theme-light {
   --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-bg: var(--sdds-white);
+  --sdds-textfield-background: var(--sdds-white);
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //Disabled
-  --sdds-textfield-disabled-bg: var(--sdds-white);
+  --sdds-textfield-disabled-background: var(--sdds-white);
   --sdds-textfield-disabled-color: var(--sdds-grey-400);
   --sdds-textfield-disabled-placeholder: var(--sdds-grey-400);
   --sdds-textfield-disabled-label: var(--sdds-grey-400);
@@ -43,64 +43,72 @@
   // Textarea resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
 
-  // --sdds-textarea-min-width: 208px;
-  // --sdds-textarea-height: 112px;
-  --sdds-textarea-border-bottom: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
+  // --sdds-textfield-min-width: 208px;
+  // --sdds-textfield-height: 112px;
+  --sdds-textfield-border-bottom: var(--sdds-grey-400);
+  --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //White background
-  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
+  --sdds-textfield-on-white-background: var(--sdds-grey-50);
+
+    // Read only
+    --sdds-textfield-icon-read-only-color: var(--sdds-grey-600);
+    --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-800);
 }
 
 .sdds-theme-dark {
-  --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-bg: var(--sdds-red);
+  --sdds-textfield-color: var(--sdds-grey-200);
+  --sdds-textfield-background: var(--sdds-grey-900);
+  --sdds-textfield-placeholder: var(--sdds-grey-600);
+
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
-  --sdds-textfield-placeholder: var(--sdds-grey-500);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //Disabled
-  --sdds-textfield-disabled-bg: var(--red-white);
-  --sdds-textfield-disabled-color: var(--sdds-grey-400);
-  --sdds-textfield-disabled-placeholder: var(--sdds-grey-400);
-  --sdds-textfield-disabled-label: var(--sdds-grey-400);
-  --sdds-textfield-disabled-ps-color: var(--sdds-grey-400);
+  --sdds-textfield-disabled-ps-color: var(--sdds-grey-700);
+  --sdds-textfield-disabled-color: var(--sdds-grey-800);
+  --sdds-textfield-disabled-background: var(--sdds-grey-868);
+  --sdds-textfield-disabled-placeholder: var(--sdds-grey-800);
+  --sdds-textfield-disabled-label: var(--sdds-grey-700);
 
-  //Label
-  --sdds-textfield-label-color: var(--sdds-grey-958);
-  --sdds-textfield-label-inside-color: var(--sdds-grey-700);
-  --sdds-textfield-placeholder-focus-color: var(--sdds-grey-500);
+  
+  // Label
+  --sdds-textfield-label-color: var(--sdds-grey-100);
+  --sdds-textfield-label-inside-color: var(--sdds-grey-400);  
+  --sdds-textfield-placeholder-focus-color: var(--sdds-grey-700);
 
   //Highlight bar
   --sdds-textfield-bar: var(--sdds-blue-400);
 
   //helper
-  --sdds-textfield-helper: var(--sdds-grey-700);
+  --sdds-textfield-helper: var(--sdds-grey-600);
 
-  //success
-  --sdds-textfield-border-bottom-success: var(--sdds-grey-800);
 
   //error
-  --sdds-textfield-border-bottom-error: var(--sdds-red-500);
-  --sdds-textfield-helper-error: var(--sdds-red-500);
-  --sdds-textfield-bar-error: var(--sdds-red-500);
-  --sdds-textfield-icon-error: var(--sdds-red-500);
+  --sdds-textfield-helper-error: var(--sdds-negative);
+  --sdds-textfield-bar-error: var(--sdds-negative);
+  --sdds-textfield-icon-error: var(--sdds-negative);
 
   //Textcounter
-  --sdds-textfield-textcounter: var(--sdds-grey-700);
-  --sdds-textfield-textcounter-divider: var(--sdds-grey-500);
+  --sdds-textfield-textcounter: var(--sdds-grey-600);
+  --sdds-textfield-textcounter-divider: var(--sdds-grey-700);
 
   //Prefix and Suffix
-  --sdds-textfield-ps-color: var(--sdds-grey-600);
+  --sdds-textfield-ps-color: var(--sdds-grey-100);
 
   // Textarea resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
 
-  // --sdds-textarea-min-width: 208px;
-  // --sdds-textarea-height: 112px;
-  --sdds-textarea-border-bottom: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
-
   //White background
-  --sdds-textfield-on-white-bg: var(--sdds-grey-50);
+  --sdds-textfield-on-white-background: var(--sdds-grey-868);
+
+  // Border bottom
+  --sdds-textfield-border-bottom: var(--sdds-grey-600);
+  --sdds-textfield-border-bottom-hover: var(--sdds-grey-400);
+  --sdds-textfield-border-bottom-success: var(--sdds-grey-400);
+  --sdds-textfield-border-bottom-error: var(--sdds-negative);
+
+    // Read only
+    --sdds-textfield-icon-read-only-color: var(--sdds-grey-100);
+    --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-50);
 }
