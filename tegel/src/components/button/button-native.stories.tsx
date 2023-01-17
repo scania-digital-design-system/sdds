@@ -25,7 +25,7 @@ export default {
     btnType: {
       name: 'Type',
       description:
-        'Four different button types to help the user to distinguish the level of importance of the task they represent',
+        'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -36,7 +36,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Size of the button',
+      description: 'Sets the size of the button.',
       control: {
         type: 'radio',
       },
@@ -59,7 +59,7 @@ export default {
     fullbleed: {
       name: 'Fullbleed',
       defaultValue: false,
-      description: 'Fluid width in certain components',
+      description: 'Sets a fluid width of the button.',
       control: {
         type: 'boolean',
       },
@@ -70,7 +70,7 @@ export default {
     },
     text: {
       name: 'Text',
-      description: 'The text to be displayed on the button',
+      description: 'Sets the text to be displayed on the button.',
       control: {
         type: 'text',
       },
@@ -78,7 +78,7 @@ export default {
     },
     onlyIcon: {
       name: 'Only Icon',
-      description: 'Displays only the icon and excludes any text from the button',
+      description: 'Displays only the icon and excludes any text from the button.',
       control: {
         type: 'boolean',
       },
@@ -89,7 +89,7 @@ export default {
     },
     icon: {
       name: 'Icon',
-      description: 'Icon to display on the button. Choose "none" to exclude the icon.',
+      description: 'Sets icon to be displayed on the button. Choose "none" to exclude the icon.',
       control: {
         type: 'select',
       },
@@ -108,7 +108,7 @@ export default {
     disabled: {
       name: 'Disabled',
       type: 'boolean',
-      description: 'Choose to disable the button',
+      description: 'Choose to disable the button.',
       table: {
         defaultValue: { summary: false },
       },
