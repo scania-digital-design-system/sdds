@@ -20,21 +20,21 @@ export default {
   argTypes: {
     placeholderText: {
       name: 'Placeholder',
-      description: 'Sets custom chip text',
+      description: 'Sets custom chip text.',
       control: {
         type: 'text',
       },
     },
     icon: {
       name: 'Icon',
-      description: 'Adds an icon to the chip',
+      description: 'Adds an icon to the chip.',
       control: {
         type: 'boolean',
       },
     },
     iconType: {
       name: 'Icon type',
-      description: 'Choose what icon type to use',
+      description: 'Choose what icon type to use.',
       control: {
         type: 'radio',
       },
@@ -43,7 +43,7 @@ export default {
     },
     iconPosition: {
       name: 'Icon position',
-      description: 'Sets the placement of the icon',
+      description: 'Sets the placement of the icon.',
       control: {
         type: 'radio',
       },
@@ -52,7 +52,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Sets the chip size',
+      description: 'Sets the chip size.',
       control: {
         type: 'radio',
       },
@@ -60,7 +60,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Sets the chips state as active or default',
+      description: 'Sets the chips state as active or default.',
       control: {
         type: 'radio',
       },
