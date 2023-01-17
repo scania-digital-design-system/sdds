@@ -7,7 +7,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Variant of the component.',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -22,14 +22,14 @@ export default {
         type: 'radio',
       },
       options: { End: 'end', Start: 'start' },
-      description: 'The horizontal position of the expand icon.',
+      description: 'Sets the horizontal position of the expand icon.',
       table: {
         defaultValue: { summary: 'end' },
       },
     },
     paddingReset: {
       name: 'Less padding right',
-      description: 'Less padding on the right inside accordion items.',
+      description: 'Sets less padding on the right inside accordion items.',
       control: {
         type: 'boolean',
       },
@@ -39,7 +39,7 @@ export default {
     },
     disabled: {
       name: 'Disable all items',
-      description: 'Disable all accordion items.',
+      description: 'Disables all accordion items.',
       control: {
         type: 'boolean',
       },
