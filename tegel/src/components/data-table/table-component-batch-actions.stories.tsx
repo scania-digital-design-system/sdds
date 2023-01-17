@@ -99,14 +99,14 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
+    noMinWidth: false,
     batchArea: formatHtmlPreview(
       '<button slot="sdds-table__actionbar" class="sdds-table__actionbar-btn"><sdds-icon class="sdds-table__actionbar-btn-icon" name="settings" size="20px"></sdds-icon> </button><sdds-button slot="sdds-table__actionbar" type="primary" size="sm" text="Download"></sdds-button>',
     ),
-    noMinWidth: false,
   },
 };
 
@@ -114,9 +114,9 @@ const BatchActionTemplate = ({
   verticalDivider,
   compactDesign,
   // onWhiteBackground,
-  batchArea,
   responsiveDesign,
   noMinWidth,
+  batchArea,
 }) =>
   formatHtmlPreview(`
    <sdds-table

@@ -25,18 +25,6 @@ export default {
     },
   },
   argTypes: {
-    enableMultiselect: {
-      name: 'Enable multiselect',
-      description: 'Enable row selection.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: true,
-        },
-      },
-    },
     verticalDivider: {
       name: 'Vertical dividers',
       description: 'When enabled, table has vertical dividers between columns.',
@@ -99,11 +87,23 @@ export default {
         },
       },
     },
+    enableMultiselect: {
+      name: 'Enable multiselect',
+      description: 'Enable row selection.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
     noMinWidth: false,
     enableMultiselect: true,

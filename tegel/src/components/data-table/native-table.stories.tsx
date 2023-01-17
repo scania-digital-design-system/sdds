@@ -15,18 +15,6 @@ export default {
         },
       },
     },
-    isCompact: {
-      name: 'Compact design',
-      description: 'Enables compact design of the table, rows with less height.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
     dividers: {
       name: 'Vertical dividers',
       description: 'When enabled, table has vertical dividers between columns.',
@@ -52,6 +40,18 @@ export default {
     //     },
     //   },
     // },
+    isCompact: {
+      name: 'Compact design',
+      description: 'Enables compact design of the table, rows with less height.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
     responsiveTable: {
       name: 'Responsive table',
       description:
@@ -117,11 +117,11 @@ export default {
   },
   args: {
     tableTitle: 'Native table',
-    isCompact: false,
     dividers: false,
     // onWhiteBG: false,
-    noMinWidthArg: false,
+    isCompact: false,
     responsiveTable: false,
+    noMinWidthArg: false,
     column1Width: '',
     column2Width: '',
     column3Width: '',
@@ -132,10 +132,11 @@ const Template = (args) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
-        ${args.isCompact ? 'sdds-table--compact' : ''}
         ${args.dividers ? 'sdds-table--divider' : ''}
         ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${args.isCompact ? 'sdds-table--compact' : ''}
         ${args.responsiveTable ? 'sdds-table--responsive' : ''}
+        ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
     " >
     ${args.tableTitle && `<caption>${args.tableTitle}</caption>`}
     <thead>

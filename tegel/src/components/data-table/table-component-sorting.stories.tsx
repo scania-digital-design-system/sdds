@@ -31,6 +31,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     compactDesign: {
       name: 'Compact Design',
@@ -52,13 +57,22 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     noMinWidth: {
       name: 'No column minimum width limitation',
-      description:
-        'Enable columns to shrink below width 192px.',
+      description: 'If columns should be able to shrink below 192px width.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
       },
     },
     column1sortable: {
@@ -68,6 +82,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: 'true',
+        },
+      },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
@@ -75,6 +94,11 @@ export default {
       'Enabling column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'true',
+        },
       },
     },
     column3sortable: {
@@ -84,6 +108,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: 'true',
+        },
+      },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
@@ -92,6 +121,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: 'true',
+        },
+      },
     },
   },
   args: {
@@ -99,11 +133,11 @@ export default {
     compactDesign: false,
     // onWhiteBackground: false,
     responsiveDesign: false,
+    noMinWidth: false,
     column1sortable: true,
     column2sortable: true,
     column3sortable: true,
     column4sortable: true,
-    noMinWidth: false,
   },
 };
 
@@ -112,11 +146,11 @@ const SortingTemplate = ({
   compactDesign,
   // onWhiteBackground,
   responsiveDesign,
+  noMinWidth,
   column1sortable,
   column2sortable,
   column3sortable,
   column4sortable,
-  noMinWidth,
 }) =>
   formatHtmlPreview(`
     <sdds-table

@@ -66,7 +66,7 @@ export default {
     responsiveDesign: {
       name: 'Responsive table',
       description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
@@ -90,7 +90,7 @@ export default {
     },
     useDataProp: {
       name: 'Use data prop',
-      description: 'Load table data from property',
+      description: 'Toggle between data being passed as children or via the data prop (JSON).',
       control: {
         type: 'boolean',
       },
@@ -102,12 +102,12 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: true,
-    useDataProp: true,
     noMinWidth: true,
+    useDataProp: true,
   },
 };
 
@@ -116,8 +116,8 @@ const FilteringTemplate = ({
   compactDesign,
   // onWhiteBackground,
   responsiveDesign,
-  useDataProp,
   noMinWidth,
+  useDataProp,
 }) =>
   formatHtmlPreview(`
    <sdds-table

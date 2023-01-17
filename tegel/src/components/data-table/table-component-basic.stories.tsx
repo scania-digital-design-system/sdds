@@ -75,6 +75,18 @@ export default {
         },
       },
     },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'Enable columns to shrink below width 192px.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
     disablePadding: {
       name: 'Disable cell padding',
       description:
@@ -88,26 +100,14 @@ export default {
         },
       },
     },
-    noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: 'false',
-        },
-      },
-    },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
-    disablePadding: false,
     noMinWidth: false,
+    disablePadding: false,
   },
 };
 

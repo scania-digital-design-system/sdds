@@ -101,12 +101,12 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
-    rowsPerPageControl: 4,
     noMinWidth: false,
+    rowsPerPageControl: 4,
   },
 };
 
@@ -114,9 +114,9 @@ const PaginationTemplate = ({
   verticalDivider,
   compactDesign,
   // onWhiteBackground,
-  rowsPerPageControl,
   responsiveDesign,
   noMinWidth,
+  rowsPerPageControl,
 }) =>
   formatHtmlPreview(`
     <sdds-table

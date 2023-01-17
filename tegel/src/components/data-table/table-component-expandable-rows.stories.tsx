@@ -89,9 +89,9 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
     noMinWidth: false,
   },

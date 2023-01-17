@@ -138,9 +138,9 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     // onWhiteBackground: false,
     verticalDivider: false,
+    compactDesign: false,
     responsiveDesign: false,
     noMinWidth: true,
     column1Width: '321px',
