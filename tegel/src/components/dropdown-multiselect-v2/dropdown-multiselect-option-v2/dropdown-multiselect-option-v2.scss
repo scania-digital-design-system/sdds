@@ -1,0 +1,65 @@
+@import '../../checkbox/checkbox.scss';
+
+li {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  background-color: var(--sdds-dropdown-bg);
+
+  &.selected {
+    background-color: var(--sdds-grey-300);
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+    }
+  }
+
+  &.disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &:hover {
+    background-color: var(--sdds-dropdown-bg-hover);
+  }
+
+  button {
+    width: 100%;
+    padding: 0 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--sdds-grey-100);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.lg {
+      height: 56px;
+    }
+
+    &.md {
+      height: 48px;
+    }
+
+    &.sm {
+      height: 40px;
+    }
+
+    &.disabled {
+      color: var(--sdds-grey-400);
+      background-color: var(--sdds-white);
+      pointer-events: none;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
