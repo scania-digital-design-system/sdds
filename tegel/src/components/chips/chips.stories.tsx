@@ -83,7 +83,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Sets the chips state as active or default',
+      description: 'Sets the chips state as active or default.',
       control: {
         type: 'radio',
       },
