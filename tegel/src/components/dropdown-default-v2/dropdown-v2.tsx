@@ -39,6 +39,8 @@ export class SddsDropdownV2 {
   /** Direction that the dropdown will open. By default set to auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'up';
 
+  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+
   @State() selectionMade: boolean = false;
 
   @State() dropdownMenuSelector: HTMLElement;
@@ -158,7 +160,12 @@ export class SddsDropdownV2 {
             type="button"
             value={this.selectedValueLabel ? this.selectedValueLabel : this.placeholder}
             placeholder={this.placeholder}
-            class={`${this.size} ${this.labelPosition} ${this.error ? 'error' : ''}`}
+            class={`
+              ${this.size}
+              ${this.labelPosition}
+              ${this.error ? 'error' : ''}
+              ${this.open ? 'open' : 'closed'}
+              `}
             onFocus={() => {}}
           ></input>
           <sdds-icon class={`${this.size}`} name="chevron_down" size="16px"></sdds-icon>
@@ -185,7 +192,6 @@ export class SddsDropdownV2 {
             {this.data &&
               this.parsedData.map((item, index) => (
                 <sdds-dropdown-option-v2
-                  size={this.size}
                   label={item.label}
                   value={item.value}
                   selected={item.selected}

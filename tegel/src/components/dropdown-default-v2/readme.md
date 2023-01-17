@@ -14,6 +14,7 @@
 | `helper`        | `helper`         | Helper text in the bottom of dropdown                                                                | `string`                              | `''`            |
 | `label`         | `label`          | Label text                                                                                           | `string`                              | `'Placeholder'` |
 | `labelPosition` | `label-position` | Controls position of label                                                                           | `"inside" \| "no-label" \| "outside"` | `'outside'`     |
+| `modeVariant`   | `mode-variant`   |                                                                                                      | `"primary" \| "secondary"`            | `'primary'`     |
 | `open`          | `open`           | Open state of the dropdown                                                                           | `boolean`                             | `false`         |
 | `openDirection` | `open-direction` | Direction that the dropdown will open. By default set to auto.                                       | `"auto" \| "down" \| "up"`            | `'up'`          |
 | `placeholder`   | `placeholder`    | Placeholder for the dropdown                                                                         | `string`                              | `undefined`     |

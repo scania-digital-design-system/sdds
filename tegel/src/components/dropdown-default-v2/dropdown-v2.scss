@@ -63,6 +63,10 @@
         border-bottom: 1px solid var(--sdds-negative);
       }
 
+      &.open {
+        border-bottom: 1px solid var(--sdds-blue-400);
+      }
+
       &.lg.inside {
         padding-top: 4px;
       }

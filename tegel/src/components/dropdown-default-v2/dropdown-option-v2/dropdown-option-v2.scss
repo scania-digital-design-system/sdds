@@ -5,6 +5,14 @@ li {
   width: 100%;
   background-color: var(--sdds-dropdown-bg);
 
+  &.selected {
+    background-color: var(--sdds-grey-300);
+
+    &:hover {
+      background-color: var(--sdds-grey-300);
+    }
+  }
+
   &.disabled {
     &:hover {
       cursor: not-allowed;

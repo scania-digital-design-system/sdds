@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element } from '@stencil/core';
+import { Component, h, Host, Prop, Element, State } from '@stencil/core';
 import { HostElement } from '@stencil/core/internal';
 
 @Component({
@@ -13,9 +13,11 @@ export class SddsDropdownOptionV2 {
 
   @Prop() value: string;
 
-  @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
-
   @Prop() disabled: boolean = false;
+
+  @State() size: 'sm' | 'md' | 'lg' = 'lg';
+
+  @State() modeVariant: 'primary' | 'secondary' = 'primary';
 
   @Element() host: HostElement;
 
@@ -25,6 +27,7 @@ export class SddsDropdownOptionV2 {
     this.parentEl = this.host.closest('sdds-dropdown-v2');
     if (this.parentEl) {
       this.size = this.parentEl.size;
+      this.modeVariant = this.parentEl.modeVariant;
       if (!this.value) {
         this.value = this.label;
       }
@@ -34,7 +37,13 @@ export class SddsDropdownOptionV2 {
   render() {
     return (
       <Host>
-        <li class={`${this.disabled ? 'disabled' : ''}`}>
+        <li
+          class={`
+          ${this.disabled ? 'disabled' : ''}
+          ${this.selected ? 'selected' : ''}
+          ${this.modeVariant}
+          `}
+        >
           <button
             onClick={() => {
               if (this.parentEl) {

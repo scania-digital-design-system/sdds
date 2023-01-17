@@ -133,4 +133,4 @@ const Template = ({ data, size, labelPosition, placeholder, openDirection, error
       </sdds-dropdown-v2>
     </div>
     `);
-export const WebComponentDefault = Template.bind({});
+export const WebComponent = Template.bind({});
