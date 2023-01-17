@@ -1,7 +1,7 @@
 @import './textarea-theme-vars.scss';
 
-.sdds-on-white-bg {
-  --sdds-textarea-bg: var(--sdds-textarea-on-white-bg);
+.sdds-on-white-background {
+  --sdds-textarea-background: var(--sdds-textarea-on-white-background);
 }
 
 @mixin textfield-base {
@@ -13,7 +13,7 @@
   outline: none;
   height: 100%;
   color: var(--sdds-textarea-color);
-  background-color: var(--sdds-textarea-bg);
+  background-color: var(--sdds-textarea-background);
 
   &::placeholder {
     opacity: 1;
@@ -25,7 +25,7 @@
   }
 
   &:disabled {
-    background-color: var(--sdds-textarea-disabled-bg);
+    background-color: var(--sdds-textarea-disabled-background);
     color: var(--sdds-textarea-disabled-color);
     cursor: not-allowed;
 
@@ -138,7 +138,7 @@
   padding-bottom: 2px;
   padding-right: 2px;
   pointer-events: none;
-  background-color: var(--sdds-textarea-bg);
+  background-color: var(--sdds-textarea-background);
 
   svg {
     display: block;
@@ -279,6 +279,7 @@
   position: absolute;
   right: 18px;
   top: 18px;
+  color: var(--sdds-textarea-icon-read-only-color);
 
   &-label {
     display: none;
@@ -289,7 +290,7 @@
     letter-spacing: var(--sdds-detail-05-ls);
     padding: 8px;
     color: var(--sdds-textarea-icon-read-only-label-color);
-    background-color: var(--sdds-textarea-icon-read-only-label-bg);
+    background-color: var(--sdds-textarea-icon-read-only-label-background);
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
   }
