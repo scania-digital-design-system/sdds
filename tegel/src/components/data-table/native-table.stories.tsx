@@ -39,19 +39,19 @@ export default {
         },
       },
     },
-    onWhiteBG: {
-      name: 'On white background',
-      description:
-        'Changes BG color of table element to grey variation for better visibility on white layouts',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
+    // onWhiteBG: {
+    //   name: 'On white background',
+    //   description:
+    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
+    //   control: {
+    //     type: 'boolean',
+    //   },
+    //   table: {
+    //     defaultValue: {
+    //       summary: false,
+    //     },
+    //   },
+    // },
     responsiveTable: {
       name: 'Responsive table',
       description:
@@ -119,7 +119,7 @@ export default {
     tableTitle: 'Native table',
     isCompact: false,
     dividers: false,
-    onWhiteBG: false,
+    // onWhiteBG: false,
     noMinWidthArg: false,
     responsiveTable: false,
     column1Width: '',
@@ -134,7 +134,6 @@ const Template = (args) =>
         sdds-table
         ${args.isCompact ? 'sdds-table--compact' : ''}
         ${args.dividers ? 'sdds-table--divider' : ''}
-        ${args.onWhiteBG ? 'sdds-table--on-white-bg' : ''}
         ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
         ${args.responsiveTable ? 'sdds-table--responsive' : ''}
     " >

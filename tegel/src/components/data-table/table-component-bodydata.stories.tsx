@@ -49,8 +49,8 @@ export default {
 
 const DataPropertyTemplate = ({ bodyData }) =>
   formatHtmlPreview(`
-  <h3>'body-data' property example</h3>
     <sdds-table enable-expandable-rows="false">
+    <sdds-table-toolbar table-title="'body-data' property example"></sdds-table-toolbar>
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
           <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>

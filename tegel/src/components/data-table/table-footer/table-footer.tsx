@@ -265,7 +265,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -273,7 +273,7 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
-                        fill="currentColor"
+                        
                       />
                     </svg>
                   </button>
@@ -286,7 +286,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -294,7 +294,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>
@@ -327,7 +326,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -335,7 +334,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>
@@ -346,7 +344,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -354,7 +352,7 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
-                        fill="currentColor"
+                        
                       />
                     </svg>
                   </button>

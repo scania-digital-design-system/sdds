@@ -8,14 +8,15 @@
   .sdds-table__row,
   .sdds-table__row-extend {
     display: table-row;
-    border-bottom: 1px solid var(--sdds-grey-400);
-    background-color: var(--sdds-white);
+    border-bottom: 1px solid var(--sdds-data-table-divider);
+    background-color: var(--sdds-data-table-body-row-background);
     transition: background-color 200ms ease;
+    color: var(--sdds-data-table-color);
   }
 
   .sdds-table__row:hover,
   .sdds-table__row-extend:hover {
-    background-color: var(--sdds-grey-100);
+    background-color: var(--sdds-data-table-body-row-background-hover);
   }
 
   .sdds-table__expand-control-container {
@@ -49,13 +50,15 @@
 
     .sdds-table__cell-expand {
       padding: 16px 16px 16px 66px;
+      color: var(--sdds-data-table-color);
+
     }
   }
 }
 
 :host(.sdds-table__row-expand--active) {
   .sdds-table__row {
-    background-color: var(--sdds-grey-300);
+    background-color: var(--sdds-data-table-body-row-background-selected);
   }
 
   .sdds-table__expand-control-container {
@@ -65,7 +68,7 @@
   }
 
   .sdds-table__row-expand {
-    background-color: var(--sdds-grey-300);
+    background-color: var(--sdds-data-table-body-row-background-selected);
     visibility: visible;
   }
 }
@@ -85,27 +88,27 @@
 
 :host(.sdds-table--divider) {
   .sdds-table__cell--expand {
-    border-right: 1px solid var(--sdds-grey-400);
+    border-right: 1px solid var(--sdds-data-table-divider);
   }
 }
 
-:host(.sdds-table--on-white-bg) {
+:host(.sdds-table--on-white-background) {
   .sdds-table__row,
   .sdds-table__row-extend {
-    background-color: var(--sdds-grey-50);
+    background-color: var(--sdds-data-table-body-row-background-on-white);
   }
 }
 
-:host(.sdds-table--on-white-bg:hover) {
+:host(.sdds-table--on-white-background:hover) {
   .sdds-table__row,
   .sdds-table__row-extend {
-    background-color: var(--sdds-grey-200);
+    background-color: var(--sdds-data-table-body-row-background-on-white-hover);
   }
 }
 
-:host(.sdds-table__row-expand--active.sdds-table--on-white-bg) {
+:host(.sdds-table__row-expand--active.sdds-table--on-white-background) {
   .sdds-table__row,
   .sdds-table__row-extend {
-    background-color: var(--sdds-grey-300);
+    background-color: var(--sdds-data-table-body-row-expandable-on-white-selected);
   }
 }
