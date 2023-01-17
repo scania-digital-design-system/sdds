@@ -39,15 +39,6 @@ export default {
       },
       options: ['Datetime', 'Date', 'Time'],
     },
-    defaultValue: {
-      name: 'Default value',
-      description:
-        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Custom'],
-    },
     size: {
       name: 'Size',
       description: 'Switch between different sizes',
@@ -57,50 +48,6 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
     },
-    minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
-      control: {
-        type: 'boolean',
-      },
-    },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
-      control: {
-        type: 'boolean',
-      },
-    },
-    label: {
-      name: 'Label',
-      description: 'Add/remove a label text for the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    labelText: {
-      description: 'Label text for specific textfield',
-      name: 'Label text',
-      control: {
-        type: 'text',
-      },
-      if: { arg: 'label', eq: true },
-    },
-    helper: {
-      name: 'Helper',
-      description: 'Add/remove a helper text for the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    helperText: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
-      },
-      if: { arg: 'helper', eq: true },
-    },
     state: {
       name: 'State',
       description: 'Switch between success or error state',
@@ -109,19 +56,72 @@ export default {
       },
       options: ['None', 'Success', 'Error'],
     },
+    defaultValue: {
+      name: 'Default value',
+      description:
+        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Custom'],
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    label: {
+      name: 'Label',
+      description: 'Toggles a label text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    labelText: {
+      description: 'Sets label text for specific textfield',
+      name: 'Label text',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'label', eq: true },
+    },
+    helper: {
+      name: 'Helper',
+      description: 'Toggles a helper text for the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    helperText: {
+      name: 'Helper text',
+      description: 'Sets helper text for the textfield',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'helper', eq: true },
+    },
+    disabled: {
+      description: 'Sets textfield to disabled state',
+      name: 'Disabled',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     type: 'Datetime',
     size: 'Large',
-    defaultValue: 'None',
-    minWidth: 'Default',
-    disabled: false,
     state: 'None',
+    defaultValue: 'None',
+    noMinWidth: 'Default',
     label: true,
     labelText: 'Label text',
     helper: true,
     helperText: 'Helper text',
-    modeVariant: 'Inherit from parent',
+    disabled: false,
   },
 };
 
@@ -129,14 +129,14 @@ const datetimeTemplate = ({
   modeVariant,
   type,
   size,
-  minWidth,
-  disabled,
+  state,
+  defaultValue,
+  noMinWidth,
   label,
   labelText,
-  state,
   helper,
   helperText,
-  defaultValue,
+  disabled,
 }) => {
   const typeLookup = {
     Datetime: 'datetime-local',
@@ -175,7 +175,7 @@ const datetimeTemplate = ({
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
-            width: 208px;
+            width: 150px;
         }
     </style>
 
@@ -189,7 +189,7 @@ const datetimeTemplate = ({
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
-      ${minWidth ? 'no-min-width' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
       ${label ? `label="${labelText}" ` : ''}
       ${helper ? `helper="${helperText}" ` : ''}
       >
