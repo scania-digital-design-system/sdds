@@ -38,7 +38,7 @@ export default {
       },
     },
     readonly: {
-      description: 'Set textfield to disabled state',
+      description: 'Set textfield to read-only state',
       name: 'Read only',
       control: {
         type: 'boolean',
@@ -91,14 +91,6 @@ export default {
       },
       options: ['Default', 'Success', 'Error'],
     },
-    variant: {
-      name: 'Mode Variant',
-      description: 'The variant of the textarea',
-      control: {
-        type: 'radio',
-      },
-      options: ['Primary', 'Secondary'],
-    },
   },
   args: {
     placeholder: 'Placeholder',
@@ -110,7 +102,6 @@ export default {
     maxLength: 0,
     rows: 5,
     state: 'Default',
-    variant: 'Secondary',
   },
 };
 
@@ -124,10 +115,8 @@ const Template = ({
   helper,
   maxLength,
   rows,
-  variant,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
-  const variantValue = variant === 'Primary' ? 'primary' : 'secondary';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
     None: 'no-label',
@@ -147,7 +136,6 @@ const Template = ({
           rows="${rows}"
           state="${stateValue}"
           label="${label}"
-          mode-variant="${variantValue}"
           helper="${helper}"
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
