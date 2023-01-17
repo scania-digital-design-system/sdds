@@ -48,9 +48,18 @@ export default {
         type: 'text',
       },
     },
+    bodyText: {
+      name: 'Modal body text',
+      description: 'Customize body text',
+      control: {
+        type: 'text',
+      },
+    },
   },
   args: {
     headline: 'The buttons for the modal only works in the canvas tab',
+    bodyText:
+      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     actions: 'Static',
     size: 'Large',
     showModal: true,
@@ -64,7 +73,7 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const Template = ({ headline, size, actions, showModal }) =>
+const Template = ({ headline, bodyText, size, actions, showModal }) =>
   formatHtmlPreview(
     `    <style>
   /* demo-wrapper and demo-styles is for demonstration purposes only*/
@@ -72,7 +81,7 @@ const Template = ({ headline, size, actions, showModal }) =>
     position: relative;
     top: 0;
     left: 0;
-    height: 500px;
+    height: 100vh;
   }
   .demo-styles {
     position: absolute;
@@ -95,9 +104,7 @@ const Template = ({ headline, size, actions, showModal }) =>
           </button>
         </div>
           <div class="sdds-modal-body">
-            <p>
-              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
-            </p>
+            <p class="sdds-u-mb0 sdds-u-mt0">${bodyText}</p>
           </div>
           <div class="sdds-modal-actions">
               <button class="sdds-btn sdds-btn-primary sdds-btn-md">Save</button>

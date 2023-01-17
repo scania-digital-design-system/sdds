@@ -145,6 +145,7 @@ $modals: (
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
   overflow-y: visible;
+  padding-right: 16px;
   @include modal-scroll-inner;
 
   @media (min-width: $screen-l) {
@@ -173,7 +174,7 @@ $modals: (
     .sdds-modal-body {
       font: var(--sdds-body-01);
       letter-spacing: var(--sdds-body-01-ls);
-      padding-bottom: 40px;
+      padding-bottom: 96px;
       margin: 0 -16px 0 0;
       max-height: calc(85vh - 36px);
       overflow-y: auto;
@@ -181,7 +182,7 @@ $modals: (
 
     .sdds-modal-actions {
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       right: 0;
       background-color: var(--sdds-modal-background);
