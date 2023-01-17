@@ -59,7 +59,7 @@ export default {
     },
     clickable: {
       name: 'Clickable',
-      description: 'Toggles if the card is clickable or not',
+      description: 'Toggles if the card is clickable or not.',
       control: {
         type: 'boolean',
       },
