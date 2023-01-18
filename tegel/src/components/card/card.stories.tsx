@@ -129,7 +129,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
 </style>
 
     <div class="demo-wrapper">
-          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}">
+          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : '.sdds-mode-variant-primary'}">
             ${
               imageTop === true
                 ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
@@ -147,7 +147,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
                 ${
                   avatar
                     ? `<div class="sdds-card-headlines">
-                  ${headline ? `<h6 class="sdds-card-headline">${headline}${modeVariant}</h6>` : ''}
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
                   </div>`
                     : `${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
