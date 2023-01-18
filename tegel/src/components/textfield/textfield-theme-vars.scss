@@ -1,7 +1,10 @@
 :root,
 .sdds-theme-light {
+  --sdds-textfield-background-primary: var(--sdds-grey-50);
+  --sdds-textfield-background-secondary: var(--sdds-white);
+  --sdds-textfield-background: var(--sdds-textfield-background-primary);
+
   --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-background: var(--sdds-white);
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
@@ -43,22 +46,28 @@
   // Textarea resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
 
-  // --sdds-textfield-min-width: 208px;
-  // --sdds-textfield-height: 112px;
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
-  //White background
-  --sdds-textfield-on-white-background: var(--sdds-grey-50);
+  --sdds-textfield-background-secondary: var(--sdds-white);
 
   // Read only
   --sdds-textfield-icon-read-only-color: var(--sdds-grey-600);
   --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-800);
-}
 
+  .sdds-mode-variant-primary {
+    --sdds-textfield-background: var(--sdds-textfield-background-primary);
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-textfield-background: var(--sdds-textfield-background-secondary);
+  }
+}
 .sdds-theme-dark {
+  --sdds-textfield-background-primary: var(--sdds-grey-900);
+  --sdds-textfield-background: var(--sdds-textfield-background-primary);
+  --sdds-textfield-background-secondary: var(--sdds-grey-868);
   --sdds-textfield-color: var(--sdds-grey-200);
-  --sdds-textfield-background: var(--sdds-grey-900);
   --sdds-textfield-placeholder: var(--sdds-grey-600);
   --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
@@ -96,9 +105,6 @@
   // Textarea resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
 
-  //White background
-  --sdds-textfield-on-white-background: var(--sdds-grey-868);
-
   // Border bottom
   --sdds-textfield-border-bottom: var(--sdds-grey-600);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-400);
@@ -108,4 +114,12 @@
   // Read only
   --sdds-textfield-icon-read-only-color: var(--sdds-grey-100);
   --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-50);
+
+  .sdds-mode-variant-primary {
+    --sdds-textfield-background: var(--sdds-textfield-background-primary);
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-textfield-background: var(--sdds-textfield-background-secondary);
+  }
 }

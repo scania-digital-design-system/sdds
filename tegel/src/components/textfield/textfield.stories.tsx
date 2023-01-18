@@ -35,6 +35,17 @@ export default {
         options: ['Password', 'Text'],
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Change the components mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     size: {
       name: 'Size',
       description: 'Switch between different sizes',
@@ -158,7 +169,8 @@ export default {
     prefixType: 'Icon',
     minWidth: 'Default',
     size: 'Large',
-    type: 'text',
+    type: 'Text',
+  modeVariant: 'Primary',
   },
 };
 
@@ -178,6 +190,7 @@ const Template = ({
   suffix,
   suffixType,
   maxLength,
+  modeVariant,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
@@ -185,6 +198,10 @@ const Template = ({
     Large: 'lg',
     Medium: 'md',
     Small: 'sm',
+  };
+  const modeVariantLookUp = {
+    Primary: 'primary',
+    Secondary: 'secondary',
   };
 
   return formatHtmlPreview(
@@ -201,6 +218,7 @@ const Template = ({
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
+      mode-variant="${modeVariantLookUp[modeVariant]}"
       state="${stateValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
