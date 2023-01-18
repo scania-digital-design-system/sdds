@@ -103,7 +103,7 @@ export class Textfield {
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
-        sdds-mode-variant-${this.modeVariant}
+        ${this.modeVariant === 'primary' ? 'sdds-on-white-bg' : ''}
         ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
