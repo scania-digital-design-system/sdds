@@ -1,11 +1,13 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import { iconsNames } from '../icon/iconsArray';
+import readme from './readme.md';
 
 // FIXME: CMS: Change state to type in Code tab of component
 
 export default {
   title: 'Components/Banner',
   parameters: {
+    notes: readme,
     layout: 'fullscreen',
     design: [
       {
@@ -82,19 +84,22 @@ export default {
   },
 };
 
-const Template = ({ state, icon, header, subheader, linkText, linkHref }) => {
-  console.log(icon);
-  return formatHtmlPreview(`
-    <sdds-banner
-        state="${state.toLowerCase()}"
-        ${icon !== 'none' ? `icon="${icon}"` : ''}
-        ${header !== '' ? `header="${header}"` : ''}
-        ${subheader !== '' ? `subheader="${subheader}"` : ''}
-        ${linkText !== '' ? `link-text="${linkText}"` : ''}
-        ${linkHref !== '' ? `link-href="${linkHref}"` : ''}
-        >
-    </sdds-banner>
+const Template = ({ state, icon, header, subheader, linkText, linkHref }) =>
+  formatHtmlPreview(`
+      <sdds-banner
+          state="${state.toLowerCase()}"
+          ${icon !== 'none' ? `icon="${icon}"` : ''}
+          ${header !== '' ? `header="${header}"` : ''}
+          ${subheader !== '' ? `subheader="${subheader}"` : ''}
+          ${linkText !== '' ? `link-text="${linkText}"` : ''}
+          ${linkHref !== '' ? `link-href="${linkHref}"` : ''}
+          >
+      </sdds-banner>
+      <script>
+        document.addEventListener('bannerCloseEvent', (event)=>{
+          console.log('Closed banner with BannerID: ',event.detail.bannerId)
+          event.preventDefault()
+        })
+      </script>
     `);
-};
-
 export const WebComponent = Template.bind({});

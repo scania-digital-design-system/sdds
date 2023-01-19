@@ -1,6 +1,11 @@
 @import '../../mixins/box-sizing';
 @import '../link/link-theme-vars.scss';
 
+:host(.hide) {
+  display: none;
+  visibility: hidden;
+}
+
 :host(.error) {
   background-color: var(--sdds-banner-background-error);
 }
