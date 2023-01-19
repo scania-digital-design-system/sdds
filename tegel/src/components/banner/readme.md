@@ -25,6 +25,29 @@
 | `bannerCloseEvent` | Sends unique banner identifier when the close button is pressed | `CustomEvent<any>` |
 
 
+## Methods
+
+### `hideBanner() => Promise<{ bannerId: string; visible: boolean; }>`
+
+
+
+#### Returns
+
+Type: `Promise<{ bannerId: string; visible: boolean; }>`
+
+
+
+### `showBanner() => Promise<{ bannerId: string; visible: boolean; }>`
+
+
+
+#### Returns
+
+Type: `Promise<{ bannerId: string; visible: boolean; }>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

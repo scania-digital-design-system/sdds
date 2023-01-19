@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Prop, State, Event, EventEmitter, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-banner',
@@ -40,6 +40,24 @@ export class SddsBanner {
     bubbles: true,
   })
   bannerCloseEvent: EventEmitter<any>;
+
+  @Method()
+  async hideBanner() {
+    this.show = false;
+    return {
+      bannerId: this.bannerId,
+      visible: false,
+    };
+  }
+
+  @Method()
+  async showBanner() {
+    this.show = true;
+    return {
+      bannerId: this.bannerId,
+      visible: true,
+    };
+  }
 
   render() {
     return (
