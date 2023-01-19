@@ -4,7 +4,6 @@ import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import { addons } from '@storybook/addons';
-import { globals } from '@storybook/api';
 import { UPDATE_GLOBALS } from '@storybook/core-events';
 import './preview.css';
 
@@ -132,6 +131,7 @@ export const parameters = {
       method: 'alphabetical',
       order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
     },
+    enableShortcuts: false,
   },
   layout: 'padded',
 };
