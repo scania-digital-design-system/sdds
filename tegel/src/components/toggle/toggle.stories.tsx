@@ -44,7 +44,7 @@ export default {
   args: {
     size: 'Default',
     headline: '',
-    disabled: false,
+    disabled: true,
   },
 };
 
@@ -65,5 +65,4 @@ const Template = ({ size, disabled = false, headline = '' }) => {
   `);
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Native = Template.bind({});
