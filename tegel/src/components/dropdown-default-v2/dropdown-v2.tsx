@@ -94,6 +94,12 @@ export class SddsDropdownV2 {
 
     if (this.data) {
       this.parsedData = JSON.parse(this.data);
+      this.parsedData.forEach((dataElement, index) => {
+        if (dataElement.selected) {
+          this.value = this.parsedData[index].value;
+          this.selectedValueLabel = this.parsedData[index].label;
+        }
+      });
     }
   }
 

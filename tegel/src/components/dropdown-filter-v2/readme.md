@@ -20,7 +20,6 @@
 | `placeholder`   | `placeholder`    | Placeholder for the dropdown                                                                         | `string`                   | `undefined`   |
 | `size`          | `size`           | The size of the component                                                                            | `"lg" \| "md" \| "sm"`     | `'lg'`        |
 | `value`         | `value`          | The value of the dropdown - selected option value.                                                   | `string`                   | `undefined`   |
-| `valueLabel`    | `value-label`    | The label of the selected value.                                                                     | `string`                   | `undefined`   |
 
 
 ## Dependencies

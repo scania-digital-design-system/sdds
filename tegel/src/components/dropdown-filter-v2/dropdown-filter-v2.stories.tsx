@@ -58,6 +58,15 @@ export default {
         type: 'boolean',
       },
     },
+    defaultOption: {
+      name: 'Default options',
+      description: 'Sets a pre-selected option and replaces placeholder',
+      if: { arg: 'type', neq: 'Default' },
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3', 'Option 3'],
+    },
   },
   args: {
     size: 'Large',
@@ -67,12 +76,22 @@ export default {
     helper: 'Helper',
     openDirection: 'Auto',
     error: false,
+    defaultOption: 'No default',
   },
 };
 
 const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
 
-const Template = ({ data, size, placeholder, openDirection, error, helper, label }) =>
+const Template = ({
+  data,
+  size,
+  placeholder,
+  openDirection,
+  error,
+  helper,
+  label,
+  defaultOption,
+}) =>
   formatHtmlPreview(`
 <style>
   .demo-wrapper {
@@ -92,16 +111,24 @@ const Template = ({ data, size, placeholder, openDirection, error, helper, label
         ? `data='[
           {
             "value": "option-1",
-            "label":"Jakarta",
-            "disabled":"true"
+            "label":"Option 1",
+            "disabled":"true",
+            "selected":${defaultOption === 'Option 1' ? 'true' : 'false'}
           },
           {
             "value":"option-2",
-            "label":"Stockholm"
+            "label":"Option 2",
+            "selected":${defaultOption === 'Option 3' ? 'true' : 'false'}
           },
           {
             "value":"option-3",
-            "label":"Barcelona"
+            "label":"Option 3",
+            "selected":${defaultOption === 'Option 3' ? 'true' : 'false'}
+          },
+          {
+            "value":"option-4",
+            "label":"Option 4",
+            "selected":${defaultOption === 'Option 4' ? 'true' : 'false'}
           }
         ]'`
         : ''
@@ -109,13 +136,21 @@ const Template = ({ data, size, placeholder, openDirection, error, helper, label
       ${
         data === 'Children'
           ? `
-        <sdds-dropdown-filter-option-v2 value="value-1" disabled label="Value-1">
+        <sdds-dropdown-filter-option-v2 value="value-1" disabled label="Value-1" ${
+          defaultOption === 'Option 1' ? 'selected' : ''
+        }>
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="value-2" label="Value-2">
+        <sdds-dropdown-filter-option-v2 value="value-2" label="Value-2" ${
+          defaultOption === 'Option 2' ? 'selected' : ''
+        }>
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="value-3" label="Value-3">
+        <sdds-dropdown-filter-option-v2 value="value-3" label="Value-3" ${
+          defaultOption === 'Option 3' ? 'selected' : ''
+        }>
         </sdds-dropdown-filter-option-v2>
-        <sdds-dropdown-filter-option-v2 value="value-4" label="Value-4" selected>
+        <sdds-dropdown-filter-option-v2 value="value-4" label="Value-4" ${
+          defaultOption === 'Option 4' ? 'selected' : ''
+        } >
         </sdds-dropdown-filter-option-v2>
       `
           : ''

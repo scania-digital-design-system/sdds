@@ -30,9 +30,6 @@ export class DropdownFilterV2 {
   /** The value of the dropdown - selected option value. */
   @Prop({ reflect: true }) value: string;
 
-  /** The label of the selected value. */
-  @Prop({ reflect: true }) valueLabel: string;
-
   /** Direction that the dropdown will open. By default set to auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'down';
 
@@ -69,7 +66,7 @@ export class DropdownFilterV2 {
       }
   > = [];
 
-  selectedValueLabel: string;
+  @State() selectedValueLabel: string;
 
   dropdownList: HTMLElement;
 
@@ -80,16 +77,24 @@ export class DropdownFilterV2 {
       this.children = Array.from(this.host.children) as [HTMLSddsDropdownOptionV2Element];
       this.children.forEach((element: HTMLSddsDropdownOptionV2Element, index) => {
         if (
+          element.getAttribute('selected') !== null ||
+          element.getAttribute('selected') === 'false'
+        ) {
+          this.value = element.getAttribute('value');
+          this.selectedValueLabel = element.getAttribute('label');
+
+          element.setAttribute('selected', 'true');
+        }
+
+        if (
           element.getAttribute('disabled') !== '' &&
           element.getAttribute('disabled') !== ' true'
         ) {
           element.addEventListener('click', () => {
             element.setAttribute('selected', 'true');
             this.value = element.getAttribute('value');
-            this.valueLabel = element.getAttribute('label');
-
-            // Remove?
             this.selectedValueLabel = element.getAttribute('label');
+
             this.selectionMade = true;
             this.children.forEach((el) => {
               if (this.children.indexOf(el) !== index) {
@@ -103,6 +108,12 @@ export class DropdownFilterV2 {
 
     if (this.data) {
       this.parsedData = JSON.parse(this.data);
+      this.parsedData.forEach((dataElement, index) => {
+        if (dataElement.selected) {
+          this.value = this.parsedData[index].value;
+          this.selectedValueLabel = this.parsedData[index].label;
+        }
+      });
     }
   }
 
@@ -110,9 +121,8 @@ export class DropdownFilterV2 {
     this.parsedData = this.parsedData.map((item, itemIndex) => {
       if (itemIndex === index) {
         this.value = item.value;
-        // Remove?
-        this.valueLabel = item.label;
         this.selectedValueLabel = item.label;
+
         this.selectionMade = true;
         this.host.setAttribute('value', item.value);
         return {

@@ -119,29 +119,28 @@ const Template = ({
       ${
         data === 'JSON'
           ? `data='[
-          {
-            "value": "option-1",
-            "label":"Option 1",
-            "disabled":"true",
-            ${defaultOption === 'Option 1' ? `"selected": "true"` : ''}
-          },
-          {
-            "value":"option-2",
-            "label":"Option 2",
-            ${defaultOption === 'Option 2' ? `"selected": "true"` : ''}
-
-          },
-          {
-            "value":"option-3",
-            "label":"Option 3",
-            ${defaultOption === 'Option 3' ? `"selected": "true"` : ''}
-          },
-          {
-            "value":"option-4",
-            "label":"Option 4",
-            ${defaultOption === 'Option 4' ? `"selected": "true"` : ''}
-          }
-        ]'`
+            {
+              "value": "option-1",
+              "label":"Option 1",
+              "disabled":"true",
+              "selected":"${defaultOption === 'Option 1' ? 'true' : 'false'}"
+            },
+            {
+              "value":"option-2",
+              "label":"Option 2",
+              "selected":"${defaultOption === 'Option 3' ? 'true' : 'false'}"
+            },
+            {
+              "value":"option-3",
+              "label":"Option 3",
+              "selected": "${defaultOption === 'Option 3' ? 'true' : 'false'}"
+            },
+            {
+              "value":"option-4",
+              "label":"Option 4",
+              "selected": "${defaultOption === 'Option 4' ? 'true' : 'false'}"
+            }
+          ]'`
           : ''
       }>
       ${
