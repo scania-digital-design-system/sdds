@@ -18,26 +18,6 @@ export default {
     ],
   },
   argTypes: {
-    label: {
-      name: 'Label',
-      type: 'string',
-      description: 'Label text helps to describe what the dropdown contains',
-    },
-    size: {
-      name: 'Size',
-      description: 'Size of the dropdown',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small'],
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
     state: {
       name: 'State',
       control: {
@@ -46,6 +26,19 @@ export default {
       options: ['Default', 'Error'],
       description: 'Support error state',
     },
+    size: {
+      name: 'Size',
+      description: 'Sets the size of the dropdown',
+      control: {
+        type: 'radio',
+      },
+      options: ['Large', 'Medium', 'Small'],
+    },
+    label: {
+      name: 'Label',
+      type: 'string',
+      description: 'Label text helps to describe what the dropdown contains',
+    },
     helper: {
       name: 'Helper text',
       control: {
@@ -53,13 +46,20 @@ export default {
       },
       description: 'Helper text assists the user with additional information about the dropdown',
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
-    label: '',
-    size: 'Large',
-    disabled: false,
     state: 'Default',
+    size: 'Large',
+    label: '',
     helper: '',
+    disabled: false,
   },
 };
 

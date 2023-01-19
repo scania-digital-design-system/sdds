@@ -22,71 +22,25 @@ export default {
     ],
   },
   argTypes: {
-    size: {
-      name: 'Size',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
-    },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    labelText: {
-      name: 'Label text',
-      control: 'text',
-      description: 'Label text helps to describe what the dropdown contains',
-      if: { arg: 'labelPosition', neq: 'None' },
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
     state: {
       name: 'State',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Error'],
-      description: 'Support error state',
+      description: 'Support error state.',
     },
-    helper: {
-      name: 'Add helper text',
-      control: 'boolean',
-      description: 'Adds a helper text.',
-    },
-    helperText: {
-      name: 'Helper text',
-      description: 'Helper text assists the user with additional information about the dropdown',
-      control: 'text',
-      if: { arg: 'helper', eq: true },
-    },
-    multiDefaultOption: {
-      name: 'Default options',
-      description: 'Sets a pre-selected option and replaces placeholder',
-      if: { arg: 'type', neq: 'Default' },
+    size: {
+      name: 'Size',
       control: {
-        type: 'check',
+        type: 'radio',
       },
-      options: ['Option 1', 'Option 2', 'Option 3'],
+      options: ['Large', 'Medium', 'Small'],
+      description: 'Sets the size of the dropdown.',
     },
     openDirection: {
       name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+      description: 'Sets the direction in which the dropdown will open.',
       control: {
         type: 'radio',
       },
@@ -97,32 +51,78 @@ export default {
         },
       },
     },
+    multiDefaultOption: {
+      name: 'Default options',
+      description: 'Sets pre-selected option(s) and replaces placeholder',
+      if: { arg: 'type', neq: 'Default' },
+      control: {
+        type: 'check',
+      },
+      options: ['Option 1', 'Option 2', 'Option 3'],
+    },
+    placeholder: {
+      name: 'Placeholder',
+      type: 'string',
+      description: 'Sets a placeholder text when no option is selected.',
+    },
+    labelPosition: {
+      name: 'Label position',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Sets label text position.',
+    },
+    labelText: {
+      name: 'Label text',
+      control: 'text',
+      description: 'Label text helps to describe what the dropdown contains.',
+      if: { arg: 'labelPosition', neq: 'None' },
+    },
+    helper: {
+      name: 'Add helper text',
+      control: 'boolean',
+      description: 'Adds a helper text.',
+    },
+    helperText: {
+      name: 'Helper text',
+      description: 'Helper text assists the user with additional information about the dropdown.',
+      control: 'text',
+      if: { arg: 'helper', eq: true },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
-    size: 'Large',
-    placeholder: 'Placeholder',
     state: 'Default',
-    disabled: false,
+    size: 'Large',
+    openDirection: 'Auto',
+    multiDefaultOption: ['Option 1', 'Option 2'],
+    placeholder: 'Placeholder',
     labelPosition: 'None',
     labelText: 'Label text',
     helper: false,
     helperText: 'Helper text',
-    multiDefaultOption: ['Option 1', 'Option 2'],
-    openDirection: 'Auto',
+    disabled: false,
   },
 };
 
 const Template = ({
+  state = 'default',
   size,
-  disabled = false,
+  openDirection,
+  multiDefaultOption,
+  placeholder,
   labelPosition,
   labelText,
   helper,
   helperText,
-  state = 'default',
-  placeholder,
-  multiDefaultOption,
-  openDirection,
+  disabled = false,
 }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
