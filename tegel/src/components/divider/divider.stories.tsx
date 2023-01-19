@@ -20,7 +20,7 @@ export default {
   argTypes: {
     type: {
       name: 'Type',
-      description: 'Choose divider type.',
+      description: 'Sets divider type.',
       control: {
         type: 'radio',
       },
@@ -31,7 +31,7 @@ export default {
     },
     width: {
       name: 'Width',
-      description: 'Choose divider width.',
+      description: 'Sets divider width.',
       control: {
         type: 'number',
       },
@@ -39,7 +39,7 @@ export default {
     },
     height: {
       name: 'Height',
-      description: 'Choose divider height.',
+      description: 'Sets divider height.',
       control: {
         type: 'number',
       },
@@ -47,7 +47,7 @@ export default {
     },
     direction: {
       name: 'Direction',
-      description: 'Set the direction of the divider',
+      description: 'Sets the direction of the divider',
       control: {
         type: 'select',
       },
