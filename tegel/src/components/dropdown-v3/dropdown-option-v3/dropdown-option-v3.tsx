@@ -6,12 +6,13 @@ import { Component, h, Host, Prop, Element, State } from '@stencil/core';
   shadow: true,
 })
 export class DropdownOptionV3 {
+  /** Sets the dropdown option in a selected state */
   @Prop() selected: boolean = false;
 
-  @Prop() label: string;
-
+  /** The value of the dropdown option */
   @Prop() value: string;
 
+  /** Sets the dropdown option in a disabled state */
   @Prop() disabled: boolean = false;
 
   @State() size: 'sm' | 'md' | 'lg' = 'lg';

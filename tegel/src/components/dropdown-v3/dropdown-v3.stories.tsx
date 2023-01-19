@@ -1,8 +1,11 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readmeDropdown from './readme.md';
+import readmeDropdownOption from './dropdown-option-v3/readme.md';
 
 export default {
   title: 'Components/Dropdown-v3',
   parameters: {
+    notes: { 'Dropdown': readmeDropdown, 'Dropdown option': readmeDropdownOption },
     layout: 'centered',
   },
   argTypes: {
@@ -255,4 +258,4 @@ const Template = ({
       </sdds-dropdown-v3>
     </div>
     `);
-export const WebComponentMultiselect = Template.bind({});
+export const WebComponent = Template.bind({});

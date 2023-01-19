@@ -11,7 +11,6 @@
     padding: 0 16px;
     border-bottom: 1px solid var(--sdds-grey-800);
 
-
     &.error {
       border-bottom: 1px solid var(--sdds-negative);
     }
@@ -61,17 +60,20 @@
       left: 0;
       position: absolute;
       max-height: 56px;
-      width: 100%;
+      width: 90%;
       background-color: transparent;
       border: none;
       text-align: left;
       border-bottom: 1px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &.open {
         border-bottom: none;
       }
 
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
 
@@ -94,21 +96,21 @@
       background-color: transparent;
       border: none;
       text-align: left;
-  
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       &:focus-visible {
         outline: none;
-  
       }
-  
-  
+
       &.lg.inside {
         padding-top: 4px;
       }
-  
+
       &.md.inside {
         padding-top: 4px;
       }
-    
     }
   }
 
@@ -183,9 +185,6 @@
       color: var(--sdds-negative);
     }
   }
-
-
-
 
   /* DROPDOWN LIST */
   .dropdown-menu {

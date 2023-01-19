@@ -9,20 +9,19 @@
 
 | Property        | Attribute        | Description                                                                                          | Type                                  | Default       |
 | --------------- | ---------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------- |
-| `data`          | `data`           | Data is an array of objects that contains label and value that will be rendered as dropdown-options. | `string`                              | `null`        |
+| `data`          | `data`           | Data is an array of objects that contains label and value that will be rendered as dropdown-options. | `string`                              | `undefined`   |
 | `error`         | `error`          | Error state for the component,                                                                       | `boolean`                             | `false`       |
-| `filter`        | `filter`         |                                                                                                      | `boolean`                             | `undefined`   |
-| `helper`        | `helper`         | Helper text in the bottom of dropdown                                                                | `string`                              | `''`          |
+| `filter`        | `filter`         | Adds filter ability to component.                                                                    | `boolean`                             | `undefined`   |
+| `helper`        | `helper`         | Helper text in the bottom of dropdown                                                                | `string`                              | `undefined`   |
 | `label`         | `label`          | Label text                                                                                           | `string`                              | `undefined`   |
 | `labelPosition` | `label-position` | Controls position of label                                                                           | `"inside" \| "no-label" \| "outside"` | `'outside'`   |
-| `modeVariant`   | `mode-variant`   |                                                                                                      | `"primary" \| "secondary"`            | `'primary'`   |
-| `multiselect`   | `multiselect`    |                                                                                                      | `boolean`                             | `undefined`   |
-| `noResultText`  | `no-result-text` |                                                                                                      | `string`                              | `'No result'` |
+| `modeVariant`   | `mode-variant`   | Variant of the component based on current mode.                                                      | `"primary" \| "secondary"`            | `'primary'`   |
+| `multiselect`   | `multiselect`    | Adds multiselect ability to component.                                                               | `boolean`                             | `undefined`   |
+| `noResultText`  | `no-result-text` | If filter option is true, this is the text displayed when the search returns no options.             | `string`                              | `'No result'` |
 | `open`          | `open`           | Open state of the dropdown                                                                           | `boolean`                             | `false`       |
 | `openDirection` | `open-direction` | Direction that the dropdown will open. By default set to auto.                                       | `"auto" \| "down" \| "up"`            | `'up'`        |
 | `placeholder`   | `placeholder`    | Placeholder text                                                                                     | `string`                              | `undefined`   |
 | `size`          | `size`           | The size of the component                                                                            | `"lg" \| "md" \| "sm"`                | `'lg'`        |
-| `value`         | --               |                                                                                                      | `{ value: string; label: string; }[]` | `[]`          |
 
 
 ## Dependencies

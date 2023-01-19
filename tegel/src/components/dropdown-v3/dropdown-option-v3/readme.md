@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `disabled` | `disabled` |             | `boolean` | `false`     |
-| `label`    | `label`    |             | `string`  | `undefined` |
-| `selected` | `selected` |             | `boolean` | `false`     |
-| `value`    | `value`    |             | `string`  | `undefined` |
+| Property   | Attribute  | Description                                  | Type      | Default     |
+| ---------- | ---------- | -------------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled` | Sets the dropdown option in a disabled state | `boolean` | `false`     |
+| `selected` | `selected` | Sets the dropdown option in a selected state | `boolean` | `false`     |
+| `value`    | `value`    | The value of the dropdown option             | `string`  | `undefined` |
 
 
 ## Dependencies
