@@ -20,44 +20,25 @@ export default {
     ],
   },
   argTypes: {
+    state: {
+      name: 'State',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Error'],
+      description: 'Support error state.',
+    },
     size: {
       name: 'Size',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
-    },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    helper: {
-      name: 'Helper text',
-      control: {
-        type: 'text',
-      },
-      description: 'Helper text assists the user with additional information about the dropdown',
-    },
-    defaultOption: {
-      description: 'Sets a pre-selected option and replaces placeholder',
-      name: 'Default option',
-      control: {
-        type: 'radio',
-      },
-      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+      description: 'Sets the size of the dropdown.',
     },
     openDirection: {
       name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+      description: 'Sets the direction in which the dropdown will open.',
       control: {
         type: 'radio',
       },
@@ -68,28 +49,55 @@ export default {
         },
       },
     },
+    defaultOption: {
+      description: 'Sets a pre-selected option and replaces placeholder.',
+      name: 'Default option',
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+    },
+    placeholder: {
+      name: 'Placeholder',
+      type: 'string',
+      description: 'Sets a placeholder text when no option is selected.',
+    },
+    helper: {
+      name: 'Helper text',
+      control: {
+        type: 'text',
+      },
+      description: 'Helper text assists the user with additional information about the dropdown.',
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
-    size: 'Large',
-    placeholder: 'Placeholder',
-    disabled: false,
-    helper: '',
-    defaultOption: 'Option 1',
     state: 'Default',
+    size: 'Large',
     openDirection: 'Auto',
+    defaultOption: 'Option 1',
+    placeholder: 'Placeholder',
+    helper: '',
+    disabled: false,
   },
 };
 
 const FilterTemplate = ({
-  size,
-  disabled = false,
-  helper = '',
-  label,
   state = 'default',
+  size,
+  openDirection,
+  defaultOption,
   placeholder,
   labelPosition,
-  defaultOption,
-  openDirection,
+  label,
+  helper = '',
+  disabled = false,
 }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
