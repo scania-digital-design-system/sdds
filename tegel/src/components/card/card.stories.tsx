@@ -127,7 +127,6 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
     width: 300px;
   }
 </style>
-
     <div class="demo-wrapper">
           <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : '.sdds-mode-variant-primary'}">
             ${
@@ -147,7 +146,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
                 ${
                   avatar
                     ? `<div class="sdds-card-headlines">
-                  ${headline ? `<h6 class="sdds-card-headline">${headline}${modeVariant}</h6>` : ''}
+                  ${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
                   ${subheadline ? `<h6 class="sdds-card-sub-headline" >${subheadline}</h6>` : ''}
                   </div>`
                     : `${headline ? `<h6 class="sdds-card-headline">${headline}</h6>` : ''}
