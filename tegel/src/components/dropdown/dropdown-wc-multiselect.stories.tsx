@@ -135,6 +135,52 @@ export default {
         },
       },
     },
+    multiDefaultOption: {
+      name: 'Default options',
+      description: 'Sets pre-selected option(s) and replaces placeholder',
+      if: { arg: 'type', neq: 'Default' },
+      control: {
+        type: 'check',
+      },
+      options: ['Option 1', 'Option 2', 'Option 3'],
+    },
+    placeholder: {
+      name: 'Placeholder',
+      type: 'string',
+      description: 'Sets a placeholder text when no option is selected.',
+    },
+    labelPosition: {
+      name: 'Label position',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Sets label text position.',
+    },
+    labelText: {
+      name: 'Label text',
+      control: 'text',
+      description: 'Label text helps to describe what the dropdown contains.',
+      if: { arg: 'labelPosition', neq: 'None' },
+    },
+    helper: {
+      name: 'Add helper text',
+      control: 'boolean',
+      description: 'Adds a helper text.',
+    },
+    helperText: {
+      name: 'Helper text',
+      description: 'Helper text assists the user with additional information about the dropdown.',
+      control: 'text',
+      if: { arg: 'helper', eq: true },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     state: 'Default',
