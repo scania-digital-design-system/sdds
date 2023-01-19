@@ -131,7 +131,6 @@ export const parameters = {
       method: 'alphabetical',
       order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
     },
-    enableShortcuts: false,
   },
   layout: 'padded',
 };
