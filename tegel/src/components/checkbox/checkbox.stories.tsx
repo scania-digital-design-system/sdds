@@ -21,7 +21,9 @@ export default {
     label: {
       name: 'Label text',
       description: 'Sets the label of the component.',
-      type: 'string',
+      control: {
+        type: 'text',
+      },
     },
     checked: {
       name: 'Checked',
