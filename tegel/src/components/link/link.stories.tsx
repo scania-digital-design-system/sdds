@@ -18,24 +18,34 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Display link in disabled state',
-      controls: {
-        type: 'boolean',
-      },
-    },
     noUnderline: {
       name: 'No underline',
       description: 'Hide underline under link text',
       controls: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Display link in disabled state',
+      controls: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
   },
   args: {
-    disabled: false,
     noUnderline: false,
+    disabled: false,
   },
 };
 
