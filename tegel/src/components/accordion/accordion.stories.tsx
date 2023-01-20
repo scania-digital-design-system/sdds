@@ -42,9 +42,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
   },
@@ -67,7 +67,7 @@ export default {
     disabled: false,
     paddingReset: false,
     iconPosition: 'end',
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 
@@ -77,7 +77,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
 
   return formatHtmlPreview(`
-    <sdds-accordion mode-variant="${modeVariant.toLowerCase()}">
+    <sdds-accordion ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
       <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.

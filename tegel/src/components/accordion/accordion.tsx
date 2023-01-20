@@ -10,12 +10,12 @@ export class Accordion {
   @Prop() divider: boolean = true;
 
   /** Set the variant of the the accordion. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   render() {
     return (
       <Host
-        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''} sdds-mode-variant-${this.modeVariant}`}
+        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''} ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}
       >
         <slot></slot>
       </Host>
