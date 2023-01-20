@@ -22,19 +22,29 @@ export default {
   argTypes: {
     state: {
       name: 'State',
+      description: 'Support error state.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Error'],
-      description: 'Support error state.',
+      table: {
+        defaultValue: {
+          summary: 'Default',
+        },
+      },
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Sets the size of the dropdown.',
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
     openDirection: {
       name: 'Open direction',
@@ -44,36 +54,48 @@ export default {
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto',
+        defaultValue: {
+          summary: 'Auto',
         },
       },
     },
     defaultOption: {
-      description: 'Sets a pre-selected option and replaces placeholder.',
       name: 'Default option',
+      description: 'Sets a pre-selected option and replaces placeholder.',
       control: {
         type: 'radio',
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+      table: {
+        defaultValue: {
+          summary: 'Option 1',
+        },
+      },
     },
     placeholder: {
       name: 'Placeholder',
-      type: 'string',
       description: 'Sets a placeholder text when no option is selected.',
-    },
-    helper: {
-      name: 'Helper text',
       control: {
         type: 'text',
       },
+    },
+    helper: {
+      name: 'Helper text',
       description: 'Helper text assists the user with additional information about the dropdown.',
+      control: {
+        type: 'text',
+      },
     },
     disabled: {
       name: 'Disabled',
       description: 'Disables the component.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },

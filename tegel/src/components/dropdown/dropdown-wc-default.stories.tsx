@@ -68,19 +68,29 @@ export default {
     },
     state: {
       name: 'State',
+      description: 'Support error state.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Error'],
-      description: 'Support error state.',
+      table: {
+        defaultValue: {
+          summary: 'Default',
+        },
+      },
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Sets the size of the dropdown.',
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
     openDirection: {
       name: 'Open direction',
@@ -90,8 +100,8 @@ export default {
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto',
+        defaultValue: {
+          summary: 'Auto',
         },
       },
     },
@@ -103,35 +113,58 @@ export default {
         type: 'radio',
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+      table: {
+        defaultValue: {
+          summary: 'Option 1',
+        },
+      },
     },
     placeholder: {
       name: 'Placeholder',
-      type: 'string',
       description: 'Sets a placeholder text when no option is selected.',
+      control: {
+        type: 'text',
+      }
     },
     labelPosition: {
       name: 'Label position',
+      description: 'Sets label text position.',
       control: {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
-      description: 'Sets label text position.',
+      table: {
+        defaultValue: {
+          summary: 'None',
+        },
+      },
     },
     labelText: {
       name: 'Label text',
-      control: 'text',
       description: 'Label text helps to describe what the dropdown contains.',
+      control: {
+        type: 'text',
+      },
       if: { arg: 'labelPosition', neq: 'None' },
     },
     helper: {
       name: 'Add helper text',
-      control: 'boolean',
       description: 'Adds a helper text.',
+      control: {
+        type:  'boolean',
+      }, 
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     helperText: {
       name: 'Helper text',
       description: 'Helper text assists the user with additional information about the dropdown.',
-      control: 'text',
+      control: {
+        type: 'text', 
+      }, 
       if: { arg: 'helper', eq: true },
     },
     disabled: {
@@ -139,6 +172,11 @@ export default {
       description: 'Disables the component.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },

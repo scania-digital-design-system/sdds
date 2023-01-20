@@ -20,11 +20,16 @@ export default {
   argTypes: {
     state: {
       name: 'State',
+      description: 'Support error state',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Error'],
-      description: 'Support error state',
+      table: {
+        defaultValue: {
+          summary: 'Default',
+        },
+      },
     },
     size: {
       name: 'Size',
@@ -33,24 +38,36 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
     label: {
       name: 'Label',
-      type: 'string',
       description: 'Label text helps to describe what the dropdown contains',
+      control: {
+        type: 'text',
+      }, 
     },
     helper: {
       name: 'Helper text',
+      description: 'Helper text assists the user with additional information about the dropdown',
       control: {
         type: 'text',
       },
-      description: 'Helper text assists the user with additional information about the dropdown',
     },
     disabled: {
       name: 'Disabled',
       description: 'Disables the component',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
