@@ -60,10 +60,10 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       description: 'Button mode variant.',
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     fullbleed: {
@@ -172,11 +172,11 @@ const WebComponentTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-  <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
+  <sdds-button ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariantLookup[modeVariant]}"`: ''} ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
       sizeLookUp[size]
     }" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
-    }" mode-variant="${modeVariantLookup[modeVariant]}" >
+    }" >
     ${
       onlyIcon || (icon && icon !== 'none')
         ? `

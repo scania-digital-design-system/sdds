@@ -22,7 +22,7 @@ export class SddsButton {
   @Prop() fullbleed: boolean = false;
 
   /** Set the mode variant of the the button. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   @State() onlyIcon: boolean = false;
 
@@ -34,7 +34,7 @@ export class SddsButton {
 
   render() {
     return (
-      <Host class={`sdds-mode-variant-${this.modeVariant}`}>
+      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
       <button
         class={`sdds-btn sdds-btn-${this.type} 
         ${`sdds-btn-${this.size}`}

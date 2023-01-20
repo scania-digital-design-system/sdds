@@ -58,10 +58,10 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       description: 'Button mode variant.',
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     fullbleed: {
@@ -175,7 +175,7 @@ const NativeTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} sdds-mode-variant-${modeVariantLookup[modeVariant]} sdds-btn-${
+<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`: ''} sdds-btn-${
       sizeLookUp[size]
     } ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} 
    ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
