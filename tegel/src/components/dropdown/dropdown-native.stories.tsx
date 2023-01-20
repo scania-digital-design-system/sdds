@@ -70,13 +70,6 @@ export default {
         },
       },
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
   },
   args: {
     state: 'Default',
