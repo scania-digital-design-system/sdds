@@ -58,7 +58,6 @@ export default {
     },
     fullbleed: {
       name: 'Fullbleed',
-      defaultValue: false,
       description: 'Sets a fluid width of the button.',
       control: {
         type: 'boolean',
@@ -107,7 +106,9 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      type: 'boolean',
+      control: {
+        type: 'boolean',
+      },
       description: 'Choose to disable the button.',
       table: {
         defaultValue: { summary: false },
