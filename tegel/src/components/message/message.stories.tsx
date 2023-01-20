@@ -28,7 +28,7 @@ export default {
     },
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -39,25 +39,40 @@ export default {
     },
     icon: {
       name: 'Icon',
-      description: 'Show icon',
+      description: 'Adds an icon before the message text.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     iconType: {
       name: 'Icon',
-      description: 'Switch between show a native/web component icon.',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: {
+          summary: 'Web Component',
+        },
+      },
     },
     showExtendedMessage: {
       name: 'Extended Message',
-      description: 'Show an extended message',
+      description: 'Shows an extended message.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
