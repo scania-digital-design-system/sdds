@@ -33,7 +33,7 @@ export default {
     },
     topPart: {
       name: 'Top part',
-      description: 'Adds top part of the footer with more links',
+      description: 'Adds top part of the footer with more links.',
       control: {
         type: 'boolean',
       },
