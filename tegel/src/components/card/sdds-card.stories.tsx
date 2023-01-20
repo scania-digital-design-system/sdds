@@ -21,6 +21,14 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant of the component, based on current mode.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+    },
     header: {
       name: 'Header text',
       description: 'The header text',
@@ -96,6 +104,7 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     headerPlacement: 'Above',
     header: 'Header text',
     subheader: 'Subheader text',
@@ -110,6 +119,7 @@ export default {
 };
 
 const Template = ({
+  modeVariant,
   headerPlacement,
   header,
   subheader,
@@ -128,6 +138,7 @@ const Template = ({
     }
     </style>
     <sdds-card
+        mode-variant="${modeVariant.toLowerCase()}"
         header-placement="${headerPlacement.toLowerCase()}"
         header="${header}"
         subheader="${subheader}"

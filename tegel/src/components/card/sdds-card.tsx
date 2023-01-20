@@ -100,7 +100,7 @@ export class SddsCard {
   render() {
     return this.clickable ? (
       <button
-        class={`card ${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
+        class={`card sdds-mode-variant-${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
           this.headerPlacement
         }`}
         onClick={() => {
@@ -115,7 +115,7 @@ export class SddsCard {
       </button>
     ) : (
       <div
-        class={`card ${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
+        class={`card sdds-mode-variant-${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
           this.headerPlacement
         }`}
       >
