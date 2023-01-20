@@ -260,8 +260,8 @@ export class InlineTabs {
     }
 
     return (
-      <Host>
-        <div class={`sdds-inline-tabs sdds-inline-tabs  ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
+      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
+        <div class={`sdds-inline-tabs sdds-inline-tabs`}>
           <nav class="sdds-inline-tabs-header">
             <div
               ref={(el) => {

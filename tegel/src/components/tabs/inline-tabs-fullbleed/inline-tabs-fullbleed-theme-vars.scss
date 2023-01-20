@@ -5,6 +5,8 @@
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.16;
   --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-white);
   --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-50);
+  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+
 
   /* Scroll button */
   --sdds-inline-tabs-scroll-btn-color:var(--sdds-grey-958);
@@ -21,6 +23,14 @@
   --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-400);
+
+  .sdds-mode-variant-primary {
+  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);    
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+  }
 }
 
 .sdds-theme-dark {
@@ -28,6 +38,8 @@
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.24;
   --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-grey-900);
   --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-846);
+  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+
 
   /* Scroll button */
   --sdds-inline-tabs-scroll-btn-color:var(--sdds-grey-50);
@@ -44,4 +56,12 @@
   --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-300);
+
+  .sdds-mode-variant-primary {
+    --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);    
+    }
+  
+    .sdds-mode-variant-secondary {
+      --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+    }
 }
