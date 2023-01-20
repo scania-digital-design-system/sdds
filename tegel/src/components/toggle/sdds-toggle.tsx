@@ -1,10 +1,10 @@
-import { Component, Host, h, Prop, Watch, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-toggle',
   styleUrl: 'sdds-toggle.scss',
-  shadow: true,
+  shadow: false,
 })
 export class SddsToggle {
   /** TODO - Better name for this */
@@ -53,7 +53,7 @@ export class SddsToggle {
 
   render() {
     return (
-      <Host>
+      <div class="sdds-toggle-webcomponent">
         {this.headline && <div class={`toggle-headline`}>{this.headline}</div>}
         <input
           onChange={() => {
@@ -71,7 +71,7 @@ export class SddsToggle {
           id={this.toggleId}
         />
         {this.label && <label htmlFor={this.toggleId}>{this.label}</label>}
-      </Host>
+      </div>
     );
   }
 }
