@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Watch, Element } from '@stencil/core';
+import { Component, Host, h, Prop, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { HostElement } from '@stencil/core/internal';
 
 @Component({
@@ -13,6 +13,7 @@ export class SddsToggle {
   /** Size of the toggle */
   @Prop() size: 'sm' | 'lg' = 'lg';
 
+  /** Name of the toggles input element */
   @Prop() name: string;
 
   /** Label for the toggle */
@@ -24,6 +25,7 @@ export class SddsToggle {
   /** Sets the toggle in a disabled state */
   @Prop() disabled: boolean = false;
 
+  /** ID of the toggles input element, if not specifed it's randomly generated */
   @Prop() toggleId: string = crypto.randomUUID();
 
   @Element() host: HostElement;
@@ -37,6 +39,18 @@ export class SddsToggle {
     }
   }
 
+  /** Sends unique toggle identifier and status when it is toggled. */
+  @Event({
+    eventName: 'toggleChangeEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  toggleChangeEvent: EventEmitter<{
+    toggleId: string;
+    checked: boolean;
+  }>;
+
   render() {
     return (
       <Host>
@@ -44,6 +58,10 @@ export class SddsToggle {
         <input
           onChange={() => {
             this.checked = !this.checked;
+            this.toggleChangeEvent.emit({
+              toggleId: this.toggleId,
+              checked: this.checked,
+            });
           }}
           class={`${this.size}`}
           checked={this.checked}

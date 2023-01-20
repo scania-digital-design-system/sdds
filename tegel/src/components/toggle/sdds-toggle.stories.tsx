@@ -75,5 +75,10 @@ const Template = ({ label, size, disabled, headline, checked }) =>
         ${headline ? `headline="${headline}"` : ''}
         size="${size === 'Large' ? 'lg' : 'sm'}">
     </sdds-toggle>
+    <script>
+      document.addEventListener('toggleChangeEvent', ()=>{
+        console.log('Toggle with id: ', event.detail.toggleId, ' is ', event.detail.checked)
+      })
+    </script>
   `);
 export const WebComponent = Template.bind({});
