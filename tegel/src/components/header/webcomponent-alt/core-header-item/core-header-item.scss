@@ -1,0 +1,23 @@
+@import '../../../../mixins/box-sizing';
+
+:host {
+  font: var(--sdds-headline-07);
+  letter-spacing: var(--sdds-headline-07-ls);
+  color: var(--sdds-header-nav-item-color);
+
+  li {
+    all: unset;
+    @include sdds-box-sizing;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 64px;
+    height: 64px;
+    margin: 0;
+  }
+
+  ::slotted(svg) {
+    font-size: 20px;
+  }
+}

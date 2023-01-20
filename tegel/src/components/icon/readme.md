@@ -36,8 +36,12 @@
  - [sdds-header-toolbar-item](../header/webcomponent/header-toolbar-item)
  - [sdds-header](../header/webcomponent)
  - [sdds-header-dropdown](../header/webcomponent/header-dropdown)
+ - [sdds-header-hamburger](../header/webcomponent-alt/header-hamburger)
  - [sdds-header-launcher](../header/webcomponent/header-launcher)
+ - [sdds-header-launcher-button](../header/webcomponent-alt/header-launcher-button)
+ - [sdds-modal](../modal)
  - [sdds-side-menu](../side-menu/webcomponent)
+ - [sdds-side-menu-close-button](../side-menu/webcomponent-alt/side-menu-close-button)
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
 
 ### Graph
@@ -64,8 +68,12 @@ graph TD;
   sdds-header-toolbar-item --> sdds-icon
   sdds-header --> sdds-icon
   sdds-header-dropdown --> sdds-icon
+  sdds-header-hamburger --> sdds-icon
   sdds-header-launcher --> sdds-icon
+  sdds-header-launcher-button --> sdds-icon
+  sdds-modal --> sdds-icon
   sdds-side-menu --> sdds-icon
+  sdds-side-menu-close-button --> sdds-icon
   sdds-side-menu-dropdown --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

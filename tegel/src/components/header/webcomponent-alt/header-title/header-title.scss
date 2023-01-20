@@ -1,0 +1,15 @@
+@import '../../../../mixins/flex-center';
+
+:host {
+  @include sdds-flex-center;
+
+  padding: 0 24px;
+  border-left: 1px solid var(--sdds-header-mob-menu-border);
+
+  // Override, because sdds-header-title is a one-off that needs different font
+  sdds-core-header-item {
+    font-weight: normal;
+    font-family: var(--sdds-font-family-headline);
+    letter-spacing: normal;
+  }
+}
