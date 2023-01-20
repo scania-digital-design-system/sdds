@@ -81,14 +81,6 @@ export default {
         defaultValue: { summary: 'Default' },
       },
     },
-    state: {
-      name: 'State',
-      description: 'Sets the chips state as active or default.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Active'],
-    },
   },
   args: {
     placeholderText: 'Chip text',
