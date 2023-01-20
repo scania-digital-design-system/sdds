@@ -38,6 +38,11 @@ export default {
         type: 'radio',
       },
       options: ['Datetime', 'Date', 'Time'],
+      table: {
+        defaultValue: {
+          summary: 'Datetime',
+        },
+      },
     },
     size: {
       name: 'Size',
@@ -47,6 +52,11 @@ export default {
         // todo: make consistent with other sizes, for example 'xs', 'sm', etc
       },
       options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
     state: {
       name: 'State',
@@ -55,6 +65,11 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Success', 'Error'],
+      table: {
+        defaultValue: {
+          summary: 'None',
+        },
+      },
     },
     defaultValue: {
       name: 'Default value',
@@ -64,6 +79,11 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Custom'],
+      table: {
+        defaultValue: {
+          summary: 'None',
+        },
+      },
     },
     noMinWidth: {
       name: 'No minimum width',
@@ -71,12 +91,22 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
     label: {
       name: 'Label',
       description: 'Toggles a label text for the component',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
       },
     },
     labelText: {
@@ -93,6 +123,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
     },
     helperText: {
       name: 'Helper text',
@@ -107,6 +142,11 @@ export default {
       name: 'Disabled',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
