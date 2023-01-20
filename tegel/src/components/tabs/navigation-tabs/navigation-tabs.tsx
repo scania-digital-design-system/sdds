@@ -1,4 +1,4 @@
-import { Component, Host, State, Element, h } from '@stencil/core';
+import { Component, Host, State, Element, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-navigation-tabs',
@@ -13,6 +13,9 @@ export class NavigationTabs {
   @State() showLeftScroll: boolean = false;
 
   @State() showRightScroll: boolean = false;
+  
+   /** Variant of the tabs, primary= on white, secondary= on grey50 */
+   @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
@@ -109,7 +112,7 @@ export class NavigationTabs {
 
   render() {
     return (
-      <Host>
+      <Host  class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
         <div class="sdds-navigation-tabs">
           <div
             class="sdds-navigation-tabs-wrapper"
