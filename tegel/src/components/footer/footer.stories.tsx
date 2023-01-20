@@ -34,11 +34,13 @@ export default {
     topPart: {
       name: 'Top part',
       description: 'Adds top part of the footer with more links',
-      table: {
-        defaultValue: { summary: false },
-      },
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
