@@ -19,7 +19,7 @@ export class SddsToggle {
   /** Label for the toggle */
   @Prop() label: string;
 
-  /** Label for the toggle */
+  /** Headline for the toggle */
   @Prop() headline: string;
 
   /** Sets the toggle in a disabled state */
