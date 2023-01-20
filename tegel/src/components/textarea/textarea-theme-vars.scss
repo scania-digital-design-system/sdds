@@ -33,14 +33,14 @@
   --sdds-textarea-textcounter-divider: var(--sdds-grey-500);
 
   // Border bottom
-  --sdds-textarea-border-bottom: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
-  --sdds-textarea-border-bottom-success: var(--sdds-grey-800);
+  --sdds-textarea-border-bottom: var(--sdds-grey-600);
+  --sdds-textarea-border-bottom-hover: var(--sdds-grey-800);
+  --sdds-textarea-border-bottom-success: var(--sdds-grey-958);
   --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
-  --sdds-textarea-icon-read-only-color: var(--sdds-grey-600);
-  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-800);
+  --sdds-textarea-icon-read-only-color: var(--sdds-grey-958);
+  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-958);
 
   // Resize
   --sdds-textarea-resize-icon: var(--sdds-grey-500);
@@ -90,7 +90,7 @@
   // Border bottom
   --sdds-textarea-border-bottom: var(--sdds-grey-600);
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-success: var(--sdds-grey-400);
+  --sdds-textarea-border-bottom-success: var(--sdds-grey-50);
   --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
