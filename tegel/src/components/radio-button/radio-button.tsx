@@ -1,9 +1,10 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-radio-button',
   styleUrl: 'radio-button-component.scss',
-  shadow: true,
+  shadow: false,
 })
 export class RadioButton {
 
@@ -17,14 +18,16 @@ export class RadioButton {
   
   @Prop() disabled: boolean = false;
 
+  @Element() host: HostElement;
+
   render() {
     return (
-      <Host>
+      <div class="sdds-radio-button">
         <input 
         class="sdds-form-input" 
         type="radio" 
         name="rb-example" 
-        id="rb-option-1" 
+        id={crypto.randomUUID()} 
         value={this.value} 
         checked={this.checked} 
         required={this.required} 
@@ -32,7 +35,7 @@ export class RadioButton {
         <label class="sdds-form-label" htmlFor="rb-option-1">
           {this.label}
         </label>
-      </Host>
+        </div>
     );
   }
 

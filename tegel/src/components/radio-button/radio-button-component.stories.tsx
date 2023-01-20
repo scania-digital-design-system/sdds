@@ -25,16 +25,6 @@ export default {
         type: 'text',
       },
     },
-    checked: {
-      name: 'Checked',
-      description: 'Checks the radio button.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'true' },
-      },
-    },
     required: {
       name: 'Required',
       description: 'Sets if the radio button option is required or not.',
@@ -58,24 +48,30 @@ export default {
   },
   args: {
     label: 'Label text',
-    checked: true,
     required: false,
     disabled: false,
   },
 };
 
-const Template = ({label, disabled, checked, required}) =>
+const Template = ({label, disabled, required}) =>
   formatHtmlPreview(`
+  <style>
+  .demo-fieldset-reset { 
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0; 
+  }
+</style>
+
   <fieldset class="demo-fieldset-reset">
   <sdds-radio-button ${label ? `label="${label}"` : ''}
     value="option1"
-    ${checked ? 'checked' : ''}
     ${required ? 'required' : ''}
     ${disabled ? 'disabled' : ''} >
   </sdds-radio-button>
   <sdds-radio-button ${label ? `label="${label}"` : ''}
     value="option2"
-    ${checked ? 'checked' : ''}
     ${required ? 'required' : ''}
     ${disabled ? 'disabled' : ''} >
   </sdds-radio-button>
