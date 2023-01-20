@@ -60,12 +60,14 @@ export default {
     },
     fullbleed: {
       name: 'Fullbleed',
-      type: 'boolean',
-      description: 'Sets a fluid width on the component.',
+      control: {
+        type: 'boolean',
+      },
+      description: 'Sets a fluid width in certain components.',
+      if: { arg: 'onlyIcon', truthy: false },
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'onlyIcon', truthy: false },
     },
     text: {
       name: 'Text',
