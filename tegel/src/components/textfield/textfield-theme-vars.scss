@@ -5,9 +5,7 @@
   --sdds-textfield-background: var(--sdds-textfield-background-primary);
 
   --sdds-textfield-color: var(--sdds-grey-868);
-  --sdds-textfield-border-bottom: var(--sdds-grey-400);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
-  --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //Disabled
   --sdds-textfield-disabled-background: var(--sdds-white);
@@ -27,9 +25,6 @@
   //helper
   --sdds-textfield-helper: var(--sdds-grey-700);
 
-  //success
-  --sdds-textfield-border-bottom-success: var(--sdds-grey-800);
-
   //error
   --sdds-textfield-border-bottom-error: var(--sdds-negative);
   --sdds-textfield-helper-error: var(--sdds-negative);
@@ -43,17 +38,21 @@
   //Prefix and Suffix
   --sdds-textfield-ps-color: var(--sdds-grey-600);
 
-  // Textarea resize icon
+  // Textfield resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
-
-  --sdds-textfield-border-bottom: var(--sdds-grey-400);
-  --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   --sdds-textfield-background-secondary: var(--sdds-white);
 
+  // Border bottom
+  --sdds-textfield-border-bottom: var(--sdds-grey-600);
+  --sdds-textfield-border-bottom-hover: var(--sdds-grey-800);
+  --sdds-textfield-border-bottom-success: var(--sdds-grey-958);
+  --sdds-textfield-border-bottom-error: var(--sdds-negative);
+
   // Read only
-  --sdds-textfield-icon-read-only-color: var(--sdds-grey-600);
-  --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-800);
+  --sdds-textfield-icon-read-only-color: var(--sdds-grey-958);
+  --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-958);
+
 
   .sdds-mode-variant-primary {
     --sdds-textfield-background: var(--sdds-textfield-background-primary);
@@ -69,8 +68,6 @@
   --sdds-textfield-background-secondary: var(--sdds-grey-868);
   --sdds-textfield-color: var(--sdds-grey-200);
   --sdds-textfield-placeholder: var(--sdds-grey-600);
-  --sdds-textfield-border-bottom: var(--sdds-grey-400);
-  --sdds-textfield-border-bottom-hover: var(--sdds-grey-600);
 
   //Disabled
   --sdds-textfield-disabled-ps-color: var(--sdds-grey-700);
@@ -108,7 +105,7 @@
   // Border bottom
   --sdds-textfield-border-bottom: var(--sdds-grey-600);
   --sdds-textfield-border-bottom-hover: var(--sdds-grey-400);
-  --sdds-textfield-border-bottom-success: var(--sdds-grey-400);
+  --sdds-textfield-border-bottom-success: var(--sdds-grey-50);
   --sdds-textfield-border-bottom-error: var(--sdds-negative);
 
   // Read only
