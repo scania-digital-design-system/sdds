@@ -166,39 +166,39 @@ const defaultOptionJSON = (defaultOption: string) => `
 ]`;
 
 const multiDefaultOptiondChildren = (multiDefaultOption: string[]) => `
-      <sdds-dropdown-option-v3 value="option-1" ${
+      <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 1') ? 'selected' : ''
-      }>
-      Option 1
+      } value="option-1" label="Option-1">
       </sdds-dropdown-option-v3>
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 2') ? 'selected' : ''
-      } value="option-2">
-      Option 2
+      } value="option-2" label="Option-2">
       </sdds-dropdown-option-v3>
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 3') ? 'selected' : ''
-      } value="option-3">
-      Option 3
+      } value="option-3" label="Option-3">
       </sdds-dropdown-option-v3>
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 4') ? 'selected' : ''
-      } value="option-4" >
-      Option 4
+      } value="option-4" label="Option-4">
       </sdds-dropdown-option-v3>
  `;
 const defaultOptionChildren = (defaultOption: string) => `
-      <sdds-dropdown-option-v3 value="option-1" ${defaultOption === 'Option 1' ? 'selected' : ''}>
-      Option 1
+      <sdds-dropdown-option-v3 ${
+        defaultOption === 'Option 1' ? 'selected' : ''
+      } value="option-1" label="Option-1">
       </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${defaultOption === 'Option 2' ? 'selected' : ''} value="option-2">
-      Option 2
+      <sdds-dropdown-option-v3 ${
+        defaultOption === 'Option 2' ? 'selected' : ''
+      } value="option-2" label="Option-2">
       </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${defaultOption === 'Option 3' ? 'selected' : ''} value="option-3">
-      Option 3
+      <sdds-dropdown-option-v3 ${
+        defaultOption === 'Option 3' ? 'selected' : ''
+      } value="option-3" label="Option-3">
       </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${defaultOption === 'Option 4' ? 'selected' : ''} value="option-4" >
-      Option 4
+      <sdds-dropdown-option-v3 ${
+        defaultOption === 'Option 4' ? 'selected' : ''
+      } value="option-4" label="Option-4">
       </sdds-dropdown-option-v3>
 `;
 

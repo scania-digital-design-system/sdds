@@ -1,9 +1,9 @@
-import { Component, Host, h, Prop, State, Element } from '@stencil/core';
+import { Component, h, Prop, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-v3',
   styleUrl: 'dropdown-v3.scss',
-  shadow: true,
+  shadow: false,
 })
 export class DropdownV3 {
   /** The size of the component */
@@ -91,28 +91,26 @@ export class DropdownV3 {
     if (element.getAttribute('selected') !== null || element.getAttribute('selected') === 'false') {
       this.setMultiselectValue({
         value: element.getAttribute('value'),
-        label: element.innerText,
+        label: element.getAttribute('label'),
       });
       element.setAttribute('selected', '');
     }
     if (element.getAttribute('disabled') !== '' && element.getAttribute('disabled') !== ' true') {
       element.addEventListener('click', () => {
-        if (
-          element.getAttribute('selected') !== null ||
-          element.getAttribute('selected') === 'false'
-        ) {
-          this.setMultiselectValue({
-            value: element.value,
-            label: element.innerText,
-          });
-          element.setAttribute('selected', '');
-          this.host.setAttribute('value', JSON.stringify(this.value));
-        } else {
-          element.setAttribute('selected', 'false');
+        if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
+          element.removeAttribute('selected');
           this.value = this.value.filter(
             (item) =>
-              item.value !== element.getAttribute('value') && item.label !== element.innerText,
+              item.value !== element.getAttribute('value') &&
+              item.label !== element.getAttribute('label'),
           );
+          this.host.setAttribute('value', JSON.stringify(this.value));
+        } else {
+          this.setMultiselectValue({
+            value: element.value,
+            label: element.getAttribute('label'),
+          });
+          element.setAttribute('selected', '');
           this.host.setAttribute('value', JSON.stringify(this.value));
         }
       });
@@ -131,7 +129,7 @@ export class DropdownV3 {
         ) {
           this.setSingleSelectValue({
             value: element.getAttribute('value'),
-            label: element.innerText,
+            label: element.getAttribute('label'),
           });
 
           element.setAttribute('selected', '');
@@ -141,7 +139,7 @@ export class DropdownV3 {
             element.setAttribute('selected', '');
             this.setSingleSelectValue({
               value: element.getAttribute('value'),
-              label: element.innerText,
+              label: element.getAttribute('label'),
             });
             this.childElements.forEach((el) => {
               if (this.childElements.indexOf(el) !== index) {
@@ -266,7 +264,7 @@ export class DropdownV3 {
         this.childElements = this.childElements.map((childElement) => {
           if (
             childElement.getAttribute('value').toLowerCase().includes(query.toLowerCase()) ||
-            childElement.innerText.toLowerCase().includes(query.toLowerCase())
+            childElement.getAttribute('label').toLowerCase().includes(query.toLowerCase())
           ) {
             childElement.removeAttribute('hidden');
           } else {
@@ -303,7 +301,7 @@ export class DropdownV3 {
 
   render() {
     return (
-      <Host class={this.size}>
+      <div class={`sdds-dropdown-webcomponent ${this.size}`}>
         {this.labelPosition === 'outside' && <div class="label-outside">{this.label}</div>}
         <div class={`dropdown-button ${this.size} ${this.open ? 'open' : 'closed'}`}>
           {this.labelPosition === 'inside' && !this.placeholder && !this.filter && (
@@ -424,6 +422,7 @@ export class DropdownV3 {
                 <sdds-dropdown-option-v3
                   hidden={item.hidden}
                   value={item.value}
+                  label={item.label}
                   selected={item.selected}
                   disabled={item.disabled}
                   onClick={() => {
@@ -431,9 +430,7 @@ export class DropdownV3 {
                       this.handleSelect(index);
                     }
                   }}
-                >
-                  {item.label}
-                </sdds-dropdown-option-v3>
+                ></sdds-dropdown-option-v3>
               ))}
             {this.filter && this.noResult && (
               <li class={`no-result ${this.size}`}>{this.noResultText}</li>
@@ -441,7 +438,7 @@ export class DropdownV3 {
             {!this.data && <slot></slot>}
           </ul>
         </div>
-      </Host>
+      </div>
     );
   }
 }

@@ -1,9 +1,10 @@
-import { Component, h, Host, Prop, Element, State } from '@stencil/core';
+import { Component, h, Prop, Element, State } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-dropdown-option-v3',
   styleUrl: 'dropdown-option-v3.scss',
-  shadow: true,
+  shadow: false,
 })
 export class DropdownOptionV3 {
   /** Sets the dropdown option in a selected state */
@@ -11,6 +12,9 @@ export class DropdownOptionV3 {
 
   /** The value of the dropdown option */
   @Prop() value: string;
+
+  /** The value of the dropdown option */
+  @Prop() label: string;
 
   /** Sets the dropdown option in a disabled state */
   @Prop() disabled: boolean = false;
@@ -21,24 +25,31 @@ export class DropdownOptionV3 {
 
   @State() modeVariant: 'primary' | 'secondary' = 'primary';
 
-  @Element() host: any;
+  @Element() host: HostElement;
 
   parentEl: HTMLSddsDropdownV3Element;
 
   connectedCallback() {
     this.parentEl = this.host.closest('sdds-dropdown-v3')
       ? this.host.closest('sdds-dropdown-v3')
-      : (this.parentEl = this.host.getRootNode().host);
+      : (this.parentEl = this.host.parentElement as HTMLSddsDropdownV3Element);
     if (this.parentEl) {
       this.size = this.parentEl.size;
       this.modeVariant = this.parentEl.modeVariant;
       this.multiselect = this.parentEl.multiselect;
     }
+    console.log(this.host.innerHTML);
+  }
+
+  componentWillRender() {
+    if (!this.label) {
+      this.label = this.host.innerHTML.replace('<!---->', '');
+    }
   }
 
   render() {
     return (
-      <Host>
+      <div class={`sdds-dropdown-option-webcomponent`}>
         <li
           class={`
           ${this.disabled ? 'disabled' : ''}
@@ -50,13 +61,11 @@ export class DropdownOptionV3 {
             onClick={() => {
               if (!this.multiselect) {
                 this.parentEl.open = !this.parentEl.open;
-              } else {
-                //this.selected = !this.selected;
               }
             }}
             class={`${this.size} ${this.disabled ? 'disabled' : ''}`}
           >
-            <slot></slot>
+            {this.label}
             {!this.multiselect && this.selected && <sdds-icon name="tick" size="16px"></sdds-icon>}
             {this.multiselect && (
               <input
@@ -68,7 +77,7 @@ export class DropdownOptionV3 {
             )}
           </button>
         </li>
-      </Host>
+      </div>
     );
   }
 }
