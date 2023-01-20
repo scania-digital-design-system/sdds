@@ -31,6 +31,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     iconType: {
       name: 'Icon type',
@@ -40,6 +43,9 @@ export default {
       },
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
     },
     iconPosition: {
       name: 'Icon position',
@@ -49,6 +55,9 @@ export default {
       },
       options: ['Icon left', 'Icon right'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Icon right' },
+      },
     },
     size: {
       name: 'Size',
@@ -57,6 +66,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Small'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     state: {
       name: 'State',
@@ -65,6 +77,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Active'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
   },
   args: {
