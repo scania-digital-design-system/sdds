@@ -28,6 +28,9 @@ export default {
         type: 'radio',
       },
       options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
     header: {
       name: 'Header text',
@@ -43,6 +46,13 @@ export default {
         type: 'text',
       },
     },
+    headerImg: {
+      name: 'Header image',
+      description: 'Image for the header',
+      control: {
+        type: 'text',
+      },
+    },
     headerPlacement: {
       name: 'Header placement',
       description: 'Placement of the header',
@@ -50,6 +60,9 @@ export default {
         type: 'radio',
       },
       options: ['Above', 'Below'],
+      table: {
+        defaultValue: { summary: 'above' },
+      },
     },
     bodyContent: {
       name: 'Body text',
@@ -82,7 +95,7 @@ export default {
       name: 'Image',
       description: 'Image in body on card.',
       control: {
-        type: 'boolean',
+        type: 'text',
       },
     },
     imageTop: {
@@ -104,17 +117,17 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
-    headerPlacement: 'Above',
     header: 'Header text',
     subheader: 'Subheader text',
+    headerImg: 'https://www.svgrepo.com/show/170303/avatar.svg',
+    headerPlacement: 'Above',
+    bodyImg: CardImage,
     bodyContent:
       '<p>This is a short and consist detail text describing for the user what this text is really about.</p>',
-    clickable: false,
     bodyDivider: false,
-    headerImg: 'https://www.svgrepo.com/show/170303/avatar.svg',
-    bodyImg: CardImage,
     cardBottom: `<div slot="card-bottom"><sdds-button text="Button text"></sdds-button></div>`,
+    modeVariant: 'Primary',
+    clickable: false,
   },
 };
 
