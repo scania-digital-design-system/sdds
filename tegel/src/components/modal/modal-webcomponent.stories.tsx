@@ -27,6 +27,11 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
     actions: {
       name: 'Actions',
@@ -35,6 +40,11 @@ export default {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+      table: {
+        defaultValue: {
+          summary: 'Static',
+        },
+      },
     },
     headline: {
       name: 'Modal headline',
@@ -50,13 +60,26 @@ export default {
         type: 'text',
       },
     },
+    showModal: {
+      name: 'Show modal',
+      description: 'Toggles if the modal is displayed.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
   },
   args: {
+    size: 'Large',
+    actions: 'Static',
     headline: 'The buttons for the modal only works in the canvas tab',
     bodyText:
       'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
-    actions: 'Static',
-    size: 'Large',
+    showModal: true,
   },
 };
 
@@ -67,7 +90,6 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const ModalTemplate = ({ size, headline, bodyText, actions }) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>

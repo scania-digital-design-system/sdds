@@ -20,48 +20,63 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
-      description: 'Size of modal',
+      description: 'Sets the size of the modal.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
-    },
-    showModal: {
-      name: 'Show modal',
-      description: 'Toggle if the modal is displayed',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
       },
     },
     actions: {
       name: 'Actions',
-      description: 'Behaviour of modal actions',
+      description: 'Sets the behaviour of the modal actions.',
       control: {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+      table: {
+        defaultValue: {
+          summary: 'Static',
+        },
+      },
     },
     headline: {
       name: 'Modal headline',
-      description: 'Customize headline',
+      description: 'Sets the modals headline.',
       control: {
         type: 'text',
       },
     },
     bodyText: {
       name: 'Modal body text',
-      description: 'Customize body text',
+      description: 'Sets the modals body text.',
       control: {
         type: 'text',
       },
     },
+    showModal: {
+      name: 'Show modal',
+      description: 'Toggles if the modal is displayed.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
   },
   args: {
+    size: 'Large',
+    actions: 'Static',
     headline: 'The buttons for the modal only works in the canvas tab',
     bodyText:
       'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
-    actions: 'Static',
-    size: 'Large',
     showModal: true,
   },
 };
