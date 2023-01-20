@@ -43,6 +43,11 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
     },
     // onWhiteBackground: {
     //   name: 'On white background',
