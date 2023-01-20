@@ -90,11 +90,12 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
+const ModalTemplate = ({ size, headline, bodyText, actions, showModal }) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
 
-  <sdds-modal open id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
+  <sdds-modal id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}" ${showModal ? 'open' : ''}>
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <span slot="sdds-modal-body">
           ${bodyText}

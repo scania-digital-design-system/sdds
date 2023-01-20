@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element, Method } from '@stencil/core';
+import { Component, h, Host, Prop, Element, Method, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-modal',
@@ -18,6 +18,8 @@ export class Modal {
   /* Opens or closes the modal. */
   @Prop() open: boolean = false;
 
+  @Prop() show: boolean = false;
+
   @Element() el: HTMLElement;
 
   closeButtonEl: HTMLElement;
@@ -25,7 +27,12 @@ export class Modal {
   /** Shows the modal  */
   @Method()
   async openModal() {
-    this.open = true;
+    this.open = true; 
+  }
+
+  @Watch("open")
+  toggleOpenAttribute() {
+    this.open ? this.el.setAttribute('open', '') : this.el.removeAttribute('open');
   }
 
   setDissmissButtons() {

@@ -10,6 +10,7 @@
 | `actions` | `actions` | Sticky or Static Actions                            | `"static" \| "sticky"`         | `'static'` |
 | `open`    | `open`    |                                                     | `boolean`                      | `false`    |
 | `prevent` | `prevent` | Disables closing modal on clicking on overlay area. | `boolean`                      | `false`    |
+| `show`    | `show`    |                                                     | `boolean`                      | `false`    |
 | `size`    | `size`    | Size of modal                                       | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`     |
 
 
