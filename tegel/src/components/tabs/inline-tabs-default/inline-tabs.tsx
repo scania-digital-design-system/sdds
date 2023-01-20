@@ -22,7 +22,7 @@ export class InlineTabs {
   @Prop() autoHeight: boolean = false;
 
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   /** array with metadata for slotted children */
   @State() tabs: Array<any> = [];
@@ -261,7 +261,7 @@ export class InlineTabs {
 
     return (
       <Host>
-        <div class={`sdds-inline-tabs sdds-inline-tabs sdds-inline-tabs-${this.modeVariant}`}>
+        <div class={`sdds-inline-tabs sdds-inline-tabs  ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
           <nav class="sdds-inline-tabs-header">
             <div
               ref={(el) => {
