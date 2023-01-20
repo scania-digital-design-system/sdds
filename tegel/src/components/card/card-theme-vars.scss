@@ -1,7 +1,11 @@
 :root,
 .sdds-theme-light {
   --sdds-card-background: var(--sdds-white);
-  --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+
+  --sdds-card-box-primary: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-card-box-secondary: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+  --sdds-card-box: var(--sdds-card-box-primary);
+
   --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
   --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
   --sdds-card-headline: var(--sdds-grey-958);
@@ -9,15 +13,23 @@
   --sdds-card-body: var(--sdds-grey-958);
   --sdds-card-divider: var(--sdds-grey-300);
 
-// TODO - Needs to be updated with mode-variant
-  .sdds-on-white-background {
-    --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+  .sdds-mode-variant-primary  {
+    --sdds-card-box: var(--sdds-card-box-primary);
+  }
+  .sdds-mode-variant-secondary  {
+    --sdds-card-box: var(--sdds-card-box-secondary);
   }
 }
 
 .sdds-theme-dark {
-  --sdds-card-background: var(--sdds-grey-900);
-  --sdds-card-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-card-background-primary: var(--sdds-grey-900);
+  --sdds-card-background-secondary: var(--sdds-grey-868);
+  --sdds-card-background: var(--sdds-card-background-primary);
+
+  --sdds-card-box-primary: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-card-box-secondary: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+  --sdds-card-box: var(--sdds-card-box-primary);
+
   --sdds-card-box-hover: 0 -1px 1px rgb(0 0 0 / 5%), 0 3px 3px rgb(0 0 0 / 20%);
   --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
   --sdds-card-headline: var(--sdds-white);
@@ -25,8 +37,13 @@
   --sdds-card-body: var(--sdds-white);
   --sdds-card-divider: var(--sdds-grey-700);
 
-// TODO - Needs to be updated with mode-variant
-  .sdds-on-white-background {
-    --sdds-card-box: 0 3px 3px rgb(0 0 0 / 10%), 0 -1px 1px rgb(0 0 0 / 5%);
+  .sdds-mode-variant-primary  {
+    --sdds-card-box: var(--sdds-card-box-primary);
+    --sdds-card-background: var(--sdds-card-background-primary);
   }
+  .sdds-mode-variant-secondary  {
+    --sdds-card-box: var(--sdds-card-box-secondary);
+    --sdds-card-background: var(--sdds-card-background-secondary);
+  }
+
 }
