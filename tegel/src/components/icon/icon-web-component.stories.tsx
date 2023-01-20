@@ -38,6 +38,11 @@ export default {
         max: 100,
         step: 4,
       },
+      table: {
+        defaultValue: {
+          summary: 16,
+        },
+      },
     },
   },
   args: {
