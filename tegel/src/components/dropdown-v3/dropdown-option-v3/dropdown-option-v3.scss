@@ -4,13 +4,13 @@
     margin: 0;
     display: block;
     width: 100%;
-    background-color: var(--sdds-dropdown-bg);
+    background-color: var(--sdds-dropdown-option-bg);
 
     &.selected {
-      background-color: var(--sdds-grey-300);
+      background-color: var(--sdds-dropdown-option-selected);
 
       &:hover {
-        background-color: var(--sdds-grey-300);
+        background-color: var(--sdds-dropdown-option-selected);
       }
     }
 
@@ -21,19 +21,20 @@
     }
 
     &:hover {
-      background-color: var(--sdds-dropdown-bg-hover);
+      background-color: var(--sdds-dropdown-option-bg-hover);
     }
 
     button {
       width: 100%;
       padding: 0 16px;
       background-color: transparent;
-      border: none;
-      border-bottom: 1px solid var(--sdds-grey-100);
+      border: 1px solid var(--sdds-dropdown-option-bg);
+      border-bottom: 1px solid var(--sdds-dropdown-option-border);
       text-align: left;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: var(--sdds-dropdown-option-color);
 
       &.lg {
         height: 56px;
@@ -47,9 +48,17 @@
         height: 40px;
       }
 
+      &.selected {
+        border-color: var(--sdds-dropdown-option-selected);
+      }
+
+      &:focus-visible {
+        outline: none;
+        border-color: var(--sdds-dropdown-option-border-focus);
+      }
+
       &.disabled {
-        color: var(--sdds-grey-400);
-        background-color: var(--sdds-white);
+        color: var(--sdds-dropdown-option-color-disabled);
         pointer-events: none;
 
         &:hover {

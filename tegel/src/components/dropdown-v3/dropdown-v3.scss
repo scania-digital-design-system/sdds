@@ -9,30 +9,18 @@
     flex-direction: row-reverse;
     align-items: center;
     padding: 0 16px;
-    border-bottom: 1px solid var(--sdds-grey-800);
+    border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
 
     &.error {
       border-bottom: 1px solid var(--sdds-negative);
     }
 
     &.open {
-      border-bottom: 2px solid var(--sdds-blue-400);
+      border-bottom: 2px solid var(--sdds-dropdown-border-bottom-open);
     }
 
     sdds-icon {
       transition: transform 0.2s ease-in-out;
-
-      &.lg {
-        padding-top: 4px;
-      }
-
-      &.md {
-        padding-top: 4px;
-      }
-
-      &.sm {
-        padding-top: 4px;
-      }
     }
 
     &.open {
@@ -42,32 +30,64 @@
     }
 
     &.lg {
-      height: calc(56px - 2px);
+      height: calc(56px - 1px);
+
+      &.open {
+        height: calc(56px - 2px);
+      }
     }
 
     &.md {
-      height: calc(48px - 2px);
+      height: calc(48px - 1px);
+
+      &.open {
+        height: calc(48px - 2px);
+      }
     }
 
     &.sm {
-      height: calc(40px - 2px);
+      height: calc(40px - 1px);
+
+      &.open {
+        height: calc(40px - 2px);
+      }
     }
 
-    input[type='button'] {
+    input {
       padding: 0 16px;
-      height: 100%;
       top: 0;
       left: 0;
       position: absolute;
-      max-height: 56px;
       width: 90%;
       background-color: transparent;
       border: none;
       text-align: left;
-      border-bottom: 1px solid white;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: var(--sdds-dropdown-value-color);
+
+      &.lg {
+        height: 56px;
+      }
+
+      &.md {
+        height: 48px;
+      }
+
+      &.sm {
+        height: 40px;
+      }
+    }
+
+    input[type='button'] {
+      &.placeholder {
+        color: var(--sdds-dropdown-placeholder-color);
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
 
       &.open {
         border-bottom: none;
@@ -88,17 +108,7 @@
 
     input[type='text'] {
       padding-left: 16px;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      max-height: 56px;
-      background-color: transparent;
-      border: none;
-      text-align: left;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--sdds-dropdown-value-color);
 
       &:focus-visible {
         outline: none;
@@ -120,7 +130,7 @@
     position: absolute;
     font: var(--sdds-detail-07);
     letter-spacing: var(--sdds-detail-07-ls);
-    color: var(--sdds-grey-700);
+    color: var(--sdds-dropdown-label-color);
 
     &.lg {
       top: 12px;
@@ -141,7 +151,7 @@
     position: absolute;
     font: var(--sdds-detail-02);
     letter-spacing: var(--sdds-detail-02-ls);
-    color: var(--sdds-grey-700);
+    color: var(--sdds-dropdown-placeholder-color);
 
     &.lg {
       top: 20px;
@@ -168,13 +178,13 @@
   .label-outside {
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
-    color: var(--sdds-grey-958);
+    color: var(--sdds-dropdown-label-color);
     margin-bottom: 8px;
   }
 
   .helper {
     margin-top: 4px;
-    color: var(--sdds-grey-700);
+    color: var(--sdds-dropdown-helper-color);
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     display: flex;
