@@ -38,7 +38,6 @@ export class DropdownOptionV3 {
       this.modeVariant = this.parentEl.modeVariant;
       this.multiselect = this.parentEl.multiselect;
     }
-    console.log(this.host.innerHTML);
   }
 
   componentWillRender() {
@@ -49,7 +48,10 @@ export class DropdownOptionV3 {
 
   render() {
     return (
-      <div class={`sdds-dropdown-option-webcomponent`}>
+      <div
+        class={`sdds-dropdown-option-webcomponent
+        sdds-dropdown-option-mode-variant-${this.modeVariant}`}
+      >
         <li
           class={`
           ${this.disabled ? 'disabled' : ''}
@@ -63,7 +65,11 @@ export class DropdownOptionV3 {
                 this.parentEl.open = !this.parentEl.open;
               }
             }}
-            class={`${this.size} ${this.disabled ? 'disabled' : ''}`}
+            class={`
+            ${this.size}
+            ${this.disabled ? 'disabled' : ''}
+            ${this.selected ? 'selected' : ''}
+            `}
           >
             {this.label}
             {!this.multiselect && this.selected && <sdds-icon name="tick" size="16px"></sdds-icon>}

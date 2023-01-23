@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Element } from '@stencil/core';
+import { Component, Prop, State, Element, h, Listen } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-v3',
@@ -52,7 +52,7 @@ export class DropdownV3 {
 
   @State() noResult: boolean = false;
 
-  @State() parsedData: Array<{
+  @State() dataChildElements: Array<{
     value: string;
     label: string;
     selected?: any;
@@ -61,6 +61,8 @@ export class DropdownV3 {
   }> = [];
 
   @State() childElements: Array<HTMLElement>;
+
+  @State() tabIndex: number = -1;
 
   @Element() host: HTMLElement;
 
@@ -79,16 +81,16 @@ export class DropdownV3 {
     }
   };
 
-  setMultiselectValue = (newValue) => {
+  setMultiselectValue = (newValue: { value: string; label: string }) => {
     this.value = this.value ? [...this.value, newValue] : [newValue];
   };
 
-  setSingleSelectValue = (newValue) => {
+  setSingleSelectValue = (newValue: { value: string; label: string }) => {
     this.value = [newValue];
   };
 
   handleChildElementMultiselectSelection = (element: HTMLSddsDropdownOptionV3Element) => {
-    if (element.getAttribute('selected') !== null || element.getAttribute('selected') === 'false') {
+    if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       this.setMultiselectValue({
         value: element.getAttribute('value'),
         label: element.getAttribute('label'),
@@ -96,7 +98,13 @@ export class DropdownV3 {
       element.setAttribute('selected', '');
     }
     if (element.getAttribute('disabled') !== '' && element.getAttribute('disabled') !== ' true') {
-      element.addEventListener('click', () => {
+      this.addEventHandler(element);
+    }
+  };
+
+  addEventHandler = (element: HTMLSddsDropdownOptionV3Element, index?: number) => {
+    element.addEventListener('click', () => {
+      if (this.multiselect) {
         if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
           element.removeAttribute('selected');
           this.value = this.value.filter(
@@ -106,15 +114,30 @@ export class DropdownV3 {
           );
           this.host.setAttribute('value', JSON.stringify(this.value));
         } else {
+          element.setAttribute('selected', '');
           this.setMultiselectValue({
             value: element.value,
             label: element.getAttribute('label'),
           });
-          element.setAttribute('selected', '');
           this.host.setAttribute('value', JSON.stringify(this.value));
         }
-      });
-    }
+      } else {
+        // Not multiselect
+        element.setAttribute('selected', '');
+        this.value = [
+          {
+            value: element.getAttribute('value'),
+            label: element.getAttribute('label'),
+          },
+        ];
+        this.childElements.map((childElement, childElementIndex) => {
+          if (childElementIndex !== index) {
+            childElement.removeAttribute('selected');
+          }
+          return childElement;
+        });
+      }
+    });
   };
 
   handleChildElementSelection = () => {
@@ -127,50 +150,39 @@ export class DropdownV3 {
           element.getAttribute('selected') !== null ||
           element.getAttribute('selected') === 'false'
         ) {
+          element.setAttribute('selected', '');
           this.setSingleSelectValue({
             value: element.getAttribute('value'),
             label: element.getAttribute('label'),
           });
-
-          element.setAttribute('selected', '');
         }
-        if (element.getAttribute('disabled') && element.getAttribute('disabled') !== ' true') {
-          element.addEventListener('click', () => {
-            element.setAttribute('selected', '');
-            this.setSingleSelectValue({
-              value: element.getAttribute('value'),
-              label: element.getAttribute('label'),
-            });
-            this.childElements.forEach((el) => {
-              if (this.childElements.indexOf(el) !== index) {
-                el.removeAttribute('selected');
-              }
-            });
-            this.host.setAttribute('value', JSON.stringify(this.value[0]));
-          });
+        if (
+          element.getAttribute('disabled') !== '' &&
+          element.getAttribute('disabled') !== ' true'
+        ) {
+          this.addEventHandler(element, index);
         }
-        console.log('value', this.value);
       }
     });
   };
 
   handleDataElementSelection = () => {
-    this.parsedData = JSON.parse(this.data);
+    this.dataChildElements = JSON.parse(this.data);
     if (this.multiselect) {
-      this.parsedData.forEach((dataElement, index) => {
+      this.dataChildElements.forEach((dataElement, index) => {
         if (dataElement.selected) {
           this.setMultiselectValue({
-            value: this.parsedData[index].value,
-            label: this.parsedData[index].label,
+            value: this.dataChildElements[index].value,
+            label: this.dataChildElements[index].label,
           });
         }
       });
     } else {
-      this.parsedData.forEach((dataElement, index) => {
+      this.dataChildElements.forEach((dataElement, index) => {
         if (dataElement.selected === true || dataElement.selected === 'true') {
           this.setSingleSelectValue({
-            value: this.parsedData[index].value,
-            label: this.parsedData[index].label,
+            value: this.dataChildElements[index].value,
+            label: this.dataChildElements[index].label,
           });
           this.host.setAttribute('value', JSON.stringify(this.value[0]));
         }
@@ -186,52 +198,66 @@ export class DropdownV3 {
     }
   }
 
+  @Listen('keydown')
+  keyDown(event: KeyboardEvent) {
+    if (this.open) {
+      switch (event.key) {
+        case 'ArrowDown':
+          if (this.tabIndex < this.childElements.length - 1) {
+            this.tabIndex++;
+          } else {
+            this.tabIndex = 0;
+          }
+          break;
+        case 'ArrowUp':
+          if (this.tabIndex > 0) {
+            this.tabIndex--;
+          } else {
+            this.tabIndex = this.childElements.length - 1;
+          }
+          break;
+        case 'Escape':
+          this.open = false;
+          break;
+        default:
+          break;
+      }
+      this.childElements[this.tabIndex]?.getElementsByTagName('button')[0]?.focus();
+    }
+  }
+
   handleSelect = (index: number) => {
     if (this.multiselect) {
       if (
-        this.parsedData[index].selected === undefined ||
-        this.parsedData[index].selected === false
+        this.dataChildElements[index].selected === undefined ||
+        this.dataChildElements[index].selected === false
       ) {
-        this.parsedData = this.parsedData.map((dataItem, itemIndex) => {
-          if (index === itemIndex) {
-            return {
-              ...dataItem,
-              selected: true,
-            };
-          }
-          return {
-            ...dataItem,
-          };
-        });
+        this.dataChildElements = this.dataChildElements.map((dataItem, itemIndex) => ({
+          ...dataItem,
+          selected: index === itemIndex ? true : dataItem.selected,
+        }));
         this.value = [
           ...this.value,
           {
-            value: this.parsedData[index].value,
-            label: this.parsedData[index].label,
+            value: this.dataChildElements[index].value,
+            label: this.dataChildElements[index].label,
           },
         ];
         this.host.setAttribute('value', JSON.stringify(this.value));
       } else {
-        this.parsedData = this.parsedData.map((dataItem, itemIndex) => {
-          if (index === itemIndex) {
-            return {
-              ...dataItem,
-              selected: false,
-            };
-          }
-          return {
-            ...dataItem,
-          };
-        });
+        this.dataChildElements = this.dataChildElements.map((dataItem, itemIndex) => ({
+          ...dataItem,
+          selected: index === itemIndex ? false : dataItem.selected,
+        }));
         this.value = this.value.filter(
           (item) =>
-            item.value !== this.parsedData[index].value &&
-            item.label !== this.parsedData[index].label,
+            item.value !== this.dataChildElements[index].value &&
+            item.label !== this.dataChildElements[index].label,
         );
         this.host.setAttribute('value', JSON.stringify(this.value));
       }
     } else {
-      this.parsedData = this.parsedData.map((item, itemIndex) => {
+      this.dataChildElements = this.dataChildElements.map((item, itemIndex) => {
         if (itemIndex === index) {
           this.value = [
             {
@@ -241,16 +267,16 @@ export class DropdownV3 {
           ];
           this.host.setAttribute('value', JSON.stringify(this.value[0]));
           return {
-            value: this.parsedData[index].value,
-            label: this.parsedData[index].label,
-            disabled: this.parsedData[index].disabled,
+            value: this.dataChildElements[index].value,
+            label: this.dataChildElements[index].label,
+            disabled: this.dataChildElements[index].disabled,
             selected: true,
           };
         }
         return {
-          value: this.parsedData[itemIndex].value,
-          label: this.parsedData[itemIndex].label,
-          disabled: this.parsedData[itemIndex].disabled,
+          value: this.dataChildElements[itemIndex].value,
+          label: this.dataChildElements[itemIndex].label,
+          disabled: this.dataChildElements[itemIndex].disabled,
           selected: false,
         };
       });
@@ -259,8 +285,17 @@ export class DropdownV3 {
 
   handleFilter = (event) => {
     const query = event.target.value;
-    if (!this.data) {
-      if (query !== '') {
+    if (query !== '') {
+      if (this.data) {
+        this.dataChildElements = this.dataChildElements.map((element) => ({
+          ...element,
+          hidden: !(
+            element.value.toLowerCase().includes(query.toLowerCase()) ||
+            element.label.toLowerCase().includes(query.toLowerCase())
+          ),
+        }));
+        this.noResult = !this.dataChildElements.some((item) => item.hidden === false);
+      } else {
         this.childElements = this.childElements.map((childElement) => {
           if (
             childElement.getAttribute('value').toLowerCase().includes(query.toLowerCase()) ||
@@ -272,36 +307,23 @@ export class DropdownV3 {
           }
           return childElement;
         });
-        this.noResult = !this.childElements.some(
-          (childElement) => !childElement.hasAttribute('hidden'),
-        );
-      } else {
-        this.childElements = this.childElements.map((childElement) => {
-          childElement.removeAttribute('hidden');
-          return childElement;
-        });
-        this.noResult = false;
       }
     } else {
-      this.parsedData = this.parsedData.map((element) => ({
-        ...element,
-        hidden: !(
-          element.value.toLowerCase().includes(query.toLowerCase()) ||
-          element.label.toLowerCase().includes(query.toLowerCase())
-        ),
-      }));
-      this.noResult = !this.parsedData.some((item) => item.hidden === false);
+      this.childElements = this.childElements.map((childElement) => {
+        childElement.removeAttribute('hidden');
+        return childElement;
+      });
+      this.noResult = false;
     }
   };
 
-  getLabels = () => {
-    const labels = this.value.map((item) => item.label);
-    return labels;
-  };
+  getLabels = () => this.value.map((item) => item.label);
 
   render() {
     return (
-      <div class={`sdds-dropdown-webcomponent ${this.size}`}>
+      <div
+        class={`sdds-dropdown-webcomponent ${this.size} sdds-dropdown-mode-variant-${this.modeVariant}`}
+      >
         {this.labelPosition === 'outside' && <div class="label-outside">{this.label}</div>}
         <div class={`dropdown-button ${this.size} ${this.open ? 'open' : 'closed'}`}>
           {this.labelPosition === 'inside' && !this.placeholder && !this.filter && (
@@ -326,6 +348,7 @@ export class DropdownV3 {
                 }
                 this.open = !this.open;
               }}
+              ref={(element) => (this.inputElement = element as HTMLInputElement)}
               type="button"
               value={this.value?.length > 0 ? this.value[0].label : this.placeholder}
               class={`
@@ -333,6 +356,7 @@ export class DropdownV3 {
                 ${this.labelPosition}
                 ${this.error ? 'error' : ''}
                 ${this.open ? 'open' : 'closed'}
+                ${!this.value ? 'placeholder' : ''}
               `}
             ></input>
           )}
@@ -345,6 +369,7 @@ export class DropdownV3 {
                 }
                 this.open = !this.open;
               }}
+              ref={(element) => (this.inputElement = element as HTMLInputElement)}
               type="button"
               value={this.value?.length > 0 ? this.getLabels().toString() : this.placeholder}
               class={`
@@ -352,6 +377,8 @@ export class DropdownV3 {
               ${this.labelPosition}
               ${this.error ? 'error' : ''}
               ${this.open ? 'open' : 'closed'}
+              ${!this.value ? 'placeholder' : ''}
+
               `}
             ></input>
           )}
@@ -383,6 +410,8 @@ export class DropdownV3 {
               ${this.labelPosition}
               ${this.error ? 'error' : ''}
               ${this.open ? 'open' : 'closed'}
+              ${!this.value ? 'placeholder' : ''}
+
               `}
             />
           )}
@@ -418,7 +447,7 @@ export class DropdownV3 {
             ref={(element) => (this.dropdownList = element as HTMLElement)}
           >
             {this.data &&
-              this.parsedData.map((item, index) => (
+              this.dataChildElements.map((item, index) => (
                 <sdds-dropdown-option-v3
                   hidden={item.hidden}
                   value={item.value}

@@ -186,7 +186,7 @@ const multiDefaultOptiondChildren = (multiDefaultOption: string[]) => `
 const defaultOptionChildren = (defaultOption: string) => `
       <sdds-dropdown-option-v3 ${
         defaultOption === 'Option 1' ? 'selected' : ''
-      } value="option-1" label="Option-1">
+      } value="option-1" label="Option-1" disabled>
       </sdds-dropdown-option-v3>
       <sdds-dropdown-option-v3 ${
         defaultOption === 'Option 2' ? 'selected' : ''
@@ -225,7 +225,7 @@ const Template = ({
       }
     </style>
     <div class="demo-wrapper">
-      <sdds-dropdown-v3 open
+      <sdds-dropdown-v3 
         ${error ? 'error' : ''}
         ${helper ? `helper="${helper}"` : ''}
         open-direction="${openDirection.toLowerCase()}" 
