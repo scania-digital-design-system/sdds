@@ -14,12 +14,18 @@
   .header-left {
     display: flex;
     list-style: none;
-    border-right: 1px solid var(--sdds-header-mob-menu-border);
+
+    ::slotted(sdds-header-button-v2:nth-child(3)),
+    ::slotted(sdds-header-link-v2:nth-child(3)) {
+      /* Adds a left border to the button after the title, if any */
+      border-left: 1px solid var(--sdds-header-mob-menu-border);
+    }
   }
 
   .header-right {
     display: flex;
     list-style: none;
+    border-left: 1px solid var(--sdds-header-mob-menu-border);
   }
 
   button.mobile-menu-button {

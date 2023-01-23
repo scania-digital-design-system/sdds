@@ -8,7 +8,7 @@
 
     @include sdds-box-sizing;
 
-    border-left: 1px solid var(--sdds-header-mob-menu-border);
+    border-right: 1px solid var(--sdds-header-mob-menu-border);
     transition: background-color 150ms ease;
     display: flex;
     align-items: center;
