@@ -61,4 +61,4 @@ const Template = ({ checked, disabled, label }) =>
     </div>
   `);
 
-export const Default = Template.bind({});
+export const Native = Template.bind({});
