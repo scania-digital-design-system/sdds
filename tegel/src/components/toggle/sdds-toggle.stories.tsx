@@ -59,7 +59,7 @@ export default {
   },
   args: {
     size: 'Large',
-    label: 'Labe',
+    label: 'Label',
     headline: 'Headline',
     disabled: false,
     checked: false,
