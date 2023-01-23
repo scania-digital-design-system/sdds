@@ -69,7 +69,6 @@ export class InlineTabs {
     this.tabs = Array.from(this.host.children).map((item: HTMLSddsInlineTabElement, index) => {
       const name = item.label ? item.label : item.getAttribute('name') || `Tab ${index + 1}`;
       const key = generateKeyFromName(name);
-      console.log(key);
       if (item.default) {
         this.startingTab = key;
       }
