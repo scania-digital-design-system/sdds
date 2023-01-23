@@ -6,15 +6,19 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SddsMessage {
+  /** Header text for the component. */
   @Prop() header: string;
 
+  /** Variant of the component, based on current mode. */
   @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
-  // Type / State?
+  /** Type of message. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';
 
+  /** Removes the icon in the message. */
   @Prop() noIcon: boolean = false;
 
+  /** Minimal message styling. */
   @Prop() minimal: boolean = false;
 
   getIconName = () => {
@@ -43,7 +47,7 @@ export class SddsMessage {
         >
           {!this.noIcon && <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>}
           <div class={`message-content`}>
-            <div class="message-header">{this.header}</div>
+            {this.header && <div class="message-header">{this.header}</div>}
             {!this.minimal && (
               <div class="message-extended-message">
                 <slot></slot>

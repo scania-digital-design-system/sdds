@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                                 | Default         |
-| ------------- | -------------- | ----------- | ---------------------------------------------------- | --------------- |
-| `header`      | `header`       |             | `string`                                             | `undefined`     |
-| `minimal`     | `minimal`      |             | `boolean`                                            | `false`         |
-| `modeVariant` | `mode-variant` |             | `"primary" \| "secondary"`                           | `'primary'`     |
-| `noIcon`      | `no-icon`      |             | `boolean`                                            | `false`         |
-| `type`        | `type`         |             | `"error" \| "information" \| "success" \| "warning"` | `'information'` |
+| Property      | Attribute      | Description                                      | Type                                                 | Default         |
+| ------------- | -------------- | ------------------------------------------------ | ---------------------------------------------------- | --------------- |
+| `header`      | `header`       | Header text for the component.                   | `string`                                             | `undefined`     |
+| `minimal`     | `minimal`      | Minimal message styling.                         | `boolean`                                            | `false`         |
+| `modeVariant` | `mode-variant` | Variant of the component, based on current mode. | `"primary" \| "secondary"`                           | `'primary'`     |
+| `noIcon`      | `no-icon`      | Removes the icon in the message.                 | `boolean`                                            | `false`         |
+| `type`        | `type`         | Type of message.                                 | `"error" \| "information" \| "success" \| "warning"` | `'information'` |
 
 
 ## Dependencies
