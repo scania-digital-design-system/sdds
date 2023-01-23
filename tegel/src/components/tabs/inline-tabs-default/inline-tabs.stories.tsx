@@ -1,10 +1,11 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
+import readmeTab from './inline-tab/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: readme,
+    notes: { 'Inline Tabs': readme, 'Inline Tab': readmeTab },
     backgrounds: { default: 'white' },
     design: [
       {
@@ -51,16 +52,16 @@ const Template = ({ autoHeight = false, modeVariant }) => {
     <sdds-inline-tabs ${
       autoHeight ? 'auto-height' : ''
     }  mode-variant="${modeVariant.toLowerCase()}">
-      <div data-name="Tab with tall content">
+      <sdds-inline-tab label="Tab with tall content">
         Tab panel 1
         <div style="width:200px; height:200px; background: linear-gradient(125deg,rgba(255, 0, 0, 1) 0%,rgba(255, 255, 0, 1) 33%,rgba(0, 192, 255, 1) 66%,rgba(192, 0, 255, 1) 100%);"></div>
-      </div>
-      <div data-name="Default tab" data-default="true">
+      </sdds-inline-tab>
+      <sdds-inline-tab label="Default tab" default>
         Tab panel 2
-      </div>
-      <div data-name="Disabled tab" aria-disabled="true">
+      </sdds-inline-tab>
+      <sdds-inline-tab label="Disabled tab" disabled>
         Tab panel 3
-      </div>
+      </sdds-inline-tab>
     </sdds-inline-tabs>
 `);
 };
