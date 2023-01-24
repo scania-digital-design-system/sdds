@@ -1,6 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core';
 import { createPopper } from '@popperjs/core';
-import type { Placement } from '@popperjs/core';
+import type { Placement, Instance } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-tooltip',
@@ -11,8 +11,11 @@ export class Tooltip {
   /** In case tooltip contains only text, no HTML, text can be passed by this prop */
   @Prop() text: string = '';
 
-  /** CSS selector of element on which tooltip is used on.  */
+  /** The CSS-selector for an element that will trigger the tooltip */
   @Prop() selector: string = '';
+
+  /** Element that will trigger the tooltip (takes priority over selector) */
+  @Prop() referenceEl: HTMLElement;
 
   /** Allow mouse over tooltip. Useful when tooltip contains clickable elements like link or button. */
   @Prop() mouseOverTooltip: boolean = false;
@@ -22,6 +25,8 @@ export class Tooltip {
 
   /** Placement of tooltip. */
   @Prop() placement: Placement = 'bottom';
+
+  @State() popperInstance: Instance;
 
   @State() target: any;
 
@@ -34,9 +39,10 @@ export class Tooltip {
   tooltip!: HTMLInputElement;
 
   componentDidLoad() {
-    this.target = document.querySelector(this.selector);
+    this.target = this.referenceEl ?? document.querySelector(this.selector);
+
     const thisValue = this;
-    createPopper(this.target, this.tooltip, {
+    this.popperInstance = createPopper(this.target, this.tooltip, {
       placement: thisValue.placement,
       modifiers: [
         {
@@ -104,11 +110,17 @@ export class Tooltip {
     }
   }
 
+  disconnectedCallback() {
+    this.popperInstance?.destroy();
+  }
+
   /* Slot on line 118 is added to support adding HTML elements to component */
   render() {
     return (
       <span
-        ref={(el) => (this.tooltip = el as HTMLInputElement)}
+        ref={(el) => {
+          this.tooltip = el as HTMLInputElement;
+        }}
         class={`sdds-tooltip sdds-tooltip-${this.border} ${this.show ? 'sdds-tooltip-show' : ''}`}
       >
         {this.text}

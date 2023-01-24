@@ -75,8 +75,8 @@ const Template = ({ menuPosition }) => {
     </style>
 
     <sdds-popover-menu
-      placement="${menuPosLookup[menuPosition]}"
-      selector="#trigger">
+      id="my-popover-menu"
+      placement="${menuPosLookup[menuPosition]}">
       <ul class="sdds-popover-menu-wrapper">
         <li>
           <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 1</a>
@@ -103,10 +103,15 @@ const Template = ({ menuPosition }) => {
     <div class="demo-wrapper">
       <span class="sdds-u-mr2">Click icon for popover menu</span>
       
-      <sdds-button aria-label="menu" onlyIcon id="trigger" type="ghost" size="sm">
+      <sdds-button aria-label="menu" onlyIcon id="my-popover-button" type="ghost" size="sm">
         <sdds-icon slot="icon" class="sdds-btn-icon" size="16px" name="kebab"></sdds-icon>
       </sdds-button>
     </div>
+
+    <script>
+      // The 'selector' prop on Popover-Menu can be used instead, but it might be less ideal in frameworks like React 
+      document.getElementById('my-popover-menu').referenceEl = document.getElementById('my-popover-button');
+    </script>
     `,
   );
 };

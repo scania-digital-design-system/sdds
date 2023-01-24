@@ -63,6 +63,8 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
         }
       </style>
 
+      <!-- The 'referenceEl' prop can be used instead of 'selector', 
+      wich might be preferable in frameworks like React -->
       <sdds-popover-canvas
         placement="${canvasPosLookup[canvasPosition]}"
         selector="#trigger">
