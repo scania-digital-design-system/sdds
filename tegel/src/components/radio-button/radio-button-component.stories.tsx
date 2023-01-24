@@ -68,7 +68,8 @@ const Template = ({label, disabled, required}) =>
   <sdds-radio-button ${label ? `label="${label}"` : ''}
     value="option1"
     ${required ? 'required' : ''}
-    ${disabled ? 'disabled' : ''} >
+    ${disabled ? 'disabled' : ''}
+    checked=true >
   </sdds-radio-button>
   <sdds-radio-button ${label ? `label="${label}"` : ''}
     value="option2"
