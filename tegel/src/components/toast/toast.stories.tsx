@@ -133,5 +133,4 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Native = Template.bind({});
