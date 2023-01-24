@@ -49,4 +49,4 @@ const Template = ({ disabled, noUnderline }) =>
       </a>
   `,
   );
-export const Default = Template.bind({});
+export const Native = Template.bind({});
