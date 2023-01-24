@@ -4,37 +4,57 @@ import readme from './readme.md';
 export default {
   title: 'Components/Slider',
   argTypes: {
-    initialValue: {
-      name: 'Initial value',
-      description: 'Initial value for slider',
-      control: {
-        type: 'text',
-      },
-    },
     min: {
       name: 'Min. value',
-      description: 'Minimum value',
+      description: 'Sets the minimum value for the slider.',
       control: {
-        type: 'text',
+        type: 'number',
+      },
+      table: {
+        defaultValue: {
+          summary: 0,
+        },
       },
     },
     max: {
       name: 'Max. value',
-      description: 'Maximum value',
+      description: 'Sets the maximum value for the slider.',
       control: {
-        type: 'text',
+        type: 'number',
+      },
+      table: {
+        defaultValue: {
+          summary: 100,
+        },
+      },
+    },
+    initialValue: {
+      name: 'Initial value',
+      description: 'Sets the initial value for the slider.',
+      control: {
+        type: 'number',
+      },
+      table: {
+        defaultValue: {
+          summary: 50,
+        },
       },
     },
     showLabel: {
       name: 'Show label',
-      description: 'Show or hide label',
+      description: 'Toggles if the lable should be shown or hidden.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     labelText: {
       name: 'Label text',
-      description: 'Text for label',
+      description: 'Sets the text for the label.',
       control: {
         type: 'text',
       },
@@ -43,45 +63,37 @@ export default {
         truthy: true,
       },
     },
-    showTooltip: {
-      name: 'Show tooltip',
-      description: 'Show or hide tooltip',
+    showTicks: {
+      name: 'Show ticks',
+      description: 'Toggles if ticks should be shown or hidden.',
       control: {
         type: 'boolean',
       },
-    },
-    showTicks: {
-      name: 'Show ticks',
-      description: 'Show or hide ticks',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     numTicks: {
       name: 'Number of ticks',
-      description: 'Set the number of ticks to display',
+      description: 'Sets the number of ticks to be displayed.',
       control: {
-        type: 'text',
+        type: 'number',
       },
       if: {
         arg: 'showTicks',
         truthy: true,
       },
-    },
-    snapToTicks: {
-      name: 'Snap to ticks',
-      description: 'Snap the scrubber to the closest tick when dragging',
-      control: {
-        type: 'boolean',
-      },
-      if: {
-        arg: 'showTicks',
-        truthy: true,
+      table: {
+        defaultValue: {
+          summary: 3,
+        },
       },
     },
     showTickNumbers: {
       name: 'Show tick numbers',
-      description: 'Show or hide tick numbers',
+      description: 'Toggles if tick numbers should be shown or hidden.',
       control: {
         type: 'boolean',
       },
@@ -89,28 +101,71 @@ export default {
         arg: 'showTicks',
         truthy: true,
       },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    snapToTicks: {
+      name: 'Snap to ticks',
+      description: 'Snaps the scrubber to the closest tick when dragging.',
+      control: {
+        type: 'boolean',
+      },
+      if: {
+        arg: 'showTicks',
+        truthy: true,
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    showTooltip: {
+      name: 'Show tooltip',
+      description: 'Toggles if the tooltip should be shown or hidden.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
     },
     showControls: {
       name: 'Show controls (not compatible with input field)',
-      description: 'Show or hide controls',
+      description: 'Toggles if controls should be shown or hidden.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     step: {
       name: 'Step value',
-      description: 'Value to increment/decrease when using controls',
+      description: 'Sets the value to increment/decrement with when using controls.',
       control: {
-        type: 'text',
+        type: 'number',
       },
       if: {
         arg: 'showControls',
         truthy: true,
       },
+      table: {
+        defaultValue: {
+          summary: 1,
+        },
+      },
     },
     showInput: {
       name: 'Show value input field (not compatible with controls)',
-      description: 'Show or hide value input field',
+      description: 'Toggles if the values input field should be shown or hidden.',
       control: {
         type: 'boolean',
       },
@@ -118,26 +173,46 @@ export default {
         arg: 'showControls',
         truthy: false,
       },
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Put control in disabled state',
-      control: {
-        type: 'boolean',
-      },
-    },
-    readonly: {
-      name: 'Read Only',
-      description: 'Put control in read-only state',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     small: {
       name: 'Small',
-      description: 'Use small variant',
+      description: 'Toggles if the small variant of the scrubber should be used.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    readonly: {
+      name: 'Read Only',
+      description: 'Puts the control in a read-only state.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the slider.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
@@ -159,7 +234,7 @@ export default {
   args: {
     min: 0,
     max: 100,
-    value: 50,
+    initialValue: 50,
   },
 };
 
@@ -180,22 +255,22 @@ const style = `
 `;
 
 const Template = ({
-  initialValue,
   min,
   max,
+  initialValue,
   showLabel,
   labelText,
-  showTooltip,
   showTicks,
   numTicks,
   showTickNumbers,
   snapToTicks,
+  showTooltip,
   showControls,
   step,
   showInput,
-  disabled,
-  readonly,
   small,
+  readonly,
+  disabled,
 }) =>
   formatHtmlPreview(`
     ${style}
@@ -259,20 +334,20 @@ ready(() => {
 
 export const Default = Template.bind({});
 Default.args = {
-  initialValue: '50',
+  min: 0,
+  max: 100,
+  initialValue: 50,
   showLabel: false,
   labelText: 'Label',
-  showTooltip: true,
   showTicks: false,
-  numTicks: '3',
+  numTicks: 3,
   showTickNumbers: false,
-  showControls: false,
-  showInput: false,
-  min: '0',
-  max: '100',
-  step: '1',
-  disabled: false,
-  small: false,
   snapToTicks: false,
+  showTooltip: true,
+  showControls: false,
+  step: 1,
+  showInput: false,
+  small: false,
   readonly: false,
+  disabled: false,
 };
