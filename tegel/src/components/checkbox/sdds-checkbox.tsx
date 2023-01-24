@@ -55,7 +55,9 @@ export class SddsCheckbox {
             });
           }}
         />
-        {this.label && <label htmlFor={this.checkboxId}>{this.label}</label>}
+        <label htmlFor={this.checkboxId}>
+          <slot></slot>
+        </label>
       </div>
     );
   }
