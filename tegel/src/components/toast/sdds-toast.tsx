@@ -19,14 +19,14 @@ export class SddsToast {
   /** Type of toast. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';
 
-  /** Removes the icon in the toast. */
-  @Prop() noIcon: boolean = false;
-
+  /** Shows the toast if true. */
   @Prop() show: boolean = true;
 
   @Element() host: HostElement;
 
-  @State() hasSubHeader: boolean;
+  @State() hasSubheader: boolean;
+
+  @State() hasLink: boolean;
 
   getIconName = () => {
     switch (this.type) {
@@ -55,7 +55,8 @@ export class SddsToast {
   }>;
 
   connectedCallback() {
-    this.hasSubHeader = this.host.children[0].slot === 'toast-subheader';
+    this.hasSubheader = this.host.children[0].slot === 'toast-subheader';
+    this.hasLink = this.host.children[1].slot === 'toast-link';
   }
 
   render() {
@@ -68,12 +69,12 @@ export class SddsToast {
             ${this.type}
             `}
           >
-            {!this.noIcon && <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>}
+            <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>
             <div class={`toast-content`}>
-              <div class={`toast-header ${this.hasSubHeader ? '' : 'no-subheader'}`}>
+              <div class={`toast-header ${this.hasSubheader ? '' : 'no-subheader'}`}>
                 {this.header}
               </div>
-              <div class="toast-subheader">
+              <div class={`toast-subheader ${this.hasLink ? '' : 'no-link'}`}>
                 <slot name="toast-subheader"></slot>
               </div>
               <slot name="toast-link"></slot>

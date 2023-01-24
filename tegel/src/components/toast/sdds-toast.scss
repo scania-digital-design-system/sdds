@@ -69,7 +69,7 @@
   }
 
   .toast-content {
-    padding: 16px 0 16px 16px;
+    padding: 16px 0 16px 12px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -96,6 +96,12 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      &.no-link {
+        slot::slotted(*) {
+          padding-bottom: 0;
+        }
       }
     }
   }

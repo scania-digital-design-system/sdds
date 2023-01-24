@@ -26,14 +26,6 @@ export default {
       },
       options: ['Success', 'Information', 'Warning', 'Error'],
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Primary', 'Secondary'],
-    },
     header: {
       name: 'Subheader',
       description: 'Adds a subheader',
@@ -52,29 +44,20 @@ export default {
       name: 'Link',
       description: 'Adds a CTA link',
     },
-    icon: {
-      name: 'Icon',
-      description: 'Show icon',
-      control: {
-        type: 'boolean',
-      },
-    },
   },
   args: {
     type: 'Success',
     header: 'Header',
     subheader: 'Subheader text',
     link: false,
-    icon: true,
   },
 };
 
-const Template = ({ type, header, subheader, link, icon }) =>
+const Template = ({ type, header, subheader, link }) =>
   formatHtmlPreview(
     `<sdds-toast
         type="${type.toLowerCase()}"
         header="${header}"
-        ${!icon ? 'no-icon' : ''}
     >
       ${
         subheader
