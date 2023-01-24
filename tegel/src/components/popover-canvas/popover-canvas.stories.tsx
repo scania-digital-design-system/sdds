@@ -10,10 +10,14 @@ export default {
   argTypes: {
     canvasPosition: {
       name: 'Canvas position',
-      description: 'Position of the PopoverCanvas',
-      type: { summary: 'string' },
+      description: 'Sets the position of the Popover Canvas.',
       control: {
         type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: 'Bottom',
+        },
       },
       options: [
         'Bottom',
