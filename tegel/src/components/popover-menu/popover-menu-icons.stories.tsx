@@ -76,7 +76,7 @@ const Template = ({ menuPosition }) => {
 
     <sdds-popover-menu
       placement="${menuPosLookup[menuPosition]}"
-      selector="#trigger">
+      id="my-popover-menu">
       <ul class="sdds-popover-menu-wrapper">
         <li>
           <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
@@ -94,14 +94,6 @@ const Template = ({ menuPosition }) => {
             Menu item 2
           </a>
         </li>
-        <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
-            <i>
-              <sdds-icon name="save" size="16px"></sdds-icon>
-            </i>
-            Menu item 3
-          </a>
-        </li>
         <li class="divider"></li>
         <li>
           <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
@@ -111,14 +103,6 @@ const Template = ({ menuPosition }) => {
             Menu item 4
           </a>
         </li>
-        <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
-            <i>
-              <sdds-icon name="save" size="16px"></sdds-icon>
-            </i>
-            Menu item 5
-          </a>
-        </li>
       </ul>
     </sdds-popover-menu>
 
@@ -126,10 +110,15 @@ const Template = ({ menuPosition }) => {
     <div class="demo-wrapper">
       <span class="sdds-u-mr2">Click icon for popover menu</span>
       
-      <sdds-button aria-label="menu" onlyIcon id="trigger" type="ghost" size="sm">
+      <sdds-button aria-label="menu" onlyIcon id="my-popover-button" type="ghost" size="sm">
         <sdds-icon slot="icon" class="sdds-btn-icon" size="16px" name="kebab"></sdds-icon>
       </sdds-button>
     </div>
+
+    <script>
+      // The 'selector' prop on Popover-Menu can be used instead, but it might be less ideal in frameworks like React 
+      document.getElementById('my-popover-menu').referenceEl = document.getElementById('my-popover-button');
+    </script>
     `,
   );
 };
