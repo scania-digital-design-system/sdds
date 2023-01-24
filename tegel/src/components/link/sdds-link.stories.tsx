@@ -55,10 +55,10 @@ const Template = ({ disabled, underline, target }) =>
     `<sdds-link
         ${disabled ? 'disabled' : ''}
         ${underline ? '' : 'underline="false"'}
-        href="https://tegel.scania.com"
+        href="#"
         target="${target}"
         >
-        Link
+        This is a link.
     </sdds-link>
     <script>
         document.addEventListener('sddsLinkClickedEvent', (e) => {
