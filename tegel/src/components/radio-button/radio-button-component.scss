@@ -16,28 +16,6 @@
   margin: 0;
   min-width: 0;
   padding: 0;
-
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-
-    &::after {
-      border-color: var(--sdds-radio-button-border-color-disabled-after);
-      background-color: var(--sdds-radio-button-interaction-02);
-    }
-
-    + label {
-      color: var(--sdds-grey-600);
-      cursor: not-allowed;
-    }
-
-    &:hover {
-      &::before {
-        display: none;
-        opacity: 1;
-      }
-    }
-  }
   
     .sdds-form-input[type='radio']:checked,
     .sdds-form-input[type='radio']:not(:checked) {
@@ -94,6 +72,28 @@
           background-color: var(--sdds-radio-button-background-focus);
           opacity: 0.24;
           animation: rb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
+        }
+      }
+
+      &:disabled,
+      &.disabled {
+        cursor: not-allowed;
+
+        &::after {
+          border-color: var(--sdds-radio-button-border-color-disabled-after);
+          background-color: var(--sdds-radio-button-interaction-02);
+        }
+
+        + label {
+          color: var(--sdds-grey-600);
+          cursor: not-allowed;
+        }
+
+        &:hover {
+          &::before {
+            display: none;
+            opacity: 1;
+          }
         }
       }
     }
