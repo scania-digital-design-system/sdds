@@ -21,6 +21,16 @@ _Add description how to test if possible_
 2. Check in...
 3. Run ...
 
+**Suggested test steps**
+- [ ] Browser testing (Chrome, Safari, Firefox) 
+- [ ] Keyboard operability
+- [ ] Interactive elements have labels.
+- [ ] Storybook controls
+- [ ] Design/controls/props is aligned with other components 
+- [ ] Dark/light mode and variants 
+- [ ] Input fields – values should be displayed properly 
+- [ ] Events
+
 **Screenshots**  
 _If applicable, add screenshots to help explain_
 
