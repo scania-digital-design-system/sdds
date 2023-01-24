@@ -29,7 +29,7 @@ export default {
       },
       options: ['Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'primary' },
       },
     },
   },
