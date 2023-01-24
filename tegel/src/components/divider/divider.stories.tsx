@@ -121,6 +121,7 @@ const Template = ({ type, width, direction, height }) => {
         ? `/* demo-div is for demonstration purposes only*/
         .demo-div {
           height: ${height}px;
+          width: 1px;
         }`
         : ''
     }    ${
@@ -128,6 +129,7 @@ const Template = ({ type, width, direction, height }) => {
         ? `/* demo-div is for demonstration purposes only*/
             .demo-div {
               width: ${width}px;
+              height: 1px;
             }`
         : ''
     }
