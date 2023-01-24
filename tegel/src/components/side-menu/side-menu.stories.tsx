@@ -25,18 +25,28 @@ export default {
   argTypes: {
     collapsed: {
       name: 'Collapsed',
-      description: 'Toggle the side menus collapsed state.',
+      description: 'Toggles the side menus collapsed state.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     showIcons: {
       name: 'Show icons',
-      description: 'Toggle if icons for side menu options are displayed.',
+      description: 'Toggles if icons for side menu options are displayed.',
       control: {
         type: 'boolean',
       },
       if: { arg: 'collapsed', neq: true },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
   },
   args: {
