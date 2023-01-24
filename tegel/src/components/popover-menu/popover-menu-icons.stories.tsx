@@ -22,9 +22,14 @@ export default {
   argTypes: {
     menuPosition: {
       name: 'Menu position',
-      description: 'Position of the Popover menu',
+      description: 'Sets the position of the Popover Menu.',
       control: {
         type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: 'Bottom start',
+        },
       },
       options: [
         'Bottom',
