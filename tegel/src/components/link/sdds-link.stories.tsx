@@ -55,7 +55,7 @@ const Template = ({ disabled, underline, target }) =>
     `<sdds-link
         ${disabled ? 'disabled' : ''}
         ${underline ? '' : 'underline="false"'}
-        href="#"
+        link-href="#"
         target="${target}"
         >
         This is a link.

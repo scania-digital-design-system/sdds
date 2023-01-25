@@ -7,7 +7,7 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class SddsLink {
   /** URL for the link */
-  @Prop() href: string;
+  @Prop() linkHref: string;
 
   /** ID for the link. Randomly generated if not specified. */
   @Prop() linkId: string = crypto.randomUUID();
@@ -21,7 +21,7 @@ export class SddsLink {
   /** Displays the link without an underline. */
   @Prop() underline: boolean = true;
 
-  /** The relationship of the linked URL as space-separated link types. */
+  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
   @Prop() rel: string = 'noopener';
 
   /** Sends unique link identifier and href when it is clicked */
@@ -41,7 +41,7 @@ export class SddsLink {
       <a
         onClick={() => {
           this.sddsLinkClickedEvent.emit({
-            href: this.href,
+            href: this.linkHref,
             id: this.linkId,
           });
         }}
@@ -50,7 +50,7 @@ export class SddsLink {
         ${this.underline ? '' : 'no-underline'}
         
         `}
-        href={this.href}
+        href={this.linkHref}
         target={this.target}
         rel={this.rel}
       >
