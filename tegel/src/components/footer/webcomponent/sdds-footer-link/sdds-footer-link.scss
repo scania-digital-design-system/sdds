@@ -1,0 +1,46 @@
+@import '../../../../mixins/focus-state';
+
+li {
+  a {
+    font: var(--sdds-headline-06);
+    letter-spacing: var(--sdds-headline-06-ls);
+    color: var(--sdds-footer-main-links);
+    opacity: var(--sdds-footer-main-links-opacity);
+    text-decoration: none;
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+  }
+
+  &.top-part-child {
+    a {
+      color: var(--sdds-footer-top-links);
+      font-family: 'Scania Sans Semi Condensed';
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+
+      &:focus {
+        @include sdds-focus-state;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  li.top-part-child {
+    border-bottom: 1px solid var(--sdds-footer-top-divider);
+
+    a {
+      display: block;
+      height: 100%;
+      padding: 19px 40px;
+      font-weight: normal;
+
+      &:focus {
+        @include sdds-focus-state;
+      }
+    }
+  }
+}
