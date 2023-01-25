@@ -7,13 +7,15 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                                                                                                                     | Type      | Default               |
-| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------- |
-| `checkboxId` | `checkbox-id` | ID for the checkbox's input element. Randomly generated if not specified.                                                                                                                       | `string`  | `crypto.randomUUID()` |
-| `checked`    | `checked`     | Sets the checkbox as checked  **NOTE**: If you're listening for events you need to set this ID yourself to identify the checkbox, as the default ID is random and will be different every time. | `boolean` | `false`               |
-| `disabled`   | `disabled`    | Sets the checkbox in a disabled state                                                                                                                                                           | `boolean` | `false`               |
-| `label`      | `label`       | Label text for the checkbox                                                                                                                                                                     | `string`  | `undefined`           |
-| `name`       | `name`        | Name for the checkbox's input element.                                                                                                                                                          | `string`  | `undefined`           |
+| Property          | Attribute          | Description                                                               | Type      | Default               |
+| ----------------- | ------------------ | ------------------------------------------------------------------------- | --------- | --------------------- |
+| `ariaDescribedby` | `aria-describedby` | Aria-describedby for the checkboxes input element.                        | `string`  | `undefined`           |
+| `checkboxId`      | `checkbox-id`      | ID for the checkbox's input element. Randomly generated if not specified. | `string`  | `crypto.randomUUID()` |
+| `checked`         | `checked`          | Sets the checkbox as checked                                              | `boolean` | `false`               |
+| `disabled`        | `disabled`         | Sets the checkbox in a disabled state                                     | `boolean` | `false`               |
+| `label`           | `label`            | Label text for the checkbox                                               | `string`  | `undefined`           |
+| `name`            | `name`             | Name for the checkbox's input element.                                    | `string`  | `undefined`           |
+| `required`        | `required`         | Make the checkbox required                                                | `boolean` | `false`               |
 
 
 ## Events

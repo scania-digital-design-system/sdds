@@ -28,6 +28,8 @@
     }
 
     &::before {
+      background-color: var(--sdds-checkbox-background-focus);
+      opacity: 0;
       width: 24px;
       height: 24px;
       left: 0;
@@ -54,7 +56,9 @@
       &::before {
         background-color: var(--sdds-checkbox-background-focus);
         opacity: 0.24;
-        animation: cb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
+        transition: opacity 0.2s ease-in-out;
+
+        //animation: checkbox-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
       }
     }
 
