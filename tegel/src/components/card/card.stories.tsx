@@ -159,7 +159,7 @@ const Template = ({ headline, subheadline, footer, clickable, text, divider, ima
                 ? `<img class="sdds-card-img" src="${CardImage}" alt="Add description to image"/>`
                 : ''
             }
-            ${divider ? '<div class="sdds-divider-light-border-top"></div>' : ''}
+            ${divider ? '<div class="sdds-divider-border-top"></div>' : ''}
             ${text ? `<div class="sdds-card-body">${text}</div>` : ''}
             ${footer ? `<div class="sdds-card-footer">${footer}</div>` : ''}
           </div>
