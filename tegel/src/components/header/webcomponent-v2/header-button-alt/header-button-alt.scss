@@ -1,0 +1,51 @@
+@import '../../../../mixins/box-sizing';
+
+:host {
+  display: none;
+
+  button {
+    all: unset;
+    @include sdds-box-sizing;
+
+    border-right: 1px solid var(--sdds-header-mob-menu-border);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 0 24px;
+
+    &:hover {
+      background-color: var(--sdds-header--basic-element-bg-hover);
+    }
+
+    ::slotted(sdds-icon) {
+      position: relative;
+      margin-left: -6px;
+      left: 3px;
+      transform: translate 150ms ease;
+    }
+  }
+
+  .state--active {
+    button {
+      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      color: var(--sdds-header-nav-item-dropdown-opened-color);
+      border-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+
+      ::slotted(sdds-icon) {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 375px) {
+  :host([persistent]) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 672px) {
+  :host {
+    display: block;
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../../../mixins/scrollbar';
+
+:host {
+  .wrapper {
+    height: 64px;
+    position: relative;
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+
+      @include sdds-scrollbar;
+
+      overflow-y: auto;
+      width: 320px;
+      max-height: calc(100vh - 64px);
+      box-shadow: var(--sdds-nav-dropdown-menu-box);
+      background-color: var(--sdds-header-app-launcher-menu-bg);
+
+      @media all and (max-width: 384px) {
+        width: 100vw;
+      }
+    }
+
+    &.state--list-type-menu {
+      .menu {
+        height: calc(100vh - 64px);
+      }
+    }
+
+    &.state--open {
+      .menu {
+        display: block;
+      }
+    }
+  }
+}
