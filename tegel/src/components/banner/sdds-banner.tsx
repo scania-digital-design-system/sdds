@@ -34,12 +34,12 @@ export class SddsBanner {
 
   /** Sends unique banner identifier when the close button is pressed */
   @Event({
-    eventName: 'bannerCloseEvent',
+    eventName: 'sddsBannerCloseEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  bannerCloseEvent: EventEmitter<any>;
+  sddsBannerCloseEvent: EventEmitter<any>;
 
   @Method()
   async hideBanner() {
@@ -71,6 +71,7 @@ export class SddsBanner {
           {this.header && <span class={`banner-header`}>{this.header}</span>}
           {this.subheader && <span class={`banner-subheader`}>{this.subheader}</span>}
           {this.linkText && this.linkHref && (
+            /* TODO - Should use sdds-link */
             <a class={`banner-link`} href={this.linkHref}>
               {this.linkText}
             </a>
@@ -80,7 +81,7 @@ export class SddsBanner {
           <button
             onClick={() => {
               this.show = false;
-              this.bannerCloseEvent.emit({
+              this.sddsBannerCloseEvent.emit({
                 bannerId: this.bannerId,
               });
             }}

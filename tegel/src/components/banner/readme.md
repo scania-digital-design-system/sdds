@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event              | Description                                                     | Type               |
-| ------------------ | --------------------------------------------------------------- | ------------------ |
-| `bannerCloseEvent` | Sends unique banner identifier when the close button is pressed | `CustomEvent<any>` |
+| Event                  | Description                                                     | Type               |
+| ---------------------- | --------------------------------------------------------------- | ------------------ |
+| `sddsBannerCloseEvent` | Sends unique banner identifier when the close button is pressed | `CustomEvent<any>` |
 
 
 ## Methods

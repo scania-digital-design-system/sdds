@@ -96,9 +96,8 @@ const Template = ({ state, icon, header, subheader, linkText, linkHref }) =>
           >
       </sdds-banner>
       <script>
-        document.addEventListener('bannerCloseEvent', (event)=>{
-          console.log('Closed banner with BannerID: ',event.detail.bannerId)
-          event.preventDefault()
+        document.addEventListener('sddsBannerCloseEvent', (event) => {
+          console.log('Closed banner with BannerID: ', event.detail.bannerId)
         })
       </script>
     `);
