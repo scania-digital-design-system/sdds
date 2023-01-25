@@ -1,9 +1,5 @@
 @import './textarea-theme-vars.scss';
 
-.sdds-on-white-background {
-  --sdds-textarea-background: var(--sdds-textarea-on-white-background);
-}
-
 @mixin textfield-base {
   border-radius: 4px 4px 0 0;
   width: 100%;
