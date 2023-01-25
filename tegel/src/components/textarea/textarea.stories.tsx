@@ -27,6 +27,17 @@ export default {
         type: 'text',
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Change the components mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     disabled: {
       description: 'Set textfield to disabled state',
       name: 'Disabled',
@@ -102,6 +113,7 @@ export default {
     maxLength: 0,
     rows: 5,
     state: 'Default',
+    modeVariant: 'Primary',
   },
 };
 
@@ -114,6 +126,7 @@ const Template = ({
   state,
   helper,
   maxLength,
+  modeVariant,
   rows,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
@@ -122,6 +135,10 @@ const Template = ({
     None: 'no-label',
     Inside: 'inside',
     Outside: 'outside',
+  };
+  const modeVariantLookUp = {
+    Primary: 'primary',
+    Secondary: 'secondary',
   };
   return formatHtmlPreview(`
   <style>
@@ -137,6 +154,7 @@ const Template = ({
           state="${stateValue}"
           label="${label}"
           helper="${helper}"
+          mode-variant="${modeVariantLookUp[modeVariant]}"
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'read-only' : ''}
