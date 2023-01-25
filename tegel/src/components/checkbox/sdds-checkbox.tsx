@@ -4,6 +4,7 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
   tag: 'sdds-checkbox',
   styleUrl: 'sdds-checkbox.scss',
   shadow: false,
+  scoped: true,
 })
 export class SddsCheckbox {
   /** Name for the checkbox's input element. */
