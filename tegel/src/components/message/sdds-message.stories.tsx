@@ -71,7 +71,7 @@ export default {
     icon: true,
     extendedMessage:
       'Longer message text can be placed here. Longer message text can be placed here.',
-    minimal: true,
+    minimal: false,
   },
 };
 
