@@ -27,6 +27,9 @@ export default {
         type: 'radio',
       },
       options: ['Information', 'Error', 'Warning', 'Success'],
+      table: {
+        defaultValue: { summary: 'information' },
+      },
     },
     modeVariant: {
       name: 'Mode variant',
@@ -35,6 +38,9 @@ export default {
         type: 'radio',
       },
       options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
     header: {
       name: 'Header',
@@ -49,11 +55,14 @@ export default {
         type: 'text',
       },
     },
-    icon: {
-      name: 'Icon',
-      description: 'Show icon',
+    noIcon: {
+      name: 'No icon',
+      description: 'Hide the icon',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     minimal: {
@@ -62,20 +71,23 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
   },
   args: {
     messageType: 'Information',
     modeVariant: 'Primary',
     header: 'Message header',
-    icon: true,
+    noIcon: false,
     extendedMessage:
       'Longer message text can be placed here. Longer message text can be placed here.',
     minimal: false,
   },
 };
 
-const Template = ({ messageType, icon, extendedMessage, modeVariant, header, minimal }) =>
+const Template = ({ messageType, noIcon, extendedMessage, modeVariant, header, minimal }) =>
   formatHtmlPreview(
     `
     <style>
@@ -87,7 +99,7 @@ const Template = ({ messageType, icon, extendedMessage, modeVariant, header, min
       <sdds-message
           type="${messageType.toLowerCase()}"
           header="${header}"
-          ${!icon ? 'no-icon' : ''}
+          ${noIcon ? 'no-icon' : ''}
           ${minimal ? 'minimal' : ''}
           mode-variant="${modeVariant.toLowerCase()}"
       >
