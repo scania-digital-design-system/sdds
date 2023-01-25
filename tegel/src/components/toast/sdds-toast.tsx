@@ -19,9 +19,6 @@ export class SddsToast {
   /** Type of toast. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';
 
-  /** Shows the toast if true. */
-  @Prop() show: boolean = true;
-
   @Element() host: HostElement;
 
   @State() hasSubheader: boolean;
@@ -72,42 +69,39 @@ export class SddsToast {
 
   render() {
     return (
-      this.show && (
-        <Host>
-          <div
-            class={`
+      <Host>
+        <div
+          class={`
             toast-wrapper
             ${this.type}
             `}
-          >
-            <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>
-            <div class={`toast-content`}>
-              <div
-                class={`toast-header
+        >
+          <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>
+          <div class={`toast-content`}>
+            <div
+              class={`toast-header
               ${this.getHeaderClasses()}
               `}
-              >
-                {this.header}
-              </div>
-              <div class={`toast-subheader ${this.hasLink ? '' : 'no-link'}`}>
-                <slot name="toast-subheader"></slot>
-              </div>
-              <slot name="toast-link"></slot>
-            </div>
-            <button
-              onClick={() => {
-                this.show = false;
-                this.sddsToastClosedEvent.emit({
-                  toastId: this.toastId,
-                });
-              }}
-              class={`toast-close`}
             >
-              <sdds-icon name="cross" size="20px"></sdds-icon>
-            </button>
+              {this.header}
+            </div>
+            <div class={`toast-subheader ${this.hasLink ? '' : 'no-link'}`}>
+              <slot name="toast-subheader"></slot>
+            </div>
+            <slot name="toast-link"></slot>
           </div>
-        </Host>
-      )
+          <button
+            onClick={() => {
+              this.sddsToastClosedEvent.emit({
+                toastId: this.toastId,
+              });
+            }}
+            class={`toast-close`}
+          >
+            <sdds-icon name="cross" size="20px"></sdds-icon>
+          </button>
+        </div>
+      </Host>
     );
   }
 }
