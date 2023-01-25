@@ -105,8 +105,9 @@ const Template = ({ siteName }) =>
           </sdds-header-user>
         </div>
       </sdds-header-dropdown>
-      <sdds-header-launcher variant="list">
+      <sdds-header-launcher variant="grid">
         <sdds-header-button>
+          <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
           Button
         </sdds-header-button>
         <sdds-header-button>

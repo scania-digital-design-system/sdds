@@ -1,0 +1,23 @@
+@import '../../../../mixins/scrollbar';
+
+:host {
+  ul {
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 0;
+    list-style: none;
+    width: 320px;;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    border-radius: none;
+    background-color: var(--sdds-header-app-launcher-menu-bg);
+
+  }
+
+  @media all and (max-width: 384px) {
+    ul {
+      width: 100vw;
+    }
+  }
+}

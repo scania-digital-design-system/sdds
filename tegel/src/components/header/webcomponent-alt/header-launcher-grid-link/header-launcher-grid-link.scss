@@ -1,0 +1,31 @@
+:host {
+  li {
+    width: 96px;
+    height: 96px;
+    list-style: none;
+
+    button {
+      border-right: 1px solid var(--sdds-nav-item-border-color);
+      height: 100%;
+      border: none;
+      padding: 0 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      font: var(--sdds-detail-05);
+      letter-spacing: var(--sdds-detail-05-ls);
+      background-color: var(--sdds-header-app-launcher-menu-bg);
+      color: var(--sdds-grey-800);
+      border-radius: 4px;
+      transition: background-color 150ms ease;
+
+      &:hover {
+        background-color: var(--sdds-grey-100);
+        cursor: pointer;
+      }
+    }
+  }
+}

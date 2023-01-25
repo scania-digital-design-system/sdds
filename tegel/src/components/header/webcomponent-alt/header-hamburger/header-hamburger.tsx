@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-hamburger',
@@ -6,8 +6,6 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderHamburger {
-  @Prop({ reflect: true }) persistent: boolean;
-
   render() {
     return (
       <Host>

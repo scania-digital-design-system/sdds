@@ -73,7 +73,56 @@ const Template = () =>
       <sdds-icon name="profile" size="20px"></sdds-icon>
     </sdds-header-link-v2>
 
-    <sdds-header-launcher-button slot="end"></sdds-header-launcher-button>
+    <sdds-header-launcher slot="end" variant="grid">
+      <sdds-header-button><sdds-icon name="star" size="32" />Button</sdds-header-button>
+    </sdds-header-launcher>
+
+    <sdds-header-launcher-v2 slot="end">
+      <sdds-header-launcher-grid-title>Summer apps</sdds-header-launcher-grid-title>
+      <sdds-header-launcher-grid>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="star" size="32"></sdds-icon>
+          Alpha
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="truck" size="32"></sdds-icon>
+          Beta
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
+          Gamma
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="star" size="32"></sdds-icon>
+          Epsilon
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="truck" size="32"></sdds-icon>
+          Pie
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
+          Lambda
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="star" size="32"></sdds-icon>
+          Delta
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="truck" size="32"></sdds-icon>
+          Zeta
+        </sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>
+          <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
+          Bravo
+        </sdds-header-launcher-grid-link>
+      </sdds-header-launcher-grid>
+      <sdds-header-launcher-grid-title>Winter apps</sdds-header-launcher-grid-title>
+      <sdds-header-launcher-grid>
+        <sdds-header-launcher-grid-link>Button</sdds-header-launcher-grid-link>
+        <sdds-header-launcher-grid-link>Button</sdds-header-launcher-grid-link>
+      </sdds-header-launcher-grid>
+    </sdds-header-launcher-v2>
 
     <sdds-header-logo slot="end" link-href="https://design.scania.com">
     </sdds-header-logo>

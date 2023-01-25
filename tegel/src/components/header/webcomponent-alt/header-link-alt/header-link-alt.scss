@@ -24,6 +24,8 @@
 
   ::slotted(sdds-icon) {
     position: relative;
+
+    // Icons have inherent margins within the image, so they are adjusted here
     margin-left: -6px;
     left: 3px;
   }
