@@ -16,28 +16,6 @@ export default {
         url: 'https://www.figma.com/file/d8bTgEx7h694MSesi2CTLF/Tegel-UI-Library?node-id=993%3A47555&t=M7Ova7xZaoeMwb5e-1',
       },
     ],
-    backgrounds: {
-      defaultBackground: "white"
-      // default: "white",
-      // values: [
-      //   {
-      //     name: 'grey-50',
-      //     value: '#F9FAFB',
-      //   },
-      //   {
-      //     name: 'white',
-      //     value: '#FFFFFF',
-      //   },
-      //   {
-      //     name: 'grey-900',
-      //     value: '#1d2229',
-      //   },
-      //   {
-      //     name: 'grey-958',
-      //     value: '#0d0f13',
-      //   },
-      // ],
-    }
   },
   argTypes: {
     type: {
@@ -46,7 +24,10 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Horizontal', 'Vertical', 'Border'],
+      options: ['Horizontal', 'Vertical'],
+      table: {
+        defaultValue: { summary: 'Horizontal' },
+      },
     },
     width: {
       name: 'Width',
@@ -71,7 +52,6 @@ export default {
         type: 'select',
       },
       options: ['Top', 'Right', 'Bottom', 'Left'],
-      if: { arg: 'type', eq: 'Border' },
     },
   },
   args: {
@@ -82,46 +62,23 @@ export default {
   },
 };
 
-const directionLookup = {
-  Top: 'top',
-  Right: 'right',
-  Bottom: 'bottom',
-  Left: 'left',
-};
 
-const Template = ({ type, width, direction, height }) => {
+const Template = ({ type, width, height }) => {
   const classLookup = {
     Horizontal: `sdds-divider`,
     Vertical: `sdds-divider-vertical`,
-    Border: `sdds-divider-border-${directionLookup[direction]}`,
   };
   
   return formatHtmlPreview(
     `
       <style>
-      .demo-wrapper{
-        padding: 50px;
-        background-color: var(--sdds-grey-958)
-      }
-        ${
-          direction
-            ? `/* demo-div is for demonstration purposes only*/
-        .demo-div {
-          height: 200px;
-          width: 200px;
-          background-color: var(--sdds-grey-868);
-          color: var(--sdds-grey-50);
-          text-align: center;
-          padding: 10px;
-        }
-        `
-            : ''
-        } ${
+         ${
       height
         ? `/* demo-div is for demonstration purposes only*/
         .demo-div {
           height: ${height}px;
           width: 1px;
+          padding: 0px;
         }`
         : ''
     }    ${
@@ -130,17 +87,65 @@ const Template = ({ type, width, direction, height }) => {
             .demo-div {
               width: ${width}px;
               height: 1px;
+              padding: 0px;
             }`
         : ''
     }
       </style>
-      ${direction ? '<div class= "demo-wrapper">' : ''}
+     
       
       <div
-  class="demo-div ${classLookup[type]}">
-  ${direction ? '<H4>DEMO</H4></div>' : ''}</div>
+  class="demo-div ${classLookup[type]}"></div>
   `,
 );
 };
+
+const BorderTemplate= ({ direction }) => {
+  const directionLookup = {
+    Top: 'top',
+    Right: 'right',
+    Bottom: 'bottom',
+    Left: 'left',
+  };
+  return formatHtmlPreview(
+    `
+      <style>
+      #demo-wrapper{
+        padding: 50px;
+        background-color: var(--sdds-grey-958)
+      }
+       /* border-demo-div is for demonstration purposes only*/
+        .border-demo-div {
+          height: 200px;
+          width: 200px;
+          background-color: var(--sdds-grey-868);
+          color: var(--sdds-grey-50);
+          text-align: center;
+          padding: 10px;
+        }
+           
+      </style>
+     <div id= "demo-wrapper">
+      
+      <div
+  class="border-demo-div sdds-divider-border-${directionLookup[direction]}">
+  <H4>DEMO</H4></div></div>
+  `,
+);
+};
+
+
 export const Default = Template.bind({});
-Default.args = {};
+Default.argTypes={
+  direction: { table:  { disable: true } }  
+ }
+export const Border = BorderTemplate.bind({});
+Border.args={
+  direction: 'Top'
+} 
+ 
+Border.argTypes={
+ type: { table:  { disable: true } }  
+}
+
+
