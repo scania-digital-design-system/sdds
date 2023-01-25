@@ -1,12 +1,11 @@
 :root,
 .sdds-theme-light {
+  --sdds-textarea-background-primary: var(--sdds-grey-50);
+  --sdds-textarea-background-secondary: var(--sdds-white);
+  --sdds-textarea-background: var(--sdds-textarea-background-primary);
   --sdds-textarea-color: var(--sdds-grey-868);
-  --sdds-textarea-background: var(--sdds-white);
   --sdds-textarea-placeholder: var(--sdds-grey-500);
   --sdds-textarea-placeholder-focus-color: var(--sdds-grey-500);
-
-  //White background
-  --sdds-textarea-on-white-background: var(--sdds-grey-50);
 
   // Disabled
   --sdds-textarea-disabled-color: var(--sdds-grey-400);
@@ -34,27 +33,34 @@
   --sdds-textarea-textcounter-divider: var(--sdds-grey-500);
 
   // Border bottom
-  --sdds-textarea-border-bottom: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-hover: var(--sdds-grey-600);
-  --sdds-textarea-border-bottom-success: var(--sdds-grey-800);
+  --sdds-textarea-border-bottom: var(--sdds-grey-600);
+  --sdds-textarea-border-bottom-hover: var(--sdds-grey-800);
+  --sdds-textarea-border-bottom-success: var(--sdds-grey-958);
   --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
-  --sdds-textarea-icon-read-only-color: var(--sdds-grey-600);
-  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-800);
+  --sdds-textarea-icon-read-only-color: var(--sdds-grey-958);
+  --sdds-textarea-icon-read-only-label-color: var(--sdds-grey-958);
 
   // Resize
   --sdds-textarea-resize-icon: var(--sdds-grey-500);
+
+  .sdds-mode-variant-primary {
+    --sdds-textarea-background: var(--sdds-textarea-background-primary);
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-textarea-background: var(--sdds-textarea-background-secondary);
+  }
 }
 
 .sdds-theme-dark {
+  --sdds-textarea-background-primary: var(--sdds-grey-900);
+  --sdds-textarea-background-secondary: var(--sdds-grey-868);
+  --sdds-textarea-background: var(--sdds-textarea-background-primary);
   --sdds-textarea-color: var(--sdds-grey-200);
-  --sdds-textarea-background: var(--sdds-grey-900);
   --sdds-textarea-placeholder: var(--sdds-grey-600);
   --sdds-textarea-placeholder-focus-color: var(--sdds-grey-700);
-
-  //White background
-  --sdds-textarea-on-white-background: var(--sdds-grey-868);
 
   // Disabled
   --sdds-textarea-disabled-color: var(--sdds-grey-800);
@@ -84,7 +90,7 @@
   // Border bottom
   --sdds-textarea-border-bottom: var(--sdds-grey-600);
   --sdds-textarea-border-bottom-hover: var(--sdds-grey-400);
-  --sdds-textarea-border-bottom-success: var(--sdds-grey-400);
+  --sdds-textarea-border-bottom-success: var(--sdds-grey-50);
   --sdds-textarea-border-bottom-error: var(--sdds-negative);
 
   // Read only
@@ -93,4 +99,12 @@
 
   // Resize
   --sdds-textarea-resize-icon: var(--sdds-grey-500);
+
+  .sdds-mode-variant-primary {
+    --sdds-textarea-background: var(--sdds-textarea-background-primary);
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-textarea-background: var(--sdds-textarea-background-secondary);
+  }
 }
