@@ -55,15 +55,15 @@ export default {
       },
       description: 'Size of the button',
     },
-    variant: {
-      name: 'Variant',
+    modeVariant: {
+      name: 'Mode variant',
       control: {
         type: 'radio',
       },
-      options: ['On light', 'On dark'],
-      description: 'Button variant.',
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Button mode variant.',
       table: {
-        defaultValue: { summary: 'on-dark' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     fullbleed: {
@@ -117,7 +117,7 @@ export default {
     text: 'Button',
     btnType: 'Primary',
     size: 'Large',
-    variant: 'On dark',
+    modeVariant: 'Primary',
     fullbleed: false,
     disabled: false,
     onlyIcon: false,
@@ -129,7 +129,7 @@ export default {
 const WebComponentTemplate = ({
   onlyIcon,
   size,
-  variant,
+  modeVariant,
   btnType,
   fullbleed,
   disabled,
@@ -150,9 +150,9 @@ const WebComponentTemplate = ({
     'Extra small': 'xs',
   };
 
-  const varaintLookup = {
-    'On light': 'on-light',
-    'On dark': 'on-dark',
+  const modeVariantLookup = {
+    'Primary': 'primary',
+    'Secondary': 'secondary',
   };
 
   return formatHtmlPreview(
@@ -172,11 +172,11 @@ const WebComponentTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-  <sdds-button ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
+  <sdds-button ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariantLookup[modeVariant]}"`: ''} ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
       sizeLookUp[size]
     }" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
       onlyIcon ? '' : text
-    }" variant="${varaintLookup[variant]}" >
+    }" >
     ${
       onlyIcon || (icon && icon !== 'none')
         ? `
