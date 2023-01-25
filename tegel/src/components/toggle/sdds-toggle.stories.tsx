@@ -27,6 +27,9 @@ export default {
       },
       options: ['Large', 'Small'],
       description: 'Size of the toggle',
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     label: {
       name: 'Label',
@@ -48,12 +51,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
     checked: {
       name: 'Checked',
       description: 'Sets the toggle as checked',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -71,12 +80,12 @@ const Template = ({ label, size, disabled, headline, checked }) =>
       <sdds-toggle
         ${checked ? 'checked' : ''}
         ${disabled ? 'disabled' : ''}
-        ${label ? `label="${label}"` : ''}
         ${headline ? `headline="${headline}"` : ''}
         size="${size === 'Large' ? 'lg' : 'sm'}">
+        ${label}
     </sdds-toggle>
     <script>
-      document.addEventListener('toggleChangeEvent', ()=>{
+      document.addEventListener('sddsToggleChangeEvent', ()=>{
         console.log('Toggle with id: ', event.detail.toggleId, ' is ', event.detail.checked)
       })
     </script>

@@ -1,14 +1,21 @@
-import { Component, h, Prop, Watch, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Element, Event, EventEmitter } from '@stencil/core';
 import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-toggle',
   styleUrl: 'sdds-toggle.scss',
   shadow: false,
+  scoped: true,
 })
 export class SddsToggle {
-  /** TODO - Better name for this */
-  @Prop({ reflect: true }) checked: boolean = false;
+  /** Sets the toggle as checked */
+  @Prop() checked: boolean = false;
+
+  /** Make the toggle required */
+  @Prop() required: boolean = false;
+
+  /** Aria-describedby for the toggles input element. */
+  @Prop() ariaDescribedby: string;
 
   /** Size of the toggle */
   @Prop() size: 'sm' | 'lg' = 'lg';
@@ -30,23 +37,14 @@ export class SddsToggle {
 
   @Element() host: HostElement;
 
-  @Watch('checked')
-  updatedCheckedState() {
-    if (this.checked) {
-      this.host.setAttribute('checked', `${this.checked}`);
-    } else {
-      this.host.removeAttribute('checked');
-    }
-  }
-
   /** Sends unique toggle identifier and status when it is toggled. */
   @Event({
-    eventName: 'toggleChangeEvent',
+    eventName: 'sddsToggleChangeEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  toggleChangeEvent: EventEmitter<{
+  sddsToggleChangeEvent: EventEmitter<{
     toggleId: string;
     checked: boolean;
   }>;
@@ -56,9 +54,10 @@ export class SddsToggle {
       <div class="sdds-toggle-webcomponent">
         {this.headline && <div class={`toggle-headline`}>{this.headline}</div>}
         <input
+          aria-describedby={this.ariaDescribedby}
           onChange={() => {
             this.checked = !this.checked;
-            this.toggleChangeEvent.emit({
+            this.sddsToggleChangeEvent.emit({
               toggleId: this.toggleId,
               checked: this.checked,
             });
@@ -66,11 +65,14 @@ export class SddsToggle {
           class={`${this.size}`}
           checked={this.checked}
           disabled={this.disabled}
+          required={this.required}
           type="checkbox"
           name={this.name}
           id={this.toggleId}
         />
-        {this.label && <label htmlFor={this.toggleId}>{this.label}</label>}
+        <label htmlFor={this.toggleId}>
+          <slot></slot>
+        </label>
       </div>
     );
   }
