@@ -55,9 +55,20 @@ export class SddsToast {
   }>;
 
   connectedCallback() {
-    this.hasSubheader = this.host.children[0].slot === 'toast-subheader';
-    this.hasLink = this.host.children[1].slot === 'toast-link';
+    const children = Array.from(this.host.children);
+    this.hasSubheader = children.some((childElement) => childElement.slot === 'toast-subheader');
+    this.hasLink = children.some((childElement) => childElement.slot === 'toast-link');
   }
+
+  getHeaderClasses = () => {
+    if (!this.hasSubheader && !this.hasLink) {
+      return 'only-header';
+    }
+    if (!this.hasSubheader) {
+      return 'no-subheader';
+    }
+    return '';
+  };
 
   render() {
     return (
@@ -71,7 +82,11 @@ export class SddsToast {
           >
             <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>
             <div class={`toast-content`}>
-              <div class={`toast-header ${this.hasSubheader ? '' : 'no-subheader'}`}>
+              <div
+                class={`toast-header
+              ${this.getHeaderClasses()}
+              `}
+              >
                 {this.header}
               </div>
               <div class={`toast-subheader ${this.hasLink ? '' : 'no-link'}`}>

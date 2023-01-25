@@ -83,6 +83,10 @@
       &.no-subheader {
         margin-bottom: 4px;
       }
+
+      &.only-header {
+        margin-bottom: 0;
+      }
     }
 
     .toast-subheader {
