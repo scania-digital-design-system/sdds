@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Host, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-button',
@@ -13,9 +13,6 @@ export class SddsButton {
   /** Type of button */
   @Prop() type: 'primary' | 'secondary' | 'ghost' | 'danger' = 'primary';
 
-  // Button variant
-  @Prop() variant: 'default' | 'variant' = 'default';
-
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' = 'lg';
 
   /** Control for disabled state of component */
@@ -23,6 +20,9 @@ export class SddsButton {
 
   /** When enabled, makes button take 100% width */
   @Prop() fullbleed: boolean = false;
+
+  /** Set the mode variant of the the button. */
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   @State() onlyIcon: boolean = false;
 
@@ -34,17 +34,18 @@ export class SddsButton {
 
   render() {
     return (
+      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
       <button
-        class={`sdds-btn sdds-btn-${this.type}
+        class={`sdds-btn sdds-btn-${this.type} 
         ${`sdds-btn-${this.size}`}
         ${this.disabled ? 'disabled' : ''}
         ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
-        ${this.variant === 'variant' ? 'sdds-on-white-bg' : ''}
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
       >
         <span class="sdds-btn-text">{this.text}</span>
         <slot name="icon" />
       </button>
+      </Host>
     );
   }
 }

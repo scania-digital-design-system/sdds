@@ -14,17 +14,17 @@
   --sdds-btn-primary-color-focus: var(--sdds-white);
   --sdds-btn-primary-border-color-focus: var(--sdds-blue-600);
   --sdds-btn-primary-outline-color-focus: var(--sdds-blue-600);
-  --sdds-btn-primary-background-disabled: var(--sdds-white);
+
+  --sdds-btn-primary-background-disabled-primary: var(--sdds-grey-50);
+  --sdds-btn-primary-background-disabled-secondary: var(--sdds-white);
+  --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
+
   --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
   --sdds-btn-primary-border-color-disabled: transparent;
 
-  /* ICON */
+  /* ICON */ //not used
   --sdds-btn-icon-primary-fill: var(--sdds-grey-50);
   --sdds-btn-icon-primary-color: var(--sdds-grey-50);
-
-  //Primary - On white
-  --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
-  --sdds-btn-danger-on-white-background-disabled: var(--sdds-grey-50);
 
   //Secondary
   --sdds-btn-secondary-background: transparent;
@@ -41,18 +41,19 @@
   --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
   --sdds-btn-secondary-outline-color: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-background-disabled: transparent;
+
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
 
-  /* ICON */
+  /* ICON */ //not used
   --sdds-btn-icon-secondary-fill: var(--sdds-black);
   --sdds-btn-icon-secondary-color: var(--sdds-black);
 
-  /* ICON HOVER */
+  /* ICON HOVER */ //not used
   --sdds-btn-icon-secondary-fill-hover: var(--sdds-grey-50);
   --sdds-btn-icon-secondary-color-hover: var(--sdds-grey-50);
 
-  /* ICON FOCUS */
+  /* ICON FOCUS */ //not used
   --sdds-btn-icon-secondary-fill-focus: var(--sdds-black);
   --sdds-btn-icon-secondary-color-focus: var(--sdds-black);
 
@@ -93,13 +94,26 @@
   --sdds-btn-danger-color-focus: var(--sdds-white);
   --sdds-btn-danger-border-color-focus: var(--sdds-red-400);
   --sdds-btn-danger-outline-color-focus: var(--sdds-red-700);
-  --sdds-btn-danger-background-disabled: var(--sdds-white);
+  --sdds-btn-danger-background-disabled-primary: var(--sdds-grey-50);
+  --sdds-btn-danger-background-disabled-secondary: var(--sdds-white);
+  --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
+
+
   --sdds-btn-danger-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
 
   /* ICON */
   --sdds-btn-icon-danger-fill: var(--sdds-white);
   --sdds-btn-icon-danger-color: var(--sdds-white);
+
+  .sdds-mode-variant-primary {
+    --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
+    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
+  }
+  .sdds-mode-variant-secondary {
+    --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-secondary);
+    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-secondary);
+  }
 }
 
 .sdds-theme-dark {
@@ -110,16 +124,14 @@
   --sdds-btn-primary-background-focus: var(--sdds-blue-600);
   --sdds-btn-primary-border-color-focus: var(--sdds-blue-400);
   --sdds-btn-primary-outline-color-focus: var(--sdds-blue-400);
-  --sdds-btn-primary-background-disabled: var(--sdds-grey-868);
+  --sdds-btn-primary-background-disabled-primary: var(--sdds-grey-900);
+  --sdds-btn-primary-background-disabled-secondary: var(--sdds-grey-868);
+    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
   --sdds-btn-primary-color-disabled: var(--sdds-grey-600);
 
-  /* ICON */
+  /* ICON */ //not used
   --sdds-btn-icon-primary-fill: var(--sdds-grey-50);
   --sdds-btn-icon-primary-color: var(--sdds-grey-50);
-
-  //Primary - On white
-  --sdds-btn-primary-on-white-background-disabled: var(--sdds-grey-50);
-  --sdds-btn-danger-on-white-background-disabled: var(--sdds-grey-50);
 
   //Secondary
   --sdds-btn-secondary-background: transparent;
@@ -140,7 +152,7 @@
   --sdds-btn-secondary-color-disabled: rgb(255 255 255 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(255 255 255 / 38%);
 
-  /* ICON */
+  /* ICON */ //not used
   --sdds-btn-icon-secondary-fill: var(--sdds-grey-50);
   --sdds-btn-icon-secondary-color: var(--sdds-grey-50);
 
@@ -181,11 +193,22 @@
   --sdds-btn-danger-color-focus: var(--sdds-white);
   --sdds-btn-danger-border-color-focus: var(--sdds-red-400);
   --sdds-btn-danger-outline-color-focus: var(--sdds-red-700);
-  --sdds-btn-danger-background-disabled: var(--sdds-grey-868);
+  --sdds-btn-danger-background-disabled-primary: var(--sdds-grey-900);
+  --sdds-btn-danger-background-disabled-secondary: var(--sdds-grey-868);
+  --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
   --sdds-btn-danger-color-disabled: rgb(255 255 255 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
 
   /* ICON */
   --sdds-btn-icon-danger-fill: var(--sdds-white);
   --sdds-btn-icon-danger-color: var(--sdds-white);
+
+  .sdds-mode-variant-primary {
+    --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
+    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
+  }
+  .sdds-mode-variant-secondary {
+    --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-secondary);
+    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-secondary);
+  }
 }
