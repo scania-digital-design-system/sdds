@@ -33,7 +33,7 @@ export default {
       },
       options: ['Horizontal', 'Vertical'],
     },
-    textPosition: {
+    labelPosition: {
       name: 'Text position',
       description: 'The position of the text, only available when the direction is horizontal.',
       control: {
@@ -67,7 +67,7 @@ export default {
   },
   args: {
     direction: 'Horizontal',
-    textPosition: 'Below',
+    labelPosition: 'Below',
     hideLabels: false,
     size: 'Large',
   },
@@ -77,11 +77,11 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ size, hideLabels, textPosition, direction }) => {
-  console.log(size, hideLabels, textPosition, direction);
+const Template = ({ size, hideLabels, labelPosition, direction }) => {
+  console.log(size, hideLabels, labelPosition, direction);
   return formatHtmlPreview(
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
-      direction === 'Horizontal' ? `text-position="${textPosition?.toLowerCase()}"` : ''
+      direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
     <sdds-stepper-item state="success" label-text="Step label"></sdds-stepper-item>
     <sdds-stepper-item label-text="Step label">2</sdds-stepper-item>
