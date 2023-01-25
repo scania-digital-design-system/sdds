@@ -1,10 +1,12 @@
-import readme from './readme.md';
 import { formatHtmlPreview } from '../../../utils/utils';
+import readme from './readme.md';
+import readmeLink from './sdds-footer-link/readme.md';
+import readmeLinkGroup from './sdds-footer-link-group/readme.md';
 
 export default {
   title: 'Components/Footer',
   parameters: {
-    notes: readme,
+    notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer link': readmeLink },
     layout: 'fullscreen',
     design: [
       {
@@ -22,15 +24,18 @@ export default {
   argTypes: {
     topPart: {
       name: 'Top part',
-      description: 'Adds top part of the footer with more links',
+      description: 'Adds the top part of the footer',
       control: {
         type: 'boolean',
       },
     },
   },
+  args: {
+    topPart: true,
+  },
 };
 
-const Template = () =>
+const Template = ({ topPart }) =>
   formatHtmlPreview(
     `
     <main>
@@ -41,6 +46,9 @@ const Template = () =>
       </div>
     </main>
     <sdds-footer>
+      ${
+        topPart
+          ? `
       <div slot="top">
         <sdds-footer-link-group title-text="Title">
           <sdds-footer-link link-href="#">Link text</sdds-footer-link>
@@ -66,6 +74,9 @@ const Template = () =>
           <sdds-footer-link link-href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
       </div>
+      `
+          : ''
+      }
       <div slot="main-left">
         <sdds-footer-link-group>
           <sdds-footer-link link-href="#">Link text</sdds-footer-link>

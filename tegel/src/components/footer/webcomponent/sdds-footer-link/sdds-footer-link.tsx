@@ -8,11 +8,18 @@ import { HostElement } from '@stencil/core/internal';
   scoped: true,
 })
 export class SddsFooterLink {
+  /** URL for the link */
   @Prop() linkHref: string;
 
-  parentIsTopPart: boolean = false;
+  /** Where to open the linked URL */
+  @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
+
+  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
+  @Prop() rel: string = 'noopener';
 
   @Element() host: HostElement;
+
+  parentIsTopPart: boolean = false;
 
   connectedCallback() {
     this.parentIsTopPart = this.host.closest('sdds-footer-link-group').parentElement.slot === 'top';
@@ -21,7 +28,7 @@ export class SddsFooterLink {
   render() {
     return (
       <li class={`${this.parentIsTopPart ? 'top-part-child' : ''}`}>
-        <a href={this.linkHref}>
+        <a target={this.target} rel={this.rel} href={this.linkHref}>
           <slot></slot>
         </a>
       </li>

@@ -1,4 +1,4 @@
-# sdds-footer-top-column
+# sdds-footer-link-group
 
 
 
@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type     | Default     |
-| ----------- | ------------ | ----------- | -------- | ----------- |
-| `titleText` | `title-text` |             | `string` | `undefined` |
+| Property    | Attribute    | Description                                                      | Type     | Default     |
+| ----------- | ------------ | ---------------------------------------------------------------- | -------- | ----------- |
+| `titleText` | `title-text` | Title text for the link group, only valid on top part of footer. | `string` | `undefined` |
 
 
 ## Dependencies

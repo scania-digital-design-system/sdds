@@ -8,6 +8,7 @@ import { HostElement, State } from '@stencil/core/internal';
   scoped: true,
 })
 export class SddsFooterLinkGroup {
+  /** Title text for the link group, only valid on top part of footer. */
   @Prop() titleText: string;
 
   @Element() host: HostElement;
