@@ -172,11 +172,11 @@ const WebComponentTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-  <sdds-button ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariantLookup[modeVariant]}"`: ''} ${onlyIcon ? 'onlyIcon' : ''} type="${btnTypeLookUp[btnType]}" size="${
-      sizeLookUp[size]
-    }" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''} text="${
-      onlyIcon ? '' : text
-    }" >
+  <sdds-button type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${
+      disabled ? 'disabled' : ''
+    } ${fullbleed ? 'fullbleed' : ''}
+    ${!onlyIcon ? `text="${text}"` : ''}
+    text="${onlyIcon ? '' : text}" variant="${modeVariantLookup[modeVariant]}" >
     ${
       onlyIcon || (icon && icon !== 'none')
         ? `
