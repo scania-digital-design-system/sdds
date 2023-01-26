@@ -12,15 +12,15 @@ export class SddsStepper {
   /** State of the stepper-item */
   @Prop() state: 'current' | 'error' | 'success' | 'inactive' = 'current';
 
+  @State() hideLabel: boolean;
+
   @State() size: string;
 
   @State() iconSize: string;
 
-  @Prop() hideLabel: boolean;
-
   @State() direction: string;
 
-  @State() textPosition: string;
+  @State() labelPosition: string;
 
   @Element() el: HTMLElement;
 
@@ -29,7 +29,7 @@ export class SddsStepper {
   componentWillLoad() {
     this.stepperEl = this.el.closest('sdds-stepper');
     this.direction = this.stepperEl.direction;
-    this.textPosition = this.stepperEl.textPosition;
+    this.labelPosition = this.stepperEl.labelPosition;
     this.size = this.stepperEl.size;
     this.hideLabel = this.stepperEl.hideLabels;
   }
@@ -38,7 +38,7 @@ export class SddsStepper {
     return (
       <Host>
         <li
-          class={`${this.size} ${this.direction} text-${this.textPosition} ${
+          class={`${this.size} ${this.direction} text-${this.labelPosition} ${
             this.hideLabel ? 'hide-labels' : ''
           }`}
         >
