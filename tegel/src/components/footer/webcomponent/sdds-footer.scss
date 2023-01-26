@@ -81,9 +81,14 @@
       }
     }
 
+    .footer-main {
+      padding: 0 24px;
+    }
+
     .footer-main-top {
       flex-direction: column;
       row-gap: 48px;
+      padding: 24px 0;
     }
 
     .footer-bottom-left {
@@ -95,6 +100,7 @@
 
     .footer-main-bottom {
       flex-direction: column;
+      padding-bottom: 32px;
 
       p.copyright {
         padding-bottom: 96px;
