@@ -73,6 +73,12 @@ const Template = ({ topPart }) =>
           <sdds-footer-link link-href="#">Link text</sdds-footer-link>
           <sdds-footer-link link-href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
+
+        <sdds-footer-link-group title-text="Title">
+          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+        </sdds-footer-link-group>
       </div>
       `
           : ''
