@@ -25,16 +25,6 @@ export default {
         type: 'text',
       },
     },
-    required: {
-      name: 'Required',
-      description: 'Sets if the radio button option is required or not.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     disabled: {
       name: 'Disabled',
       description: 'Disables the radio button.',
@@ -48,7 +38,6 @@ export default {
   },
   args: {
     label: 'Label text',
-    required: false,
     disabled: false,
   },
 };
@@ -72,7 +61,7 @@ const Template = ({label, disabled, required}) =>
     aria-labelled-by="option-1"
     aria-described-by="option-1"
     ${label ? `label="${label} 1"` : ''}
-    ${required ? 'required' : ''}
+    required=false
     ${disabled ? 'disabled' : ''}
     checked=true >
   </sdds-radio-button>
@@ -83,7 +72,7 @@ const Template = ({label, disabled, required}) =>
     aria-labelled-by="option-2"
     aria-described-by="option-2"
     ${label ? `label="${label} 2"` : ''}
-    ${required ? 'required' : ''}
+    required=false
     ${disabled ? 'disabled' : ''} >
   </sdds-radio-button>
     
