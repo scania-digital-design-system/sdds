@@ -10,7 +10,7 @@ export class DropdownV3 {
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Variant of the component based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Helper text in the bottom of dropdown */
   @Prop() helper: string;
@@ -321,9 +321,7 @@ export class DropdownV3 {
 
   render() {
     return (
-      <div
-        class={`sdds-dropdown-webcomponent ${this.size} sdds-dropdown-mode-variant-${this.modeVariant}`}
-      >
+      <div class={`sdds-dropdown-webcomponent ${this.size} sdds-mode-variant-${this.modeVariant}`}>
         {this.labelPosition === 'outside' && <div class="label-outside">{this.label}</div>}
         <div class={`dropdown-button ${this.size} ${this.open ? 'open' : 'closed'}`}>
           {this.labelPosition === 'inside' && !this.placeholder && !this.filter && (

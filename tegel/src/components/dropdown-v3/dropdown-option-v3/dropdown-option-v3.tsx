@@ -23,7 +23,7 @@ export class DropdownOptionV3 {
 
   @State() multiselect: boolean = false;
 
-  @State() modeVariant: 'primary' | 'secondary' = 'primary';
+  @State() modeVariant: 'primary' | 'secondary' = null;
 
   @Element() host: HostElement;
 
@@ -50,13 +50,12 @@ export class DropdownOptionV3 {
     return (
       <div
         class={`sdds-dropdown-option-webcomponent
-        sdds-dropdown-option-mode-variant-${this.modeVariant}`}
+        sdds-mode-variant-${this.modeVariant}`}
       >
         <li
           class={`
           ${this.disabled ? 'disabled' : ''}
           ${this.selected ? 'selected' : ''}
-          ${this.modeVariant}
           `}
         >
           <button

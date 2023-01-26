@@ -100,6 +100,17 @@ export default {
       options: ['Option 1', 'Option 2', 'Option 3', 'Option 3'],
       if: { arg: 'multiselect', eq: true },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Button mode variant.',
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
   },
   args: {
     multiselect: false,
@@ -112,7 +123,9 @@ export default {
     helper: 'Helper',
     openDirection: 'Auto',
     error: false,
+    defaultOption: 'No default',
     multiDefaultOption: ['Option 2'],
+    modeVariant: 'Inherit from parent',
   },
 };
 
@@ -216,6 +229,7 @@ const Template = ({
   label,
   labelPosition,
   defaultOption,
+  modeVariant,
   multiDefaultOption,
 }) =>
   formatHtmlPreview(`
@@ -225,7 +239,9 @@ const Template = ({
       }
     </style>
     <div class="demo-wrapper">
-      <sdds-dropdown-v3 
+      <sdds-dropdown-v3
+        ${modeVariant === 'Primary' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
+        ${modeVariant === 'Secondary' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
         ${error ? 'error' : ''}
         ${helper ? `helper="${helper}"` : ''}
         open-direction="${openDirection.toLowerCase()}" 
