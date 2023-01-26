@@ -20,14 +20,14 @@ export default {
   argTypes: {
     label: {
       name: 'Label',
-      description: 'The label for the radio button.',
+      description: 'Sets the label for the radio button.',
       controls: {
         type: 'text',
       },
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the radio button.',
+      description: 'Disables the radio buttons.',
       control: {
         type: 'boolean',
       },
@@ -42,7 +42,7 @@ export default {
   },
 };
 
-const Template = ({label, disabled, required}) =>
+const Template = ({label, disabled}) =>
   formatHtmlPreview(`
   <style>
   .demo-fieldset-reset { 
