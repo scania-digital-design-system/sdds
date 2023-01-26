@@ -1,5 +1,4 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { Component, h, Prop, Listen } from '@stencil/core';
 
 @Component({
   tag: 'sdds-radio-button',
@@ -8,9 +7,17 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class RadioButton {
 
-  @Prop({ reflect: true }) label: string = '';
+  @Prop() name: string;
 
-  @Prop() value: string = '';
+  @Prop() label: string;
+
+  @Prop() value: string;
+
+  @Prop() ariaLabelledBy: string;
+
+  @Prop() ariaDescribedBy: string;
+
+  @Prop() radioId: string;
   
   @Prop() checked: boolean = false;
   
@@ -18,7 +25,6 @@ export class RadioButton {
   
   @Prop() disabled: boolean = false;
 
-  @Element() host: HostElement;
 
   render() {
     return (
@@ -26,17 +32,24 @@ export class RadioButton {
         <input 
         class="sdds-form-input" 
         type="radio" 
-        name="rb-example" 
-        id={crypto.randomUUID()} 
+        name={this.name}
+        id={this.radioId} 
         value={this.value} 
         checked={this.checked} 
+        aria-checked={this.checked} 
+        aria-labelledby={this.ariaLabelledBy} 
+        aria-describedby={this.ariaDescribedBy} 
         required={this.required} 
         disabled={this.disabled} />
-        <label class="sdds-form-label" htmlFor="rb-option-1">
+        <label class="sdds-form-label" htmlFor={this.radioId}>
           {this.label}
         </label>
         </div>
     );
   }
 
+  @Listen('input')
+  handleChange() {
+    console.log('Radio button with id ' + this.radioId + ' is selected');
+  }
 }

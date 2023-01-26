@@ -65,14 +65,24 @@ const Template = ({label, disabled, required}) =>
 </style>
 
   <fieldset class="demo-fieldset-reset">
-  <sdds-radio-button ${label ? `label="${label}"` : ''}
+  <sdds-radio-button 
+    name="rb-example"
     value="option1"
+    radio-id="option-1"
+    aria-labelled-by="option-1"
+    aria-described-by="option-1"
+    ${label ? `label="${label} 1"` : ''}
     ${required ? 'required' : ''}
     ${disabled ? 'disabled' : ''}
     checked=true >
   </sdds-radio-button>
-  <sdds-radio-button ${label ? `label="${label}"` : ''}
+  <sdds-radio-button ${label ? `label="${label} 2"` : ''}
+    name="rb-example"
     value="option2"
+    radio-id="option-2"
+    aria-labelled-by="option-2"
+    aria-described-by="option-2"
+    ${label ? `label="${label} 2"` : ''}
     ${required ? 'required' : ''}
     ${disabled ? 'disabled' : ''} >
   </sdds-radio-button>
