@@ -4,6 +4,7 @@ import { Component, h, Prop, Listen } from '@stencil/core';
   tag: 'sdds-radio-button',
   styleUrl: 'radio-button-component.scss',
   shadow: false,
+  scoped: true,
 })
 export class RadioButton {
 
