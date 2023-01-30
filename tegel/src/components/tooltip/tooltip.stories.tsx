@@ -120,4 +120,4 @@ const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
   `,
   );
 
-export const Default = ComponentTooltip.bind({});
+export const WebComponent = ComponentTooltip.bind({});
