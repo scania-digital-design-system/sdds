@@ -10,7 +10,7 @@ export class SddsStepper {
   @Prop() labelText: string = '';
 
   /** State of the stepper-item */
-  @Prop() state: 'current' | 'error' | 'success' | 'inactive' = 'current';
+  @Prop() state: 'current' | 'error' | 'success' | 'upcoming' = 'upcoming';
 
   @State() hideLabel: boolean;
 
@@ -54,7 +54,9 @@ export class SddsStepper {
               </div>
             )}
           </div>
-          {!this.hideLabel && <div class={`label ${this.size}`}>{this.labelText}</div>}
+          {!this.hideLabel && (
+            <div class={`label ${this.size} ${this.state}`}>{this.labelText}</div>
+          )}
         </li>
       </Host>
     );
