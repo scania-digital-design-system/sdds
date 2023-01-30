@@ -183,7 +183,7 @@
         color: var(--sdds-white);
       }
 
-      &.inactive {
+      &.upcoming {
         background-color: transparent;
         border-color: rgb(0 21 51 / 16%);
         color: rgb(0 21 51 / 38%);
@@ -201,6 +201,10 @@
       &.sm {
         font: var(--sdds-detail-05);
         letter-spacing: var(--sdds-detail-05-ls);
+      }
+
+      &.upcoming {
+        color: rgb(0 21 51 / 38%);
       }
     }
   }
