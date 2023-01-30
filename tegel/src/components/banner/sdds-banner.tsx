@@ -1,4 +1,15 @@
-import { Component, Host, h, Prop, State, Event, EventEmitter, Method } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  State,
+  Event,
+  EventEmitter,
+  Method,
+  Element,
+} from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-banner',
@@ -30,7 +41,15 @@ export class SddsBanner {
    */
   @Prop() bannerId: string = crypto.randomUUID();
 
+  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
+  @Prop() ariaLiveValue: 'polite' | 'assertive' | 'off' = 'polite';
+
+  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
+  @Prop() ariaAtomicValue: boolean = false;
+
   @State() show = true;
+
+  @Element() host: HostElement;
 
   /** Sends unique banner identifier when the close button is pressed */
   @Event({
@@ -61,7 +80,13 @@ export class SddsBanner {
 
   render() {
     return (
-      <Host class={`${this.state} ${this.show ? 'show' : 'hide'}`}>
+      <Host
+        role="banner"
+        aria-hidden={`${!this.show}`}
+        aria-live={this.ariaLiveValue}
+        aria-atomic={this.ariaAtomicValue}
+        class={`${this.state} ${this.show ? 'show' : 'hide'}`}
+      >
         {this.icon && (
           <div class={`banner-icon ${this.state}`}>
             <sdds-icon name={this.icon} size="20px"></sdds-icon>
