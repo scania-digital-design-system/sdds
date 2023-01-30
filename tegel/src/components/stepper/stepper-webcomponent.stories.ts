@@ -77,9 +77,8 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ size, hideLabels, labelPosition, direction }) => {
-  console.log(size, hideLabels, labelPosition, direction);
-  return formatHtmlPreview(
+const Template = ({ size, hideLabels, labelPosition, direction }) =>
+  formatHtmlPreview(
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
@@ -90,7 +89,18 @@ const Template = ({ size, hideLabels, labelPosition, direction }) => {
   </sdds-stepper>
         `,
   );
-};
+export const WebComponent = Template.bind({});
 
-export const WebComponents = Template.bind({});
-WebComponents.args = {};
+const TemplateWithError = ({ size, hideLabels, labelPosition, direction }) =>
+  formatHtmlPreview(
+    `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
+      direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
+    } direction="${direction.toLowerCase()}">
+  <sdds-stepper-item state="success" label-text="Step label">1</sdds-stepper-item>
+  <sdds-stepper-item state="error" label-text="Step label">2</sdds-stepper-item>
+  <sdds-stepper-item label-text="Step inactive with looooong text">3</sdds-stepper-item>
+  <sdds-stepper-item label-text="Step label">4</sdds-stepper-item>
+</sdds-stepper>
+      `,
+  );
+export const WebComponentWithError = TemplateWithError.bind({});
