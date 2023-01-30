@@ -20,9 +20,24 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Change the components mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+      if: { arg: 'topPart', neq: false },
+    },
     topPart: {
       name: 'Top part',
       description: 'Adds top part of the footer with more links',
+      table: {
+        defaultValue: { summary: false },
+      },
       control: {
         type: 'boolean',
       },
@@ -30,7 +45,7 @@ export default {
   },
 };
 
-const Template = ({ topPart }) =>
+const Template = ({ topPart, modeVariant }) =>
   formatHtmlPreview(
     `
   <style>
@@ -42,7 +57,9 @@ const Template = ({ topPart }) =>
   </style>
 
   <div class="demo-wrapper">
-  <div class="sdds-footer">
+  <div class="sdds-footer ${
+    modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : '.sdds-mode-variant-primary'
+  }">
     ${
       topPart
         ? `
