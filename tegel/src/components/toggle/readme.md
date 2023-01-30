@@ -10,6 +10,7 @@
 | Property          | Attribute          | Description                                                              | Type           | Default               |
 | ----------------- | ------------------ | ------------------------------------------------------------------------ | -------------- | --------------------- |
 | `ariaDescribedby` | `aria-describedby` | Aria-describedby for the toggles input element.                          | `string`       | `undefined`           |
+| `ariaLabelledby`  | `aria-labelledby`  | Aria-labelledby for the toggles input element.                           | `any`          | `undefined`           |
 | `checked`         | `checked`          | Sets the toggle as checked                                               | `boolean`      | `false`               |
 | `disabled`        | `disabled`         | Sets the toggle in a disabled state                                      | `boolean`      | `false`               |
 | `headline`        | `headline`         | Headline for the toggle                                                  | `string`       | `undefined`           |

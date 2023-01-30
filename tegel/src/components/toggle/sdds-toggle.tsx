@@ -14,6 +14,9 @@ export class SddsToggle {
   /** Make the toggle required */
   @Prop() required: boolean = false;
 
+  /** Aria-labelledby for the toggles input element. */
+  @Prop() ariaLabelledby;
+
   /** Aria-describedby for the toggles input element. */
   @Prop() ariaDescribedby: string;
 
@@ -54,6 +57,7 @@ export class SddsToggle {
       <div class="sdds-toggle-webcomponent">
         {this.headline && <div class={`toggle-headline`}>{this.headline}</div>}
         <input
+          aria-labelledby={this.ariaLabelledby}
           aria-describedby={this.ariaDescribedby}
           onChange={() => {
             this.checked = !this.checked;
@@ -69,6 +73,7 @@ export class SddsToggle {
           type="checkbox"
           name={this.name}
           id={this.toggleId}
+          role="switch"
         />
         <label htmlFor={this.toggleId}>
           <slot></slot>
