@@ -25,6 +25,11 @@ export default {
         type: 'radio',
       },
       options: ['Success', 'Information', 'Warning', 'Error'],
+      table: {
+        defaultValue: {
+          summary: 'information',
+        },
+      },
     },
     header: {
       name: 'Subheader',
