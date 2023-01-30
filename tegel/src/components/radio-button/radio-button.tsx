@@ -8,22 +8,31 @@ import { Component, h, Prop, Listen } from '@stencil/core';
 })
 export class RadioButton {
 
+  /** Name of radio button, used for reference */
   @Prop() name: string;
 
+  /** Label text connected to radio button */
   @Prop() label: string;
 
+  /** Value of input */
   @Prop() value: string;
 
+  /** Label mainly used for accesibility tools */
   @Prop() ariaLabelledBy: string;
 
+  /** Label mainly used for accesibility tools */
   @Prop() ariaDescribedBy: string;
 
+  /** Radio button ID */
   @Prop() radioId: string;
   
+  /** Decides if the radio button is checked or not */
   @Prop() checked: boolean = false;
   
+  /** Decides if the radio button is required or not */
   @Prop() required: boolean = false;
   
+  /** Decides if the radio button is disabled or not */
   @Prop() disabled: boolean = false;
 
 

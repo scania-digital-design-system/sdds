@@ -1,8 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Radio Button',
   parameters: {
+    notes: readme,
     layout: 'centered',
     design: [
       {
