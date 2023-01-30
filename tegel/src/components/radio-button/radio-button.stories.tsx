@@ -27,7 +27,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the radio buttons.',
+      description: 'Disables the radio button.',
       control: {
         type: 'boolean',
       },
