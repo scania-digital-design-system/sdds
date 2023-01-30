@@ -7,7 +7,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 })
 export class SddsBlock {
   /** Mode variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   render() {
     return (
