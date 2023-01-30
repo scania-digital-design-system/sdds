@@ -12,8 +12,7 @@
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-radio-button-color);
   
-  .sdds-form-input[type='radio']:checked,
-  .sdds-form-input[type='radio']:not(:checked) {
+  .sdds-form-input[type='radio'] {
     appearance: none;
     outline: none;
     margin: 0;

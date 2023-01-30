@@ -42,7 +42,7 @@ export class RadioButton {
         aria-describedby={this.ariaDescribedBy} 
         required={this.required} 
         disabled={this.disabled} />
-        <label class="sdds-form-label" htmlFor={this.radioId}>
+        <label htmlFor={this.radioId}>
           {this.label}
         </label>
         </div>
