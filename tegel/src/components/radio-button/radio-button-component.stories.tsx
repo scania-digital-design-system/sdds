@@ -80,4 +80,3 @@ const Template = ({label, disabled}) =>
   `);
 
 export const WebComponent = Template.bind({});
-WebComponent.args = {};

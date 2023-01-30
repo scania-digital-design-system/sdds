@@ -70,4 +70,3 @@ const Template = (args) =>
 `);
 
 export const Native = Template.bind({});
-Native.args = {};
