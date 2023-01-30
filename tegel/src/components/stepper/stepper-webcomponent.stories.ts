@@ -84,9 +84,9 @@ const Template = ({ size, hideLabels, labelPosition, direction }) => {
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
     <sdds-stepper-item state="success" label-text="Step label">1</sdds-stepper-item>
-    <sdds-stepper-item state="inactive" label-text="Step label">2</sdds-stepper-item>
+    <sdds-stepper-item state="active" label-text="Step label">2</sdds-stepper-item>
     <sdds-stepper-item label-text="Step inactive with looooong text">3</sdds-stepper-item>
-    <sdds-stepper-item state="inactive" label-text="Step label">4</sdds-stepper-item>
+    <sdds-stepper-item label-text="Step label">4</sdds-stepper-item>
   </sdds-stepper>
         `,
   );
