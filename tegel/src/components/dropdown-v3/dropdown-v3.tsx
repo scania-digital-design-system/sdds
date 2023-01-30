@@ -4,6 +4,7 @@ import { Component, Prop, State, Element, h, Listen } from '@stencil/core';
   tag: 'sdds-dropdown-v3',
   styleUrl: 'dropdown-v3.scss',
   shadow: false,
+  scoped: true,
 })
 export class DropdownV3 {
   /** The size of the component */
@@ -329,7 +330,7 @@ export class DropdownV3 {
               class={`
                 label-inside label-as-placeholder
                 ${this.size} 
-                ${this.value[0] ? 'selected' : ''}`}
+                ${this.value ? 'selected' : ''}`}
             >
               {this.label}
             </div>
