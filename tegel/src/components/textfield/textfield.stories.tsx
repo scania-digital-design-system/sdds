@@ -282,8 +282,4 @@ const Template = ({
   );
 };
 
-// ${true ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
-
-export const Default = Template.bind({});
-
-Default.args = {};
+export const WebComponent = Template.bind({});
