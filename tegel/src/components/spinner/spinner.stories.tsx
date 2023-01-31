@@ -22,19 +22,29 @@ export default {
   argTypes: {
     variant: {
       name: 'Variant',
+      description: 'Sets the variant of the spinner.',
       control: {
         type: 'radio',
       },
       options: ['Standard', 'Inverted'],
-      description: 'Variant of the spinner',
+      table: {
+        defaultValue: {
+          summary: 'Standard',
+        },
+      },
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the spinner.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
-      description: 'Size of the spinner',
+      table: {
+        defaultValue: {
+          summary: 'Large',
+        },
+      },
     },
   },
   args: {
