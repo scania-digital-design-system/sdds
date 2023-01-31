@@ -1,5 +1,10 @@
 @import '../../mixins/focus-state';
 
+:host(.hide) {
+  display: none;
+  visibility: hidden;
+}
+
 :host {
   .toast-wrapper {
     display: flex;

@@ -19,6 +19,15 @@ export class SddsToast {
   /** Type of toast. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';
 
+  /** Hides the toast. */
+  @Prop() hidden: boolean = false;
+
+  /** Identifier for the element that describes the toast. */
+  @Prop() ariaDescribedBy: string;
+
+  /** ARIA role for the toast. */
+  @Prop() role: 'alert' | 'log' | 'status' = 'alert';
+
   @Element() host: HostElement;
 
   @State() hasSubheader: boolean;
@@ -69,7 +78,11 @@ export class SddsToast {
 
   render() {
     return (
-      <Host>
+      <Host
+        role={this.role}
+        aria-describedby={this.ariaDescribedBy}
+        class={`${this.hidden ? 'hide' : 'show'}`}
+      >
         <div
           class={`
             toast-wrapper
@@ -95,6 +108,7 @@ export class SddsToast {
               this.sddsToastClosedEvent.emit({
                 toastId: this.toastId,
               });
+              this.hidden = true;
             }}
             class={`toast-close`}
           >
