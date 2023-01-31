@@ -37,7 +37,8 @@ export class SddsStepper {
   render() {
     return (
       <Host>
-        <li
+        <div
+          role="listItem"
           class={`${this.size} ${this.direction} text-${this.labelPosition} ${
             this.hideLabel ? 'hide-labels' : ''
           }`}
@@ -57,7 +58,7 @@ export class SddsStepper {
           {!this.hideLabel && (
             <div class={`label ${this.size} ${this.state}`}>{this.labelText}</div>
           )}
-        </li>
+        </div>
       </Host>
     );
   }

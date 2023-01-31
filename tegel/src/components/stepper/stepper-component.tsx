@@ -32,6 +32,7 @@ export class SddsStepper {
     return (
       <Host>
         <ol
+          role="list"
           class={`${this.direction} sdds-stepper-text-position-${this.labelPosition} ${this.size}`}
         >
           <slot></slot>

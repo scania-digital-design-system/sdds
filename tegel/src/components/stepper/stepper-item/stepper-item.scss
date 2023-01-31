@@ -12,7 +12,7 @@
     line-height: 1;
   }
 
-  li {
+  [role='listItem'] {
     display: flex;
     justify-content: start;
     flex-direction: row;
@@ -211,7 +211,7 @@
 }
 
 :host(.last) {
-  li {
+  [role='listItem'] {
     &.sm,
     &.lg {
       &::after {
@@ -220,7 +220,7 @@
     }
   }
 
-  li {
+  [role='listItem'] {
     &.sm {
       &.vertical {
         &::before {
@@ -232,7 +232,7 @@
 }
 
 :host(.first) {
-  li {
+  [role='listItem'] {
     &.sm,
     &.lg {
       &::before {

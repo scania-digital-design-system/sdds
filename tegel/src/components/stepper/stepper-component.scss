@@ -1,7 +1,5 @@
 :host {
-  ol {
-    padding: 0;
-    margin: 0;
+  [role='list'] {
     display: flex;
     justify-content: space-evenly;
 
