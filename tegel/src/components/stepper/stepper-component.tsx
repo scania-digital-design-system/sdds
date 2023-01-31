@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-stepper',
@@ -18,11 +19,22 @@ export class SddsStepper {
   /** Hides the label for the child components if true. */
   @Prop() hideLabels: boolean = false;
 
-  @Element() el: HTMLElement;
+  @Element() host: HostElement;
+
+  children: HTMLSddsStepperItemElement[];
+
+  getPosition(index: number) {
+    if (index === 0) {
+      return 'first';
+    }
+    if (index === this.children.length - 1) {
+      return 'last';
+    }
+    return null;
+  }
 
   componentWillLoad() {
-    this.el.children[0].classList.add('first');
-    this.el.children[this.el.children.length - 1].classList.add('last');
+    this.children = Array.from(this.host.children) as HTMLSddsStepperItemElement[];
     if (this.direction === 'vertical') {
       this.labelPosition = 'aside';
     }
@@ -31,11 +43,26 @@ export class SddsStepper {
   render() {
     return (
       <Host>
-        <ol
+        <ul
           class={`${this.direction} sdds-stepper-text-position-${this.labelPosition} ${this.size}`}
         >
-          <slot></slot>
-        </ol>
+          {this.children.map((child, index) => (
+            <li>
+              <sdds-stepper-item
+                position={this.getPosition(index)}
+                labelText={child.labelText}
+                labelPosition={this.labelPosition}
+                state={child.state}
+                ariaDescribedBy={child.ariaDescribedBy}
+                arialabelledBy={child.arialabelledBy}
+                hideLabel={this.hideLabels}
+                size={this.size}
+                direction={this.direction}
+                innerHTML={child.innerHTML}
+              ></sdds-stepper-item>
+            </li>
+          ))}
+        </ul>
       </Host>
     );
   }

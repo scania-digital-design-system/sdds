@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element, State } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-stepper-item',
@@ -12,33 +12,31 @@ export class SddsStepper {
   /** State of the stepper-item */
   @Prop() state: 'current' | 'error' | 'success' | 'upcoming' = 'upcoming';
 
-  @State() hideLabel: boolean;
+  /** ALIGN ON THIS DESCRIPTION */
+  @Prop() ariaDescribedBy: string;
 
-  @State() size: string;
+  /** ALIGN ON THIS DESCRIPTION */
+  @Prop() arialabelledBy: string;
 
-  @State() iconSize: string;
+  @Prop() hideLabel: boolean;
 
-  @State() direction: string;
+  @Prop() size: string;
 
-  @State() labelPosition: string;
+  @Prop() direction: string;
 
-  @Element() el: HTMLElement;
+  @Prop() labelPosition: string;
 
-  stepperEl: HTMLSddsStepperElement;
-
-  componentWillLoad() {
-    this.stepperEl = this.el.closest('sdds-stepper');
-    this.direction = this.stepperEl.direction;
-    this.labelPosition = this.stepperEl.labelPosition;
-    this.size = this.stepperEl.size;
-    this.hideLabel = this.stepperEl.hideLabels;
-  }
+  @Prop() position: string;
 
   render() {
     return (
-      <Host>
-        <li
-          class={`${this.size} ${this.direction} text-${this.labelPosition} ${
+      <Host
+        aria-describedby={this.ariaDescribedBy}
+        aria-labelledby={this.arialabelledBy}
+        class={this.position}
+      >
+        <div
+          class={`stepper-item-wrapper ${this.size} ${this.direction} text-${this.labelPosition} ${
             this.hideLabel ? 'hide-labels' : ''
           }`}
         >
@@ -57,7 +55,7 @@ export class SddsStepper {
           {!this.hideLabel && (
             <div class={`label ${this.size} ${this.state}`}>{this.labelText}</div>
           )}
-        </li>
+        </div>
       </Host>
     );
   }

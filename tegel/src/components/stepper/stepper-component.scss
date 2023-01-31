@@ -1,5 +1,5 @@
 :host {
-  ol {
+  ul {
     padding: 0;
     margin: 0;
     display: flex;
@@ -15,5 +15,9 @@
     &.vertical.sm {
       gap: 36px;
     }
+  }
+
+  li {
+    list-style: none;
   }
 }

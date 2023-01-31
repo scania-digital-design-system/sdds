@@ -15,6 +15,20 @@
 | `size`          | `size`           | Size of the component and it's children.              | `"lg" \| "sm"`               | `'lg'`         |
 
 
+## Dependencies
+
+### Depends on
+
+- [sdds-stepper-item](stepper-item)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-stepper --> sdds-stepper-item
+  sdds-stepper-item --> sdds-icon
+  style sdds-stepper fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

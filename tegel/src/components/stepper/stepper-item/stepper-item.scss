@@ -12,7 +12,7 @@
     line-height: 1;
   }
 
-  li {
+  .stepper-item-wrapper {
     display: flex;
     justify-content: start;
     flex-direction: row;
@@ -211,7 +211,7 @@
 }
 
 :host(.last) {
-  li {
+  .stepper-item-wrapper {
     &.sm,
     &.lg {
       &::after {
@@ -220,7 +220,7 @@
     }
   }
 
-  li {
+  .stepper-item-wrapper {
     &.sm {
       &.vertical {
         &::before {
@@ -232,7 +232,7 @@
 }
 
 :host(.first) {
-  li {
+  .stepper-item-wrapper {
     &.sm,
     &.lg {
       &::before {
