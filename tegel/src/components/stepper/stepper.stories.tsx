@@ -20,34 +20,54 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
-      description: 'Size of the stepper',
+      description: 'Sets the size of the stepper.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Small'],
+      table: {
+        defaultValue: {
+          summary: 'Default',
+        },
+      },
     },
     style: {
       name: 'Style',
-      description: 'Style of the stepper',
+      description: 'Sets the style of the stepper.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Text on side', 'Vertical'],
+      table: {
+        defaultValue: {
+          summary: 'Default',
+        },
+      },
     },
     showLabel: {
       name: 'Show label text',
-      description: 'Show or hide the label text',
+      description: 'Shows or hides the label text.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: true,
+        },
       },
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: {
+          summary: 'Native',
+        },
+      },
     },
   },
   args: {
