@@ -20,16 +20,9 @@ export default {
     ],
   },
   argTypes: {
-    placeholder: {
-      name: 'Placeholder',
-      description: 'Placeholder text',
-      control: {
-        type: 'text',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Change the components mode variant',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -38,18 +31,71 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
+    state: {
+      name: 'State',
+      description: 'Switch between default, success or error state.',
       control: {
-        type: 'boolean',
+        type: 'radio',
+      },
+      options: ['Default', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
+    },
+    labelPosition: {
+      name: 'Label position',
+      description: 'Sets the label text position.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'None' },
+      },
+    },
+    label: {
+      description: 'Sets the label text for specific textfield.',
+      name: 'Label text',
+      control: {
+        type: 'text',
+      },
+    },
+    placeholder: {
+      name: 'Placeholder',
+      description: 'Sets the placeholder text.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Adds a helper text for the textfield.',
+      control: {
+        type: 'text',
+      },
+    },
+    maxLength: {
+      name: 'Max length',
+      description: 'Sets a maximum value of how many characters the text can include.',
+      control: {
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 0 },
+      },
+    },
+    rows: {
+      name: 'Rows',
+      description: 'Sets the number of rows the textfield consists of.',
+      control: {
+        type: 'number',
+      },
+      table: {
+        defaultValue: { summary: 5 },
       },
     },
     readonly: {
-      description: 'Set textfield to read-only state',
+      description: 'Sets the textfield to read-only state.',
       name: 'Read only',
       control: {
         type: 'boolean',
@@ -58,76 +104,42 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    label: {
-      description: 'Label text for specific textfield',
-      name: 'Label text',
+    disabled: {
+      description: 'Sets the textfield to disabled state.',
+      name: 'Disabled',
       control: {
-        type: 'text',
+        type: 'boolean',
       },
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
+      table: {
+        defaultValue: { summary: false },
       },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    helper: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
-      },
-    },
-    maxLength: {
-      name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
-      control: {
-        type: 'number',
-      },
-    },
-    rows: {
-      name: 'Rows',
-      description: 'Set the number of rows',
-      control: {
-        type: 'number',
-      },
-    },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Success', 'Error'],
     },
   },
   args: {
-    placeholder: 'Placeholder',
-    disabled: false,
-    readonly: false,
-    label: 'Label',
     labelPosition: 'None',
+    label: 'Label',
+    placeholder: 'Placeholder',
     helper: '',
     maxLength: 0,
     rows: 5,
     state: 'Default',
     modeVariant: 'Inherit from parent',
+    readonly: false,
+    disabled: false,
   },
 };
 
 const Template = ({
-  placeholder,
-  disabled,
-  readonly,
-  label,
-  labelPosition,
+  modeVariant,
   state,
+  labelPosition,
+  label,
+  placeholder,
   helper,
   maxLength,
-  modeVariant,
   rows,
+  readonly,
+  disabled,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
