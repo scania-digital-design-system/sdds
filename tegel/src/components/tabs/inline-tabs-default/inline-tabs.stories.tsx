@@ -23,13 +23,19 @@ export default {
   argTypes: {
     autoHeight: {
       name: 'Same height',
-      description: 'Make all tab panels as tall as the tallest tab panel',
+      description: 'Makes all tab panels as tall as the tallest tab panel.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
