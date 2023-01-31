@@ -25,6 +25,29 @@
 | `sddsToastClosedEvent` | Sends unique toast identifier when it is closed. | `CustomEvent<{ toastId: string; }>` |
 
 
+## Methods
+
+### `hideToast() => Promise<{ toastId: string; }>`
+
+Hides the toast.
+
+#### Returns
+
+Type: `Promise<{ toastId: string; }>`
+
+
+
+### `showToast() => Promise<{ toastId: string; }>`
+
+Shows the toast.
+
+#### Returns
+
+Type: `Promise<{ toastId: string; }>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

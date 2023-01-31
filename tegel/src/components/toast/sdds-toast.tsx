@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element, Event, EventEmitter } from '@stencil/core';
-import { HostElement, State } from '@stencil/core/internal';
+import { HostElement, Method, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-toast',
@@ -34,6 +34,35 @@ export class SddsToast {
 
   @State() hasLink: boolean;
 
+  /** Hides the toast. */
+  @Method()
+  async hideToast() {
+    this.hidden = true;
+    return {
+      toastId: this.toastId,
+    };
+  }
+
+  /** Shows the toast. */
+  @Method()
+  async showToast() {
+    this.hidden = false;
+    return {
+      toastId: this.toastId,
+    };
+  }
+
+  /** Sends unique toast identifier when it is closed. */
+  @Event({
+    eventName: 'sddsToastClosedEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsToastClosedEvent: EventEmitter<{
+    toastId: string;
+  }>;
+
   getIconName = () => {
     switch (this.type) {
       case 'information':
@@ -48,17 +77,6 @@ export class SddsToast {
         return 'info';
     }
   };
-
-  /** Sends unique toast identifier when it is closed. */
-  @Event({
-    eventName: 'sddsToastClosedEvent',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sddsToastClosedEvent: EventEmitter<{
-    toastId: string;
-  }>;
 
   connectedCallback() {
     const children = Array.from(this.host.children);
