@@ -177,7 +177,7 @@ const Template = ({
       clickable
         ? `
     <script>
-        document.addEventListener('cardClickedEvent', ()=>{
+        document.addEventListener('sddsCardClickedEvent', ()=>{
             console.log('Card with id: ', event.detail.cardId, ' was clicked.')
         })
     </script>
