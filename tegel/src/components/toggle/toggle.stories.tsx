@@ -44,7 +44,7 @@ export default {
   args: {
     size: 'Default',
     headline: '',
-    disabled: true,
+    disabled: false,
   },
 };
 
