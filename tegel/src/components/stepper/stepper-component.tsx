@@ -43,7 +43,7 @@ export class SddsStepper {
   render() {
     return (
       <Host>
-        <ul
+        <ol
           class={`${this.direction} sdds-stepper-text-position-${this.labelPosition} ${this.size}`}
         >
           {this.children.map((child, index) => (
@@ -62,7 +62,7 @@ export class SddsStepper {
               ></sdds-stepper-item>
             </li>
           ))}
-        </ul>
+        </ol>
       </Host>
     );
   }
