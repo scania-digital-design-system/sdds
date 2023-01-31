@@ -27,11 +27,11 @@ export class SddsFooterLink {
 
   render() {
     return (
-      <li class={`${this.parentIsTopPart ? 'top-part-child' : ''}`}>
+      <div role="listitem" class={`${this.parentIsTopPart ? 'top-part-child' : ''}`}>
         <a target={this.target} rel={this.rel} href={this.linkHref}>
           <slot></slot>
         </a>
-      </li>
+      </div>
     );
   }
 }

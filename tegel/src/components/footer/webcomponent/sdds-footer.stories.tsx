@@ -39,9 +39,9 @@ const Template = ({ topPart }) =>
   formatHtmlPreview(
     `
     <main>
-      <div class="sdds-u-p3 sdds-background-white">
+      <div class="sdds-u-p3 ">
         <div class="sdds-body-01">
-          Under contruction.
+          Resize the window to see how the footer behaves on smaller/bigger screens.
         </div>
       </div>
     </main>

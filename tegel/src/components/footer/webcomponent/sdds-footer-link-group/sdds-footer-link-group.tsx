@@ -43,7 +43,8 @@ export class SddsFooterLinkGroup {
             <sdds-icon name="chevron_down" size="20px"></sdds-icon>
           </button>
         )}
-        <ul
+        <div
+          role="list"
           class={`
         ${this.rightSlot ? 'right' : 'left'}
         ${this.parentIsTopPart ? 'top-part-child' : ''}
@@ -51,7 +52,7 @@ export class SddsFooterLinkGroup {
         `}
         >
           <slot></slot>
-        </ul>
+        </div>
       </Host>
     );
   }

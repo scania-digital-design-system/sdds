@@ -1,6 +1,6 @@
 @import '../../../../mixins/focus-state';
 
-li {
+[role='listitem'] {
   a {
     font: var(--sdds-headline-06);
     letter-spacing: var(--sdds-headline-06-ls);
@@ -10,6 +10,10 @@ li {
 
     &:focus {
       @include sdds-focus-state;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -29,7 +33,7 @@ li {
 }
 
 @media all and (max-width: 992px) {
-  li.top-part-child {
+  [role='listitem'].top-part-child {
     border-bottom: 1px solid var(--sdds-footer-top-divider);
 
     a {
@@ -37,6 +41,11 @@ li {
       height: 100%;
       padding: 19px 40px;
       font-weight: normal;
+
+      &:hover {
+        text-decoration: underline;
+        background-color: var(--sdds-footer-top-links-background-hover);
+      }
 
       &:focus {
         @include sdds-focus-state;

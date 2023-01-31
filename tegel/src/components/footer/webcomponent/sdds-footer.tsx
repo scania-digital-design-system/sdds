@@ -20,21 +20,19 @@ export class SddsFooter {
     return (
       <footer>
         {this.hasTopPart && (
-          <nav>
-            <div class="footer-top">
-              <slot name="top"></slot>
-            </div>
-          </nav>
+          <div class="footer-top">
+            <slot name="top"></slot>
+          </div>
         )}
         <div class="footer-main">
-          <nav class="footer-main-top">
+          <div class="footer-main-top">
             <div class="footer-bottom-left">
               <slot name="main-left"></slot>
             </div>
             <div class="footer-bottom-right">
               <slot name="main-right"></slot>
             </div>
-          </nav>
+          </div>
           <div class="footer-main-bottom">
             <p class="copyright">Copyright © {new Date().getFullYear()} Scania</p>
             <div class="brand">
