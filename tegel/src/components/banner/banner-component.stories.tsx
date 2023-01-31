@@ -23,7 +23,7 @@ export default {
     ],
   },
   argTypes: {
-    state: {
+    type: {
       name: 'Type',
       description: 'Changes type of component',
       options: ['Default', 'Error', 'Information'],
@@ -72,27 +72,41 @@ export default {
       table: {
         defaultValue: { summary: 'none' },
       },
+      if: { arg: 'type', eq: 'Default' },
+    },
+    persistent: {
+      name: 'Persistent',
+      description: `Removes the 'close button' in the banner.`,
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+      if: { arg: 'type', eq: 'Default' },
     },
   },
   args: {
-    state: 'Default',
+    type: 'Default',
     header: 'This is a header text area',
     subheader: 'SubHeader text area',
     linkText: 'Learn more',
     linkHref: 'tegel.scania.com',
     icon: 'none',
+    persistent: false,
   },
 };
 
-const Template = ({ state, icon, header, subheader, linkText, linkHref }) =>
+const Template = ({ type, icon, header, subheader, linkText, linkHref, persistent }) =>
   formatHtmlPreview(`
       <sdds-banner
-          state="${state.toLowerCase()}"
+          ${type !== 'Default' ? `type="${type.toLowerCase()}"` : ''}
           ${icon !== 'none' ? `icon="${icon}"` : ''}
           ${header !== '' ? `header="${header}"` : ''}
           ${subheader !== '' ? `subheader="${subheader}"` : ''}
           ${linkText !== '' ? `link-text="${linkText}"` : ''}
           ${linkHref !== '' ? `link-href="${linkHref}"` : ''}
+          ${persistent ? `persistent` : ''}
           >
       </sdds-banner>
       <script>

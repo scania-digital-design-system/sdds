@@ -13,11 +13,12 @@
 | `ariaLiveValue`   | `aria-live-value`   | NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION                                                                                                                                                                                          | `"assertive" \| "off" \| "polite"`   | `'polite'`            |
 | `bannerId`        | `banner-id`         | ID used for internal table functionality and events, must be unique.  **NOTE**: If you're listening for banner close events you need to set this ID yourself to identify the banner, as the default ID is random and will be different every time. | `string`                             | `crypto.randomUUID()` |
 | `header`          | `header`            | Header text.                                                                                                                                                                                                                                       | `string`                             | `undefined`           |
-| `icon`            | `icon`              | Name of the icon for the component.                                                                                                                                                                                                                | `string`                             | `undefined`           |
+| `icon`            | `icon`              | Name of the icon for the component. For error and information type the icon is predefined.                                                                                                                                                         | `string`                             | `undefined`           |
 | `linkHref`        | `link-href`         | Href for the link                                                                                                                                                                                                                                  | `string`                             | `undefined`           |
 | `linkText`        | `link-text`         | Link text.                                                                                                                                                                                                                                         | `string`                             | `undefined`           |
-| `state`           | `state`             | State of the banner                                                                                                                                                                                                                                | `"error" \| "information" \| "none"` | `'none'`              |
+| `persistent`      | `persistent`        | Href for the link                                                                                                                                                                                                                                  | `boolean`                            | `false`               |
 | `subheader`       | `subheader`         | Subheader text.                                                                                                                                                                                                                                    | `string`                             | `undefined`           |
+| `type`            | `type`              | Type of banner                                                                                                                                                                                                                                     | `"error" \| "information" \| "none"` | `'none'`              |
 
 
 ## Events
@@ -31,7 +32,7 @@
 
 ### `hideBanner() => Promise<{ bannerId: string; visible: boolean; }>`
 
-
+Hides the banner.
 
 #### Returns
 
@@ -41,7 +42,7 @@ Type: `Promise<{ bannerId: string; visible: boolean; }>`
 
 ### `showBanner() => Promise<{ bannerId: string; visible: boolean; }>`
 
-
+Shows the banner
 
 #### Returns
 
