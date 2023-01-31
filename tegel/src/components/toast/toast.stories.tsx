@@ -44,10 +44,6 @@ export default {
         type: 'text',
       },
     },
-    link: {
-      name: 'Link',
-      description: 'Adds a CTA link to the message.',
-    },
     iconType: {
       name: 'Icon type',
       description: 'Switch between showing a native or a web component icon.',
@@ -71,6 +67,16 @@ export default {
         defaultValue: { summary: 'recommended' },
       },
       if: { arg: 'size', neq: 'xs' },
+    },
+    link: {
+      name: 'Link',
+      description: 'Adds a CTA link to the message.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
