@@ -177,6 +177,4 @@ const Template = ({
   `);
 };
 
-export const Default = Template.bind({});
-
-Default.args = {};
+export const WebComponent = Template.bind({});
