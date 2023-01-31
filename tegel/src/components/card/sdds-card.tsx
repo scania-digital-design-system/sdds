@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter, Element, State } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Element, State, Host } from '@stencil/core';
 
 @Component({
   tag: 'sdds-card',
@@ -7,7 +7,7 @@ import { Component, h, Prop, Event, EventEmitter, Element, State } from '@stenci
 })
 export class SddsCard {
   /** Variant of the card based on the theme used. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Placement of the header */
   @Prop() headerPlacement: 'above' | 'below' = 'above';
@@ -98,29 +98,27 @@ export class SddsCard {
   );
 
   render() {
-    return this.clickable ? (
-      <button
-        class={`card sdds-mode-variant-${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
-          this.headerPlacement
-        }`}
-        onClick={() => {
-          if (this.clickable) {
-            this.cardClickedEvent.emit({
-              cardId: this.cardId,
-            });
-          }
-        }}
-      >
-        {this.getCardContent()}
-      </button>
-    ) : (
-      <div
-        class={`card sdds-mode-variant-${this.modeVariant} ${this.clickable ? 'clickable' : ''} ${
-          this.headerPlacement
-        }`}
-      >
-        {this.getCardContent()}
-      </div>
+    return (
+      <Host class={this.modeVariant && `sdds-mode-variant-${this.modeVariant}`}>
+        {this.clickable ? (
+          <button
+            class={`card ${this.clickable ? 'clickable' : ''} ${this.headerPlacement}`}
+            onClick={() => {
+              if (this.clickable) {
+                this.cardClickedEvent.emit({
+                  cardId: this.cardId,
+                });
+              }
+            }}
+          >
+            {this.getCardContent()}
+          </button>
+        ) : (
+          <div class={`card ${this.clickable ? 'clickable' : ''} ${this.headerPlacement}`}>
+            {this.getCardContent()}
+          </div>
+        )}
+      </Host>
     );
   }
 }

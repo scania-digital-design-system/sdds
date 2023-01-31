@@ -18,7 +18,7 @@
 | `headerImg`       | `header-img`       | Header image src                                                                                                                                                                                     | `string`                   | `undefined`           |
 | `headerImgAlt`    | `header-img-alt`   | Alt text for the header image                                                                                                                                                                        | `string`                   | `undefined`           |
 | `headerPlacement` | `header-placement` | Placement of the header                                                                                                                                                                              | `"above" \| "below"`       | `'above'`             |
-| `modeVariant`     | `mode-variant`     | Variant of the card based on the theme used.                                                                                                                                                         | `"primary" \| "secondary"` | `'primary'`           |
+| `modeVariant`     | `mode-variant`     | Variant of the card based on the theme used.                                                                                                                                                         | `"primary" \| "secondary"` | `null`                |
 | `subheader`       | `subheader`        | Subheader text in the header                                                                                                                                                                         | `string`                   | `undefined`           |
 
 

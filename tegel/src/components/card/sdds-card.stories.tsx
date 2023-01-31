@@ -27,7 +27,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'primary' },
       },
@@ -83,7 +83,7 @@ export default {
     },
     bodyDivider: {
       name: 'Body divider',
-      description: 'DESCRIPTON',
+      description: 'Adds a divider above the body content.',
       control: {
         type: 'boolean',
       },
@@ -92,7 +92,7 @@ export default {
       },
     },
     bodyImg: {
-      name: 'Image',
+      name: 'Body image',
       description: 'Image in body on card.',
       control: {
         type: 'text',
@@ -100,7 +100,7 @@ export default {
     },
     imageTop: {
       name: 'Image on top',
-      description: 'Sets the image on top',
+      description: 'Places the body image above the header.',
       control: {
         type: 'text',
       },
@@ -126,7 +126,7 @@ export default {
       '<p>This is a short and consist detail text describing for the user what this text is really about.</p>',
     bodyDivider: false,
     cardBottom: `<div slot="card-bottom"><sdds-button text="Button text"></sdds-button></div>`,
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     clickable: false,
   },
 };
@@ -151,7 +151,9 @@ const Template = ({
     }
     </style>
     <sdds-card
-        mode-variant="${modeVariant.toLowerCase()}"
+        ${
+          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+        }
         header-placement="${headerPlacement.toLowerCase()}"
         header="${header}"
         subheader="${subheader}"
