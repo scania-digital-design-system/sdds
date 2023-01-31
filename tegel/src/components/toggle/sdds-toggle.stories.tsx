@@ -33,14 +33,14 @@ export default {
     },
     label: {
       name: 'Label',
-      description: 'Optional value to be used to clarify what the toggle is switching on / off',
+      description: 'Label for the toggles input element.',
       control: {
         type: 'text',
       },
     },
     headline: {
       name: 'Headline',
-      description: 'Optional value to be used to clarify what the toggle is switching on / off',
+      description: 'Headline, displayed above the toggle.',
       control: {
         type: 'text',
       },

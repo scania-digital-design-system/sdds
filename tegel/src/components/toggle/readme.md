@@ -28,6 +28,19 @@
 | `sddsToggleChangeEvent` | Sends unique toggle identifier and status when it is toggled. | `CustomEvent<{ toggleId: string; checked: boolean; }>` |
 
 
+## Methods
+
+### `toggle() => Promise<{ toggleId: string; checked: boolean; }>`
+
+Toggles the toggle.
+
+#### Returns
+
+Type: `Promise<{ toggleId: string; checked: boolean; }>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
