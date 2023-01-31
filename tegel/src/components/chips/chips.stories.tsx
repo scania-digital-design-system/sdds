@@ -37,7 +37,7 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Choose what icon type to use.',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
