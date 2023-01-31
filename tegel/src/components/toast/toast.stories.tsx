@@ -21,11 +21,14 @@ export default {
   argTypes: {
     type: {
       name: 'Message type',
-      description: 'Changes the type of message',
+      description: 'Changes the type of message.',
       control: {
         type: 'radio',
       },
       options: ['Success', 'Info', 'Warning', 'Error'],
+      table: {
+        defaultValue: { summary: 'Success' },
+      },
     },
     header: {
       name: 'Subheader',
@@ -34,34 +37,49 @@ export default {
         type: 'text',
       },
     },
-    subheader: {
-      name: 'Subheader',
-      description: 'Adds a subheader',
-      control: {
-        type: 'text',
-      },
-    },
-    link: {
-      name: 'Link',
-      description: 'Adds a CTA link',
-    },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
     },
     icon: {
       name: 'Icon',
       description:
-        'Icon to display on the button. Choose "none" to exclude the icon, or choose "recommended" to pick the icon that is recommended for the type of toast.',
+        'Icon to display on the message. Choose "none" to exclude the icon, or choose "recommended" to pick the icon that is recommended for the type of toast.',
       control: {
         type: 'select',
       },
       options: ['none', 'recommended', ...iconsNames],
+      table: {
+        defaultValue: { summary: 'recommended' },
+      },
       if: { arg: 'size', neq: 'xs' },
+    },
+    subheader: {
+      name: 'Subheader',
+      description: 'Adds a subheader to the message.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    link: {
+      name: 'Link',
+      description: 'Adds a CTA link to the message.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
@@ -69,8 +87,6 @@ export default {
     header: 'Header',
     subheader: '',
     link: false,
-    iconType: 'Web Component',
-    icon: 'recommended',
   },
 };
 const typeLookup = {

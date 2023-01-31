@@ -95,16 +95,6 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    size: {
-      name: 'Size',
-      description: 'Switch between different sizes',
-      control: {
-        type: 'radio'
-      },
-      options: ['Large', 'Medium', 'Small'],
-      tabel: {
-        defaultValue: { summary: 'Large' }
-      },
     maxLength: {
       name: 'Max length',
       description: 'Sets a maximum value of how many characters the text can include.',
@@ -190,7 +180,6 @@ export default {
       },
     },
   },
-},
   args: {
     modeVariant: 'Inherit from parent',
     state: 'Default',
