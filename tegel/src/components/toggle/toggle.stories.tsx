@@ -20,24 +20,30 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
+      description: 'Sets the size of the toggle.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Small'],
-      description: 'Size of the toggle',
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     headline: {
       name: 'Headline',
-      description: 'Optional value to be used to clarify what the toggle is switching on / off',
+      description: 'Sets an optional headline to be used to clarify what the toggle is switching on / off.',
       control: {
         type: 'text',
       },
     },
     disabled: {
       name: 'Disabled',
-      description: 'Should it be disabled?',
+      description: 'Sets the toggle to disabled state.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
