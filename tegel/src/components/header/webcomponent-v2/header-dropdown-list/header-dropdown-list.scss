@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  width: 190px;
+  @media all and (max-width: 384px) {
+    width: 100vw;
+  }
+
+  [role='list'] {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: none;
+    background-color: var(--sdds-header-app-launcher-menu-bg);
+
+    &.open {
+      display: block;
+    }
+
+    &.closed {
+      display: none;
+    }
+  }
+}

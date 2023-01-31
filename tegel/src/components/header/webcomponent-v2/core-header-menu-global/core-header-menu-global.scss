@@ -1,5 +1,12 @@
 :host {
-  ul {
+  display: block;
+  width: 320px;
+
+  @media all and (max-width: 384px) {
+    width: 100vw;
+  }
+
+  [role='list'] {
     padding: 0;
     margin: 0;
     list-style: none;

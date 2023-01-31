@@ -1,4 +1,4 @@
-# sdds-header-launcher-list-link
+# sdds-header-dropdown-list-link
 
 
 
@@ -23,8 +23,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-launcher-list-link --> sdds-core-header-menu-global-link
-  style sdds-header-launcher-list-link fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-header-dropdown-list-lg-link --> sdds-core-header-menu-global-link
+  style sdds-header-dropdown-list-lg-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -1,11 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-launcher-grid-link',
-  styleUrl: 'header-launcher-grid-link.scss',
+  tag: 'sdds-header-dropdown-list-link',
+  styleUrl: 'header-dropdown-list-link.scss',
   shadow: true,
 })
-export class HeaderLauncherGridLink {
+export class HeaderDropdownListLink {
   @Prop() href!: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents

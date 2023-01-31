@@ -14,17 +14,26 @@
 | `target`            | `target`  |             | `string` | `undefined`  |
 
 
+## Shadow Parts
+
+| Part  | Description |
+| ----- | ----------- |
+| `"a"` |             |
+
+
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [sdds-core-header-menu-global-link](../core-header-menu-global-link)
+ - [sdds-header-dropdown-list-lg-link](../header-dropdown-list-lg-link)
+ - [sdds-header-launcher-list-link](../header-launcher-list-link)
 
 ### Graph
 ```mermaid
 graph TD;
+  sdds-header-dropdown-list-lg-link --> sdds-core-header-menu-global-link
   sdds-header-launcher-list-link --> sdds-core-header-menu-global-link
-  style sdds-header-launcher-list-link fill:#f9f,stroke:#333,stroke-width:4px
+  style sdds-core-header-menu-global-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

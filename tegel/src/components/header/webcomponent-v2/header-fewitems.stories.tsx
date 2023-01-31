@@ -65,13 +65,21 @@ const Template = () =>
       Trucks
     </sdds-header-link-v2>
 
+    <sdds-header-dropdown-v2>
+      <span slot="button-label">Drivers</span>
+      <sdds-header-dropdown-list>
+        <sdds-header-dropdown-list-link>
+          Albin Larsson
+        </sdds-header-dropdown-list-link>
+        <sdds-header-dropdown-list-link>
+          Viktor Skofors
+        </sdds-header-dropdown-list-link>
+      </sdds-header-dropdown-list>
+    </sdds-header-dropdown-v2>
+
     <sdds-header-button-v2 slot="end" onclick="alert('Calendar button clicked')">
       <sdds-icon name="calendar" size="20px"></sdds-icon>
     </sdds-header-button-v2>
-    
-    <sdds-header-link-v2 slot="end" href="https://scania.com" class="demo-hide demo-xs-show">
-      <sdds-icon name="profile" size="20px"></sdds-icon>
-    </sdds-header-link-v2>
 
     <sdds-header-launcher-v2 slot="end">
       <sdds-header-launcher-grid-title>Rad apps</sdds-header-launcher-grid-title>
@@ -109,6 +117,22 @@ const Template = () =>
         </sdds-header-launcher-grid-link>
       </sdds-header-launcher-grid>
     </sdds-header-launcher-v2>
+
+    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon>
+      <img slot="button-label" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
+      <sdds-header-dropdown-list-lg>
+        <sdds-header-dropdown-list-lg-user
+          heading="Forename Surname"
+          subheading="Company AB">
+        </sdds-header-dropdown-list-lg-user>
+        <sdds-header-dropdown-list-lg-link>
+          Link here
+        </sdds-header-dropdown-list-lg-link>
+        <sdds-header-dropdown-list-lg-link>
+          Link there
+        </sdds-header-dropdown-list-lg-link>
+      </sdds-header-dropdown-list-lg>
+    </sdds-header-dropdown-v2>
 
     <sdds-header-logo slot="end" link-href="https://design.scania.com">
     </sdds-header-logo>

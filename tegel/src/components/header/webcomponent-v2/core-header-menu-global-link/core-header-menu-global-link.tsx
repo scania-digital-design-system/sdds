@@ -1,11 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-launcher-grid-link',
-  styleUrl: 'header-launcher-grid-link.scss',
+  tag: 'sdds-core-header-menu-global-link',
+  styleUrl: 'core-header-menu-global-link.scss',
   shadow: true,
 })
-export class HeaderLauncherGridLink {
+export class CoreHeaderMenuGlobalLink {
   @Prop() href!: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents
@@ -17,7 +17,7 @@ export class HeaderLauncherGridLink {
 
   render() {
     return (
-      <Host role="listitem">
+      <Host>
         <a part="a" href={this.href} rel={this.rel} target={this.target}>
           <slot></slot>
         </a>

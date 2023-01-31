@@ -6,6 +6,8 @@
     position: relative;
 
     .menu {
+      /** Should control only height, position, and overflow here. 
+        Width and appearance are set inside nested components */
       display: none;
       flex-direction: column;
       position: absolute;

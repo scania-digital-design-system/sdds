@@ -7,15 +7,17 @@
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [sdds-core-header-menu-global](../core-header-menu-global)
+ - [sdds-header-dropdown-list-lg](../header-dropdown-list-lg)
+ - [sdds-header-launcher-list](../header-launcher-list)
 
 ### Graph
 ```mermaid
 graph TD;
+  sdds-header-dropdown-list-lg --> sdds-core-header-menu-global
   sdds-header-launcher-list --> sdds-core-header-menu-global
-  style sdds-header-launcher-list fill:#f9f,stroke:#333,stroke-width:4px
+  style sdds-core-header-menu-global fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

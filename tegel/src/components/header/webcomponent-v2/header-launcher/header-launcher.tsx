@@ -9,7 +9,7 @@ export class HeaderLauncher {
   @Element() host: HTMLElement;
 
   /** Opens and closes the launcher */
-  @Prop() open: boolean = false;
+  @Prop({ reflect: true }) open: boolean = false;
 
   @State() hasListTypeMenu = false;
 

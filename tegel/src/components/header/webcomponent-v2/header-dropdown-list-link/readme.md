@@ -1,4 +1,4 @@
-# sdds-header-launcher-list-link
+# sdds-header-dropdown-list-link
 
 
 
@@ -14,18 +14,12 @@
 | `target`            | `target`  |             | `string` | `undefined`  |
 
 
-## Dependencies
+## Shadow Parts
 
-### Depends on
+| Part  | Description |
+| ----- | ----------- |
+| `"a"` |             |
 
-- [sdds-core-header-menu-global-link](../core-header-menu-global-link)
-
-### Graph
-```mermaid
-graph TD;
-  sdds-header-launcher-list-link --> sdds-core-header-menu-global-link
-  style sdds-header-launcher-list-link fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

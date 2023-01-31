@@ -2,7 +2,6 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-launcher-list-link',
-  styleUrl: 'header-launcher-list-link.scss',
   shadow: true,
 })
 export class HeaderLauncherListLink {
@@ -18,11 +17,14 @@ export class HeaderLauncherListLink {
   render() {
     return (
       <Host>
-        <li>
-          <a part="a" href={this.href} rel={this.rel} target={this.target}>
-            <slot></slot>
-          </a>
-        </li>
+        <sdds-core-header-menu-global-link
+          exportparts="a"
+          href={this.href}
+          rel={this.rel}
+          target={this.target}
+        >
+          <slot></slot>
+        </sdds-core-header-menu-global-link>
       </Host>
     );
   }

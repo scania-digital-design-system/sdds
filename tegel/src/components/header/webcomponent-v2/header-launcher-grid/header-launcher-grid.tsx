@@ -9,9 +9,9 @@ export class HeaderLauncherGrid {
   render() {
     return (
       <Host>
-        <ul>
+        <div role="list">
           <slot></slot>
-        </ul>
+        </div>
       </Host>
     );
   }

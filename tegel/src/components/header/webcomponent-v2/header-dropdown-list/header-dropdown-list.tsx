@@ -1,16 +1,17 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-launcher-list',
+  tag: 'sdds-header-dropdown-list',
+  styleUrl: 'header-dropdown-list.scss',
   shadow: true,
 })
-export class HeaderLauncherList {
+export class HeaderDropdownList {
   render() {
     return (
       <Host>
-        <sdds-core-header-menu-global>
+        <div role="list">
           <slot></slot>
-        </sdds-core-header-menu-global>
+        </div>
       </Host>
     );
   }

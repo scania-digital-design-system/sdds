@@ -1,10 +1,10 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-launcher-list',
+  tag: 'sdds-header-dropdown-list-lg',
   shadow: true,
 })
-export class HeaderLauncherList {
+export class HeaderDropdownListLg {
   render() {
     return (
       <Host>

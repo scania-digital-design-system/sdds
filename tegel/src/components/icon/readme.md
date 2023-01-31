@@ -36,6 +36,7 @@
  - [sdds-header-toolbar-item](../header/webcomponent/header-toolbar-item)
  - [sdds-header](../header/webcomponent)
  - [sdds-header-dropdown](../header/webcomponent/header-dropdown)
+ - [sdds-header-dropdown-v2](../header/webcomponent-v2/header-dropdown-v2)
  - [sdds-header-hamburger](../header/webcomponent-v2/header-hamburger)
  - [sdds-header-launcher](../header/webcomponent/header-launcher)
  - [sdds-header-launcher-button](../header/webcomponent-v2/header-launcher-button)
@@ -68,6 +69,7 @@ graph TD;
   sdds-header-toolbar-item --> sdds-icon
   sdds-header --> sdds-icon
   sdds-header-dropdown --> sdds-icon
+  sdds-header-dropdown-v2 --> sdds-icon
   sdds-header-hamburger --> sdds-icon
   sdds-header-launcher --> sdds-icon
   sdds-header-launcher-button --> sdds-icon

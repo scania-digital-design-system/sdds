@@ -12,6 +12,9 @@
     height: 100%;
     cursor: pointer;
     padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     &:hover {
       background-color: var(--sdds-header--basic-element-bg-hover);
@@ -21,7 +24,16 @@
       position: relative;
       margin-left: -6px;
       left: 3px;
-      transform: translate 150ms ease;
+      transition: all 0.2s ease-in-out;
+    }
+
+    ::slotted(img) {
+      position: relative;
+      margin-left: -20px;
+      left: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
     }
   }
 
@@ -30,10 +42,6 @@
       background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
       border-color: var(--sdds-header-nav-item-dropdown-opened-bg);
-
-      ::slotted(sdds-icon) {
-        transform: rotateX(180deg);
-      }
     }
   }
 }
