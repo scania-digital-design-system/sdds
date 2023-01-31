@@ -110,7 +110,7 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
-      if: { arg: 'icon', neq: 'none' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
   },
   args: {
@@ -151,8 +151,8 @@ const WebComponentTemplate = ({
   };
 
   const modeVariantLookup = {
-    'Primary': 'primary',
-    'Secondary': 'secondary',
+    Primary: 'primary',
+    Secondary: 'secondary',
   };
 
   return formatHtmlPreview(
@@ -176,7 +176,13 @@ const WebComponentTemplate = ({
       disabled ? 'disabled' : ''
     } ${fullbleed ? 'fullbleed' : ''}
     ${!onlyIcon ? `text="${text}"` : ''}
-    text="${onlyIcon ? '' : text}" variant="${modeVariantLookup[modeVariant]}" >
+    text="${onlyIcon ? '' : text}" 
+    ${
+      modeVariant !== 'Inherit from parent'
+        ? `mode-variant="${modeVariantLookup[modeVariant]}"`
+        : ''
+    }
+    >
     ${
       onlyIcon || (icon && icon !== 'none')
         ? `
