@@ -14,7 +14,7 @@ export class SddsToggle {
   @Prop() required: boolean = false;
 
   /** Aria-labelledby for the toggles input element. */
-  @Prop() ariaLabelledby;
+  @Prop() ariaLabelledby: string;
 
   /** Aria-describedby for the toggles input element. */
   @Prop() ariaDescribedby: string;
