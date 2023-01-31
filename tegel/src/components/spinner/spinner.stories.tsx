@@ -67,10 +67,4 @@ const Template = ({ size, variant }) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Inverted = Template.bind({});
-Inverted.args = {
-  variant: 'Inverted',
-};
+export const WebComponent = Template.bind({});
