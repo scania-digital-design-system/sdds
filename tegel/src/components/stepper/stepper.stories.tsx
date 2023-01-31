@@ -45,7 +45,7 @@ export default {
       },
     },
     showLabel: {
-      name: 'Show label text',
+      name: 'Shows the label text.',
       description: 'Shows or hides the label text.',
       control: {
         type: 'boolean',
