@@ -10,6 +10,7 @@
 | Property          | Attribute          | Description                                                               | Type      | Default               |
 | ----------------- | ------------------ | ------------------------------------------------------------------------- | --------- | --------------------- |
 | `ariaDescribedby` | `aria-describedby` | Aria-describedby for the checkboxes input element.                        | `string`  | `undefined`           |
+| `ariaLabelledby`  | `aria-labelledby`  | Aria-labellby for the checkboxes input element.                           | `string`  | `undefined`           |
 | `checkboxId`      | `checkbox-id`      | ID for the checkbox's input element. Randomly generated if not specified. | `string`  | `crypto.randomUUID()` |
 | `checked`         | `checked`          | Sets the checkbox as checked                                              | `boolean` | `false`               |
 | `disabled`        | `disabled`         | Sets the checkbox in a disabled state                                     | `boolean` | `false`               |
@@ -23,6 +24,19 @@
 | Event                     | Description                                                               | Type                                                                        |
 | ------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | `sddsCheckboxChangeEvent` | Sends unique checkbox identifier and status when it is checked/unchecked. | `CustomEvent<{ checkboxId: string; checked: boolean; disabled: boolean; }>` |
+
+
+## Methods
+
+### `toggleCheckbox() => Promise<{ checkboxId: string; checked: boolean; disabled: boolean; }>`
+
+Toggles the checked value of the component.
+
+#### Returns
+
+Type: `Promise<{ checkboxId: string; checked: boolean; disabled: boolean; }>`
+
+
 
 
 ----------------------------------------------
