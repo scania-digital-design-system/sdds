@@ -49,6 +49,8 @@ const Template = (args) =>
       padding: 0; 
     }
   </style>
+
+  <div>
   <fieldset class="demo-fieldset-reset" ${args.disabled ? 'disabled' : ''}>
     <div class="sdds-radio-button-group">
       <div class="sdds-radio-item">
@@ -67,6 +69,14 @@ const Template = (args) =>
       </div>
     </div>
   </fieldset>
-`);
+  
+  </div>
+  <script>
+  document.addEventListener('sddsRadioButtonChangeEvent', (event) => {
+    console.log('Radio button with id: ', event.detail.radioId, ' is ', event.detail.checked)
+  })
+  </script>
 
-export const Native = Template.bind({});
+  `);
+
+  export const Native = Template.bind({});

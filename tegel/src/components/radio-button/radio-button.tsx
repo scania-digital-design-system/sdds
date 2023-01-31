@@ -1,4 +1,4 @@
-import { Component, h, Prop, Listen, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-radio-button',
@@ -27,7 +27,7 @@ export class RadioButton {
   @Prop() radioId: string;
   
   /** Decides if the radio button is checked or not. */
-  @Prop() checked: boolean = false;
+  @Prop({ reflect: true }) checked: boolean = false;
   
   /** Decides if the radio button is required or not. */
   @Prop() required: boolean = false;
@@ -44,9 +44,8 @@ export class RadioButton {
   })
   sddsRadioButtonChangeEvent: EventEmitter<{
     radioId: string;
-    checked: boolean;
+    value: string;
   }>;
-
 
   render() {
     return (
@@ -56,26 +55,22 @@ export class RadioButton {
         type="radio" 
         name={this.name}
         id={this.radioId} 
-        value={this.value} 
         checked={this.checked} 
         aria-checked={this.checked} 
         aria-labelledby={this.ariaLabelledBy} 
         aria-describedby={this.ariaDescribedBy} 
         required={this.required} 
-        disabled={this.disabled} />
+        disabled={this.disabled}
+        onChange={() => {
+          this.sddsRadioButtonChangeEvent.emit({
+             radioId: this.radioId,
+             value: this.value,
+          })
+        }} />
         <label htmlFor={this.radioId}>
           {this.label}
         </label>
         </div>
     );
-  }
-
-  @Listen('input')
-  handleChange() {
-    console.log('Radio button with id ' + this.radioId + ' is selected');
-    this.sddsRadioButtonChangeEvent.emit({
-      radioId: this.radioId,
-      checked: this.checked,
-    })
   }
 }

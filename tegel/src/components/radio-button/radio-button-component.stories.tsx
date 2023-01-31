@@ -65,7 +65,7 @@ const Template = ({label, disabled}) =>
     ${label ? `label="${label} 1"` : ''}
     required=false
     ${disabled ? 'disabled' : ''}
-    checked=true >
+    checked="true" >
   </sdds-radio-button>
   <sdds-radio-button ${label ? `label="${label} 2"` : ''}
     name="rb-example"
@@ -75,10 +75,17 @@ const Template = ({label, disabled}) =>
     aria-described-by="option-2"
     ${label ? `label="${label} 2"` : ''}
     required=false
-    ${disabled ? 'disabled' : ''} >
+    ${disabled ? 'disabled' : ''}
+    checked="true" >
   </sdds-radio-button>
     
   </fieldset>
+
+  <script>
+  document.addEventListener('sddsRadioButtonChangeEvent', (event) => {
+    console.log('Radio button with id: ', event.detail.radioId, ' with value:', event.detail.value, ' was selected.')
+  })
+  </script>
   `);
 
 export const WebComponent = Template.bind({});

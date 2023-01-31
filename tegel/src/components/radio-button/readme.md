@@ -22,9 +22,9 @@
 
 ## Events
 
-| Event                        | Description                                                         | Type                                                  |
-| ---------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------- |
-| `sddsRadioButtonChangeEvent` | Sends unique radio button identifier and status when it is checked. | `CustomEvent<{ radioId: string; checked: boolean; }>` |
+| Event                        | Description                                                         | Type                                               |
+| ---------------------------- | ------------------------------------------------------------------- | -------------------------------------------------- |
+| `sddsRadioButtonChangeEvent` | Sends unique radio button identifier and status when it is checked. | `CustomEvent<{ radioId: string; value: string; }>` |
 
 
 ----------------------------------------------
