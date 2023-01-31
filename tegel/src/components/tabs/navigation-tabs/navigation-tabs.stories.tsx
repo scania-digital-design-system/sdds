@@ -33,4 +33,3 @@ const Template = () =>
     `);
 
 export const NavigationTabs = Template.bind({});
-NavigationTabs.args = {};

@@ -70,4 +70,3 @@ const Template = ({ autoHeight = false, modeVariant }) => {
 };
 
 export const InlineTabs = Template.bind({});
-InlineTabs.args = {};
