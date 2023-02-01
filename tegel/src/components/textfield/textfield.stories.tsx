@@ -198,11 +198,6 @@ const Template = ({
     Medium: 'md',
     Small: 'sm',
   };
-  // const modeVariantLookUp = {
-  //   Primary: 'primary',
-  //   Secondary: 'secondary',
-  // };
-
   return formatHtmlPreview(
     `
     <style>
