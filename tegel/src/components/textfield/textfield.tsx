@@ -36,7 +36,8 @@ export class Textfield {
   /** Size of the input */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+    /** Mode variant of the textarea */
+
   @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   /** With setting */
