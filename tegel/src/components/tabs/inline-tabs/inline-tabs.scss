@@ -1,0 +1,98 @@
+@import '../../../mixins/focus-state';
+@import '../../../mixins/box-sizing';
+
+.sdds-inline-tabs-fullbleed {
+  @include sdds-box-sizing;
+
+  display: flex;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid var(--sdds-inline-tabs-fullbleed-horizontal-divider-background);
+    opacity: var(--sdds-inline-tabs-fullbleed-horizontal-divider-opacity);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &--forward,
+  &--back {
+    cursor: pointer;
+    width: 48px;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &__show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &:hover {
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-hover);
+    }
+
+    &:active {
+      background-color: var(--sdds-inline-tabs-fullbleed-scroll-btn-background-active);
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+
+    svg {
+      fill: var(--sdds-inline-tabs-scroll-btn-color);
+    }
+  }
+
+  &-centered {
+    justify-content: center;
+  }
+}
+
+.sdds-inline-tabs-fullbleed-primary {
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+
+  .sdds-inline-tabs-fullbleed--forward {
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+  }
+
+  .sdds-inline-tabs-fullbleed--back {
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+  }
+}
+
+.sdds-inline-tabs-fullbleed-secondary {
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+
+  .sdds-inline-tabs-fullbleed--forward {
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+  }
+
+  .sdds-inline-tabs-fullbleed--back {
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+  }
+}

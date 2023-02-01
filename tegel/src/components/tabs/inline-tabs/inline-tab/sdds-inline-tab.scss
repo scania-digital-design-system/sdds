@@ -1,0 +1,76 @@
+@import '../../../../mixins/focus-state';
+
+:host {
+  display: block;
+  position: relative;
+  margin-right: 16px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    margin: 12px 0;
+    font: var(--sdds-headline-07);
+    letter-spacing: var(--sdds-headline-07-ls);
+    color: var(--sdds-inline-tabs-fullbleed-tab-color);
+    opacity: 0.6;
+
+    .tab-text-container {
+      padding: 4px 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-left: auto;
+      width: 0%;
+      margin-right: auto;
+      height: 2px;
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-indicator-background-hover);
+      transition: width 0.15s ease-in-out 0s;
+      z-index: 1;
+    }
+  }
+}
+
+:host(.first) {
+  margin-left: 16px;
+}
+
+:host(.last) {
+  margin-right: 0;
+}
+
+:host(.selected) {
+  button {
+    color: var(--sdds-inline-tabs-fullbleed-tab-color);
+    opacity: 1;
+
+    &::after {
+      width: 100%;
+      background-color: var(--sdds-inline-tabs-fullbleed-tab-indicator-background-active);
+    }
+  }
+}
+
+:host(.disabled) {
+  button {
+    color: var(--sdds-inline-tabs-fullbleed-tab-color-disabled);
+    pointer-events: none;
+    opacity: var(--sdds-inline-tabs-fullbleed-tab-color-opacity-disabled);
+  }
+}
