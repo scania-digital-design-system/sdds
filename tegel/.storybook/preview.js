@@ -106,7 +106,7 @@ export const parameters = {
     stylePreview: true,
   },
   backgrounds: {
-    default: 'grey-50',
+    default: 'white',
     values: [
       {
         name: 'grey-50',
