@@ -62,6 +62,17 @@ export default {
         type: 'text',
       },
     },
+    linkTarget: {
+      name: 'Link target',
+      description: 'Where to open the linked URL.',
+      control: {
+        type: 'radio',
+      },
+      options: ['_self', '_blank', '_parent', '_top'],
+      table: {
+        defaultValue: { summary: '_self' },
+      },
+    },
     icon: {
       name: 'Icon',
       description: 'Name of icon to display, choose `none` to remove the icon.',
@@ -75,7 +86,7 @@ export default {
       if: { arg: 'type', eq: 'Default' },
     },
     persistent: {
-      name: 'Persistent',
+      name: 'Disable closing',
       description: `Removes the 'close button' in the banner.`,
       control: {
         type: 'boolean',
@@ -92,12 +103,13 @@ export default {
     subheader: 'SubHeader text area',
     linkText: 'Learn more',
     linkHref: 'tegel.scania.com',
+    linkTarget: '_self',
     icon: 'none',
     persistent: false,
   },
 };
 
-const Template = ({ type, icon, header, subheader, linkText, linkHref, persistent }) =>
+const Template = ({ type, icon, header, subheader, linkText, linkHref, persistent, linkTarget }) =>
   formatHtmlPreview(`
       <sdds-banner
           ${type !== 'Default' ? `type="${type.toLowerCase()}"` : ''}
@@ -106,9 +118,13 @@ const Template = ({ type, icon, header, subheader, linkText, linkHref, persisten
           ${subheader !== '' ? `subheader="${subheader}"` : ''}
           ${linkText !== '' ? `link-text="${linkText}"` : ''}
           ${linkHref !== '' ? `link-href="${linkHref}"` : ''}
+          ${linkTarget !== '' ? `link-target="${linkTarget}"` : ''}
+
           ${persistent ? `persistent` : ''}
           >
       </sdds-banner>
+
+      <!-- Script tag with eventlistener for demo purposes. -->
       <script>
         document.addEventListener('sddsBannerCloseEvent', (event) => {
           console.log('Closed banner with BannerID: ', event.detail.bannerId)

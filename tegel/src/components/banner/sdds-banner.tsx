@@ -32,6 +32,12 @@ export class SddsBanner {
   /** Href for the link */
   @Prop() linkHref: string;
 
+  /** Where to open the linked URL */
+  @Prop() linkTarget: '_self' | '_blank' | '_parent' | '_top' = '_self';
+
+  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
+  @Prop() rel: string = 'noopener';
+
   /** Type of banner */
   @Prop() type: 'error' | 'information' | 'none' = 'none';
 
@@ -116,7 +122,7 @@ export class SddsBanner {
           {this.subheader && <span class={`banner-subheader`}>{this.subheader}</span>}
           {this.linkText && this.linkHref && (
             /* TODO - Should use sdds-link */
-            <a class={`banner-link`} href={this.linkHref}>
+            <a rel={this.rel} target={this.linkTarget} class={`banner-link`} href={this.linkHref}>
               {this.linkText}
             </a>
           )}
