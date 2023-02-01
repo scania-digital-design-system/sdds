@@ -1,11 +1,11 @@
 import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-dropdown-v2',
-  styleUrl: 'header-dropdown.scss',
+  tag: 'sdds-side-menu-dropdown-v2',
+  styleUrl: 'side-menu-dropdown.scss',
   shadow: true,
 })
-export class HeaderDropdown {
+export class SideMenuDropdown {
   /** Opens and closes the dropdown */
   @Prop({ reflect: true }) open: boolean = false;
 
@@ -43,8 +43,8 @@ export class HeaderDropdown {
             'state--placement-end': this.placement === 'end',
           }}
         >
-          <sdds-header-button-v2
-            isActive={this.open}
+          <sdds-side-menu-button-v2
+            // isActive={this.open}
             onClick={() => {
               this.toggleDropdown();
             }}
@@ -55,7 +55,7 @@ export class HeaderDropdown {
             {!this.noDropdownIcon && (
               <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
             )}
-          </sdds-header-button-v2>
+          </sdds-side-menu-button-v2>
           <div class="menu">
             <slot></slot>
           </div>

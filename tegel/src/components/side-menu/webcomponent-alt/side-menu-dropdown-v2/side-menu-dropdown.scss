@@ -1,0 +1,38 @@
+:host {
+  height: 64px;
+  position: relative;
+  overflow: visible;
+
+  .state--open {
+    .dropdown-icon {
+      transform: rotateZ(180deg);
+    }
+
+    .menu {
+      display: block;
+    }
+  }
+
+  .state--placement-end {
+    .menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .menu {
+    /** Should control only height, position, and overflow here. 
+      Width and appearance are set inside nested components */
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+
+    --side-menu-width: 272px;
+
+    left: var(--side-menu-width);
+    overflow-y: auto;
+    box-shadow: var(--sdds-nav-dropdown-menu-box);
+    background-color: var(--sdds-header-app-launcher-menu-bg);
+  }
+}

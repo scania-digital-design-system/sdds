@@ -101,12 +101,6 @@ aside.sdds-side-menu-collapsed {
 }
 
 aside {
-  ul {
-    @include sdds-scrollbar;
-
-    overflow-y: auto;
-  }
-
   .sdds-side-menu-wrapper {
     display: flex;
     justify-content: space-between;

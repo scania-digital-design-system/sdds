@@ -119,7 +119,7 @@ const Template = () =>
     </sdds-header-launcher-v2>
 
     <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
-      <img slot="button-label" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
+      <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
       <sdds-header-dropdown-list-lg>
         <sdds-header-dropdown-list-lg-user
           heading="Name Nameson"
@@ -152,6 +152,27 @@ const Template = () =>
     <sdds-side-menu-button-v2>
       Trucks
     </sdds-side-menu-button-v2>
+
+    <sdds-side-menu-dropdown-v2>
+      <sdds-icon slot="button-icon" name="wifi" size="24"></sdds-icon>
+      <span slot="button-label">
+        Dropdown
+      </span>
+      <sdds-side-menu-dropdown-list>
+        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
+      </sdds-side-menu-dropdown-list>
+    </sdds-side-menu-dropdown-v2>
+
+    <sdds-side-menu-dropdown-v1>
+      Dropdown
+      <sdds-icon name="chevron_down" size="24px"></sdds-icon>
+      <div slot="children">
+        <sdds-side-menu-button>Button</sdds-side-menu-button>
+        <sdds-side-menu-link>Link</sdds-side-menu-link>
+      </div>
+    </sdds-side-menu-dropdown-v1>
 
     <sdds-side-menu-button-v2 slot="end" class="demo-xs-hide">
       <sdds-icon slot="icon" name="profile" size="24px"> </sdds-icon>

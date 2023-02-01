@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  height: 48px;
+  list-style: none;
+  width: 100%;
+  border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
+
+  a {
+    box-sizing: border-box;
+    border-right: 1px solid var(--sdds-nav-item-border-color);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 24px;
+    width: 100%;
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
+    background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+    color: var(--sdds-header-nav-item-dropdown-opened-color);
+    border: none;
+
+    &.active {
+      border-left: 4px solid var(--sdds-nav-item-border-color-active);
+      padding-left: 20px;
+    }
+
+    &:hover {
+      background-color: var(--sdds-nav-item-bg-hover);
+      cursor: pointer;
+    }
+  }
+}
