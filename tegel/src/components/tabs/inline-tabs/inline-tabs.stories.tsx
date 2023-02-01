@@ -24,24 +24,36 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 
 const Template = ({ modeVariant }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs mode-variant="${modeVariant.toLowerCase()}">
-      <sdds-inline-tab label="Tab text"> 
+      <sdds-inline-tab label="Tab one"> 
       </sdds-inline-tab>
-      <sdds-inline-tab label="Tab text with longer text" selected> 
+      <sdds-inline-tab label="Tab two" selected> 
       </sdds-inline-tab> 
-      <sdds-inline-tab disabled label="Tab text"> 
-      </sdds-inline-tab> 
+      <sdds-inline-tab disabled label="Tab three"> 
+      </sdds-inline-tab>
+      <sdds-inline-tab label="Tab four"> 
+      </sdds-inline-tab>
+      <sdds-inline-tab label="Tab five"> 
+      </sdds-inline-tab>
+      <sdds-inline-tab label="Tab six"> 
+      </sdds-inline-tab>
    </sdds-inline-tabs>
+
+   <script>
+      document.addEventListener('sddsInlineTabChangeEvent',(event) => {
+        console.log('Tab:',event.detail.selectedTab,'was selected.')
+      })
+    </script>
 `);
 
 export const InlineTabs = Template.bind({});

@@ -1,4 +1,4 @@
-import { Component, Host, State, Element, h, Prop } from '@stencil/core';
+import { Component, Host, State, Element, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { HostElement, Watch } from '@stencil/core/internal';
 
 @Component({
@@ -70,19 +70,17 @@ export class InlineTabsFullbleed {
   }
 
   calculateButtonWidth() {
-    let best = 0;
-    const navButtons = Array.from(this.host.children);
-    navButtons.forEach((navButton: HTMLElement) => {
-      const style = window.getComputedStyle(navButton);
-      const width =
-        navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-
-      if (width > best) {
-        best = width;
+    this.children = this.children.map((navButton: HTMLSddsInlineTabElement) => {
+      const width = navButton.clientWidth;
+      if (navButton.clientWidth > this.buttonWidth) {
+        this.buttonWidth = width;
       }
+      if (this.buttonWidth > 0) {
+        // eslint-disable-next-line no-param-reassign
+        navButton.style.width = `${this.buttonWidth.toString()}px`;
+      }
+      return navButton;
     });
-
-    this.buttonWidth = best;
   }
 
   scrollRight() {
@@ -135,45 +133,50 @@ export class InlineTabsFullbleed {
     this.children[this.children.length - 1].classList.add('last');
   }
 
+  @Event({
+    eventName: 'sddsInlineTabChangeEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsInlineTabChangeEvent: EventEmitter<{
+    selectedTab: string;
+  }>;
+
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
+    this.sddsInlineTabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+    });
   }
 
   render() {
     return (
-      <Host>
-        <div class={`sdds-inline-tabs-fullbleed sdds-inline-tabs-fullbleed-${this.modeVariant}`}>
-          <div
-            role="list"
-            class="sdds-inline-tabs-fullbleed-wrapper"
-            ref={(el) => {
-              this.navWrapperElement = el as HTMLElement;
-            }}
-          >
-            <slot />
-          </div>
-          <div class="sdds-inline-tabs-fullbleed-navigation">
-            <button
-              class={`sdds-inline-tabs-fullbleed--forward ${
-                this.showRightScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
-              }`}
-              onClick={() => this.scrollRight()}
-              disabled={!this.showRightScroll}
-            >
-              <sdds-icon name="chevron_right" size="20px"></sdds-icon>
-            </button>
-            <button
-              class={`sdds-inline-tabs-fullbleed--back ${
-                this.showLeftScroll ? 'sdds-inline-tabs-fullbleed--back__show' : ''
-              }`}
-              onClick={() => this.scrollLeft()}
-              disabled={!this.showLeftScroll}
-            >
-              <sdds-icon name="chevron_left" size="20px"></sdds-icon>
-            </button>
-          </div>
+      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+        <div
+          role="list"
+          class="wrapper"
+          ref={(el) => {
+            this.navWrapperElement = el as HTMLElement;
+          }}
+        >
+          <slot />
         </div>
+        <button
+          class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
+          onClick={() => this.scrollRight()}
+          disabled={!this.showRightScroll}
+        >
+          <sdds-icon name="chevron_right" size="20px"></sdds-icon>
+        </button>
+        <button
+          class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
+          onClick={() => this.scrollLeft()}
+          disabled={!this.showLeftScroll}
+        >
+          <sdds-icon name="chevron_left" size="20px"></sdds-icon>
+        </button>
       </Host>
     );
   }

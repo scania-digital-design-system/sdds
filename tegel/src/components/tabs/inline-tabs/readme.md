@@ -12,6 +12,13 @@ This component neither accepts any properties, nor exposes any methods.
 | `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `'primary'` |
 
 
+## Events
+
+| Event                      | Description | Type                                    |
+| -------------------------- | ----------- | --------------------------------------- |
+| `sddsInlineTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; }>` |
+
+
 ## Dependencies
 
 ### Depends on
