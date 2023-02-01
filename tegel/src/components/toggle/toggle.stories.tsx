@@ -65,5 +65,4 @@ const Template = ({ size, disabled = false, headline = '' }) => {
   `);
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Native = Template.bind({});
