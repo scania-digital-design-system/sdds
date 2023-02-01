@@ -8,11 +8,13 @@
   --sdds-textfield-placeholder: var(--sdds-grey-500);
 
   //Disabled
-  --sdds-textfield-disabled-background: var(--sdds-white);
-  --sdds-textfield-disabled-color: var(--sdds-grey-400);
-  --sdds-textfield-disabled-placeholder: var(--sdds-grey-400);
-  --sdds-textfield-disabled-label: var(--sdds-grey-400);
-  --sdds-textfield-disabled-ps-color: var(--sdds-grey-400);
+  --sdds-textfield-background-disabled-primary: var(--sdds-grey-50);
+  --sdds-textfield-background-disabled-secondary: var(--sdds-white);
+  --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-primary);
+  --sdds-textfield-color-disabled: var(--sdds-grey-400);
+  --sdds-textfield-placeholder-disabled: var(--sdds-grey-400);
+  --sdds-textfield-label-disabled: var(--sdds-grey-400);
+  --sdds-textfield-ps-color-disabled: var(--sdds-grey-400);
 
   //Label
   --sdds-textfield-label-color: var(--sdds-grey-958);
@@ -53,13 +55,14 @@
   --sdds-textfield-icon-read-only-color: var(--sdds-grey-958);
   --sdds-textfield-icon-read-only-label-color: var(--sdds-grey-958);
 
-
   .sdds-mode-variant-primary {
     --sdds-textfield-background: var(--sdds-textfield-background-primary);
+    --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-primary);
   }
 
   .sdds-mode-variant-secondary {
     --sdds-textfield-background: var(--sdds-textfield-background-secondary);
+    --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-secondary);
   }
 }
 .sdds-theme-dark {
@@ -70,11 +73,13 @@
   --sdds-textfield-placeholder: var(--sdds-grey-600);
 
   //Disabled
-  --sdds-textfield-disabled-ps-color: var(--sdds-grey-700);
-  --sdds-textfield-disabled-color: var(--sdds-grey-800);
-  --sdds-textfield-disabled-background: var(--sdds-grey-868);
-  --sdds-textfield-disabled-placeholder: var(--sdds-grey-800);
-  --sdds-textfield-disabled-label: var(--sdds-grey-700);
+  --sdds-textfield-ps-color-disabled: var(--sdds-grey-700);
+  --sdds-textfield-color-disabled: var(--sdds-grey-800);
+  --sdds-textfield-background-disabled-primary: var(--sdds-grey-900);
+  --sdds-textfield-background-disabled-secondary: var(--sdds-grey-868);
+  --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-primary);
+  --sdds-textfield-placeholder-disabled: var(--sdds-grey-800);
+  --sdds-textfield-label-disabled: var(--sdds-grey-700);
 
   // Label
   --sdds-textfield-label-color: var(--sdds-grey-100);
@@ -114,9 +119,11 @@
 
   .sdds-mode-variant-primary {
     --sdds-textfield-background: var(--sdds-textfield-background-primary);
+    --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-primary);
   }
 
   .sdds-mode-variant-secondary {
     --sdds-textfield-background: var(--sdds-textfield-background-secondary);
+    --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-secondary);
   }
 }
