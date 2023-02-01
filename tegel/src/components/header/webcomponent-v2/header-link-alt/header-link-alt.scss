@@ -1,8 +1,6 @@
 @import '../../../../mixins/box-sizing';
 
 :host {
-  display: none;
-
   a {
     all: unset;
 
@@ -28,17 +26,5 @@
     // Icons have inherent margins within the image, so they are adjusted here
     margin-left: -6px;
     left: 3px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  :host([persistent]) {
-    display: block;
-  }
-}
-
-@media screen and (min-width: 672px) {
-  :host {
-    display: block;
   }
 }

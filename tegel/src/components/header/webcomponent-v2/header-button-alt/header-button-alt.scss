@@ -1,8 +1,6 @@
 @import '../../../../mixins/box-sizing';
 
 :host {
-  display: none;
-
   button {
     all: unset;
     @include sdds-box-sizing;
@@ -43,17 +41,5 @@
       color: var(--sdds-header-nav-item-dropdown-opened-color);
       border-color: var(--sdds-header-nav-item-dropdown-opened-bg);
     }
-  }
-}
-
-@media screen and (min-width: 375px) {
-  :host([persistent]) {
-    display: block;
-  }
-}
-
-@media screen and (min-width: 672px) {
-  :host {
-    display: block;
   }
 }

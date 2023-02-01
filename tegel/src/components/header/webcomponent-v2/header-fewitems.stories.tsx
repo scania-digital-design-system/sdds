@@ -118,12 +118,12 @@ const Template = () =>
       </sdds-header-launcher-grid>
     </sdds-header-launcher-v2>
 
-    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon>
+    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
       <img slot="button-label" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
       <sdds-header-dropdown-list-lg>
         <sdds-header-dropdown-list-lg-user
-          heading="Forename Surname"
-          subheading="Company AB">
+          heading="Name Nameson"
+          subheading="Company name">
         </sdds-header-dropdown-list-lg-user>
         <sdds-header-dropdown-list-lg-link>
           Link here

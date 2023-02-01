@@ -11,6 +11,18 @@
   z-index: 3;
   display: flex;
 
+  ::slotted(sdds-header-button-v2),
+  ::slotted(sdds-header-dropdown-v2) {
+    display: none;
+  }
+
+  @media screen and (min-width: 672px) {
+    ::slotted(sdds-header-button-v2),
+    ::slotted(sdds-header-dropdown-v2) {
+      display: block;
+    }
+  }
+
   .header-left {
     display: flex;
     list-style: none;
