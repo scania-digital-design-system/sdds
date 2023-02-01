@@ -37,13 +37,12 @@ export default {
     },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Change the components mode variant',
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     size: {
@@ -170,7 +169,7 @@ export default {
     minWidth: 'Default',
     size: 'Large',
     type: 'Text',
-  modeVariant: 'Primary',
+  modeVariant: 'Inherit from parent',
   },
 };
 
@@ -199,10 +198,10 @@ const Template = ({
     Medium: 'md',
     Small: 'sm',
   };
-  const modeVariantLookUp = {
-    Primary: 'primary',
-    Secondary: 'secondary',
-  };
+  // const modeVariantLookUp = {
+  //   Primary: 'primary',
+  //   Secondary: 'secondary',
+  // };
 
   return formatHtmlPreview(
     `
@@ -218,7 +217,7 @@ const Template = ({
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
-      mode-variant="${modeVariantLookUp[modeVariant]}"
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
       state="${stateValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
