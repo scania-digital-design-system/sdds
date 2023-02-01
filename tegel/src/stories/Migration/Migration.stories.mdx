@@ -673,6 +673,47 @@ to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
 
 ```
 
+## Inline Tabs & Folder Tabs
+
+### New component `<sdds-inline-tabs>` with child `<sdds-inline-tab>`
+### New component `<sdds-folder-tabs>` with child `<sdds-folder-tab>`
+
+Previously we had the `<sdds-inline-tabs>` and `<sdds-inline-tabs-fullbleed>`. These 
+reminded little of eachother in appearence and therefor it made more sense to treat
+these as two totally seperate component. To have a clear distiction between them we
+have now renamed the `<ssd-inline-tabs>` to `<sdds-folder-tabs>`, to futher highlight
+its look and its function.
+
+Both of these new version of the component comes with their own child element to
+represent each tab. The content that is displayed under each tab, is not longer handled
+by the component. And is therefor something that you as a user of the components will 
+have to implement yourself. We will of course be peresenting examples of how this could
+be implemented, and if you have any questions we are always here to help.
+
+The new components are available here in storybook:
+
+ * [Inline tabs](/docs/components-tabs--inline-tabs)
+ * [Folder tabs](/docs/components-tabs--folder-tabs)
+
+
+```jsx
+// New sdds-inline-tabs
+<sdds-inline-tabs>
+  <sdds-inline-tab label="Tab one"></sdds-inline-tab>
+  <sdds-inline-tab label="Tab two" selected></sdds-inline-tab>
+  <sdds-inline-tab disabled label="Tab three"></sdds-inline-tab>
+</sdds-inline-tabs>
+
+// New sdds-folder-tabs
+<sdds-folder-tabs>
+  <sdds-folder-tab label="First tab"></sdds-folder-tab>
+  <sdds-folder-tab label="Second tab" selected></sdds-folder-tab>
+  <sdds-folder-tab label="Third tab" disabled></sdds-folder-tab>
+</sdds-folder-tabs>
+```
+
+
+## THIS SHOULD BE REMOVE
 ## Inline Tabs
 
 [Webcomponent](/docs/components-tabs--inline-tabs)
