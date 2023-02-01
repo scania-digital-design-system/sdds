@@ -1,3 +1,5 @@
+import { formatHtmlPreview } from '../../utils/utils';
+
 export default {
   title: 'Examples/Form',
   parameters: {
@@ -5,36 +7,53 @@ export default {
   },
 };
 
-const Template = () => `
+const Template = () =>
+  formatHtmlPreview(
+    `
     <style>
         .demo-wrapper {
             width: 100%;
         }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
     </style>
     <div class="sdds-headline-01">Form example</div>
     <div class="demo-wrapper">
-        <form id="sdds-form" class="form">
+        <form id="sdds-form" name="my-form" class="form">
             <sdds-textfield
-                name="first textfield"
+                mode-variant="primary"
+                name="full-name"
                 type="text"
                 size="lg"
                 state="default"s
-                label="Label"
-                label-position="none"
+                label="Your name"
+                label-position="inside"
                 no-min-width
-                placeholder="Placeholder"
+                placeholder="Name"
                 >
             </sdds-textfield>
             <sdds-textarea
-                name="textarea"
+                mode-variant="secondary"
+                label="Tell me about yourself."
+                label-position="inside"
+                name="my-textarea"
                 type="text"
             ></sdds-textarea>
 
-            
-            <div>
-                <sdds-slider name="slider" tooltip>
-                </sdds-slider>
-            </div>
+            <sdds-toggle
+                name="my-toggle"
+                size="lg">
+                Try to toggle this toggle
+                </sdds-toggle>
+            <sdds-slider
+                name="years-at-scania"
+                label="How many years have you been at Scania?"
+                input>
+            </sdds-slider>
 
             <div>
                 <input
@@ -45,16 +64,20 @@ const Template = () => `
         </form>
     </div>
     <script>
-        var form = document.getElementById('sdds-form');
+        const form = document.querySelector('[name="my-form"]')
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             event.stopPropagation();
+
+            const formData = new FormData(form)
+            formData.forEach((value, key) => {
+                console.log('Key:', key, 'Value:', value');
+            })
+        });
         
-            const formData = new FormData(form);
-            console.log(...formData);
-            });
     </script>
-  `;
+  `,
+  );
 
 export const Form = Template.bind({});
