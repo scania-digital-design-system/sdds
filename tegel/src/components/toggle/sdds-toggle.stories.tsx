@@ -84,6 +84,8 @@ const Template = ({ label, size, disabled, headline, checked }) =>
         size="${size === 'Large' ? 'lg' : 'sm'}">
         ${label}
     </sdds-toggle>
+
+    <!-- Script tag with eventlistener for demo purposes. -->
     <script>
       document.addEventListener('sddsToggleChangeEvent', ()=>{
         console.log('Toggle with id: ', event.detail.toggleId, ' is ', event.detail.checked)
