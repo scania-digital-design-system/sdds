@@ -22,13 +22,13 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Change the components mode variant',
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Footer mode variant',
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
       if: { arg: 'topPart', neq: false },
     },
@@ -45,7 +45,7 @@ export default {
   },
 };
 
-const Template = ({ topPart, modeVariant }) =>
+const Template = ({ topPart, modeVariant= 'Inherit from parent' }) =>
   formatHtmlPreview(
     `
   <style>
@@ -57,9 +57,9 @@ const Template = ({ topPart, modeVariant }) =>
   </style>
 
   <div class="demo-wrapper">
-  <div class="sdds-footer ${
-    modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : '.sdds-mode-variant-primary'
-  }">
+  <div class="sdds-footer 
+  ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant.toLowerCase()}`: ''}
+ ">
     ${
       topPart
         ? `
