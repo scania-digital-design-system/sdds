@@ -118,19 +118,4 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
   );
 };
 
-export const Information = Template.bind({});
-
-export const Error = Template.bind({});
-Error.args = {
-  messageType: 'Error',
-};
-
-export const Warning = Template.bind({});
-Warning.args = {
-  messageType: 'Warning',
-};
-
-export const Success = Template.bind({});
-Success.args = {
-  messageType: 'Success',
-};
+export const Native = Template.bind({});
