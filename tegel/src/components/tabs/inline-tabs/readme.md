@@ -14,9 +14,9 @@ This component neither accepts any properties, nor exposes any methods.
 
 ## Events
 
-| Event                      | Description | Type                                    |
-| -------------------------- | ----------- | --------------------------------------- |
-| `sddsInlineTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; }>` |
+| Event                      | Description | Type                                                              |
+| -------------------------- | ----------- | ----------------------------------------------------------------- |
+| `sddsInlineTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
 
 
 ## Dependencies

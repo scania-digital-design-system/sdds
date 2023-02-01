@@ -49,9 +49,10 @@ const Template = ({ modeVariant }) =>
       </sdds-inline-tab>
    </sdds-inline-tabs>
 
+   <!-- Script tag with eventlistener for demo purposes. -->
    <script>
       document.addEventListener('sddsInlineTabChangeEvent',(event) => {
-        console.log('Tab:',event.detail.selectedTab,'was selected.')
+        console.log('Tab:',event.detail.selectedTab,'with index:',event.detail.selectedTabIndex ,'was selected.')
       })
     </script>
 `);

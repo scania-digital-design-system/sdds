@@ -53,6 +53,7 @@ const Template = ({ modeVariant }) => {
       </sdds-folder-tab>
     </sdds-folder-tabs>
 
+    <!-- Script tag with eventlistener for demo purposes. -->
     <script>
       document.addEventListener('sddsFolderTabChangeEvent',(event) => {
         console.log('Tab:', event.detail.selectedTab, 'was selected.')

@@ -20,6 +20,8 @@ export class InlineTabsFullbleed {
 
   @State() selectedTab: string;
 
+  @State() selectedTabIndex: number;
+
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
   componentWidth: number = 0; // visible width of this component
@@ -116,19 +118,29 @@ export class InlineTabsFullbleed {
   connectedCallback() {
     this.children = Array.from(this.host.children) as HTMLSddsInlineTabElement[];
 
-    this.children.forEach((item) => {
-      if (item.selected) {
-        this.selectedTab = item.label;
-      }
+    this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
         if (!item.disabled) {
-          this.children.forEach((test) => test.removeAttribute('selected'));
+          this.children.forEach((element) => element.removeAttribute('selected'));
           item.setAttribute('selected', '');
           this.selectedTab = item.label;
+          this.selectedTabIndex = index;
+          this.sddsInlineTabChangeEvent.emit({
+            selectedTab: this.selectedTab,
+            selectedTabIndex: this.selectedTabIndex,
+          });
         }
       });
+      if (item.selected) {
+        this.selectedTab = item.label;
+        this.selectedTabIndex = index;
+      }
+      return item;
     });
-
+    this.sddsInlineTabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    });
     this.children[0].classList.add('first');
     this.children[this.children.length - 1].classList.add('last');
   }
@@ -141,14 +153,13 @@ export class InlineTabsFullbleed {
   })
   sddsInlineTabChangeEvent: EventEmitter<{
     selectedTab: string;
+    selectedTabIndex: number;
   }>;
 
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
-    this.sddsInlineTabChangeEvent.emit({
-      selectedTab: this.selectedTab,
-    });
+    this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
   }
 
   render() {
