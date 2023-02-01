@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event                      | Description | Type                                    |
-| -------------------------- | ----------- | --------------------------------------- |
-| `sddsFolderTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; }>` |
+| Event                      | Description | Type                                                              |
+| -------------------------- | ----------- | ----------------------------------------------------------------- |
+| `sddsFolderTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
 
 
 ## Dependencies

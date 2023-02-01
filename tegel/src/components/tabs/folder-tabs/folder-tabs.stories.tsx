@@ -43,13 +43,13 @@ const Template = ({ modeVariant }) => {
   return formatHtmlPreview(`
     <sdds-folder-tabs
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
-      <sdds-folder-tab selected label="First tab">
+      <sdds-folder-tab label="First tab">
       </sdds-folder-tab>
-      <sdds-folder-tab label="Second tab" default>
+      <sdds-folder-tab label="Second tab" selected>
       </sdds-folder-tab>
       <sdds-folder-tab label="Third tab" disabled>
       </sdds-folder-tab>
-      <sdds-folder-tab label="Fourth tab" default>
+      <sdds-folder-tab label="Fourth tab">
       </sdds-folder-tab>
     </sdds-folder-tabs>
 

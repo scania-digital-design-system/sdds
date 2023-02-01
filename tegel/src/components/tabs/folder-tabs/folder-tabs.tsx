@@ -37,7 +37,9 @@ export class InlineTabs {
 
   @State() showRightScroll: boolean = false;
 
-  @State() selectedTab: string = null;
+  @State() selectedTab: string;
+
+  selectedTabIndex: number;
 
   startingTab: string = null; // name of the tab to show by default (infered from either "default-tab"-prop (on component) or "default"-prop (on a slotted child)
 
@@ -163,20 +165,31 @@ export class InlineTabs {
   }
 
   connectedCallback() {
+    this.calculateButtonWidth();
     this.children = Array.from(this.host.children) as HTMLSddsFolderTabElement[];
-    this.children.forEach((item) => {
-      if (item.selected) {
-        this.selectedTab = item.label;
-      }
+    this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
         if (!item.disabled) {
-          this.children.forEach((test) => test.removeAttribute('selected'));
+          this.children.forEach((element) => element.removeAttribute('selected'));
           item.setAttribute('selected', '');
           this.selectedTab = item.label;
+          this.selectedTabIndex = index;
+          this.tabChangeEvent.emit({
+            selectedTab: this.selectedTab,
+            selectedTabIndex: this.selectedTabIndex,
+          });
         }
       });
+      if (item.selected) {
+        this.selectedTab = item.label;
+        this.selectedTabIndex = index;
+      }
+      return item;
     });
-    this.calculateButtonWidth();
+    this.tabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    });
   }
 
   @Event({
@@ -187,14 +200,13 @@ export class InlineTabs {
   })
   tabChangeEvent: EventEmitter<{
     selectedTab: string;
+    selectedTabIndex: number;
   }>;
 
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
-    this.tabChangeEvent.emit({
-      selectedTab: this.selectedTab,
-    });
+    this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
   }
 
   render() {
