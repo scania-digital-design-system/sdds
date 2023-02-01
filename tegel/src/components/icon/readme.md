@@ -20,6 +20,8 @@
  - [sdds-datetime](../datetime)
  - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
  - [sdds-message](../message)
+ - [sdds-folder-tabs](../tabs/folder-tabs)
+ - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-modal](../modal)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
@@ -35,6 +37,8 @@ graph TD;
   sdds-datetime --> sdds-icon
   sdds-footer-link-group --> sdds-icon
   sdds-message --> sdds-icon
+  sdds-folder-tabs --> sdds-icon
+  sdds-inline-tabs --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon

@@ -1,0 +1,51 @@
+@import '../../../../mixins/focus-state';
+
+:host {
+  display: block;
+
+  button {
+    height: 100%;
+    width: 100%;
+    font: var(--sdds-headline-07);
+    letter-spacing: var(--sdds-headline-07-ls);
+    cursor: pointer;
+    color: var(--sdds-folder-tab-color);
+    opacity: var(--sdds-folder-tab-color-opacity);
+    background-color: var(--sdds-inline-tabs-tab-background);
+    padding: 16px;
+    min-width: 142px;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: left;
+    outline: none;
+    border: none;
+    border-top: 2px solid var(--sdds-inline-tabs-tab-background);
+    background-color: var(--sdds-folder-tab-background);
+
+    &.selected {
+      background-color: var(--sdds-folder-tab-background-selected);
+      border-top: 2px solid var(--sdds-inline-tabs-tab-indicator-background-active);
+      opacity: var(--sdds-folder-tab-color-opacity-selected);
+    }
+
+    &.disabled {
+      opacity: var(--sdds-folder-tab-color-opacity-disabled);
+      pointer-events: none;
+
+      &:focus {
+        opacity: var(--sdds-folder-tab-color-opacity-disabled);
+        outline: none;
+      }
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+
+      opacity: var(--sdds-folder-tab-color-opacity-focus);
+    }
+
+    &:hover {
+      opacity: var(--sdds-folder-tab-color-opacity-hover);
+    }
+  }
+}
