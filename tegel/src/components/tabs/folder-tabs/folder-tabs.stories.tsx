@@ -21,19 +21,12 @@ export default {
     ],
   },
   argTypes: {
-    autoHeight: {
-      name: 'Same height',
-      description: 'Make all tab panels as tall as the tallest tab panel',
-      control: {
-        type: 'boolean',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
     },
     backgrounds: {
       table: {
@@ -42,15 +35,14 @@ export default {
     },
   },
   args: {
-    autoHeight: false,
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 // eslint-disable-next-line arrow-body-style
 const Template = ({ modeVariant }) => {
   return formatHtmlPreview(`
-    <sdds-folder-tabs  
-      mode-variant="${modeVariant.toLowerCase()}">
+    <sdds-folder-tabs
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
       <sdds-folder-tab selected label="Tab with tall content">
       </sdds-folder-tab>
       <sdds-folder-tab label="Default tab" default>
@@ -58,6 +50,12 @@ const Template = ({ modeVariant }) => {
       <sdds-folder-tab label="Disabled tab" disabled>
       </sdds-folder-tab>
     </sdds-folder-tabs>
+
+    <script>
+      document.addEventListener('sddsFolderTabChangeEvent',(event) => {
+        console.log('Tab:', event.detail.selectedTab, 'was selected.')
+      })
+    </script>
 `);
 };
 

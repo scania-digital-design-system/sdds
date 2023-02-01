@@ -1,4 +1,14 @@
-import { Component, Host, State, Element, Prop, h, Watch } from '@stencil/core';
+import {
+  Component,
+  Host,
+  State,
+  Element,
+  Prop,
+  h,
+  Watch,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-folder-tabs',
@@ -169,50 +179,49 @@ export class InlineTabs {
     this.calculateButtonWidth();
   }
 
+  @Event({
+    eventName: 'sddsFolderTabChangeEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  tabChangeEvent: EventEmitter<{
+    selectedTab: string;
+  }>;
+
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
+    this.tabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+    });
   }
 
   render() {
     return (
-      <Host>
+      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         <div
-          class={`sdds-inline-tabs sdds-inline-tabs ${
-            this.modeVariant && `sdds-inline-tabs-${this.modeVariant}`
-          }`}
+          ref={(el) => {
+            this.navWrapperElement = el as HTMLDivElement;
+          }}
+          class="wrapper"
         >
-          <div class="sdds-inline-tabs-header">
-            <div
-              ref={(el) => {
-                this.navWrapperElement = el as HTMLDivElement;
-              }}
-              class="sdds-inline-tabs-wrapper"
-            >
-              <slot />
-            </div>
-            <div class="sdds-inline-tabs-header-navigation">
-              <button
-                class={`sdds-inline-tabs--forward ${
-                  this.showRightScroll ? 'sdds-inline-tabs--back__show' : ''
-                }`}
-                disabled={!this.showRightScroll}
-                onClick={() => this.scrollRight()}
-              >
-                <sdds-icon name="chevron_right" size="20px"></sdds-icon>
-              </button>
-              <button
-                class={`sdds-inline-tabs--back ${
-                  this.showLeftScroll ? 'sdds-inline-tabs--back__show' : ''
-                }`}
-                disabled={!this.showLeftScroll}
-                onClick={() => this.scrollLeft()}
-              >
-                <sdds-icon name="chevron_left" size="20px"></sdds-icon>
-              </button>
-            </div>
-          </div>
+          <slot />
         </div>
+        <button
+          class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
+          disabled={!this.showRightScroll}
+          onClick={() => this.scrollRight()}
+        >
+          <sdds-icon name="chevron_right" size="20px"></sdds-icon>
+        </button>
+        <button
+          class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
+          disabled={!this.showLeftScroll}
+          onClick={() => this.scrollLeft()}
+        >
+          <sdds-icon name="chevron_left" size="20px"></sdds-icon>
+        </button>
       </Host>
     );
   }

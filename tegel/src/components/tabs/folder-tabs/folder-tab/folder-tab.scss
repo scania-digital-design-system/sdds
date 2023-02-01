@@ -11,7 +11,7 @@
     cursor: pointer;
     color: var(--sdds-folder-tab-color);
     opacity: var(--sdds-folder-tab-color-opacity);
-    background-color: var(--sdds-inline-tabs-tab-background);
+    background-color: var(--sdds-folder-tabs-tab-background);
     padding: 16px;
     min-width: 142px;
     white-space: nowrap;
@@ -19,12 +19,12 @@
     text-align: left;
     outline: none;
     border: none;
-    border-top: 2px solid var(--sdds-inline-tabs-tab-background);
+    border-top: 2px solid var(--sdds-folder-tab-background);
     background-color: var(--sdds-folder-tab-background);
 
     &.selected {
       background-color: var(--sdds-folder-tab-background-selected);
-      border-top: 2px solid var(--sdds-inline-tabs-tab-indicator-background-active);
+      border-top: 2px solid var(--sdds-folder-tab-border-selected);
       opacity: var(--sdds-folder-tab-color-opacity-selected);
     }
 
