@@ -328,7 +328,7 @@ i.sdds-btn-icon[slot='icon'] {
   justify-content: center;
 }
 
-:host(sdds-button[onlyIcon]) {
+:host(sdds-button[only-icon]) {
   .sdds-btn-sm {
     padding: $btn-sm-only-icon-padding;
   }
@@ -342,7 +342,7 @@ i.sdds-btn-icon[slot='icon'] {
   }
 }
 
-:host(sdds-button:not([onlyIcon])) {
+:host(sdds-button:not([only-icon])) {
   display: flex;
   align-items: center;
 
