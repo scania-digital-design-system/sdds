@@ -75,8 +75,7 @@ const Template = ({label, disabled}) =>
     aria-described-by="option-2"
     ${label ? `label="${label} 2"` : ''}
     required=false
-    ${disabled ? 'disabled' : ''}
-    checked="true" >
+    ${disabled ? 'disabled' : ''} >
   </sdds-radio-button>
     
   </fieldset>
