@@ -14,14 +14,14 @@ export class InlineTabsChild {
 
   render() {
     return (
-      <Host>
+      <Host role="listitem">
         <button
           class={`
         ${this.selected ? 'selected' : ''}
         ${this.disabled ? 'disabled' : ''}
         `}
         >
-          {this.label}
+          <div class="label">{this.label}</div>
         </button>
       </Host>
     );

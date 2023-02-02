@@ -217,6 +217,7 @@ export class InlineTabs {
             this.navWrapperElement = el as HTMLDivElement;
           }}
           class="wrapper"
+          role="list"
         >
           <slot />
         </div>

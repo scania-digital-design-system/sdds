@@ -17,15 +17,14 @@ export class SddsInlineTab {
 
   render() {
     return (
-      <Host
-        role="listitem"
-        class={`
+      <Host role="listitem">
+        <button
+          class={`
       ${this.selected && 'selected'}
       ${this.disabled && 'disabled'}
       `}
-      >
-        <button>
-          <div class={`tab-text-container`}>{this.label}</div>
+        >
+          <div class={`label`}>{this.label}</div>
         </button>
       </Host>
     );

@@ -16,6 +16,8 @@
   --sdds-inline-tabs-scroll-btn-secondary: var(--sdds-grey-50);
 
   /* Tab */
+  --sdds-inline-tab-color-opacity: 0.6;
+  --sdds-inline-tab-color-opacity-selected: 1;
   --sdds-inline-tabs-tab-color: var(--sdds-grey-900);
   --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-900);
   --sdds-inline-tabs-tab-color-opacity-disabled: 0.6;
@@ -52,6 +54,8 @@
   --sdds-inline-tabs-scroll-btn-secondary: var(--sdds-grey-800);
 
   /* Tab */
+    --sdds-inline-tab-color-opacity: 0.6;
+    --sdds-inline-tab-color-opacity-selected: 1;
   --sdds-inline-tabs-tab-color: var(--sdds-blue-50);
   --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-50);
   --sdds-inline-tabs-tab-color-opacity-disabled: 0.38;

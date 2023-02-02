@@ -10,7 +10,6 @@
     letter-spacing: var(--sdds-headline-07-ls);
     cursor: pointer;
     color: var(--sdds-folder-tab-color);
-    opacity: var(--sdds-folder-tab-color-opacity);
     background-color: var(--sdds-folder-tabs-tab-background);
     padding: 16px;
     min-width: 142px;
@@ -22,18 +21,31 @@
     border-top: 2px solid var(--sdds-folder-tab-background);
     background-color: var(--sdds-folder-tab-background);
 
+    .label {
+      opacity: var(--sdds-folder-tab-color-opacity);
+    }
+
     &.selected {
       background-color: var(--sdds-folder-tab-background-selected);
       border-top: 2px solid var(--sdds-folder-tab-border-selected);
-      opacity: var(--sdds-folder-tab-color-opacity-selected);
+
+      .label {
+        opacity: var(--sdds-folder-tab-color-opacity-selected);
+      }
     }
 
     &.disabled {
-      opacity: var(--sdds-folder-tab-color-opacity-disabled);
       pointer-events: none;
 
-      &:focus {
+      .label {
         opacity: var(--sdds-folder-tab-color-opacity-disabled);
+      }
+
+      &:focus {
+        .label {
+          opacity: var(--sdds-folder-tab-color-opacity-disabled);
+        }
+
         outline: none;
       }
     }
