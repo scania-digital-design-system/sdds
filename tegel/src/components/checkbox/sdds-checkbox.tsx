@@ -1,4 +1,5 @@
-import { Component, h, Prop, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Method, Element } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-checkbox',
@@ -22,14 +23,10 @@ export class SddsCheckbox {
   /** Make the checkbox required */
   @Prop() required: boolean = false;
 
-  /** Aria-describedby for the checkboxes input element. */
-  @Prop() ariaDescribedby: string;
-
-  /** Aria-labellby for the checkboxes input element. */
-  @Prop() ariaLabelledby: string;
-
   /** Sets the checkbox as checked */
   @Prop({ reflect: true }) checked: boolean = false;
+
+  @Element() host: HostElement;
 
   /** Toggles the checked value of the component. */
   @Method()
@@ -59,8 +56,9 @@ export class SddsCheckbox {
     return (
       <div class="sdds-checkbox-webcomponent">
         <input
-          aria-describedby={this.ariaDescribedby}
-          aria-labelledby={this.ariaLabelledby}
+          aria-checked={this.checked}
+          aria-describedby={this.host.getAttribute('aria-describedby')}
+          aria-labelledby={this.host.getAttribute('aria-labelledby')}
           required={this.required}
           type="checkbox"
           name={this.name}

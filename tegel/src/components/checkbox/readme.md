@@ -7,16 +7,14 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                                               | Type      | Default               |
-| ----------------- | ------------------ | ------------------------------------------------------------------------- | --------- | --------------------- |
-| `ariaDescribedby` | `aria-describedby` | Aria-describedby for the checkboxes input element.                        | `string`  | `undefined`           |
-| `ariaLabelledby`  | `aria-labelledby`  | Aria-labellby for the checkboxes input element.                           | `string`  | `undefined`           |
-| `checkboxId`      | `checkbox-id`      | ID for the checkbox's input element. Randomly generated if not specified. | `string`  | `crypto.randomUUID()` |
-| `checked`         | `checked`          | Sets the checkbox as checked                                              | `boolean` | `false`               |
-| `disabled`        | `disabled`         | Sets the checkbox in a disabled state                                     | `boolean` | `false`               |
-| `label`           | `label`            | Label text for the checkbox                                               | `string`  | `undefined`           |
-| `name`            | `name`             | Name for the checkbox's input element.                                    | `string`  | `undefined`           |
-| `required`        | `required`         | Make the checkbox required                                                | `boolean` | `false`               |
+| Property     | Attribute     | Description                                                               | Type      | Default               |
+| ------------ | ------------- | ------------------------------------------------------------------------- | --------- | --------------------- |
+| `checkboxId` | `checkbox-id` | ID for the checkbox's input element. Randomly generated if not specified. | `string`  | `crypto.randomUUID()` |
+| `checked`    | `checked`     | Sets the checkbox as checked                                              | `boolean` | `false`               |
+| `disabled`   | `disabled`    | Sets the checkbox in a disabled state                                     | `boolean` | `false`               |
+| `label`      | `label`       | Label text for the checkbox                                               | `string`  | `undefined`           |
+| `name`       | `name`        | Name for the checkbox's input element.                                    | `string`  | `undefined`           |
+| `required`   | `required`    | Make the checkbox required                                                | `boolean` | `false`               |
 
 
 ## Events
