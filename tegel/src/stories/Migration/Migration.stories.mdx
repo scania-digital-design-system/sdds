@@ -718,6 +718,30 @@ Rename all instances of `nominwidth` to `no-min-width`.
 ></sdds-textfield>
 ```
 
+
+#### Removed slot for helper and added `helper` prop
+
+Previously the textfield has had its helper text set via a slot. This is now changed
+to be a prop instead, to align with other components.
+
+##### What action is required?
+
+Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
+`helper="${helper}"`
+
+```jsx
+// Old ❌
+<sdds-textfield
+>
+  <span slot='sdds-helper'>Helper text!</span>
+</sdds-textfield>
+
+// New ✅
+<sdds-textfield
+    helper="Helper text"
+></sdds-textfield>
+```
+
 ## Toast
 
 #### Changed class name 'sdds-toast-dismiss' to 'sdds-toast-close'

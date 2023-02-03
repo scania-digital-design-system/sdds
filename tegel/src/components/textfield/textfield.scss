@@ -268,6 +268,7 @@
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: flex;
+  gap: 8px;
   justify-content: space-between;
 
   & .sdds-textfield-textcounter {
@@ -326,8 +327,7 @@
     padding: 8px;
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
-  background-color: var(--sdds-textfield-icon-read-only-label-background);
-
+    background-color: var(--sdds-textfield-icon-read-only-label-background);
   }
 }
 
@@ -383,11 +383,8 @@
 // .sdds-textfield-textcounter {
 .sdds-textfield-helper-error-state {
   display: flex;
+  gap: 8px;
   flex-wrap: nowrap;
-
-  svg {
-    margin-right: 8px;
-  }
 }
 
 .sdds-textfield-textcounter {

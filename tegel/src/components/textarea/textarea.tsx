@@ -16,7 +16,7 @@ export class Textarea {
   @Prop() name: string = '';
 
   /** Helper text */
-  @Prop() helper: string = '';
+  @Prop() helper: string;
 
   /** Textarea cols attribute */
   @Prop() cols: number;
@@ -134,11 +134,15 @@ export class Textarea {
             </svg>
           </span>
           <span class="sdds-textarea-icon__readonly">
-          <sdds-icon name="edit_inactive"></sdds-icon>
+            <sdds-icon name="edit_inactive"></sdds-icon>
           </span>
           <span class="sdds-textarea-icon__readonly-label">This field is non-editable</span>
         </div>
-        {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
+        <span class={'sdds-textarea-helper'}>
+          {this.state === 'error' && <sdds-icon name="error" size="16px"></sdds-icon>}
+          {this.helper}
+        </span>
+
         {this.maxLength > 0 && (
           <div class={'sdds-textarea-textcounter'}>
             {this.value === null ? 0 : this.value?.length}

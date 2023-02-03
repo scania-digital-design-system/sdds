@@ -141,7 +141,7 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Success', 'Error'],
-    }
+    },
   },
   args: {
     placeholderText: 'Placeholder',
@@ -204,6 +204,7 @@ const Template = ({
       state="${stateValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
+      ${helper ? `helper="${helper}"` : ''}
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'readonly' : ''}
@@ -217,7 +218,6 @@ const Template = ({
         </span>`
             : ''
         }
-        ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
         ${
           suffix
             ? `
