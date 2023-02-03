@@ -26,7 +26,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Success', 'Information', 'Warning', 'Error'],
+      options: ['Information', 'Success', 'Warning', 'Error'],
       table: {
         defaultValue: {
           summary: 'information',
@@ -53,7 +53,7 @@ export default {
     },
   },
   args: {
-    type: 'Success',
+    type: 'Information',
     header: 'Header',
     subheader: 'Subheader text',
     link: false,
