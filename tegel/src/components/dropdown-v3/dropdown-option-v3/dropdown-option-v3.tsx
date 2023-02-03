@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, State } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { Host, HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-dropdown-option-v3',
@@ -48,41 +48,47 @@ export class DropdownOptionV3 {
 
   render() {
     return (
-      <div
-        class={`sdds-dropdown-option-webcomponent
+      <Host>
+        <div
+          class={`sdds-dropdown-option-webcomponent
         sdds-mode-variant-${this.modeVariant}`}
-      >
-        <li
-          class={`
+        >
+          <div
+            class={`
+          button-wrapper
           ${this.disabled ? 'disabled' : ''}
           ${this.selected ? 'selected' : ''}
           `}
-        >
-          <button
-            onClick={() => {
-              if (!this.multiselect) {
-                this.parentEl.open = !this.parentEl.open;
-              }
-            }}
-            class={`
+          >
+            <button
+              role="option"
+              onClick={() => {
+                if (!this.multiselect) {
+                  this.parentEl.open = !this.parentEl.open;
+                }
+              }}
+              class={`
             ${this.size}
             ${this.disabled ? 'disabled' : ''}
             ${this.selected ? 'selected' : ''}
             `}
-          >
-            {this.label}
-            {!this.multiselect && this.selected && <sdds-icon name="tick" size="16px"></sdds-icon>}
-            {this.multiselect && (
-              <input
-                class="sdds-form-input"
-                disabled={this.disabled}
-                type="checkbox"
-                checked={this.selected}
-              />
-            )}
-          </button>
-        </li>
-      </div>
+            >
+              {this.label}
+              {!this.multiselect && this.selected && (
+                <sdds-icon name="tick" size="16px"></sdds-icon>
+              )}
+              {this.multiselect && (
+                <input
+                  class="sdds-form-input"
+                  disabled={this.disabled}
+                  type="checkbox"
+                  checked={this.selected}
+                />
+              )}
+            </button>
+          </div>
+        </div>
+      </Host>
     );
   }
 }

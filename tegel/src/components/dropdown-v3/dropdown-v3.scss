@@ -200,7 +200,7 @@
   .dropdown-menu {
     position: relative;
 
-    ul {
+    [role='listbox'] {
       position: absolute;
       top: 100%;
       left: 0;
@@ -215,7 +215,7 @@
     }
 
     &.open-up {
-      ul {
+      [role='listbox'] {
         top: auto;
         transform-origin: bottom;
         box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
@@ -234,7 +234,7 @@
       }
 
       &.label-outside {
-        ul {
+        [role='listbox'] {
           &.lg {
             bottom: calc(56px + 20px);
           }
@@ -252,28 +252,28 @@
 
     &.open-down {
       &.helper-bottom {
-        ul {
+        [role='listbox'] {
           top: calc(100% - 19px);
         }
       }
     }
 
     &.open {
-      ul {
+      [role='listbox'] {
         transform: scaleY(1);
       }
     }
 
     &.open-auto {
       &.helper-bottom {
-        ul {
+        [role='listbox'] {
           top: calc(100% - 19px);
         }
       }
     }
 
     &.open {
-      ul {
+      [role='listbox'] {
         transform: scaleY(1);
       }
     }

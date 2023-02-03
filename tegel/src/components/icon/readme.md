@@ -22,6 +22,13 @@
  - [sdds-datetime](../datetime)
  - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
  - [sdds-dropdown-v2](../dropdown-v2)
+ - [sdds-dropdown-filter-option-v2](../dropdown-filter-v2/dropdown-filter-option-v2)
+ - [sdds-dropdown-filter-v2](../dropdown-filter-v2)
+ - [sdds-dropdown-multiselect-v2](../dropdown-multiselect-v2)
+ - [sdds-dropdown-option-v2](../dropdown-default-v2/dropdown-option-v2)
+ - [sdds-dropdown-option-v3](../dropdown-v3/dropdown-option-v3)
+ - [sdds-dropdown-v2](../dropdown-default-v2)
+ - [sdds-dropdown-v3](../dropdown-v3)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-slider](../slider)
@@ -37,6 +44,7 @@ graph TD;
   sdds-datetime --> sdds-icon
   sdds-dropdown-option-v2 --> sdds-icon
   sdds-dropdown-v2 --> sdds-icon
+  sdds-dropdown-v3 --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-slider --> sdds-icon

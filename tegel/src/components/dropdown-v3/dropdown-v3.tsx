@@ -1,4 +1,14 @@
-import { Component, Prop, State, Element, h, Listen } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  State,
+  Element,
+  h,
+  Listen,
+  Watch,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-v3',
@@ -7,6 +17,11 @@ import { Component, Prop, State, Element, h, Listen } from '@stencil/core';
   scoped: true,
 })
 export class DropdownV3 {
+  @Prop() dropdownId: string = crypto.randomUUID();
+
+  /** The name for the dropdowns input element. */
+  @Prop() name: string;
+
   /** The size of the component */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
@@ -318,7 +333,45 @@ export class DropdownV3 {
     }
   };
 
-  getLabels = () => this.value.map((item) => item.label);
+  getValue = () => {
+    if (this.filter && !this.multiselect) {
+      return this.value?.length > 0 ? this.value.map((item) => item.label).toString() : null;
+    }
+    if (this.multiselect && this.filter) {
+      return this.value?.length > 0 ? this.value.map((item) => item.label).toString() : null;
+    }
+    if (this.multiselect) {
+      return this.value?.length > 0
+        ? this.value.map((item) => item.label).toString()
+        : this.placeholder;
+    }
+    if (!this.filter && !this.multiselect) {
+      return this.value?.length > 0 ? this.value[0].label : this.placeholder;
+    }
+    throw new Error('Oops.. something went wrong.');
+  };
+
+  @Event({
+    eventName: 'dropdownChangeEvent',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  dropdownChangeEvent: EventEmitter<{
+    dropdownId: string;
+    value: Array<{
+      value: string;
+      label: string;
+    }>;
+  }>;
+
+  @Watch('value')
+  watchValue() {
+    this.dropdownChangeEvent.emit({
+      dropdownId: this.dropdownId,
+      value: this.value,
+    });
+  }
 
   render() {
     return (
@@ -338,82 +391,36 @@ export class DropdownV3 {
           {this.labelPosition === 'inside' && this.placeholder && (
             <div class={`label-inside ${this.size}`}>{this.label}</div>
           )}
-          {/* DEFAULT DROPDOWN */}
-          {!this.multiselect && !this.filter && (
-            <input
-              onClick={() => {
-                if (this.openDirection === 'auto') {
-                  this.getAutoOpenDirection();
-                }
-                this.open = !this.open;
-              }}
-              ref={(element) => (this.inputElement = element as HTMLInputElement)}
-              type="button"
-              value={this.value?.length > 0 ? this.value[0].label : this.placeholder}
-              class={`
+          <input
+            onKeyDown={(event) => {
+              if (event.code === 'Escape') {
+                this.open = false;
+                this.inputElement.blur();
+              }
+            }}
+            onInput={(event) => {
+              this.handleFilter(event);
+            }}
+            onClick={() => {
+              if (this.openDirection === 'auto') {
+                this.getAutoOpenDirection();
+              }
+              this.open = !this.open;
+            }}
+            name={this.name}
+            id={this.dropdownId}
+            ref={(element) => (this.inputElement = element as HTMLInputElement)}
+            type={this.filter ? 'text' : 'button'}
+            value={this.getValue()}
+            placeholder={this.placeholder}
+            class={`
                 ${this.size}
                 ${this.labelPosition}
                 ${this.error ? 'error' : ''}
                 ${this.open ? 'open' : 'closed'}
                 ${!this.value ? 'placeholder' : ''}
               `}
-            ></input>
-          )}
-          {/* MULTISELECT DRODOWN */}
-          {this.multiselect && !this.filter && (
-            <input
-              onClick={() => {
-                if (this.openDirection === 'auto') {
-                  this.getAutoOpenDirection();
-                }
-                this.open = !this.open;
-              }}
-              ref={(element) => (this.inputElement = element as HTMLInputElement)}
-              type="button"
-              value={this.value?.length > 0 ? this.getLabels().toString() : this.placeholder}
-              class={`
-              ${this.size}
-              ${this.labelPosition}
-              ${this.error ? 'error' : ''}
-              ${this.open ? 'open' : 'closed'}
-              ${!this.value ? 'placeholder' : ''}
-
-              `}
-            ></input>
-          )}
-          {this.filter && (
-            <input
-              onFocus={() => {
-                this.open = true;
-                if (this.openDirection === 'auto') {
-                  this.getAutoOpenDirection();
-                }
-              }}
-              onInput={(event) => {
-                this.handleFilter(event);
-              }}
-              onKeyDown={(event) => {
-                if (event.code === 'Escape') {
-                  this.open = false;
-                  this.inputElement.blur();
-                }
-              }}
-              ref={(element) => (this.inputElement = element as HTMLInputElement)}
-              placeholder={this.placeholder}
-              value={this.value?.length > 0 ? this.getLabels().toString() : null}
-              type="text"
-              name="Test"
-              id="test"
-              class={`
-              ${this.size}
-              ${this.labelPosition}
-              ${this.error ? 'error' : ''}
-              ${this.open ? 'open' : 'closed'}
-              ${!this.value ? 'placeholder' : ''}
-
-              `}
-            />
-          )}
+          ></input>
           <sdds-icon
             onClick={() => {
               this.open = !this.open;
@@ -441,7 +448,9 @@ export class DropdownV3 {
           ${this.labelPosition === 'outside' ? 'label-outside' : ''}
           `}
         >
-          <ul
+          <div
+            role="listbox"
+            aria-labelledby={this.dropdownId}
             class={`${this.size}`}
             ref={(element) => (this.dropdownList = element as HTMLElement)}
           >
@@ -464,7 +473,7 @@ export class DropdownV3 {
               <li class={`no-result ${this.size}`}>{this.noResultText}</li>
             )}
             {!this.data && <slot></slot>}
-          </ul>
+          </div>
         </div>
       </div>
     );
