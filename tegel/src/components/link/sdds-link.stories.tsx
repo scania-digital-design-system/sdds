@@ -26,12 +26,18 @@ export default {
       controls: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
     underline: {
       name: 'Underline',
       description: 'Underline under link text.',
       controls: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'true' },
       },
     },
     target: {
@@ -41,6 +47,9 @@ export default {
         type: 'radio',
       },
       options: ['_self', '_blank', '_parent', '_top'],
+      table: {
+        defaultValue: { summary: '_self' },
+      },
     },
   },
   args: {
@@ -52,7 +61,8 @@ export default {
 
 const Template = ({ disabled, underline, target }) =>
   formatHtmlPreview(
-    `<sdds-link
+    `
+    <sdds-link
         ${disabled ? 'disabled' : ''}
         ${underline ? '' : 'underline="false"'}
         link-href="#"
@@ -60,11 +70,6 @@ const Template = ({ disabled, underline, target }) =>
         >
         This is a link.
     </sdds-link>
-    <script>
-        document.addEventListener('sddsLinkClickedEvent', (e) => {
-            console.log('Link with id: ', event.detail.linkId, ' and href:', event.detail.href, 'was clicked.')
-        })
-    </script>
   `,
   );
 export const WebComponent = Template.bind({});
