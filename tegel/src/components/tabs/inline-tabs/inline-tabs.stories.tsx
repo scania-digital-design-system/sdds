@@ -23,7 +23,7 @@ export default {
   argTypes: {
     childType: {
       name: 'Child type',
-      description: 'DESCRIPTION',
+      description: 'Type of child element, button/link.',
       control: {
         type: 'radio',
       },
@@ -35,6 +35,9 @@ export default {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
   },
   args: {
