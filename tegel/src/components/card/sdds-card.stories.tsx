@@ -157,7 +157,7 @@ const Template = ({
         header-placement="${headerPlacement.toLowerCase()}"
         header="${header}"
         subheader="${subheader}"
-        header-img="${headerImg}"
+        ${headerImg ? `header-img="${headerImg}"` : ''}
         body-img="${bodyImg}"
         ${clickable ? 'clickable' : ''}
         ${bodyDivider ? 'body-divider' : ''}

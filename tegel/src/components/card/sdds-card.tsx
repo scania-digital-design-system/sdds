@@ -68,7 +68,9 @@ export class SddsCard {
     <div>
       {this.headerPlacement === 'above' && (
         <div class={`card-top ${this.headerPlacement}`}>
-          <img class={`card-top-image`} src={this.headerImg} alt={this.headerImgAlt} />
+          {this.headerImg && (
+            <img class={`card-top-image`} src={this.headerImg} alt={this.headerImgAlt} />
+          )}{' '}
           <div class={`card-top-header`}>
             <span class={`card-header`}>{this.header}</span>
             <span class={`card-subheader`}>{this.subheader}</span>
