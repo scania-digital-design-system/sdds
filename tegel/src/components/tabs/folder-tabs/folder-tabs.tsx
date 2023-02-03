@@ -60,8 +60,6 @@ export class InlineTabs {
 
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
-    console.log(this.buttonWidth);
-
     this.navWrapperElement.scrollLeft = scroll + this.buttonWidth;
     this.evaluateScrollButtons();
   }

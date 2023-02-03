@@ -134,7 +134,6 @@ export class InlineTabsFullbleed {
       if (item.selected) {
         this.selectedTab = item.innerHTML;
         this.selectedTabIndex = index;
-        console.log(index);
       }
       return item;
     });

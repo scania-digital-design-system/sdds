@@ -59,7 +59,7 @@ const Template = ({ modeVariant, childType }) =>
         Third tab
       </sdds-tab-link>
       <sdds-tab-link disabled link-href="#">
-      Fourth tab
+        Fourth tab
       </sdds-tab-link>
       `
       : ''
