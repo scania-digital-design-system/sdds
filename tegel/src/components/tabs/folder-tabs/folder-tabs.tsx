@@ -16,12 +16,9 @@ import {
   shadow: true,
 })
 export class InlineTabs {
-  @Element() host: HTMLElement;
-
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
-  /** current calculated width of each nav button (calculated from the largest one) */
   @State() buttonWidth: number = 0;
 
   @State() showLeftScroll: boolean = false;
@@ -31,6 +28,8 @@ export class InlineTabs {
   @State() selectedTab: string;
 
   @State() selectedTabIndex: number;
+
+  @Element() host: HTMLElement;
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
@@ -189,22 +188,22 @@ export class InlineTabs {
           class="wrapper"
           role="list"
         >
-          <slot />
+          <button
+            class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
+            disabled={!this.showLeftScroll}
+            onClick={() => this.scrollLeft()}
+          >
+            <sdds-icon name="chevron_left" size="20px"></sdds-icon>
+          </button>
+          <slot></slot>
+          <button
+            class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
+            disabled={!this.showRightScroll}
+            onClick={() => this.scrollRight()}
+          >
+            <sdds-icon name="chevron_right" size="20px"></sdds-icon>
+          </button>
         </div>
-        <button
-          class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
-          disabled={!this.showRightScroll}
-          onClick={() => this.scrollRight()}
-        >
-          <sdds-icon name="chevron_right" size="20px"></sdds-icon>
-        </button>
-        <button
-          class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
-          disabled={!this.showLeftScroll}
-          onClick={() => this.scrollLeft()}
-        >
-          <sdds-icon name="chevron_left" size="20px"></sdds-icon>
-        </button>
       </Host>
     );
   }
