@@ -58,6 +58,9 @@ const Template = ({ modeVariant, childType }) =>
       <sdds-tab-link selected link-href="#">
         Third tab
       </sdds-tab-link>
+      <sdds-tab-link disabled link-href="#">
+      Fourth tab
+      </sdds-tab-link>
       `
       : ''
   }
@@ -73,6 +76,10 @@ const Template = ({ modeVariant, childType }) =>
       <sdds-tab-button selected>
         Third tab
       </sdds-tab-button>
+      <sdds-tab-button disabled>
+        Fourth tab
+      </sdds-tab-button>
+      
       `
           : ''
       }
