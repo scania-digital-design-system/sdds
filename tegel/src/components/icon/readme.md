@@ -20,6 +20,7 @@
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-textarea](../textarea)
+ - [sdds-textfield](../textfield)
 
 ### Graph
 ```mermaid
@@ -29,6 +30,7 @@ graph TD;
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-textarea --> sdds-icon
+  sdds-textfield --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

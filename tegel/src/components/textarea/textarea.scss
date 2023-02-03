@@ -221,7 +221,9 @@
 .sdds-textarea-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
-  display: block;
+  display: flex;
+  gap: 8px;
+  align-items: center;
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textarea-helper);
   flex-grow: 2;
