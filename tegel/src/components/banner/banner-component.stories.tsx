@@ -94,7 +94,6 @@ export default {
       table: {
         defaultValue: { summary: 'false' },
       },
-      if: { arg: 'type', eq: 'Default' },
     },
   },
   args: {
