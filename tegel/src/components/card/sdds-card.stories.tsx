@@ -154,11 +154,11 @@ const Template = ({
         ${
           modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
         }
+        ${header ? `header="${header}"` : ''}
         header-placement="${headerPlacement.toLowerCase()}"
-        header="${header}"
-        subheader="${subheader}"
+        ${subheader ? `subheader="${subheader}"` : ''}
         ${headerImg ? `header-img="${headerImg}"` : ''}
-        body-img="${bodyImg}"
+        ${bodyImg ? `body-img="${bodyImg}"` : ''}
         ${clickable ? 'clickable' : ''}
         ${bodyDivider ? 'body-divider' : ''}
       >

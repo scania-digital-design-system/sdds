@@ -35,6 +35,10 @@
       &.no-header-img {
         padding-left: 0;
       }
+
+      &.single-line-header {
+        row-gap: 0;
+      }
     }
 
     &.below {
