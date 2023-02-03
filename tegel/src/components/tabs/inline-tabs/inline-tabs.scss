@@ -5,8 +5,8 @@
   @include sdds-box-sizing;
 
   display: flex;
-  position: relative;
   background-color: var(--sdds-inline-tabs-background);
+  position: relative;
 
   &::after {
     content: ' ';
@@ -42,32 +42,32 @@
 
   .scroll-right-button,
   .scroll-left-button {
-    color: var(--sdds-inline-tabs-scroll-btn-color);
+    color: var(--sdds-folder-tabs-scroll-btn-color);
     cursor: pointer;
-    width: 48px;
-    height: 100%;
     border: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: var(--sdds-inline-tabs-scroll-btn-background);
-    display: flex;
+    width: 0;
+    background-color: var(--sdds-folder-tabs-scroll-btn-background);
+    display: none;
     justify-content: center;
     align-items: center;
     opacity: 0;
     pointer-events: none;
+    position: sticky;
+    z-index: 1;
 
     &.show {
+      min-width: 48px;
+      display: block;
       opacity: 1;
       pointer-events: all;
     }
 
     &:hover {
-      background-color: var(--sdds-inline-tabs-scroll-btn-background-hover);
+      background-color: var(--sdds-folder-tabs-scroll-btn-background-hover);
     }
 
     &:active {
-      background-color: var(--sdds-inline-tabs-scroll-btn-background-active);
+      background-color: var(--sdds-folder-tabs-scroll-btn-background-active);
     }
 
     &:focus {
@@ -75,7 +75,7 @@
     }
 
     svg {
-      fill: var(--sdds-inline-tabs-scroll-btn-color);
+      fill: var(--sdds-folder-tabs-scroll-btn-color);
     }
   }
 

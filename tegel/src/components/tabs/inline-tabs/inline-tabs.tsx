@@ -192,22 +192,22 @@ export class InlineTabsFullbleed {
             this.navWrapperElement = el as HTMLElement;
           }}
         >
+          <button
+            class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
+            onClick={() => this.scrollLeft()}
+            disabled={!this.showLeftScroll}
+          >
+            <sdds-icon name="chevron_left" size="20px"></sdds-icon>
+          </button>
           <slot />
+          <button
+            class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
+            onClick={() => this.scrollRight()}
+            disabled={!this.showRightScroll}
+          >
+            <sdds-icon name="chevron_right" size="20px"></sdds-icon>
+          </button>
         </div>
-        <button
-          class={`scroll-right-button ${this.showRightScroll ? 'show' : ''}`}
-          onClick={() => this.scrollRight()}
-          disabled={!this.showRightScroll}
-        >
-          <sdds-icon name="chevron_right" size="20px"></sdds-icon>
-        </button>
-        <button
-          class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}
-          onClick={() => this.scrollLeft()}
-          disabled={!this.showLeftScroll}
-        >
-          <sdds-icon name="chevron_left" size="20px"></sdds-icon>
-        </button>
       </Host>
     );
   }
