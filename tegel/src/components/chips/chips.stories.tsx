@@ -78,11 +78,11 @@ export default {
 };
 
 const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }) => {
-  const stateValue = state === 'Active' ? 'sdds-chip__active' : '';
+  const stateValue = state === 'Active' ? 'sdds-chip-active' : '';
   const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
-    'Icon left': 'sdds-chip__icon-left',
-    'Icon right': 'sdds-chip__icon-right',
+    'Icon left': 'sdds-chip-icon-left',
+    'Icon right': 'sdds-chip-icon-right',
   };
 
   // TODO - Add dark theme to story
@@ -114,27 +114,4 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
     `);
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const IconRight = Template.bind({});
-IconRight.args = {
-  icon: true,
-  iconPosition: 'Icon right',
-};
-
-export const IconLeft = Template.bind({});
-IconLeft.args = {
-  icon: true,
-  iconPosition: 'Icon left',
-};
-
-export const Active = Template.bind({});
-Active.args = {
-  state: 'Active',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'Small',
-};
+export const Native = Template.bind({});
