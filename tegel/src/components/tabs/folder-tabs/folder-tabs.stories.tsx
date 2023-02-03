@@ -1,11 +1,10 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeTab from './folder-tab/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: { 'Inline Tabs': readme, 'Inline Tab': readmeTab },
+    notes: { 'Inline Tabs': readme },
     backgrounds: { default: 'white' },
     design: [
       {
@@ -21,6 +20,14 @@ export default {
     ],
   },
   argTypes: {
+    childType: {
+      name: 'Child type',
+      description: 'DESCRIPTION',
+      control: {
+        type: 'radio',
+      },
+      options: ['Button', 'Link'],
+    },
     modeVariant: {
       name: 'Mode variant',
       control: {
@@ -36,28 +43,61 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
+    childType: 'Button',
   },
 };
 // eslint-disable-next-line arrow-body-style
-const Template = ({ modeVariant }) => {
+const Template = ({ modeVariant, childType }) => {
   return formatHtmlPreview(`
     <sdds-folder-tabs
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
-      <sdds-folder-tab label="First tab">
-      </sdds-folder-tab>
-      <sdds-folder-tab label="Second tab" selected>
-      </sdds-folder-tab>
-      <sdds-folder-tab label="Third tab" disabled>
-      </sdds-folder-tab>
-      <sdds-folder-tab label="Fourth tab">
-      </sdds-folder-tab>
+      ${
+        childType === 'Link'
+          ? `
+      <sdds-tab-link link-href="#">
+        First tab
+      </sdds-tab-link>
+      <sdds-tab-link link-href="#">
+        Second tab
+      </sdds-tab-link>
+      <sdds-tab-link selected link-href="#">
+        Third tab
+      </sdds-tab-link>
+      `
+          : ''
+      }
+      ${
+        childType === 'Button'
+          ? `
+      <sdds-tab-button>
+        First tab
+      </sdds-tab-button>
+      <sdds-tab-button>
+        Second tab
+      </sdds-tab-button>
+      <sdds-tab-button selected>
+        Third tab
+      </sdds-tab-button>
+      `
+          : ''
+      }
     </sdds-folder-tabs>
 
     <!-- Script tag with eventlistener for demo purposes. -->
+    <div class="demo-container">
+      <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
+      <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
+    </div>
+
+    <!-- Script tag with eventlistener for demo purposes. -->
     <script>
-      document.addEventListener('sddsFolderTabChangeEvent',(event) => {
-        console.log('Tab:', event.detail.selectedTab, 'was selected.')
-      })
+    selectedTab = document.getElementsByClassName('selectedTab')[0]
+    selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
+  
+    document.addEventListener('sddsTabChangeEvent', (event) => {
+      selectedTab.innerHTML = event.detail.selectedTab
+      selectedTabIndex.innerHTML = event.detail.selectedTabIndex
+    })
     </script>
 `);
 };

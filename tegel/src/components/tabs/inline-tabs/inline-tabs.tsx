@@ -32,7 +32,7 @@ export class InlineTabsFullbleed {
 
   buttonWidth: number = 0; // current calculated width of the largest nav button
 
-  children: Array<HTMLSddsInlineTabElement> = [];
+  children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
 
   componentDidRender() {
     this.calculateButtonWidth();
@@ -72,17 +72,19 @@ export class InlineTabsFullbleed {
   }
 
   calculateButtonWidth() {
-    this.children = this.children.map((navButton: HTMLSddsInlineTabElement) => {
-      const width = navButton.clientWidth;
-      if (navButton.clientWidth > this.buttonWidth) {
-        this.buttonWidth = width;
-      }
-      if (this.buttonWidth > 0) {
-        // eslint-disable-next-line no-param-reassign
-        navButton.style.width = `${this.buttonWidth.toString()}px`;
-      }
-      return navButton;
-    });
+    this.children = this.children.map(
+      (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
+        const width = navButton.clientWidth;
+        if (navButton.clientWidth > this.buttonWidth) {
+          this.buttonWidth = width;
+        }
+        if (this.buttonWidth > 0) {
+          // eslint-disable-next-line no-param-reassign
+          navButton.style.width = `${this.buttonWidth.toString()}px`;
+        }
+        return navButton;
+      },
+    );
   }
 
   scrollRight() {
@@ -116,42 +118,53 @@ export class InlineTabsFullbleed {
   }
 
   connectedCallback() {
-    this.children = Array.from(this.host.children) as HTMLSddsInlineTabElement[];
+    this.children = Array.from(this.host.children) as
+      | HTMLSddsTabLinkElement[]
+      | HTMLSddsTabButtonElement[];
 
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
         if (!item.disabled) {
           this.children.forEach((element) => element.removeAttribute('selected'));
           item.setAttribute('selected', '');
-          this.selectedTab = item.label;
+          this.selectedTab = item.innerHTML;
           this.selectedTabIndex = index;
-          this.sddsInlineTabChangeEvent.emit({
-            selectedTab: this.selectedTab,
-            selectedTabIndex: this.selectedTabIndex,
-          });
         }
       });
       if (item.selected) {
-        this.selectedTab = item.label;
+        this.selectedTab = item.innerHTML;
         this.selectedTabIndex = index;
+        console.log(index);
       }
       return item;
-    });
-    this.sddsInlineTabChangeEvent.emit({
-      selectedTab: this.selectedTab,
-      selectedTabIndex: this.selectedTabIndex,
     });
     this.children[0].classList.add('first');
     this.children[this.children.length - 1].classList.add('last');
   }
 
+  componentWillRender() {
+    if (!this.selectedTab) {
+      this.calculateButtonWidth();
+      this.children = Array.from(this.host.children) as Array<
+        HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+      >;
+      this.children = this.children.map((item, index) => {
+        if (item.selected) {
+          this.selectedTab = item.innerHTML;
+          this.selectedTabIndex = index;
+        }
+        return item;
+      });
+    }
+  }
+
   @Event({
-    eventName: 'sddsInlineTabChangeEvent',
+    eventName: 'sddsTabChangeEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsInlineTabChangeEvent: EventEmitter<{
+  tabChangeEvent: EventEmitter<{
     selectedTab: string;
     selectedTabIndex: number;
   }>;
@@ -159,7 +172,15 @@ export class InlineTabsFullbleed {
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
+  }
+
+  @Watch('selectedTabIndex')
+  handleSelectedTabIndexChange() {
     this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
+    this.tabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    });
   }
 
   render() {

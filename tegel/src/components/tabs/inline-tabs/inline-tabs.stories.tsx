@@ -19,6 +19,14 @@ export default {
     ],
   },
   argTypes: {
+    childType: {
+      name: 'Child type',
+      description: 'DESCRIPTION',
+      control: {
+        type: 'radio',
+      },
+      options: ['Button', 'Link'],
+    },
     modeVariant: {
       name: 'Variant',
       control: {
@@ -28,33 +36,62 @@ export default {
     },
   },
   args: {
+    childType: 'Link',
     modeVariant: 'Inherit from parent',
   },
 };
 
-const Template = ({ modeVariant }) =>
+const Template = ({ modeVariant, childType }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs mode-variant="${modeVariant.toLowerCase()}">
-      <sdds-inline-tab label="Tab one"> 
-      </sdds-inline-tab>
-      <sdds-inline-tab label="Tab two" selected> 
-      </sdds-inline-tab> 
-      <sdds-inline-tab disabled label="Tab three"> 
-      </sdds-inline-tab>
-      <sdds-inline-tab label="Tab four"> 
-      </sdds-inline-tab>
-      <sdds-inline-tab label="Tab five"> 
-      </sdds-inline-tab>
-      <sdds-inline-tab label="Tab six"> 
-      </sdds-inline-tab>
+  ${
+    childType === 'Link'
+      ? `
+      <sdds-tab-link link-href="#">
+        First tab
+      </sdds-tab-link>
+      <sdds-tab-link link-href="#">
+        Second tab
+      </sdds-tab-link>
+      <sdds-tab-link selected link-href="#">
+        Third tab
+      </sdds-tab-link>
+      `
+      : ''
+  }
+      ${
+        childType === 'Button'
+          ? `
+      <sdds-tab-button>
+        First tab
+      </sdds-tab-button>
+      <sdds-tab-button>
+        Second tab
+      </sdds-tab-button>
+      <sdds-tab-button selected>
+        Third tab
+      </sdds-tab-button>
+      `
+          : ''
+      }
    </sdds-inline-tabs>
 
    <!-- Script tag with eventlistener for demo purposes. -->
+   <div class="demo-container">
+     <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
+     <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
+   </div>
+
+   <!-- Script tag with eventlistener for demo purposes. -->
    <script>
-      document.addEventListener('sddsInlineTabChangeEvent',(event) => {
-        console.log('Tab:',event.detail.selectedTab,'with index:',event.detail.selectedTabIndex ,'was selected.')
-      })
-    </script>
+   selectedTab = document.getElementsByClassName('selectedTab')[0]
+   selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
+ 
+   document.addEventListener('sddsTabChangeEvent', (event) => {
+     selectedTab.innerHTML = event.detail.selectedTab
+     selectedTabIndex.innerHTML = event.detail.selectedTabIndex
+   })
+   </script>
 `);
 
 export const InlineTabs = Template.bind({});

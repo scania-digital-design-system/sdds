@@ -39,7 +39,7 @@ export class InlineTabs {
 
   @State() selectedTab: string;
 
-  selectedTabIndex: number;
+  @State() selectedTabIndex: number;
 
   startingTab: string = null; // name of the tab to show by default (infered from either "default-tab"-prop (on component) or "default"-prop (on a slotted child)
 
@@ -51,7 +51,7 @@ export class InlineTabs {
 
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  children: Array<HTMLSddsFolderTabElement> = [];
+  children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
 
   initComponent(createInitialState = true) {
     if (createInitialState) {
@@ -61,17 +61,19 @@ export class InlineTabs {
   }
 
   calculateButtonWidth() {
-    this.children = this.children.map((navButton: HTMLSddsFolderTabElement) => {
-      const width = navButton.clientWidth;
-      if (navButton.clientWidth > this.buttonWidth) {
-        this.buttonWidth = width;
-      }
-      if (this.buttonWidth > 0) {
-        // eslint-disable-next-line no-param-reassign
-        navButton.style.width = `${this.buttonWidth.toString()}px`;
-      }
-      return navButton;
-    });
+    this.children = this.children.map(
+      (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
+        const width = navButton.clientWidth;
+        if (navButton.clientWidth > this.buttonWidth) {
+          this.buttonWidth = width;
+        }
+        if (this.buttonWidth > 0) {
+          // eslint-disable-next-line no-param-reassign
+          navButton.style.width = `${this.buttonWidth.toString()}px`;
+        }
+        return navButton;
+      },
+    );
   }
 
   calculateTabHeight() {
@@ -90,42 +92,6 @@ export class InlineTabs {
     });
 
     this.tabHeight = best;
-  }
-
-  componentDidRender() {
-    this.calculateTabHeight();
-  }
-
-  componentDidLoad() {
-    const resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        const componentWidth = entry.contentRect.width;
-        let buttonsWidth = 0;
-
-        const navButtons = Array.from(this.host.children);
-        navButtons.forEach((navButton: HTMLElement) => {
-          const style = window.getComputedStyle(navButton);
-          buttonsWidth +=
-            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-
-          navButton.classList.add('sdds-inline-tabs-fullbleed--tab');
-        });
-
-        this.componentWidth = componentWidth;
-        this.buttonsWidth = buttonsWidth;
-        this.scrollWidth = buttonsWidth - componentWidth;
-
-        if (this.buttonsWidth > this.componentWidth) {
-          this.evaluateScrollButtons();
-        } else {
-          this.showLeftScroll = false;
-          this.showRightScroll = false;
-        }
-      });
-    });
-
-    resizeObserver.observe(this.navWrapperElement);
-    this.calculateButtonWidth();
   }
 
   setInitialState() {
@@ -164,36 +130,80 @@ export class InlineTabs {
     }
   }
 
+  componentDidRender() {
+    this.calculateTabHeight();
+  }
+
+  componentDidLoad() {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const componentWidth = entry.contentRect.width;
+        let buttonsWidth = 0;
+
+        const navButtons = Array.from(this.host.children);
+        navButtons.forEach((navButton: HTMLElement) => {
+          const style = window.getComputedStyle(navButton);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        });
+
+        this.componentWidth = componentWidth;
+        this.buttonsWidth = buttonsWidth;
+        this.scrollWidth = buttonsWidth - componentWidth;
+
+        if (this.buttonsWidth > this.componentWidth) {
+          this.evaluateScrollButtons();
+        } else {
+          this.showLeftScroll = false;
+          this.showRightScroll = false;
+        }
+      });
+    });
+
+    resizeObserver.observe(this.navWrapperElement);
+    this.calculateButtonWidth();
+  }
+
   connectedCallback() {
     this.calculateButtonWidth();
-    this.children = Array.from(this.host.children) as HTMLSddsFolderTabElement[];
+    this.children = Array.from(this.host.children) as Array<
+      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+    >;
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
         if (!item.disabled) {
           this.children.forEach((element) => element.removeAttribute('selected'));
           item.setAttribute('selected', '');
-          this.selectedTab = item.label;
+          this.selectedTab = item.innerHTML;
           this.selectedTabIndex = index;
-          this.tabChangeEvent.emit({
-            selectedTab: this.selectedTab,
-            selectedTabIndex: this.selectedTabIndex,
-          });
         }
       });
       if (item.selected) {
-        this.selectedTab = item.label;
+        this.selectedTab = item.innerHTML;
         this.selectedTabIndex = index;
       }
       return item;
     });
-    this.tabChangeEvent.emit({
-      selectedTab: this.selectedTab,
-      selectedTabIndex: this.selectedTabIndex,
-    });
+  }
+
+  componentWillRender() {
+    if (!this.selectedTab) {
+      this.calculateButtonWidth();
+      this.children = Array.from(this.host.children) as Array<
+        HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+      >;
+      this.children = this.children.map((item, index) => {
+        if (item.selected) {
+          this.selectedTab = item.innerHTML;
+          this.selectedTabIndex = index;
+        }
+        return item;
+      });
+    }
   }
 
   @Event({
-    eventName: 'sddsFolderTabChangeEvent',
+    eventName: 'sddsTabChangeEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
@@ -206,7 +216,15 @@ export class InlineTabs {
   @Watch('selectedTab')
   handleSelectedTabChange() {
     this.host.setAttribute('selected-tab', this.selectedTab);
+  }
+
+  @Watch('selectedTabIndex')
+  handleSelectedTabIndexChange() {
     this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
+    this.tabChangeEvent.emit({
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    });
   }
 
   render() {
