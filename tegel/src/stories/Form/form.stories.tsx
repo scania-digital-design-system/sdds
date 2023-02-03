@@ -48,7 +48,16 @@ const Template = () =>
                 name="my-toggle"
                 size="lg">
                 Try to toggle this toggle
-                </sdds-toggle>
+            </sdds-toggle>
+
+            <sdds-toggle
+                required
+                name="required-toggle"
+                size="lg">
+                This toggle has to be toggled
+            </sdds-toggle>
+
+
             <sdds-slider
                 name="years-at-scania"
                 label="How many years have you been at Scania?"
@@ -64,7 +73,7 @@ const Template = () =>
         </form>
     </div>
     <script>
-        const form = document.querySelector('[name="my-form"]')
+        form = document.querySelector('[name="my-form"]')
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -72,7 +81,7 @@ const Template = () =>
 
             const formData = new FormData(form)
             formData.forEach((value, key) => {
-                console.log('Key:', key, 'Value:', value');
+                console.log('Key:', key, 'Value:', value);
             })
         });
         
