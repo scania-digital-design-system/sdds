@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu-dropdown-v2',
@@ -13,24 +13,29 @@ export class SideMenuDropdown {
 
   @Prop() active: boolean = false;
 
-  @Prop() noDropdownIcon: boolean = false;
-
   /** Placement of the dropdown menu relative to the button TODO*/
   @Prop() placement: 'start' | 'end' = 'start';
 
+  @State() isCollapsed: boolean = false;
+
+  @State() hoverState: { isHovered: boolean; updatedAt: number };
+
   @Element() host: HTMLElement;
 
-  @Listen('click', { target: 'window' })
-  onAnyClick(event: MouseEvent) {
-    // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
-    const isClickOutside = !event.composedPath().includes(this.host as any);
-    if (isClickOutside) {
-      this.open = false;
-    }
+  @Listen('pointerenter')
+  onEventPointerEnter() {
+    this.hoverState = { isHovered: true, updatedAt: Date.now() };
   }
 
-  toggleDropdown() {
-    this.open = !this.open;
+  @Listen('pointerleave')
+  onEventPointerLeave() {
+    const leftAt = Date.now();
+    const toleranceInMilliseconds = 200;
+    setTimeout(() => {
+      if (this.hoverState.isHovered && this.hoverState.updatedAt < leftAt) {
+        this.hoverState = { isHovered: false, updatedAt: Date.now() };
+      }
+    }, toleranceInMilliseconds);
   }
 
   render() {
@@ -39,21 +44,22 @@ export class SideMenuDropdown {
         <div
           class={{
             'state--open': this.open,
-            'state--closed': !this.open,
-            'state--placement-end': this.placement === 'end',
+            'state--collapsed': this.isCollapsed,
           }}
         >
           <sdds-side-menu-button-v2
             // isActive={this.open}
             onClick={() => {
-              this.toggleDropdown();
+              this.open = !this.open;
             }}
           >
-            <slot name="button-icon"></slot>
-            {this.buttonLabel}
-            <slot name="button-label"></slot>
-            {!this.noDropdownIcon && (
-              <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+            <slot name="button-icon" slot="icon"></slot>
+            {!this.isCollapsed && (
+              <Fragment>
+                {this.buttonLabel}
+                <slot name="button-label"></slot>
+                <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+              </Fragment>
             )}
           </sdds-side-menu-button-v2>
           <div class="menu">

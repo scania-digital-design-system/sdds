@@ -39,7 +39,6 @@ export class HeaderDropdown {
         <div
           class={{
             'state--open': this.open,
-            'state--closed': !this.open,
             'state--placement-end': this.placement === 'end',
           }}
         >

@@ -1,11 +1,15 @@
 :host {
-  height: 64px;
+  display: block;
   position: relative;
-  overflow: visible;
+
+  .dropdown-icon {
+    margin-left: auto;
+    transition: all 0.2s ease-in-out;
+  }
 
   .state--open {
     .dropdown-icon {
-      transform: rotateZ(180deg);
+      transform: rotateX(180deg);
     }
 
     .menu {
@@ -13,26 +17,37 @@
     }
   }
 
-  .state--placement-end {
+  .state--collapsed {
     .menu {
-      left: auto;
-      right: 0;
+      --side-menu-width: 272px;
+
+      position: absolute;
+      top: 0;
+      left: var(--side-menu-width);
+      overflow-y: auto;
+      box-shadow: var(--sdds-nav-dropdown-menu-box);
+      background-color: var(--sdds-header-app-launcher-menu-bg);
+    }
+  }
+
+  :not(.state--collapsed) {
+    .menu {
+      ::slotted(sdds-side-menu-dropdown-list) {
+        width: 100%;
+      }
     }
   }
 
   .menu {
     /** Should control only height, position, and overflow here. 
-      Width and appearance are set inside nested components */
+        Width and appearance are set inside nested components */
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 0;
 
-    --side-menu-width: 272px;
-
-    left: var(--side-menu-width);
-    overflow-y: auto;
-    box-shadow: var(--sdds-nav-dropdown-menu-box);
-    background-color: var(--sdds-header-app-launcher-menu-bg);
+    // width: 100%;
+    // position: static;
+    // left: auto;
+    // top: auto;
+    // box-shadow: none;
   }
 }

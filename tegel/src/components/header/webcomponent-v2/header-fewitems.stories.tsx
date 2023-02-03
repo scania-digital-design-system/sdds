@@ -146,33 +146,25 @@ const Template = () =>
     <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
 
     <sdds-side-menu-button-v2>
+      <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
       About us
     </sdds-side-menu-button-v2>
 
     <sdds-side-menu-button-v2>
+      <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
       Trucks
     </sdds-side-menu-button-v2>
 
     <sdds-side-menu-dropdown-v2>
-      <sdds-icon slot="button-icon" name="wifi" size="24"></sdds-icon>
+      <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
       <span slot="button-label">
-        Dropdown
+        Drivers
       </span>
       <sdds-side-menu-dropdown-list>
-        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
-        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
-        <sdds-side-menu-dropdown-list-link>Button</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
       </sdds-side-menu-dropdown-list>
     </sdds-side-menu-dropdown-v2>
-
-    <sdds-side-menu-dropdown-v1>
-      Dropdown
-      <sdds-icon name="chevron_down" size="24px"></sdds-icon>
-      <div slot="children">
-        <sdds-side-menu-button>Button</sdds-side-menu-button>
-        <sdds-side-menu-link>Link</sdds-side-menu-link>
-      </div>
-    </sdds-side-menu-dropdown-v1>
 
     <sdds-side-menu-button-v2 slot="end" class="demo-xs-hide">
       <sdds-icon slot="icon" name="profile" size="24px"> </sdds-icon>

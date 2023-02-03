@@ -37,6 +37,10 @@
       align-items: center;
       gap: 12px;
 
+      slot[name='icon']::slotted(*) {
+        margin-left: -4px; // makes left padding 20px if there is an icon
+      }
+
       &.collapsed {
         padding: 0;
         display: flex;
@@ -46,10 +50,6 @@
         // sdds-icon {
         //   padding-right: 0;
         // }
-      }
-
-      sdds-icon {
-        padding-right: 12px;
       }
 
       &.selected {

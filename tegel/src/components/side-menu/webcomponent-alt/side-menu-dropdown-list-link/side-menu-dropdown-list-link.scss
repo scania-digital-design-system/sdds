@@ -4,7 +4,10 @@
   height: 48px;
   list-style: none;
   width: 100%;
-  border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
+
+  .state--dropdown-has-button-icon {
+    padding-left: 56px;
+  }
 
   a {
     box-sizing: border-box;
