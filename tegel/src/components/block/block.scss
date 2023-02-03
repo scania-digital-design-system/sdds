@@ -9,20 +9,9 @@
   padding: 16px;
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
+  background-color: var(--sdds-block-background);
 
-  &-primary {
-    background-color: var(--sdds-block-background-primary);
-
-    .sdds-block {
-      background-color: var(--sdds-block-background-primary-nested);
-    }
-  }
-
-  &-secondary {
-    background-color: var(--sdds-block-background-secondary);
-
-    .sdds-block {
-      background-color: var(--sdds-block-background-secondary-nested);
-    }
+  .sdds-block {
+    background-color: var(--sdds-block-background-nested);
   }
 }
