@@ -42,7 +42,7 @@ button.sdds-chip {
     }
   }
 
-  &__active {
+  &-active {
     color: var(--sdds-chips-color-active);
     background-color: var(--sdds-chips-background-active);
 
@@ -58,11 +58,11 @@ button.sdds-chip {
   }
 
   &-sm,
-  &__small {
+  &-small {
     padding: 4px 16px;
   }
 
-  &__icon-left {
+  &-icon-left {
     padding-left: 32px;
 
     .sdds-chip-icon {
@@ -70,7 +70,7 @@ button.sdds-chip {
     }
   }
 
-  &__icon-right {
+  &-icon-right {
     padding-right: 32px;
     flex-flow: row-reverse;
 
