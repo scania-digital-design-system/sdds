@@ -1,10 +1,12 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
+import readmeLink from '../tab-link/readme.md';
+import readmeButton from '../tab-button/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: readme,
+    notes: { 'Inline tabs': readme, 'Tab button': readmeButton, 'Tab link:': readmeLink },
     design: [
       {
         name: 'Figma',
