@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `disabled` | `disabled` |             | `boolean` | `false` |
-| `selected` | `selected` |             | `boolean` | `false` |
+| Property   | Attribute  | Description                        | Type      | Default |
+| ---------- | ---------- | ---------------------------------- | --------- | ------- |
+| `disabled` | `disabled` | Disables the tab.                  | `boolean` | `false` |
+| `selected` | `selected` | Marks the tab as the selected one. | `boolean` | `false` |
 
 
 ----------------------------------------------

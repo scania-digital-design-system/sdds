@@ -33,6 +33,34 @@
         opacity: var(--sdds-folder-tab-color-opacity-selected);
       }
     }
+
+    &.disabled {
+      pointer-events: none;
+
+      .label {
+        opacity: var(--sdds-folder-tab-color-opacity-disabled);
+      }
+
+      &:focus {
+        .label {
+          opacity: var(--sdds-folder-tab-color-opacity-disabled);
+        }
+
+        outline: none;
+      }
+    }
+
+    &:focus {
+      @include sdds-focus-state;
+
+      opacity: var(--sdds-folder-tab-color-opacity-focus);
+    }
+
+    &:hover {
+      .label {
+        opacity: var(--sdds-folder-tab-color-opacity-hover);
+      }
+    }
   }
 
   a.inline-tab {
@@ -102,7 +130,7 @@
   }
 }
 
-:host(.folder-tab){
+:host(.folder-tab) {
   min-width: 142px;
 }
 

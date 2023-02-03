@@ -7,11 +7,20 @@ import { HostElement } from '@stencil/core/internal';
   shadow: true,
 })
 export class SddsTabLink {
+  /** Disables the tab. */
   @Prop() disabled: boolean = false;
 
+  /** Marks the tab as the selected one. */
   @Prop() selected: boolean = false;
 
+  /** Href for the link */
   @Prop() linkHref: string;
+
+  /** Where to open the linked URL */
+  @Prop() linkTarget: '_self' | '_blank' | '_parent' | '_top' = '_self';
+
+  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
+  @Prop() rel: string = 'noopener';
 
   @Element() host: HostElement;
 
@@ -40,6 +49,8 @@ export class SddsTabLink {
         ${this.disabled ? 'disabled' : ''}
         `}
           href={this.linkHref}
+          target={this.linkTarget}
+          rel={this.rel}
         >
           <div class="label">
             <slot></slot>

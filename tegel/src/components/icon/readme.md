@@ -22,6 +22,7 @@
  - [sdds-message](../message)
  - [sdds-folder-tabs](../tabs/folder-tabs)
  - [sdds-inline-tabs](../tabs/inline-tabs)
+ - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
@@ -39,6 +40,7 @@ graph TD;
   sdds-message --> sdds-icon
   sdds-folder-tabs --> sdds-icon
   sdds-inline-tabs --> sdds-icon
+  sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon

@@ -7,8 +7,10 @@ import { HostElement, State } from '@stencil/core/internal';
   shadow: true,
 })
 export class SddsTabButton {
+  /** Disables the tab. */
   @Prop() disabled: boolean = false;
 
+  /** Marks the tab as the selected one. */
   @Prop() selected: boolean = false;
 
   @State() tabIndex: number;

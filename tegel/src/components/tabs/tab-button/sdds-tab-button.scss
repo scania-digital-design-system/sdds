@@ -57,7 +57,9 @@
     }
 
     &:hover {
-      opacity: var(--sdds-folder-tab-color-opacity-hover);
+      .label {
+        opacity: var(--sdds-folder-tab-color-opacity-hover);
+      }
     }
   }
 
