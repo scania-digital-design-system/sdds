@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                       | Type                       | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | -------------------------- | ----------- |
-| `defaultTab`  | `default-tab`  | either use this (default-tab="...") or read attribute "default" from one of the slotted children. | `string`                   | `undefined` |
-| `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50                                      | `"primary" \| "secondary"` | `null`      |
+| Property      | Attribute      | Description                                                  | Type                       | Default |
+| ------------- | -------------- | ------------------------------------------------------------ | -------------------------- | ------- |
+| `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `null`  |
 
 
 ## Events

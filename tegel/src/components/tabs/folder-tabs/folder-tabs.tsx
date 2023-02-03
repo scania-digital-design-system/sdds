@@ -18,20 +18,11 @@ import {
 export class InlineTabs {
   @Element() host: HTMLElement;
 
-  /** either use this (default-tab="...") or read attribute "default" from one of the slotted children. */
-  @Prop() defaultTab: string;
-
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
-  /** array with metadata for slotted children */
-  @State() tabs: Array<any> = [];
-
   /** current calculated width of each nav button (calculated from the largest one) */
   @State() buttonWidth: number = 0;
-
-  /** current calculated tab height (calculated from the one with the most height) */
-  @State() tabHeight: number = 0;
 
   @State() showLeftScroll: boolean = false;
 
@@ -40,8 +31,6 @@ export class InlineTabs {
   @State() selectedTab: string;
 
   @State() selectedTabIndex: number;
-
-  startingTab: string = null; // name of the tab to show by default (infered from either "default-tab"-prop (on component) or "default"-prop (on a slotted child)
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
@@ -52,13 +41,6 @@ export class InlineTabs {
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
   children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
-
-  initComponent(createInitialState = true) {
-    if (createInitialState) {
-      this.setInitialState();
-    }
-    this.children = Array.from(this.tabs);
-  }
 
   calculateButtonWidth() {
     this.children = this.children.map(
@@ -74,30 +56,6 @@ export class InlineTabs {
         return navButton;
       },
     );
-  }
-
-  calculateTabHeight() {
-    let best = 0;
-    this.tabs.forEach((_, tabIndex) => {
-      const tab = this.tabs[tabIndex];
-      // TODO: add comment on what this does
-      const oldStyle = tab.element.style.display;
-      tab.element.style.display = '';
-      const height = tab.element.clientHeight;
-      tab.element.style.display = oldStyle;
-
-      if (height > best) {
-        best = height;
-      }
-    });
-
-    this.tabHeight = best;
-  }
-
-  setInitialState() {
-    if (this.defaultTab) {
-      this.startingTab = this.defaultTab;
-    }
   }
 
   scrollRight() {
@@ -128,10 +86,6 @@ export class InlineTabs {
     } else {
       this.showLeftScroll = true;
     }
-  }
-
-  componentDidRender() {
-    this.calculateTabHeight();
   }
 
   componentDidLoad() {
