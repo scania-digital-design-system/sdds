@@ -24,7 +24,7 @@ export class RadioButton {
   @Prop() ariaDescribedBy: string;
 
   /** Unique radio button identifier. */
-  @Prop() radioId: string;
+  @Prop() radioId: string = crypto.randomUUID();
   
   /** Decides if the radio button is checked or not. */
   @Prop({ reflect: true }) checked: boolean = false;
