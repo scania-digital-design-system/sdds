@@ -69,6 +69,10 @@
       &:hover {
         cursor: pointer;
       }
+
+      &.multiselect {
+        justify-content: initial;
+      }
     }
   }
 }
