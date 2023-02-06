@@ -19,13 +19,21 @@ export class SddsBlock {
       (item) => item.tagName === 'SDDS-BLOCK',
     ) as HTMLSddsBlockElement[];
     this.children.forEach((item) => {
-      item.setAttribute('mode-variant', this.modeVariant === 'primary' ? 'secondary' : 'primary');
+      if (!this.modeVariant) {
+        item.setAttribute('mode-variant', 'secondary');
+      } else {
+        item.setAttribute('mode-variant', this.modeVariant === 'primary' ? 'secondary' : 'primary');
+      }
     });
   }
 
   render() {
     return (
-      <div class={`sdds-block-webcomponent sdds-block-${this.modeVariant}`}>
+      <div
+        class={`sdds-block-webcomponent ${
+          this.modeVariant ? `sdds-block-${this.modeVariant}` : ''
+        }`}
+      >
         <slot></slot>
       </div>
     );
