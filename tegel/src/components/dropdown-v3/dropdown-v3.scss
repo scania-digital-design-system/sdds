@@ -19,6 +19,10 @@
       border-bottom: 2px solid var(--sdds-dropdown-border-bottom-open);
     }
 
+    &.focus {
+      border-bottom: 2px solid var(--sdds-dropdown-border-bottom-open);
+    }
+
     sdds-icon {
       transition: transform 0.2s ease-in-out;
     }
@@ -29,32 +33,49 @@
       }
     }
 
+    /*  This accounts for the bottom-border and to total height of the 
+        the total height of the component when it is opened. */
     &.lg {
-      height: calc(56px - 1px);
+      max-height: 56px;
+      height: 55px;
 
       &.open {
-        height: calc(56px - 2px);
+        height: 54px;
+
+        input {
+          padding-bottom: 1px;
+        }
       }
     }
 
     &.md {
-      height: calc(48px - 1px);
+      max-height: 48px;
+      height: 47px;
 
       &.open {
-        height: calc(48px - 2px);
+        height: 46px;
+
+        input {
+          padding-bottom: 1px;
+        }
       }
     }
 
     &.sm {
-      height: calc(40px - 1px);
+      max-height: 40px;
+      height: 39px;
 
       &.open {
-        height: calc(40px - 2px);
+        height: 38px;
+
+        input {
+          padding-bottom: 1px;
+        }
       }
     }
 
     input {
-      padding: 0 16px;
+      padding: 0 16px 1px;
       top: 0;
       left: 0;
       position: absolute;
@@ -77,6 +98,10 @@
 
       &.sm {
         height: 40px;
+      }
+
+      &.open {
+        padding-bottom: 0;
       }
     }
 

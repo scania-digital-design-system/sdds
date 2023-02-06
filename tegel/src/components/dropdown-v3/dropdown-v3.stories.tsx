@@ -16,17 +16,26 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     multiselect: {
       name: 'Multiselect',
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
     filter: {
       name: 'Filter',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     data: {
@@ -51,6 +60,9 @@ export default {
         type: 'radio',
       },
       options: ['Outside', 'Inside', 'No label'],
+      table: {
+        defaultValue: { summary: 'no-label' },
+      },
       if: { arg: 'filter', eq: false },
     },
     placeholder: {
@@ -73,6 +85,9 @@ export default {
       control: {
         type: 'radio',
       },
+      table: {
+        defaultValue: { summary: 'auto' },
+      },
       options: ['Up', 'Down', 'Auto'],
     },
     error: {
@@ -80,6 +95,9 @@ export default {
       description: 'Sets the dropdown-multiselect into an error state.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     defaultOption: {
@@ -275,7 +293,7 @@ const Template = ({
     </div>
 
     <script>
-        document.addEventListener('dropdownChangeEvent', (event)=> {
+        document.addEventListener('dropdownSelect', (event)=> {
           console.log('Dropdown with id:', event.detail.dropdownId, 'had selection made, chosen value(s) are:', event.detail.value)
         })
     </script>

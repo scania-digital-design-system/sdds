@@ -17,6 +17,10 @@ import {
   scoped: true,
 })
 export class DropdownV3 {
+  /** ID for the dropdown.
+   *
+   * **NOTE**: If you're listening for dropdown events you need to set this ID yourself to identify the dropdown, as the default ID is random and will be different every time.
+   */
   @Prop() dropdownId: string = crypto.randomUUID();
 
   /** The name for the dropdowns input element. */
@@ -74,11 +78,13 @@ export class DropdownV3 {
     selected?: any;
     disabled?: boolean;
     hidden?: boolean;
-  }> = [];
+  }>;
 
   @State() childElements: Array<HTMLElement>;
 
   @State() tabIndex: number = -1;
+
+  @State() focus: boolean = false;
 
   @Element() host: HTMLElement;
 
@@ -352,12 +358,12 @@ export class DropdownV3 {
   };
 
   @Event({
-    eventName: 'dropdownChangeEvent',
+    eventName: 'dropdownSelect',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  dropdownChangeEvent: EventEmitter<{
+  dropdownSelect: EventEmitter<{
     dropdownId: string;
     value: Array<{
       value: string;
@@ -367,7 +373,7 @@ export class DropdownV3 {
 
   @Watch('value')
   watchValue() {
-    this.dropdownChangeEvent.emit({
+    this.dropdownSelect.emit({
       dropdownId: this.dropdownId,
       value: this.value,
     });
@@ -377,7 +383,14 @@ export class DropdownV3 {
     return (
       <div class={`sdds-dropdown-webcomponent ${this.size} sdds-mode-variant-${this.modeVariant}`}>
         {this.labelPosition === 'outside' && <div class="label-outside">{this.label}</div>}
-        <div class={`dropdown-button ${this.size} ${this.open ? 'open' : 'closed'}`}>
+        <div
+          class={`
+          dropdown-button
+          ${this.size}
+          ${this.open ? 'open' : 'closed'}
+          ${this.focus ? 'focus' : ''}
+          `}
+        >
           {this.labelPosition === 'inside' && !this.placeholder && !this.filter && (
             <div
               class={`
@@ -399,13 +412,22 @@ export class DropdownV3 {
               }
             }}
             onInput={(event) => {
-              this.handleFilter(event);
+              if (this.filter) {
+                this.handleFilter(event);
+              }
             }}
             onClick={() => {
-              if (this.openDirection === 'auto') {
-                this.getAutoOpenDirection();
+              if (!this.filter) {
+                if (this.openDirection === 'auto') {
+                  this.getAutoOpenDirection();
+                }
+                this.open = !this.open;
               }
-              this.open = !this.open;
+            }}
+            onFocus={() => {
+              if (this.filter) {
+                this.open = true;
+              }
             }}
             name={this.name}
             id={this.dropdownId}
@@ -423,9 +445,10 @@ export class DropdownV3 {
           ></input>
           <sdds-icon
             onClick={() => {
-              this.open = !this.open;
-              if (this.open && this.filter) {
+              if (!this.open) {
                 this.inputElement.focus();
+              } else {
+                this.open = !this.open;
               }
             }}
             class={`${this.size}`}
