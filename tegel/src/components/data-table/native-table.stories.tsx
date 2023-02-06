@@ -134,22 +134,31 @@ export default {
   },
 };
 
-const Template = (args) =>
+const Template = ({
+  tableTitle,
+  dividers,
+  isCompact,
+  responsiveTable,
+  noMinWidthArg,
+  column1Width,
+  column2Width,
+  column3Width,
+}) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
-        ${args.dividers ? 'sdds-table--divider' : ''}
-        ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
-        ${args.isCompact ? 'sdds-table--compact' : ''}
-        ${args.responsiveTable ? 'sdds-table--responsive' : ''}
-        ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${dividers ? 'sdds-table--divider' : ''}
+        ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${isCompact ? 'sdds-table--compact' : ''}
+        ${responsiveTable ? 'sdds-table--responsive' : ''}
+        ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
     " >
-    ${args.tableTitle && `<caption>${args.tableTitle}</caption>`}
+    ${tableTitle && `<caption>${tableTitle}</caption>`}
     <thead>
       <tr>
-        <th ${args.column1Width ? `style="width: ${args.column1Width};"` : ''}>Header</th>
-        <th ${args.column2Width ? `style="width: ${args.column2Width};"` : ''}>Header</th>
-        <th ${args.column3Width ? `style="width: ${args.column3Width};"` : ''}>Header</th>
+        <th ${column1Width ? `style="width: ${column1Width};"` : ''}>Header</th>
+        <th ${column2Width ? `style="width: ${column2Width};"` : ''}>Header</th>
+        <th ${column3Width ? `style="width: ${column3Width};"` : ''}>Header</th>
       </tr>
     </thead>
      <tbody>
