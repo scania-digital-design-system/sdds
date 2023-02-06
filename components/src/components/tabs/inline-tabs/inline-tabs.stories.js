@@ -12,13 +12,13 @@ export default {
       defaultValue: false,
     },
     modeVariant: {
-      name: "Mode variant",
+      name: 'Mode variant',
       control: {
-        type: 'radio'
+        type: 'radio',
       },
-      options: [ 'Primary', 'Secondary' ],
-      defaultValue: 'Primary'
-    }
+      options: ['Primary', 'Secondary'],
+      defaultValue: 'Primary',
+    },
   },
 };
 
@@ -33,7 +33,7 @@ const Template = ({ autoHeight = false, modeVariant }) => `
   </style>
 
   <sdds-inline-tabs ${autoHeight ? 'auto-height' : ''} mode-variant="${modeVariant.toLowerCase()}">
-    <div data-name="Tab very long name">
+    <div data-name="Tab very long name even longeeer">
       Content for tab 1<br>
       This tabs has a lot of content so this is the one that decides the height of the container if height="auto" is specified on the component.
       <br><br>

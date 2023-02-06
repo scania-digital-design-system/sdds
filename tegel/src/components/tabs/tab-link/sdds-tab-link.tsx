@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { HostElement, Method, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-tab-link',
@@ -22,9 +22,16 @@ export class SddsTabLink {
   /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
   @Prop() rel: string = 'noopener';
 
+  @State() tabWidth: number;
+
   @Element() host: HostElement;
 
   type: 'folder-tab' | 'inline-tab';
+
+  @Method()
+  async setTabWidth(width: number) {
+    this.tabWidth = width;
+  }
 
   componentWillRender() {
     switch (this.host.parentElement.tagName) {

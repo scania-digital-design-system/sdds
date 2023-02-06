@@ -44,17 +44,15 @@ export class InlineTabs {
   calculateButtonWidth() {
     this.children = this.children.map(
       (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
-        const width = navButton.clientWidth;
-        if (navButton.clientWidth > this.buttonWidth) {
-          this.buttonWidth = width;
-        }
-        if (this.buttonWidth > 0) {
-          // eslint-disable-next-line no-param-reassign
-          navButton.style.width = `${this.buttonWidth.toString()}px`;
+        if (navButton.offsetWidth > this.buttonWidth) {
+          this.buttonWidth = navButton.offsetWidth;
         }
         return navButton;
       },
     );
+    this.children.forEach((item) => {
+      item.setTabWidth(this.buttonWidth);
+    });
   }
 
   scrollRight() {
@@ -139,7 +137,6 @@ export class InlineTabs {
 
   componentWillRender() {
     if (!this.selectedTab) {
-      this.calculateButtonWidth();
       this.children = Array.from(this.host.children) as Array<
         HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
       >;
@@ -151,6 +148,10 @@ export class InlineTabs {
         return item;
       });
     }
+  }
+
+  componentDidUpdate() {
+    this.calculateButtonWidth();
   }
 
   @Event({

@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
-import { HostElement, State } from '@stencil/core/internal';
+import { HostElement, Method, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-tab-button',
@@ -15,9 +15,16 @@ export class SddsTabButton {
 
   @State() tabIndex: number;
 
+  @State() tabWidth: number;
+
   @Element() host: HostElement;
 
   type: 'folder-tab' | 'inline-tab';
+
+  @Method()
+  async setTabWidth(width: number) {
+    this.tabWidth = width;
+  }
 
   componentWillRender() {
     switch (this.host.parentElement.tagName) {
@@ -40,6 +47,7 @@ export class SddsTabButton {
         ${this.type}`}
       >
         <button
+          style={{ width: `${this.tabWidth}px` }}
           class={`
         ${this.type}
         ${this.selected ? 'selected' : ''}

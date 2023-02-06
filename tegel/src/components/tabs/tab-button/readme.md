@@ -13,6 +13,19 @@
 | `selected` | `selected` | Marks the tab as the selected one. | `boolean` | `false` |
 
 
+## Methods
+
+### `setTabWidth(width: number) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

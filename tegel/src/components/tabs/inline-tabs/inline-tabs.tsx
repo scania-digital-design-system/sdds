@@ -30,7 +30,7 @@ export class InlineTabsFullbleed {
 
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  buttonWidth: number = 0; // current calculated width of the largest nav button
+  @State() buttonWidth: number = 0; // current calculated width of the largest nav button
 
   children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
 
@@ -39,6 +39,8 @@ export class InlineTabsFullbleed {
   }
 
   componentDidLoad() {
+    this.calculateButtonWidth();
+
     const resizeObserver = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         const componentWidth = entry.contentRect.width;
@@ -74,17 +76,14 @@ export class InlineTabsFullbleed {
   calculateButtonWidth() {
     this.children = this.children.map(
       (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
-        const width = navButton.clientWidth;
-        if (navButton.clientWidth > this.buttonWidth) {
-          this.buttonWidth = width;
-        }
-        if (this.buttonWidth > 0) {
-          // eslint-disable-next-line no-param-reassign
-          navButton.style.width = `${this.buttonWidth.toString()}px`;
+        if (navButton.offsetWidth > this.buttonWidth) {
+          this.buttonWidth = navButton.offsetWidth;
         }
         return navButton;
       },
     );
+    // eslint-disable-next-line no-return-assign, no-param-reassign
+    this.children.forEach((item) => (item.style.width = `${this.buttonWidth}px`));
   }
 
   scrollRight() {
