@@ -30,7 +30,10 @@ export default {
       options: ['Button', 'Link'],
     },
     modeVariant: {
-      name: 'Variant',
+      name: 'Mode variant',
+      description:
+        'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
+
       control: {
         type: 'radio',
       },
@@ -41,8 +44,8 @@ export default {
     },
   },
   args: {
-    childType: 'Link',
     modeVariant: 'Inherit from parent',
+    childType: 'Link',
   },
 };
 
@@ -88,7 +91,7 @@ const Template = ({ modeVariant, childType }) =>
       }
    </sdds-inline-tabs>
 
-   <!-- Script tag with eventlistener for demo purposes. -->
+   <!-- Demo container. -->
    <div class="demo-container">
      <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
      <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>

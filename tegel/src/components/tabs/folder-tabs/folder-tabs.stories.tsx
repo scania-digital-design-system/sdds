@@ -32,6 +32,8 @@ export default {
     },
     modeVariant: {
       name: 'Mode variant',
+      description:
+        'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -94,7 +96,7 @@ const Template = ({ modeVariant, childType }) => {
       }
     </sdds-folder-tabs>
 
-    <!-- Script tag with eventlistener for demo purposes. -->
+    <!-- Demo container. -->
     <div class="demo-container">
       <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
       <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
