@@ -3,9 +3,7 @@
  /* Horizontal divider */
  --sdds-navigation-tabs-horizontal-divider-background: var(--sdds-blue-900);
  --sdds-navigation-tabs-horizontal-divider-opacity: 0.16;
- --sdds-navigation-tabs-background-primary: var(--sdds-white);
- --sdds-navigation-tabs-background-secondary: var(--sdds-grey-50);
- --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-primary);
+ --sdds-navigation-tabs-background: var(--sdds-white);
 
   /* Scroll button */
  --sdds-navigation-tabs-scroll-btn-background: var(--sdds-grey-50);
@@ -22,22 +20,12 @@
  --sdds-navigation-tabs-tab-color-active: var(--sdds-grey-958);
  --sdds-navigation-tabs-tab-indicator-background-active: var(--sdds-blue-400);
 
- .sdds-mode-variant-primary {    
- --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-primary);
-  }
-
-  .sdds-mode-variant-secondary {
- --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-secondary);
-  }
 }
 
 .sdds-theme-dark {
   --sdds-navigation-tabs-horizontal-divider-background: var(--sdds-blue-100);
  --sdds-navigation-tabs-horizontal-divider-opacity: 0.24;
  --sdds-navigation-tabs-background: var(--sdds-grey-900);
- --sdds-navigation-tabs-background-primary: var(--sdds-grey-958);
- --sdds-navigation-tabs-background-secondary: var(--sdds-grey-900);
- --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-primary);
 
   /* Scroll button */
  --sdds-navigation-tabs-scroll-btn-background: var(--sdds-grey-800);
@@ -54,11 +42,4 @@
  --sdds-navigation-tabs-tab-color-active: var(--sdds-grey-50);
  --sdds-navigation-tabs-tab-indicator-background-active: var(--sdds-blue-300);
 
- .sdds-mode-variant-primary {    
-  --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-primary);
-   }
- 
-   .sdds-mode-variant-secondary {
-  --sdds-navigation-tabs-background: var( --sdds-navigation-tabs-background-secondary);
-   }
 }

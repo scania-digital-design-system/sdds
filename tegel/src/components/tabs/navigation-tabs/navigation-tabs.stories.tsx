@@ -18,27 +18,12 @@ export default {
       },
     ],
   },
-  argTypes: {
-    modeVariant: {
-      name: 'Mode variant',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
-  },
-  args: {
-    modeVariant: 'Inherit from parent',
-  },
 };
 
 // Why role="link" on a disabled link: https://www.scottohara.me/blog/2021/05/28/disabled-links.html
-const Template = ({ modeVariant }) =>
+const Template = () =>
   formatHtmlPreview(`
-    <sdds-navigation-tabs  ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
+    <sdds-navigation-tabs>
       <a href="#" class="sdds-navigation-tabs-tab-active">Active tab</a>
       <a href="#">Tab name</a>
       <a href="#">Tab name</a>
