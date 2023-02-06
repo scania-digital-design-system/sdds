@@ -35,7 +35,7 @@ export class RadioButton {
   /** Decides if the radio button is disabled or not. */
   @Prop() disabled: boolean = false;
 
-  /** Sends unique radio button identifier and status when it is checked. */
+  /** Sends unique radio button identifier and status when it is checked. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
   @Event({
     eventName: 'sddsRadioButtonChangeEvent',
     composed: true,
