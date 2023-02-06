@@ -13,6 +13,19 @@
 | `state`     | `state`      | State of the stepper-item        | `"current" \| "error" \| "success" \| "upcoming"` | `'upcoming'` |
 
 
+## Methods
+
+### `setWidth(width: any) => Promise<void>`
+
+Method to set the width if the stepper item based on its siblings widht, used by the parent element.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

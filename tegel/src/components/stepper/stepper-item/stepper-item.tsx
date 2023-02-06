@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element, State } from '@stencil/core';
+import { Component, Host, h, Prop, Element, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-stepper-item',
@@ -32,6 +32,12 @@ export class SddsStepper {
     this.labelPosition = this.stepperEl.labelPosition;
     this.size = this.stepperEl.size;
     this.hideLabel = this.stepperEl.hideLabels;
+  }
+
+  /** Method to set the width if the stepper item based on its siblings widht, used by the parent element. */
+  @Method()
+  async setWidth(width) {
+    this.el.style.width = `${width}px`;
   }
 
   render() {

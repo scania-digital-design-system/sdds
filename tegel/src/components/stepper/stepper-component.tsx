@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { HostElement, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-stepper',
@@ -18,14 +19,28 @@ export class SddsStepper {
   /** Hides the label for the child components if true. */
   @Prop() hideLabels: boolean = false;
 
-  @Element() el: HTMLElement;
+  @State() width: number = 0;
+
+  @Element() host: HostElement;
+
+  children: Array<HTMLSddsStepperItemElement>;
 
   componentWillLoad() {
-    this.el.children[0].classList.add('first');
-    this.el.children[this.el.children.length - 1].classList.add('last');
+    this.host.children[0].classList.add('first');
+    this.host.children[this.host.children.length - 1].classList.add('last');
     if (this.direction === 'vertical') {
       this.labelPosition = 'aside';
     }
+  }
+
+  componentDidLoad() {
+    this.children = Array.from(this.host.children) as Array<HTMLSddsStepperItemElement>;
+    this.children.forEach((item) => {
+      if (item.offsetWidth > this.width) {
+        this.width = item.offsetWidth;
+      }
+    });
+    this.children.forEach((item) => item.setWidth(this.width));
   }
 
   render() {
