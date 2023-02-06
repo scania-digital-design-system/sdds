@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-block',
@@ -11,11 +11,9 @@ export class SddsBlock {
 
   render() {
     return (
-      <Host>
-        <div class={`sdds-block-webcomponent sdds-block-${this.modeVariant}`}>
-          <slot></slot>
-        </div>
-      </Host>
+      <div class={`sdds-block-webcomponent sdds-block-${this.modeVariant}`}>
+        <slot></slot>
+      </div>
     );
   }
 }
