@@ -63,7 +63,7 @@ export default {
       control: {
         type: 'boolean',
       },
-      description: 'Sets a fluid width in certain components.',
+      description: 'Sets a fluid width on the component.',
       if: { arg: 'onlyIcon', truthy: false },
       table: {
         defaultValue: { summary: false },
