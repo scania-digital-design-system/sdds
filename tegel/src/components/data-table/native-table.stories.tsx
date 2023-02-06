@@ -9,11 +9,6 @@ export default {
       control: {
         type: 'text',
       },
-      table: {
-        defaultValue: {
-          summary: '',
-        },
-      },
     },
     dividers: {
       name: 'Vertical dividers',
