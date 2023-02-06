@@ -732,43 +732,6 @@ The new components are available here in storybook:
 </sdds-folder-tabs>
 ```
 
-
-## THIS SHOULD BE REMOVE
-## Inline Tabs
-
-[Webcomponent](/docs/components-tabs--inline-tabs)
-
-#### Created a new "child-element".
-
-Previously the `<sdds-inline-tabs>` have used any native HTMLElement as it's child. This element
-needed the following props `data-name`, `data-default` and `aria-disabled`. We have now created
-our own child element `<sdds-inline-tab>` that should be used to wrap the tabs content. This
-element has corresponding props to its predecessor:
-`data-name` -> `label` 
-`data-default` -> `default` 
-`aria-disabled` -> `disabled` 
-
-##### What action is required?
-
-Change all instances of `<sdds-inline-tabs>` with child `<div>` to use `<sdds-inline-tab>` as 
-child instead.
-
-```jsx
-// Old ❌
-<sdds-inline-tabs>
-  <div data-name="First tab">Tab panel 1</div>
-  <div data-name="Default tab" data-default="true">Tab panel 2</div>
-  <div data-name="Disabled tab" aria-disabled="true">Tab panel 3</div>
-</sdds-inline-tabs>
-
-// New ✅
-<sdds-inline-tabs mode-variant="primary">
-  <sdds-inline-tab label="First tab">Tab panel 1</sdds-inline-tab>
-  <sdds-inline-tab label="Default tab" default>Tab panel 2</sdds-inline-tab>
-  <sdds-inline-tab label="Disabled tab" disabled>Tab panel 3</sdds-inline-tab>
-</sdds-inline-tabs>
-```
-
 ## Textarea
 
 [Web Component](/docs/components-textarea--default)
