@@ -36,11 +36,6 @@ export default {
         type: 'number',
       },
       if: { arg: 'type', eq: 'Horizontal' },
-      table: {
-        defaultValue: {
-          summary: '150',
-        },
-      },
     },
     height: {
       name: 'Height',
@@ -49,11 +44,6 @@ export default {
         type: 'number',
       },
       if: { arg: 'type', eq: 'Vertical' },
-      table: {
-        defaultValue: {
-          summary: '150',
-        },
-      },
     },
     direction: {
       name: 'Direction',
