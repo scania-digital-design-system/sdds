@@ -57,6 +57,7 @@ export class SddsCheckbox {
       <div class="sdds-checkbox-webcomponent">
         <input
           aria-checked={this.checked}
+          aria-required={this.required}
           aria-describedby={this.host.getAttribute('aria-describedby')}
           aria-labelledby={this.host.getAttribute('aria-labelledby')}
           required={this.required}
