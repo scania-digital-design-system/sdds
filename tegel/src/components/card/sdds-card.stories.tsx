@@ -1,4 +1,4 @@
-import CardImage from '../../stories/assets/image/card-img.png';
+import CardPlaceholder from '../../stories/assets/image/card-placeholder.png';
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 
@@ -119,13 +119,13 @@ export default {
   args: {
     header: 'Header text',
     subheader: 'Subheader text',
-    headerImg: 'https://www.svgrepo.com/show/170303/avatar.svg',
+    headerImg: CardPlaceholder,
     headerPlacement: 'Above',
-    bodyImg: CardImage,
+    bodyImg: CardPlaceholder,
     bodyContent:
-      '<p>This is a short and consist detail text describing for the user what this text is really about.</p>',
+      '<span>This is a short and consist detail text describing for the user what this text is really about.</span>',
     bodyDivider: false,
-    cardBottom: `<div slot="card-bottom"><sdds-button text="Button text"></sdds-button></div>`,
+    cardBottom: `<div slot="card-bottom"><sdds-button size="sm" text="Button text"></sdds-button></div>`,
     modeVariant: 'Inherit from parent',
     clickable: false,
   },
@@ -170,7 +170,6 @@ const Template = ({
         </div>`
           : ''
       }
-        
         ${cardBottom ? `${cardBottom}` : ''}
     </sdds-card>
     ${
