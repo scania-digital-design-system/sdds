@@ -98,44 +98,18 @@ export default {
       },
     },
     label: {
-      name: 'Label',
-      description: 'Toggles a label text for the component',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: true,
-        },
-      },
-    },
-    labelText: {
       description: 'Sets label text for specific textfield',
       name: 'Label text',
       control: {
         type: 'text',
       },
-      if: { arg: 'label', eq: true },
     },
     helper: {
-      name: 'Helper',
-      description: 'Toggles a helper text for the component',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: true,
-        },
-      },
-    },
-    helperText: {
       name: 'Helper text',
       description: 'Sets helper text for the textfield',
       control: {
         type: 'text',
       },
-      if: { arg: 'helper', eq: true },
     },
     disabled: {
       description: 'Sets textfield to disabled state',
@@ -157,10 +131,8 @@ export default {
     state: 'None',
     defaultValue: 'None',
     noMinWidth: 'Default',
-    label: true,
-    labelText: 'Label text',
-    helper: true,
-    helperText: 'Helper text',
+    label: 'Label text',
+    helper: 'Helper text',
     disabled: false,
   },
 };
@@ -173,9 +145,7 @@ const datetimeTemplate = ({
   defaultValue,
   noMinWidth,
   label,
-  labelText,
   helper,
-  helperText,
   disabled,
 }) => {
   const typeLookup = {
@@ -230,8 +200,8 @@ const datetimeTemplate = ({
       state="${stateLookup[state]}"
       ${disabled ? 'disabled' : ''}
       ${noMinWidth ? 'no-min-width' : ''}
-      ${label ? `label="${labelText}" ` : ''}
-      ${helper ? `helper="${helperText}" ` : ''}
+      ${label ? `label="${label}" ` : ''}
+      ${helper ? `helper="${helper}" ` : ''}
       >
     </sdds-datetime>
 
