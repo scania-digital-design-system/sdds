@@ -1,7 +1,8 @@
 @import '../../mixins/box-sizing';
 
 .sdds-checkbox-webcomponent {
-  position: relative;
+  @include sdds-box-sizing;
+
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-checkbox-text);
@@ -17,7 +18,16 @@
     border-radius: 2px;
     width: 24px;
     height: 24px;
+    position: relative;
     cursor: pointer;
+
+    + label {
+      color: var(--sdds-checkbox-color);
+      padding-left: var(--sdds-spacing-element-4);
+      padding-top: var(--sdds-spacing-element-4);
+      padding-bottom: var(--sdds-spacing-element-4);
+      cursor: pointer;
+    }
 
     &::before,
     &::after {
@@ -28,8 +38,6 @@
     }
 
     &::before {
-      background-color: var(--sdds-checkbox-background-focus);
-      opacity: 0;
       width: 24px;
       height: 24px;
       left: 0;
@@ -57,8 +65,6 @@
         background-color: var(--sdds-checkbox-background-focus);
         opacity: 0.24;
         transition: opacity 0.2s ease-in-out;
-
-        //animation: checkbox-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
       }
     }
 
@@ -116,28 +122,5 @@
         }
       }
     }
-  }
-
-  label {
-    color: var(--sdds-checkbox-color);
-    cursor: pointer;
-    padding-left: 4px;
-  }
-}
-
-@keyframes checkbox-focus {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0;
   }
 }

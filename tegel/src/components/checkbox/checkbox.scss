@@ -65,7 +65,7 @@
       &::before {
         background-color: var(--sdds-checkbox-background-focus);
         opacity: 0.24;
-        animation: cb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
+        transition: opacity 0.2s ease-in-out;
       }
     }
 
@@ -116,22 +116,5 @@
       background-color: var(--sdds-checkbox-interaction-02);
       color: var(--sdds-checkbox-color-disabled-after);
     }
-  }
-}
-
-@keyframes cb-focus {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0;
   }
 }
