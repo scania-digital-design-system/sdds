@@ -50,7 +50,7 @@ export default {
       name: 'Header image',
       description: 'Image for the header',
       control: {
-        type: 'text',
+        type: 'boolean',
       },
     },
     headerPlacement: {
@@ -90,12 +90,13 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
+      if: { arg: 'bodyImg', eq: false },
     },
     bodyImg: {
       name: 'Body image',
       description: 'Image in body on card.',
       control: {
-        type: 'text',
+        type: 'boolean',
       },
     },
     imageTop: {
@@ -119,9 +120,9 @@ export default {
   args: {
     header: 'Header text',
     subheader: 'Subheader text',
-    headerImg: CardPlaceholder,
+    headerImg: true,
     headerPlacement: 'Above',
-    bodyImg: CardPlaceholder,
+    bodyImg: true,
     bodyContent:
       '<span>This is a short and consist detail text describing for the user what this text is really about.</span>',
     bodyDivider: false,
@@ -157,8 +158,8 @@ const Template = ({
         ${header ? `header="${header}"` : ''}
         header-placement="${headerPlacement.toLowerCase()}"
         ${subheader ? `subheader="${subheader}"` : ''}
-        ${headerImg ? `header-img="${headerImg}"` : ''}
-        ${bodyImg ? `body-img="${bodyImg}"` : ''}
+        ${headerImg ? `header-img="${CardPlaceholder}"` : ''}
+        ${bodyImg ? `body-img="${CardPlaceholder}"` : ''}
         ${clickable ? 'clickable' : ''}
         ${bodyDivider ? 'body-divider' : ''}
       >
