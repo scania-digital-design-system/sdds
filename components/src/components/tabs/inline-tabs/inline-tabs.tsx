@@ -130,8 +130,7 @@ export class InlineTabs {
       navButton.style.width = '';
       const width = navButton.clientWidth;
       navButton.style.width = oldStyle;
-
-      if (navButton.clientWidth > best) {
+      if (width > best) {
         best = width;
       }
     });
