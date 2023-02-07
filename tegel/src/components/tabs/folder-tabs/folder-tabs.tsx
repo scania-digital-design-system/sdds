@@ -83,28 +83,7 @@ export class InlineTabs {
     }
   }
 
-  connectedCallback() {
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
-    >;
-    this.children = this.children.map((item, index) => {
-      item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.removeAttribute('selected'));
-          item.setAttribute('selected', '');
-          this.selectedTab = item.innerHTML;
-          this.selectedTabIndex = index;
-        }
-      });
-      if (item.selected) {
-        this.selectedTab = item.innerHTML;
-        this.selectedTabIndex = index;
-      }
-      return item;
-    });
-  }
-
-  componentDidLoad() {
+  addResizeObserver = () => {
     const resizeObserver = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         const componentWidth = entry.contentRect.width;
@@ -131,6 +110,30 @@ export class InlineTabs {
     });
 
     resizeObserver.observe(this.navWrapperElement);
+  };
+
+  connectedCallback() {
+    this.children = Array.from(this.host.children) as Array<
+      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+    >;
+    this.children = this.children.map((item, index) => {
+      item.addEventListener('click', () => {
+        if (!item.disabled) {
+          this.children.forEach((element) => element.removeAttribute('selected'));
+          item.setAttribute('selected', '');
+          this.selectedTab = item.innerHTML;
+          this.selectedTabIndex = index;
+        }
+      });
+      if (item.selected) {
+        this.selectedTab = item.innerHTML;
+        this.selectedTabIndex = index;
+      }
+      return item;
+    });
+  }
+
+  componentDidLoad() {
     this.calculateButtonWidth();
   }
 
@@ -156,6 +159,7 @@ export class InlineTabs {
       this.showLeftScroll = false;
       this.showRightScroll = false;
     }
+    this.addResizeObserver();
   }
 
   componentDidUpdate() {

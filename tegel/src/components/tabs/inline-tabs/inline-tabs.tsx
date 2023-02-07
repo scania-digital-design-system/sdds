@@ -78,6 +78,35 @@ export class InlineTabsFullbleed {
     }
   }
 
+  addResizeObserver = () => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const componentWidth = entry.contentRect.width;
+        let buttonsWidth = 0;
+
+        const navButtons = Array.from(this.host.children);
+        navButtons.forEach((navButton: HTMLElement) => {
+          const style = window.getComputedStyle(navButton);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        });
+
+        this.componentWidth = componentWidth;
+        this.buttonsWidth = buttonsWidth;
+        this.scrollWidth = buttonsWidth - componentWidth;
+
+        if (this.buttonsWidth > this.componentWidth) {
+          this.evaluateScrollButtons();
+        } else {
+          this.showLeftScroll = false;
+          this.showRightScroll = false;
+        }
+      });
+    });
+
+    resizeObserver.observe(this.navWrapperElement);
+  };
+
   connectedCallback() {
     this.children = Array.from(this.host.children) as Array<
       HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
@@ -147,6 +176,10 @@ export class InlineTabsFullbleed {
         return item;
       });
     }
+  }
+
+  componentDidRender() {
+    this.addResizeObserver();
   }
 
   componentDidUpdate() {
