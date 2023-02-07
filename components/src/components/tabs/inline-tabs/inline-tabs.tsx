@@ -154,6 +154,10 @@ export class InlineTabs {
     });
 
     this.tabHeight = best;
+
+    if (this.useAutoHeight) {
+      this.heightStyle = `${this.tabHeight}px`;
+    }
   }
 
   componentDidRender() {
@@ -281,10 +285,6 @@ export class InlineTabs {
   }
 
   render() {
-    if (this.useAutoHeight) {
-      this.heightStyle = `${this.tabHeight}px`;
-    }
-
     return (
       <Host>
         <div class={`sdds-inline-tabs sdds-inline-tabs-${this.modeVariant}`}>
