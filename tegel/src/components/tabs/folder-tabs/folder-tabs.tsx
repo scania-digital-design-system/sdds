@@ -83,6 +83,27 @@ export class InlineTabs {
     }
   }
 
+  connectedCallback() {
+    this.children = Array.from(this.host.children) as Array<
+      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+    >;
+    this.children = this.children.map((item, index) => {
+      item.addEventListener('click', () => {
+        if (!item.disabled) {
+          this.children.forEach((element) => element.removeAttribute('selected'));
+          item.setAttribute('selected', '');
+          this.selectedTab = item.innerHTML;
+          this.selectedTabIndex = index;
+        }
+      });
+      if (item.selected) {
+        this.selectedTab = item.innerHTML;
+        this.selectedTabIndex = index;
+      }
+      return item;
+    });
+  }
+
   componentDidLoad() {
     const resizeObserver = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
@@ -113,28 +134,6 @@ export class InlineTabs {
     this.calculateButtonWidth();
   }
 
-  connectedCallback() {
-    this.calculateButtonWidth();
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
-    >;
-    this.children = this.children.map((item, index) => {
-      item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.removeAttribute('selected'));
-          item.setAttribute('selected', '');
-          this.selectedTab = item.innerHTML;
-          this.selectedTabIndex = index;
-        }
-      });
-      if (item.selected) {
-        this.selectedTab = item.innerHTML;
-        this.selectedTabIndex = index;
-      }
-      return item;
-    });
-  }
-
   componentWillRender() {
     if (!this.selectedTab) {
       this.children = Array.from(this.host.children) as Array<
@@ -147,6 +146,15 @@ export class InlineTabs {
         }
         return item;
       });
+    }
+  }
+
+  componentDidRender() {
+    if (this.buttonsWidth > this.componentWidth) {
+      this.evaluateScrollButtons();
+    } else {
+      this.showLeftScroll = false;
+      this.showRightScroll = false;
     }
   }
 

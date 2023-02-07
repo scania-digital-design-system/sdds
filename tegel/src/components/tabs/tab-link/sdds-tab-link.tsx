@@ -50,6 +50,7 @@ export class SddsTabLink {
     return (
       <Host role="listitem" class={`${this.type}`}>
         <a
+          style={{ width: `${this.tabWidth}px` }}
           class={`
         ${this.type}
         ${this.selected ? 'selected' : ''}
