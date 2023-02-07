@@ -78,6 +78,15 @@ export class SddsToast {
     }
   };
 
+  handleClose = () => {
+    const sddsCloseEvent = this.sddsToastClosedEvent.emit({
+      toastId: this.toastId,
+    });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = true;
+    }
+  };
+
   connectedCallback() {
     const children = Array.from(this.host.children);
     this.hasSubheader = children.some((childElement) => childElement.slot === 'toast-subheader');
@@ -123,10 +132,7 @@ export class SddsToast {
           </div>
           <button
             onClick={() => {
-              this.sddsToastClosedEvent.emit({
-                toastId: this.toastId,
-              });
-              this.hidden = true;
+              this.handleClose();
             }}
             class={`toast-close`}
           >
