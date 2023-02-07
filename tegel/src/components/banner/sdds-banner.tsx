@@ -1,14 +1,4 @@
-import {
-  Component,
-  Host,
-  h,
-  Prop,
-  State,
-  Event,
-  EventEmitter,
-  Method,
-  Element,
-} from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, Method, Element } from '@stencil/core';
 import { HostElement } from '@stencil/core/internal';
 
 @Component({
@@ -47,35 +37,38 @@ export class SddsBanner {
    */
   @Prop() bannerId: string = crypto.randomUUID();
 
-  /** Href for the link */
+  /** Removes the close button on the banner. */
   @Prop() persistent: boolean = false;
 
-  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
-  @Prop() ariaLiveValue: 'polite' | 'assertive' | 'off' = 'polite';
+  /** Hides the banner */
+  @Prop() hidden = false;
 
   /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
   @Prop() ariaAtomicValue: boolean = false;
 
-  @State() show = true;
+  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
+  @Prop() ariaLiveValue: 'polite' | 'assertive' | 'off' = 'polite';
 
   @Element() host: HostElement;
 
-  /** Sends unique banner identifier when the close button is pressed */
+  /** Sends unique banner identifier when the close button is pressed. */
   @Event({
     eventName: 'sddsBannerCloseEvent',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsBannerCloseEvent: EventEmitter<any>;
+  sddsCloseEvent: EventEmitter<any>;
 
   /** Hides the banner. */
   @Method()
   async hideBanner() {
-    this.show = false;
-    this.sddsBannerCloseEvent.emit({
+    const sddsCloseEvent = this.sddsCloseEvent.emit({
       bannerId: this.bannerId,
     });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = true;
+    }
     return {
       bannerId: this.bannerId,
       visible: false,
@@ -85,10 +78,12 @@ export class SddsBanner {
   /** Shows the banner */
   @Method()
   async showBanner() {
-    this.show = true;
-    this.sddsBannerCloseEvent.emit({
+    const sddsCloseEvent = this.sddsCloseEvent.emit({
       bannerId: this.bannerId,
     });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = false;
+    }
     return {
       bannerId: this.bannerId,
       visible: true,
@@ -103,14 +98,23 @@ export class SddsBanner {
     }
   }
 
+  handleClose = () => {
+    const sddsCloseEvent = this.sddsCloseEvent.emit({
+      bannerId: this.bannerId,
+    });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = true;
+    }
+  };
+
   render() {
     return (
       <Host
         role="banner"
-        aria-hidden={`${!this.show}`}
+        aria-hidden={`${this.hidden}`}
         aria-live={this.ariaLiveValue}
         aria-atomic={this.ariaAtomicValue}
-        class={`${this.type} ${this.show ? 'show' : 'hide'}`}
+        class={`${this.type} ${this.hidden ? 'hide' : 'show'}`}
       >
         {this.icon && (
           <div class={`banner-icon ${this.type}`}>
@@ -131,10 +135,7 @@ export class SddsBanner {
           <div class={`banner-close`}>
             <button
               onClick={() => {
-                this.show = false;
-                this.sddsBannerCloseEvent.emit({
-                  bannerId: this.bannerId,
-                });
+                this.handleClose();
               }}
             >
               <sdds-icon name="cross" size="20px"></sdds-icon>
