@@ -179,6 +179,12 @@ export class InlineTabsFullbleed {
   }
 
   componentDidRender() {
+    if (this.buttonsWidth > this.componentWidth) {
+      this.evaluateScrollButtons();
+    } else {
+      this.showLeftScroll = false;
+      this.showRightScroll = false;
+    }
     this.addResizeObserver();
   }
 
