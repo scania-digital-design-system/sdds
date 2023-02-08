@@ -196,7 +196,7 @@ const defaultOptionJSON = (defaultOption: string) => `
   }
 ]`;
 
-const multiDefaultOptiondChildren = (multiDefaultOption: string[]) => `
+const multiDefaultOptionChildren = (multiDefaultOption: string[]) => `
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 1') ? 'selected' : ''
       } value="option-1" label="Option-1">
@@ -284,7 +284,7 @@ const Template = ({
           data === 'Children'
             ? `${
                 multiselect
-                  ? multiDefaultOptiondChildren(multiDefaultOption)
+                  ? multiDefaultOptionChildren(multiDefaultOption)
                   : defaultOptionChildren(defaultOption)
               }`
             : ''
