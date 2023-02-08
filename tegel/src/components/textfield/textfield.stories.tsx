@@ -35,6 +35,16 @@ export default {
         options: ['Password', 'Text'],
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     size: {
       name: 'Size',
       description: 'Switch between different sizes',
@@ -158,7 +168,8 @@ export default {
     prefixType: 'Icon',
     minWidth: 'Default',
     size: 'Large',
-    type: 'text',
+    type: 'Text',
+  modeVariant: 'Inherit from parent',
   },
 };
 
@@ -178,6 +189,7 @@ const Template = ({
   suffix,
   suffixType,
   maxLength,
+  modeVariant,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
@@ -186,7 +198,6 @@ const Template = ({
     Medium: 'md',
     Small: 'sm',
   };
-
   return formatHtmlPreview(
     `
     <style>
@@ -201,6 +212,7 @@ const Template = ({
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
       state="${stateValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
