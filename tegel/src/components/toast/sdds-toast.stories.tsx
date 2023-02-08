@@ -53,9 +53,9 @@ export default {
     },
   },
   args: {
-    type: 'Information',
+    type: 'Success',
     header: 'Header',
-    subheader: 'Subheader text',
+    subheader: '',
     link: false,
   },
 };
