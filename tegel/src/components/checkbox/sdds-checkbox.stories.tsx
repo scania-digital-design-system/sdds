@@ -1,8 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Checkbox',
   parameters: {
+    notes: readme,
     layout: 'centered',
     design: [
       {
@@ -47,18 +49,19 @@ export default {
 
 const Template = ({ checked, disabled, label }) =>
   formatHtmlPreview(`
-    <div class="sdds-checkbox-item">
-      <input class="sdds-form-input" type="checkbox" id="unique-id" ${
-        checked ? 'checked="checked"' : ''
-      }  ${disabled ? 'disabled' : ''}>
-      ${
-        label
-          ? `<label class="sdds-form-label" for="unique-id" ${
-              disabled ? 'disabled' : ''
-            }>  ${label} </label>`
-          : ''
-      }
-    </div>
+    <sdds-checkbox
+        ${checked ? 'checked' : ''}
+        ${disabled ? 'disabled' : ''}
+        >
+        ${label}
+    </sdds-checkbox>
+    
+    <!-- Script tag with event listener for demo purposes. -->
+    <script>
+        document.addEventListener('checkboxChangeEvent', (event) => {
+            console.log('Checkbox with id: ', event.detail.checkboxId, ' is ', event.detail.checked)
+        })
+    </script>
   `);
 
-export const Native = Template.bind({});
+export const WebComponent = Template.bind({});

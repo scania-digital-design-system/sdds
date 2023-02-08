@@ -1,7 +1,6 @@
-@import './checkbox-theme-vars.scss';
 @import '../../mixins/box-sizing';
 
-.sdds-checkbox-item {
+.sdds-checkbox-webcomponent {
   @include sdds-box-sizing;
 
   font: var(--sdds-detail-02);
@@ -11,7 +10,7 @@
   align-items: center;
   margin-left: -4px;
 
-  .sdds-form-input[type='checkbox'] {
+  input[type='checkbox'] {
     appearance: none;
     outline: none;
     margin: 0;
@@ -88,33 +87,40 @@
         }
       }
     }
-  }
-}
 
-.sdds-form-input[type='checkbox']:checked {
-  &::after {
-    background-image: var(--sdds-checkbox-background-img);
-    background-color: var(--sdds-checkbox-interaction-01);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+    &:checked {
+      &::after {
+        background-image: var(--sdds-checkbox-background-img);
+        background-color: var(--sdds-checkbox-interaction-01);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
 
-  &:disabled,
-  &.disabled {
-    &:hover::before,
-    &::before {
-      display: block;
-      width: 16px;
-      height: 16px;
-      left: 4px;
-      top: 4px;
-      border: 1px solid #b0b7c4;
-    }
+      &:hover {
+        &::before {
+          background-color: var(--sdds-checkbox-background-hover);
+          opacity: 0.12;
+        }
+      }
 
-    &::after {
-      background-image: var(--sdds-checkbox-background-img-disabled);
-      background-color: var(--sdds-checkbox-interaction-02);
-      color: var(--sdds-checkbox-color-disabled-after);
+      &:disabled,
+      &.disabled {
+        &:hover::before,
+        &::before {
+          display: block;
+          width: 16px;
+          height: 16px;
+          left: 4px;
+          top: 4px;
+          border: 1px solid #b0b7c4;
+        }
+
+        &::after {
+          background-image: var(--sdds-checkbox-background-img-disabled);
+          background-color: var(--sdds-checkbox-interaction-02);
+          color: var(--sdds-checkbox-color-disabled-after);
+        }
+      }
     }
   }
 }
