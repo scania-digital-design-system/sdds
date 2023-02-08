@@ -78,7 +78,6 @@ const Template = ({ size, style, showLabel, iconType }) => {
     }
 
 
-    <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleLookup[style]}">
 
       <div class="sdds-stepper__step sdds-stepper__step--value">
@@ -105,9 +104,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
         ${
-          showLabel
-            ? '<label class="sdds-stepper__step_label">Step inactive with looooong text</label>'
-            : ''
+          showLabel ? '<label class="sdds-stepper__step_label">Step inactive with text</label>' : ''
         }
       </div>
 
@@ -126,7 +123,6 @@ const Template = ({ size, style, showLabel, iconType }) => {
       </div>
 
     </div>
-  </div>
     `,
   );
 };

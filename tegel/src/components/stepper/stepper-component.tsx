@@ -34,13 +34,15 @@ export class SddsStepper {
   }
 
   componentDidLoad() {
-    this.children = Array.from(this.host.children) as Array<HTMLSddsStepperItemElement>;
-    this.children.forEach((item) => {
-      if (item.offsetWidth > this.width) {
-        this.width = item.offsetWidth;
-      }
-    });
-    this.children.forEach((item) => item.setWidth(this.width));
+    if (this.labelPosition === 'below') {
+      this.children = Array.from(this.host.children) as Array<HTMLSddsStepperItemElement>;
+      this.children.forEach((item) => {
+        if (item.offsetWidth > this.width) {
+          this.width = item.offsetWidth;
+        }
+      });
+      this.children.forEach((item) => item.setWidth(this.width));
+    }
   }
 
   render() {
