@@ -383,9 +383,9 @@ input[type='time']::-webkit-inner-spin-button,
 input[type='time']::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-// .sdds-mode-variant-primary {
-//   --sdds-datetime-background: var( --sdds-datetime-background-primary)
-// }
-// .sdds-mode-variant-secondary {
-//   --sdds-datetime-background: var( --sdds-datetime-background-secondary)
-// }
+.sdds-mode-variant-primary {
+  --sdds-datetime-background: var( --sdds-datetime-background-primary);
+}
+.sdds-mode-variant-secondary {
+  --sdds-datetime-background: var( --sdds-datetime-background-secondary);
+}
