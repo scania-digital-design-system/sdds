@@ -11,6 +11,7 @@ type Props = {
   enableMultiselect: boolean;
   enableExpandableRows: boolean;
   enableResponsive: boolean;
+  modeVariant: 'primary' | 'secondary';
 };
 
 export type TablePropsChangedEvent = {
@@ -45,6 +46,9 @@ export class Table {
 
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
+
+  /** Variant of the component, based on current mode. */
+  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** ID used for internal table functionality and events, must be unique.
    *
@@ -99,6 +103,11 @@ export class Table {
   @Watch('whiteBackground')
   whiteBackgroundChanged(newValue: boolean) {
     this.emitTablePropsChangedEvent('whiteBackground', newValue);
+  }
+
+  @Watch('modeVariant')
+  modeVariantChanged(newValue: boolean) {
+    this.emitTablePropsChangedEvent('modeVariant', newValue);
   }
 
   render() {
