@@ -74,16 +74,12 @@ export class DropdownOptionV3 {
             ${this.multiselect ? 'multiselect' : ''}
             `}
             >
-              {this.multiselect && (
-                /* SHOULD USE SDDS-CHECKBOX */
-                <input
-                  class="sdds-form-input"
-                  disabled={this.disabled}
-                  type="checkbox"
-                  checked={this.selected}
-                />
+              {this.multiselect ? (
+                <sdds-checkbox checked={this.selected}>{this.label}</sdds-checkbox>
+              ) : (
+                this.label
               )}
-              {this.label}
+
               {!this.multiselect && this.selected && (
                 <sdds-icon name="tick" size="16px"></sdds-icon>
               )}

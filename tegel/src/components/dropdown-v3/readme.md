@@ -45,6 +45,7 @@
 graph TD;
   sdds-dropdown-v3 --> sdds-icon
   sdds-dropdown-v3 --> sdds-dropdown-option-v3
+  sdds-dropdown-option-v3 --> sdds-checkbox
   sdds-dropdown-option-v3 --> sdds-icon
   style sdds-dropdown-v3 fill:#f9f,stroke:#333,stroke-width:4px
 ```
