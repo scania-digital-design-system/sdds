@@ -45,7 +45,7 @@ export class Textarea {
   /** Max length of input */
   @Prop() maxLength: number;
 
-  /** Variant of the tabs, primary= on white, secondary= on grey50 */
+  /** Mode variant of the textarea */
   @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
   /** Control of autofocus */
