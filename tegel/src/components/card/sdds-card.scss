@@ -70,7 +70,7 @@
     letter-spacing: var(--sdds-detail-03-ls);
     color: var(--sdds-card-body-color);
     padding: 0 16px;
-    margin: 16px 0 32px;
+    margin-bottom: 32px;
   }
 
   slot[name='card-bottom']::slotted(*) {

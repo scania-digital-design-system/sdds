@@ -122,11 +122,11 @@ export default {
     subheader: 'Subheader text',
     headerImg: true,
     headerPlacement: 'Above',
-    bodyImg: true,
+    bodyImg: false,
     bodyContent:
       '<span>This is a short and consist detail text describing for the user what this text is really about.</span>',
     bodyDivider: false,
-    cardBottom: `<div slot="card-bottom"><sdds-button size="sm" text="Button text"></sdds-button></div>`,
+    cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
     modeVariant: 'Inherit from parent',
     clickable: false,
   },
@@ -151,28 +151,28 @@ const Template = ({
         width: 300px;
     }
     </style>
+    <div class="demo-wrapper">
     <sdds-card
-        ${
-          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
-        }
-        ${header ? `header="${header}"` : ''}
-        header-placement="${headerPlacement.toLowerCase()}"
-        ${subheader ? `subheader="${subheader}"` : ''}
-        ${headerImg ? `header-img="${CardPlaceholder}"` : ''}
-        ${bodyImg ? `body-img="${CardPlaceholder}"` : ''}
-        ${clickable ? 'clickable' : ''}
-        ${bodyDivider ? 'body-divider' : ''}
-      >
-      ${
-        bodyContent
-          ? `
-      <div slot="card-body">
-            ${bodyContent}
-        </div>`
-          : ''
-      }
-        ${cardBottom ? `${cardBottom}` : ''}
+    ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
+    ${header ? `header="${header}"` : ''}
+    header-placement="${headerPlacement.toLowerCase()}"
+    ${subheader ? `subheader="${subheader}"` : ''}
+    ${headerImg ? `header-img="${CardPlaceholder}"` : ''}
+    ${bodyImg ? `body-img="${CardPlaceholder}"` : ''}
+    ${clickable ? 'clickable' : ''}
+    ${bodyDivider ? 'body-divider' : ''}
+  >
+  ${
+    bodyContent
+      ? `
+    <div slot="card-body">
+        ${bodyContent}
+    </div>`
+      : ''
+  }
+    ${cardBottom ? `${cardBottom}` : ''}
     </sdds-card>
+    </div>
     ${
       clickable
         ? `
