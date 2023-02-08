@@ -141,16 +141,6 @@
     }
   }
 
-  &.sdds-table--on-white-background {
-    & > tbody > tr {
-      background-color: var(--sdds-data-table-body-row-background-on-white);
-
-      &:hover {
-        background-color: var(--sdds-data-table-body-row-background-on-white-hover);
-      }
-    }
-  }
-
   &.sdds-table--responsive {
     width: 100%;
   }
