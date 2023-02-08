@@ -428,7 +428,12 @@ export class DropdownV3 {
             onFocus={() => {
               if (this.filter) {
                 this.open = true;
+              } else {
+                this.focus = !this.focus;
               }
+            }}
+            onBlur={() => {
+              this.focus = !this.focus;
             }}
             name={this.name}
             id={this.dropdownId}

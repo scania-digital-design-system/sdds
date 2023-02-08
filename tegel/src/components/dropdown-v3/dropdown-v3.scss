@@ -110,7 +110,7 @@
         color: var(--sdds-dropdown-placeholder-color);
       }
 
-      &:focus-visible {
+      &:focus {
         outline: none;
       }
 
@@ -135,7 +135,7 @@
       padding-left: 16px;
       color: var(--sdds-dropdown-value-color);
 
-      &:focus-visible {
+      &:focus {
         outline: none;
       }
 
