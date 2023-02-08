@@ -114,7 +114,7 @@
     }
   }
 
-  slot::slotted(*) {
+  slot[name='toast-link']::slotted(*) {
     color: var(--sdds-toast-link-color);
   }
 
