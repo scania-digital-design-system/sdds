@@ -35,22 +35,28 @@ export class SddsCheckbox {
     return {
       checkboxId: this.checkboxId,
       checked: this.checked,
-      disabled: this.disabled,
     };
   }
 
-  /** Sends unique checkbox identifier and status when it is checked/unchecked. */
+  /** Sends unique checkbox identifier and checked status when it is checked/unchecked. */
   @Event({
-    eventName: 'sddsCheckboxChangeEvent',
+    eventName: 'checkboxChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
-  sddsCheckboxChangeEvent: EventEmitter<{
+  checkboxChange: EventEmitter<{
     checkboxId: string;
     checked: boolean;
-    disabled: boolean;
   }>;
+
+  handleChange = () => {
+    this.checked = !this.checked;
+    this.checkboxChange.emit({
+      checkboxId: this.checkboxId,
+      checked: this.checked,
+    });
+  };
 
   render() {
     return (
@@ -67,12 +73,7 @@ export class SddsCheckbox {
           checked={this.checked}
           disabled={this.disabled}
           onChange={() => {
-            this.checked = !this.checked;
-            this.sddsCheckboxChangeEvent.emit({
-              checkboxId: this.checkboxId,
-              checked: this.checked,
-              disabled: this.disabled,
-            });
+            this.handleChange();
           }}
         />
         <label htmlFor={this.checkboxId}>

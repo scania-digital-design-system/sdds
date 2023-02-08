@@ -19,20 +19,20 @@
 
 ## Events
 
-| Event                     | Description                                                               | Type                                                                        |
-| ------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `sddsCheckboxChangeEvent` | Sends unique checkbox identifier and status when it is checked/unchecked. | `CustomEvent<{ checkboxId: string; checked: boolean; disabled: boolean; }>` |
+| Event            | Description                                                                       | Type                                                     |
+| ---------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `checkboxChange` | Sends unique checkbox identifier and checked status when it is checked/unchecked. | `CustomEvent<{ checkboxId: string; checked: boolean; }>` |
 
 
 ## Methods
 
-### `toggleCheckbox() => Promise<{ checkboxId: string; checked: boolean; disabled: boolean; }>`
+### `toggleCheckbox() => Promise<{ checkboxId: string; checked: boolean; }>`
 
 Toggles the checked value of the component.
 
 #### Returns
 
-Type: `Promise<{ checkboxId: string; checked: boolean; disabled: boolean; }>`
+Type: `Promise<{ checkboxId: string; checked: boolean; }>`
 
 
 

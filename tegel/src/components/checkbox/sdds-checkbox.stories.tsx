@@ -58,7 +58,7 @@ const Template = ({ checked, disabled, label }) =>
     
     <!-- Script tag with event listener for demo purposes. -->
     <script>
-        document.addEventListener('sddsCheckboxChangeEvent', (e) => {
+        document.addEventListener('checkboxChangeEvent', (event) => {
             console.log('Checkbox with id: ', event.detail.checkboxId, ' is ', event.detail.checked)
         })
     </script>
