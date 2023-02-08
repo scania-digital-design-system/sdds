@@ -68,8 +68,8 @@ export default {
       },
     },
     bodyImg: {
-      name: 'Image',
-      description: 'Image on card',
+      name: 'Body image',
+      description: 'Image in body on card.',
       control: {
         type: 'boolean',
       },
@@ -121,8 +121,7 @@ export default {
     headerImg: true,
     headerPlacement: 'Above',
     bodyImg: false,
-    bodyText:
-      'This is a short and consist detail text describing for the user what this text is really about.',
+    bodyText: '',
     bodyDivider: false,
     cardBottom: '<sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon>',
     modeVariant: 'Inherit from parent',

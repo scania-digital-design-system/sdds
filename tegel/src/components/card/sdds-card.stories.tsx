@@ -123,8 +123,7 @@ export default {
     headerImg: true,
     headerPlacement: 'Above',
     bodyImg: false,
-    bodyContent:
-      '<span>This is a short and consist detail text describing for the user what this text is really about.</span>',
+    bodyContent: '',
     bodyDivider: false,
     cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
     modeVariant: 'Inherit from parent',
