@@ -53,40 +53,45 @@ export class SddsBanner {
 
   /** Sends unique banner identifier when the close button is pressed. */
   @Event({
-    eventName: 'sddsBannerCloseEvent',
+    eventName: 'bannerClose',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsCloseEvent: EventEmitter<any>;
+  bannerClose: EventEmitter<{
+    bannerId: string;
+    hidden: boolean;
+  }>;
 
   /** Hides the banner. */
   @Method()
   async hideBanner() {
-    const sddsCloseEvent = this.sddsCloseEvent.emit({
+    const sddsCloseEvent = this.bannerClose.emit({
       bannerId: this.bannerId,
+      hidden: this.hidden,
     });
     if (!sddsCloseEvent.defaultPrevented) {
       this.hidden = true;
     }
     return {
       bannerId: this.bannerId,
-      visible: false,
+      hidden: true,
     };
   }
 
   /** Shows the banner */
   @Method()
   async showBanner() {
-    const sddsCloseEvent = this.sddsCloseEvent.emit({
+    const sddsCloseEvent = this.bannerClose.emit({
       bannerId: this.bannerId,
+      hidden: this.hidden,
     });
     if (!sddsCloseEvent.defaultPrevented) {
       this.hidden = false;
     }
     return {
       bannerId: this.bannerId,
-      visible: true,
+      hidden: false,
     };
   }
 
@@ -99,8 +104,9 @@ export class SddsBanner {
   }
 
   handleClose = () => {
-    const sddsCloseEvent = this.sddsCloseEvent.emit({
+    const sddsCloseEvent = this.bannerClose.emit({
       bannerId: this.bannerId,
+      hidden: this.hidden,
     });
     if (!sddsCloseEvent.defaultPrevented) {
       this.hidden = true;

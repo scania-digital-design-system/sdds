@@ -26,30 +26,30 @@
 
 ## Events
 
-| Event                  | Description                                                      | Type               |
-| ---------------------- | ---------------------------------------------------------------- | ------------------ |
-| `sddsBannerCloseEvent` | Sends unique banner identifier when the close button is pressed. | `CustomEvent<any>` |
+| Event         | Description                                                      | Type                                                  |
+| ------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| `bannerClose` | Sends unique banner identifier when the close button is pressed. | `CustomEvent<{ bannerId: string; hidden: boolean; }>` |
 
 
 ## Methods
 
-### `hideBanner() => Promise<{ bannerId: string; visible: boolean; }>`
+### `hideBanner() => Promise<{ bannerId: string; hidden: boolean; }>`
 
 Hides the banner.
 
 #### Returns
 
-Type: `Promise<{ bannerId: string; visible: boolean; }>`
+Type: `Promise<{ bannerId: string; hidden: boolean; }>`
 
 
 
-### `showBanner() => Promise<{ bannerId: string; visible: boolean; }>`
+### `showBanner() => Promise<{ bannerId: string; hidden: boolean; }>`
 
 Shows the banner
 
 #### Returns
 
-Type: `Promise<{ bannerId: string; visible: boolean; }>`
+Type: `Promise<{ bannerId: string; hidden: boolean; }>`
 
 
 
