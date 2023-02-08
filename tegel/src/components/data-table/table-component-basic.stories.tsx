@@ -49,19 +49,6 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
     responsiveDesign: {
       name: 'Responsive table',
       description:

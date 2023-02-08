@@ -15,7 +15,7 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
-  'whiteBackground',
+  'modeVariant',
 ];
 @Component({
   tag: 'sdds-table-body-row-expandable',
@@ -38,7 +38,7 @@ export class TableBodyRowExpandable {
 
   @State() noMinWidth: boolean = false;
 
-  @State() whiteBackground: boolean = false;
+  @State() modeVariant: 'primary' | 'secondary' = 'primary';
 
   @Element() host: HTMLElement;
 
@@ -116,7 +116,8 @@ export class TableBodyRowExpandable {
           'sdds-table__row-expand--active': this.isExpanded,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-table--on-white-bg': this.whiteBackground,
+          'sdds-table--mode-variant-primary': this.modeVariant === 'primary',
+          'sdds-table--mode-variant-secondary': this.modeVariant === 'secondary',
         }}
       >
         <tr class="sdds-table__row">
