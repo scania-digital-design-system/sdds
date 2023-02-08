@@ -30,7 +30,6 @@ export default {
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
-      if: { arg: 'topPart', neq: false },
     },
     topPart: {
       name: 'Top part',
@@ -43,9 +42,13 @@ export default {
       },
     },
   },
+  args:{
+    modeVariant: 'Inherit from parent', 
+    topPart: false,
+}
 };
 
-const Template = ({ topPart, modeVariant= 'Inherit from parent' }) =>
+const Template = ({ topPart, modeVariant}) =>
   formatHtmlPreview(
     `
   <style>
@@ -106,9 +109,9 @@ const Template = ({ topPart, modeVariant= 'Inherit from parent' }) =>
         <li><a href="#">Legal link</a></li>
       </ul>
       <ul class="sdds-footer-social-links">
-        <li><a href="#">Social 1</a></li>
-        <li><a href="#">Social 1</a></li>
-        <li><a href="#">Social 1</a></li>
+        <li><a href="#">Social link</a></li>
+        <li><a href="#">Social link</a></li>
+        <li><a href="#">Social link</a></li>
       </ul>
       <div class="sdds-footer-main-brand">
         <p>Copyright &copy; 2022 Scania</p>
@@ -120,6 +123,4 @@ const Template = ({ topPart, modeVariant= 'Inherit from parent' }) =>
   );
 
 export const Default = Template.bind({});
-Default.args = {
-  topPart: false,
-};
+
