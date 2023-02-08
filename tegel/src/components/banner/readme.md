@@ -16,10 +16,10 @@
 | `hidden`          | `hidden`            | Hides the banner                                                                                                                                                                                                                                   | `boolean`                                    | `false`               |
 | `icon`            | `icon`              | Name of the icon for the component. For error and information type the icon is predefined.                                                                                                                                                         | `string`                                     | `undefined`           |
 | `linkHref`        | `link-href`         | Href for the link                                                                                                                                                                                                                                  | `string`                                     | `undefined`           |
+| `linkRel`         | `link-rel`          | 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'.                                                                                             | `string`                                     | `'noopener'`          |
 | `linkTarget`      | `link-target`       | Where to open the linked URL                                                                                                                                                                                                                       | `"_blank" \| "_parent" \| "_self" \| "_top"` | `'_self'`             |
 | `linkText`        | `link-text`         | Link text.                                                                                                                                                                                                                                         | `string`                                     | `undefined`           |
 | `persistent`      | `persistent`        | Removes the close button on the banner.                                                                                                                                                                                                            | `boolean`                                    | `false`               |
-| `rel`             | `rel`               | 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'.                                                                                             | `string`                                     | `'noopener'`          |
 | `subheader`       | `subheader`         | Subheader text.                                                                                                                                                                                                                                    | `string`                                     | `undefined`           |
 | `type`            | `type`              | Type of banner                                                                                                                                                                                                                                     | `"error" \| "information" \| "none"`         | `'none'`              |
 
@@ -59,11 +59,13 @@ Type: `Promise<{ bannerId: string; hidden: boolean; }>`
 ### Depends on
 
 - [sdds-icon](../icon)
+- [sdds-link](../link)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-banner --> sdds-icon
+  sdds-banner --> sdds-link
   style sdds-banner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -103,7 +103,7 @@ export default {
     linkText: 'Learn more',
     linkHref: 'tegel.scania.com',
     linkTarget: '_self',
-    icon: 'none',
+    icon: 'truck',
     persistent: false,
   },
 };
