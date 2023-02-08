@@ -34,6 +34,8 @@ export class InlineTabs {
   /** current calculated tab height (calculated from the one with the most height) */
   @State() tabHeight: number = 0;
 
+  @State() heightStyle: string;
+
   @State() showLeftScroll: boolean = false;
 
   @State() showRightScroll: boolean = false;
@@ -130,8 +132,7 @@ export class InlineTabs {
       navButton.style.width = '';
       const width = navButton.clientWidth;
       navButton.style.width = oldStyle;
-
-      if (navButton.clientWidth > best) {
+      if (width > best) {
         best = width;
       }
     });
@@ -153,6 +154,10 @@ export class InlineTabs {
     });
 
     this.tabHeight = best;
+
+    if (this.useAutoHeight) {
+      this.heightStyle = `${this.tabHeight}px`;
+    }
   }
 
   componentDidRender() {
@@ -280,11 +285,6 @@ export class InlineTabs {
   }
 
   render() {
-    const heightStyle = {};
-    if (this.useAutoHeight) {
-      heightStyle['height'] = `${this.tabHeight}px`;
-    }
-
     return (
       <Host>
         <div class={`sdds-inline-tabs sdds-inline-tabs-${this.modeVariant}`}>
@@ -354,7 +354,7 @@ export class InlineTabs {
           <div
             ref={(el) => (this.tabWrapperElement = el as HTMLElement)}
             class="sdds-inline-tabs-main"
-            style={heightStyle}
+            style={{ height: `${this.heightStyle}`}}
           >
             <slot />
           </div>
