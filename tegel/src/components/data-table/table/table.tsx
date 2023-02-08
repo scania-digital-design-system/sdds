@@ -97,7 +97,7 @@ export class Table {
   }
 
   @Watch('modeVariant')
-  modeVariantChanged(newValue: boolean) {
+  modeVariantChanged(newValue: 'primary' | 'secondary') {
     this.emitTablePropsChangedEvent('modeVariant', newValue);
   }
 

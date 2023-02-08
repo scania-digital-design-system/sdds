@@ -70,7 +70,7 @@ export default {
       },
       options: ['Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Primary' },
       },
     },
     disablePadding: {
@@ -101,7 +101,7 @@ export default {
   },
   args: {
     compactDesign: false,
-    modeVariant: 'primary',
+    modeVariant: 'Primary',
     responsiveDesign: false,
     disablePadding: false,
     noMinWidth: false,
