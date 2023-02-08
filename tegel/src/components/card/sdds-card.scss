@@ -59,8 +59,7 @@
   }
 
   .sdds-divider {
-    margin: 0 16px;
-    margin-top: 16px;
+    margin: 16px 16px 0;
     background-color: var(--sdds-card-divider);
     height: 1px;
   }
@@ -71,6 +70,7 @@
     color: var(--sdds-card-body-color);
     padding: 0 16px;
     margin-bottom: 16px;
+    margin-top: 16px;
   }
 
   slot[name='card-bottom']::slotted(*) {
