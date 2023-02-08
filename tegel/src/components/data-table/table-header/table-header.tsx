@@ -7,7 +7,6 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
-  'whiteBackground',
 ];
 
 @Component({

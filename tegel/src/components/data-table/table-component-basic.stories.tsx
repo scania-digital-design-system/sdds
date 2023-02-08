@@ -62,6 +62,17 @@ export default {
         },
       },
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     disablePadding: {
       name: 'Disable cell padding',
       description:
@@ -90,8 +101,7 @@ export default {
   },
   args: {
     compactDesign: false,
-    // onWhiteBackground: false,
-    verticalDivider: false,
+    modeVariant: 'primary',
     responsiveDesign: false,
     disablePadding: false,
     noMinWidth: false,
@@ -105,6 +115,7 @@ const BasicTemplate = (args) =>
       compact-design="${args.compactDesign}"
       enable-responsive="${args.responsiveDesign}"
       ${args.noMinWidth ? 'no-min-width' : ''}
+      mode-variant="${args.modeVariant}"
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
