@@ -50,6 +50,9 @@ export default {
     link: {
       name: 'Link',
       description: 'Adds a CTA link',
+      control: {
+        type: 'boolean',
+      },
     },
   },
   args: {
