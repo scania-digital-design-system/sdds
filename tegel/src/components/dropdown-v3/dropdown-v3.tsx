@@ -329,6 +329,7 @@ export class DropdownV3 {
           }
           return childElement;
         });
+        this.noResult = !this.childElements.some((childElement) => childElement.hidden === false);
       }
     } else {
       this.childElements = this.childElements.map((childElement) => {
