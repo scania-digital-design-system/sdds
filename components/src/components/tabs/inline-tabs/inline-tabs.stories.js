@@ -52,7 +52,7 @@ const Template = ({ autoHeight = false, modeVariant }) => `
       This tab is disabled, so you should not be able to see this content.
     </div>
 
-    <div data-name="Tab 4">
+    <div data-name="Tab 4 with a very long name">
       Content for tab 4<br>
       here is some content...
     </div>
