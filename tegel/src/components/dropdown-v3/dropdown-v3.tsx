@@ -474,6 +474,7 @@ export class DropdownV3 {
         >
           <div
             role="listbox"
+            aria-multiselectable={this.multiselect}
             aria-labelledby={this.dropdownId}
             class={`${this.size}`}
             ref={(element) => (this.dropdownList = element as HTMLElement)}
