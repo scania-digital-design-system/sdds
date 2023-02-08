@@ -98,6 +98,17 @@ export default {
       },
       options: ['None', 'Success', 'Error'],
     },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
   },
   args: {
     type: 'Datetime',
@@ -110,6 +121,7 @@ export default {
     labelText: 'Label text',
     helper: true,
     helperText: 'Helper text',
+    modeVariant: 'Inherit from parent',
   },
 };
 
@@ -124,6 +136,7 @@ const datetimeTemplate = ({
   helper,
   helperText,
   defaultValue,
+  modeVariant
 }) => {
   const typeLookup = {
     Datetime: 'datetime-local',
@@ -171,6 +184,7 @@ const datetimeTemplate = ({
     <sdds-datetime
       id="datetime"
       ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
       type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
