@@ -43,6 +43,7 @@
  - [sdds-modal](../modal)
  - [sdds-side-menu](../side-menu/webcomponent)
  - [sdds-side-menu-close-button](../side-menu/webcomponent-alt/side-menu-close-button)
+ - [sdds-side-menu-collapse-button](../side-menu/webcomponent-alt/side-menu-collapse-button)
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
  - [sdds-side-menu-dropdown-v1](../side-menu/webcomponent-alt/side-menu-dropdown-v1)
  - [sdds-side-menu-dropdown-v2](../side-menu/webcomponent-alt/side-menu-dropdown-v2)
@@ -78,6 +79,7 @@ graph TD;
   sdds-modal --> sdds-icon
   sdds-side-menu --> sdds-icon
   sdds-side-menu-close-button --> sdds-icon
+  sdds-side-menu-collapse-button --> sdds-icon
   sdds-side-menu-dropdown --> sdds-icon
   sdds-side-menu-dropdown-v1 --> sdds-icon
   sdds-side-menu-dropdown-v2 --> sdds-icon

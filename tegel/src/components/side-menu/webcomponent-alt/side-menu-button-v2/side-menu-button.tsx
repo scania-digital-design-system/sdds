@@ -1,11 +1,11 @@
-import { Component, Host, h, Listen, Element, State } from '@stencil/core';
+import { Component, h, State, Host, Element, Listen } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-side-menu-dropdown-list',
-  styleUrl: 'side-menu-dropdown-list.scss',
+  tag: 'sdds-side-menu-button-v2',
+  styleUrl: 'side-menu-button.scss',
   shadow: true,
 })
-export class SideMenuDropdownList {
+export class SddsSideMenuButton {
   @Element() host: HTMLSddsSideMenuButtonV2Element;
 
   @State() collapsed: boolean = false;
@@ -25,14 +25,12 @@ export class SideMenuDropdownList {
   render() {
     return (
       <Host>
-        <div
-          role="list"
-          class={{
-            'state--collapsed': this.collapsed,
-          }}
-        >
-          <slot></slot>
-        </div>
+        <li class={''}>
+          <button class={`${this.collapsed ? 'collapsed' : 'full-width'}`}>
+            <slot name="icon"></slot>
+            {!this.collapsed && <slot></slot>}
+          </button>
+        </li>
       </Host>
     );
   }

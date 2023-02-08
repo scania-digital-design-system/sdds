@@ -5,7 +5,7 @@
   list-style: none;
   width: 100%;
 
-  .state--dropdown-has-button-icon {
+  .state--should-indent-extra:not(.state--collapsed) {
     padding-left: 56px;
   }
 

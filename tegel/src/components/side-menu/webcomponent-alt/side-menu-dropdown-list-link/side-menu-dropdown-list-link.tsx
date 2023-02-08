@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, State } from '@stencil/core';
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu-dropdown-list-link',
@@ -6,7 +6,7 @@ import { Component, Element, h, Host, Prop, State } from '@stencil/core';
   shadow: true,
 })
 export class SideMenuDropdownListLink {
-  @Element() host: HTMLSddsHeaderDropdownV2Element;
+  @Element() host: HTMLSddsSideMenuButtonV2Element;
 
   @Prop() href!: string;
 
@@ -17,7 +17,21 @@ export class SideMenuDropdownListLink {
 
   @Prop() target: string;
 
-  @State() dropdownHasButtonIcon: boolean = false;
+  @State() shouldIndentExtra: boolean = false;
+
+  @State() collapsed: boolean = false;
+
+  sideMenuEl: HTMLSddsSideMenuElement;
+
+  connectedCallback() {
+    this.sideMenuEl = this.host.closest('sdds-side-menu');
+    this.collapsed = this.sideMenuEl.collapsed;
+  }
+
+  @Listen('tegelCollapsedSideMenu', { target: 'body' })
+  collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
+    this.collapsed = event.detail.collapsed;
+  }
 
   componentDidLoad() {
     const dropdownEl = this.host.closest('sdds-side-menu-dropdown-v2');
@@ -26,9 +40,12 @@ export class SideMenuDropdownListLink {
     ) as HTMLSlotElement;
     const btnIconSlottedEls = dropdownBtnIconSlotEl.assignedElements();
     const hasBtnIcon = btnIconSlottedEls?.length > 0;
+    /** Special treatment for user images as per design */
+    const btnIconIsUserImage =
+      btnIconSlottedEls?.[0]?.tagName.toLowerCase() === 'sdds-side-menu-user-image';
 
-    if (hasBtnIcon) {
-      this.dropdownHasButtonIcon = true;
+    if (hasBtnIcon && !btnIconIsUserImage) {
+      this.shouldIndentExtra = true;
     }
   }
 
@@ -37,7 +54,10 @@ export class SideMenuDropdownListLink {
       <Host role="listitem">
         <a
           part="a"
-          class={{ 'state--dropdown-has-button-icon': this.dropdownHasButtonIcon }}
+          class={{
+            'state--should-indent-extra': this.shouldIndentExtra,
+            'state--collapsed': this.collapsed,
+          }}
           href={this.href}
           rel={this.rel}
           target={this.target}

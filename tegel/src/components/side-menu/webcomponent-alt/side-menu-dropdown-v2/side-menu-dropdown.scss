@@ -19,7 +19,7 @@
 
   .state--collapsed {
     .menu {
-      --side-menu-width: 272px;
+      --side-menu-width: 68px;
 
       position: absolute;
       top: 0;
@@ -27,6 +27,18 @@
       overflow-y: auto;
       box-shadow: var(--sdds-nav-dropdown-menu-box);
       background-color: var(--sdds-header-app-launcher-menu-bg);
+
+      .heading-collapsed {
+        all: unset;
+        box-sizing: border-box;
+        padding: 16px 24px 15px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
+        font: var(--sdds-headline-07);
+        letter-spacing: var(--sdds-headline-07-ls);
+      }
     }
   }
 

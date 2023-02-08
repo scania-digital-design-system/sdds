@@ -8,13 +8,11 @@
     list-style: none;
     border-radius: none;
     background-color: var(--sdds-header-app-launcher-menu-bg);
+  }
 
-    &.open {
-      display: block;
-    }
-
-    &.closed {
-      display: none;
+  .state--collapsed {
+    ::slotted(*) {
+      border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
     }
   }
 }

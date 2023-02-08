@@ -19,7 +19,7 @@
 
 ### Depends on
 
-- [sdds-side-menu-button-v2](../side-menu-button)
+- [sdds-side-menu-button-v2](../side-menu-button-v2)
 - [sdds-icon](../../../icon)
 
 ### Graph

@@ -118,7 +118,7 @@ const Template = () =>
       </sdds-header-launcher-grid>
     </sdds-header-launcher-v2>
 
-    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
+    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show">
       <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
       <sdds-header-dropdown-list-lg>
         <sdds-header-dropdown-list-lg-user
@@ -166,9 +166,34 @@ const Template = () =>
       </sdds-side-menu-dropdown-list>
     </sdds-side-menu-dropdown-v2>
 
+    <sdds-side-menu-dropdown-v2 slot="end" class="demo-xs-hide">
+      <sdds-side-menu-user-image slot="button-icon">
+        <img
+          src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
+          alt="User menu."
+        /> 
+      </sdds-side-menu-user-image>
+      <span slot="button-label">
+        Name Namesson
+        <div style="color: gray;">Company name</div>
+      </span>
+      <sdds-side-menu-dropdown-list>
+        <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+      </sdds-side-menu-dropdown-list>
+    </sdds-side-menu-dropdown-v2>
+
     <sdds-side-menu-button-v2 slot="end" class="demo-xs-hide">
-      <sdds-icon slot="icon" name="profile" size="24px"> </sdds-icon>
-      Profile
+      <sdds-side-menu-user-image slot="icon">
+        <img
+          src="https://via.placeholder.com/50"
+          alt="User menu."
+        /> 
+      </sdds-side-menu-user-image>
+      <span >
+        Name Namesson
+        <div style="color: gray;">Company name</div>
+      </span>
     </sdds-side-menu-button-v2>
 
   </sdds-side-menu-v2>

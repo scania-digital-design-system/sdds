@@ -6,7 +6,7 @@
   top: 0;
   width: 100%;
 
-  .menu {
+  .wrapper {
     /* default slot */
     slot:not([name])::slotted(*) {
       border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
@@ -16,13 +16,17 @@
     ::slotted([slot='end']) {
       border-top: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
     }
+
+    .sdds-side-menu-list-end {
+      margin-top: 68px;
+    }
   }
 
-  .menu--closed {
+  .state--closed {
     display: none;
   }
 
-  .menu--open {
+  .state--open {
     slot[name='overlay']::slotted(sdds-side-menu-overlay) {
       opacity: 0.4;
     }
@@ -43,7 +47,7 @@
     width: 272px;
     border-right: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
 
-    .menu {
+    .wrapper {
       slot[name='overlay']::slotted(sdds-side-menu-overlay) {
         display: none;
       }
@@ -57,13 +61,21 @@
       }
     }
 
-    .menu--closed {
+    .state--closed {
       display: block;
+    }
+
+    &:host([collapsed]) {
+      width: 68px;
+
+      .menu {
+        width: 68px;
+      }
     }
   }
 }
 
-aside.sdds-side-menu-full-width {
+.menu {
   * {
     padding: 0;
     margin: 0;
@@ -81,6 +93,7 @@ aside.sdds-side-menu-full-width {
   &.collapsed {
     width: 64px;
   }
+
 }
 
 aside.sdds-side-menu-collapsed {
@@ -110,6 +123,10 @@ aside {
     transition: transform 250ms ease;
     transform-origin: top;
     transform: scaleY(0);
+
+    @include sdds-scrollbar;
+
+    overflow-y: auto;
   }
 
   button.sdds-side-menu-collapser {

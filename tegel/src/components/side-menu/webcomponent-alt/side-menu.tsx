@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu-v2',
@@ -6,9 +6,21 @@ import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
   shadow: true,
 })
 export class SddsSideMenu {
+  /** Broadcasts collapsed state to child components */
+  @Event({
+    eventName: 'tegelCollapsedSideMenu',
+    bubbles: true,
+    composed: true,
+    cancelable: true,
+  })
+  collapsedSideMenuEventEmitter: EventEmitter<any>;
+
   @Prop() open: boolean = false;
 
   @Prop({ reflect: true }) persistent: boolean = false;
+
+  /** If collapsed, only a persistent desktop menu can be collapsed */
+  @Prop({ reflect: true }) collapsed: boolean = false;
 
   @State() state_isClosed: boolean = true;
 
@@ -17,6 +29,12 @@ export class SddsSideMenu {
   @State() state_isClosing: boolean = false;
 
   @State() state_isOpening: boolean = false;
+
+  connectedCallback() {
+    this.collapsedSideMenuEventEmitter.emit({
+      collapsed: this.collapsed,
+    });
+  }
 
   componentDidLoad() {
     setTimeout(() => this.onOpenChange(this.open), 500);
@@ -30,6 +48,13 @@ export class SddsSideMenu {
     if (!newValue && oldValue) {
       this.setClosing();
     }
+  }
+
+  @Watch('collapsed')
+  onCollapsedChange(newValue: boolean) {
+    this.collapsedSideMenuEventEmitter.emit({
+      collapsed: newValue,
+    });
   }
 
   setOpening() {
@@ -59,19 +84,19 @@ export class SddsSideMenu {
       <Host>
         <div
           class={{
-            'menu': true,
-            'menu--open': this.state_isOpen || this.state_isOpening,
-            'menu--closed': this.state_isClosed,
+            'wrapper': true,
+            'state--open': this.state_isOpen || this.state_isOpening,
+            'state--closed': this.state_isClosed,
           }}
         >
           <slot name="overlay"></slot>
-          <aside class={`sdds-side-menu-full-width`}>
+          <aside class={`menu`}>
             <slot name="close-button"></slot>
             <div class="sdds-side-menu-wrapper">
               <ul class={`sdds-side-menu-list`}>
                 <slot></slot>
               </ul>
-              <ul class={`sdds-side-menu-list`}>
+              <ul class={`sdds-side-menu-list sdds-side-menu-list-end`}>
                 <slot name="end"></slot>
               </ul>
             </div>

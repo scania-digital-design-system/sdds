@@ -48,12 +48,6 @@ const Template = () =>
           display: block;
         }
       }
-
-      @media (min-width: 672px) {
-        .demo-md-hide {
-          display: none;
-        }
-      }
     </style>
 
   <sdds-header-v2>
@@ -125,27 +119,34 @@ const Template = () =>
       </sdds-side-menu-dropdown-v2>
 
       <sdds-side-menu-button-v2>
-        <sdds-icon slot="icon" name="document_tool" size="24"></sdds-icon>
-        Documents
+        <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+        Values
       </sdds-side-menu-button-v2>
 
-      <sdds-side-menu-dropdown-v2 slot="end" class="demo-xs-hide">
-        <sdds-side-menu-user-v2 
-          slot="button-label" 
-          heading="Name Namesson" 
-          subheading="Company name" 
-          image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
-          image-alt="">
-        </sdds-side-menu-user-v2>
+      <sdds-side-menu-dropdown-v2 slot="end">
+        <sdds-icon slot="button-icon" name="heart" size="24"></sdds-icon>
+        <span slot="button-label">
+          Drivers
+        </span>
         <sdds-side-menu-dropdown-list>
           <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
           <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
         </sdds-side-menu-dropdown-list>
       </sdds-side-menu-dropdown-v2>
-      
-      <sdds-side-menu-button-v2 slot="end" class="demo-md-hide">
-        <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
-        Calendar
+
+      <sdds-side-menu-button-v2 slot="end">
+        <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+        Values
+      </sdds-side-menu-button-v2>
+
+      <sdds-side-menu-button-v2 slot="end" class="demo-xs-hide">
+        <sdds-side-menu-user-v2 heading="Name Namesson" subheading="Company name">
+          <img
+            slot="image"
+            src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
+            alt="User menu."
+          />
+        </sdds-side-menu-user-v2>
       </sdds-side-menu-button-v2>
 
       <sdds-side-menu-collapse-button slot="end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
@@ -161,4 +162,4 @@ const Template = () =>
   `,
   );
 
-export const ManyHeaderItems = Template.bind({});
+export const ManyHeaderItemsAlt = Template.bind({});

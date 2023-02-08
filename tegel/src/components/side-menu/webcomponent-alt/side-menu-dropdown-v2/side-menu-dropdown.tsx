@@ -6,6 +6,8 @@ import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@ste
   shadow: true,
 })
 export class SideMenuDropdown {
+  @Element() host: HTMLSddsSideMenuButtonV2Element;
+
   /** Opens and closes the dropdown */
   @Prop({ reflect: true }) open: boolean = false;
 
@@ -16,11 +18,14 @@ export class SideMenuDropdown {
   /** Placement of the dropdown menu relative to the button TODO*/
   @Prop() placement: 'start' | 'end' = 'start';
 
-  @State() isCollapsed: boolean = false;
-
   @State() hoverState: { isHovered: boolean; updatedAt: number };
 
-  @Element() host: HTMLElement;
+  @State() collapsed: boolean = false;
+
+  @Listen('tegelCollapsedSideMenu', { target: 'body' })
+  collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
+    this.collapsed = event.detail.collapsed;
+  }
 
   @Listen('pointerenter')
   onEventPointerEnter() {
@@ -30,7 +35,7 @@ export class SideMenuDropdown {
   @Listen('pointerleave')
   onEventPointerLeave() {
     const leftAt = Date.now();
-    const toleranceInMilliseconds = 200;
+    const toleranceInMilliseconds = 150;
     setTimeout(() => {
       if (this.hoverState.isHovered && this.hoverState.updatedAt < leftAt) {
         this.hoverState = { isHovered: false, updatedAt: Date.now() };
@@ -38,13 +43,20 @@ export class SideMenuDropdown {
     }, toleranceInMilliseconds);
   }
 
+  sideMenuEl: HTMLSddsSideMenuElement;
+
+  connectedCallback() {
+    this.sideMenuEl = this.host.closest('sdds-side-menu');
+    this.collapsed = this.sideMenuEl.collapsed;
+  }
+
   render() {
     return (
       <Host>
         <div
           class={{
-            'state--open': this.open,
-            'state--collapsed': this.isCollapsed,
+            'state--open': this.collapsed ? this.hoverState?.isHovered : this.open,
+            'state--collapsed': this.collapsed,
           }}
         >
           <sdds-side-menu-button-v2
@@ -54,7 +66,7 @@ export class SideMenuDropdown {
             }}
           >
             <slot name="button-icon" slot="icon"></slot>
-            {!this.isCollapsed && (
+            {!this.collapsed && (
               <Fragment>
                 {this.buttonLabel}
                 <slot name="button-label"></slot>
@@ -63,6 +75,12 @@ export class SideMenuDropdown {
             )}
           </sdds-side-menu-button-v2>
           <div class="menu">
+            {this.collapsed && (
+              <h3 class="heading-collapsed">
+                {this.buttonLabel}
+                <slot name="button-label"></slot>
+              </h3>
+            )}
             <slot></slot>
           </div>
         </div>
