@@ -33,7 +33,10 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
     backgrounds: {
       table: {
@@ -43,7 +46,7 @@ export default {
   },
   args: {
     autoHeight: false,
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 // eslint-disable-next-line arrow-body-style
@@ -51,8 +54,8 @@ const Template = ({ autoHeight = false, modeVariant }) => {
   return formatHtmlPreview(`
     <sdds-inline-tabs ${
       autoHeight ? 'auto-height' : ''
-    }  mode-variant="${modeVariant.toLowerCase()}">
-      <sdds-inline-tab label="Tab with tall content">
+    }  ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
+      <div data-name="Tab with tall content">
         Tab panel 1
         <div style="width:200px; height:200px; background: linear-gradient(125deg,rgba(255, 0, 0, 1) 0%,rgba(255, 255, 0, 1) 33%,rgba(0, 192, 255, 1) 66%,rgba(192, 0, 255, 1) 100%);"></div>
       </sdds-inline-tab>
