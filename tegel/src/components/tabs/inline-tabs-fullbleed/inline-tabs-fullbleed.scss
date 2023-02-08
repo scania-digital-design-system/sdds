@@ -153,26 +153,14 @@
   }
 }
 
-.sdds-inline-tabs-fullbleed-primary {
-  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+.sdds-inline-tabs-fullbleed {
+  background-color: var(--sdds-inline-tabs-fullbleed-tab-background);
 
   .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background);
   }
 
   .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
-  }
-}
-
-.sdds-inline-tabs-fullbleed-secondary {
-  background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
-
-  .sdds-inline-tabs-fullbleed--forward {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
-  }
-
-  .sdds-inline-tabs-fullbleed--back {
-    background-color: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+    background-color: var(--sdds-inline-tabs-fullbleed-tab-background);
   }
 }

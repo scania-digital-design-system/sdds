@@ -1,9 +1,5 @@
 @import './textfield-theme-vars.scss';
 
-.sdds-on-white-background {
-  --sdds-textfield-background: var(--sdds-textfield-on-white-background);
-}
-
 @mixin textfield-base {
   border-radius: 4px 4px 0 0;
   width: 100%;
@@ -26,15 +22,15 @@
 
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--sdds-textfield-disabled-background);
-    color: var(--sdds-textfield-disabled-color);
+    background-color: var(--sdds-textfield-background-disabled);
+    color: var(--sdds-textfield-color-disabled);
 
     &::placeholder {
-      color: var(--sdds-textfield-disabled-placeholder);
+      color: var(--sdds-textfield-placeholder-disabled);
     }
 
     ~ .sdds-textfield-label-inside {
-      color: var(--sdds-textfield-disabled-label);
+      color: var(--sdds-textfield-label-disabled);
     }
   }
 }
@@ -268,6 +264,7 @@
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: flex;
+  gap: 8px;
   justify-content: space-between;
 
   & .sdds-textfield-textcounter {
@@ -288,23 +285,16 @@
   .sdds-textfield-slot-wrap-prefix,
   .sdds-textfield-slot-wrap-suffix {
     > * {
-      color: var(--sdds-textfield-disabled-ps-color);
+      color: var(--sdds-textfield-ps-color-disabled);
     }
   }
 
   .sdds-textfield-label-outside {
     > * {
-      color: var(--sdds-textfield-disabled-label);
+      color: var(--sdds-textfield-label-disabled);
     }
   }
 
-  /* slot[name="sdds-prefix"]::slotted(*),
-  slot[name="sdds-suffix"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-ps-color);
-  }
-  slot[name="sdds-label"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-label);
-  } */
 }
 
 //Read only state
@@ -326,8 +316,7 @@
     padding: 8px;
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
-  background-color: var(--sdds-textfield-icon-read-only-label-background);
-
+    background-color: var(--sdds-textfield-icon-read-only-label-background);
   }
 }
 
@@ -383,11 +372,8 @@
 // .sdds-textfield-textcounter {
 .sdds-textfield-helper-error-state {
   display: flex;
+  gap: 8px;
   flex-wrap: nowrap;
-
-  svg {
-    margin-right: 8px;
-  }
 }
 
 .sdds-textfield-textcounter {

@@ -111,7 +111,7 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
-      if: { arg: 'icon', neq: 'none' },
+      if: { arg: 'size', neq: 'Extra small' },
     },
   },
   args: {
@@ -154,8 +154,8 @@ const NativeTemplate = ({
   };
 
   const modeVariantLookup = {
-    'Primary': 'primary',
-    'Secondary': 'secondary',
+    Primary: 'primary',
+    Secondary: 'secondary',
   };
 
   return formatHtmlPreview(
@@ -175,9 +175,11 @@ const NativeTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`: ''} sdds-btn-${
-      sizeLookUp[size]
-    } ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} 
+<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} ${
+      modeVariant !== 'Inherit from parent'
+        ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`
+        : ''
+    } sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} 
    ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
   ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
   ${

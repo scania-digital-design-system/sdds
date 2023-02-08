@@ -1,8 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Link',
   parameters: {
+    notes: readme,
     layout: 'centered',
     design: [
       {
@@ -24,29 +26,50 @@ export default {
       controls: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
-    noUnderline: {
-      name: 'No underline',
-      description: 'Hide underline under link text',
+    underline: {
+      name: 'Underline',
+      description: 'Underline under link text.',
       controls: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'true' },
+      },
+    },
+    target: {
+      name: 'Target',
+      description: 'Where to open the linked URL.',
+      control: {
+        type: 'radio',
+      },
+      options: ['_self', '_blank', '_parent', '_top'],
+      table: {
+        defaultValue: { summary: '_self' },
       },
     },
   },
   args: {
     disabled: false,
-    noUnderline: false,
+    underline: true,
+    target: '_self',
   },
 };
 
-const Template = ({ disabled, noUnderline }) =>
+const Template = ({ disabled, underline, target }) =>
   formatHtmlPreview(
     `
-      <a class="sdds-link ${disabled ? 'disabled' : ''} ${
-      noUnderline ? 'sdds-link--no-underline' : ''
-    }" href="#">
+    <sdds-link
+        ${disabled ? 'disabled' : ''}
+        ${underline ? '' : 'underline="false"'}
+        link-href="#"
+        target="${target}"
+        >
         This is a link.
-      </a>
+    </sdds-link>
   `,
   );
-export const Native = Template.bind({});
+export const WebComponent = Template.bind({});

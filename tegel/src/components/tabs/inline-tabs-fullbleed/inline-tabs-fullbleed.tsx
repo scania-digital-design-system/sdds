@@ -7,7 +7,7 @@ import { Component, Host, State, Element, h, Prop } from '@stencil/core';
 })
 export class InlineTabsFullbleed {
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   @Element() host: HTMLElement;
 
@@ -112,8 +112,8 @@ export class InlineTabsFullbleed {
 
   render() {
     return (
-      <Host>
-        <div class={`sdds-inline-tabs-fullbleed sdds-inline-tabs-fullbleed-${this.modeVariant}`}>
+      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
+        <div class={`sdds-inline-tabs-fullbleed`}>
           <div
             class="sdds-inline-tabs-fullbleed-wrapper"
             ref={(el) => {

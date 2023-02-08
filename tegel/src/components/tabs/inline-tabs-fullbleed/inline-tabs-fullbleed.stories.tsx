@@ -20,21 +20,24 @@ export default {
   },
   argTypes: {
     modeVariant: {
-      name: 'Variant',
+      name: 'Mode variant',
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 
 const Template = ({ modeVariant }) =>
   formatHtmlPreview(`
-  <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" mode-variant="${modeVariant.toLowerCase()}">
+  <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
       <a href="#">Tab name</a>
       <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Active tab</a>
       <a href="#">Tab name</a>
