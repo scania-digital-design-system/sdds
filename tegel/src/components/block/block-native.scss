@@ -13,5 +13,8 @@
 
   .sdds-block {
     background-color: var(--sdds-block-background-nested);
+    .sdds-block {
+      background-color: var(--sdds-block-background);
+    }
   }
 }
