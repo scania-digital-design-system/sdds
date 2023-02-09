@@ -98,10 +98,3 @@
     border-right: 1px solid var(--sdds-data-table-divider);
   }
 }
-
-:host(.sdds-table__row-expand--active) {
-  .sdds-table__row,
-  .sdds-table__row-extend {
-    background-color: var(--sdds-data-table-body-row-expandable-selected);
-  }
-}

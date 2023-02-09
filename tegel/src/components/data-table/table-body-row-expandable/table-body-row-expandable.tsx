@@ -116,8 +116,8 @@ export class TableBodyRowExpandable {
           'sdds-table__row-expand--active': this.isExpanded,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-table--mode-variant-primary': this.modeVariant === 'Primary',
-          'sdds-table--mode-variant-secondary': this.modeVariant === 'Secondary',
+          'sdds-mode-variant-primary': this.modeVariant === 'Primary',
+          'sdds-mode-variant-secondary': this.modeVariant === 'Secondary',
         }}
       >
         <tr class="sdds-table__row">
