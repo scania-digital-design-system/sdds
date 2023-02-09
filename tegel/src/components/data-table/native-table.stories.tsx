@@ -39,19 +39,17 @@ export default {
         },
       },
     },
-    // onWhiteBG: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+    },
     responsiveTable: {
       name: 'Responsive table',
       description:
@@ -119,7 +117,7 @@ export default {
     tableTitle: 'Native table',
     isCompact: false,
     dividers: false,
-    // onWhiteBG: false,
+    modeVariant: 'Primary',
     noMinWidthArg: false,
     responsiveTable: false,
     column1Width: '',
@@ -132,6 +130,7 @@ const Template = (args) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
+        sdds-mode-variant-${args.modeVariant.toLowerCase()}
         ${args.isCompact ? 'sdds-table--compact' : ''}
         ${args.dividers ? 'sdds-table--divider' : ''}
         ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
