@@ -37,9 +37,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     header: {
@@ -78,7 +78,7 @@ export default {
   },
   args: {
     messageType: 'Information',
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     header: 'Message header',
     noIcon: false,
     extendedMessage:
@@ -102,6 +102,7 @@ const Template = ({ messageType, noIcon, extendedMessage, modeVariant, header, m
           ${noIcon ? 'no-icon' : ''}
           ${minimal ? 'minimal' : ''}
           mode-variant="${modeVariant.toLowerCase()}"
+          ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
       >
       ${extendedMessage}
       </sdds-message>

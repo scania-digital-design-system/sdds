@@ -33,9 +33,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent','Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     disabled: {
@@ -113,7 +113,7 @@ export default {
     maxLength: 0,
     rows: 5,
     state: 'Default',
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
   },
 };
 
