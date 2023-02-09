@@ -196,8 +196,6 @@ export class DropdownV3 {
       );
       this.host.setAttribute('value', JSON.stringify(this.value));
     } else {
-      console.log('was not selected');
-
       element.setAttribute('selected', '');
       this.setMultiselectValue({
         value: element.value,
@@ -250,10 +248,6 @@ export class DropdownV3 {
     }
   }
 
-  /* componentDidRender(){
-    this.handleDataElementSelection();
-  } */
-
   @Listen('keydown')
   keyDown(event: KeyboardEvent) {
     if (this.open) {
@@ -289,7 +283,6 @@ export class DropdownV3 {
     }));
 
     if (checked) {
-      console.log(checked);
       this.value = [
         ...this.value,
         {

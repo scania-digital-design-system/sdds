@@ -199,7 +199,7 @@ const defaultOptionJSON = (defaultOption: string) => `
 const multiDefaultOptionChildren = (multiDefaultOption: string[]) => `
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 1') ? 'selected' : ''
-      } value="option-1" label="Option-1">
+      } value="option-1" label="Option-1" disabled>
       </sdds-dropdown-option-v3>
       <sdds-dropdown-option-v3 ${
         multiDefaultOption.includes('Option 2') ? 'selected' : ''

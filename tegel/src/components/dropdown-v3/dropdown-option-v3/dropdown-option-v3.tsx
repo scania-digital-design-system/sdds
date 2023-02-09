@@ -69,6 +69,7 @@ export class DropdownOptionV3 {
                 ${this.multiselect ? 'multiselect' : ''}
               `}
                 checked={this.selected}
+                disabled={this.disabled}
               >
                 {this.label}
               </sdds-checkbox>
