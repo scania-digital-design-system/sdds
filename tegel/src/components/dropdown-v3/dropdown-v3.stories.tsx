@@ -292,10 +292,11 @@ const Template = ({
       </sdds-dropdown-v3>
     </div>
 
-    <script>
+    `);
+export const WebComponent = Template.bind({});
+
+/*   <script>
         document.addEventListener('dropdownSelect', (event)=> {
           console.log('Dropdown with id:', event.detail.dropdownId, 'had selection made, chosen value(s) are:', event.detail.value)
         })
-    </script>
-    `);
-export const WebComponent = Template.bind({});
+    </script> */

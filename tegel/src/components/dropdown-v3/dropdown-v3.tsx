@@ -124,44 +124,6 @@ export class DropdownV3 {
     }
   };
 
-  addEventHandler = (element: HTMLSddsDropdownOptionV3Element, index?: number) => {
-    element.addEventListener('click', () => {
-      if (this.multiselect) {
-        if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
-          element.removeAttribute('selected');
-          this.value = this.value.filter(
-            (item) =>
-              item.value !== element.getAttribute('value') &&
-              item.label !== element.getAttribute('label'),
-          );
-          this.host.setAttribute('value', JSON.stringify(this.value));
-        } else {
-          element.setAttribute('selected', '');
-          this.setMultiselectValue({
-            value: element.value,
-            label: element.getAttribute('label'),
-          });
-          this.host.setAttribute('value', JSON.stringify(this.value));
-        }
-      } else {
-        // Not multiselect
-        element.setAttribute('selected', '');
-        this.value = [
-          {
-            value: element.getAttribute('value'),
-            label: element.getAttribute('label'),
-          },
-        ];
-        this.childElements.map((childElement, childElementIndex) => {
-          if (childElementIndex !== index) {
-            childElement.removeAttribute('selected');
-          }
-          return childElement;
-        });
-      }
-    });
-  };
-
   handleChildElementSelection = () => {
     this.childElements = Array.from(this.host.children) as [HTMLSddsDropdownOptionV2Element];
     this.childElements.forEach((element: HTMLSddsDropdownOptionV3Element, index) => {
@@ -212,6 +174,74 @@ export class DropdownV3 {
     }
   };
 
+  addEventHandler = (element: HTMLSddsDropdownOptionV3Element, index?: number) => {
+    if (this.multiselect) {
+      element.addEventListener('checkboxChange', () => {
+        this.addMultiSelectEventListener(element);
+      });
+    } else {
+      element.addEventListener('click', () => {
+        this.addSingleSelectEventListener(element, index);
+      });
+    }
+  };
+
+  addEventListenerForCheckbox = (element: HTMLSddsDropdownOptionV3Element) => {
+    if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
+      element.removeAttribute('selected');
+      this.value = this.value.filter(
+        (item) =>
+          item.value !== element.getAttribute('value') &&
+          item.label !== element.getAttribute('label'),
+      );
+      this.host.setAttribute('value', JSON.stringify(this.value));
+    } else {
+      console.log('was not selected');
+
+      element.setAttribute('selected', '');
+      this.setMultiselectValue({
+        value: element.value,
+        label: element.getAttribute('label'),
+      });
+      this.host.setAttribute('value', JSON.stringify(this.value));
+    }
+  };
+
+  addMultiSelectEventListener = (element: HTMLSddsDropdownOptionV3Element) => {
+    if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
+      element.removeAttribute('selected');
+      this.value = this.value.filter(
+        (item) =>
+          item.value !== element.getAttribute('value') &&
+          item.label !== element.getAttribute('label'),
+      );
+      this.host.setAttribute('value', JSON.stringify(this.value));
+    } else {
+      element.setAttribute('selected', '');
+      this.setMultiselectValue({
+        value: element.value,
+        label: element.getAttribute('label'),
+      });
+      this.host.setAttribute('value', JSON.stringify(this.value));
+    }
+  };
+
+  addSingleSelectEventListener = (element: HTMLSddsDropdownOptionV3Element, index: number) => {
+    element.setAttribute('selected', '');
+    this.value = [
+      {
+        value: element.getAttribute('value'),
+        label: element.getAttribute('label'),
+      },
+    ];
+    this.childElements.map((childElement, childElementIndex) => {
+      if (childElementIndex !== index) {
+        childElement.removeAttribute('selected');
+      }
+      return childElement;
+    });
+  };
+
   connectedCallback() {
     if (this.data) {
       this.handleDataElementSelection();
@@ -219,6 +249,10 @@ export class DropdownV3 {
       this.handleChildElementSelection();
     }
   }
+
+  /* componentDidRender(){
+    this.handleDataElementSelection();
+  } */
 
   @Listen('keydown')
   keyDown(event: KeyboardEvent) {
@@ -248,12 +282,37 @@ export class DropdownV3 {
     }
   }
 
+  handleChangeSelection(checked: any, index: number) {
+    this.dataChildElements = this.dataChildElements.map((dataElement, elementIndex) => ({
+      ...dataElement,
+      selected: index === elementIndex ? checked : dataElement.selected,
+    }));
+
+    if (checked) {
+      console.log(checked);
+      this.value = [
+        ...this.value,
+        {
+          value: this.dataChildElements[index].value,
+          label: this.dataChildElements[index].label,
+        },
+      ];
+    } else {
+      this.value = this.value.filter(
+        (item) =>
+          item.value !== this.dataChildElements[index].value &&
+          item.label !== this.dataChildElements[index].label,
+      );
+    }
+  }
+
   handleSelect = (index: number) => {
     if (this.multiselect) {
       if (
         this.dataChildElements[index].selected === undefined ||
         this.dataChildElements[index].selected === false
       ) {
+        this.dataChildElements[index].selected = true;
         this.dataChildElements = this.dataChildElements.map((dataItem, itemIndex) => ({
           ...dataItem,
           selected: index === itemIndex ? true : dataItem.selected,
@@ -493,9 +552,12 @@ export class DropdownV3 {
                   selected={item.selected}
                   disabled={item.disabled}
                   onClick={() => {
-                    if (!item.disabled) {
+                    if (!this.multiselect) {
                       this.handleSelect(index);
                     }
+                  }}
+                  onChange={(event: any) => {
+                    this.handleChangeSelection(event.target.checked, index);
                   }}
                 ></sdds-dropdown-option-v3>
               ))}

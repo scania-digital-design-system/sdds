@@ -60,30 +60,39 @@ export class DropdownOptionV3 {
           ${this.selected ? 'selected' : ''}
           `}
           >
-            <button
-              role="option"
-              onClick={() => {
-                if (!this.multiselect) {
-                  this.parentEl.open = !this.parentEl.open;
-                }
-              }}
-              class={`
+            {this.multiselect ? (
+              <sdds-checkbox
+                class={`
+                ${this.size}
+                ${this.disabled ? 'disabled' : ''}
+                ${this.selected ? 'selected' : ''}
+                ${this.multiselect ? 'multiselect' : ''}
+              `}
+                checked={this.selected}
+              >
+                {this.label}
+              </sdds-checkbox>
+            ) : (
+              <button
+                role="option"
+                onClick={() => {
+                  if (!this.multiselect) {
+                    this.parentEl.open = !this.parentEl.open;
+                  }
+                }}
+                class={`
             ${this.size}
             ${this.disabled ? 'disabled' : ''}
             ${this.selected ? 'selected' : ''}
             ${this.multiselect ? 'multiselect' : ''}
             `}
-            >
-              {this.multiselect ? (
-                <sdds-checkbox checked={this.selected}>{this.label}</sdds-checkbox>
-              ) : (
-                this.label
-              )}
-
-              {!this.multiselect && this.selected && (
-                <sdds-icon name="tick" size="16px"></sdds-icon>
-              )}
-            </button>
+              >
+                {this.label}
+                {!this.multiselect && this.selected && (
+                  <sdds-icon name="tick" size="16px"></sdds-icon>
+                )}
+              </button>
+            )}
           </div>
         </div>
       </Host>

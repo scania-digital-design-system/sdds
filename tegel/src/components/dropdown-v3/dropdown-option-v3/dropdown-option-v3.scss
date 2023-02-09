@@ -74,5 +74,50 @@
         justify-content: initial;
       }
     }
+
+    sdds-checkbox {
+      height: 100%;
+      display: flex;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--sdds-dropdown-option-border);
+
+      &.lg {
+        height: 56px;
+      }
+
+      &.md {
+        height: 48px;
+      }
+
+      &.sm {
+        height: 40px;
+      }
+
+      &.selected {
+        border-color: var(--sdds-dropdown-option-selected);
+      }
+
+      &:focus-visible {
+        outline: none;
+        border-color: var(--sdds-dropdown-option-border-focus);
+      }
+
+      &.disabled {
+        color: var(--sdds-dropdown-option-color-disabled);
+        pointer-events: none;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.multiselect {
+        justify-content: initial;
+      }
+    }
   }
 }
