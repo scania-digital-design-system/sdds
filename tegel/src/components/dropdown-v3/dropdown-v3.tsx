@@ -65,6 +65,9 @@ export class DropdownV3 {
   /** If filter option is true, this is the text displayed when the search returns no options. */
   @Prop() noResultText: string = 'No result';
 
+  /** Specifies the height of the dropdown. Auto if not defined. */
+  @Prop() dropdownHeight: string;
+
   @State() value: Array<{
     value: string;
     label: string;
@@ -410,6 +413,23 @@ export class DropdownV3 {
     throw new Error('Oops.. something went wrong.');
   };
 
+  getDropdownHeight = () => {
+    if (this.childElements && this.childElements.length > 7) {
+      switch (this.size) {
+        case 'lg':
+          return '420px';
+        case 'md':
+          return '360px';
+        case 'sm':
+          return '300px';
+        default:
+          return null;
+      }
+    } else {
+      return null;
+    }
+  };
+
   @Event({
     eventName: 'dropdownSelect',
     composed: true,
@@ -535,6 +555,9 @@ export class DropdownV3 {
             aria-labelledby={this.dropdownId}
             class={`${this.size}`}
             ref={(element) => (this.dropdownList = element as HTMLElement)}
+            style={{
+              maxHeight: this.dropdownHeight ? this.dropdownHeight : this.getDropdownHeight(),
+            }}
           >
             {this.data &&
               this.dataChildElements.map((item, index) => (

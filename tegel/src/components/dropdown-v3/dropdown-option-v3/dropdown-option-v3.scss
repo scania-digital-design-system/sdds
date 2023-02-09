@@ -17,6 +17,7 @@
     &.disabled {
       &:hover {
         cursor: not-allowed;
+        background-color: var(--sdds-dropdown-option-bg);
       }
     }
 
@@ -108,6 +109,7 @@
 
         &:hover {
           cursor: not-allowed;
+          background-color: transparent;
         }
       }
 

@@ -6,7 +6,7 @@ export default {
   title: 'Components/Dropdown-v3',
   parameters: {
     notes: { 'Dropdown': readmeDropdown, 'Dropdown option': readmeDropdownOption },
-    layout: 'centered',
+    layout: 'padded',
   },
   argTypes: {
     size: {
@@ -231,6 +231,20 @@ const defaultOptionChildren = (defaultOption: string) => `
         defaultOption === 'Option 4' ? 'selected' : ''
       } value="option-4" label="Option-4">
       </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
+      <sdds-dropdown-option-v3 label="Option-5">
+      </sdds-dropdown-option-v3>
 `;
 
 const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
@@ -253,8 +267,22 @@ const Template = ({
   formatHtmlPreview(`
     <style>
       .demo-wrapper {
+        display: flex;
+        justify-content: center;
+        ${
+          openDirection === 'Up'
+            ? `
+        height: 300px;
+        align-items: end;
+        `
+            : ''
+        }
+      }
+
+      sdds-dropdown-v3 {
         width: 200px;
       }
+
     </style>
     <div class="demo-wrapper">
       <sdds-dropdown-v3
