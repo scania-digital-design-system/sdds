@@ -1,4 +1,5 @@
 @import '../../mixins/focus-state';
+@import '../../mixins/z-index';
 
 :host(.hide) {
   display: none;
@@ -6,6 +7,8 @@
 }
 
 :host {
+  z-index: z(toast);
+
   .toast-wrapper {
     display: flex;
     width: calc(352px - 4px);
