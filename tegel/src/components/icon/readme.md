@@ -47,6 +47,7 @@
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
  - [sdds-side-menu-dropdown-v1](../side-menu/webcomponent-alt/side-menu-dropdown-v1)
  - [sdds-side-menu-dropdown-v2](../side-menu/webcomponent-alt/side-menu-dropdown-v2)
+ - [sdds-textarea](../textarea)
 
 ### Graph
 ```mermaid
@@ -83,6 +84,7 @@ graph TD;
   sdds-side-menu-dropdown --> sdds-icon
   sdds-side-menu-dropdown-v1 --> sdds-icon
   sdds-side-menu-dropdown-v2 --> sdds-icon
+  sdds-textarea --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

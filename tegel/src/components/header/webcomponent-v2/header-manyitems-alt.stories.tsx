@@ -113,8 +113,8 @@ const Template = () =>
           Drivers
         </span>
         <sdds-side-menu-dropdown-list>
-          <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-          <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+          <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Albin Larsson</sdds-side-menu-dropdown-list-link>
+          <sdds-side-menu-dropdown-list-link href="https://www.scania.com ">Viktor Skofors</sdds-side-menu-dropdown-list-link>
         </sdds-side-menu-dropdown-list>
       </sdds-side-menu-dropdown-v2>
 
@@ -129,8 +129,8 @@ const Template = () =>
           Drivers
         </span>
         <sdds-side-menu-dropdown-list>
-          <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-          <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+          <sdds-side-menu-dropdown-list-link href="https://scania.com">Albin Larsson</sdds-side-menu-dropdown-list-link>
+          <sdds-side-menu-dropdown-list-link href="https://scania.com">Viktor Skofors</sdds-side-menu-dropdown-list-link>
         </sdds-side-menu-dropdown-list>
       </sdds-side-menu-dropdown-v2>
 

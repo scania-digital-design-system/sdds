@@ -29,11 +29,29 @@ export class SideMenuDropdown {
 
   @Listen('pointerenter')
   onEventPointerEnter() {
-    this.hoverState = { isHovered: true, updatedAt: Date.now() };
+    this.setHoverStateOpen();
+  }
+
+  @Listen('focusin')
+  onEventFocus() {
+    this.setHoverStateOpen();
   }
 
   @Listen('pointerleave')
   onEventPointerLeave() {
+    this.setHoverStateClosed();
+  }
+
+  @Listen('focusout')
+  onEventBlur() {
+    this.setHoverStateClosed();
+  }
+
+  setHoverStateOpen() {
+    this.hoverState = { isHovered: true, updatedAt: Date.now() };
+  }
+
+  setHoverStateClosed() {
     const leftAt = Date.now();
     const toleranceInMilliseconds = 150;
     setTimeout(() => {
@@ -55,11 +73,13 @@ export class SideMenuDropdown {
       <Host>
         <div
           class={{
+            'wrapper': true,
             'state--open': this.collapsed ? this.hoverState?.isHovered : this.open,
             'state--collapsed': this.collapsed,
           }}
         >
           <sdds-side-menu-button-v2
+            class="button"
             // isActive={this.open}
             onClick={() => {
               this.open = !this.open;

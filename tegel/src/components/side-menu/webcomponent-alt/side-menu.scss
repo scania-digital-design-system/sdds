@@ -43,7 +43,7 @@
 
 @media (min-width: 672px) {
   :host([persistent]) {
-    position: relative;
+    position: static;
     width: 272px;
     border-right: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
 
@@ -57,7 +57,7 @@
       }
 
       .sdds-side-menu-wrapper {
-        transform: scaleY(1);
+        transform: none;
       }
     }
 
@@ -93,7 +93,6 @@
   &.collapsed {
     width: 64px;
   }
-
 }
 
 aside.sdds-side-menu-collapsed {
