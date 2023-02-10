@@ -1,7 +1,9 @@
 @import '../../mixins/scrollbar';
+@import '../../mixins/z-index';
 
 .sdds-dropdown-webcomponent {
   position: relative;
+  z-index: z(dropdown);
 
   .dropdown-button {
     background-color: var(--sdds-dropdown-bg);
@@ -228,6 +230,7 @@
     position: relative;
 
     [role='listbox'] {
+      z-index: z(dropdown);
       position: absolute;
       top: 100%;
       left: 0;
