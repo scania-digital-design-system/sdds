@@ -19,7 +19,7 @@
     width: 100%;
     font: var(--sdds-detail-02);
     letter-spacing: var(--sdds-detail-02-ls);
-    background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+    background-color: var(--sdds-header-nav-item-dropdown-opened-background);
     color: var(--sdds-header-nav-item-dropdown-opened-color);
     border: none;
 
@@ -29,7 +29,7 @@
     }
 
     &:hover {
-      background-color: var(--sdds-nav-item-bg-hover);
+      background-color: var(--sdds-nav-item-background-hover);
       cursor: pointer;
     }
   }

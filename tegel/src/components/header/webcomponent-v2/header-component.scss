@@ -5,7 +5,7 @@
 :host {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-header-bg);
+  background-color: var(--sdds-header-background);
   height: 64px;
   width: 100%;
   z-index: 3;

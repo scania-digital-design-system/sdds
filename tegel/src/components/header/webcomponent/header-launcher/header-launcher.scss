@@ -33,9 +33,9 @@
     }
 
     &.open {
-      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
-      border-right: 1px solid var(--sdds-header-nav-item-dropdown-opened-bg);
+      border-right: 1px solid var(--sdds-header-nav-item-dropdown-opened-background);
 
       sdds-icon {
         transform: rotateX(180deg);

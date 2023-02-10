@@ -37,9 +37,9 @@
 
   .state--active {
     button {
-      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
-      border-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      border-color: var(--sdds-header-nav-item-dropdown-opened-background);
     }
   }
 }

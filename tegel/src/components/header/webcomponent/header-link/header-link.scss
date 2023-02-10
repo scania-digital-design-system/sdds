@@ -27,7 +27,7 @@ li {
     a {
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
-      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
       border: none;
 
@@ -37,7 +37,7 @@ li {
       }
 
       &:hover {
-        background-color: var(--sdds-nav-item-bg-hover);
+        background-color: var(--sdds-nav-item-background-hover);
       }
     }
   }
@@ -50,7 +50,7 @@ li {
     a {
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
-      background-color: var(--sdds-header-nav-item-dropdown-opened-bg);
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
       color: var(--sdds-header-app-launcher-item-color);
       border: none;
 
@@ -60,7 +60,7 @@ li {
       }
 
       &:hover {
-        background-color: var(--sdds-nav-item-bg-hover);
+        background-color: var(--sdds-nav-item-background-hover);
       }
     }
   }
