@@ -34,31 +34,15 @@ export class InlineTabsFullbleed {
 
   children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
 
-  calculateButtonWidth() {
-    this.children = this.children.map(
-      (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
-        if (navButton.offsetWidth > this.buttonWidth) {
-          this.buttonWidth = navButton.offsetWidth;
-        }
-        return navButton;
-      },
-    );
-    this.children.forEach((item) => {
-      item.setTabWidth(this.buttonWidth);
-    });
-  }
-
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll + this.buttonWidth;
-
+    this.navWrapperElement.scrollLeft = scroll + 95;
     this.evaluateScrollButtons();
   }
 
   scrollLeft() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll - this.buttonWidth;
-
+    this.navWrapperElement.scrollLeft = scroll - 10;
     this.evaluateScrollButtons();
   }
 
@@ -159,12 +143,10 @@ export class InlineTabsFullbleed {
     });
 
     resizeObserver.observe(this.navWrapperElement);
-    this.calculateButtonWidth();
   }
 
   componentWillRender() {
     if (!this.selectedTab) {
-      this.calculateButtonWidth();
       this.children = Array.from(this.host.children) as Array<
         HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
       >;
@@ -186,10 +168,6 @@ export class InlineTabsFullbleed {
       this.showRightScroll = false;
     }
     this.addResizeObserver();
-  }
-
-  componentDidUpdate() {
-    this.calculateButtonWidth();
   }
 
   @Event({

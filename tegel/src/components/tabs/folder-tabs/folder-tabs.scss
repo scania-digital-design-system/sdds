@@ -1,5 +1,6 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/box-sizing';
+@import '../../../mixins/z-index';
 
 :host {
   @include sdds-box-sizing;
@@ -19,10 +20,12 @@
   }
 
   .scroll-right-button {
+    z-index: calc(z(tab) + 1);
     right: 0;
   }
 
   .scroll-left-button {
+    z-index: calc(z(tab) + 1);
     left: 0;
   }
 
@@ -39,7 +42,6 @@
     opacity: 0;
     pointer-events: none;
     position: sticky;
-    z-index: 1;
 
     &.show {
       min-width: 48px;

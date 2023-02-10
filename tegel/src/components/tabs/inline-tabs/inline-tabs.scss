@@ -1,5 +1,6 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/box-sizing';
+@import '../../../mixins/z-index';
 
 :host {
   @include sdds-box-sizing;
@@ -34,10 +35,12 @@
 
   .scroll-right-button {
     right: 0;
+    z-index: calc(z(tab) + 1);
   }
 
   .scroll-left-button {
     left: 0;
+    z-index: calc(z(tab) + 1);
   }
 
   .scroll-right-button,
@@ -46,14 +49,13 @@
     cursor: pointer;
     border: 0;
     width: 0;
-    background-color: var(--sdds-folder-tabs-scroll-btn-background);
+    background-color: var(--sdds-inline-tabs-scroll-btn-background);
     display: none;
     justify-content: center;
     align-items: center;
     opacity: 0;
     pointer-events: none;
     position: sticky;
-    z-index: 1;
 
     &.show {
       min-width: 48px;
