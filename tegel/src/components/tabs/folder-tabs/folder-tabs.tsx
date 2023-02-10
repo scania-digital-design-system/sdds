@@ -8,6 +8,7 @@ import {
   Watch,
   Event,
   EventEmitter,
+  Method,
 } from '@stencil/core';
 
 @Component({
@@ -176,6 +177,26 @@ export class InlineTabs {
     selectedTab: string;
     selectedTabIndex: number;
   }>;
+
+  /** Sets the passed tabindex as the selected tab. */
+  @Method()
+  async selectTab(tabIndex: number) {
+    if (!this.children[tabIndex].disabled) {
+      this.children.forEach((element) => element.removeAttribute('selected'));
+      this.children = this.children.map((element, index) => {
+        if (index === tabIndex) {
+          element.setAttribute('selected', '');
+          this.selectedTab = element.innerHTML;
+          this.selectedTabIndex = tabIndex;
+        }
+        return element;
+      });
+    }
+    return {
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    };
+  }
 
   @Watch('selectedTab')
   handleSelectedTabChange() {

@@ -1,5 +1,5 @@
 import { Component, Host, State, Element, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { HostElement, Watch } from '@stencil/core/internal';
+import { HostElement, Method, Watch } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-inline-tabs',
@@ -180,6 +180,26 @@ export class InlineTabsFullbleed {
     selectedTab: string;
     selectedTabIndex: number;
   }>;
+
+  /** Selects a tab based on tabindex, will not select a disabled tab. */
+  @Method()
+  async selectTab(tabIndex: number) {
+    if (!this.children[tabIndex].disabled) {
+      this.children.forEach((element) => element.removeAttribute('selected'));
+      this.children = this.children.map((element, index) => {
+        if (index === tabIndex) {
+          element.setAttribute('selected', '');
+          this.selectedTab = element.innerHTML;
+          this.selectedTabIndex = tabIndex;
+        }
+        return element;
+      });
+    }
+    return {
+      selectedTab: this.selectedTab,
+      selectedTabIndex: this.selectedTabIndex,
+    };
+  }
 
   @Watch('selectedTab')
   handleSelectedTabChange() {

@@ -19,6 +19,19 @@
 | `sddsTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
 
 
+## Methods
+
+### `selectTab(tabIndex: number) => Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+
+Sets the passed tabindex as the selected tab.
+
+#### Returns
+
+Type: `Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

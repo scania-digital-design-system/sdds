@@ -51,42 +51,42 @@ export default {
 
 const Template = ({ modeVariant, childType }) =>
   formatHtmlPreview(`
-  <sdds-inline-tabs mode-variant="${modeVariant.toLowerCase()}">
-  ${
-    childType === 'Link'
-      ? `
-      <sdds-tab-link link-href="#">
-        First tab
-      </sdds-tab-link>
-      <sdds-tab-link link-href="#">
-        Second tab is waaay longer
-      </sdds-tab-link>
-      <sdds-tab-link selected link-href="#">
-        Third tab
-      </sdds-tab-link>
-      <sdds-tab-link disabled link-href="#">
-        Fourth tab
-      </sdds-tab-link>
-      `
-      : ''
-  }
+  <sdds-inline-tabs
+    mode-variant="${modeVariant.toLowerCase()}">
+      ${
+        childType === 'Link'
+          ? `
+        <sdds-tab-link link-href="#">
+          First tab
+        </sdds-tab-link>
+        <sdds-tab-link link-href="#">
+          Second tab is waaay longer
+        </sdds-tab-link>
+        <sdds-tab-link selected link-href="#">
+          Third tab
+        </sdds-tab-link>
+        <sdds-tab-link disabled link-href="#">
+          Fourth tab
+        </sdds-tab-link>
+        `
+          : ''
+      }
       ${
         childType === 'Button'
           ? `
-      <sdds-tab-button>
-        First tab
-      </sdds-tab-button>
-      <sdds-tab-button>
-        Second tab is waaay longer
-      </sdds-tab-button>
-      <sdds-tab-button selected>
-        Third tab
-      </sdds-tab-button>
-      <sdds-tab-button disabled>
-        Fourth tab
-      </sdds-tab-button>
-      
-      `
+        <sdds-tab-button>
+          First tab
+        </sdds-tab-button>
+        <sdds-tab-button>
+          Second tab is waaay longer
+        </sdds-tab-button>
+        <sdds-tab-button selected>
+          Third tab
+        </sdds-tab-button>
+        <sdds-tab-button disabled>
+          Fourth tab
+        </sdds-tab-button>
+        `
           : ''
       }
    </sdds-inline-tabs>
@@ -101,7 +101,7 @@ const Template = ({ modeVariant, childType }) =>
    <script>
    selectedTab = document.getElementsByClassName('selectedTab')[0]
    selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
- 
+
    document.addEventListener('sddsTabChangeEvent', (event) => {
      selectedTab.innerHTML = event.detail.selectedTab
      selectedTabIndex.innerHTML = event.detail.selectedTabIndex

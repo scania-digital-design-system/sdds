@@ -19,6 +19,19 @@ This component neither accepts any properties, nor exposes any methods.
 | `sddsTabChangeEvent` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
 
 
+## Methods
+
+### `selectTab(tabIndex: number) => Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+
+Selects a tab based on tabindex, will not select a disabled tab.
+
+#### Returns
+
+Type: `Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
