@@ -458,6 +458,89 @@ Rename all classes.
 
 ## Dropdown
 
+[Web Component](/docs/components-dropdown--webcomponent )
+
+#### Refactored the dropdown component.
+
+The previous dropdown component had a webcomponent version which we felt was not
+up to par with the quality of our other components. Therefor we did a full redo
+and refactor of this component.
+
+Before the filter version was a separate component that really just wrapped the 
+`<sdds-dropdown>` and by doing so offered some additional features. One of
+those features was the ability to pass in data via a `data` prop. Which would
+then render the `<sdds-dropdown-option>` based on the data. This is now available
+for all versions of the dropdown. A part from that, we have all in all created one
+component, with a child component for all available version of this component.
+
+This means that the dropdown will always have the same base, with it's children
+specified as children - `<sdds-dropdown-option>`, or via it's data prop. Then
+based on what features you want to use, you pass is different props.
+
+##### What action is required?
+Migrate all instances of `<sdds-dropdown>` to conform with it's updated API.
+
+All of the dropdowns new and refactored features are outlines in the dropdown
+story here in storybook. Please try it out [here](/docs/components-dropdown--webcomponent )
+
+
+#### Examples - with childelements:
+```jsx
+// New default sdds-dropdown ✅
+<sdds-dropdown>
+    <sdds-dropdown-option value="option-1" label="Option-1" disabled></sdds-dropdown-option>
+    <sdds-dropdown-option value="option-2" label="Option-2"></sdds-dropdown-option>
+</sdds-dropdown>
+
+// New filter sdds-dropdown ✅
+<sdds-dropdown
+  filter
+  >
+    <sdds-dropdown-option value="option-1" label="Option-1" disabled></sdds-dropdown-option>
+    <sdds-dropdown-option value="option-2" label="Option-2"></sdds-dropdown-option>
+</sdds-dropdown>
+
+// New multiselect sdds-dropdown ✅
+<sdds-dropdown
+  multiselect
+  >
+    <sdds-dropdown-option value="option-1" label="Option-1" disabled></sdds-dropdown-option>
+    <sdds-dropdown-option value="option-2" label="Option-2"></sdds-dropdown-option>
+</sdds-dropdown>
+```
+
+The data prop expects the following JSON structure, passed to it as a string.
+
+```json
+[{
+  "value": "string",
+  "label":"string",
+  "disabled":"boolean",
+  "selected":"boolean"
+}]
+```
+
+#### Example - with data prop:
+```jsx
+<sdds-dropdown
+    data='[
+            {
+              "value": "option-1",
+              "label":"Option 1",
+              "disabled":"true",
+              "selected":"false"
+            },
+            {
+              "value":"option-2",
+              "label":"Option 2",
+              "disabled":"false",
+              "selected":"true"
+            },
+          ]'
+  ></sdds-dropdown>
+
+```
+
 [Native](/docs/components-dropdown--native)
 [Web component](/docs/components-dropdown--web-component-default)
 
