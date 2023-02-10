@@ -1,8 +1,10 @@
 @import '../../../mixins/focus-state';
+@import '../../../mixins/z-index';
 
 :host {
   display: block;
   position: relative;
+  z-index: z(tab);
 
   button.folder-tab {
     height: 100%;
