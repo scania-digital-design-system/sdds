@@ -61,19 +61,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -101,8 +99,8 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     compactDesign: false,
-    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,
@@ -113,7 +111,7 @@ export default {
 const MultiselectTemplate = ({
   verticalDivider,
   compactDesign,
-  // onWhiteBackground,
+  modeVariant,
   responsiveDesign,
   enableMultiselect,
   noMinWidth,
@@ -148,6 +146,7 @@ const MultiselectTemplate = ({
         compact-design="${compactDesign}"
         enable-responsive="${responsiveDesign}"
         ${noMinWidth ? 'no-min-width' : ''}
+        mode-variant="${modeVariant}"
       >
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>

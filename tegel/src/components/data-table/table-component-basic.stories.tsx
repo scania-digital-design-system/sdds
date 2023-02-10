@@ -100,11 +100,12 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     modeVariant: 'Primary',
+    compactDesign: false,
     responsiveDesign: false,
     disablePadding: false,
     noMinWidth: false,
+    verticalDivider: false,
   },
 };
 

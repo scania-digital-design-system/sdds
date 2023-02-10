@@ -49,19 +49,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -138,9 +136,9 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     compactDesign: false,
-    // onWhiteBackground: false,
-    verticalDivider: false,
+    verticalDivider: true,
     responsiveDesign: false,
     noMinWidth: true,
     column1Width: '321px',
@@ -157,6 +155,7 @@ const BasicTemplate = (args) =>
       compact-design="${args.compactDesign}"
       enable-responsive="${args.responsiveDesign}"
       ${args.noMinWidth ? 'no-min-width' : ''}
+      mode-variant="${args.modeVariant}"
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' ${

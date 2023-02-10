@@ -49,19 +49,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -99,8 +97,8 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     compactDesign: false,
-    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     batchArea: formatHtmlPreview(
@@ -113,7 +111,7 @@ export default {
 const BatchActionTemplate = ({
   verticalDivider,
   compactDesign,
-  // onWhiteBackground,
+  modeVariant,
   batchArea,
   responsiveDesign,
   noMinWidth,
@@ -125,6 +123,7 @@ const BatchActionTemplate = ({
         compact-design="${compactDesign}"
         enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
+      mode-variant="${modeVariant}"
       >
           <sdds-table-toolbar table-title="Batch action">
           ${batchArea}

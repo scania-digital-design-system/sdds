@@ -114,10 +114,10 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     tableTitle: 'Native table',
     isCompact: false,
     dividers: false,
-    modeVariant: 'Primary',
     noMinWidthArg: false,
     responsiveTable: false,
     column1Width: '',

@@ -87,8 +87,8 @@ export default {
     },
   },
   args: {
-    compactDesign: false,
     modeVariant: 'Primary',
+    compactDesign: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,

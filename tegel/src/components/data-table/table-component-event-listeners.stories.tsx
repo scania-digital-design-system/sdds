@@ -49,19 +49,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Primary' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -89,8 +87,8 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Primary',
     compactDesign: false,
-    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,
@@ -100,7 +98,7 @@ export default {
 const EventListenersTemplate = ({
   verticalDivider,
   compactDesign,
-  onWhiteBackground,
+  modeVariant,
   responsiveDesign,
   noMinWidth,
 }) =>
@@ -128,6 +126,7 @@ const EventListenersTemplate = ({
       compact-design="${compactDesign}"
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
+      mode-variant="${modeVariant}"
    >
           <sdds-table-toolbar table-title="Disabled filtering, pagination and sorting - left to the user to listen to events" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
