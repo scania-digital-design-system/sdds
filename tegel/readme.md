@@ -176,6 +176,16 @@ In JSX these events can be listened to by prefixing them with an `on` directly o
 </sdds-textfield>
 ```
 
+What is attached to the event object is highlighted in our storybook. Under the docs tab of each component the events are outlined,
+inluding what data is passed with the event to the user.
+
+### Internal events
+
+Some of the component are using event to communicate with its parent/child. These events are not recommended to in any way use since
+they might change without notice. Their payload might also be changed based on refactoring of components. These events are prefixed
+with 'internal'. This is to make it as clear as possible to a user that this is an internal event that the components are using,
+but the user should not interact with it. E.g. `internalSddsPropsChange`.
+
 ## Browser support
 
 See the browser support section on [the Tegel website](https://tegel.scania.com/development/getting-started-development/introduction#browser-support).
