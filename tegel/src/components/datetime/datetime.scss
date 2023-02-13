@@ -34,6 +34,7 @@
     ~ .sdds-datetime-label-inside {
       color: var(--sdds-datetime-label-disabled);
     }
+
     ~ .sdds-datetime-label {
       color: var(--sdds-datetime-label-disabled);
     }
@@ -355,6 +356,7 @@
       background: var(--sdds-datetime-bar-error);
     }
   }
+
   .datetime-icon path {
     fill: var(--sdds-datetime-icon-error);
   }
@@ -389,9 +391,11 @@ input[type='time']::-webkit-inner-spin-button,
 input[type='time']::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
 .sdds-mode-variant-primary {
-  --sdds-datetime-background: var( --sdds-datetime-background-primary);
+  --sdds-datetime-background: var(--sdds-datetime-background-primary);
 }
+
 .sdds-mode-variant-secondary {
-  --sdds-datetime-background: var( --sdds-datetime-background-secondary);
+  --sdds-datetime-background: var(--sdds-datetime-background-secondary);
 }

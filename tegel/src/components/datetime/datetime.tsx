@@ -131,7 +131,7 @@ export class Datetime {
             ? `sdds-form-datetime-${this.state}`
             : ''
         }
-        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
         `}
       >
         {this.label && <div class="sdds-datetime-label">{this.label}</div>}
