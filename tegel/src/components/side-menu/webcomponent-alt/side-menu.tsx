@@ -15,7 +15,7 @@ export class SddsSideMenu {
   })
   collapsedSideMenuEventEmitter: EventEmitter<any>;
 
-  @Prop() open: boolean = false;
+  @Prop({ reflect: true }) open: boolean = false;
 
   @Prop({ reflect: true }) persistent: boolean = false;
 
@@ -100,6 +100,7 @@ export class SddsSideMenu {
                 <slot name="end"></slot>
               </ul>
             </div>
+            <slot name="sticky-end"></slot>
           </aside>
         </div>
       </Host>

@@ -25,15 +25,22 @@ export class SideMenuCollapseButton {
   render() {
     return (
       <Host>
-        <sdds-side-menu-button-v2
+        <div
           class={{
+            'wrapper': true,
             'state--collapsed': this.collapsed,
           }}
         >
-          {/* TODO use a proper icon instead of rotating wrong icon */}
-          <sdds-icon class="icon" name="download" size="20" slot="icon" />
-          Collapse
-        </sdds-side-menu-button-v2>
+          <sdds-side-menu-button-v2
+            class={{
+              button: true,
+            }}
+          >
+            {/* TODO use a proper icon instead of rotating wrong icon */}
+            <sdds-icon class="icon" name="download" size="20" slot="icon" />
+            Collapse
+          </sdds-side-menu-button-v2>
+        </div>
       </Host>
     );
   }

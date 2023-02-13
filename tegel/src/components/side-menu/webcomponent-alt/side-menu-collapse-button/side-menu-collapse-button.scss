@@ -1,5 +1,9 @@
 :host {
+  position: sticky;
+  bottom: 0;
   display: none;
+  height: 68px;
+  border-top: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
 
   .icon {
     transform: rotateZ(90deg);
