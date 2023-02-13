@@ -3,6 +3,7 @@ require('dotenv').config();
 let addons = [
   '@storybook/addon-links',
   '@storybook/addon-essentials',
+  'storybook-dark-mode',
   // '@storybook/addon-interactions',
   '@storybook/addon-notes/register',
 ];
