@@ -9,9 +9,9 @@ export class HeaderTitle {
   render() {
     return (
       <Host>
-        <sdds-core-header-item>
+        <div class="shrink-fix">
           <slot></slot>
-        </sdds-core-header-item>
+        </div>
       </Host>
     );
   }
