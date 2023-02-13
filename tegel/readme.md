@@ -155,7 +155,7 @@ See all available components in the [Tegel Design System](https://tegel.scania.c
 ## Events
 
 The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the 
-sdds-prefix. This not to have conflicting events and to make it clear to the user the the specified event is something that is emitted
+sdds-prefix. This is done in order to not have conflicting events and to make it clear to the user the the specified event is something that is emitted
 from a tegel component.
 
 The events are named according to our naming convention: 'sdds' + event.
