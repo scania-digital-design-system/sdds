@@ -25,7 +25,8 @@
 }
 
 .sdds-theme-dark {
-  --sdds-footer-top-background: var(--sdds-grey-868);
+  --sdds-footer-top-background-primary: var(--sdds-grey-868);
+  --sdds-footer-top-background: var(--sdds-footer-top-background-primary);
   --sdds-footer-top-divider: var(--sdds-grey-800);
   --sdds-footer-top-links: var(--sdds-grey-50);
   --sdds-footer-top-links-opacity: 0.87;
@@ -40,6 +41,6 @@
   
   .sdds-mode-variant-primary,
   .sdds-mode-variant-secondary {
-    --sdds-footer-top-background: var(--sdds-footer-top-background);
+    --sdds-footer-top-background: var(--sdds-footer-top-background-primary);
   }
 }
