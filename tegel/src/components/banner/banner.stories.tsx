@@ -1,7 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
-// FIXME: CMS: Change state to type in Code tab of component
-
 export default {
   title: 'Components/Banner',
   parameters: {
@@ -52,15 +50,15 @@ export default {
         type: 'text',
       },
     },
-    prefix: {
-      name: 'Show icon',
+    hideIcon: {
+      name: 'Hide icon',
       description:
         'If an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
       control: {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'true' },
+        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -69,25 +67,25 @@ export default {
     header: 'This is a header text area',
     subheader: 'SubHeader text area',
     link: 'Learn more',
-    prefix: true,
+    hideIcon: false,
   },
 };
 
-const Template = ({ state, prefix, header, subheader, link }) =>
+const Template = ({ state, hideIcon, header, subheader, link }) =>
   formatHtmlPreview(`
     <div class="sdds-banner sdds-banner-${state.toLowerCase()}">
       ${
-        prefix && state === 'error'
+        !hideIcon && state === 'error'
           ? '<span class="sdds-banner-prefix"><sdds-icon name="error" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
-        prefix && state === 'info'
+        !hideIcon && state === 'info'
           ? '<span class="sdds-banner-prefix"><sdds-icon name="info" size="20px"></sdds-icon></span>'
           : ''
       }
       ${
-        prefix && !(state === 'info' || state === 'error')
+        !hideIcon && !(state === 'info' || state === 'error')
           ? '<span class="sdds-banner-prefix"><sdds-icon name="truck" size="20px"></sdds-icon></span>'
           : ''
       }
@@ -102,4 +100,4 @@ const Template = ({ state, prefix, header, subheader, link }) =>
     </div>
   `);
 
-export const Default = Template.bind({});
+export const Native = Template.bind({});

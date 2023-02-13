@@ -18,6 +18,7 @@
 ### Used by
 
  - [sdds-accordion-item](../accordion/accordion-item)
+ - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
@@ -28,6 +29,7 @@
 ```mermaid
 graph TD;
   sdds-accordion-item --> sdds-icon
+  sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
