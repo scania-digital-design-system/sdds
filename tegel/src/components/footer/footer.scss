@@ -42,13 +42,6 @@
     left: -48px;
   }
 
-  &:hover,
-  &.hover {
-    &::after {
-      background-color: var(--sdds-footer-top-links-background-hover);
-    }
-  }
-
   @media all and (min-width: $grid-lg) {
     padding: 0;
     margin-bottom: var(--sdds-spacing-element-8);
@@ -117,6 +110,7 @@
       &:hover,
       &.hover {
         text-decoration: underline;
+        opacity: var(--sdds-footer-top-links-opacity-hover);
       }
     }
 
