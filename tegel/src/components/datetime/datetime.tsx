@@ -130,7 +130,7 @@ export class Datetime {
         }
         `}
       >
-        {this.label && <div class="sdds-label">{this.label}</div>}
+        {this.label && <div class="sdds-datetime-label">{this.label}</div>}
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-datetime-container sdds-datetime-container"
