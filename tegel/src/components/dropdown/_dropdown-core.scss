@@ -36,7 +36,7 @@
 
   &:active,
   &.active &.selected {
-    border-bottom-color: var(--sdds-grey-800);
+    border-bottom-color: var(--sdds-dropdown-border-not-focused);
   }
 
   &.is-filter {
