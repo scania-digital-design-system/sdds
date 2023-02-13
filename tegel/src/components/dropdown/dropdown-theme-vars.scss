@@ -4,8 +4,8 @@
 .sdds-theme-light {
   /* This one is overriding the --sdds-link css for the link component. */
 
-  /* --sdds-link: var(--sdds-grey-958); */
   --sdds-link-text-decoration: none;
+  --sdds-dropdown-color: var(--sdds-grey-958);
   --sdds-dropdown-background: var(--sdds-grey-50);
   --sdds-dropdown-background-hover: var(--sdds-grey-100);
   --sdds-dropdown-background-disabled: var(--sdds-white);
@@ -30,8 +30,8 @@
 }
 
 .sdds-theme-dark {
-  --sdds-link: var(--sdds-grey-400);
   --sdds-link-text-decoration: none;
+  --sdds-dropdown-color: var(--sdds-grey-400);
   --sdds-dropdown-background: var(--sdds-grey-868);
   --sdds-dropdown-background-hover: var(--sdds-grey-800);
   --sdds-dropdown-background-disabled: var(--sdds-grey-900);

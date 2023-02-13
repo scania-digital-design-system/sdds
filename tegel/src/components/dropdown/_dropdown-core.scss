@@ -3,7 +3,7 @@
 @mixin dropdown-wrapper {
   font: var(--sdds-detail-ex-02);
   letter-spacing: var(--sdds-detail-ex-02-ls);
-  color: var(--sdds-link);
+  color: var(--sdds-dropdown-color);
   display: flex;
   align-items: center;
   background-color: var(--sdds-dropdown-background);
@@ -11,7 +11,7 @@
   transition: box-shadow 0.1s ease-in, border-bottom-color 150ms ease;
   border-radius: 4px 4px 0 0;
   border: none;
-  border-bottom: 1px solid var(--sdds-grey-400);
+  border-bottom: 1px solid var(--sdds-dropdown-border-not-focused);
   box-shadow: none;
   width: 100%;
   text-align: left;
