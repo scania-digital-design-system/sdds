@@ -20,6 +20,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     type: {
       name: 'Type',
       description: 'Set the field to display date, time or both',
@@ -98,17 +109,6 @@ export default {
       },
       options: ['None', 'Success', 'Error'],
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'Mode variant of the component.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
   },
   args: {
     type: 'Datetime',
@@ -126,6 +126,7 @@ export default {
 };
 
 const datetimeTemplate = ({
+  modeVariant,
   type,
   size,
   minWidth,
@@ -136,7 +137,6 @@ const datetimeTemplate = ({
   helper,
   helperText,
   defaultValue,
-  modeVariant
 }) => {
   const typeLookup = {
     Datetime: 'datetime-local',
