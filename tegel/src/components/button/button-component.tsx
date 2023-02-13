@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import { Component, Element, h, Host, Prop, State } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-button',
@@ -26,9 +27,12 @@ export class SddsButton {
 
   @State() onlyIcon: boolean = false;
 
+  @Element() host: HostElement;
+
   componentWillLoad() {
     if (this.text === '') {
       this.onlyIcon = true;
+      this.host.setAttribute('only-icon', '');
     }
   }
 

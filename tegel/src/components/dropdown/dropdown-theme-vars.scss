@@ -4,7 +4,9 @@
 :host,
 ::slotted(*),
 .sdds-theme-light {
-  --sdds-link: var(--sdds-grey-958);
+  /* This one is overriding the --sdds-link css for the link component. */
+
+  /* --sdds-link: var(--sdds-grey-958); */
   --sdds-link-text-decoration: none;
   --sdds-dropdown-bg: var(--sdds-white);
   --sdds-dropdown-bg-hover: var(--sdds-grey-50);

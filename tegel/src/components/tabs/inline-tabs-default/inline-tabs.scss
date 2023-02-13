@@ -176,7 +176,6 @@
   }
 }
 
-.sdds-inline-tabs-primary {
   .sdds-inline-tabs--tab__active {
     background-color: var(--sdds-inline-tabs-tab-background-active);
   }
@@ -184,14 +183,3 @@
   .sdds-inline-tabs-main {
     background-color: var(--sdds-inline-tabs-main-background);
   }
-}
-
-.sdds-inline-tabs-secondary {
-  .sdds-inline-tabs--tab__active {
-    background-color: var(--sdds-inline-tabs-tab-background-active-ongrey);
-  }
-
-  .sdds-inline-tabs-main {
-    background-color: var(--sdds-inline-tabs-main-ongrey-background);
-  }
-}
