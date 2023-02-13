@@ -38,7 +38,7 @@ export class Textfield {
 
     /** Mode variant of the textarea */
 
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** With setting */
   @Prop() noMinWidth: boolean = false;

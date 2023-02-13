@@ -46,7 +46,7 @@ export class Textarea {
   @Prop() maxLength: number;
 
   /** Mode variant of the textarea */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Control of autofocus */
   @Prop() autoFocus: boolean = false;

@@ -22,7 +22,7 @@ export class InlineTabs {
   @Prop() autoHeight: boolean = false;
 
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** array with metadata for slotted children */
   @State() tabs: Array<any> = [];

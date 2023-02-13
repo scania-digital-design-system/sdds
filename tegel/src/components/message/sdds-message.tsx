@@ -10,7 +10,7 @@ export class SddsMessage {
   @Prop() header: string;
 
   /** Variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Type of message. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';

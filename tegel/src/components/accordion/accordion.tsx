@@ -10,7 +10,7 @@ export class Accordion {
   @Prop() divider: boolean = true;
 
   /** Set the variant of the the accordion. */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   render() {
     return (

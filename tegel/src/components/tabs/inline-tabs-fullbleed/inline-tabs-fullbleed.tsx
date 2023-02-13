@@ -7,7 +7,7 @@ import { Component, Host, State, Element, h, Prop } from '@stencil/core';
 })
 export class InlineTabsFullbleed {
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   @Element() host: HTMLElement;
 
