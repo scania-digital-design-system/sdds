@@ -152,6 +152,30 @@ export class AppModule { }
 
 See all available components in the [Tegel Design System](https://tegel.scania.com/components/overview).
 
+## Events
+
+The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the 
+sdds-prefix. This not to have conflicting events and to make it clear to the user the the specified event is something that is emitted
+from a tegel component.
+
+The events are named according to our naming convention: 'sdds' + event.
+For a click event this would result in the event being called `sddsClick`. To listen for these events in vanilla JS the event name
+should be passed to the `addEventListener` function as the first argument:
+```javascript
+document.addEventListener('sddsClick', (event) => {
+  // do something with/based on the event.
+})
+```
+
+In JSX these events can be listened to by prefixing them with an `on` directly on the component:
+```jsx
+<sdds-textfield
+  onSddsChange={(event) => {/* To something with/based on the event. */}}
+  >
+
+</sdds-textfield>
+```
+
 ## Browser support
 
 See the browser support section on [the Tegel website](https://tegel.scania.com/development/getting-started-development/introduction#browser-support).
