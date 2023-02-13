@@ -8,7 +8,7 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class SddsBlock {
   /** Mode variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' = null;
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
 
   @Element() host: HostElement;
 
@@ -30,9 +30,7 @@ export class SddsBlock {
   render() {
     return (
       <div
-        class={`sdds-block-webcomponent ${
-          this.modeVariant ? `sdds-block-${this.modeVariant}` : ''
-        }`}
+        class={`sdds-block-webcomponent ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}
       >
         <slot></slot>
       </div>

@@ -1,18 +1,41 @@
 :root,
-.sdds-theme-light{
+.sdds-theme-light {
   --sdds-block-color: var(--sdds-grey-985);
-    --sdds-block-background-primary: var(--sdds-grey-50);
-    --sdds-block-background-primary-nested: var(--sdds-white);
-    --sdds-block-background-secondary: var(--sdds-white);
-    --sdds-block-background-secondary-nested: var(--sdds-grey-50);
-  }
 
-  :root,
-  .sdds-theme-dark {
-    --sdds-block-color: var(--sdds-grey-50);
-    --sdds-block-background-primary: var(--sdds-grey-900);
-    --sdds-block-background-primary-nested: var(--sdds-grey-868);
-    --sdds-block-background-secondary: var(--sdds-grey-868);
-    --sdds-block-background-secondary-nested: var(--sdds-grey-846);
-  }
+  --sdds-block-background-primary: var(--sdds-grey-50);
+  --sdds-block-background-nested-primary: var(--sdds-white);
+  --sdds-block-background-secondary: var(--sdds-white);
+  --sdds-block-background-nested-secondary: var(--sdds-grey-50);
 
+  --sdds-block-background: var(--sdds-block-background-primary);
+  --sdds-block-background-nested: var(--sdds-block-background-nested-primary);
+
+  .sdds-mode-variant-primary {
+    --sdds-block-background: var(--sdds-block-background-primary);
+    --sdds-block-background-nested: var(--sdds-block-background-nested-primary);
+  }
+  .sdds-mode-variant-secondary {
+    --sdds-block-background: var(--sdds-block-background-secondary);
+    --sdds-block-background-nested: var(--sdds-block-background-nested-secondary);
+  }
+}
+
+.sdds-theme-dark {
+  --sdds-block-color: var(--sdds-grey-50);
+  --sdds-block-background-primary: var(--sdds-grey-900);
+  --sdds-block-background-nested-primary: var(--sdds-grey-868);
+  --sdds-block-background-secondary: var(--sdds-grey-868);
+  --sdds-block-background-nested-secondary: var(--sdds-grey-900);
+
+  --sdds-block-background: var(--sdds-block-background-primary);
+  --sdds-block-background-nested: var(--sdds-block-background-nested-primary);
+
+  .sdds-mode-variant-primary {
+    --sdds-block-background: var(--sdds-block-background-primary);
+    --sdds-block-background-nested: var(--sdds-block-background-nested-primary);
+  }
+  .sdds-mode-variant-secondary {
+    --sdds-block-background: var(--sdds-block-background-secondary);
+    --sdds-block-background-nested: var(--sdds-block-background-nested-secondary);
+  }
+}

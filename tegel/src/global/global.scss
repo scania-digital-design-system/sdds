@@ -48,7 +48,7 @@
 @import 'src/components/header/header';
 @import 'src/components/breadcrumb/breadcrumb';
 @import 'src/components/data-table/native-table';
-@import 'src/components/block/block';
+@import 'src/components/block/block-native';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-theme-vars';
@@ -62,7 +62,7 @@
 @import 'src/components/tabs/inline-tabs-fullbleed/inline-tabs-fullbleed-theme-vars';
 @import 'src/components/tabs/navigation-tabs/navigation-tabs-theme-vars';
 @import 'src/components/tooltip/tooltip-theme-vars';
-@import 'src/components/block/block';
+@import 'src/components/block/block-theme-vars';
 @import 'src/components/spinner/spinner';
 @import 'src/components/dropdown/dropdown-theme-vars';
 @import 'src/components/dropdown/dropdown-select';
