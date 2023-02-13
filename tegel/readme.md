@@ -170,7 +170,7 @@ document.addEventListener('sddsClick', (event) => {
 In JSX these events can be listened to by prefixing them with an `on` directly on the component:
 ```jsx
 <sdds-textfield
-  onSddsChange={(event) => {/* To something with/based on the event. */}}
+  onSddsChange={(event) => {/* Do something with/based on the event. */}}
   >
 
 </sdds-textfield>
