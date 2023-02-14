@@ -43,22 +43,16 @@ export class SddsBanner {
   /** Hides the banner */
   @Prop() hidden = false;
 
-  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
-  @Prop() ariaAtomicValue: boolean = false;
-
-  /** NEEDS TO BE ALIGNED WITH THE OTHER COMPONENTS DESCRIPTION  */
-  @Prop() ariaLiveValue: 'polite' | 'assertive' | 'off' = 'polite';
-
   @Element() host: HostElement;
 
   /** Sends unique banner identifier when the close button is pressed. */
   @Event({
-    eventName: 'bannerClose',
+    eventName: 'sddsClose',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  bannerClose: EventEmitter<{
+  sddsClose: EventEmitter<{
     bannerId: string;
     hidden: boolean;
   }>;
@@ -66,7 +60,7 @@ export class SddsBanner {
   /** Hides the banner. */
   @Method()
   async hideBanner() {
-    const sddsCloseEvent = this.bannerClose.emit({
+    const sddsCloseEvent = this.sddsClose.emit({
       bannerId: this.bannerId,
       hidden: this.hidden,
     });
@@ -82,7 +76,7 @@ export class SddsBanner {
   /** Shows the banner */
   @Method()
   async showBanner() {
-    const sddsCloseEvent = this.bannerClose.emit({
+    const sddsCloseEvent = this.sddsClose.emit({
       bannerId: this.bannerId,
       hidden: this.hidden,
     });
@@ -104,7 +98,7 @@ export class SddsBanner {
   }
 
   handleClose = () => {
-    const sddsCloseEvent = this.bannerClose.emit({
+    const sddsCloseEvent = this.sddsClose.emit({
       bannerId: this.bannerId,
       hidden: this.hidden,
     });
@@ -118,8 +112,10 @@ export class SddsBanner {
       <Host
         role="banner"
         aria-hidden={`${this.hidden}`}
-        aria-live={this.ariaLiveValue}
-        aria-atomic={this.ariaAtomicValue}
+        aria-live={
+          this.host.getAttribute('aria-live') ? this.host.getAttribute('aria-live') : 'polite'
+        }
+        aria-atomic={this.host.getAttribute('aria-atomic')}
         class={`${this.type} ${this.hidden ? 'hide' : 'show'}`}
       >
         {this.icon && (

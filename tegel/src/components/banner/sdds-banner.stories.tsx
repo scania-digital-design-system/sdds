@@ -125,7 +125,7 @@ const Template = ({ type, icon, header, subheader, linkText, linkHref, persisten
 
       <!-- Script tag with eventlistener for demo purposes. -->
       <script>
-        document.addEventListener('sddsBannerCloseEvent', (event) => {
+        document.addEventListener('sddsClose', (event) => {
           console.log('Closed banner with BannerID: ', event.detail.bannerId)
         })
       </script>
