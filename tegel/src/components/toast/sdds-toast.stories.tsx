@@ -80,14 +80,13 @@ const Template = ({ type, header, subheader, link }) =>
       }
        ${
          link
-           ? /* TODO -Should use WebComponent version */
-             `<a slot="toast-link" href="#">This is a link.</a>
+           ? `<a slot="toast-link" href="#">This is a link.</a>
        `
            : ''
        }
     </sdds-toast>
         <script>
-        document.addEventListener('sddsToastClosedEvent', (e) => {
+        document.addEventListener('sddsClose', (event) => {
             console.log('Toast with id: ', event.detail.toastId, ' was closed.')
         })
     </script>

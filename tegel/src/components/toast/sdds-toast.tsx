@@ -22,9 +22,6 @@ export class SddsToast {
   /** Hides the toast. */
   @Prop() hidden: boolean = false;
 
-  /** Identifier for the element that describes the toast. */
-  @Prop() ariaDescribedBy: string;
-
   /** ARIA role for the toast. */
   @Prop() role: 'alert' | 'log' | 'status' = 'alert';
 
@@ -52,14 +49,14 @@ export class SddsToast {
     };
   }
 
-  /** Sends unique toast identifier when it is closed. */
+  /** Sends unique toast identifier component is closed. */
   @Event({
-    eventName: 'sddsToastClosedEvent',
+    eventName: 'sddsClose',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsToastClosedEvent: EventEmitter<{
+  sddsClose: EventEmitter<{
     toastId: string;
   }>;
 
@@ -79,7 +76,7 @@ export class SddsToast {
   };
 
   handleClose = () => {
-    const sddsCloseEvent = this.sddsToastClosedEvent.emit({
+    const sddsCloseEvent = this.sddsClose.emit({
       toastId: this.toastId,
     });
     if (!sddsCloseEvent.defaultPrevented) {
@@ -107,7 +104,7 @@ export class SddsToast {
     return (
       <Host
         role={this.role}
-        aria-describedby={this.ariaDescribedBy}
+        aria-describedby={this.host.getAttribute('aria-describedby')}
         class={`${this.hidden ? 'hide' : 'show'}`}
       >
         <div
