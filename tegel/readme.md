@@ -155,7 +155,7 @@ See all available components in the [Tegel Design System](https://tegel.scania.c
 ## Events
 
 The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the 
-sdds-prefix. This is done in order to not have conflicting events and to make it clear to the user the the specified event is something that is emitted
+sdds-prefix. This is done in order to not have conflicting events and to make it clear to the user the specified event is something that is emitted
 from a tegel component.
 
 The events are named according to our naming convention: 'sdds' + event.
@@ -163,7 +163,7 @@ For a click event this would result in the event being called `sddsClick`. To li
 should be passed to the `addEventListener` function as the first argument:
 ```javascript
 document.addEventListener('sddsClick', (event) => {
-  // do something with/based on the event.
+  // Do something with/based on the event.
 })
 ```
 
