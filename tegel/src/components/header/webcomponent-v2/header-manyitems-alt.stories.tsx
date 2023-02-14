@@ -98,9 +98,8 @@ const Template = ({ dummyHtml }) =>
       <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
 
       <sdds-header-title>
-        Example: Many items, way too long title
+        Example: Many items
       </sdds-header-title>
-
 
       <sdds-header-button-v2 slot="end">
         <sdds-icon name="calendar" size="20px"></sdds-icon>

@@ -30,39 +30,64 @@ const Template = () =>
   formatHtmlPreview(
     `
     <script>
-      /* For demonstration purposes only. Don't do this at home. */
-      window.demoSideMenu = document.querySelector('#demo-side-menu');
-    </script>
-    <style>
-      /* If an extra button in the header is required except on 
-      very narrow screens, you can use classes like these: */
-      .demo-hide {
+    /* For demonstration purposes only. Don't do this at home. */
+    window.demoSideMenu = document.querySelector('#demo-side-menu');
+  </script>
+  <style>
+    :root {
+      --app-bar-height: 64px;
+      --side-menu-width: 272px;
+    }
+    /* Note: to make the layout fill the entire viewport height you'll need to set the */
+    /* height of the parent element and all of its ancestors to 100%. */
+    /* Please note that using 'vh' for this can cause issues on some mobile browsers. */
+    .demo-layout {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .demo-header {
+      position: sticky;
+      top: 0;
+    }
+    .demo-wrap-side-menu-and-main {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    @media (min-width: 672px) {
+      #demo-side-menu {
+        height: calc(100vh - var(--app-bar-height));
+        position: sticky;
+        top: var(--app-bar-height);
+        left: 0px;
+      }
+    }
+
+    /* If an extra button in the header is required except on */
+    /* very narrow screens, you can use classes like these: */
+    .demo-hide {
+      display: none;
+    }
+
+    @media (min-width: 375px) {
+      .demo-xs-hide {
         display: none;
       }
-
-      @media (min-width: 375px) {
-        .demo-xs-hide {
-          display: none;
-        }
-        .demo-xs-show {
-          display: block;
-        }
+      .demo-xs-show {
+        display: block;
       }
+    }
+  </style>
 
-      @media (min-width: 672px) {
-        .demo-md-hide {
-          display: none;
-        }
-      }
-    </style>
 
-  <sdds-header-v2>
+  <div class="demo-layout">
+    <sdds-header-v2 class="demo-header">
     <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
 
     <sdds-header-title>
       Example: Many items
     </sdds-header-title>
-
 
     <sdds-header-button-v2 slot="end">
       <sdds-icon name="calendar" size="20px"></sdds-icon>
@@ -91,7 +116,7 @@ const Template = () =>
 
   </sdds-header-v2>
 
-  <div class="sdds-u-flex">
+  <div class="demo-wrap-side-menu-and-main">
     <!-- Note: the "persistent" property keeps the menu open on desktop -->
     <sdds-side-menu-v2 id="demo-side-menu" persistent>
       <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
@@ -158,6 +183,7 @@ const Template = () =>
       <p>Tip: Resize the window to see the side menu become a drawer.</p>
     </main>
   </div>
+</div>
   `,
   );
 
