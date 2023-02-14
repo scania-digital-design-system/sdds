@@ -118,7 +118,7 @@ Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`
 </sdds-accordion>
 
 // New ✅
-<sdds-accordion mode-variant="secondary">
+<sdds-accordion mode-variant="primary">
   <sdds-accordion-item header="Lorem ipsum" tabindex="0">
     // ...
   </sdds-accordion-item>
@@ -477,7 +477,7 @@ Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`
     // ...
 </sdds-dropdown>
 // New ✅
-<sdds-dropdown mode-variant="secondary">
+<sdds-dropdown mode-variant="primary">
     // ...
 </sdds-dropdown>
 ```
@@ -755,7 +755,7 @@ Rename all instances of `autofocus` to `auto-focus`.
 ></sdds-textarea>
 
 ```
-#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
 Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
 `secondary`. `primary` is the default value and
 `secondary` represents the old `sdds-on-white-bg`
@@ -767,7 +767,7 @@ Replace all instances of `class="sdds-on-white-bg"` on container element with th
   <sdds-textarea> </sdds-textarea>
 </div>
 // New ✅
- <sdds-textarea mode-variant="secondary">
+ <sdds-textarea mode-variant="primary">
  </sdds-textarea>
 ```
 
@@ -896,8 +896,8 @@ Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
     helper="Helper text"
 ></sdds-textfield>
 ```
-#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container
-Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced a called `mode-variant` with values `primary` or
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced called `mode-variant` with values `primary` or
 `secondary`. `primary` is the default value and
 `secondary` represents the old `sdds-on-white-bg`
 ##### What action is required?
@@ -908,7 +908,7 @@ Replace all instances of `class="sdds-on-white-bg"` on container element with th
   <sdds-textfield> </sdds-textfield>
 </div>
 // New ✅
- <sdds-textfield mode-variant="secondary">
+ <sdds-textfield mode-variant="primary">
  </sdds-textfield>
 ```
 
