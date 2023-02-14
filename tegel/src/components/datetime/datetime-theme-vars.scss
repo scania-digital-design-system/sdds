@@ -1,7 +1,9 @@
 :root,
 .sdds-theme-light {
   --sdds-datetime-color: var(--sdds-grey-868);
-  --sdds-datetime-background: var(--sdds-white);
+  --sdds-datetime-background-primary: var(--sdds-grey-50);
+  --sdds-datetime-background-secondary: var(--sdds-white);
+  --sdds-datetime-background: var(--sdds-datetime-background-primary);
   --sdds-datetime-icon: var(--sdds-grey-868);
   --sdds-datetime-border-bottom: var(--sdds-grey-400);
   --sdds-datetime-placeholder: var(--sdds-grey-500);
@@ -43,7 +45,9 @@
 
 .sdds-theme-dark {
   --sdds-datetime-color: var(--sdds-grey-600);
-  --sdds-datetime-background: var(--sdds-grey-900);
+  --sdds-datetime-background-primary: var(--sdds-grey-900);
+  --sdds-datetime-background-secondary: var(--sdds-grey-868);
+  --sdds-datetime-background: var(--sdds-datetime-background-primary);
   --sdds-datetime-icon: var(--sdds-grey-50);
   --sdds-datetime-border-bottom: var(--sdds-grey-600);
   --sdds-datetime-placeholder: var(--sdds-grey-500);
@@ -54,6 +58,7 @@
   --sdds-datetime-color-disabled: var(--sdds-grey-700);
   --sdds-datetime-placeholder-disabled: var(--sdds-grey-700);
   --sdds-datetime-label-disabled: var(--sdds-grey-700);
+  --sdds-datetime-icon-disabled: var(--sdds-grey-800);
 
   // Label
   --sdds-datetime-label-color: var(--sdds-grey-100);
@@ -82,4 +87,5 @@
 
   // Prefix and Suffix
   --sdds-datetime-ps-color: var(--sdds-grey-600);
+
 }

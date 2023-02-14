@@ -20,6 +20,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     type: {
       name: 'Type',
       description: 'Set the field to display date, time or both',
@@ -110,10 +121,12 @@ export default {
     labelText: 'Label text',
     helper: true,
     helperText: 'Helper text',
+    modeVariant: 'Inherit from parent',
   },
 };
 
 const datetimeTemplate = ({
+  modeVariant,
   type,
   size,
   minWidth,
@@ -171,6 +184,7 @@ const datetimeTemplate = ({
     <sdds-datetime
       id="datetime"
       ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
       type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
