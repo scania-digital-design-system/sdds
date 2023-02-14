@@ -67,7 +67,7 @@ It is important to note that some components may have a different appearance due
 Mode is control on a top level, using class  `sdds-mode-dark` or `sdds-mode-light` (light is default). 
 
 ##### Changing mode variant
-For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input  (primary is default). If no class or prop is given, the component is going to inherit the mode variant from it's parent.
+For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input  (primary is default). If no class or prop is given, the component is going to inherit the mode variant from its parent.
 
 To switch between the different modes and mode variants, simply use the appropriate classes or properties in your code.
 
@@ -102,9 +102,8 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
 ```
 
 #### Added prop for mode-variant and removed class `sdds-on-white-bg`
-Previously the accordion has used a class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced a prop called `mode-variant` with options`primary` or
-`secondary` to determine which variant is being shown. For this component `primary` is the default value and
-`secondary` represents the old `sdds-on-white-bg`
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced a prop called `mode-variant` with options`primary` or
+`secondary` to determine which variant is being shown. For this component `primary` is the default value and represents the old `sdds-on-white-bg`
 
 ##### What action is required?
 Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`.
@@ -466,9 +465,8 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
 </div>
 ```
 #### Added prop for mode-variant and removed class `sdds-on-white-bg` for web component
-Previously the dropdown used the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
-`secondary` to determine which variant is being shown. `primary` is the default value and
-`secondary` represents the old `sdds-on-white-bg`
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary` to determine which variant is being shown. `primary` is the default value and represents the old `sdds-on-white-bg`
 ##### What action is required?
 Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant` and use `primary` as value.
 ```jsx
@@ -757,8 +755,7 @@ Rename all instances of `autofocus` to `auto-focus`.
 ```
 #### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
 Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
-`secondary`. `primary` is the default value and
-`secondary` represents the old `sdds-on-white-bg`
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
 ##### What action is required?
 Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` and use `primary` as value. directly on the component.
 ```jsx
@@ -898,8 +895,7 @@ Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
 ```
 #### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
 Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced called `mode-variant` with values `primary` or
-`secondary`. `primary` is the default value and
-`secondary` represents the old `sdds-on-white-bg`
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
 ##### What action is required?
 Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` directly on the component.
 ```jsx
@@ -986,7 +982,7 @@ to a `<button>` instead.
 
 ##### What action is required?
 
-Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it's child of `sdds-sidebar-nav__extended`.
+Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it is a child of `sdds-sidebar-nav__extended`.
 
 ```jsx
 // Old ❌
