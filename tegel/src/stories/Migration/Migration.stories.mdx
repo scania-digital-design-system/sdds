@@ -38,6 +38,40 @@ If you are however using `rem` in your project you would have to consider that t
 This value will now by default be `16px`. So for the element in you project that are using rem these would have to be
 recalculated.
 
+## Dark mode and mode variants
+
+We are introducing **dark mode** as an addition to our current **light mode**, as well as two mode variants — **primary** and **secondary** — to our codebase. This will require changes to the classes and properties used for styling components. It is important to note that the primary mode variant used to be referred to as "on-white" and the secondary mode variant as "on-grey-50" in light mode.
+
+**Light mode primary** is designed for a **white** background, while **secondary** is designed for a **grey-50** background. Previously, **grey-50** was used as our primary color.
+
+**Dark mode primary** is designed for a **grey-958** background, and **secondary** is designed for a **grey-900** background.
+
+#### What action is required?
+It is important to note that some components may have a different appearance due to these changes. The following components will now have a primary and secondary mode:
+
+- Accordion
+- Block
+- Button
+- Card
+- Data-table
+- Datetime
+- Divider
+- Dropdown
+- Footer
+- Message
+- Tab
+- Textarea
+- Textfield
+
+##### Changing mode
+Mode is controlled on a top level, using class  `sdds-mode-dark` or `sdds-mode-light` (light is default). 
+
+##### Changing mode variant
+For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input  (primary is default). If no class or prop is given, the component is going to inherit the mode variant from its parent.
+
+To switch between the different modes and mode variants, simply use the appropriate classes or properties in your code.
+
+These changes are also planned for the UI kit in Figma.
 
 ## Accordion
 
@@ -68,13 +102,12 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
 ```
 
 #### Added prop for mode-variant and removed class `sdds-on-white-bg`
-Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is
-used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or
-`seconday` to determine which variant is being shown. For this component `primary` is the default value and
-`seconday` represents the old `sdds-on-white-bg`
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced a prop called `mode-variant` with options`primary` or
+`secondary` to determine which variant is being shown. For this component `primary` is the default value and represents the old `sdds-on-white-bg`
 
 ##### What action is required?
 Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
 
 ```jsx
 // Old ❌
@@ -85,7 +118,7 @@ Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`
 </sdds-accordion>
 
 // New ✅
-<sdds-accordion mode-variant="seconday">
+<sdds-accordion mode-variant="primary">
   <sdds-accordion-item header="Lorem ipsum" tabindex="0">
     // ...
   </sdds-accordion-item>
@@ -119,7 +152,7 @@ Replace size value `default` with `lg` or just remove prop as component's defaul
 
 #### Replaced built in icon with icon component
 
-Support for just adding a `.sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
+Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
 For accessibility reasons, we recommend wrapping the icon in a native `button` element.
 
 ```jsx
@@ -143,30 +176,30 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
 
 [Native](/docs/components-block--default/)
 
-#### Renamed classes `sdds-block__default` and `sdds-block__variant` to conform with convention
+#### Removed classes `sdds-block__ongrey` and `sdds-block__onwhite` to conform with convention
 
-The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-primary` and `sdds-block-secondary` to conform with convention.
+The classes `sdds-block__onwhite` and `sdds-block__ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
 
 ##### What action is required?
 
-Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-primary` and `sdds-block-secondary`.
+Replace all instaces of `sdds-block__onwhite` and `sdds-block__ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
 
 ```jsx
 // Old ❌
-<div class="sdds-block sdds-block__default">
-  <p>Content....</p>
-</div>
-<div class="sdds-block sdds-block__variant">
-  <p>Content....</p>
+<div class="sdds-block sdds-block__ongrey">
+    First level content goes here...
+    <div class="sdds-block sdds-block__onwhite">
+        <p>Second level content be here...</p>
+    </div>
 </div>
 
 
 // New ✅
-<div class="sdds-block sdds-block-primary">
-  <p>Content....</p>
-</div>
-<div class="sdds-block sdds-block-secondary">
-  <p>Content....</p>
+<div class="sdds-block sdds-mode-variant-secondary">
+    First level content goes here...
+    <div class="sdds-block sdds-mode-variant-primary">
+        <p>Second level content be here...</p>
+    </div>
 </div>
 ```
 
@@ -225,7 +258,7 @@ We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and
 
 ##### What action is required?
 
-Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary`.
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
 
 ```jsx
 // Old ❌
@@ -236,6 +269,22 @@ Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-vari
 // New ✅
 <button class="sdds-mode-variant-primary">
 </button>
+```
+## Card
+[Native](/docs/components-card--default/)
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary`
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+##### What action is required?
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
+```jsx
+// Old ❌
+<div class="sdds-card sdds-on-white-bg">
+  Content
+</div>
+// New ✅
+<div class="sdds-card sdds-mode-variant-primary">
+  Content
+</div>
 ```
 
 ## Datetime
@@ -391,6 +440,7 @@ Rename all classes.
 ## Dropdown
 
 [Native](/docs/components-dropdown--native)
+[Web component](/docs/components-dropdown--web-component-default)
 
 #### Renamed size classes to `sdds-dropdown-sm`, and `sdds-dropdown-md`
 
@@ -413,6 +463,36 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
   <select name="nativeDropdown">
     // ...
   </select>
+</div>
+```
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` for web component
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary` to determine which variant is being shown. `primary` is the default value and represents the old `sdds-on-white-bg`
+##### What action is required?
+Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant` and use `primary` as value.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+```jsx
+// Old ❌
+<sdds-dropdown class="sdds-on-white-bg">
+    // ...
+</sdds-dropdown>
+// New ✅
+<sdds-dropdown mode-variant="primary">
+    // ...
+</sdds-dropdown>
+```
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+##### What action is required?
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
+```jsx
+// Old ❌
+<div class="sdds-dropdown sdds-on-white-bg">
+  // ...
+</div>
+// New ✅
+<div class="sdds-dropdown sdds-mode-variant-primary">
+  // ...
 </div>
 ```
 
@@ -456,6 +536,26 @@ with a single dash (`-`).
   <h4 class="sdds-message-single">Single line message goes here.</h4>
 </div>
 ```
+#### Removed classes `sdds-message-ongrey` and `sdds-message-onwhite` to conform with convention
+
+The classes `sdds-message-onwhite` and `sdds-message-ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
+
+##### What action is required?
+
+Replace all instaces of `sdds-message-onwhite` and `sdds-message-ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
+
+```jsx
+// Old ❌
+<div class="sdds-message sdds-message-onwhite">
+    // ...
+</div>
+
+
+// New ✅
+<div class="sdds-message sdds-mode-variant-primary">
+    // ...
+</div>
+```
 
 ## Modal
 
@@ -467,7 +567,7 @@ The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with oth
 
 #### Replaced built in icon with icon component
 
-Support for just adding a `.sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
+Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
 For accessibility reasons, we recommend wrapping the icon in a native `button` element.
 
 ##### What action is required?
@@ -655,6 +755,21 @@ Rename all instances of `autofocus` to `auto-focus`.
 ></sdds-textarea>
 
 ```
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
+##### What action is required?
+Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` and pass `primary` as value directly on the component element.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+```jsx
+// Old ❌
+<div class="sdds-on-white-bg"> 
+  <sdds-textarea> </sdds-textarea>
+</div>
+// New ✅
+ <sdds-textarea mode-variant="primary">
+ </sdds-textarea>
+```
 
 ## Textfield
 
@@ -781,6 +896,21 @@ Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
     helper="Helper text"
 ></sdds-textfield>
 ```
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
+##### What action is required?
+Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` with `primary` as value directly on the component.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+```jsx
+// Old ❌
+<div class="sdds-on-white-bg"> 
+  <sdds-textfield> </sdds-textfield>
+</div>
+// New ✅
+ <sdds-textfield mode-variant="primary">
+ </sdds-textfield>
+```
 
 ## Toast
 
@@ -856,7 +986,7 @@ to a `<button>` instead.
 
 ##### What action is required?
 
-Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it's child of `sdds-sidebar-nav__extended`.
+Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it is a child of `sdds-sidebar-nav__extended`.
 
 ```jsx
 // Old ❌
