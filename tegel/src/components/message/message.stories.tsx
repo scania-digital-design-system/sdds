@@ -18,23 +18,28 @@ export default {
     ],
   },
   argTypes: {
+      modeVariant: {
+        name: 'Mode variant',
+        description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
+        control: {
+          type: 'radio',
+        },
+        options: ['Inherit from parent', 'Primary', 'Secondary'],
+        table: {
+          defaultValue: { summary: 'Inherit from parent' },
+        }
+      },
     messageType: {
       name: 'Message Type',
-      description: 'The type of the message.',
+      description: 'Sets the type of message.',
       control: {
         type: 'radio',
       },
       options: ['Information', 'Error', 'Warning', 'Success'],
-    },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Inherit from parent' },
+        defaultValue: {
+          summary: 'Information',
+        },
       },
     },
     icon: {
@@ -77,6 +82,7 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     messageType: 'Information',
     modeVariant: 'Inherit from parent',
     icon: false,
@@ -120,8 +126,8 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVarian
 
     <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
       showExtendedMessage ? 'sdds-message-extended-active' : ''
-    } 
-    ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+    } ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant.toLowerCase()}` : ''
+    }">
     ${icon ? iconHtml : ''}
     <h4 class="sdds-message-single">
       Single line message goes here.
