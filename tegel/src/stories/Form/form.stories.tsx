@@ -20,6 +20,10 @@ const Template = () =>
             flex-direction: column;
             gap: 30px;
         }
+
+        .checkbox-container {
+            gap: 12px;
+        }
     </style>
     <div class="sdds-headline-01">Form example</div>
     <div class="demo-wrapper">
@@ -56,6 +60,21 @@ const Template = () =>
                 size="lg">
                 This toggle has to be toggled
             </sdds-toggle>
+
+            <div class="checkbox-container">
+            <sdds-checkbox
+                name="checkbox-1"
+                >
+                Checkbox 1
+            </sdds-checkbox>
+
+            <sdds-checkbox
+                disabled
+                name="checkbox-2"
+                >
+                Checkbox 2
+            </sdds-checkbox>
+            </div>
 
 
             <sdds-slider
