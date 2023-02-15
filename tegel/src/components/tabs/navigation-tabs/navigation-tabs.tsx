@@ -15,7 +15,7 @@ export class NavigationTabs {
   @State() showRightScroll: boolean = false;
   
    /** Variant of the tabs, primary= on white, secondary= on grey50 */
-   @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 

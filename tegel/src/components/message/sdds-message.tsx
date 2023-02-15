@@ -10,7 +10,7 @@ export class SddsMessage {
   @Prop() header: string;
 
   /** Variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Type of message. */
   @Prop() type: 'information' | 'error' | 'warning' | 'success' = 'information';
@@ -43,7 +43,7 @@ export class SddsMessage {
           class={`
         message-wrapper ${this.type}
         ${this.minimal ? 'message-minimal' : ''}
-        sdds-mode-variant-${this.modeVariant}`}
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}
         >
           {!this.noIcon && <sdds-icon name={this.getIconName()} size="20px"></sdds-icon>}
           <div class={`message-content`}>

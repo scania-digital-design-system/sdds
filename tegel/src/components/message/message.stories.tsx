@@ -26,13 +26,16 @@ export default {
       },
       options: ['Information', 'Error', 'Warning', 'Success'],
     },
-    variant: {
+    modeVariant: {
       name: 'Mode variant',
       description: 'The mode variant of the component',
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
     icon: {
       name: 'Icon',
@@ -60,7 +63,7 @@ export default {
   },
   args: {
     messageType: 'Information',
-    variant: 'Primary',
+    modeVariant: 'Inherit from parent',
     icon: false,
     iconType: 'Web Component',
     showExtendedMessage: false,
@@ -74,7 +77,7 @@ const nativeIconNameLookup = {
   Success: 'tick',
 };
 
-const Template = ({ messageType, icon, iconType, showExtendedMessage, variant }) => {
+const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVariant }) => {
   const messageTypeClass =
     messageType === 'Information'
       ? 'sdds-message-type-informative'
@@ -83,7 +86,6 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
     messageType === 'Information'
       ? 'sdds-message-icon-informative'
       : `sdds-message-icon-${messageType.toLowerCase()}`;
-  const variantValue = variant === 'Secondary' ? 'sdds-mode-variant-secondary' : '';
   const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
@@ -103,7 +105,8 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, variant })
 
     <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
       showExtendedMessage ? 'sdds-message-extended-active' : ''
-    } ${variantValue}">
+    } 
+    ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
     ${icon ? iconHtml : ''}
     <h4 class="sdds-message-single">
       Single line message goes here.
