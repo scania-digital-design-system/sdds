@@ -32,40 +32,6 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    size: {
-      name: 'Size',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
-    },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    labelText: {
-      name: 'Label text',
-      control: 'text',
-      description: 'Label text helps to describe what the dropdown contains',
-      if: { arg: 'labelPosition', neq: 'None' },
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
     state: {
       name: 'State',
       description: 'Support error state.',

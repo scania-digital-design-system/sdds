@@ -31,11 +31,22 @@ export default {
       },
     },
     header: {
-      name: 'Subheader',
-      description: 'Adds a subheader',
+      name: 'Header',
+      description: 'Adds a header to the message.',
       control: {
         type: 'text',
       },
+    },
+    subheader: {
+      name: 'Subheader',
+      description: 'Adds a subheader to the message.',
+      control: {
+        type: 'text',
+      },
+    },
+    link: {
+      name: 'Link',
+      description: 'Adds a CTA link to the message.',
     },
     iconType: {
       name: 'Icon type',
@@ -61,31 +72,13 @@ export default {
       },
       if: { arg: 'size', neq: 'xs' },
     },
-    subheader: {
-      name: 'Subheader',
-      description: 'Adds a subheader to the message.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
-    link: {
-      name: 'Link',
-      description: 'Adds a CTA link to the message.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
   },
   args: {
     type: 'Success',
     header: 'Header',
-    subheader: '',
+    iconType: 'Native',
+    icon: 'recommended',
+    subheader: false,
     link: false,
   },
 };

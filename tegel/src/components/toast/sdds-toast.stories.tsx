@@ -35,14 +35,14 @@ export default {
     },
     header: {
       name: 'Subheader',
-      description: 'Adds a subheader',
+      description: 'Adds a subheader to the message.',
       control: {
         type: 'text',
       },
     },
     subheader: {
-      name: 'Subheader',
-      description: 'Adds a subheader',
+      name: 'Header',
+      description: 'Adds a header to the message.',
       control: {
         type: 'text',
       },
