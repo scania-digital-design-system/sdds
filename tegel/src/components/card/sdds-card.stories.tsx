@@ -99,17 +99,6 @@ export default {
         type: 'boolean',
       },
     },
-    imageTop: {
-      name: 'Image on top',
-      description: 'Places the body image above the header.',
-      control: {
-        type: 'text',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'image', eq: true },
-    },
     cardBottom: {
       name: 'Content of the bottom of the card',
       control: {
