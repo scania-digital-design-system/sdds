@@ -32,16 +32,15 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    state: {
-      name: 'State',
-      description: 'Support error state.',
+    errorState: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
       table: {
         defaultValue: {
-          summary: 'Default',
+          summary: false,
         },
       },
     },
@@ -149,7 +148,7 @@ export default {
   args: {
     modeVariant: 'Inherit from parent',
     size: 'Large',
-    state: 'Default',
+    errorState: false,
     openDirection: 'Auto',
     defaultOption: 'Option 1',
     placeholder: 'Placeholder',
@@ -163,7 +162,7 @@ export default {
 
 const Template = ({
   modeVariant,
-  state = 'default',
+  errorState = false,
   size,
   openDirection,
   defaultOption,
@@ -174,7 +173,7 @@ const Template = ({
   helperText,
   disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+  const stateValue = errorState === true ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
   const defaultOptionLookup = {
