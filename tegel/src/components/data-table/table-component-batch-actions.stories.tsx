@@ -55,9 +55,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     responsiveDesign: {
@@ -97,7 +97,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
     verticalDivider: false,
     responsiveDesign: false,
@@ -122,8 +122,10 @@ const BatchActionTemplate = ({
         vertical-dividers="${verticalDivider}"
         compact-design="${compactDesign}"
         enable-responsive="${responsiveDesign}"
-      ${noMinWidth ? 'no-min-width' : ''}
-      mode-variant="${modeVariant}"
+        ${noMinWidth ? 'no-min-width' : ''}
+        ${
+          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+        }
       >
           <sdds-table-toolbar table-title="Batch action">
           ${batchArea}
