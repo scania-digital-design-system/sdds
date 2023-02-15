@@ -55,9 +55,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     responsiveDesign: {
@@ -143,32 +143,42 @@ export default {
     noMinWidth: true,
     column1Width: '321px',
     column2Width: '400px',
-    column3Width: '120px',
-    column4Width: '90px',
+    column3Width: '150px',
+    column4Width: '110px',
   },
 };
 
-const BasicTemplate = (args) =>
+const BasicTemplate = ({
+  modeVariant,
+  compactDesign,
+  verticalDivider,
+  responsiveDesign,
+  noMinWidth,
+  column1Width,
+  column2Width,
+  column3Width,
+  column4Width,
+}) =>
   formatHtmlPreview(`
   <sdds-table
-      vertical-dividers="${args.verticalDivider}"
-      compact-design="${args.compactDesign}"
-      enable-responsive="${args.responsiveDesign}"
-      ${args.noMinWidth ? 'no-min-width' : ''}
-      mode-variant="${args.modeVariant}"
-            >
+      vertical-dividers="${verticalDivider}"
+      compact-design="${compactDesign}"
+      enable-responsive="${responsiveDesign}"
+      ${noMinWidth ? 'no-min-width' : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
+              >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' ${
-            args.column1Width ? `custom-width="${args.column1Width}"` : ''
+            column1Width ? `custom-width="${column1Width}"` : ''
           } ></sdds-header-cell>
           <sdds-header-cell column-key='driver' column-title='Driver name' ${
-            args.column2Width ? `custom-width="${args.column2Width}"` : ''
+            column2Width ? `custom-width="${column2Width}"` : ''
           }></sdds-header-cell>
           <sdds-header-cell column-key='country' column-title='Country' ${
-            args.column3Width ? `custom-width="${args.column3Width}"` : ''
+            column3Width ? `custom-width="${column3Width}"` : ''
           }></sdds-header-cell>
           <sdds-header-cell column-key='mileage' column-title='Mileage' ${
-            args.column4Width ? `custom-width="${args.column4Width}"` : ''
+            column4Width ? `custom-width="${column4Width}"` : ''
           } text-align='right'></sdds-header-cell>
       </sdds-table-header>
       <sdds-table-body>
