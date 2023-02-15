@@ -53,6 +53,7 @@
 
 @media (min-width: 672px) {
   :host([persistent]) {
+    pointer-events: auto;
     position: static;
     width: 272px;
     border-right: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
@@ -81,6 +82,10 @@
       .menu {
         width: 68px;
       }
+    }
+
+    slot[name='end']::slotted(*) {
+      display: none;
     }
   }
 }

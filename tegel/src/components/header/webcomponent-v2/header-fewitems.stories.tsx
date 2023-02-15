@@ -82,11 +82,11 @@ const Template = () =>
     </sdds-header-button-v2>
 
     <sdds-header-launcher-v2 slot="end">
-      <sdds-header-launcher-grid-title>Rad apps</sdds-header-launcher-grid-title>
+      <sdds-header-launcher-grid-title>Long title one two three</sdds-header-launcher-grid-title>
       <sdds-header-launcher-grid>
         <sdds-header-launcher-grid-link href="https://tegel.scania.com">
           <sdds-icon name="star" size="32"></sdds-icon>
-          Alpha
+          Long link name test
         </sdds-header-launcher-grid-link>
         <sdds-header-launcher-grid-link href="https://tegel.scania.com">
           <sdds-icon name="truck" size="32"></sdds-icon>
@@ -126,7 +126,7 @@ const Template = () =>
           subheading="Company name">
         </sdds-header-dropdown-list-lg-user>
         <sdds-header-dropdown-list-lg-link>
-          Link here
+          Long link label here lorem ipsum
         </sdds-header-dropdown-list-lg-link>
         <sdds-header-dropdown-list-lg-link>
           Link there

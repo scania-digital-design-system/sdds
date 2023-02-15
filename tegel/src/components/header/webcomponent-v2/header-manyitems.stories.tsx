@@ -181,12 +181,12 @@ const Template = () =>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown-v2>
         
-        <sdds-side-menu-button-v2 slot="end" class="demo-md-hide">
+        <sdds-side-menu-button-v2 slot="end">
           <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
           Calendar
         </sdds-side-menu-button-v2>
 
-        <sdds-side-menu-collapse-button slot="end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
+        <sdds-side-menu-collapse-button slot="sticky-end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
 
       </sdds-side-menu-v2>
 
