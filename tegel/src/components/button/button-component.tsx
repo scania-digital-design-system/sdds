@@ -23,7 +23,7 @@ export class SddsButton {
   @Prop() fullbleed: boolean = false;
 
   /** Set the mode variant of the the button. */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   @State() onlyIcon: boolean = false;
 

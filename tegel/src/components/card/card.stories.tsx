@@ -150,9 +150,7 @@ const Template = ({
   }
 </style>
     <div class="demo-wrapper">
-          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${
-      modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant}` : ''
-    }">
+          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
             ${
               bodyImg === true && headerPlacement === 'Below'
                 ? `<img class="sdds-card-img" src="${CardPlaceholder}" alt="Add description to image"/>`

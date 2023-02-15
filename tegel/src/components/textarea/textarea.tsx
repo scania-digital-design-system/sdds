@@ -46,7 +46,7 @@ export class Textarea {
   @Prop() maxLength: number;
 
   /** Mode variant of the textarea */
-  @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Control of autofocus */
   @Prop() autoFocus: boolean = false;
@@ -86,7 +86,7 @@ export class Textarea {
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
         ${this.readOnly ? 'sdds-textarea-readonly' : ''}
-        sdds-mode-variant-${this.modeVariant}
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}
         ${this.value ? 'sdds-textarea-data' : ''}
         ${this.state === 'error' || this.state === 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
