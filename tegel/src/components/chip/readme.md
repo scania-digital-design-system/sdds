@@ -7,23 +7,24 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                                          | Default               |
-| -------------- | --------------- | ----------- | --------------------------------------------- | --------------------- |
-| `active`       | `active`        |             | `boolean`                                     | `false`               |
-| `chipId`       | `chip-id`       |             | `string`                                      | `crypto.randomUUID()` |
-| `icon`         | `icon`          |             | `string`                                      | `undefined`           |
-| `iconPosition` | `icon-position` |             | `"left" \| "right"`                           | `'left'`              |
-| `name`         | `name`          |             | `string`                                      | `undefined`           |
-| `size`         | `size`          |             | `"lg" \| "sm"`                                | `'lg'`                |
-| `type`         | `type`          |             | `"button" \| "checkbox" \| "none" \| "radio"` | `'none'`              |
-| `value`        | `value`         |             | `string`                                      | `undefined`           |
+| Property       | Attribute       | Description                                                                            | Type                                          | Default               |
+| -------------- | --------------- | -------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------- |
+| `active`       | `active`        | Sets the component to an active state.                                                 | `boolean`                                     | `false`               |
+| `chipId`       | `chip-id`       | ID for the chip input element. Randomly generated if not specified.                    | `string`                                      | `crypto.randomUUID()` |
+| `icon`         | `icon`          | Name of the icon to be displayed in the chip, if null no icon is displayed             | `string`                                      | `undefined`           |
+| `iconPosition` | `icon-position` | Position of the icon                                                                   | `"left" \| "right"`                           | `'left'`              |
+| `name`         | `name`          | (Radio/Checkbox): Name for input element                                               | `string`                                      | `undefined`           |
+| `size`         | `size`          | Size of the chip                                                                       | `"lg" \| "sm"`                                | `'lg'`                |
+| `type`         | `type`          | Sets the type of input for the chip. To not have it as an input element, choose `none` | `"button" \| "checkbox" \| "none" \| "radio"` | `'none'`              |
+| `value`        | `value`         | (Radio/Checkbox): Value for input element                                              | `string`                                      | `undefined`           |
 
 
 ## Events
 
-| Event       | Description                                                                                  | Type                               |
-| ----------- | -------------------------------------------------------------------------------------------- | ---------------------------------- |
-| `sddsClick` | Event that sends unique table identifier and enable/disable status for sorting functionality | `CustomEvent<{ chipId: string; }>` |
+| Event        | Description                                                                                                                                                          | Type                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `sddsChange` | Event for type radio/checkbox that sends unique chip identifier and value when selected. For checkbox the event is also broadcasted when the checkbox is unselected. | `CustomEvent<{ chipId: string; value: string; active?: boolean; }>` |
+| `sddsClick`  | Event for type button that sends unique chip identifier and active state when clicked.                                                                               | `CustomEvent<{ chipId: string; }>`                                  |
 
 
 ## Dependencies
