@@ -68,9 +68,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     disablePadding: {
@@ -100,7 +100,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
     responsiveDesign: false,
     disablePadding: false,
