@@ -38,7 +38,7 @@ export default {
       options: ['Information', 'Error', 'Warning', 'Success'],
       table: {
         defaultValue: {
-          summary: 'Information',
+          summary: 'information',
         },
       },
     },
