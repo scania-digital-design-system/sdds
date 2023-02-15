@@ -64,7 +64,7 @@ It is important to note that some components may have a different appearance due
 - Textfield
 
 ##### Changing mode
-Mode is control on a top level, using class  `sdds-mode-dark` or `sdds-mode-light` (light is default). 
+Mode is controlled on a top level, using class  `sdds-mode-dark` or `sdds-mode-light` (light is default). 
 
 ##### Changing mode variant
 For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input  (primary is default). If no class or prop is given, the component is going to inherit the mode variant from its parent.
@@ -894,10 +894,10 @@ Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
 ></sdds-textfield>
 ```
 #### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
-Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced called `mode-variant` with values `primary` or
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
 `secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
 ##### What action is required?
-Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` directly on the component.
+Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` with `primary` as value directly on the component.
 ```jsx
 // Old ❌
 <div class="sdds-on-white-bg"> 
