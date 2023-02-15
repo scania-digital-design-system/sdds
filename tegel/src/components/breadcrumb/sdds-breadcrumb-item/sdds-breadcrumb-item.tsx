@@ -1,0 +1,36 @@
+import { Component, h, Prop } from '@stencil/core';
+
+@Component({
+  tag: 'sdds-breadcrumb-item',
+  styleUrl: 'sdds-breadcrumb-item.scss',
+  shadow: true,
+})
+export class SddsBreadcrumbItem {
+  /** Boolean for the current link */
+  @Prop() current: boolean = false;
+
+  /** Href for the link */
+  @Prop() linkHref: string;
+
+  /** Where to open the linked URL */
+  @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
+
+  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
+  @Prop() rel: string = 'noopener';
+
+  /** Toggle the disabled state for the breadcrumb */
+  @Prop() disabled: boolean = false;
+
+  render() {
+    return (
+      <li
+        class={`${this.current ? 'current' : ''} 
+        ${this.disabled ? 'disabled' : ''}`}
+      >
+        <a href={!this.disabled ? this.linkHref : null} target={this.target} rel={this.rel}>
+          <slot></slot>
+        </a>
+      </li>
+    );
+  }
+}

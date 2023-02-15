@@ -19,8 +19,12 @@ li {
     cursor: pointer;
   }
 
-  &.sdds-breadcrumb-item-disabled,
-  &.sdds-breadcrumb-item-current,
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.disabled,
+  &.current,
   [aria-current='page'] {
     a {
       cursor: default;
@@ -44,13 +48,9 @@ li {
     width: 4px;
     height: 8px;
   }
-
-  &:last-child {
-    color: red;
-  }
 }
 
-:host(.sdds-breadcrumb-item-last) {
+:host(.last) {
   a::after {
     display: none;
   }
