@@ -116,7 +116,11 @@ const BasicTemplate = (args) =>
       compact-design="${args.compactDesign}"
       enable-responsive="${args.responsiveDesign}"
       ${args.noMinWidth ? 'no-min-width' : ''}
-      mode-variant="${args.modeVariant}"
+      ${
+        args.modeVariant !== 'Inherit from parent'
+          ? `mode-variant="${args.modeVariant.toLowerCase()}"`
+          : ''
+      }
             >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
