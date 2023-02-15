@@ -14,9 +14,6 @@ export class SddsCheckbox {
   /** ID for the checkbox's input element. Randomly generated if not specified. */
   @Prop() checkboxId: string = crypto.randomUUID();
 
-  /** Label text for the checkbox */
-  @Prop() label: string;
-
   /** Sets the checkbox in a disabled state */
   @Prop() disabled: boolean = false;
 
