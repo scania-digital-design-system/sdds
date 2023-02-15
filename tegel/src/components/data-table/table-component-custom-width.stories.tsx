@@ -166,7 +166,7 @@ const BasicTemplate = ({
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
-              >
+  >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type' ${
             column1Width ? `custom-width="${column1Width}"` : ''

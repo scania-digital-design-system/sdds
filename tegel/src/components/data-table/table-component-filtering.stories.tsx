@@ -56,9 +56,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     responsiveDesign: {
@@ -100,7 +100,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
     verticalDivider: false,
     responsiveDesign: true,
@@ -123,7 +123,7 @@ const FilteringTemplate = ({
       compact-design="${compactDesign}"
       ${responsiveDesign ? 'enable-responsive' : ''}
       ${noMinWidth ? 'no-min-width' : ''}
-      mode-variant="${modeVariant}"
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
   >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>
