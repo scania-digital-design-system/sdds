@@ -20,16 +20,15 @@ export default {
     ],
   },
   argTypes: {
-    state: {
-      name: 'State',
-      description: 'Support error state.',
+    errorState: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
       table: {
         defaultValue: {
-          summary: 'Default',
+          summary: false,
         },
       },
     },
@@ -100,7 +99,7 @@ export default {
     },
   },
   args: {
-    state: 'Default',
+    errorState: false,
     size: 'Large',
     openDirection: 'Auto',
     defaultOption: 'Option 1',
@@ -111,7 +110,7 @@ export default {
 };
 
 const FilterTemplate = ({
-  state = 'default',
+  errorState = false,
   size,
   openDirection,
   defaultOption,
@@ -121,7 +120,7 @@ const FilterTemplate = ({
   helper = '',
   disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+  const stateValue = errorState === true ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Outside: 'outside' };
   const defaultOptionLookup = {
