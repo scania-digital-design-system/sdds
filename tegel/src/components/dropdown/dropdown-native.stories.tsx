@@ -18,16 +18,15 @@ export default {
     ],
   },
   argTypes: {
-    state: {
-      name: 'State',
-      description: 'Support error state',
+    errorState: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
       table: {
         defaultValue: {
-          summary: 'Default',
+          summary: false,
         },
       },
     },
@@ -72,7 +71,7 @@ export default {
     },
   },
   args: {
-    state: 'Default',
+    errorState: false,
     size: 'Large',
     label: '',
     helper: '',
@@ -80,7 +79,7 @@ export default {
   },
 };
 
-const NativeTemplate = ({ disabled, size, helper, label, state }) => {
+const NativeTemplate = ({ disabled, size, helper, label, errorState }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
   <style>
@@ -92,7 +91,7 @@ const NativeTemplate = ({ disabled, size, helper, label, state }) => {
 
 <div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
-    state === 'Error' ? 'sdds-dropdown--error' : ''
+    errorState === true ? 'sdds-dropdown--error' : ''
   }" >
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select
