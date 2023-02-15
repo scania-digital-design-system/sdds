@@ -41,7 +41,7 @@ export default {
       options: ['Large', 'Medium', 'Small'],
       table: {
         defaultValue: {
-          summary: 'Large',
+          summary: 'lg',
         },
       },
     },
@@ -54,7 +54,7 @@ export default {
       options: ['Up', 'Down', 'Auto'],
       table: {
         defaultValue: {
-          summary: 'Auto',
+          summary: 'auto',
         },
       },
     },
@@ -65,11 +65,6 @@ export default {
         type: 'radio',
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
-      table: {
-        defaultValue: {
-          summary: 'Option 1',
-        },
-      },
     },
     placeholder: {
       name: 'Placeholder',
