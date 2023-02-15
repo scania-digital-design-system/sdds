@@ -19,7 +19,7 @@ export default {
     ],
   },
   argTypes: {
-    toastType: {
+    type: {
       name: 'Message type',
       description: 'Changes the type of message',
       control: {
@@ -27,9 +27,19 @@ export default {
       },
       options: ['Success', 'Info', 'Warning', 'Error'],
     },
+    header: {
+      name: 'Subheader',
+      description: 'Adds a subheader',
+      control: {
+        type: 'text',
+      },
+    },
     subheader: {
       name: 'Subheader',
       description: 'Adds a subheader',
+      control: {
+        type: 'text',
+      },
     },
     link: {
       name: 'Link',
@@ -55,8 +65,9 @@ export default {
     },
   },
   args: {
-    toastType: 'Success',
-    subheader: false,
+    type: 'Success',
+    header: 'Header',
+    subheader: '',
     link: false,
     iconType: 'Web Component',
     icon: 'recommended',
@@ -75,8 +86,8 @@ const iconLookup = {
   Error: 'error',
 };
 
-const Template = ({ toastType, subheader, link, iconType, icon }) => {
-  const iconValue = icon === 'recommended' ? iconLookup[toastType] : icon;
+const Template = ({ type, header, subheader, link, iconType, icon }) => {
+  const iconValue = icon === 'recommended' ? iconLookup[type] : icon;
   return formatHtmlPreview(
     `
       ${
@@ -90,7 +101,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
       `
           : ''
       }
-  <div class="sdds-toast sdds-toast-${typeLookup[toastType]}">
+  <div class="sdds-toast sdds-toast-${typeLookup[type]}">
   ${
     icon === 'none'
       ? ''
@@ -107,9 +118,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
   }
     <div class="sdds-toast-content">
       <div class="sdds-toast-header">
-        <span class="sdds-toast-headline">This is ${
-          toastType === 'Success' || toastType === 'Warning' ? 'a' : 'an'
-        } ${toastType.toLowerCase()} message</span>
+        <span class="sdds-toast-headline">${header}</span>
         <button type="button" aria-label="close" class="sdds-toast-close">
           ${
             iconType === 'Native'
@@ -122,7 +131,7 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
       ${
         subheader || link
           ? `\n<div class="sdds-toast-body">\
-          ${subheader ? '\n<span class="sdds-toast-subheadline">Short subheader</span>' : ''}\
+          ${subheader ? `\n<span class="sdds-toast-subheadline">${subheader}</span>` : ''}\
           ${link ? '\n<a class="sdds-toast-link" href="#">Link example</a>' : ''}
           </div> `
           : ''
@@ -133,5 +142,4 @@ const Template = ({ toastType, subheader, link, iconType, icon }) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Native = Template.bind({});

@@ -32,7 +32,7 @@
     }
 
     ~ .sdds-datetime-label-inside {
-      color: var(--sdds-datetime-placeholder-color-focus);
+      color: var(--sdds-datetime-label-disabled);
     }
   }
 }
@@ -129,7 +129,7 @@
   }
 }
 
-.sdds-label {
+.sdds-datetime-label {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
@@ -310,13 +310,13 @@
   .datetime-icon {
     svg {
       path {
-        fill: var(--sdds-datetime-color-disabled);
+        fill: var(--sdds-datetime-icon-disabled);
       }
     }
   }
 
-  .sdds-label {
-    color: var(--sdds-datetime-placeholder-color-focus);
+  .sdds-datetime-label {
+    color: var(--sdds-datetime-label-disabled);
     cursor: not-allowed;
   }
 }
@@ -352,6 +352,9 @@
       background: var(--sdds-datetime-bar-error);
     }
   }
+  .datetime-icon path {
+    fill: var(--sdds-datetime-icon-error);
+  }
 }
 
 .sdds-datetime-textcounter {
@@ -382,4 +385,10 @@ input[type='date']::-webkit-calendar-picker-indicator {
 input[type='time']::-webkit-inner-spin-button,
 input[type='time']::-webkit-calendar-picker-indicator {
   opacity: 0;
+}
+.sdds-mode-variant-primary {
+  --sdds-datetime-background: var(--sdds-datetime-background-primary);
+}
+.sdds-mode-variant-secondary {
+  --sdds-datetime-background: var(--sdds-datetime-background-secondary);
 }

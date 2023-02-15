@@ -20,6 +20,9 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
+  /** Set the variant of the the dropdown. */
+  @Prop() modeVariant: 'primary' | 'secondary';
+
   /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
@@ -287,16 +290,24 @@ export class Dropdown {
   render() {
     return (
       <Host
-        class={{
-          'sdds-dropdown--open': this.open && !this.disabled,
-          'sdds-dropdown-multiselect': this.type === 'multiselect',
-          'sdds-dropdown-inline': this.inline,
-          'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
-          'sdds-dropdown--error': this.state === 'error',
-          'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position':
-            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
-        }}
+        class={`
+        ${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}
+        ${this.open && !this.disabled ? 'sdds-dropdown--open' : ''}
+        ${this.type === 'multiselect' ? 'sdds-dropdown-multiselect' : ''}
+        ${this.inline ? 'sdds-dropdown-inline' : ''}
+        ${
+          this.selectedLabel.length > 0 || this.selectedLabel === ''
+            ? 'sdds-dropdown--selected'
+            : ''
+        }
+        ${this.state === 'error' ? 'sdds-dropdown--error' : ''}
+        ${this.openUpwards ? 'sdds-dropdown--open-upwards' : ''}
+        ${
+          this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0
+            ? 'sdds-dropdown--label-inside-position'
+            : ''
+        }
+       `}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
         multi-selected-values={JSON.stringify(this.selectedValuesArray)}

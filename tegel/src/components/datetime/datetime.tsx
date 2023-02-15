@@ -27,6 +27,9 @@ export class Datetime {
   /** With setting */
   @Prop() noMinWidth: boolean = false;
 
+  /** Set the variant of the the datetime component. */
+  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+
   /** Name property */
   @Prop() name = '';
 
@@ -128,9 +131,10 @@ export class Datetime {
             ? `sdds-form-datetime-${this.state}`
             : ''
         }
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}
         `}
       >
-        {this.label && <div class="sdds-label">{this.label}</div>}
+        {this.label && <div class="sdds-datetime-label">{this.label}</div>}
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-datetime-container sdds-datetime-container"

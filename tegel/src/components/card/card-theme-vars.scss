@@ -10,7 +10,7 @@
   --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
   --sdds-card-headline: var(--sdds-grey-958);
   --sdds-card-sub-headline: var(--sdds-grey-600);
-  --sdds-card-body: var(--sdds-grey-958);
+  --sdds-card-body-color: var(--sdds-grey-700);
   --sdds-card-divider: var(--sdds-grey-300);
 
   .sdds-mode-variant-primary  {
@@ -34,7 +34,7 @@
   --sdds-card-box-pressed: 0 -1px 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 20%);
   --sdds-card-headline: var(--sdds-white);
   --sdds-card-sub-headline: var(--sdds-grey-400);
-  --sdds-card-body: var(--sdds-white);
+  --sdds-card-body-color: var(--sdds-white);
   --sdds-card-divider: var(--sdds-grey-700);
 
   .sdds-mode-variant-primary  {

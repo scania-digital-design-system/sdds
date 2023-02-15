@@ -21,6 +21,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     size: {
       name: 'Size',
       control: {
@@ -98,6 +109,7 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     size: 'Large',
     placeholder: 'Placeholder',
     state: 'Default',
@@ -112,6 +124,7 @@ export default {
 };
 
 const Template = ({
+  modeVariant,
   size,
   disabled = false,
   labelPosition,
@@ -144,6 +157,12 @@ const Template = ({
 
     <div class="demo-wrapper">
         <sdds-dropdown
+          ${
+            modeVariant !== 'Inherit from parent'
+              ? `mode-variant="${modeVariant.toLowerCase()}".sdds-option-label {
+            `
+              : ''
+          }
           id="sdds-dropdown-reg"
           size="${sizeLookup[size]}"
           placeholder="${placeholder}"

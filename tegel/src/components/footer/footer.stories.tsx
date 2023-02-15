@@ -20,17 +20,35 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Footer mode variant',
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     topPart: {
       name: 'Top part',
       description: 'Adds top part of the footer with more links',
+      table: {
+        defaultValue: { summary: false },
+      },
       control: {
         type: 'boolean',
       },
     },
   },
+  args:{
+    modeVariant: 'Inherit from parent', 
+    topPart: false,
+}
 };
 
-const Template = ({ topPart }) =>
+const Template = ({ topPart, modeVariant}) =>
   formatHtmlPreview(
     `
   <style>
@@ -42,7 +60,9 @@ const Template = ({ topPart }) =>
   </style>
 
   <div class="demo-wrapper">
-  <div class="sdds-footer">
+  <div class="sdds-footer 
+  ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant.toLowerCase()}`: ''}
+ ">
     ${
       topPart
         ? `
@@ -89,9 +109,9 @@ const Template = ({ topPart }) =>
         <li><a href="#">Legal link</a></li>
       </ul>
       <ul class="sdds-footer-social-links">
-        <li><a href="#">Social 1</a></li>
-        <li><a href="#">Social 1</a></li>
-        <li><a href="#">Social 1</a></li>
+        <li><a href="#">Social link</a></li>
+        <li><a href="#">Social link</a></li>
+        <li><a href="#">Social link</a></li>
       </ul>
       <div class="sdds-footer-main-brand">
         <p>Copyright &copy; 2022 Scania</p>
@@ -103,6 +123,4 @@ const Template = ({ topPart }) =>
   );
 
 export const Default = Template.bind({});
-Default.args = {
-  topPart: false,
-};
+

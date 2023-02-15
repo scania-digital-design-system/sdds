@@ -101,14 +101,13 @@
 
   .sdds-card-body {
     font: var(--sdds-detail-03);
+    color: var(--sdds-card-body-color);
     letter-spacing: var(--sdds-detail-03-ls);
     padding: var(--sdds-spacing-element-16);
   }
 
   .sdds-card-footer {
     padding: var(--sdds-spacing-element-16);
-
-    //TODO: Add possibility to move icon to the right when button is present
 
     a {
       padding-right: var(--sdds-spacing-element-16);

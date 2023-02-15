@@ -15,7 +15,7 @@ export class SddsLink {
   /** Disables the link */
   @Prop() disabled: boolean = false;
 
-  /** Displays the link without an underline. */
+  /** Displays the link with an underline. */
   @Prop() underline: boolean = true;
 
   /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */

@@ -18,21 +18,25 @@
 ### Used by
 
  - [sdds-accordion-item](../accordion/accordion-item)
+ - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
+ - [sdds-toast](../toast)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-accordion-item --> sdds-icon
+  sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
+  sdds-toast --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

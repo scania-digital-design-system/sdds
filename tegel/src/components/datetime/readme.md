@@ -12,6 +12,7 @@
 | `disabled`     | `disabled`      | Set input in disabled state                                                                                             | `boolean`                              | `false`            |
 | `helper`       | `helper`        | Helper text for the component                                                                                           | `string`                               | `''`               |
 | `label`        | `label`         | Label text for the component                                                                                            | `string`                               | `''`               |
+| `modeVariant`  | `mode-variant`  | Set the variant of the the datetime component.                                                                          | `"primary" \| "secondary"`             | `null`             |
 | `name`         | `name`          | Name property                                                                                                           | `string`                               | `''`               |
 | `noMinWidth`   | `no-min-width`  | With setting                                                                                                            | `boolean`                              | `false`            |
 | `size`         | `size`          | Size of the input                                                                                                       | `"" \| "md" \| "sm"`                   | `''`               |
