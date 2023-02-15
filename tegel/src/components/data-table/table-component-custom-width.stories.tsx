@@ -136,7 +136,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
     verticalDivider: true,
     responsiveDesign: false,
