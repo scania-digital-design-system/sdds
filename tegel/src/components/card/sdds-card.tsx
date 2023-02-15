@@ -44,12 +44,12 @@ export class SddsCard {
 
   /** Sends unique card identifier when the card is clicked, if clickable=true */
   @Event({
-    eventName: 'sddsCardClickedEvent',
+    eventName: 'sddsClick',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsCardClickedEvent: EventEmitter<{
+  sddsClick: EventEmitter<{
     cardId: string;
   }>;
 
@@ -63,6 +63,12 @@ export class SddsCard {
     this.hasCardBottomSlot = !!this.hostElement.querySelector('[slot="card-bottom"]');
     this.hasCardBodySlot = !!this.hostElement.querySelector('[slot="card-body"]');
   }
+
+  handleClick = () => {
+    this.sddsClick.emit({
+      cardId: this.cardId,
+    });
+  };
 
   getCardContent = () => (
     <div>
@@ -118,9 +124,9 @@ export class SddsCard {
           <button
             class={`card ${this.clickable ? 'clickable' : ''} ${this.headerPlacement}`}
             onClick={() => {
-              this.sddsCardClickedEvent.emit({
-                cardId: this.cardId,
-              });
+              if (this.clickable) {
+                this.handleClick();
+              }
             }}
           >
             {this.getCardContent()}

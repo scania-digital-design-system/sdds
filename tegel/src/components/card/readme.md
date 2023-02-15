@@ -24,9 +24,9 @@
 
 ## Events
 
-| Event                  | Description                                                              | Type                               |
-| ---------------------- | ------------------------------------------------------------------------ | ---------------------------------- |
-| `sddsCardClickedEvent` | Sends unique card identifier when the card is clicked, if clickable=true | `CustomEvent<{ cardId: string; }>` |
+| Event       | Description                                                              | Type                               |
+| ----------- | ------------------------------------------------------------------------ | ---------------------------------- |
+| `sddsClick` | Sends unique card identifier when the card is clicked, if clickable=true | `CustomEvent<{ cardId: string; }>` |
 
 
 ----------------------------------------------
