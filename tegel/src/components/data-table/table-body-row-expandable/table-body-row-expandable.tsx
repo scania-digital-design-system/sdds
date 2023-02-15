@@ -38,7 +38,7 @@ export class TableBodyRowExpandable {
 
   @State() noMinWidth: boolean = false;
 
-  @State() modeVariant: 'Primary' | 'Secondary' = 'Primary';
+  @State() modeVariant: 'primary' | 'secondary' = 'primary';
 
   @Element() host: HTMLElement;
 
@@ -116,8 +116,8 @@ export class TableBodyRowExpandable {
           'sdds-table__row-expand--active': this.isExpanded,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-mode-variant-primary': this.modeVariant === 'Primary',
-          'sdds-mode-variant-secondary': this.modeVariant === 'Secondary',
+          'sdds-mode-variant-primary': this.modeVariant === 'primary',
+          'sdds-mode-variant-secondary': this.modeVariant === 'secondary',
         }}
       >
         <tr class="sdds-table__row">

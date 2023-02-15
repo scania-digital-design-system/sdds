@@ -26,7 +26,7 @@ export class TableBodyRow {
 
   @State() noMinWidth: boolean = false;
 
-  @State() modeVariant: 'Primary' | 'Secondary' = 'Primary';
+  @State() modeVariant: 'primary' | 'secondary' = 'primary';
 
   @State() tableId: string = '';
 
@@ -126,8 +126,8 @@ export class TableBodyRow {
           'sdds-table__row': true,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-mode-variant-primary': this.modeVariant === 'Primary',
-          'sdds-mode-variant-secondary': this.modeVariant === 'Secondary',
+          'sdds-mode-variant-primary': this.modeVariant === 'primary',
+          'sdds-mode-variant-secondary': this.modeVariant === 'secondary',
         }}
       >
         {this.enableMultiselect && (
