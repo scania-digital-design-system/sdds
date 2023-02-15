@@ -19,6 +19,7 @@
 
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-banner](../banner)
+ - [sdds-chip](../chip)
  - [sdds-datetime](../datetime)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
@@ -31,6 +32,7 @@
 graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-banner --> sdds-icon
+  sdds-chip --> sdds-icon
   sdds-datetime --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon

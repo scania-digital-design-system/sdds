@@ -1,0 +1,115 @@
+@import '../../mixins/focus-state';
+
+.sdds-chip-wrapper {
+  border-radius: 16px;
+  background-color: var(--sdds-chips-background);
+  color: var(--sdds-chips-color);
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 8px;
+
+  &.lg {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+  &.sm {
+    padding-bottom: 4px;
+    padding-top: 4px;
+  }
+
+  &.icon-right {
+    padding-right: 8px;
+  }
+
+  &.icon-left {
+    padding-left: 8px;
+  }
+}
+
+label {
+  border-radius: 16px;
+  background-color: var(--sdds-chips-background);
+  color: var(--sdds-chips-color);
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 8px;
+
+  &.lg {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+  &.sm {
+    padding-bottom: 4px;
+    padding-top: 4px;
+  }
+
+  &.icon-right {
+    padding-right: 8px;
+  }
+
+  &.icon-left {
+    padding-left: 8px;
+  }
+
+  &:hover {
+    background-color: var(--sdds-chips-background-hover);
+    cursor: pointer;
+  }
+}
+
+.sdds-chip-input {
+  position: relative;
+
+  input:focus + label {
+    @include sdds-focus-state;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      background-color: var(--sdds-chips-background-hover);
+      cursor: pointer;
+    }
+  }
+
+  input[type='checkbox']:checked + label {
+    background-color: var(--sdds-chips-background-active);
+    color: var(--sdds-chips-color-active);
+
+    &:hover {
+      background-color: var(--sdds-chips-background-active-hover);
+    }
+  }
+
+  input[type='radio']:checked + label {
+    background-color: var(--sdds-chips-background-active);
+    color: var(--sdds-chips-color-active);
+
+    &:hover {
+      background-color: var(--sdds-chips-background-active-hover);
+    }
+  }
+
+  input[type='button'].active + label {
+    background-color: var(--sdds-chips-background-active);
+    color: var(--sdds-chips-color-active);
+
+    &:hover {
+      background-color: var(--sdds-chips-background-active-hover);
+    }
+  }
+}

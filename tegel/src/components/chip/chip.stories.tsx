@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Chips',
+  title: 'Components/Chip',
   parameters: {
     layout: 'centered',
     design: [
