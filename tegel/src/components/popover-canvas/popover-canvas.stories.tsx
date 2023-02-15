@@ -16,7 +16,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'Bottom',
+          summary: 'bottom',
         },
       },
       options: [
