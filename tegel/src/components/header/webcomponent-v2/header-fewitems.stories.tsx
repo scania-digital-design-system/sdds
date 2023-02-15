@@ -69,10 +69,10 @@ const Template = () =>
       <span slot="button-label">Drivers</span>
       <sdds-header-dropdown-list>
         <sdds-header-dropdown-list-link>
-          Albin Larsson
+          Wolverine
         </sdds-header-dropdown-list-link>
         <sdds-header-dropdown-list-link>
-          Viktor Skofors
+          Professor X
         </sdds-header-dropdown-list-link>
       </sdds-header-dropdown-list>
     </sdds-header-dropdown-v2>
@@ -161,8 +161,8 @@ const Template = () =>
         Drivers
       </span>
       <sdds-side-menu-dropdown-list>
-        <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-        <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Wolverine</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Professor X</sdds-side-menu-dropdown-list-link>
       </sdds-side-menu-dropdown-list>
     </sdds-side-menu-dropdown-v2>
 

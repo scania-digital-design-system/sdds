@@ -101,7 +101,7 @@ const Template = ({ dummyHtml }) =>
         Example: Many items
       </sdds-header-title>
 
-      <sdds-header-button-v2 slot="end">
+      <sdds-header-button-v2 slot="end" onclick="alert('clicked')">
         <sdds-icon name="calendar" size="20px"></sdds-icon>
       </sdds-header-button-v2>
       
@@ -121,7 +121,19 @@ const Template = ({ dummyHtml }) =>
         </sdds-header-dropdown-list-lg>
       </sdds-header-dropdown-v2>
 
-      <sdds-header-launcher-button slot="end"></sdds-header-launcher-button>
+      <sdds-header-launcher-v2 slot="end">
+        <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
+        <sdds-header-launcher-list>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Spider man</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Groot</sdds-header-launcher-list-link>
+        </sdds-header-launcher-list>
+        <sdds-header-launcher-list-title>Evil</sdds-header-launcher-list-title>
+        <sdds-header-launcher-list>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Dr Octopus</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Apocalypse</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Scarlet Witch</sdds-header-launcher-list-link>
+        </sdds-header-launcher-list>
+      </sdds-header-launcher-v2>
 
       <sdds-header-logo slot="end" link-href="https://design.scania.com">
       </sdds-header-logo>

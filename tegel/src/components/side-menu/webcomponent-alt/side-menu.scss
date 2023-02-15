@@ -2,10 +2,12 @@
 @import '../../../mixins/z-index';
 
 :host([open]) {
+  pointer-events: auto;
   z-index: z(header) + 1;
 }
 
 :host {
+  pointer-events: none;
   display: block;
   position: fixed;
   top: 0;

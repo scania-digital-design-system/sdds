@@ -83,107 +83,120 @@ const Template = () =>
 
   <div class="demo-layout">
     <sdds-header-v2 class="demo-header">
-    <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
+      <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
 
-    <sdds-header-title>
-      Example: Many items
-    </sdds-header-title>
+      <sdds-header-title>
+        Example: Many items
+      </sdds-header-title>
 
-    <sdds-header-button-v2 slot="end">
-      <sdds-icon name="calendar" size="20px"></sdds-icon>
-    </sdds-header-button-v2>
-    
-    <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
-      <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
-      <sdds-header-dropdown-list-lg>
-        <sdds-header-dropdown-list-lg-user
-          heading="Name Nameson"
-          subheading="Company name">
-        </sdds-header-dropdown-list-lg-user>
-        <sdds-header-dropdown-list-lg-link>
-          Link here
-        </sdds-header-dropdown-list-lg-link>
-        <sdds-header-dropdown-list-lg-link>
-          Link there
-        </sdds-header-dropdown-list-lg-link>
-      </sdds-header-dropdown-list-lg>
-    </sdds-header-dropdown-v2>
-
-    <sdds-header-launcher-button slot="end"></sdds-header-launcher-button>
-
-    <sdds-header-logo slot="end" link-href="https://design.scania.com">
-    </sdds-header-logo>
-
-  </sdds-header-v2>
-
-  <div class="demo-wrap-side-menu-and-main">
-    <!-- Note: the "persistent" property keeps the menu open on desktop -->
-    <sdds-side-menu-v2 id="demo-side-menu" persistent>
-      <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
-
-      <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
-
-      <sdds-side-menu-button-v2>
-        <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
-        About us
-      </sdds-side-menu-button-v2>
-
-      <sdds-side-menu-button-v2>
-        <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
-        Trucks
-      </sdds-side-menu-button-v2>
-
-      <sdds-side-menu-button-v2>
-        <sdds-icon slot="icon" name="wifi" size="24"></sdds-icon>
-        Our services
-      </sdds-side-menu-button-v2>
-
-      <sdds-side-menu-dropdown-v2>
-        <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
-        <span slot="button-label">
-          Drivers
-        </span>
-        <sdds-side-menu-dropdown-list>
-          <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-          <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
-        </sdds-side-menu-dropdown-list>
-      </sdds-side-menu-dropdown-v2>
-
-      <sdds-side-menu-button-v2>
-        <sdds-icon slot="icon" name="document_tool" size="24"></sdds-icon>
-        Documents
-      </sdds-side-menu-button-v2>
-
-      <sdds-side-menu-dropdown-v2 slot="end" class="demo-xs-hide">
-        <sdds-side-menu-user-v2 
-          slot="button-label" 
-          heading="Name Namesson" 
-          subheading="Company name" 
-          image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
-          image-alt="">
-        </sdds-side-menu-user-v2>
-        <sdds-side-menu-dropdown-list>
-          <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-          <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
-        </sdds-side-menu-dropdown-list>
-      </sdds-side-menu-dropdown-v2>
+      <sdds-header-button-v2 slot="end" onclick="alert('clicked')">
+        <sdds-icon name="calendar" size="20px"></sdds-icon>
+      </sdds-header-button-v2>
       
-      <sdds-side-menu-button-v2 slot="end" class="demo-md-hide">
-        <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
-        Calendar
-      </sdds-side-menu-button-v2>
+      <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
+        <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
+        <sdds-header-dropdown-list-lg>
+          <sdds-header-dropdown-list-lg-user
+            heading="Name Nameson"
+            subheading="Company name">
+          </sdds-header-dropdown-list-lg-user>
+          <sdds-header-dropdown-list-lg-link>
+            Link here
+          </sdds-header-dropdown-list-lg-link>
+          <sdds-header-dropdown-list-lg-link>
+            Link there
+          </sdds-header-dropdown-list-lg-link>
+        </sdds-header-dropdown-list-lg>
+      </sdds-header-dropdown-v2>
 
-      <sdds-side-menu-collapse-button slot="end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
+      <sdds-header-launcher-v2 slot="end">
+        <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
+        <sdds-header-launcher-list>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Spider man</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Groot</sdds-header-launcher-list-link>
+        </sdds-header-launcher-list>
+        <sdds-header-launcher-list-title>Evil</sdds-header-launcher-list-title>
+        <sdds-header-launcher-list>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Dr Octopus</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Apocalypse</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Scarlet Witch</sdds-header-launcher-list-link>
+        </sdds-header-launcher-list>
+      </sdds-header-launcher-v2>
 
-    </sdds-side-menu-v2>
 
-    <main class="sdds-u-w-100 sdds-u-h-100 sdds-u-p3" style="box-sizing: border-box;">
-      <p>If there are more than three buttons and/or links, they should be placed in a persistent side menu, which is always visible on large screens.</p>
+      <sdds-header-logo slot="end" link-href="https://design.scania.com">
+      </sdds-header-logo>
 
-      <p>Tip: Resize the window to see the side menu become a drawer.</p>
-    </main>
+    </sdds-header-v2>
+
+    <div class="demo-wrap-side-menu-and-main">
+      <!-- Note: the "persistent" property keeps the menu open on desktop -->
+      <sdds-side-menu-v2 id="demo-side-menu" persistent>
+        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
+
+        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
+
+        <sdds-side-menu-button-v2>
+          <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
+          About us
+        </sdds-side-menu-button-v2>
+
+        <sdds-side-menu-button-v2>
+          <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
+          Trucks
+        </sdds-side-menu-button-v2>
+
+        <sdds-side-menu-button-v2>
+          <sdds-icon slot="icon" name="wifi" size="24"></sdds-icon>
+          Our services
+        </sdds-side-menu-button-v2>
+
+        <sdds-side-menu-dropdown-v2>
+          <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
+          <span slot="button-label">
+            Drivers
+          </span>
+          <sdds-side-menu-dropdown-list>
+            <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link>Johnny Silverhand</sdds-side-menu-dropdown-list-link>
+          </sdds-side-menu-dropdown-list>
+        </sdds-side-menu-dropdown-v2>
+
+        <sdds-side-menu-button-v2>
+          <sdds-icon slot="icon" name="document_tool" size="24"></sdds-icon>
+          Documents
+        </sdds-side-menu-button-v2>
+
+        <sdds-side-menu-dropdown-v2 slot="end" class="demo-xs-hide">
+          <sdds-side-menu-user-v2 
+            slot="button-label" 
+            heading="Name Namesson" 
+            subheading="Company name" 
+            image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
+            image-alt="">
+          </sdds-side-menu-user-v2>
+          <sdds-side-menu-dropdown-list>
+            <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+          </sdds-side-menu-dropdown-list>
+        </sdds-side-menu-dropdown-v2>
+        
+        <sdds-side-menu-button-v2 slot="end" class="demo-md-hide">
+          <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
+          Calendar
+        </sdds-side-menu-button-v2>
+
+        <sdds-side-menu-collapse-button slot="end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
+
+      </sdds-side-menu-v2>
+
+      <main class="sdds-u-w-100 sdds-u-h-100 sdds-u-p3" style="box-sizing: border-box;">
+        <p>If there are more than three buttons and/or links, they should be placed in a persistent side menu, which is always visible on large screens.</p>
+
+        <p>Tip: Resize the window to see the side menu become a drawer.</p>
+      </main>
+    </div>
   </div>
-</div>
   `,
   );
 

@@ -6,6 +6,7 @@
 
     @include sdds-box-sizing;
 
+    background-color: var(--sdds-header-background);
     border-right: 1px solid var(--sdds-header-mob-menu-border);
     transition: background-color 150ms ease;
     display: flex;
@@ -16,7 +17,7 @@
     padding: 0 24px;
 
     &:hover {
-      background-color: var(--sdds-header--basic-element-bg-hover);
+      background-color: var(--sdds-header--basic-element-background-hover);
     }
   }
 

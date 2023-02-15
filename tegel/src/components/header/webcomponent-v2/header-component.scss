@@ -5,16 +5,22 @@
 :host {
   @include sdds-box-sizing;
 
+  z-index: 3;
   background-color: var(--sdds-header-background);
   height: 64px;
   width: 100%;
-  z-index: 3;
   display: flex;
+  justify-content: start;
+  align-items: center;
 
   ::slotted(sdds-header-button-v2),
   ::slotted(sdds-header-link-v2),
   ::slotted(sdds-header-dropdown-v2) {
     display: none;
+  }
+
+  .middle-spacer {
+    flex-grow: 1;
   }
 
   @media screen and (min-width: 672px) {
@@ -25,180 +31,9 @@
     }
   }
 
-  .header-left {
-    flex-grow: 1;
-    display: flex;
-    list-style: none;
-
-    ::slotted(sdds-header-button-v2:nth-child(3)),
-    ::slotted(sdds-header-link-v2:nth-child(3)) {
-      /* Adds a left border to the button after the title, if any */
-      border-left: 1px solid var(--sdds-header-mob-menu-border);
-    }
-  }
-
-  .header-right {
-    display: flex;
-    list-style: none;
+  ::slotted(sdds-header-button-v2:nth-child(3)),
+  ::slotted(sdds-header-link-v2:nth-child(3)) {
+    /* Adds a left border to the button after the title, if any */
     border-left: 1px solid var(--sdds-header-mob-menu-border);
   }
-
-  button.mobile-menu-button {
-    display: none;
-  }
-
-  .header-app-name {
-    @include sdds-flex-center;
-
-    font-family: var(--sdds-font-family-headline);
-    font-weight: normal;
-    color: var(--sdds-header-app-name-color);
-    padding: 0 24px;
-    white-space: nowrap;
-  }
-
-  .header-logo {
-    display: flex;
-
-    a {
-      background-color: var(--sdds-header-bg);
-      transition: background-color 150ms ease;
-      display: block;
-      cursor: pointer;
-      background-image: var(--sdds-background-image-scania-symbol-svg),
-        var(--sdds-background-image-scania-symbol-png);
-      background-size: 30px auto;
-      width: 64px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
-
-  nav.nav-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    ul {
-      padding: 0;
-      margin: 0;
-    }
-  }
-
-  nav.mobile-menu {
-    display: none;
-  }
-
-  slot[name='mobile-menu']::slotted(*) {
-    position: absolute;
-    top: 64px;
-    left: 0;
-  }
-
-  /* IPAD */
-  @media all and (min-width: 672px) {
-    slot[name='mobile-menu-button']::slotted(*) {
-      display: none;
-    }
-
-    slot[name='mobile-menu']::slotted(*) {
-      display: none;
-    }
-  }
-
-  // TODO - Should use token
-  @media all and (max-width: 672px) {
-    // slot:not([name])::slotted(*),
-    // ::slotted([slot='header-end']){
-
-    //   // &:not(sdds-header-hamburger) {
-    //     display: none;
-    //   // }
-    // }
-
-    // nav.nav-content {
-    //   width: unset;
-    //   margin-left: auto;
-    // }
-
-    .header-logo {
-      display: none;
-    }
-
-    button.mobile-menu-button.open + .header-app-name {
-      display: none;
-    }
-
-    button.mobile-menu-button {
-      overflow: hidden;
-      height: 64px;
-      color: var(--sdds-header-mob-menu-color);
-      background-color: var(--sdds-header-mob-menu-bg);
-      border: none;
-      border-right: 1px solid var(--sdds-header-mob-menu-border);
-      width: 100%;
-      display: block;
-
-      &.open {
-        max-width: 272px;
-        background-color: var(--sdds-header-mob-menu-open-bg);
-        border-bottom: 1px solid var(--sdds-header-mob-menu-open-border);
-        color: var(--sdds-header-mob-menu-open-color);
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0 22px;
-      }
-
-      &.closed {
-        max-width: 64px;
-      }
-    }
-
-    nav.mobile-menu {
-      @include sdds-scrollbar;
-
-      position: absolute;
-      left: 0;
-      top: 64px;
-      width: 100%;
-      max-width: 272px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: calc(100vh - 64px);
-      background-color: var(--sdds-header-mobile-menu-background);
-      overflow-y: scroll;
-
-      ul.mobile-menu-top {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      ul.mobile-menu-bottom {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-    }
-  }
-
-  /* MOBILE */
-  // TODO - Should use token
-  //   @media all and (max-width: 384px) {
-  //     nav.nav-content {
-  //       width: unset;
-  //       margin-left: auto;
-  //     }
-
-  //     ul.header-left {
-  //       display: none;
-  //     }
-
-  //     ul.header-right {
-  //       margin: 0;
-  //       margin-left: auto;
-  //     }
-  //   }
 }

@@ -9,7 +9,7 @@ export class HeaderTitle {
   render() {
     return (
       <Host>
-        <div class="shrink-fix">
+        <div class="root">
           <slot></slot>
         </div>
       </Host>

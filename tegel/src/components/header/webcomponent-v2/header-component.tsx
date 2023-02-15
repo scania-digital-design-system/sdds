@@ -11,14 +11,9 @@ export class SddsHeader {
   render() {
     return (
       <Host>
-        <nav class="nav-content">
-          <div class="header-left">
-            <slot></slot>
-          </div>
-          <div class="header-right">
-            <slot name="end"></slot>
-          </div>
-        </nav>
+        <slot></slot>
+        <div class="middle-spacer"></div>
+        <slot name="end"></slot>
       </Host>
     );
   }
