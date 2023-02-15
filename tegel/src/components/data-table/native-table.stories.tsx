@@ -45,9 +45,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     responsiveTable: {
@@ -114,7 +114,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     tableTitle: 'Native table',
     isCompact: false,
     dividers: false,
@@ -130,7 +130,7 @@ const Template = (args) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
-        sdds-mode-variant-${args.modeVariant.toLowerCase()}
+        ${args.modeVariant ? `sdds-mode-variant-${args.modeVariant.toLowerCase()}` : ''}
         ${args.isCompact ? 'sdds-table--compact' : ''}
         ${args.dividers ? 'sdds-table--divider' : ''}
         ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
