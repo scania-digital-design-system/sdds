@@ -28,7 +28,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'Bottom start',
+          summary: 'bottom-start',
         },
       },
       options: [
