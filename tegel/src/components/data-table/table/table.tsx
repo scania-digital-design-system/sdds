@@ -10,7 +10,7 @@ type Props = {
   enableMultiselect: boolean;
   enableExpandableRows: boolean;
   enableResponsive: boolean;
-  modeVariant: 'primary' | 'secondary';
+  modeVariant: 'primary' | 'secondary' | null;
 };
 
 export type TablePropsChangedEvent = {
@@ -44,7 +44,7 @@ export class Table {
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
   /** Variant of the component, based on current mode. */
-  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' = 'primary';
+  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' | null = null;
 
   /** ID used for internal table functionality and events, must be unique.
    *
@@ -97,7 +97,7 @@ export class Table {
   }
 
   @Watch('modeVariant')
-  modeVariantChanged(newValue: 'primary' | 'secondary') {
+  modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
     this.emitTablePropsChangedEvent('modeVariant', newValue);
   }
 
