@@ -18,6 +18,7 @@ export class Modal {
   /* Opens or closes the modal. */
   @Prop() open: boolean = false;
 
+  /* Shows or hides the modal. */
   @Prop() show: boolean = false;
 
   @Element() el: HTMLElement;

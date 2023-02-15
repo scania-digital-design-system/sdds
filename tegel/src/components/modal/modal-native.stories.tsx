@@ -27,7 +27,7 @@ export default {
       options: ['Large', 'Medium', 'Small', 'Extra small'],
       table: {
         defaultValue: {
-          summary: 'Large',
+          summary: 'lg',
         },
       },
     },
