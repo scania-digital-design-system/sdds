@@ -182,34 +182,25 @@
     .sdds-toggle-input {
       @include activeState;
     }
-
-    // .sdds-toggle-switch{
-    //   &:before{
-    //     background-color: var(--sdds-toggle-off-slider-pressed);
-    //   }
-    // }
-    // .sdds-toggle-input:checked {
-    //   + .sdds-toggle-switch{
-    //     &:before{
-    //       background-color: var(--sdds-toggle-on-slider-pressed);
-    //     }
-    //   }
-    // }
   }
 
   &.disabled {
     cursor: not-allowed;
 
+    &::before {
+      background-color: var(--sdds-toggle-slider-disabled);
+      border: 0;
+    }
+
     .sdds-toggle-input {
       pointer-events: none;
 
-      &,
       &:checked,
       &:checked:focus,
       &:focus {
         + .sdds-toggle-switch {
           &::before {
-            background-color: var(--sdds-toggle-slider-disabled);
+            background-color: var(--sdds-toggle-on-slider-disabled);
             border: 0;
           }
         }
