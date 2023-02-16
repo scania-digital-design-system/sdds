@@ -6,7 +6,7 @@ import readmeButton from '../tab-button/readme.md';
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: { 'Inline tabs': readme, 'Tab button': readmeButton, 'Tab link:': readmeLink },
+    notes: { 'Inline tabs': readme, 'Tab button': readmeButton, 'Tab link': readmeLink },
     design: [
       {
         name: 'Figma',
@@ -21,14 +21,6 @@ export default {
     ],
   },
   argTypes: {
-    childType: {
-      name: 'Child type',
-      description: 'Type of child element, button/link.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Button', 'Link'],
-    },
     modeVariant: {
       name: 'Mode variant',
       description:
@@ -41,37 +33,45 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    tabType: {
+      name: 'Tab type',
+      description: 'Type of child element, button/link.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Button', 'Link'],
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    childType: 'Link',
+    tabType: 'Link',
   },
 };
 
-const Template = ({ modeVariant, childType }) =>
+const Template = ({ modeVariant, tabType }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs
     mode-variant="${modeVariant.toLowerCase()}">
       ${
-        childType === 'Link'
+        tabType === 'Link'
           ? `
-        <sdds-tab-link link-href="#">
+        <sdds-tab-link href="#">
           First tab
         </sdds-tab-link>
-        <sdds-tab-link link-href="#">
+        <sdds-tab-link href="#">
           Second tab is waaay longer
         </sdds-tab-link>
-        <sdds-tab-link selected link-href="#">
+        <sdds-tab-link selected href="#">
           Third tab
         </sdds-tab-link>
-        <sdds-tab-link disabled link-href="#">
+        <sdds-tab-link disabled href="#">
           Fourth tab
         </sdds-tab-link>
         `
           : ''
       }
       ${
-        childType === 'Button'
+        tabType === 'Button'
           ? `
         <sdds-tab-button>
           First tab
@@ -101,7 +101,7 @@ const Template = ({ modeVariant, childType }) =>
    selectedTab = document.getElementsByClassName('selectedTab')[0]
    selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
 
-   document.addEventListener('sddsTabChangeEvent', (event) => {
+   document.addEventListener('sddsChange', (event) => {
      selectedTab.innerHTML = event.detail.selectedTab
      selectedTabIndex.innerHTML = event.detail.selectedTabIndex
    })
