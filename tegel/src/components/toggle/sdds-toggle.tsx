@@ -62,7 +62,9 @@ export class SddsToggle {
   render() {
     return (
       <div class="sdds-toggle-webcomponent">
-        {this.headline && <div class={`toggle-headline`}>{this.headline}</div>}
+        {this.headline && (
+          <div class={`toggle-headline ${this.disabled ? 'disabled' : ''}`}>{this.headline}</div>
+        )}
         <input
           aria-labelledby={this.ariaLabelledby}
           aria-describedby={this.ariaDescribedby}
@@ -82,7 +84,7 @@ export class SddsToggle {
           id={this.toggleId}
           role="switch"
         />
-        <label htmlFor={this.toggleId}>
+        <label class={`${this.disabled ? 'disabled' : ''}`} htmlFor={this.toggleId}>
           <slot></slot>
         </label>
       </div>

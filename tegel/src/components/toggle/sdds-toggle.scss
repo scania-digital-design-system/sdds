@@ -4,6 +4,10 @@
     letter-spacing: var(--sdds-detail-02-ls);
     color: var(--sdds-toggle-headline);
     margin-bottom: 12px;
+
+    &.disabled {
+      color: var(--sdds-toggle-headline-disabled);
+    }
   }
 
   input[type='checkbox'] {
@@ -72,6 +76,17 @@
       }
     }
 
+    &:disabled:checked {
+      &::before {
+        background-color: var(--sdds-toggle-on-slider-disabled);
+        border: 1px solid var(--sdds-toggle-on-slider-disabled);
+      }
+
+      &::after {
+        background-color: var(--sdds-toggle-switch-disabled);
+      }
+    }
+
     &.sm {
       width: 28px;
       height: 16px;
@@ -116,5 +131,9 @@
     letter-spacing: var(--sdds-detail-01-ls);
     color: var(--sdds-toggle-label-color);
     padding-left: 8px;
+
+    &.disabled {
+      color: var(--sdds-toggle-label-color-disabled);
+    }
   }
 }
