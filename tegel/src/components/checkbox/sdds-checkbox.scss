@@ -27,6 +27,8 @@
       padding-top: var(--sdds-spacing-element-4);
       padding-bottom: var(--sdds-spacing-element-4);
       cursor: pointer;
+      display: flex;
+      align-items: center;
     }
 
     &::before,

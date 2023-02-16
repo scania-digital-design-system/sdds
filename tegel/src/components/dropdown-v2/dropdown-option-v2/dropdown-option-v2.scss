@@ -77,10 +77,20 @@
     }
 
     sdds-checkbox {
-      height: 100%;
       display: flex;
       padding: 0 16px;
       border-bottom: 1px solid var(--sdds-dropdown-option-border);
+
+      // This is to make the entire button clickable
+      .sdds-checkbox-webcomponent {
+        height: 100%;
+        width: 100%;
+
+        label {
+          width: 100%;
+          height: 100%;
+        }
+      }
 
       &.lg {
         height: 56px;
