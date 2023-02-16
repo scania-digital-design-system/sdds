@@ -1,5 +1,5 @@
 import { Component, h, State, Element } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { Host, HostElement, Prop } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-footer',
@@ -7,6 +7,9 @@ import { HostElement } from '@stencil/core/internal';
   shadow: true,
 })
 export class SddsFooter {
+  /** Mode variant of the component, based on current mode. */
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
+
   @State() hasTopPart: boolean;
 
   @Element() host: HostElement;
@@ -18,29 +21,31 @@ export class SddsFooter {
 
   render() {
     return (
-      <footer>
-        {this.hasTopPart && (
-          <div class="footer-top">
-            <slot name="top"></slot>
-          </div>
-        )}
-        <div class="footer-main">
-          <div class="footer-main-top">
-            <div class="footer-bottom-left">
-              <slot name="main-left"></slot>
+      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+        <footer>
+          {this.hasTopPart && (
+            <div class="footer-top">
+              <slot name="top"></slot>
             </div>
-            <div class="footer-bottom-right">
-              <slot name="main-right"></slot>
+          )}
+          <div class="footer-main">
+            <div class="footer-main-top">
+              <div class="footer-bottom-left">
+                <slot name="main-left"></slot>
+              </div>
+              <div class="footer-bottom-right">
+                <slot name="main-right"></slot>
+              </div>
+            </div>
+            <div class="footer-main-bottom">
+              <p class="copyright">Copyright © {new Date().getFullYear()} Scania</p>
+              <div class="brand">
+                <p>Scania</p>
+              </div>
             </div>
           </div>
-          <div class="footer-main-bottom">
-            <p class="copyright">Copyright © {new Date().getFullYear()} Scania</p>
-            <div class="brand">
-              <p>Scania</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </Host>
     );
   }
 }

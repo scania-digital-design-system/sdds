@@ -22,6 +22,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Footer mode variant',
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     topPart: {
       name: 'Top part',
       description: 'Adds the top part of the footer',
@@ -31,11 +42,12 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     topPart: true,
   },
 };
 
-const Template = ({ topPart }) =>
+const Template = ({ topPart, modeVariant }) =>
   formatHtmlPreview(
     `
     <main>
@@ -45,7 +57,9 @@ const Template = ({ topPart }) =>
         </div>
       </div>
     </main>
-    <sdds-footer>
+    <sdds-footer
+    ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
+    >
       ${
         topPart
           ? `
