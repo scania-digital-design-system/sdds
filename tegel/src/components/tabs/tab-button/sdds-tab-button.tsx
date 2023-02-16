@@ -21,7 +21,7 @@ export class SddsTabButton {
 
   type: 'folder-tab' | 'inline-tab';
 
-  /** Method to set the width of the tab. Used by the <sdds-folder-tabs> */
+  /** @internal Method to set the width of the tab. Used by the <sdds-folder-tabs> */
   @Method()
   async setTabWidth(width: number) {
     this.tabWidth = width;
