@@ -67,16 +67,15 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
       wich might be preferable in frameworks like React -->
       <sdds-popover-canvas
         placement="${canvasPosLookup[canvasPosition]}"
-        selector="#trigger">
-        <div>
-          <h2>A popover canvas!</h2>
-          <p>
-            Where you can put anything you want!
-          </p>
-          <p>
-            <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Even links!</a>
-          </p>
-        </div>
+        selector="#trigger"
+        class="sdds-u-p2">
+        <h2>A popover canvas!</h2>
+        <p>
+          Where you can put anything you want!
+        </p>
+        <p>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Even links!</a>
+        </p>
       </sdds-popover-canvas>
 
       <!-- demo-wrapper code below is for demonstration purposes only -->
