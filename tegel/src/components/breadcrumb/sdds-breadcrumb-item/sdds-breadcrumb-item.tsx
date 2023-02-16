@@ -10,7 +10,7 @@ export class SddsBreadcrumbItem {
   @Prop() current: boolean = false;
 
   /** Href for the link */
-  @Prop() linkHref: string;
+  @Prop() href: string;
 
   /** Where to open the linked URL */
   @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
@@ -27,7 +27,7 @@ export class SddsBreadcrumbItem {
         class={`${this.current ? 'current' : ''} 
         ${this.disabled ? 'disabled' : ''}`}
       >
-        <a href={!this.disabled ? this.linkHref : null} target={this.target} rel={this.rel}>
+        <a href={!this.disabled ? this.href : null} target={this.target} rel={this.rel}>
           <slot></slot>
         </a>
       </li>
