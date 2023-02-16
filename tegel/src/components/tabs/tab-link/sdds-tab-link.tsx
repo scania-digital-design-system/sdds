@@ -14,10 +14,10 @@ export class SddsTabLink {
   @Prop() selected: boolean = false;
 
   /** Href for the link */
-  @Prop() linkHref: string;
+  @Prop() href: string;
 
   /** Where to open the linked URL */
-  @Prop() linkTarget: '_self' | '_blank' | '_parent' | '_top' = '_self';
+  @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
 
   /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
   @Prop() rel: string = 'noopener';
@@ -28,7 +28,7 @@ export class SddsTabLink {
 
   type: 'folder-tab' | 'inline-tab';
 
-  /** Method to set the width of the tab. Used by the <sdds-folder-tabs> */
+  /** @internal Method to set the width of the tab. Used by the <sdds-folder-tabs> */
   @Method()
   async setTabWidth(width: number) {
     this.tabWidth = width;
@@ -57,8 +57,8 @@ export class SddsTabLink {
         ${this.selected ? 'selected' : ''}
         ${this.disabled ? 'disabled' : ''}
         `}
-          href={this.linkHref}
-          target={this.linkTarget}
+          href={this.href}
+          target={this.target}
           rel={this.rel}
         >
           <div class="label">
