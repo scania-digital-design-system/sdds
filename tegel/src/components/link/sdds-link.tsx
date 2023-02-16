@@ -7,7 +7,7 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class SddsLink {
   /** URL for the link */
-  @Prop() linkHref: string;
+  @Prop() href: string;
 
   /** Where to open the linked URL */
   @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
@@ -29,7 +29,7 @@ export class SddsLink {
         ${this.underline ? '' : 'no-underline'}
         
         `}
-        href={this.linkHref}
+        href={this.href}
         target={this.target}
         rel={this.rel}
       >
