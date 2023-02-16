@@ -55,7 +55,7 @@ export default {
         type: 'text',
       },
     },
-    linkHref: {
+    href: {
       name: 'Link href',
       description: 'Href for link',
       control: {
@@ -101,14 +101,14 @@ export default {
     header: 'This is a header text area',
     subheader: 'SubHeader text area',
     linkText: 'Learn more',
-    linkHref: 'tegel.scania.com',
+    href: 'tegel.scania.com',
     linkTarget: '_self',
     icon: 'truck',
     persistent: false,
   },
 };
 
-const Template = ({ type, icon, header, subheader, linkText, linkHref, persistent, linkTarget }) =>
+const Template = ({ type, icon, header, subheader, linkText, href, persistent, linkTarget }) =>
   formatHtmlPreview(`
       <sdds-banner
           ${type !== 'Default' ? `type="${type.toLowerCase()}"` : ''}
@@ -116,7 +116,7 @@ const Template = ({ type, icon, header, subheader, linkText, linkHref, persisten
           ${header !== '' ? `header="${header}"` : ''}
           ${subheader !== '' ? `subheader="${subheader}"` : ''}
           ${linkText !== '' ? `link-text="${linkText}"` : ''}
-          ${linkHref !== '' ? `link-href="${linkHref}"` : ''}
+          ${href !== '' ? `href="${href}"` : ''}
           ${linkTarget !== '' ? `link-target="${linkTarget}"` : ''}
 
           ${persistent ? `persistent` : ''}

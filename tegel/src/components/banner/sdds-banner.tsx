@@ -20,7 +20,7 @@ export class SddsBanner {
   @Prop() linkText: string;
 
   /** Href for the link */
-  @Prop() linkHref: string;
+  @Prop() href: string;
 
   /** Where to open the linked URL */
   @Prop() linkTarget: '_self' | '_blank' | '_parent' | '_top' = '_self';
@@ -126,8 +126,8 @@ export class SddsBanner {
         <div class={`banner-content ${this.type} ${!this.icon ? 'no-icon' : ''}`}>
           {this.header && <span class={`banner-header`}>{this.header}</span>}
           {this.subheader && <span class={`banner-subheader`}>{this.subheader}</span>}
-          {this.linkText && this.linkHref && (
-            <sdds-link link-href={this.linkHref} rel={this.linkRel} link-target={this.linkTarget}>
+          {this.linkText && this.href && (
+            <sdds-link link-href={this.href} rel={this.linkRel} link-target={this.linkTarget}>
               {this.linkText}
             </sdds-link>
           )}
