@@ -171,12 +171,12 @@ export class InlineTabsFullbleed {
   }
 
   @Event({
-    eventName: 'sddsTabChangeEvent',
+    eventName: 'sddsChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  tabChangeEvent: EventEmitter<{
+  sddsChange: EventEmitter<{
     selectedTab: string;
     selectedTabIndex: number;
   }>;
@@ -209,7 +209,7 @@ export class InlineTabsFullbleed {
   @Watch('selectedTabIndex')
   handleSelectedTabIndexChange() {
     this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
-    this.tabChangeEvent.emit({
+    this.sddsChange.emit({
       selectedTab: this.selectedTab,
       selectedTabIndex: this.selectedTabIndex,
     });
