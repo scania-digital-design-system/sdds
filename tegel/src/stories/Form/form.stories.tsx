@@ -29,7 +29,6 @@ const Template = () =>
     <div class="demo-wrapper">
         <form id="sdds-form" name="my-form" class="form">
             <sdds-textfield
-                mode-variant="primary"
                 name="full-name"
                 type="text"
                 size="lg"
@@ -41,7 +40,6 @@ const Template = () =>
                 >
             </sdds-textfield>
             <sdds-textarea
-                mode-variant="secondary"
                 label="Tell me about yourself."
                 label-position="inside"
                 name="my-textarea"
