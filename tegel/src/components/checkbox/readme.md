@@ -43,12 +43,12 @@ Type: `Promise<{ checkboxId: string; checked: boolean; }>`
 
 ### Used by
 
- - [sdds-dropdown-option-v3](../dropdown-v3/dropdown-option-v3)
+ - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-dropdown-option-v3 --> sdds-checkbox
+  sdds-dropdown-option-v2 --> sdds-checkbox
   style sdds-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

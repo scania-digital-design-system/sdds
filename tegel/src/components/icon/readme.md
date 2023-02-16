@@ -20,8 +20,8 @@
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
- - [sdds-dropdown-option-v3](../dropdown-v3/dropdown-option-v3)
- - [sdds-dropdown-v3](../dropdown-v3)
+ - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
+ - [sdds-dropdown-v2](../dropdown-v2)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-slider](../slider)
@@ -35,8 +35,8 @@ graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
-  sdds-dropdown-option-v3 --> sdds-icon
-  sdds-dropdown-v3 --> sdds-icon
+  sdds-dropdown-option-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-slider --> sdds-icon

@@ -1,9 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readmeDropdown from './readme.md';
-import readmeDropdownOption from './dropdown-option-v3/readme.md';
+import readmeDropdownOption from './dropdown-option-v2/readme.md';
 
 export default {
-  title: 'Components/Dropdown-v3',
+  title: 'Components/Dropdown-v2',
   parameters: {
     notes: { 'Dropdown': readmeDropdown, 'Dropdown option': readmeDropdownOption },
     layout: 'padded',
@@ -197,54 +197,54 @@ const defaultOptionJSON = (defaultOption: string) => `
 ]`;
 
 const multiDefaultOptionChildren = (multiDefaultOption: string[]) => `
-      <sdds-dropdown-option-v3 ${
+      <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 1') ? 'selected' : ''
       } value="option-1" label="Option-1" disabled>
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 2') ? 'selected' : ''
       } value="option-2" label="Option-2">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 3') ? 'selected' : ''
       } value="option-3" label="Option-3">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 4') ? 'selected' : ''
       } value="option-4" label="Option-4">
-      </sdds-dropdown-option-v3>
+      </sdds-dropdown-option-v2>
  `;
 const defaultOptionChildren = (defaultOption: string) => `
-      <sdds-dropdown-option-v3 ${
+      <sdds-dropdown-option-v2 ${
         defaultOption === 'Option 1' ? 'selected' : ''
       } value="option-1" label="Option-1" disabled>
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         defaultOption === 'Option 2' ? 'selected' : ''
       } value="option-2" label="Option-2">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         defaultOption === 'Option 3' ? 'selected' : ''
       } value="option-3" label="Option-3">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 ${
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 ${
         defaultOption === 'Option 4' ? 'selected' : ''
       } value="option-4" label="Option-4">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
-      <sdds-dropdown-option-v3 label="Option-5">
-      </sdds-dropdown-option-v3>
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
+      <sdds-dropdown-option-v2 label="Option-5">
+      </sdds-dropdown-option-v2>
 `;
 
 const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
@@ -279,13 +279,13 @@ const Template = ({
         }
       }
 
-      sdds-dropdown-v3 {
+      sdds-dropdown-v2 {
         width: 200px;
       }
 
     </style>
     <div class="demo-wrapper">
-      <sdds-dropdown-v3
+      <sdds-dropdown-v2
         ${modeVariant === 'Primary' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
         ${modeVariant === 'Secondary' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
         ${error ? 'error' : ''}
@@ -317,7 +317,7 @@ const Template = ({
               }`
             : ''
         }
-      </sdds-dropdown-v3>
+      </sdds-dropdown-v2>
     </div>
 
     `);

@@ -2,11 +2,11 @@ import { Component, h, Prop, Element, State } from '@stencil/core';
 import { Host, HostElement } from '@stencil/core/internal';
 
 @Component({
-  tag: 'sdds-dropdown-option-v3',
-  styleUrl: 'dropdown-option-v3.scss',
+  tag: 'sdds-dropdown-option-v2',
+  styleUrl: 'dropdown-option-v2.scss',
   shadow: false,
 })
-export class DropdownOptionV3 {
+export class DropdownOptionV2 {
   /** Sets the dropdown option in a selected state */
   @Prop() selected: boolean = false;
 
@@ -27,12 +27,12 @@ export class DropdownOptionV3 {
 
   @Element() host: HostElement;
 
-  parentEl: HTMLSddsDropdownV3Element;
+  parentEl: HTMLSddsDropdownV2Element;
 
   connectedCallback() {
-    this.parentEl = this.host.closest('sdds-dropdown-v3')
-      ? this.host.closest('sdds-dropdown-v3')
-      : (this.parentEl = this.host.parentElement as HTMLSddsDropdownV3Element);
+    this.parentEl = this.host.closest('sdds-dropdown-v2')
+      ? this.host.closest('sdds-dropdown-v2')
+      : (this.parentEl = this.host.parentElement as HTMLSddsDropdownV2Element);
     if (this.parentEl) {
       this.size = this.parentEl.size;
       this.modeVariant = this.parentEl.modeVariant;

@@ -39,16 +39,16 @@
 ### Depends on
 
 - [sdds-icon](../icon)
-- [sdds-dropdown-option-v3](dropdown-option-v3)
+- [sdds-dropdown-option-v2](dropdown-option-v2)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-dropdown-v3 --> sdds-icon
-  sdds-dropdown-v3 --> sdds-dropdown-option-v3
-  sdds-dropdown-option-v3 --> sdds-checkbox
-  sdds-dropdown-option-v3 --> sdds-icon
-  style sdds-dropdown-v3 fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-dropdown-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-dropdown-option-v2
+  sdds-dropdown-option-v2 --> sdds-checkbox
+  sdds-dropdown-option-v2 --> sdds-icon
+  style sdds-dropdown-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -11,12 +11,12 @@ import {
 } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-dropdown-v3',
-  styleUrl: 'dropdown-v3.scss',
+  tag: 'sdds-dropdown-v2',
+  styleUrl: 'dropdown-v2.scss',
   shadow: false,
   scoped: true,
 })
-export class DropdownV3 {
+export class DropdownV2 {
   /** ID for the dropdown.
    *
    * **NOTE**: If you're listening for dropdown events you need to set this ID yourself to identify the dropdown, as the default ID is random and will be different every time.
@@ -114,7 +114,7 @@ export class DropdownV3 {
     this.value = [newValue];
   };
 
-  handleChildElementMultiselectSelection = (element: HTMLSddsDropdownOptionV3Element) => {
+  handleChildElementMultiselectSelection = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       this.setMultiselectValue({
         value: element.getAttribute('value'),
@@ -129,7 +129,7 @@ export class DropdownV3 {
 
   handleChildElementSelection = () => {
     this.childElements = Array.from(this.host.children) as [HTMLSddsDropdownOptionV2Element];
-    this.childElements.forEach((element: HTMLSddsDropdownOptionV3Element, index) => {
+    this.childElements.forEach((element: HTMLSddsDropdownOptionV2Element, index) => {
       if (this.multiselect) {
         this.handleChildElementMultiselectSelection(element);
       } else {
@@ -177,7 +177,7 @@ export class DropdownV3 {
     }
   };
 
-  addEventHandler = (element: HTMLSddsDropdownOptionV3Element, index?: number) => {
+  addEventHandler = (element: HTMLSddsDropdownOptionV2Element, index?: number) => {
     if (this.multiselect) {
       element.addEventListener('checkboxChange', () => {
         this.addMultiSelectEventListener(element);
@@ -189,7 +189,7 @@ export class DropdownV3 {
     }
   };
 
-  addEventListenerForCheckbox = (element: HTMLSddsDropdownOptionV3Element) => {
+  addEventListenerForCheckbox = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       element.removeAttribute('selected');
       this.value = this.value.filter(
@@ -208,7 +208,7 @@ export class DropdownV3 {
     }
   };
 
-  addMultiSelectEventListener = (element: HTMLSddsDropdownOptionV3Element) => {
+  addMultiSelectEventListener = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       element.removeAttribute('selected');
       this.value = this.value.filter(
@@ -227,7 +227,7 @@ export class DropdownV3 {
     }
   };
 
-  addSingleSelectEventListener = (element: HTMLSddsDropdownOptionV3Element, index: number) => {
+  addSingleSelectEventListener = (element: HTMLSddsDropdownOptionV2Element, index: number) => {
     element.setAttribute('selected', '');
     this.value = [
       {
@@ -561,7 +561,7 @@ export class DropdownV3 {
           >
             {this.data &&
               this.dataChildElements.map((item, index) => (
-                <sdds-dropdown-option-v3
+                <sdds-dropdown-option-v2
                   hidden={item.hidden}
                   value={item.value}
                   label={item.label}
@@ -575,7 +575,7 @@ export class DropdownV3 {
                   onChange={(event: any) => {
                     this.handleChangeSelection(event.target.checked, index);
                   }}
-                ></sdds-dropdown-option-v3>
+                ></sdds-dropdown-option-v2>
               ))}
             {this.filter && this.noResult && (
               <li class={`no-result ${this.size}`}>{this.noResultText}</li>

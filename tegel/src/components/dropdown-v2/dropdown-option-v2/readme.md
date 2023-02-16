@@ -19,7 +19,7 @@
 
 ### Used by
 
- - [sdds-dropdown-v3](..)
+ - [sdds-dropdown-v2](..)
 
 ### Depends on
 
@@ -29,10 +29,10 @@
 ### Graph
 ```mermaid
 graph TD;
-  sdds-dropdown-option-v3 --> sdds-checkbox
-  sdds-dropdown-option-v3 --> sdds-icon
-  sdds-dropdown-v3 --> sdds-dropdown-option-v3
-  style sdds-dropdown-option-v3 fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-dropdown-option-v2 --> sdds-checkbox
+  sdds-dropdown-option-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-dropdown-option-v2
+  style sdds-dropdown-option-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
