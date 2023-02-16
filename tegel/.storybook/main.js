@@ -4,18 +4,11 @@ let addons = [
   '@storybook/addon-links',
   '@storybook/addon-essentials',
   'storybook-dark-mode',
-  // '@storybook/addon-interactions',
   '@storybook/addon-notes/register',
 ];
 
 if (process.env.STORYBOOK_ENV === 'development') {
-  addons = [
-    ...addons,
-    'storybook-dark-mode',
-    'storybook-addon-designs',
-    '@storybook/addon-a11y',
-    'addon-screen-reader',
-  ];
+  addons = [...addons, 'storybook-addon-designs', '@storybook/addon-a11y', 'addon-screen-reader'];
 }
 
 module.exports = {
