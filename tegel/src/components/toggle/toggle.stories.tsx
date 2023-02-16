@@ -40,15 +40,26 @@ export default {
         type: 'boolean',
       },
     },
+    checked: {
+      name: 'Checked',
+      description: 'Sets the toggle as checked',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
   args: {
     size: 'Default',
-    headline: '',
+    headline: 'Headline',
     disabled: false,
+    checked: false,
   },
 };
 
-const Template = ({ size, disabled = false, headline = '' }) => {
+const Template = ({ size, disabled, headline, checked }) => {
   const sizeValue = size === 'Small' ? 'sdds-toggle-sm' : '';
   const headlineDiv =
     headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>` : '';
@@ -58,7 +69,7 @@ const Template = ({ size, disabled = false, headline = '' }) => {
         ${headlineDiv}
         <input type="checkbox" class="sdds-toggle-input" id="customSwitch1" ${
           disabled ? 'disabled' : ''
-        }>
+        } ${checked ? 'checked' : ''}>
         <span class="sdds-toggle-switch"></span>
         <label class="sdds-toggle-label" for="customSwitch1">Toggle this switch element</label>
       </div>
