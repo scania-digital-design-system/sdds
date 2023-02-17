@@ -1,22 +1,5 @@
-import { formatHtmlPreview } from '../../utils/utils';
-import readme from './readme.md';
-
-export default {
-  title: 'Patterns/Form',
-  parameters: {
-    notes: readme,
-    layout: 'fullscreen',
-    previewTabs: {
-      'storybook/docs/panel': { hidden: true },
-    },
-    viewMode: 'canvas',
-  },
-};
-
-const Template = () =>
-  formatHtmlPreview(
-    `
-    <style> 
+```html
+<style> 
         main form {
             padding: var(--sdds-spacing-element-32);
             display: flex;
@@ -111,21 +94,17 @@ const Template = () =>
             </div>
         </div>
     </div>
-    <script>
-        form = document.querySelector('[name="my-form"]')
+<script>
+            form = document.querySelector('[name="my-form"]')
 
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-            const formData = new FormData(form)
-            formData.forEach((value, key) => {
-                console.log('Key:', key, 'Value:', value);
-            })
-        });
-        
-    </script>
-  `,
-  );
-
-export const Form = Template.bind({});
+                const formData = new FormData(form)
+                formData.forEach((value, key) => {
+                    console.log('Key:', key, 'Value:', value);
+                })
+            });
+</script>
+```
