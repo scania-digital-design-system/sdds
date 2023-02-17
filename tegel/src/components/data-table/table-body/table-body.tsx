@@ -87,34 +87,34 @@ export class TableBody {
     this.bodyDataOriginal = [...this.innerBodyData];
   }
 
-  /** Event that sends unique table identifier and enable/disable status for sorting functionality */
+  /** @internal Event that sends unique table identifier and enable/disable status for sorting functionality */
   @Event({
-    eventName: 'sortingSwitcherEvent',
+    eventName: 'internalSddsSortingChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortingSwitcherEvent: EventEmitter<any>;
+  internalSddsSortingChange: EventEmitter<any>;
 
-  /** Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
+  /** @internal Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
   @Event({
-    eventName: 'updateBodyCheckboxesEvent',
+    eventName: 'internalSddsCheckboxChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  updateBodyCheckboxesEvent: EventEmitter<any>;
+  internalSddsCheckboxChange: EventEmitter<any>;
 
-  /** Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
+  /** @internal Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
   @Event({
-    eventName: 'updateMainCheckboxEvent',
+    eventName: 'internalSddsMainCheckboxChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  updateMainCheckboxEvent: EventEmitter<any>;
+  internalSddsMainCheckboxChange: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
+  @Listen('internalSddsChange', { target: 'body' })
   tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
@@ -151,8 +151,8 @@ export class TableBody {
 
   uncheckAll = () => {
     this.mainCheckboxStatus = false;
-    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
-    this.updateBodyCheckboxesEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
   };
 
   sortData(keyValue, sortingDirection) {
@@ -168,7 +168,7 @@ export class TableBody {
     }
   }
 
-  // Listen to sortColumnData from data-table-header-element
+  // Listen to sortColumnData from data-table-header-element - TODO
   @Listen('sortColumnDataEvent', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
@@ -193,8 +193,8 @@ export class TableBody {
     }
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
-
-  @Listen('mainCheckboxSelectedEvent', { target: 'body' })
+´
+  @Listen('internalSddsMainCheckboxChange', { target: 'body' }) // - 
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       [, this.mainCheckboxStatus] = event.detail;
@@ -211,7 +211,7 @@ export class TableBody {
 
     this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
 
-    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
 
     this.selectedDataExporter();
   };
@@ -272,7 +272,7 @@ export class TableBody {
         });
 
         this.disableAllSorting = true;
-        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
+        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
 
         const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
 
@@ -293,7 +293,7 @@ export class TableBody {
         }
 
         this.disableAllSorting = false;
-        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
+        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
       }
     }
   }
