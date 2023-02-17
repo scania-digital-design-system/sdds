@@ -1,22 +1,16 @@
 import { formatHtmlPreview } from '../../utils/utils';
-import readme from './readme.md';
 
 export default {
   title: 'Patterns/Form',
   parameters: {
-    notes: readme,
     layout: 'fullscreen',
-    previewTabs: {
-      'storybook/docs/panel': { hidden: true },
-    },
-    viewMode: 'canvas',
   },
 };
 
 const Template = () =>
   formatHtmlPreview(
     `
-    <style> 
+    <style>
         main form {
             padding: var(--sdds-spacing-element-32);
             display: flex;
