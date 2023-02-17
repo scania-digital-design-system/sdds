@@ -20,8 +20,8 @@ export default {
     ],
   },
   argTypes: {
-    visible: {
-      name: 'Visible',
+    hidden: {
+      name: 'Hidden',
       description: 'Toggle visibility of badge',
       control: {
         type: 'boolean',
@@ -57,18 +57,19 @@ export default {
     },
   },
   args: {
-    visible: true,
+    hidden: false,
     size: 'lg',
     value: 1,
   },
 };
 
-const Template = ({ value, size, visible }) =>
-  formatHtmlPreview(`<sdds-badges
-    ${value ? `value="${value}"` : ''}
-    is-visible=${visible}
-    size="${size}">
-  </sdds-badges>`);
+const Template = ({ value, size, hidden }) =>
+  formatHtmlPreview(`
+    <sdds-badges
+      ${value ? `value="${value}"` : ''}
+      ${hidden ? 'hidden' : ''}
+      size="${size}">
+    </sdds-badges>`);
 
 export const Default = Template.bind({});
 
