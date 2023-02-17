@@ -31,7 +31,6 @@ const Template = ({ autoHeight = false, modeVariant }) => `
       height: 100vh;
     }
   </style>
-
   <sdds-inline-tabs ${autoHeight ? 'auto-height' : ''} mode-variant="${modeVariant.toLowerCase()}">
     <div data-name="Tab very long name">
       Content for tab 1<br>
@@ -41,32 +40,26 @@ const Template = ({ autoHeight = false, modeVariant }) => `
       <br><br>
       And here is a little bit more.
     </div>
-
     <div data-default="true" data-name="Tab 2">
       Content for tab 2<br>
       This is just a little content, but the size of the container is based to the tab with the most content.
     </div>
-
     <div aria-disabled="true" data-name="Tab 3">
       Content for tab 3<br>
       This tab is disabled, so you should not be able to see this content.
     </div>
-
     <div data-name="Tab 4 with a very long name">
       Content for tab 4<br>
       here is some content...
     </div>
-
     <div data-name="Tab 5">
       Content for tab 5<br>
       here is some content...
     </div>
-
     <div data-name="Tab 6">
       Content for tab 6<br>
       here is some content...
     </div>
-
   </sdds-inline-tabs>
 `;
 
