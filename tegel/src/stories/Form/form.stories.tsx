@@ -24,6 +24,10 @@ const Template = () =>
             flex-direction: column;
             gap: var(--sdds-spacing-element-8)
         }
+
+        .submit-button-container{
+            width: 100%;
+        }
     </style>
     <nav class="sdds-nav">
         <div class="sdds-nav__left">
@@ -90,7 +94,7 @@ const Template = () =>
                 input>
             </sdds-slider>
 
-            <div>
+            <div class="submit-button-container">
                 <input
                 class="sdds-btn sdds-btn-fullbleed sdds-btn-primary sdds-btn-md"
                 type="submit"
