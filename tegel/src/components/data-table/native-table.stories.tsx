@@ -140,7 +140,8 @@ const Template = ({
   formatHtmlPreview(`
     <table class="
         sdds-table
-        ${modeVariant ? `sdds-mode-variant-${modeVariant.toLowerCase()}` : ''}
+        ${modeVariant === 'Primary' ? 'sdds-mode-variant-primary' : ''}
+        ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}
         ${isCompact ? 'sdds-table--compact' : ''}
         ${dividers ? 'sdds-table--divider' : ''}
         ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
