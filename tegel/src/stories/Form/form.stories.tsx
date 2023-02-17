@@ -3,30 +3,37 @@ import { formatHtmlPreview } from '../../utils/utils';
 export default {
   title: 'Examples/Form',
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 };
 
 const Template = () =>
   formatHtmlPreview(
     `
-    <style>
-        .demo-wrapper {
-            width: 100%;
-        }
-
-        .form {
+    <style> 
+        main form {
+            padding: var(--sdds-spacing-element-32);
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: var(--sdds-spacing-element-24);
         }
 
-        .checkbox-container {
-            gap: 12px;
+        .checkbox-container,
+        .toggle-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sdds-spacing-element-8)
         }
     </style>
-    <div class="sdds-headline-01">Form example</div>
-    <div class="demo-wrapper">
+    <nav class="sdds-nav">
+        <div class="sdds-nav__left">
+            <div class="sdds-nav__app-name">Form example</div>
+        </div>
+        <div class="sdds-nav__right">
+            <a class="sdds-nav__item sdds-nav__app-logo" href="#"></a>
+        </div>
+    </nav>
+    <main class="demo-wrapper">
         <form id="sdds-form" name="my-form" class="form">
             <sdds-textfield
                 name="full-name"
@@ -46,19 +53,21 @@ const Template = () =>
                 type="text"
             ></sdds-textarea>
 
-            <sdds-toggle
-                name="my-toggle"
-                size="lg">
-                Try to toggle this toggle
-            </sdds-toggle>
-
-            <sdds-toggle
-                required
-                name="required-toggle"
-                size="lg">
-                This toggle has to be toggled
-            </sdds-toggle>
-
+            
+            <div class="toggle-container">
+                <sdds-toggle
+                    name="my-toggle"
+                    size="lg">
+                    Try to toggle this toggle
+                </sdds-toggle>
+                <sdds-toggle
+                    required
+                    name="required-toggle"
+                    size="lg">
+                    This toggle has to be toggled
+                </sdds-toggle>
+            </div>
+            
             <div class="checkbox-container">
             <sdds-checkbox
                 name="checkbox-1"
@@ -83,11 +92,18 @@ const Template = () =>
 
             <div>
                 <input
-                class="sdds-btn sdds-btn-fullbleed sdds-btn-primary sdds-btn-sm"
+                class="sdds-btn sdds-btn-fullbleed sdds-btn-primary sdds-btn-md"
                 type="submit"
                 />
             </div>
         </form>
+    </main>
+    <div class="sdds-footer">
+        <div class="sdds-footer-main">
+            <div class="sdds-footer-main-brand">
+                <p>Copyright &copy; 2022 Scania</p>
+            </div>
+        </div>
     </div>
     <script>
         form = document.querySelector('[name="my-form"]')
