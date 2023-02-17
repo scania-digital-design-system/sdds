@@ -38,7 +38,7 @@ export class SddsFooter {
               </div>
             </div>
             <div class="footer-main-bottom">
-              <p class="copyright">Copyright © {new Date().getFullYear()} Scania</p>
+              <small class="copyright">Copyright © {new Date().getFullYear()} Scania</small>
               <div class="brand">
                 <p>Scania</p>
               </div>
