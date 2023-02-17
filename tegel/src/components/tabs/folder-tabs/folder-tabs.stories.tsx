@@ -65,7 +65,7 @@ const Template = ({ modeVariant, tabType }) =>
         First tab
       </sdds-tab-link>
       <sdds-tab-link href="#">
-        Second tab with long name
+        Second tab is longer
       </sdds-tab-link>
       <sdds-tab-link selected href="#">
         Third tab
@@ -83,7 +83,7 @@ const Template = ({ modeVariant, tabType }) =>
         First tab
       </sdds-tab-button>
       <sdds-tab-button>
-        Second tab with long name
+      Second tab is longer
       </sdds-tab-button>
       <sdds-tab-button selected>
         Third tab
