@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Examples/Form',
+  title: 'Patterns/Form',
   parameters: {
     layout: 'fullscreen',
   },
