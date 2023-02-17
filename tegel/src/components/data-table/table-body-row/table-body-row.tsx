@@ -89,7 +89,7 @@ export class TableBodyRow {
   })
   sddsPagination: EventEmitter<string>;
 
-  @Listen('internalSddsMainCheckboxChange', { target: 'body' })
+  @Listen('internalSddsMainCheckboxSelect', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       this.bodyCheckBoxStatusUpdater(event.detail[1]);

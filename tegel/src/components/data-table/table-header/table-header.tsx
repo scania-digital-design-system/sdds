@@ -41,12 +41,12 @@ export class TableHeaderRow {
 
   /** @internal Send status of main checkbox in header to the parent, sdds-table component */
   @Event({
-    eventName: 'internalSddsMainCheckboxChange',
+    eventName: 'internalSddsMainCheckboxSelect',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  internalSddsMainCheckboxChange: EventEmitter<any>;
+  internalSddsMainCheckboxSelect: EventEmitter<any>;
 
   @Listen('internalSddsChange', { target: 'body' })
   internalSddsChangeListener(event: CustomEvent<internalSddsChange>) {
@@ -69,7 +69,7 @@ export class TableHeaderRow {
       this.mainCheckboxSelected = receivedMainCheckboxStatus;
     }
   }
-  
+
   @Listen('internalSddsRowExpanded', { target: 'body' })
   internalSddsRowExpandedListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
@@ -113,7 +113,7 @@ export class TableHeaderRow {
 
   headCheckBoxClicked(event) {
     this.mainCheckboxSelected = event.currentTarget.checked;
-    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxSelected]);
+    this.internalSddsMainCheckboxSelect.emit([this.tableId, this.mainCheckboxSelected]);
   }
 
   render() {
