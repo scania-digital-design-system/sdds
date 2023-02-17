@@ -157,28 +157,24 @@ export default {
     ],
   },
   args: {
-    min: 0,
-    max: 100,
-    value: 50,
+    initialValue: '50',
+    showLabel: false,
+    labelText: 'Label',
+    showTooltip: true,
+    showTicks: false,
+    numTicks: '3',
+    showTickNumbers: false,
+    showControls: false,
+    showInput: false,
+    min: '0',
+    max: '100',
+    step: '1',
+    disabled: false,
+    small: false,
+    snapToTicks: false,
+    readonly: false,
   },
 };
-
-const style = `
-  <style>
-  /* demo-wrapper is for demonstration purposes only*/
-    .demo-wrapper {
-      width: 80%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding-top: 100px;
-      padding-left: 40px;
-      padding-right: 40px;
-    }    
-  </style>
-`;
-
 const Template = ({
   initialValue,
   min,
@@ -198,81 +194,35 @@ const Template = ({
   small,
 }) =>
   formatHtmlPreview(`
-    ${style}
-    <div class="demo-wrapper">
-      <sdds-slider id="sdds-slider"
-        min="${min}" 
-        max="${max}" 
-        ${showControls && step ? `step="${step}"` : ''}
-        value="${initialValue}" 
-        ${showTicks ? `ticks="${numTicks}"` : ''} 
-        ${showTickNumbers ? 'show-tick-numbers' : ''} 
-        ${snapToTicks ? 'snap' : ''} 
-        ${showLabel ? `label="${labelText}"` : ''} 
-        ${showTooltip ? 'tooltip' : ''} 
-        ${showControls ? 'controls' : ''} 
-        ${showInput ? 'input' : ''} 
-        ${disabled ? 'disabled' : ''} 
-        ${small ? 'size="sm"' : ''}
-        ${readonly ? 'read-only' : ''} 
-        >
+    <sdds-slider id="sdds-slider"
+      min="${min}" 
+      max="${max}" 
+      ${showControls && step ? `step="${step}"` : ''}
+      value="${initialValue}" 
+      ${showTicks ? `ticks="${numTicks}"` : ''} 
+      ${showTickNumbers ? 'show-tick-numbers' : ''} 
+      ${snapToTicks ? 'snap' : ''} 
+      ${showLabel ? `label="${labelText}"` : ''} 
+      ${showTooltip ? 'tooltip' : ''} 
+      ${showControls ? 'controls' : ''} 
+      ${showInput ? 'input' : ''} 
+      ${disabled ? 'disabled' : ''} 
+      ${small ? 'size="sm"' : ''}
+      ${readonly ? 'read-only' : ''} 
+      >
 
-      </sdds-slider>
-    </div>
+    </sdds-slider>
+
+    <!-- Script tag for demo purposes -->
+    <script>
+    slider = document.querySelectorAll('sdds-slider')[0]
+
+    slider.removeEventListener('sddsChange', null)
+    slider.addEventListener('sddsChange', (event) => {
+      console.log('Slider changed, value:', event.detail.value);
+    });
+
+    </script>
   `);
 
-let sliderStoryLoaded = false;
-
-function ready(fn) {
-  if (document.readyState !== 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-ready(() => {
-  if (sliderStoryLoaded) {
-    return;
-  }
-
-  sliderStoryLoaded = true;
-
-  const slider = document.querySelector('#sdds-slider');
-  if (!slider) {
-    return;
-  }
-
-  /*
-    @ATTENTION
-    Keep in mind that storybook does stuff, so if any story control is changed,
-    the page has to be reloaded for this event listener to work. Also it will only
-    work in the Canvas-tab
-  */
-
-  console.log('adding slider event');
-
-  slider.addEventListener('sliderChange', (event) => {
-    console.log('Got a sliderChange event', (event as any).detail.value);
-  });
-});
-
 export const Default = Template.bind({});
-Default.args = {
-  initialValue: '50',
-  showLabel: false,
-  labelText: 'Label',
-  showTooltip: true,
-  showTicks: false,
-  numTicks: '3',
-  showTickNumbers: false,
-  showControls: false,
-  showInput: false,
-  min: '0',
-  max: '100',
-  step: '1',
-  disabled: false,
-  small: false,
-  snapToTicks: false,
-  readonly: false,
-};
