@@ -54,17 +54,17 @@ export class Table {
 
   @Element() host: HTMLElement;
 
-  /** Broadcasts changes to the tables props */
+  /** @internal Broadcasts changes to the tables props */
   @Event({
-    eventName: 'tablePropsChangedEvent',
+    eventName: 'internalSddsChange',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
+  internalSddsChange: EventEmitter<TablePropsChangedEvent>;
 
   emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
-    this.tablePropsChangedEvent.emit({
+    this.internalSddsChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,
