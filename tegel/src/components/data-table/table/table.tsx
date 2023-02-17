@@ -13,7 +13,7 @@ type Props = {
   modeVariant: 'primary' | 'secondary' | null;
 };
 
-export type TablePropsChangedEvent = {
+export type InternalSddsChange = {
   tableId: string;
   changed: Array<keyof Props>;
 } & Partial<Props>;
@@ -61,9 +61,9 @@ export class Table {
     composed: true,
     cancelable: true,
   })
-  internalSddsChange: EventEmitter<TablePropsChangedEvent>;
+  internalSddsChange: EventEmitter<InternalSddsChange>;
 
-  emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
+  emitinternalSddsChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
     this.internalSddsChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
@@ -73,32 +73,32 @@ export class Table {
 
   @Watch('enableMultiselect')
   enableMultiselectChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableMultiselect', newValue);
+    this.emitinternalSddsChange('enableMultiselect', newValue);
   }
 
   @Watch('enableExpandableRows')
   enableExpandableRowsChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
+    this.emitinternalSddsChange('enableExpandableRows', newValue);
   }
 
   @Watch('compactDesign')
   compactDesignChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('compactDesign', newValue);
+    this.emitinternalSddsChange('compactDesign', newValue);
   }
 
   @Watch('verticalDividers')
   verticalDividersChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('verticalDividers', newValue);
+    this.emitinternalSddsChange('verticalDividers', newValue);
   }
 
   @Watch('noMinWidth')
   noMinWidthChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('noMinWidth', newValue);
+    this.emitinternalSddsChange('noMinWidth', newValue);
   }
 
   @Watch('modeVariant')
   modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
-    this.emitTablePropsChangedEvent('modeVariant', newValue);
+    this.emitinternalSddsChange('modeVariant', newValue);
   }
 
   render() {

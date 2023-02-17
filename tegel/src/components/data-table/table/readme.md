@@ -19,13 +19,6 @@
 | `verticalDividers`     | `vertical-dividers`      | Enables style with vertical dividers between columns                                                                                                                                                                                       | `boolean`                  | `false`               |
 
 
-## Events
-
-| Event                    | Description                            | Type                                                                           |
-| ------------------------ | -------------------------------------- | ------------------------------------------------------------------------------ |
-| `tablePropsChangedEvent` | Broadcasts changes to the tables props | `CustomEvent<{ tableId: string; changed: (keyof Props)[]; } & Partial<Props>>` |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

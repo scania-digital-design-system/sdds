@@ -9,9 +9,9 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { internalSddsChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: internalSddsChange['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
@@ -44,26 +44,26 @@ export class TableBodyRowExpandable {
 
   tableEl: HTMLSddsTableElement;
 
-  /** Sends out status of itw own expended status feature to table header component */
+  /** @internal Sends out status of itw own expended status feature to table header component */
   @Event({
-    eventName: 'singleRowExpandedEvent',
+    eventName: 'internalSddsRowExpanded',
     bubbles: true,
     cancelable: true,
     composed: true,
   })
-  singleRowExpandedEvent: EventEmitter<any>;
+  internalSddsRowExpanded: EventEmitter<any>;
 
   /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
-    eventName: 'runPaginationEvent',
+    eventName: 'sddsPagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  runPaginationEvent: EventEmitter<string>;
+  sddsPagination: EventEmitter<string>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsChange', { target: 'body' })
+  internalSddsChangeListener(event: CustomEvent<internalSddsChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -88,7 +88,7 @@ export class TableBodyRowExpandable {
   }
 
   componentDidLoad() {
-    this.runPaginationEvent.emit(this.tableId);
+    this.sddsPagination.emit(this.tableId);
   }
 
   componentWillRender() {
@@ -100,7 +100,7 @@ export class TableBodyRowExpandable {
   }
 
   sendValue() {
-    this.singleRowExpandedEvent.emit([this.tableId, this.isExpanded]);
+    this.internalSddsRowExpanded.emit([this.tableId, this.isExpanded]);
   }
 
   onChangeHandler(event) {

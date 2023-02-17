@@ -1,7 +1,7 @@
 import { Component, h, Host, State, Event, EventEmitter, Listen, Element } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { internalSddsChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: internalSddsChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
   'verticalDividers',
@@ -39,17 +39,17 @@ export class TableHeaderRow {
 
   tableEl: HTMLSddsTableElement;
 
-  /** Send status of main checkbox in header to the parent, sdds-table component */
+  /** @internal Send status of main checkbox in header to the parent, sdds-table component */
   @Event({
-    eventName: 'mainCheckboxSelectedEvent',
+    eventName: 'internalSddsMainCheckboxChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  mainCheckboxSelectedEvent: EventEmitter<any>;
+  internalSddsMainCheckboxChange: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsChange', { target: 'body' })
+  internalSddsChangeListener(event: CustomEvent<internalSddsChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -62,16 +62,16 @@ export class TableHeaderRow {
     }
   }
 
-  @Listen('updateMainCheckboxEvent', { target: 'body' })
-  updateMainCheckboxEventListener(event: CustomEvent<any>) {
+  @Listen('internalSddsMainCheckboxChange', { target: 'body' })
+  internalSddsMainCheckboxChangeListener(event: CustomEvent<any>) {
     const [receivedID, receivedMainCheckboxStatus] = event.detail;
     if (this.tableId === receivedID) {
       this.mainCheckboxSelected = receivedMainCheckboxStatus;
     }
   }
-
-  @Listen('singleRowExpandedEvent', { target: 'body' })
-  singleRowExpandedEventListener(event: CustomEvent<any>) {
+  
+  @Listen('internalSddsRowExpanded', { target: 'body' })
+  internalSddsRowExpandedListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       // TODO: Improve this logic. Why we get late repose in DOM?
       setTimeout(() => {
@@ -113,7 +113,7 @@ export class TableHeaderRow {
 
   headCheckBoxClicked(event) {
     this.mainCheckboxSelected = event.currentTarget.checked;
-    this.mainCheckboxSelectedEvent.emit([this.tableId, this.mainCheckboxSelected]);
+    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxSelected]);
   }
 
   render() {

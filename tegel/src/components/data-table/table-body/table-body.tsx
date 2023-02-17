@@ -11,9 +11,9 @@ import {
   Watch,
 } from '@stencil/core';
 import dummyData from './dummy-data.json';
-import { TablePropsChangedEvent } from '../table/table';
+import { internalSddsChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: internalSddsChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
 ];
@@ -115,7 +115,7 @@ export class TableBody {
   internalSddsMainCheckboxChange: EventEmitter<any>;
 
   @Listen('internalSddsChange', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  internalSddsChangeListener(event: CustomEvent<internalSddsChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -169,7 +169,7 @@ export class TableBody {
   }
 
   // Listen to sortColumnData from data-table-header-element - TODO
-  @Listen('sortColumnDataEvent', { target: 'body' })
+  @Listen('internalSddsSortColumn', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
     if (this.tableId === receivedID) {
@@ -193,7 +193,7 @@ export class TableBody {
     }
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
-´
+
   @Listen('internalSddsMainCheckboxChange', { target: 'body' }) // - 
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
@@ -217,7 +217,7 @@ export class TableBody {
   };
 
   // No need to read the value, event is here just to trigger another function
-  @Listen('bodyRowToTable', { target: 'body' })
+  @Listen('internalSddsRowChange', { target: 'body' })
   bodyCheckboxListener() {
     this.bodyCheckBoxClicked();
   }
@@ -298,9 +298,9 @@ export class TableBody {
     }
   }
 
-  // Listen to tableFilteringTerm from tableToolbar component
-  @Listen('tableFilteringTerm', { target: 'body' })
-  tableFilteringTermListener(event: CustomEvent<any>) {
+  // Listen to internalSddsFilter from tableToolbar component
+  @Listen('internalSddsFilter', { target: 'body' })
+  internalSddsFilterListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       this.searchFunction(event.detail[1]);
     }

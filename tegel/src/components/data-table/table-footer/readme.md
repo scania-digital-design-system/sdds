@@ -18,14 +18,6 @@
 | `rowsPerPage`               | `rows-per-page`               | Sets how many rows to display when pagination is enabled                                                                                                    | `number`  | `5`     |
 
 
-## Events
-
-| Event                   | Description                                                                                          | Type               |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
-| `currentPageValueEvent` | Event to send current page value back to sdds-table-body component                                   | `CustomEvent<any>` |
-| `enablePaginationEvent` | Event that footer sends out in order to receive other necessary information from other subcomponents | `CustomEvent<any>` |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
