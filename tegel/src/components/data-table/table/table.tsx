@@ -44,7 +44,7 @@ export class Table {
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
   /** Variant of the component, based on current mode. */
-  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' = null;
 
   /** ID used for internal table functionality and events, must be unique.
    *

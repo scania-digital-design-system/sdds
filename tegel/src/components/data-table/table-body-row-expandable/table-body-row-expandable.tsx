@@ -38,7 +38,7 @@ export class TableBodyRowExpandable {
 
   @State() noMinWidth: boolean = false;
 
-  @State() modeVariant: 'primary' | 'secondary' = 'primary';
+  @State() modeVariant: 'primary' | 'secondary' = null;
 
   @Element() host: HTMLElement;
 

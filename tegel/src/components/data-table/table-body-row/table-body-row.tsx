@@ -26,7 +26,7 @@ export class TableBodyRow {
 
   @State() noMinWidth: boolean = false;
 
-  @State() modeVariant: 'primary' | 'secondary' = 'primary';
+  @State() modeVariant: 'primary' | 'secondary' = null;
 
   @State() tableId: string = '';
 
