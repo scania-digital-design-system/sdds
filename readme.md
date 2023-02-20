@@ -2,7 +2,7 @@
 
 # Tegel Design System
 
-[https://digitaldesign.scania.com/](https://digitaldesign.scania.com/)
+[https://tegel.scania.com/](https://tegel.scania.com/)
 
 The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent and premium brand and user experience across all of Scania's digital touchpoints.
 
