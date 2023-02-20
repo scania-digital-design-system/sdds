@@ -28,7 +28,7 @@ export class Datetime {
   @Prop() noMinWidth: boolean = false;
 
   /** Set the variant of the the datetime component. */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Name property */
   @Prop() name = '';

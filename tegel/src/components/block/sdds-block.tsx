@@ -8,7 +8,7 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class SddsBlock {
   /** Mode variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary' | null = null;
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   @Element() host: HostElement;
 
