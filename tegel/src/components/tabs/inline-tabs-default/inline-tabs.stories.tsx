@@ -55,10 +55,12 @@ const Template = ({ autoHeight = false, modeVariant }) => {
     <sdds-inline-tabs ${
       autoHeight ? 'auto-height' : ''
     }  ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
+    <sdds-inline-tab label="Tab with tall content">
       <div data-name="Tab with tall content">
         Tab panel 1
         <div style="width:200px; height:200px; background: linear-gradient(125deg,rgba(255, 0, 0, 1) 0%,rgba(255, 255, 0, 1) 33%,rgba(0, 192, 255, 1) 66%,rgba(192, 0, 255, 1) 100%);"></div>
-      </sdds-inline-tab>
+      </div>
+        </sdds-inline-tab>
       <sdds-inline-tab label="Default tab" default>
         Tab panel 2
       </sdds-inline-tab>
