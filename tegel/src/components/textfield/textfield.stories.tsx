@@ -219,7 +219,7 @@ const Template = ({
       ${helper ? `helper="${helper}"` : ''}
       ${maxlength}
       ${disabled ? 'disabled' : ''}
-      ${readonly ? 'readonly' : ''}
+      ${readonly ? 'read-only' : ''}
       ${minWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${

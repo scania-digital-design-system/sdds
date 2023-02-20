@@ -17,7 +17,7 @@
 | `name`          | `name`           | Name property                               | `string`                              | `''`         |
 | `noMinWidth`    | `no-min-width`   | With setting                                | `boolean`                             | `false`      |
 | `placeholder`   | `placeholder`    | Placeholder text                            | `string`                              | `''`         |
-| `readonly`      | `readonly`       | Set input in readonly state                 | `boolean`                             | `false`      |
+| `readOnly`      | `read-only`      | Set input in readonly state                 | `boolean`                             | `false`      |
 | `size`          | `size`           | Size of the input                           | `"lg" \| "md" \| "sm"`                | `'lg'`       |
 | `state`         | `state`          | Error state of input                        | `"default" \| "error" \| "success"`   | `'default'`  |
 | `type`          | `type`           | Which input type, text, password or similar | `"password" \| "text"`                | `'text'`     |
