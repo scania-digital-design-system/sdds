@@ -13,7 +13,7 @@ type Props = {
   modeVariant: 'primary' | 'secondary' | null;
 };
 
-export type InternalSddsChange = {
+export type InternalSddsPropChange = {
   tableId: string;
   changed: Array<keyof Props>;
 } & Partial<Props>;
@@ -56,15 +56,15 @@ export class Table {
 
   /** @internal Broadcasts changes to the tables props */
   @Event({
-    eventName: 'internalSddsChange',
+    eventName: 'internalSddsPropChange',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  internalSddsChange: EventEmitter<InternalSddsChange>;
+  internalSddsPropChange: EventEmitter<InternalSddsPropChange>;
 
-  emitinternalSddsChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
-    this.internalSddsChange.emit({
+  emitInternalSddsPropChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
+    this.internalSddsPropChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,
@@ -73,32 +73,32 @@ export class Table {
 
   @Watch('enableMultiselect')
   enableMultiselectChanged(newValue: boolean) {
-    this.emitinternalSddsChange('enableMultiselect', newValue);
+    this.emitInternalSddsPropChange('enableMultiselect', newValue);
   }
 
   @Watch('enableExpandableRows')
   enableExpandableRowsChanged(newValue: boolean) {
-    this.emitinternalSddsChange('enableExpandableRows', newValue);
+    this.emitInternalSddsPropChange('enableExpandableRows', newValue);
   }
 
   @Watch('compactDesign')
   compactDesignChanged(newValue: boolean) {
-    this.emitinternalSddsChange('compactDesign', newValue);
+    this.emitInternalSddsPropChange('compactDesign', newValue);
   }
 
   @Watch('verticalDividers')
   verticalDividersChanged(newValue: boolean) {
-    this.emitinternalSddsChange('verticalDividers', newValue);
+    this.emitInternalSddsPropChange('verticalDividers', newValue);
   }
 
   @Watch('noMinWidth')
   noMinWidthChanged(newValue: boolean) {
-    this.emitinternalSddsChange('noMinWidth', newValue);
+    this.emitInternalSddsPropChange('noMinWidth', newValue);
   }
 
   @Watch('modeVariant')
   modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
-    this.emitinternalSddsChange('modeVariant', newValue);
+    this.emitInternalSddsPropChange('modeVariant', newValue);
   }
 
   render() {

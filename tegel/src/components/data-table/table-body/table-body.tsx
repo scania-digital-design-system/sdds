@@ -11,9 +11,9 @@ import {
   Watch,
 } from '@stencil/core';
 import dummyData from './dummy-data.json';
-import { internalSddsChange } from '../table/table';
+import { InternalSddsPropChange } from '../table/table';
 
-const relevantTableProps: internalSddsChange['changed'] = [
+const relevantTableProps: InternalSddsPropChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
 ];
@@ -114,8 +114,8 @@ export class TableBody {
   })
   internalSddsMainCheckboxChange: EventEmitter<any>;
 
-  @Listen('internalSddsChange', { target: 'body' })
-  internalSddsChangeListener(event: CustomEvent<internalSddsChange>) {
+  @Listen('internalSddsPropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -194,7 +194,7 @@ export class TableBody {
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
 
-  @Listen('internalSddsMainCheckboxChange', { target: 'body' }) // - 
+  @Listen('internalSddsMainCheckboxChange', { target: 'body' }) // -
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       [, this.mainCheckboxStatus] = event.detail;
