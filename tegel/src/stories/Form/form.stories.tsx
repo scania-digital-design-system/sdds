@@ -24,7 +24,9 @@ const Template = () =>
             flex-direction: column;
             gap: var(--sdds-spacing-element-8)
         }
-
+        .radio-fieldset-reset {
+            all: unset;
+        }
         .submit-button-container{
             width: 100%;
         }
@@ -86,6 +88,23 @@ const Template = () =>
                 Checkbox 2
             </sdds-checkbox>
             </div>
+
+
+            <fieldset class="radio-fieldset-reset">
+                <sdds-radio-button
+                    label="Radio 1"
+                    name="radio-example"
+                    value="option1"
+                    radio-id="option-1"
+                    checked
+                ></sdds-radio-button>
+                <sdds-radio-button
+                    label="Radio 2"
+                    name="radio-example"
+                    value="option2"
+                    radio-id="option-2"
+                ></sdds-radio-button>
+            </fieldset>
 
 
             <sdds-slider
