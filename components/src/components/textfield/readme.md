@@ -23,9 +23,12 @@
 
 ## Events
 
-| Event          | Description                    | Type               |
-| -------------- | ------------------------------ | ------------------ |
-| `customChange` | Change event for the textfield | `CustomEvent<any>` |
+| Event        | Description                    | Type                      |
+| ------------ | ------------------------------ | ------------------------- |
+| `sddsBlur`   | Blur event for the textfield   | `CustomEvent<FocusEvent>` |
+| `sddsChange` | Change event for the textfield | `CustomEvent<any>`        |
+| `sddsFocus`  | Focus event for the textfield  | `CustomEvent<FocusEvent>` |
+| `sddsInput`  | Input event for the textfield  | `CustomEvent<InputEvent>` |
 
 
 ----------------------------------------------

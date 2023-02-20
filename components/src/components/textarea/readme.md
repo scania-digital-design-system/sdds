@@ -25,9 +25,12 @@
 
 ## Events
 
-| Event          | Description                   | Type               |
-| -------------- | ----------------------------- | ------------------ |
-| `customChange` | Change event for the textarea | `CustomEvent<any>` |
+| Event        | Description                   | Type                      |
+| ------------ | ----------------------------- | ------------------------- |
+| `sddsBlur`   | Blur event for the textarea   | `CustomEvent<FocusEvent>` |
+| `sddsChange` | Change event for the textarea | `CustomEvent<any>`        |
+| `sddsFocus`  | Focus event for the textarea  | `CustomEvent<FocusEvent>` |
+| `sddsInput`  | Input event for the textarea  | `CustomEvent<InputEvent>` |
 
 
 ----------------------------------------------
