@@ -29,7 +29,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the radio buttons.',
+      description: 'Disables the radio button.',
       control: {
         type: 'boolean',
       },
@@ -61,7 +61,7 @@ const Template = ({label, disabled}) =>
     value="option1"
     radio-id="option-1"
     aria-labelled-by="option-1"
-    aria-described-by="option-1"
+    aria-describedby="option-1"
     ${label ? `label="${label} 1"` : ''}
     required=false
     ${disabled ? 'disabled' : ''}

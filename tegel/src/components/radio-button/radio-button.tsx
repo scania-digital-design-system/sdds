@@ -1,4 +1,5 @@
-import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Element } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-radio-button',
@@ -17,11 +18,13 @@ export class RadioButton {
   /** Value of input. */
   @Prop() value: string;
 
-  /** Label mainly used for accesibility tools. */
-  @Prop() ariaLabelledBy: string;
+  /** REMEMBER TO ENABLE ARIA PROPS ONCE ALIGNMET HAS BEEN MADE! */
 
   /** Label mainly used for accesibility tools. */
-  @Prop() ariaDescribedBy: string;
+  // @Prop() ariaLabelledBy: string;
+
+  /** Label mainly used for accesibility tools. */
+  // @Prop() ariaDescribedBy: string;
 
   /** Unique radio button identifier. */
   @Prop() radioId: string = crypto.randomUUID();
@@ -34,6 +37,8 @@ export class RadioButton {
   
   /** Decides if the radio button is disabled or not. */
   @Prop() disabled: boolean = false;
+
+  @Element() host: HostElement;
 
   /** Sends unique radio button identifier and status when it is checked. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
   @Event({
@@ -57,8 +62,10 @@ export class RadioButton {
         id={this.radioId} 
         checked={this.checked} 
         aria-checked={this.checked} 
-        aria-labelledby={this.ariaLabelledBy} 
-        aria-describedby={this.ariaDescribedBy} 
+
+        // REMEMBER TO ENABLE ARIA PROPS ONCE ALIGNMENT HAS BEEN MADE!
+        // aria-labelledby={this.ariaLabelledBy} 
+        aria-describedby={this.host.getAttribute('aria-describedby')}
         required={this.required} 
         disabled={this.disabled}
         onChange={() => {
