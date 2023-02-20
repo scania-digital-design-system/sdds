@@ -1,4 +1,5 @@
 @import '../../../../mixins/scrollbar';
+@import '../../../../mixins/z-index';
 
 :host {
   .wrapper {
@@ -8,10 +9,11 @@
     .menu {
       /** Should control only height, position, and overflow here. 
         Width and appearance are set inside nested components */
-      display: none;
+      // display: none;
       flex-direction: column;
-      position: absolute;
-      right: 0;
+
+      // position: absolute;
+      // right: 0;
 
       @include sdds-scrollbar;
 
@@ -33,8 +35,12 @@
     }
 
     &.state--open {
-      .menu {
-        display: block;
+      // .menu {
+      //   display: block;
+      // }
+      .button {
+        position: relative;
+        z-index: z(tooltip) + 1;
       }
     }
   }

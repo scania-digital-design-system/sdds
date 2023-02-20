@@ -104,22 +104,6 @@ const Template = ({ dummyHtml }) =>
       <sdds-header-button-v2 slot="end" onclick="alert('clicked')">
         <sdds-icon name="calendar" size="20px"></sdds-icon>
       </sdds-header-button-v2>
-      
-      <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
-        <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
-        <sdds-header-dropdown-list-lg>
-          <sdds-header-dropdown-list-lg-user
-            heading="Name Nameson"
-            subheading="Company name">
-          </sdds-header-dropdown-list-lg-user>
-          <sdds-header-dropdown-list-lg-link>
-            Link here
-          </sdds-header-dropdown-list-lg-link>
-          <sdds-header-dropdown-list-lg-link>
-            Link there
-          </sdds-header-dropdown-list-lg-link>
-        </sdds-header-dropdown-list-lg>
-      </sdds-header-dropdown-v2>
 
       <sdds-header-launcher-v2 slot="end">
         <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
@@ -135,6 +119,22 @@ const Template = ({ dummyHtml }) =>
         </sdds-header-launcher-list>
       </sdds-header-launcher-v2>
 
+      <sdds-header-dropdown-v2 slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
+        <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
+        <sdds-header-dropdown-list-lg>
+          <sdds-header-dropdown-list-lg-user
+            heading="Name Nameson"
+            subheading="Company name">
+          </sdds-header-dropdown-list-lg-user>
+          <sdds-header-dropdown-list-lg-link>
+            Link here
+          </sdds-header-dropdown-list-lg-link>
+          <sdds-header-dropdown-list-lg-link>
+            Link there
+          </sdds-header-dropdown-list-lg-link>
+        </sdds-header-dropdown-list-lg>
+      </sdds-header-dropdown-v2>
+      
       <sdds-header-logo slot="end" link-href="https://design.scania.com">
       </sdds-header-logo>
 

@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-dropdown-v2',
@@ -19,6 +19,8 @@ export class HeaderDropdown {
   @Prop() placement: 'start' | 'end' = 'start';
 
   @Element() host: HTMLElement;
+
+  @State() buttonEl?: HTMLSddsHeaderButtonV2Element;
 
   @Listen('click', { target: 'window' })
   onAnyClick(event: MouseEvent) {
@@ -43,9 +45,13 @@ export class HeaderDropdown {
           }}
         >
           <sdds-header-button-v2
+            class="button"
             isActive={this.open}
             onClick={() => {
               this.toggleDropdown();
+            }}
+            ref={(el) => {
+              this.buttonEl = el;
             }}
           >
             <slot name="button-icon"></slot>
@@ -55,9 +61,25 @@ export class HeaderDropdown {
               <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
             )}
           </sdds-header-button-v2>
-          <div class="menu">
-            <slot></slot>
-          </div>
+          {this.buttonEl && (
+            <sdds-popover-canvas
+              class="menu"
+              referenceEl={this.buttonEl}
+              placement="bottom-start"
+              show={this.open}
+              offsetDistance={0}
+              modifiers={[
+                {
+                  name: 'flip',
+                  options: {
+                    fallbackPlacements: [],
+                  },
+                },
+              ]}
+            >
+              <slot></slot>
+            </sdds-popover-canvas>
+          )}
         </div>
       </Host>
     );

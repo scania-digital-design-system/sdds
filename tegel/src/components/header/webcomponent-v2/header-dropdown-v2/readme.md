@@ -22,12 +22,14 @@
 
 - [sdds-header-button-v2](../header-button-alt)
 - [sdds-icon](../../../icon)
+- [sdds-popover-canvas](../../../popover-canvas)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-header-dropdown-v2 --> sdds-header-button-v2
   sdds-header-dropdown-v2 --> sdds-icon
+  sdds-header-dropdown-v2 --> sdds-popover-canvas
   sdds-header-button-v2 --> sdds-core-header-item
   style sdds-header-dropdown-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```

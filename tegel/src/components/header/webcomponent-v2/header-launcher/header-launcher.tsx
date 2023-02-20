@@ -11,6 +11,8 @@ export class HeaderLauncher {
   /** Opens and closes the launcher */
   @Prop({ reflect: true }) open: boolean = false;
 
+  @State() buttonEl?: HTMLSddsHeaderLauncherButtonElement;
+
   @State() hasListTypeMenu = false;
 
   @Listen('click', { target: 'window' })
@@ -49,15 +51,35 @@ export class HeaderLauncher {
           }}
         >
           <sdds-header-launcher-button
+            class="button"
             isActive={this.open}
             onClick={() => {
               this.toggleLauncher();
             }}
+            ref={(el) => {
+              this.buttonEl = el;
+            }}
           ></sdds-header-launcher-button>
 
-          <div class="menu">
-            <slot></slot>
-          </div>
+          {this.buttonEl && (
+            <sdds-popover-canvas
+              class="menu"
+              referenceEl={this.buttonEl}
+              placement="bottom-start"
+              show={this.open}
+              offsetDistance={0}
+              modifiers={[
+                {
+                  name: 'flip',
+                  options: {
+                    fallbackPlacements: [],
+                  },
+                },
+              ]}
+            >
+              <slot></slot>
+            </sdds-popover-canvas>
+          )}
         </div>
       </Host>
     );

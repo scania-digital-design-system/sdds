@@ -17,11 +17,13 @@
 ### Depends on
 
 - [sdds-header-launcher-button](../header-launcher-button)
+- [sdds-popover-canvas](../../../popover-canvas)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-header-launcher-v2 --> sdds-header-launcher-button
+  sdds-header-launcher-v2 --> sdds-popover-canvas
   sdds-header-launcher-button --> sdds-header-button-v2
   sdds-header-launcher-button --> sdds-icon
   sdds-header-button-v2 --> sdds-core-header-item

@@ -40,6 +40,7 @@
  - [sdds-header-hamburger](../header/webcomponent-v2/header-hamburger)
  - [sdds-header-launcher](../header/webcomponent/header-launcher)
  - [sdds-header-launcher-button](../header/webcomponent-v2/header-launcher-button)
+ - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-side-menu](../side-menu/webcomponent)
  - [sdds-side-menu-close-button](../side-menu/webcomponent-alt/side-menu-close-button)
@@ -48,6 +49,8 @@
  - [sdds-side-menu-dropdown-v1](../side-menu/webcomponent-alt/side-menu-dropdown-v1)
  - [sdds-side-menu-dropdown-v2](../side-menu/webcomponent-alt/side-menu-dropdown-v2)
  - [sdds-textarea](../textarea)
+ - [sdds-textfield](../textfield)
+ - [sdds-toast](../toast)
 
 ### Graph
 ```mermaid
@@ -77,6 +80,7 @@ graph TD;
   sdds-header-hamburger --> sdds-icon
   sdds-header-launcher --> sdds-icon
   sdds-header-launcher-button --> sdds-icon
+  sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-side-menu --> sdds-icon
   sdds-side-menu-close-button --> sdds-icon
@@ -85,6 +89,8 @@ graph TD;
   sdds-side-menu-dropdown-v1 --> sdds-icon
   sdds-side-menu-dropdown-v2 --> sdds-icon
   sdds-textarea --> sdds-icon
+  sdds-textfield --> sdds-icon
+  sdds-toast --> sdds-icon
   style sdds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
