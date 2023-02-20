@@ -20,14 +20,14 @@ export default {
   argTypes: {
     label: {
       name: 'Label',
-      description: 'The label for the radio button',
+      description: 'Sets the label for the radio button.',
       controls: {
         type: 'string',
       },
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the radio buttons',
+      description: 'Disables the radio button.',
       control: {
         type: 'boolean',
       },
@@ -67,7 +67,6 @@ const Template = (args) =>
       </div>
     </div>
   </fieldset>
-`);
+  `);
 
-export const Default = Template.bind({});
-Default.args = {};
+  export const Native = Template.bind({});
