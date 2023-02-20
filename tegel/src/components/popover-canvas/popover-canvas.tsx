@@ -8,16 +8,13 @@ import type { Placement, Instance } from '@popperjs/core';
   shadow: true,
 })
 export class PopoverCanvas {
-  @Element() popoverCanvasElement!: HTMLSddsPopoverCanvasElement;
+  @Element() host!: HTMLSddsPopoverCanvasElement;
 
   /** The CSS-selector for an element that will trigger the popover */
   @Prop() selector: string = '';
 
   /** Element that will trigger the popover (takes priority over selector) */
   @Prop() referenceEl: HTMLElement;
-
-  /** Decides if the Popover Canvas should be visible from the start */
-  @Prop() initialShow: boolean = false;
 
   /** Controls wether the popover is shown or not. If this is set hiding and showing
    * will be decided by this prop and will need to be controlled from the outside.
@@ -33,6 +30,7 @@ export class PopoverCanvas {
   /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
+  /** Array of modifier objects to pass to popper.js. See https://popper.js.org/docs/v2/modifiers/ */
   @Prop() modifiers: Object[] = [];
 
   @State() renderedShowValue: boolean = false;
@@ -42,12 +40,6 @@ export class PopoverCanvas {
   @State() target: any;
 
   @State() isShown: boolean = false;
-
-  connectedCallback() {
-    if (this.show !== null) {
-      this.isShown = this.show;
-    }
-  }
 
   @Watch('show')
   onShowChange(newValue: boolean) {
@@ -65,8 +57,19 @@ export class PopoverCanvas {
     }
   }
 
+  @Listen('click', { target: 'window' })
+  onAnyClick(event: MouseEvent) {
+    if (this.isShown && this.show === null) {
+      // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
+      const isClickOutside = !event.composedPath().includes(this.host as any);
+      if (isClickOutside) {
+        this.isShown = false;
+      }
+    }
+  }
+
   initialize = (referenceEl) => {
-    this.popperInstance = createPopper(referenceEl, this.popoverCanvasElement, {
+    this.popperInstance = createPopper(referenceEl, this.host, {
       placement: this.placement,
       modifiers: [
         {
@@ -80,29 +83,20 @@ export class PopoverCanvas {
     });
 
     if (this.show === null) {
-      const showCanvas = () => {
-        this.isShown = true;
-      };
-
-      const hideCanvas = () => {
-        this.isShown = false;
-      };
-
       referenceEl.addEventListener('click', (event) => {
         event.stopPropagation();
         if (this.isShown) {
-          hideCanvas();
+          this.isShown = false;
         } else {
-          showCanvas();
+          this.isShown = true;
         }
       });
     }
   };
 
-  @Listen('click', { target: 'window' })
-  handleOutsideClick() {
-    if (this.show === null && this.isShown) {
-      this.isShown = false;
+  connectedCallback() {
+    if (this.show !== null) {
+      this.isShown = this.show;
     }
   }
 
@@ -118,16 +112,6 @@ export class PopoverCanvas {
         );
       }
     }
-
-    this.popoverCanvasElement.addEventListener('mousemove', (event) => {
-      event.stopPropagation();
-    });
-
-    this.popoverCanvasElement.addEventListener('click', (event) => {
-      if (this.show === null) {
-        event.stopPropagation();
-      }
-    });
   }
 
   componentDidRender() {
