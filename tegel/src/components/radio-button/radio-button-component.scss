@@ -24,9 +24,7 @@
     cursor: pointer;
 
     + label {
-      padding-left: var(--sdds-spacing-element-4);
-      padding-top: var(--sdds-spacing-element-4);
-      padding-bottom: var(--sdds-spacing-element-4);
+      padding: var(--sdds-spacing-element-4) 0 var(--sdds-spacing-element-4) var(--sdds-spacing-element-4);
       cursor: pointer;
     }
 
