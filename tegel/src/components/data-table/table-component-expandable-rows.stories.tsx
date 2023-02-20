@@ -49,19 +49,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -89,8 +87,8 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
-    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: false,
     noMinWidth: false,
@@ -100,7 +98,7 @@ export default {
 const ExpandableRowTemplate = ({
   verticalDivider,
   compactDesign,
-  // onWhiteBackground,
+  modeVariant,
   responsiveDesign,
   noMinWidth,
 }) =>
@@ -111,6 +109,7 @@ const ExpandableRowTemplate = ({
     compact-design="${compactDesign}"
     enable-responsive="${responsiveDesign}"
     ${noMinWidth ? 'no-min-width' : ''}
+    ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
     >
       <sdds-table-header>
           <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>

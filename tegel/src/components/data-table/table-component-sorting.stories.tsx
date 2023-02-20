@@ -39,12 +39,17 @@ export default {
         type: 'boolean',
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive design',
       description:
@@ -55,49 +60,44 @@ export default {
     },
     noMinWidth: {
       name: 'No column minimum width limitation',
-      description:
-        'Enable columns to shrink below width 192px.',
+      description: 'Enable columns to shrink below width 192px.',
       control: {
         type: 'boolean',
       },
     },
     column1sortable: {
       name: 'Column 1 is sortable',
-      description:
-      'Enabling column 1 to be sorted alphabetically.',
+      description: 'Enabling column 1 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
-      description:
-      'Enabling column 2 to be sorted alphabetically.',
+      description: 'Enabling column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column3sortable: {
       name: 'Column 3 is sortable',
-      description:
-      'Enabling column 3 to be sorted alphabetically.',
+      description: 'Enabling column 3 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
-      description:
-      'Enabling column 4 to be sorted alphabetically.',
+      description: 'Enabling column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     verticalDivider: false,
     compactDesign: false,
-    // onWhiteBackground: false,
     responsiveDesign: false,
     column1sortable: true,
     column2sortable: true,
@@ -110,7 +110,7 @@ export default {
 const SortingTemplate = ({
   verticalDivider,
   compactDesign,
-  // onWhiteBackground,
+  modeVariant,
   responsiveDesign,
   column1sortable,
   column2sortable,
@@ -124,7 +124,8 @@ const SortingTemplate = ({
       compact-design="${compactDesign}"
       enable-responsive="${responsiveDesign}"
       ${noMinWidth ? 'no-min-width' : ''}
-      >
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
+    >
       <sdds-table-toolbar table-title="Sorting"></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>

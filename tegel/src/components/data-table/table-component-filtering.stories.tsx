@@ -50,19 +50,17 @@ export default {
         },
       },
     },
-    // onWhiteBackground: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
@@ -102,8 +100,8 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     compactDesign: false,
-    // onWhiteBackground: false,
     verticalDivider: false,
     responsiveDesign: true,
     useDataProp: true,
@@ -114,7 +112,7 @@ export default {
 const FilteringTemplate = ({
   verticalDivider,
   compactDesign,
-  // onWhiteBackground,
+  modeVariant,
   responsiveDesign,
   useDataProp,
   noMinWidth,
@@ -125,6 +123,7 @@ const FilteringTemplate = ({
       compact-design="${compactDesign}"
       ${responsiveDesign ? 'enable-responsive' : ''}
       ${noMinWidth ? 'no-min-width' : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
   >
           <sdds-table-toolbar table-title="Filter" enable-filtering></sdds-table-toolbar>
           <sdds-table-header>

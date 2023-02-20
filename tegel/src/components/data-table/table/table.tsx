@@ -7,10 +7,10 @@ type Props = {
   verticalDividers: boolean;
   compactDesign: boolean;
   noMinWidth: boolean;
-  whiteBackground: boolean;
   enableMultiselect: boolean;
   enableExpandableRows: boolean;
   enableResponsive: boolean;
+  modeVariant: 'primary' | 'secondary' | null;
 };
 
 export type TablePropsChangedEvent = {
@@ -34,9 +34,6 @@ export class Table {
   @Prop({ reflect: true }) noMinWidth: boolean;
   // TODO: Due to unknown reason, one of this items has to be left as is. If all are false, it seems like emitting is not properly done and it affects other events in data table. Try setting it and observe text-align set on header cell
 
-  /** Changes a colors of data data-table when used on white background */
-  @Prop({ reflect: true }) whiteBackground: boolean = false;
-
   /** Enables multiselect feature of data-table */
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
@@ -45,6 +42,9 @@ export class Table {
 
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
+
+  /** Variant of the component, based on current mode. */
+  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' = null;
 
   /** ID used for internal table functionality and events, must be unique.
    *
@@ -96,9 +96,9 @@ export class Table {
     this.emitTablePropsChangedEvent('noMinWidth', newValue);
   }
 
-  @Watch('whiteBackground')
-  whiteBackgroundChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('whiteBackground', newValue);
+  @Watch('modeVariant')
+  modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
+    this.emitTablePropsChangedEvent('modeVariant', newValue);
   }
 
   render() {
@@ -110,7 +110,6 @@ export class Table {
             'sdds-table--compact': this.compactDesign,
             'sdds-table--divider': this.verticalDividers,
             'sdds-table--no-min-width': this.noMinWidth,
-            'sdds-table--on-white-bg': this.whiteBackground,
             'sdds-table--responsive': this.enableResponsive,
           }}
         >

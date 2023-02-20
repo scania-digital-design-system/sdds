@@ -62,11 +62,3 @@
     border-right: 1px solid var(--sdds-data-table-divider);
   }
 }
-
-:host(.sdds-table--on-white-background) {
-  background-color: var(--sdds-data-table-body-row-background-on-white);
-}
-
-:host(.sdds-table--on-white-background:hover) {
-  background-color: var(--sdds-data-table-body-row-background-on-white-hover);
-}

@@ -17,7 +17,6 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'compactDesign',
   'noMinWidth',
   'verticalDividers',
-  'whiteBackground',
 ];
 
 @Component({
@@ -54,8 +53,6 @@ export class TableHeaderCell {
   @State() compactDesign: boolean = false;
 
   @State() noMinWidth: boolean = false;
-
-  @State() whiteBackground: boolean = false;
 
   @State() enableMultiselect: boolean = false;
 
@@ -218,7 +215,6 @@ export class TableHeaderCell {
               class={`sdds-table__header-button-icon ${
                 this.sortingDirection === 'desc' ? 'sdds-table__header-button-icon--rotate' : ''
               }`}
-              
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

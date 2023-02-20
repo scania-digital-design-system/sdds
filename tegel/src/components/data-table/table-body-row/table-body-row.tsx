@@ -5,7 +5,7 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'enableMultiselect',
   'verticalDividers',
   'compactDesign',
-  'whiteBackground',
+  'modeVariant',
 ];
 
 @Component({
@@ -26,7 +26,7 @@ export class TableBodyRow {
 
   @State() noMinWidth: boolean = false;
 
-  @State() whiteBackground: boolean = false;
+  @State() modeVariant: 'primary' | 'secondary' = null;
 
   @State() tableId: string = '';
 
@@ -126,7 +126,8 @@ export class TableBodyRow {
           'sdds-table__row': true,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-table--on-white-bg': this.whiteBackground,
+          'sdds-mode-variant-primary': this.modeVariant === 'primary',
+          'sdds-mode-variant-secondary': this.modeVariant === 'secondary',
         }}
       >
         {this.enableMultiselect && (

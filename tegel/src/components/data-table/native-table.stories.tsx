@@ -39,19 +39,17 @@ export default {
         },
       },
     },
-    // onWhiteBG: {
-    //   name: 'On white background',
-    //   description:
-    //     'Changes BG color of table element to grey variation for better visibility on white layouts',
-    //   control: {
-    //     type: 'boolean',
-    //   },
-    //   table: {
-    //     defaultValue: {
-    //       summary: false,
-    //     },
-    //   },
-    // },
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     responsiveTable: {
       name: 'Responsive table',
       description:
@@ -116,10 +114,10 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     tableTitle: 'Native table',
     isCompact: false,
     dividers: false,
-    // onWhiteBG: false,
     noMinWidthArg: false,
     responsiveTable: false,
     column1Width: '',
@@ -128,21 +126,33 @@ export default {
   },
 };
 
-const Template = (args) =>
+const Template = ({
+  modeVariant,
+  tableTitle,
+  isCompact,
+  dividers,
+  noMinWidthArg,
+  responsiveTable,
+  column1Width,
+  column2Width,
+  column3Width,
+}) =>
   formatHtmlPreview(`
     <table class="
         sdds-table
-        ${args.isCompact ? 'sdds-table--compact' : ''}
-        ${args.dividers ? 'sdds-table--divider' : ''}
-        ${args.noMinWidthArg ? 'sdds-table--no-min-width' : ''}
-        ${args.responsiveTable ? 'sdds-table--responsive' : ''}
-    " >
-    ${args.tableTitle && `<caption>${args.tableTitle}</caption>`}
+        ${modeVariant === 'Primary' ? 'sdds-mode-variant-primary' : ''}
+        ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}
+        ${isCompact ? 'sdds-table--compact' : ''}
+        ${dividers ? 'sdds-table--divider' : ''}
+        ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${responsiveTable ? 'sdds-table--responsive' : ''}
+    ">
+    ${tableTitle && `<caption>${tableTitle}</caption>`}
     <thead>
       <tr>
-        <th ${args.column1Width ? `style="width: ${args.column1Width};"` : ''}>Header</th>
-        <th ${args.column2Width ? `style="width: ${args.column2Width};"` : ''}>Header</th>
-        <th ${args.column3Width ? `style="width: ${args.column3Width};"` : ''}>Header</th>
+        <th ${column1Width ? `style="width: ${column1Width};"` : ''}>Header</th>
+        <th ${column2Width ? `style="width: ${column2Width};"` : ''}>Header</th>
+        <th ${column3Width ? `style="width: ${column3Width};"` : ''}>Header</th>
       </tr>
     </thead>
      <tbody>
