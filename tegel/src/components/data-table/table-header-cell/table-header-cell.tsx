@@ -66,14 +66,14 @@ export class TableHeaderCell {
 
   tableEl: HTMLSddsTableElement;
 
-  /** @internal Sends unique table identifier,column key and sorting direction to the sdds-table-body component */
+  /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'internalSddsSortColumn',
+    eventName: 'sddsSortChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  internalSddsSortColumn: EventEmitter<any>;
+  sddsSortChange: EventEmitter<any>;
 
   /** @internal Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
@@ -117,7 +117,7 @@ export class TableHeaderCell {
   }
 
   // target is set to body so other instances of same component "listen" and react to the change
-  @Listen('internalSddsSortColumn', { target: 'body' })
+  @Listen('sddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       // grab only value at position 1 as it is the "key"
@@ -166,7 +166,7 @@ export class TableHeaderCell {
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
     // Use array to send both key and sorting direction
-    this.internalSddsSortColumn.emit([this.tableId, key, this.sortingDirection]);
+    this.sddsSortChange.emit([this.tableId, key, this.sortingDirection]);
   };
 
   headerCellContent = () => {

@@ -169,7 +169,7 @@ export class TableBody {
   }
 
   // Listen to sortColumnData from data-table-header-element - TODO
-  @Listen('internalSddsSortColumn', { target: 'body' })
+  @Listen('sddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
     if (this.tableId === receivedID) {
@@ -298,9 +298,9 @@ export class TableBody {
     }
   }
 
-  // Listen to internalSddsFilter from tableToolbar component
-  @Listen('internalSddsFilter', { target: 'body' })
-  internalSddsFilterListener(event: CustomEvent<any>) {
+  // Listen to sddsFilter from tableToolbar component
+  @Listen('sddsFilter', { target: 'body' })
+  sddsFilterListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       this.searchFunction(event.detail[1]);
     }

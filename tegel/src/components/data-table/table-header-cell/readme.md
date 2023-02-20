@@ -16,6 +16,13 @@
 | `textAlign`   | `text-align`   | Setting for text align, default is left, but user can pass "right" as string - useful for numeric values | `string`  | `undefined` |
 
 
+## Events
+
+| Event            | Description                                                                                                                                                          | Type               |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `sddsSortChange` | Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

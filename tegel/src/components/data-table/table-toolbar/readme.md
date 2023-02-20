@@ -13,6 +13,13 @@
 | `tableTitle`      | `table-title`      | Adds title to the data-table | `string`  | `''`    |
 
 
+## Events
+
+| Event        | Description                                                                                                                             | Type               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `sddsFilter` | Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

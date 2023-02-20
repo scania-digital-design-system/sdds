@@ -43,14 +43,14 @@ export class TableToolbar {
 
   tableEl: HTMLSddsTableElement;
 
-  /** @internal Used for sending users input to main parent <sdds-table> component */
+  /** Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'internalSddsFilter',
+    eventName: 'sddsFilter',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  internalSddsFilter: EventEmitter<any>;
+  sddsFilter: EventEmitter<any>;
 
   @Listen('internalSddsPropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
@@ -81,7 +81,7 @@ export class TableToolbar {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    this.internalSddsFilter.emit([this.tableId, searchTerm]);
+    this.sddsFilter.emit([this.tableId, searchTerm]);
 
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');

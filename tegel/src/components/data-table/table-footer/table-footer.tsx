@@ -189,17 +189,17 @@ export class TableFooter {
 
   /* Client based functions below */
 
-  /** @internal Event to send current page value back to sdds-table-body component */
+  /** Event to send current page value back to sdds-table-body component, can also be listened to in order to implement custom pagination logic. */
   @Event({
-    eventName: 'internalSddsCurrentPage',
+    eventName: 'sddsPaginationChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  internalSddsCurrentPage: EventEmitter<any>;
+  sddsPaginationChange: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.internalSddsCurrentPage.emit([this.tableId, value]);
+    this.sddsPaginationChange.emit([this.tableId, value]);
   }
 
   clientPaginationPrev = (event) => {

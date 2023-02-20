@@ -18,6 +18,13 @@
 | `rowsPerPage`               | `rows-per-page`               | Sets how many rows to display when pagination is enabled                                                                                                    | `number`  | `5`     |
 
 
+## Events
+
+| Event                  | Description                                                                                                                                | Type               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `sddsPaginationChange` | Event to send current page value back to sdds-table-body component, can also be listened to in order to implement custom pagination logic. | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
