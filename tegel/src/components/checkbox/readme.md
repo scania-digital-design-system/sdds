@@ -18,9 +18,11 @@
 
 ## Events
 
-| Event            | Description                                                                       | Type                                                     |
-| ---------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `checkboxChange` | Sends unique checkbox identifier and checked status when it is checked/unchecked. | `CustomEvent<{ checkboxId: string; checked: boolean; }>` |
+| Event        | Description                                                                       | Type                                                     |
+| ------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `sddsBlur`   | Blur event for the checkbox                                                       | `CustomEvent<FocusEvent>`                                |
+| `sddsChange` | Sends unique checkbox identifier and checked status when it is checked/unchecked. | `CustomEvent<{ checkboxId: string; checked: boolean; }>` |
+| `sddsFocus`  | Focus event for the checkbox                                                      | `CustomEvent<FocusEvent>`                                |
 
 
 ## Methods
