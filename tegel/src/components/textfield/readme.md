@@ -13,7 +13,7 @@
 | `label`         | `label`          | Label text                                  | `string`                              | `''`         |
 | `labelPosition` | `label-position` | Position of the label for the textfield.    | `"inside" \| "no-label" \| "outside"` | `'no-label'` |
 | `maxLength`     | `max-length`     | Max length of input                         | `number`                              | `undefined`  |
-| `modeVariant`   | `mode-variant`   | Mode variant of the textarea                | `"primary" \| "secondary"`            | `null`       |
+| `modeVariant`   | `mode-variant`   | Mode variant of the textfield               | `"primary" \| "secondary"`            | `null`       |
 | `name`          | `name`           | Name property                               | `string`                              | `''`         |
 | `noMinWidth`    | `no-min-width`   | With setting                                | `boolean`                             | `false`      |
 | `placeholder`   | `placeholder`    | Placeholder text                            | `string`                              | `''`         |
@@ -26,9 +26,12 @@
 
 ## Events
 
-| Event          | Description                    | Type               |
-| -------------- | ------------------------------ | ------------------ |
-| `customChange` | Change event for the textfield | `CustomEvent<any>` |
+| Event        | Description                    | Type                      |
+| ------------ | ------------------------------ | ------------------------- |
+| `sddsBlur`   | Blur event for the textfield   | `CustomEvent<FocusEvent>` |
+| `sddsChange` | Change event for the textfield | `CustomEvent<any>`        |
+| `sddsFocus`  | Focus event for the textfield  | `CustomEvent<FocusEvent>` |
+| `sddsInput`  | Input event for the textfield  | `CustomEvent<InputEvent>` |
 
 
 ## Dependencies

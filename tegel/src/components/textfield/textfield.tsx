@@ -36,7 +36,7 @@ export class Textfield {
   /** Size of the input */
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
-    /** Mode variant of the textarea */
+  /** Mode variant of the textfield */
 
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
@@ -60,26 +60,61 @@ export class Textfield {
 
   /** Change event for the textfield */
   @Event({
+    eventName: 'sddsChange',
     composed: true,
     bubbles: true,
-    cancelable: true,
+    cancelable: false,
   })
-  customChange: EventEmitter;
+  sddsChange: EventEmitter;
+
+  handleChange(event): void {
+    this.sddsChange.emit(event);
+  }
+
+  /** Input event for the textfield */
+  @Event({
+    eventName: 'sddsInput',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsInput: EventEmitter<InputEvent>;
 
   // Data input event in value prop
-  handleInput(e): void {
-    this.value = e.target.value;
+  handleInput(event): void {
+    this.sddsInput.emit(event);
+    this.value = event.target.value;
   }
 
-  // Change event isn't a composed:true by default in for input
-  handleChange(e): void {
-    this.customChange.emit(e);
-  }
+  /** Focus event for the textfield */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
-  handleFocusClick(): void {
+  handleFocus(event): void {
     this.textInput.focus();
     this.focusInput = true;
+    this.sddsFocus.emit(event);
+  }
+
+  /** Blur event for the textfield */
+  @Event({
+    eventName: 'sddsBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
+  /** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  handleBlur(event): void {
+    this.focusInput = false;
+    this.sddsBlur.emit(event);
   }
 
   render() {
@@ -107,7 +142,7 @@ export class Textfield {
         }
         ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
         ${this.readonly ? 'sdds-form-textfield-readonly' : ''}
-        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
         ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
         ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
         ${
@@ -122,24 +157,13 @@ export class Textfield {
             <div>{this.label}</div>
           </div>
         )}
-        <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
+        <div onClick={() => this.textInput.focus()} class="sdds-textfield-container">
           <div class={`sdds-textfield-slot-wrap-prefix sdds-textfield-${this.state}`}>
             <slot name="sdds-prefix" />
           </div>
 
           <div class="sdds-textfield-input-container">
             <input
-              onFocus={(e) => {
-                if (this.readonly) {
-                  e.preventDefault();
-                  this.textInput.blur();
-                  return;
-                }
-                this.focusInput = true;
-              }}
-              onBlur={() => {
-                this.focusInput = false;
-              }}
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
               class={className}
               type={this.type}
@@ -149,8 +173,16 @@ export class Textfield {
               autofocus={this.autofocus}
               maxlength={this.maxLength}
               name={this.name}
-              onInput={(e) => this.handleInput(e)}
-              onChange={(e) => this.handleChange(e)}
+              onInput={(event) => this.handleInput(event)}
+              onChange={(event) => this.handleChange(event)}
+              onFocus={(event) => {
+                if (!this.readonly) {
+                  this.handleFocus(event);
+                }
+              }}
+              onBlur={(event) => {
+                this.handleBlur(event);
+              }}
             />
 
             {this.labelPosition === 'inside' && this.size !== 'sm' && (
