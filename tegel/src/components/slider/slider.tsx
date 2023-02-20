@@ -6,6 +6,54 @@ import { Component, h, Prop, Listen, EventEmitter, Event, Method } from '@stenci
   shadow: false,
 })
 export class Slider {
+  /** Text for label */
+  @Prop() label: string = '';
+
+  /** Initial value */
+  @Prop() value: string = '0';
+
+  /** Minimum value */
+  @Prop() min: string = '0';
+
+  /** Maximum value */
+  @Prop() max: string = '100';
+
+  /** Number of tick markers (tick for min- and max-value will be added automatically) */
+  @Prop() ticks: string = '0';
+
+  /** Decide to show numbers above the tick markers or not  */
+  @Prop() showTickNumbers: boolean = false;
+
+  /** Decide to show the tooltip or not */
+  @Prop() tooltip: boolean = null;
+
+  /** Sets the disabled state for the whole component  */
+  @Prop() disabled: boolean = null;
+
+  /** Sets the read only state for the whole component  */
+  @Prop() readOnly: boolean = null;
+
+  /** Decide to show the controls or not */
+  @Prop() controls: boolean = null;
+
+  /** Decide to show the input field or not */
+  @Prop() input: boolean = null;
+
+  /** Defines how much to increment/decrement the value when using controls */
+  @Prop() step: string = '1';
+
+  /** Name property (will be inherited by the native slider component) */
+  @Prop() name: string = '';
+
+  /** Sets the size of the scrubber */
+  @Prop() size: 'sm' | '' = '';
+
+  /** Snap to the ticks grid */
+  @Prop() snap: boolean = null;
+
+  /** Id for the sliders input element, randomly generated if not specified. */
+  @Prop() sliderId: string = crypto.randomUUID();
+
   wrapperElement: HTMLElement = null;
 
   scrubberElement: HTMLElement = null;
@@ -52,59 +100,16 @@ export class Slider {
 
   resizeObserverAdded: boolean = false;
 
-  /** Change event for the textfield */
+  /** Sends unique checkbox identifier and value when the slider has a change in value. */
   @Event({
-    eventName: 'sliderChange',
+    eventName: 'sddsChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sliderChangeEmitter: EventEmitter<any>;
-
-  /** Text for label */
-  @Prop() label: string = '';
-
-  /** Initial value */
-  @Prop() value: string = '0';
-
-  /** Minimum value */
-  @Prop() min: string = '0';
-
-  /** Maximum value */
-  @Prop() max: string = '100';
-
-  /** Number of tick markers (tick for min- and max-value will be added automatically) */
-  @Prop() ticks: string = '0';
-
-  /** Decide to show numbers above the tick markers or not  */
-  @Prop() showTickNumbers: boolean = false;
-
-  /** Decide to show the tooltip or not */
-  @Prop() tooltip: boolean = null;
-
-  /** Sets the disabled state for the whole component  */
-  @Prop() disabled: boolean = null;
-
-  /** Sets the read only state for the whole component  */
-  @Prop() readOnly: boolean = null;
-
-  /** Decide to show the controls or not */
-  @Prop() controls: boolean = null;
-
-  /** Decide to show the input field or not */
-  @Prop() input: boolean = null;
-
-  /** Defines how much to increment/decrement the value when using controls */
-  @Prop() step: string = '1';
-
-  /** Name property (will be inherited by the native slider component) */
-  @Prop() name: string = '';
-
-  /** Sets the size of the scrubber */
-  @Prop() size: 'sm' | '' = '';
-
-  /** Snap to the ticks grid */
-  @Prop() snap: boolean = null;
+  sddsChange: EventEmitter<{
+    value: string;
+  }>;
 
   /** Public method to re-initialise the slider if some configuration props are changed */
   @Method() async reset() {
@@ -216,7 +221,7 @@ export class Slider {
   }
 
   dispatchChangeEvent() {
-    this.sliderChangeEmitter.emit({ value: this.value });
+    this.sddsChange.emit({ value: this.value });
   }
 
   updateValue() {
@@ -482,6 +487,7 @@ export class Slider {
           min={this.min}
           max={this.max}
           disabled={this.disabled}
+          id={this.sliderId}
         ></input>
 
         <div
@@ -507,14 +513,11 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div ref={el => (this.minusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-minus">
-                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M1.98975 8.00005C1.98975 8.27619 2.2136 8.50005 2.48975 8.50005H13.5104C13.7866 8.50005 14.0104 8.27619 14.0104 8.00005C14.0104 7.72391 13.7866 7.50005 13.5104 7.50005L2.48975 7.50005C2.2136 7.50005 1.98975 7.72391 1.98975 8.00005Z"
-                     />
-                </svg>
+              <div
+                ref={(el) => (this.minusElement = el as HTMLElement)}
+                class="sdds-slider__control sdds-slider__control-minus"
+              >
+                <sdds-icon name="minus" size="16px"></sdds-icon>
               </div>
             </div>
           )}
@@ -618,15 +621,11 @@ export class Slider {
 
           {this.useControls && (
             <div class="sdds-slider__controls">
-              <div ref={el => (this.plusElement = el as HTMLElement)} class="sdds-slider__control sdds-slider__control-plus">
-                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.50005 13.5104C8.50005 13.7865 8.27619 14.0104 8.00005 14.0104C7.7239 14.0104 7.50005 13.7865 7.50005 13.5104V8.5H2.48975C2.2136 8.5 1.98975 8.27614 1.98975 8C1.98975 7.72386 2.2136 7.5 2.48975 7.5H7.50005V2.48965C7.50005 2.21351 7.7239 1.98965 8.00005 1.98965C8.27619 1.98965 8.50005 2.21351 8.50005 2.48965V7.5H13.5104C13.7866 7.5 14.0104 7.72386 14.0104 8C14.0104 8.27614 13.7866 8.5 13.5104 8.5H8.50005V13.5104Z"
-                    
-                  />
-                </svg>
+              <div
+                ref={(el) => (this.plusElement = el as HTMLElement)}
+                class="sdds-slider__control sdds-slider__control-plus"
+              >
+                <sdds-icon name="plus" size="16px"></sdds-icon>
               </div>
             </div>
           )}

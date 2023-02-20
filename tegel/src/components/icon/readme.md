@@ -22,6 +22,7 @@
  - [sdds-datetime](../datetime)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
+ - [sdds-slider](../slider)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
  - [sdds-toast](../toast)
@@ -34,6 +35,7 @@ graph TD;
   sdds-datetime --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
+  sdds-slider --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
   sdds-toast --> sdds-icon
