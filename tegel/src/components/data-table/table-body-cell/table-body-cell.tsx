@@ -5,7 +5,6 @@ const relevantTableProps: TablePropsChangedEvent['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
-  'whiteBackground',
 ];
 @Component({
   tag: 'sdds-body-cell',

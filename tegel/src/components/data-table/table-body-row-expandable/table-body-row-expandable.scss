@@ -98,24 +98,3 @@
     border-right: 1px solid var(--sdds-data-table-divider);
   }
 }
-
-:host(.sdds-table--on-white-background) {
-  .sdds-table__row,
-  .sdds-table__row-extend {
-    background-color: var(--sdds-data-table-body-row-background-on-white);
-  }
-}
-
-:host(.sdds-table--on-white-background:hover) {
-  .sdds-table__row,
-  .sdds-table__row-extend {
-    background-color: var(--sdds-data-table-body-row-background-on-white-hover);
-  }
-}
-
-:host(.sdds-table__row-expand--active.sdds-table--on-white-background) {
-  .sdds-table__row,
-  .sdds-table__row-extend {
-    background-color: var(--sdds-data-table-body-row-expandable-on-white-selected);
-  }
-}
