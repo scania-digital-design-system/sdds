@@ -1,0 +1,19 @@
+:host {
+  sdds-header-link {
+    display: none;
+  }
+
+  sdds-header-link::part(a) {
+    background-image: var(--sdds-background-image-scania-symbol-svg),
+      var(--sdds-background-image-scania-symbol-png);
+    background-size: 30px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: 521px) {
+    sdds-header-link {
+      display: block;
+    }
+  }
+}

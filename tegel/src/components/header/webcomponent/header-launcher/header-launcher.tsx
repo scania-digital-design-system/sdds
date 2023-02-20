@@ -1,14 +1,4 @@
-import {
-  Component,
-  Host,
-  h,
-  Prop,
-  Method,
-  Element,
-  Listen,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, Host, h, Prop, Element, Listen, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-launcher',
@@ -16,54 +6,81 @@ import {
   shadow: true,
 })
 export class HeaderLauncher {
-  /** Opens and closes the launcher */
-  @Prop() open: boolean = false;
-
-  @Prop() variant: 'list' | 'grid' = 'list';
-
-  parentSlot: string;
-
   @Element() host: HTMLElement;
 
-  @Method()
-  async toggleLauncher() {
-    if (!this.open) {
-      this.childOpenedEvent.emit();
+  /** Opens and closes the launcher */
+  @Prop({ reflect: true }) open: boolean = false;
+
+  @State() buttonEl?: HTMLSddsHeaderLauncherButtonElement;
+
+  @State() hasListTypeMenu = false;
+
+  @Listen('click', { target: 'window' })
+  onAnyClick(event: MouseEvent) {
+    // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
+    const isClickOutside = !event.composedPath().includes(this.host as any);
+    if (isClickOutside) {
+      this.open = false;
     }
+  }
+
+  componentDidLoad() {
+    const slotElement = this.host.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
+    const slottedElements = slotElement.assignedElements();
+    const hasListTypeMenu = slottedElements.some(
+      (element) => element.tagName.toLowerCase() === 'sdds-header-launcher-list',
+    );
+
+    if (hasListTypeMenu) {
+      this.hasListTypeMenu = true;
+    }
+  }
+
+  toggleLauncher() {
     this.open = !this.open;
   }
-
-  connectedCallback() {
-    this.parentSlot = this.host.parentElement.slot;
-  }
-
-  @Listen('closeAllEvent', { target: 'body' })
-  handleCloseAllEvent() {
-    this.open = false;
-  }
-
-  @Event({
-    eventName: 'childOpenedEvent',
-    bubbles: true,
-    composed: true,
-    cancelable: true,
-  })
-  childOpenedEvent: EventEmitter;
 
   render() {
     return (
       <Host>
-        <button
-          class={`${this.open ? 'open' : 'closed'}`}
-          onClick={() => {
-            this.toggleLauncher();
+        <div
+          class={{
+            'wrapper': true,
+            'state--open': this.open,
+            'state--list-type-menu': this.hasListTypeMenu,
           }}
         >
-          <sdds-icon name="bento" size="20px"></sdds-icon>
-        </button>
-        <ul class={`${this.open ? 'open' : 'closed'} ${this.parentSlot} ${this.variant}`}>
-          <slot></slot>
-        </ul>
+          <sdds-header-launcher-button
+            class="button"
+            isActive={this.open}
+            onClick={() => {
+              this.toggleLauncher();
+            }}
+            ref={(el) => {
+              this.buttonEl = el;
+            }}
+          ></sdds-header-launcher-button>
+
+          {this.buttonEl && (
+            <sdds-popover-canvas
+              class="menu"
+              referenceEl={this.buttonEl}
+              placement="bottom-start"
+              show={this.open}
+              offsetDistance={0}
+              modifiers={[
+                {
+                  name: 'flip',
+                  options: {
+                    fallbackPlacements: [],
+                  },
+                },
+              ]}
+            >
+              <slot></slot>
+            </sdds-popover-canvas>
+          )}
+        </div>
       </Host>
     );
   }

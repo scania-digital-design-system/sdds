@@ -1,0 +1,19 @@
+:host {
+  sdds-header-button {
+    display: block;
+  }
+
+  color: var(--sdds-white);
+}
+
+@media screen and (min-width: 672px) {
+  :host {
+    sdds-header-button {
+      display: none;
+    }
+  }
+
+  :host([persistent]) sdds-header-button {
+    display: block;
+  }
+}

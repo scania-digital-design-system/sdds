@@ -36,18 +36,13 @@
  - [sdds-header-toolbar-item](../header/webcomponent/header-toolbar-item)
  - [sdds-header](../header/webcomponent)
  - [sdds-header-dropdown](../header/webcomponent/header-dropdown)
- - [sdds-header-dropdown-v2](../header/webcomponent-v2/header-dropdown-v2)
- - [sdds-header-hamburger](../header/webcomponent-v2/header-hamburger)
- - [sdds-header-launcher](../header/webcomponent/header-launcher)
- - [sdds-header-launcher-button](../header/webcomponent-v2/header-launcher-button)
+ - [sdds-header-hamburger](../header/webcomponent/header-hamburger)
+ - [sdds-header-launcher-button](../header/webcomponent/header-launcher-button)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
- - [sdds-side-menu](../side-menu/webcomponent)
- - [sdds-side-menu-close-button](../side-menu/webcomponent-alt/side-menu-close-button)
- - [sdds-side-menu-collapse-button](../side-menu/webcomponent-alt/side-menu-collapse-button)
+ - [sdds-side-menu-close-button](../side-menu/webcomponent/side-menu-close-button)
+ - [sdds-side-menu-collapse-button](../side-menu/webcomponent/side-menu-collapse-button)
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
- - [sdds-side-menu-dropdown-v1](../side-menu/webcomponent-alt/side-menu-dropdown-v1)
- - [sdds-side-menu-dropdown-v2](../side-menu/webcomponent-alt/side-menu-dropdown-v2)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
  - [sdds-toast](../toast)
@@ -76,18 +71,13 @@ graph TD;
   sdds-header-toolbar-item --> sdds-icon
   sdds-header --> sdds-icon
   sdds-header-dropdown --> sdds-icon
-  sdds-header-dropdown-v2 --> sdds-icon
   sdds-header-hamburger --> sdds-icon
-  sdds-header-launcher --> sdds-icon
   sdds-header-launcher-button --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
-  sdds-side-menu --> sdds-icon
   sdds-side-menu-close-button --> sdds-icon
   sdds-side-menu-collapse-button --> sdds-icon
   sdds-side-menu-dropdown --> sdds-icon
-  sdds-side-menu-dropdown-v1 --> sdds-icon
-  sdds-side-menu-dropdown-v2 --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
   sdds-toast --> sdds-icon

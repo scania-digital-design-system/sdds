@@ -1,4 +1,4 @@
-# header-button
+# sdds-header-launcher-button
 
 
 
@@ -16,22 +16,21 @@
 
 ### Used by
 
- - [sdds-header-dropdown](../header-dropdown)
- - [sdds-header-hamburger](../header-hamburger)
- - [sdds-header-launcher-button](../header-launcher-button)
+ - [sdds-header-launcher](../header-launcher)
 
 ### Depends on
 
-- [sdds-core-header-item](../core-header-item)
+- [sdds-header-button](../header-button)
+- [sdds-icon](../../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-button --> sdds-core-header-item
-  sdds-header-dropdown --> sdds-header-button
-  sdds-header-hamburger --> sdds-header-button
   sdds-header-launcher-button --> sdds-header-button
-  style sdds-header-button fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-header-launcher-button --> sdds-icon
+  sdds-header-button --> sdds-core-header-item
+  sdds-header-launcher --> sdds-header-launcher-button
+  style sdds-header-launcher-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

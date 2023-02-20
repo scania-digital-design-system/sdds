@@ -1,14 +1,4 @@
-import {
-  Component,
-  h,
-  Host,
-  Method,
-  Prop,
-  Element,
-  Listen,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-dropdown',
@@ -17,67 +7,80 @@ import {
 })
 export class HeaderDropdown {
   /** Opens and closes the dropdown */
-  @Prop() open: boolean = false;
+  @Prop({ reflect: true }) open: boolean = false;
 
-  @Prop() wide: boolean = false;
+  @Prop() buttonLabel: string;
 
   @Prop() active: boolean = false;
 
   @Prop() noDropdownIcon: boolean = false;
 
-  parentSlot: string;
+  /** Placement of the dropdown menu relative to the button TODO*/
+  @Prop() placement: 'start' | 'end' = 'start';
 
   @Element() host: HTMLElement;
 
-  @Method()
-  async toggleDropdown() {
-    if (
-      !this.open &&
-      !(this.parentSlot === 'mobile-menu-top' || this.parentSlot === 'mobile-menu-bottom')
-    ) {
-      this.childOpenedEvent.emit();
+  @State() buttonEl?: HTMLSddsHeaderButtonElement;
+
+  @Listen('click', { target: 'window' })
+  onAnyClick(event: MouseEvent) {
+    // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
+    const isClickOutside = !event.composedPath().includes(this.host as any);
+    if (isClickOutside) {
+      this.open = false;
     }
+  }
+
+  toggleDropdown() {
     this.open = !this.open;
-  }
-
-  connectedCallback() {
-    this.parentSlot = this.host.parentElement.slot;
-  }
-
-  @Event({
-    eventName: 'childOpenedEvent',
-    bubbles: true,
-    composed: true,
-    cancelable: true,
-  })
-  childOpenedEvent: EventEmitter;
-
-  @Listen('closeAllEvent', { target: 'body' })
-  handleCloseAllEvent() {
-    this.open = false;
   }
 
   render() {
     return (
       <Host>
-        <button
-          class={`${this.active ? 'active' : ''} ${this.open ? 'open' : 'closed'} ${
-            this.parentSlot
-          }`}
-          onClick={() => {
-            this.toggleDropdown();
+        <div
+          class={{
+            'state--open': this.open,
+            'state--placement-end': this.placement === 'end',
           }}
         >
-          <slot name="dropdown-button"></slot>
-          {!this.noDropdownIcon && (
-            <sdds-icon class="chevron_down" name="chevron_down" size="16px"></sdds-icon>
+          <sdds-header-button
+            class="button"
+            isActive={this.open}
+            onClick={() => {
+              this.toggleDropdown();
+            }}
+            ref={(el) => {
+              this.buttonEl = el;
+            }}
+          >
+            <slot name="button-icon"></slot>
+            {this.buttonLabel}
+            <slot name="button-label"></slot>
+            {!this.noDropdownIcon && (
+              <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+            )}
+          </sdds-header-button>
+          {this.buttonEl && (
+            <sdds-popover-canvas
+              class="menu"
+              referenceEl={this.buttonEl}
+              placement="bottom-start"
+              show={this.open}
+              offsetDistance={0}
+              modifiers={[
+                {
+                  name: 'flip',
+                  options: {
+                    fallbackPlacements: [],
+                  },
+                },
+              ]}
+            >
+              <slot></slot>
+            </sdds-popover-canvas>
           )}
-        </button>
-        <ul
-          class={`${this.open ? 'open' : 'closed'} ${this.wide ? 'wide' : ''} ${this.parentSlot}`}
-        >
-          <slot name="dropdown-menu"></slot>
-        </ul>
+        </div>
       </Host>
     );
   }

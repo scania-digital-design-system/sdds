@@ -1,101 +1,46 @@
+@import '../../../../mixins/scrollbar';
+@import '../../../../mixins/z-index';
+
 :host {
   height: 64px;
   position: relative;
 
-  button {
-    font: var(--sdds-headline-07);
-    letter-spacing: var(--sdds-headline-07-ls);
-    border: none;
-    border-right: 1px solid var(--sdds-nav-item-border-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--sdds-header--basic-element-bg);
-    color: var(--sdds-header-nav-item-color);
-    height: 100%;
-    padding: 0 24px;
+  // .state--placement-end {
+  //   .menu {
+  //     left: auto;
+  //     right: 0;
+  //   }
+  // }
 
-    &:hover {
-      background-color: var(--sdds-header--basic-element-bg-hover);
-      cursor: pointer;
-    }
+  .menu {
+    /** Should control only height, position, and overflow here. 
+      Width and appearance are set inside nested components */
+    // display: none;
+    flex-direction: column;
 
-    .chevron_down {
-      transition: all 0.2s ease-in-out;
-    }
+    // position: absolute;
+    // left: 0;
 
-    &.open {
-      .chevron_down {
-        transform: rotateZ(180deg);
-      }
-    }
+    @include sdds-scrollbar;
 
-    &.open {
-      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
-      color: var(--sdds-header-nav-item-dropdown-opened-color);
-    }
-
-    &.mobile-menu-top {
-      height: 68px;
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid var(--sdds-header-mobile-menu-item-border-color);
-      background-color: var(--sdds-header-mobile-menu-item-background);
-      color: var(--sdds-header-mobile-menu-item-color);
-      display: flex;
-
-      // TODO - Should use correct variable.
-      &.active {
-        border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
-        padding-left: 20px;
-      }
-
-      .chevron_down {
-        margin-left: auto;
-      }
-    }
+    overflow-y: auto;
+    max-height: calc(100vh - 64px);
+    box-shadow: var(--sdds-nav-dropdown-menu-box);
+    background-color: var(--sdds-header-app-launcher-menu-background);
   }
 
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    position: absolute;
-    width: 190px;
-
-    &.wide {
-      width: 320px;
+  .state--open {
+    .dropdown-icon {
+      transform: rotateZ(180deg);
     }
 
-    &.open {
-      display: block;
-      border-radius: 0 0 4px 4px;
-      overflow: hidden;
-      box-shadow: var(--sdds-nav-dropdown-menu-box);
+    .button {
+      position: relative;
+      z-index: z(tooltip) + 1;
     }
 
-    &.header-right {
-      right: 0;
-    }
-
-    &.mobile-menu-top {
-      width: 100%;
-      box-shadow: none;
-      position: unset;
-    }
-
-    &.launcher {
-      width: 320px;
-      right: 0;
-      height: calc(100vh - 64px);
-      box-shadow: none;
-      border-radius: none;
-      overflow: visible;
-      background-color: var(--sdds-header-app-launcher-menu-bg);
-    }
-
-    &.closed {
-      display: none;
-    }
+    // .menu {
+    //   display: flex;
+    // }
   }
 }

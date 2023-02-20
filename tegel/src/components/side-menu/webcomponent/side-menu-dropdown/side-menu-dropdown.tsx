@@ -1,79 +1,109 @@
-import { Component, h, Prop, State, Element, Listen, Host } from '@stencil/core';
+import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu-dropdown',
   styleUrl: 'side-menu-dropdown.scss',
   shadow: true,
 })
-export class SddsSideMenuDropdown {
-  /** Open state for the dropdown. */
-  @Prop() open: boolean = false;
+export class SideMenuDropdown {
+  @Element() host: HTMLSddsSideMenuButtonElement;
 
-  @Prop() selected: boolean = false;
+  /** Opens and closes the dropdown */
+  @Prop({ reflect: true }) open: boolean = false;
+
+  @Prop() buttonLabel: string;
+
+  @Prop() active: boolean = false;
+
+  /** Placement of the dropdown menu relative to the button TODO*/
+  @Prop() placement: 'start' | 'end' = 'start';
+
+  @State() hoverState: { isHovered: boolean; updatedAt: number };
 
   @State() collapsed: boolean = false;
 
-  @Element() host: HTMLElement;
+  @Listen('tegelCollapsedSideMenu', { target: 'body' })
+  collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
+    this.collapsed = event.detail.collapsed;
+  }
+
+  @Listen('pointerenter')
+  onEventPointerEnter() {
+    this.setHoverStateOpen();
+  }
+
+  @Listen('focusin')
+  onEventFocus() {
+    this.setHoverStateOpen();
+  }
+
+  @Listen('pointerleave')
+  onEventPointerLeave() {
+    this.setHoverStateClosed();
+  }
+
+  @Listen('focusout')
+  onEventBlur() {
+    this.setHoverStateClosed();
+  }
+
+  setHoverStateOpen() {
+    this.hoverState = { isHovered: true, updatedAt: Date.now() };
+  }
+
+  setHoverStateClosed() {
+    const leftAt = Date.now();
+    const toleranceInMilliseconds = 150;
+    setTimeout(() => {
+      if (this.hoverState.isHovered && this.hoverState.updatedAt < leftAt) {
+        this.hoverState = { isHovered: false, updatedAt: Date.now() };
+      }
+    }, toleranceInMilliseconds);
+  }
 
   sideMenuEl: HTMLSddsSideMenuElement;
-
-  position: string;
 
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
-    this.position = this.host.parentElement.slot;
   }
-
-  @Listen('collapseSideMenuEvent', { target: 'body' })
-  collapseSideMenuEventHandeler(event: CustomEvent<any>) {
-    this.collapsed = event.detail.collapsed;
-    this.open = false;
-  }
-
-  handleClick = () => {
-    this.open = !this.open;
-  };
 
   render() {
     return (
-      <Host class={`${this.open ? 'open' : 'closed'}`}>
-        <li
-          class={`${this.open ? 'expanded' : 'contracted'} ${
-            this.collapsed ? 'collapsed' : 'full-width'
-          }`}
-        >
-          {this.collapsed ? (
-            <button
-              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
-                this.selected ? 'selected' : ''
-              }  ${this.open ? 'expanded' : 'contracted'}`}
-            >
-              <sdds-icon name={this.collapsed ? 'kebab' : 'chevron_down'} size="24px"></sdds-icon>
-            </button>
-          ) : (
-            <button
-              class={`${this.position} ${this.collapsed ? 'collapsed' : 'full-width'} ${
-                this.selected ? 'selected' : ''
-              }  ${this.open ? 'expanded' : 'contracted'}`}
-              onClick={() => {
-                this.handleClick();
-              }}
-            >
-              <slot></slot>
-            </button>
-          )}
-        </li>
-        <ul
-          class={`dropdown-${this.open ? 'open' : 'closed'} ${
-            this.collapsed ? 'collapsed' : 'full-width'
-          }`}
-          onClick={() => {
-            this.handleClick();
+      <Host>
+        <div
+          class={{
+            'wrapper': true,
+            'state--open': this.collapsed ? this.hoverState?.isHovered : this.open,
+            'state--collapsed': this.collapsed,
           }}
         >
-          <slot name="children"></slot>
-        </ul>
+          <sdds-side-menu-button
+            class="button"
+            // isActive={this.open}
+            onClick={() => {
+              this.open = !this.open;
+            }}
+          >
+            <slot name="button-icon" slot="icon"></slot>
+            {!this.collapsed && (
+              <Fragment>
+                {this.buttonLabel}
+                <slot name="button-label"></slot>
+                <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+              </Fragment>
+            )}
+          </sdds-side-menu-button>
+          <div class="menu">
+            {this.collapsed && (
+              <h3 class="heading-collapsed">
+                {this.buttonLabel}
+                <slot name="button-label"></slot>
+              </h3>
+            )}
+            <slot></slot>
+          </div>
+        </div>
       </Host>
     );
   }
