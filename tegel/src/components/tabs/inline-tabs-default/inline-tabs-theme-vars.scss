@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-inline-tabs-main-background-primary: var(--sdds-grey-50);
   --sdds-inline-tabs-main-background-secondary: var(--sdds-white);
   --sdds-inline-tabs-main-background: var(--sdds-inline-tabs-main-background-primary);
@@ -37,7 +37,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-inline-tabs-main-background-primary: var(--sdds-grey-868);
   --sdds-inline-tabs-main-background-secondary: var(--sdds-grey-900);
   --sdds-inline-tabs-main-background: var(--sdds-inline-tabs-main-background-primary);

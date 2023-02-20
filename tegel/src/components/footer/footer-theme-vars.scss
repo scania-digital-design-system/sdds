@@ -1,6 +1,6 @@
 // TODO - Check hover states
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-footer-top-background-primary: var(--sdds-grey-50);
   --sdds-footer-top-background-secondary: var(--sdds-white);
   --sdds-footer-top-background: var(--sdds-footer-top-background-primary);
@@ -24,7 +24,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-footer-top-background-primary: var(--sdds-grey-868);
   --sdds-footer-top-background: var(--sdds-footer-top-background-primary);
   --sdds-footer-top-divider: var(--sdds-grey-800);

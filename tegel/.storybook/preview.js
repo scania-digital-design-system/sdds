@@ -101,8 +101,8 @@ export const parameters = {
     dark: ScaniaThemeDark,
     // Override the default light theme
     light: ScaniaThemeLight,
-    darkClass: 'sdds-theme-dark',
-    lightClass: 'sdds-theme-light',
+    darkClass: 'sdds-mode-dark',
+    lightClass: 'sdds-mode-light',
     stylePreview: true,
   },
   backgrounds: {
