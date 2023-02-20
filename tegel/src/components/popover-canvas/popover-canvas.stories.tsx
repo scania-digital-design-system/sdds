@@ -28,7 +28,9 @@ export default {
         'Right',
         'Right start',
         'Right end',
+        'Auto',
       ],
+      defaultValue: { summary: 'Auto' },
     },
   },
   args: {
@@ -50,6 +52,7 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
     'Right': 'right',
     'Right start': 'right-start',
     'Right end': 'right-end',
+    'Auto': 'auto',
   };
 
   return formatHtmlPreview(

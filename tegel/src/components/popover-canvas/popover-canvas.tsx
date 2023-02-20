@@ -21,7 +21,7 @@ export class PopoverCanvas {
    */
   @Prop() show: boolean = null;
 
-  /** Decides the placement of the Popover Canvas */
+  /** Decides the placement of the Popover Canvas. See https://popper.js.org/docs/v2/constructors/#placement */
   @Prop() placement: Placement = 'auto';
 
   /** Sets the offset skidding */
