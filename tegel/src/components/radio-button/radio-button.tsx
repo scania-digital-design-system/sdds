@@ -12,9 +12,6 @@ export class RadioButton {
   /** Name of radio button, used for reference. */
   @Prop() name: string;
 
-  /** Label text connected to radio button. */
-  @Prop() label: string;
-
   /** Value of input. */
   @Prop() value: string;
 
@@ -42,12 +39,12 @@ export class RadioButton {
 
   /** Sends unique radio button identifier and status when it is checked. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
   @Event({
-    eventName: 'sddsRadioButtonChangeEvent',
+    eventName: 'sddsChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsRadioButtonChangeEvent: EventEmitter<{
+  sddsChange: EventEmitter<{
     radioId: string;
     value: string;
   }>;
@@ -60,6 +57,7 @@ export class RadioButton {
         type="radio" 
         name={this.name}
         id={this.radioId} 
+        value={this.value}
         checked={this.checked} 
         aria-checked={this.checked} 
 
@@ -69,13 +67,13 @@ export class RadioButton {
         required={this.required} 
         disabled={this.disabled}
         onChange={() => {
-          this.sddsRadioButtonChangeEvent.emit({
+          this.sddsChange.emit({
              radioId: this.radioId,
              value: this.value,
           })
         }} />
         <label htmlFor={this.radioId}>
-          {this.label}
+          <slot></slot>
         </label>
         </div>
     );
