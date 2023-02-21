@@ -33,7 +33,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Inherit from parent','Primary', 'Secondary'],
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
@@ -136,10 +136,6 @@ const Template = ({
     Inside: 'inside',
     Outside: 'outside',
   };
-  const modeVariantLookUp = {
-    Primary: 'primary',
-    Secondary: 'secondary',
-  };
   return formatHtmlPreview(`
   <style>
   /* demo-wrapper is for demonstration purposes only*/
@@ -154,7 +150,11 @@ const Template = ({
           state="${stateValue}"
           label="${label}"
           helper="${helper}"
-          mode-variant="${modeVariantLookUp[modeVariant]}"
+          ${
+            modeVariant !== 'Inherit from parent'
+              ? `mode-variant="${modeVariant.toLowerCase()}"`
+              : ''
+          }
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'read-only' : ''}
@@ -162,9 +162,24 @@ const Template = ({
           ${maxlength}>
         </sdds-textarea>
   </div>
+  <!-- Script tag for demo purposes -->
+  <script>
+    textElement = document.querySelector('sdds-textarea')
+
+    textElement.addEventListener('sddsFocus',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsBlur',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsInput',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsChange',(event) => {
+      console.log(event)
+    })
+  </script>
   `);
 };
 
 export const Default = Template.bind({});
-
-Default.args = {};
