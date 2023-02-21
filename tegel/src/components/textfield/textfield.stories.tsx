@@ -169,7 +169,7 @@ export default {
     minWidth: 'Default',
     size: 'Large',
     type: 'Text',
-  modeVariant: 'Inherit from parent',
+    modeVariant: 'Inherit from parent',
   },
 };
 
@@ -212,14 +212,14 @@ const Template = ({
     <sdds-textfield
       type="${type}"
       size="${sizeLookUp[size]}"
-      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
       state="${stateValue}"
       label="${label}"
       label-position="${labelPosition.toLowerCase()}"
       ${helper ? `helper="${helper}"` : ''}
       ${maxlength}
       ${disabled ? 'disabled' : ''}
-      ${readonly ? 'readonly' : ''}
+      ${readonly ? 'read-only' : ''}
       ${minWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
@@ -240,6 +240,22 @@ const Template = ({
         }
         </sdds-textfield>
   </div>
+  <!-- Script tag for demo purposes -->
+  <script>
+    textElement = document.querySelector('sdds-textfield')
+    textElement.addEventListener('sddsFocus',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsBlur',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsInput',(event) => {
+      console.log(event)
+    })
+    textElement.addEventListener('sddsChange',(event) => {
+      console.log(event)
+    })
+  </script>
   `,
   );
 };
