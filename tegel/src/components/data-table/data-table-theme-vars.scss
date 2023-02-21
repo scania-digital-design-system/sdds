@@ -1,6 +1,6 @@
 :root,
 html,
-.sdds-theme-light {
+.sdds-mode-light {
   /* Table-color */
   --sdds-data-table-color: var(--sdds-grey-958);
 
@@ -53,7 +53,7 @@ html,
   ); // light divider is grey-300 but expandable row is the same color when selected
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   /* Table-body */
   --sdds-data-table-color: var(--sdds-grey-50);
 

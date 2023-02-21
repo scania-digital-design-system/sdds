@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-card-background: var(--sdds-white);
 
   --sdds-card-box-primary: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
@@ -21,7 +21,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-card-background-primary: var(--sdds-grey-900);
   --sdds-card-background-secondary: var(--sdds-grey-868);
   --sdds-card-background: var(--sdds-card-background-primary);

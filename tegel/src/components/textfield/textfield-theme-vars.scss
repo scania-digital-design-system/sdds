@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-textfield-background-primary: var(--sdds-grey-50);
   --sdds-textfield-background-secondary: var(--sdds-white);
   --sdds-textfield-background: var(--sdds-textfield-background-primary);
@@ -65,7 +65,7 @@
     --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-secondary);
   }
 }
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-textfield-background-primary: var(--sdds-grey-900);
   --sdds-textfield-background: var(--sdds-textfield-background-primary);
   --sdds-textfield-background-secondary: var(--sdds-grey-868);

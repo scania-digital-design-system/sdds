@@ -6,7 +6,7 @@ html,
   --sdds-message-background: var(--sdds-message-background-primary);
   --sdds-message-type-error-background: var(--sdds-red-50);
 
-  .sdds-theme-light {
+  .sdds-mode-light {
     --sdds-message-color: var(--sdds-grey-958);
 
     --sdds-message-background-primary: var(--sdds-grey-50);
@@ -22,7 +22,7 @@ html,
     }
   }
 
-  .sdds-theme-dark {
+  .sdds-mode-dark {
     --sdds-message-color: var(--sdds-grey-50);
 
     --sdds-message-background-primary: var(--sdds-grey-900);

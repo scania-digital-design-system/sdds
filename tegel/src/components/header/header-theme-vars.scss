@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-header-background: var(--sdds-blue-800);
   --sdds-header-overlay: var(--sdds-black);
   --sdds-header-app-name-color: var(--sdds-white);
@@ -104,7 +104,7 @@
   --sdds-header-mobile-avatar--item-btn-color: var(--sdds-grey-958);
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-header-background: var(--sdds-blue-900);
 
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
