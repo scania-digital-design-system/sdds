@@ -49,7 +49,7 @@ export class Textarea {
   @Prop() autofocus: boolean = false;
 
   /** With setting */
-  @Prop() nominwidth: boolean = false;
+  @Prop() noMinWidth: boolean = false;
 
   /** Listen to the focus state of the input */
   @State() focusInput;
@@ -82,7 +82,7 @@ export class Textarea {
       <div
         class={`
         sdds-textarea-container
-        ${this.nominwidth ? 'no-min-width' : ''}
+        ${this.noMinWidth ? 'no-min-width' : ''}
         ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
