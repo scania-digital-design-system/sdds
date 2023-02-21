@@ -160,6 +160,7 @@ $modals: (
   position: sticky;
   top: 0;
   background-color: var(--sdds-modal-bg);
+  z-index: 1000;
 
   &::before {
     content: ' ';
