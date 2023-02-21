@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-checkbox-color: var(--sdds-grey-900);
   --sdds-checkbox-interaction-01: var(--sdds-blue-800);
   --sdds-checkbox-interaction-02: var(--sdds-white);
@@ -12,7 +12,7 @@
   --sdds-checkbox-color-disabled-after: var(--sdds-grey-500);
 
   // TODO - Add correct colors for dark theme
-  .sdds-theme-dark {
+  .sdds-mode-dark {
     --sdds-checkbox-color: var(--sdds-white);
     --sdds-checkbox-interaction-01: var(--sdds-white);
     --sdds-checkbox-interaction-02: var(--sdds-grey-958);

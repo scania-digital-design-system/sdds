@@ -1,7 +1,7 @@
 @import '../../global/scania-fonts-vars.scss';
 
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   /* This one is overriding the --sdds-link css for the link component. */
 
   --sdds-link-text-decoration: none;
@@ -29,7 +29,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-link-text-decoration: none;
   --sdds-dropdown-color: var(--sdds-grey-400);
   --sdds-dropdown-background: var(--sdds-grey-868);

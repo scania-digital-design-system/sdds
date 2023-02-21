@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-modal-backdrop: rgba(0 0 0 / 40%);
   --sdds-modal-background: var(--sdds-white);
   --sdds-modal-text: var(--sdds-grey-958);
@@ -10,7 +10,7 @@
   --sdds-modal-scrollbar-thumb: var(--sdds-grey-500);
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-modal-backdrop: rgba(0 0 0 / 40%);
   --sdds-modal-background: var(--sdds-grey-900);
   --sdds-modal-text: var(--sdds-grey-50);

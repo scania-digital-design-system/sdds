@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   --sdds-textarea-background-primary: var(--sdds-grey-50);
   --sdds-textarea-background-secondary: var(--sdds-white);
   --sdds-textarea-background: var(--sdds-textarea-background-primary);
@@ -54,7 +54,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-textarea-background-primary: var(--sdds-grey-900);
   --sdds-textarea-background-secondary: var(--sdds-grey-868);
   --sdds-textarea-background: var(--sdds-textarea-background-primary);
