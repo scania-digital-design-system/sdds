@@ -107,11 +107,9 @@ export class Textarea {
 
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocus(event): void {
-    if (!this.readOnly) {
-      this.textEl.focus();
-      this.focusInput = true;
-      this.sddsFocus.emit(event);
-    }
+    this.textEl.focus();
+    this.focusInput = true;
+    this.sddsFocus.emit(event);
   }
 
   render() {
@@ -144,8 +142,16 @@ export class Textarea {
             maxlength={this.maxLength}
             cols={this.cols}
             rows={this.rows}
-            onFocus={(event) => this.handleFocus(event)}
-            onBlur={(event) => this.handleBlur(event)}
+            onFocus={(event) => {
+              if (!this.readOnly) {
+                this.handleFocus(event);
+              }
+            }}
+            onBlur={(event) => {
+              if (!this.readOnly) {
+                this.handleBlur(event);
+              }
+            }}
             onInput={(event) => this.handleInput(event)}
             onChange={(event) => this.handleChange(event)}
           ></textarea>
