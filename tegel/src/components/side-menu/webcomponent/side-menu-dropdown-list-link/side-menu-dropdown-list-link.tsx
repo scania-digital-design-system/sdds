@@ -8,6 +8,9 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 export class SideMenuDropdownListLink {
   @Element() host: HTMLSddsSideMenuButtonElement;
 
+  /** Gives the appearance of a selected button */
+  @Prop() selected: boolean = false;
+
   @Prop() href!: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents
@@ -17,7 +20,7 @@ export class SideMenuDropdownListLink {
 
   @Prop() target: string;
 
-  @State() shouldIndentExtra: boolean = false;
+  @State() dropdownHasIcon: boolean = false;
 
   @State() collapsed: boolean = false;
 
@@ -45,7 +48,7 @@ export class SideMenuDropdownListLink {
       btnIconSlottedEls?.[0]?.tagName.toLowerCase() === 'sdds-side-menu-user-image';
 
     if (hasBtnIcon && !btnIconIsUserImage) {
-      this.shouldIndentExtra = true;
+      this.dropdownHasIcon = true;
     }
   }
 
@@ -55,8 +58,9 @@ export class SideMenuDropdownListLink {
         <a
           part="a"
           class={{
-            'state--should-indent-extra': this.shouldIndentExtra,
+            'state--dropdown-has-icon': this.dropdownHasIcon,
             'state--collapsed': this.collapsed,
+            'state--selected': this.selected,
           }}
           href={this.href}
           rel={this.rel}

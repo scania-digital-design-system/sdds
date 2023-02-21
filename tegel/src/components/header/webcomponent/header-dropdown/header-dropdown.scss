@@ -5,21 +5,8 @@
   height: 64px;
   position: relative;
 
-  // .state--placement-end {
-  //   .menu {
-  //     left: auto;
-  //     right: 0;
-  //   }
-  // }
-
   .menu {
-    /** Should control only height, position, and overflow here. 
-      Width and appearance are set inside nested components */
-    // display: none;
     flex-direction: column;
-
-    // position: absolute;
-    // left: 0;
 
     @include sdds-scrollbar;
 
@@ -38,9 +25,5 @@
       position: relative;
       z-index: z(tooltip) + 1;
     }
-
-    // .menu {
-    //   display: flex;
-    // }
   }
 }

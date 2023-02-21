@@ -5,13 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property | Attribute | Description                   | Type      | Default |
-| -------- | --------- | ----------------------------- | --------- | ------- |
-| `open`   | `open`    | Opens and closes the launcher | `boolean` | `false` |
-
-
 ## Dependencies
 
 ### Depends on

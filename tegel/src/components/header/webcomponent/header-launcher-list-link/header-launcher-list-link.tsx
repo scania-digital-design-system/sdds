@@ -17,14 +17,14 @@ export class HeaderLauncherListLink {
   render() {
     return (
       <Host>
-        <sdds-core-header-menu-global-link
+        <sdds-core-header-menu-lg-link
           exportparts="a"
           href={this.href}
           rel={this.rel}
           target={this.target}
         >
           <slot></slot>
-        </sdds-core-header-menu-global-link>
+        </sdds-core-header-menu-lg-link>
       </Host>
     );
   }

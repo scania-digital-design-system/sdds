@@ -6,12 +6,12 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderLauncherButton {
-  @Prop() isActive = false;
+  @Prop() active = false;
 
   render() {
     return (
       <Host>
-        <sdds-header-button isActive={this.isActive}>
+        <sdds-header-button active={this.active}>
           <sdds-icon name="bento" size="20px"></sdds-icon>
         </sdds-header-button>
       </Host>

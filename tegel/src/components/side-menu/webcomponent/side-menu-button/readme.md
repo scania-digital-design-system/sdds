@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property   | Attribute  | Description                               | Type      | Default |
+| ---------- | ---------- | ----------------------------------------- | --------- | ------- |
+| `selected` | `selected` | Gives the appearance of a selected button | `boolean` | `false` |
+
+
 ## Dependencies
 
 ### Used by

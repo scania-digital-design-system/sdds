@@ -11,6 +11,7 @@
   --sdds-nav-item-background: var(--sdds-white);
   --sdds-nav-item-background-active: var(--sdds-grey-100);
   --sdds-nav-item-background-hover: var(--sdds-grey-100);
+  --sdds-nav-item-background-selected: var(--sdds-grey-100);
   --sdds-nav-item-border-color: var(--sdds-blue-700);
   --sdds-nav-item-border-color-active: var(--sdds-blue-400);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-100);
@@ -26,6 +27,7 @@
   // sdds-nav__basic-element-style
   --sdds-header--basic-element-background: var(--sdds-blue-800);
   --sdds-header--basic-element-background-hover: var(--sdds-blue-700);
+  --sdds-header--basic-element-background-selected: var(--sdds-blue-700);
 
   /* Searchbar */
   --sdds-header-searchbar-input-background: var(--sdds-white);

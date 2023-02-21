@@ -8,9 +8,9 @@ export class HeaderDropdownListLg {
   render() {
     return (
       <Host>
-        <sdds-core-header-menu-global>
+        <sdds-core-header-menu-lg>
           <slot></slot>
-        </sdds-core-header-menu-global>
+        </sdds-core-header-menu-lg>
       </Host>
     );
   }

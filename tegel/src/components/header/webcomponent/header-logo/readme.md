@@ -16,7 +16,7 @@
 
 ### Depends on
 
-- [sdds-header-link](../header-link-alt)
+- [sdds-header-link](../header-link)
 
 ### Graph
 ```mermaid

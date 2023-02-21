@@ -49,7 +49,6 @@ const Template = ({ dummyHtml }) =>
     <style>
       :root {
         --app-bar-height: 64px;
-        --side-menu-width: 272px;
       }
       /* Note: to make the layout fill the entire viewport height you'll need to set the */
       /* height of the parent element and all of its ancestors to 100%. */
@@ -162,14 +161,14 @@ const Template = ({ dummyHtml }) =>
           Our services
         </sdds-side-menu-button>
 
-        <sdds-side-menu-dropdown>
+        <sdds-side-menu-dropdown initial-open>
           <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
           <span slot="button-label">
             Drivers
           </span>
           <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Albin Larsson</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com ">Viktor Skofors</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Spiderman</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" selected>Spiderwoman</sdds-side-menu-dropdown-list-link>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
 

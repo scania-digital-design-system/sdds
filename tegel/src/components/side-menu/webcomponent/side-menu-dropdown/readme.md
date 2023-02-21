@@ -11,7 +11,7 @@
 | ------------- | -------------- | ---------------------------------------------------------- | ------------------ | ----------- |
 | `active`      | `active`       |                                                            | `boolean`          | `false`     |
 | `buttonLabel` | `button-label` |                                                            | `string`           | `undefined` |
-| `open`        | `open`         | Opens and closes the dropdown                              | `boolean`          | `false`     |
+| `initialOpen` | `initial-open` | If the dropdown should be open from the start              | `boolean`          | `false`     |
 | `placement`   | `placement`    | Placement of the dropdown menu relative to the button TODO | `"end" \| "start"` | `'start'`   |
 
 

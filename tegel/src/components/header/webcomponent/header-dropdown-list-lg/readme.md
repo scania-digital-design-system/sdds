@@ -9,12 +9,12 @@
 
 ### Depends on
 
-- [sdds-core-header-menu-global](../core-header-menu-global)
+- [sdds-core-header-menu-lg](../core-header-menu-lg)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-dropdown-list-lg --> sdds-core-header-menu-global
+  sdds-header-dropdown-list-lg --> sdds-core-header-menu-lg
   style sdds-header-dropdown-list-lg fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,11 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-core-header-menu-global-link',
-  styleUrl: 'core-header-menu-global-link.scss',
+  tag: 'sdds-core-header-menu-lg-link',
+  styleUrl: 'core-header-menu-lg-link.scss',
   shadow: true,
 })
-export class CoreHeaderMenuGlobalLink {
+export class CoreHeaderMenuLgLink {
   @Prop() href!: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents

@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element, Listen, State } from '@stencil/core';
+import { Component, Host, h, Element, Listen, State } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-launcher',
@@ -8,8 +8,7 @@ import { Component, Host, h, Prop, Element, Listen, State } from '@stencil/core'
 export class HeaderLauncher {
   @Element() host: HTMLElement;
 
-  /** Opens and closes the launcher */
-  @Prop({ reflect: true }) open: boolean = false;
+  @State() open: boolean = false;
 
   @State() buttonEl?: HTMLSddsHeaderLauncherButtonElement;
 
@@ -52,7 +51,7 @@ export class HeaderLauncher {
         >
           <sdds-header-launcher-button
             class="button"
-            isActive={this.open}
+            active={this.open}
             onClick={() => {
               this.toggleLauncher();
             }}

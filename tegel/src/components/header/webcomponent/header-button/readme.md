@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type      | Default |
-| ---------- | ----------- | ----------- | --------- | ------- |
-| `isActive` | `is-active` |             | `boolean` | `false` |
+| Property   | Attribute  | Description | Type      | Default |
+| ---------- | ---------- | ----------- | --------- | ------- |
+| `active`   | `active`   |             | `boolean` | `false` |
+| `selected` | `selected` |             | `boolean` | `false` |
 
 
 ## Dependencies

@@ -6,8 +6,7 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
   shadow: true,
 })
 export class HeaderDropdown {
-  /** Opens and closes the dropdown */
-  @Prop({ reflect: true }) open: boolean = false;
+  @Element() host: HTMLElement;
 
   @Prop() buttonLabel: string;
 
@@ -15,10 +14,9 @@ export class HeaderDropdown {
 
   @Prop() noDropdownIcon: boolean = false;
 
-  /** Placement of the dropdown menu relative to the button TODO*/
-  @Prop() placement: 'start' | 'end' = 'start';
+  @Prop() selected: boolean = false;
 
-  @Element() host: HTMLElement;
+  @State() open: boolean = false;
 
   @State() buttonEl?: HTMLSddsHeaderButtonElement;
 
@@ -41,18 +39,18 @@ export class HeaderDropdown {
         <div
           class={{
             'state--open': this.open,
-            'state--placement-end': this.placement === 'end',
           }}
         >
           <sdds-header-button
             class="button"
-            isActive={this.open}
+            active={this.open}
             onClick={() => {
               this.toggleDropdown();
             }}
             ref={(el) => {
               this.buttonEl = el;
             }}
+            selected={this.selected}
           >
             <slot name="button-icon"></slot>
             {this.buttonLabel}

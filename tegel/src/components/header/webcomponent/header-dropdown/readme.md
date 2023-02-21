@@ -7,13 +7,12 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                                                | Type               | Default     |
-| ---------------- | ------------------ | ---------------------------------------------------------- | ------------------ | ----------- |
-| `active`         | `active`           |                                                            | `boolean`          | `false`     |
-| `buttonLabel`    | `button-label`     |                                                            | `string`           | `undefined` |
-| `noDropdownIcon` | `no-dropdown-icon` |                                                            | `boolean`          | `false`     |
-| `open`           | `open`             | Opens and closes the dropdown                              | `boolean`          | `false`     |
-| `placement`      | `placement`        | Placement of the dropdown menu relative to the button TODO | `"end" \| "start"` | `'start'`   |
+| Property         | Attribute          | Description | Type      | Default     |
+| ---------------- | ------------------ | ----------- | --------- | ----------- |
+| `active`         | `active`           |             | `boolean` | `false`     |
+| `buttonLabel`    | `button-label`     |             | `string`  | `undefined` |
+| `noDropdownIcon` | `no-dropdown-icon` |             | `boolean` | `false`     |
+| `selected`       | `selected`         |             | `boolean` | `false`     |
 
 
 ## Dependencies

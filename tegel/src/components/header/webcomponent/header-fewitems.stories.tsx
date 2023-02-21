@@ -65,13 +65,13 @@ const Template = () =>
       Trucks
     </sdds-header-link>
 
-    <sdds-header-dropdown>
+    <sdds-header-dropdown selected>
       <span slot="button-label">Drivers</span>
       <sdds-header-dropdown-list>
         <sdds-header-dropdown-list-link>
           Wolverine
         </sdds-header-dropdown-list-link>
-        <sdds-header-dropdown-list-link>
+        <sdds-header-dropdown-list-link selected>
           Professor X
         </sdds-header-dropdown-list-link>
       </sdds-header-dropdown-list>

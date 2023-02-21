@@ -6,6 +6,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderDropdownListLink {
+  @Prop() selected: boolean = false;
+
   @Prop() href!: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents
@@ -18,7 +20,15 @@ export class HeaderDropdownListLink {
   render() {
     return (
       <Host role="listitem">
-        <a part="a" href={this.href} rel={this.rel} target={this.target}>
+        <a
+          part="a"
+          href={this.href}
+          rel={this.rel}
+          target={this.target}
+          class={{
+            'state--selected': this.selected,
+          }}
+        >
           <slot></slot>
         </a>
       </Host>

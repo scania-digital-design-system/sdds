@@ -4,8 +4,9 @@
   --sdds-sidebar-mobile-menu-btn-icon: var(--sdds-white);
   --sdds-sidebar-item-state-focus: var(--sdds-grey-50);
   --sdds-sidebar-item-state-border-focus: var(--sdds-blue-400);
-  --sdds-sidebar-item-state-hover: var(--sdds-grey-50);
+  --sdds-sidebar-item-state-hover: var(--sdds-grey-100);
   --sdds-sidebar-item-state-active: var(--sdds-grey-300);
+  --sdds-sidebar-item-state-selected: var(--sdds-grey-100);
 
   // TODO - Not sure why this was black before?
   --sdds-sidebar-side-menu: var(--sdds-white);
@@ -34,6 +35,7 @@
   --sdds-sidebar-item-state-border-focus: var(--sdds-blue-400);
   --sdds-sidebar-item-state-hover: var(--sdds-grey-868);
   --sdds-sidebar-item-state-active: var(--sdds-grey-800);
+  --sdds-sidebar-item-state-selected: var(--sdds-grey-868);
   --sdds-sidebar-side-menu: var(--sdds-grey-958);
   --sdds-sidebar-side-menu-border-right: var(--sdds-grey-868);
   --sdds-sidebar-side-menu-background-cover: var(--sdds-black);

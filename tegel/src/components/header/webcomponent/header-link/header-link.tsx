@@ -2,11 +2,11 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-header-link',
-  styleUrl: 'header-link-alt.scss',
+  styleUrl: 'header-link.scss',
   shadow: true,
 })
 export class HeaderLink {
-  @Prop({ reflect: true }) persistent: boolean;
+  @Prop() selected: boolean = false;
 
   @Prop() href!: string;
 
@@ -20,7 +20,11 @@ export class HeaderLink {
   render() {
     return (
       <Host>
-        <sdds-core-header-item>
+        <sdds-core-header-item
+          class={{
+            'state--selected': this.selected,
+          }}
+        >
           <a part="a" href={this.href} rel={this.rel} target={this.target}>
             <slot />
           </a>

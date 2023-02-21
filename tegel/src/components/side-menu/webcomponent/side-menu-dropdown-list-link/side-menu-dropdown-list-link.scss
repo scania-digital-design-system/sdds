@@ -1,3 +1,5 @@
+@import '../../../../mixins/focus-state';
+
 :host {
   display: block;
   box-sizing: border-box;
@@ -5,11 +7,18 @@
   list-style: none;
   width: 100%;
 
-  .state--should-indent-extra:not(.state--collapsed) {
+  .state--selected {
+    border-left: 4px solid var(--sdds-nav-item-border-color-active);
+    padding-left: 20px;
+    background-color: var(--sdds-nav-item-background-selected);
+  }
+
+  .state--dropdown-has-icon:not(.state--collapsed) {
     padding-left: 56px;
   }
 
   a {
+    all: unset;
     box-sizing: border-box;
     border-right: 1px solid var(--sdds-nav-item-border-color);
     display: flex;
@@ -23,9 +32,8 @@
     color: var(--sdds-header-nav-item-dropdown-opened-color);
     border: none;
 
-    &.active {
-      border-left: 4px solid var(--sdds-nav-item-border-color-active);
-      padding-left: 20px;
+    &:focus-visible {
+      @include sdds-focus-state;
     }
 
     &:hover {

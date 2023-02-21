@@ -10,7 +10,7 @@
 ### Used by
 
  - [sdds-header-button](../header-button)
- - [sdds-header-link](../header-link-alt)
+ - [sdds-header-link](../header-link)
 
 ### Graph
 ```mermaid

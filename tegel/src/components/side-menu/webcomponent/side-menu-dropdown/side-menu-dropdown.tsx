@@ -8,8 +8,8 @@ import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@ste
 export class SideMenuDropdown {
   @Element() host: HTMLSddsSideMenuButtonElement;
 
-  /** Opens and closes the dropdown */
-  @Prop({ reflect: true }) open: boolean = false;
+  /** If the dropdown should be open from the start */
+  @Prop() initialOpen: boolean = false;
 
   @Prop() buttonLabel: string;
 
@@ -17,6 +17,8 @@ export class SideMenuDropdown {
 
   /** Placement of the dropdown menu relative to the button TODO*/
   @Prop() placement: 'start' | 'end' = 'start';
+
+  @State() open: boolean = false;
 
   @State() hoverState: { isHovered: boolean; updatedAt: number };
 
@@ -66,6 +68,7 @@ export class SideMenuDropdown {
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
     this.collapsed = this.sideMenuEl.collapsed;
+    this.open = this.initialOpen;
   }
 
   render() {
