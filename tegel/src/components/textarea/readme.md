@@ -16,6 +16,7 @@
 | `maxLength`     | `max-length`     | Max length of input                      | `number`                              | `undefined`  |
 | `modeVariant`   | `mode-variant`   | Mode variant of the textarea             | `"primary" \| "secondary"`            | `null`       |
 | `name`          | `name`           | Name attribute                           | `string`                              | `''`         |
+| `noMinWidth`    | `no-min-width`   | Unset minimum width of 208px.            | `boolean`                             | `false`      |
 | `placeholder`   | `placeholder`    | Placeholder text                         | `string`                              | `''`         |
 | `readOnly`      | `read-only`      | Set input in readonly state              | `boolean`                             | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                  | `number`                              | `undefined`  |

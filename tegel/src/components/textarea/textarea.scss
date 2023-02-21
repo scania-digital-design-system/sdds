@@ -66,6 +66,10 @@
   background-color: transparent;
   flex-flow: row wrap;
   border-bottom: 0;
+
+  &.no-min-width {
+    min-width: unset;
+  }
 }
 
 .sdds-textarea-container {
