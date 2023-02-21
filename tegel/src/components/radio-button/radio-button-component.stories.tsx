@@ -86,7 +86,7 @@ const Template = ({label, disabled}) =>
 
   <!-- Script tag with eventlistener for demo purposes. -->
   <script>
-  document.addEventListener('sddsRadioButtonChangeEvent', (event) => {
+  document.addEventListener('sddsChange', (event) => {
     console.log('Radio button with id: ', event.detail.radioId, ' with value:', event.detail.value, ' was selected.')
   })
   </script>

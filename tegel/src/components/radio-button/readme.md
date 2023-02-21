@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event                        | Description                                                                                                                                                                                                      | Type                                               |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `sddsRadioButtonChangeEvent` | Sends unique radio button identifier and status when it is checked. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. | `CustomEvent<{ radioId: string; value: string; }>` |
+| Event        | Description                                                                                                                                                                                                      | Type                                               |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `sddsChange` | Sends unique radio button identifier and status when it is checked. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. | `CustomEvent<{ radioId: string; value: string; }>` |
 
 
 ----------------------------------------------
