@@ -23,6 +23,9 @@ export class SddsCheckbox {
   /** Sets the checkbox as checked */
   @Prop({ reflect: true }) checked: boolean = false;
 
+  /** Value for the checkbox */
+  @Prop() value: string;
+
   @Element() host: HostElement;
 
   /** Toggles the checked value of the component. */
@@ -37,23 +40,53 @@ export class SddsCheckbox {
 
   /** Sends unique checkbox identifier and checked status when it is checked/unchecked. */
   @Event({
-    eventName: 'checkboxChange',
+    eventName: 'sddsChange',
     composed: true,
     cancelable: false,
     bubbles: true,
   })
-  checkboxChange: EventEmitter<{
+  sddsChange: EventEmitter<{
     checkboxId: string;
     checked: boolean;
+    value?: string;
   }>;
 
   handleChange = () => {
     this.checked = !this.checked;
-    this.checkboxChange.emit({
+    this.sddsChange.emit({
       checkboxId: this.checkboxId,
       checked: this.checked,
+      value: this.value,
     });
   };
+
+  /** Focus event for the checkbox */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
+
+  /** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  handleFocus(event): void {
+    this.sddsFocus.emit(event);
+  }
+
+  /** Blur event for the checkbox */
+  @Event({
+    eventName: 'sddsBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
+  /** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  handleBlur(event): void {
+    this.sddsBlur.emit(event);
+  }
 
   render() {
     return (
@@ -66,9 +99,12 @@ export class SddsCheckbox {
           required={this.required}
           type="checkbox"
           name={this.name}
+          value={this.value}
           id={this.checkboxId}
           checked={this.checked}
           disabled={this.disabled}
+          onFocus={(event) => this.handleFocus(event)}
+          onBlur={(event) => this.handleBlur(event)}
           onChange={() => {
             this.handleChange();
           }}
