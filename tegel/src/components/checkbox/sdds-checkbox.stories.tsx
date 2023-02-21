@@ -52,6 +52,7 @@ const Template = ({ checked, disabled, label }) =>
     <sdds-checkbox
         ${checked ? 'checked' : ''}
         ${disabled ? 'disabled' : ''}
+        value="checkbox-value"
         >
         ${label}
     </sdds-checkbox>

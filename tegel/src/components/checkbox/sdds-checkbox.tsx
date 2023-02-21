@@ -23,6 +23,9 @@ export class SddsCheckbox {
   /** Sets the checkbox as checked */
   @Prop({ reflect: true }) checked: boolean = false;
 
+  /** Value for the checkbox */
+  @Prop() value: string;
+
   @Element() host: HostElement;
 
   /** Toggles the checked value of the component. */
@@ -45,6 +48,7 @@ export class SddsCheckbox {
   sddsChange: EventEmitter<{
     checkboxId: string;
     checked: boolean;
+    value?: string;
   }>;
 
   handleChange = () => {
@@ -52,6 +56,7 @@ export class SddsCheckbox {
     this.sddsChange.emit({
       checkboxId: this.checkboxId,
       checked: this.checked,
+      value: this.value,
     });
   };
 
@@ -94,6 +99,7 @@ export class SddsCheckbox {
           required={this.required}
           type="checkbox"
           name={this.name}
+          value={this.value}
           id={this.checkboxId}
           checked={this.checked}
           disabled={this.disabled}
