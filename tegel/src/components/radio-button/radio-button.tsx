@@ -57,6 +57,7 @@ export class RadioButton {
         type="radio" 
         name={this.name}
         id={this.radioId} 
+        value={this.value}
         checked={this.checked} 
         aria-checked={this.checked} 
 
