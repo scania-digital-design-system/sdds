@@ -12,9 +12,6 @@ export class RadioButton {
   /** Name of radio button, used for reference. */
   @Prop() name: string;
 
-  /** Label text connected to radio button. */
-  @Prop() label: string;
-
   /** Value of input. */
   @Prop() value: string;
 
@@ -75,7 +72,7 @@ export class RadioButton {
           })
         }} />
         <label htmlFor={this.radioId}>
-          {this.label}
+          <slot></slot>
         </label>
         </div>
     );

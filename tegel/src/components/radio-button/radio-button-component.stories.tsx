@@ -62,12 +62,14 @@ const Template = ({label, disabled}) =>
     radio-id="option-1"
     aria-labelled-by="option-1"
     aria-describedby="option-1"
-    ${label ? `label="${label} 1"` : ''}
     required=false
     ${disabled ? 'disabled' : ''}
-    checked="true" >
+    checked="true" 
+  >
+    ${label} 1
   </sdds-radio-button>
-  <sdds-radio-button ${label ? `label="${label} 2"` : ''}
+
+  <sdds-radio-button
     name="rb-example"
     value="option2"
     radio-id="option-2"
@@ -75,7 +77,9 @@ const Template = ({label, disabled}) =>
     aria-described-by="option-2"
     ${label ? `label="${label} 2"` : ''}
     required=false
-    ${disabled ? 'disabled' : ''} >
+    ${disabled ? 'disabled' : ''} 
+  >
+    ${label} 2
   </sdds-radio-button>
     
   </fieldset>
