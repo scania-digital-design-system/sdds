@@ -182,7 +182,9 @@ export class Textfield {
                 }
               }}
               onBlur={(event) => {
-                this.handleBlur(event);
+                if (!this.readOnly) {
+                  this.handleBlur(event);
+                }
               }}
             />
 
