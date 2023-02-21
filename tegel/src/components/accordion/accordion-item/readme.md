@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event                 | Description                                                                                                               | Type                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `accordionItemToggle` | Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion | `CustomEvent<boolean>` |
+| Event        | Description                                                                                                               | Type                   |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `sddsToggle` | Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion | `CustomEvent<boolean>` |
 
 
 ## Dependencies

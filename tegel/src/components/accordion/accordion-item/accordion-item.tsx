@@ -23,25 +23,24 @@ export class AccordionItem {
 
   /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
   @Event({
-    eventName: 'accordionItemToggle',
+    eventName: 'sddsToggle',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  accordionItemToggle: EventEmitter<boolean>;
+  sddsToggle: EventEmitter<boolean>;
 
   openAccordion() {
     this.expanded = !this.expanded;
-
-    this.accordionItemToggle.emit(this.expanded);
+    this.sddsToggle.emit(this.expanded);
   }
 
   render() {
     return (
       <Host>
         <div
-          class={`sdds-accordion-item 
-        ${this.disabled ? 'disabled' : ''} 
+          class={`sdds-accordion-item
+        ${this.disabled ? 'disabled' : ''}
         ${this.expanded ? 'expanded' : ''}
         `}
         >
@@ -58,8 +57,8 @@ export class AccordionItem {
             </div>
           </button>
           <div
-            class={`sdds-accordion-panel 
-            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
+            class={`sdds-accordion-panel
+            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}
             `}
           >
             <slot></slot>

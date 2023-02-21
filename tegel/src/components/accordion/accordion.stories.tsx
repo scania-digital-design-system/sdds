@@ -77,7 +77,9 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
 
   return formatHtmlPreview(`
-    <sdds-accordion ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
+    <sdds-accordion ${
+      modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+    }>
       <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
@@ -87,7 +89,16 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum.
       </sdds-accordion-item>
     </sdds-accordion>
-  `);
+
+    <!-- Script tag for demo purposes -->
+  <script>
+    accordionItems = document.querySelectorAll('sdds-accordion-item');
+    for (let i = 0; i < accordionItems.length; i++) {
+      accordionItems[i].addEventListener('sddsToggle',() => {
+        console.log(i + 1 + ". item of accordion is toggled")
+      })
+    }
+  </script>`);
 };
 
 export const Default = Template.bind({});
