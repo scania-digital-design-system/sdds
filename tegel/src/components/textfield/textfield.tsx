@@ -97,7 +97,6 @@ export class Textfield {
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocus(event): void {
-    console.log('hej');
     this.textInput.focus();
     this.focusInput = true;
     this.sddsFocus.emit(event);
