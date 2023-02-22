@@ -30,6 +30,13 @@ const Template = () =>
         .submit-button-container{
             width: 100%;
         }
+
+        sdds-toast {
+            display: none;
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+        }
     </style>
     <nav class="sdds-nav">
         <div class="sdds-nav__left">
@@ -92,18 +99,20 @@ const Template = () =>
 
             <fieldset class="radio-fieldset-reset">
                 <sdds-radio-button
-                    label="Radio 1"
                     name="radio-example"
                     value="option1"
                     radio-id="option-1"
                     checked
-                ></sdds-radio-button>
+                    >
+                    Radio 1
+                </sdds-radio-button>
                 <sdds-radio-button
-                    label="Radio 2"
                     name="radio-example"
                     value="option2"
                     radio-id="option-2"
-                ></sdds-radio-button>
+                    >
+                    Radio 2
+                </sdds-radio-button>
             </fieldset>
 
 
@@ -120,6 +129,9 @@ const Template = () =>
                 />
             </div>
         </form>
+        <sdds-toast type="success" header="Form submitted.">
+            <div slot="toast-subheader">Check out the console.log for the result.</div>
+        </sdds-toast>
     </main>
     <div class="sdds-footer">
         <div class="sdds-footer-main">
@@ -130,8 +142,13 @@ const Template = () =>
     </div>
     <script>
         form = document.querySelector('[name="my-form"]')
+        toast = document.querySelector('sdds-toast')
+        toast.addEventListener('sddsClose',()=> {
+            toast.style.display = 'none';
+        })
 
         form.addEventListener('submit', (event) => {
+            toast.style.display = 'block';
             event.preventDefault();
             event.stopPropagation();
 
