@@ -11,6 +11,8 @@ export class SddsSideMenuButton {
   /** Gives the appearance of a selected button */
   @Prop() selected: boolean = false;
 
+  @Prop() active: boolean = false;
+
   @State() collapsed: boolean = false;
 
   sideMenuEl: HTMLSddsSideMenuElement;
@@ -31,6 +33,7 @@ export class SddsSideMenuButton {
         <li
           class={{
             'state--selected': this.selected,
+            'state--active': this.active,
             'state--collapsed': this.collapsed,
           }}
         >

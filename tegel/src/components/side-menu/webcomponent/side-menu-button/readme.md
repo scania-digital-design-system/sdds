@@ -9,6 +9,7 @@
 
 | Property   | Attribute  | Description                               | Type      | Default |
 | ---------- | ---------- | ----------------------------------------- | --------- | ------- |
+| `active`   | `active`   |                                           | `boolean` | `false` |
 | `selected` | `selected` | Gives the appearance of a selected button | `boolean` | `false` |
 
 

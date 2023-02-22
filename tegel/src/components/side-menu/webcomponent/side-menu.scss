@@ -73,6 +73,10 @@
       }
     }
 
+    .menu {
+      width: 272px;
+    }
+
     .state--closed {
       display: block;
     }
@@ -98,7 +102,7 @@
     box-sizing: border-box;
   }
 
-  width: 272px;
+  width: 80%;
   height: inherit;
   position: relative;
   left: 0;

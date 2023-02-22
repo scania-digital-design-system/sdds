@@ -3,23 +3,6 @@
 :host {
   display: block;
 
-  .state--selected {
-    button {
-      border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
-      padding-left: 20px;
-      background-color: var(--sdds-sidebar-item-state-selected);
-    }
-  }
-
-  .state--collapsed {
-    button {
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
   li {
     height: 68px;
     list-style: none;
@@ -43,11 +26,6 @@
       margin-left: -4px; // makes left padding 20px if there is an icon
     }
 
-    &.selected {
-      border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
-      padding-left: 20px;
-    }
-
     &:hover {
       cursor: pointer;
       background-color: var(--sdds-sidebar-item-state-hover);
@@ -59,6 +37,34 @@
 
     &:focus-visible {
       @include sdds-focus-state;
+    }
+  }
+
+  .state--selected:not(.state--active) {
+    button {
+      border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
+      padding-left: 20px;
+      background-color: var(--sdds-sidebar-item-state-selected);
+    }
+
+    &.state--collapsed {
+      button {
+        padding-right: 4px;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .state--collapsed {
+    button {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      slot[name='icon']::slotted(*) {
+        margin-left: 0; // reset rule of normal state
+      }
     }
   }
 }

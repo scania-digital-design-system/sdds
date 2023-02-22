@@ -13,7 +13,7 @@ export class SideMenuDropdown {
 
   @Prop() buttonLabel: string;
 
-  @Prop() active: boolean = false;
+  @Prop() selected: boolean = false;
 
   /** Placement of the dropdown menu relative to the button TODO*/
   @Prop() placement: 'start' | 'end' = 'start';
@@ -63,6 +63,10 @@ export class SideMenuDropdown {
     }, toleranceInMilliseconds);
   }
 
+  getIsOpenState() {
+    return this.collapsed ? this.hoverState?.isHovered : this.open;
+  }
+
   sideMenuEl: HTMLSddsSideMenuElement;
 
   connectedCallback() {
@@ -77,13 +81,14 @@ export class SideMenuDropdown {
         <div
           class={{
             'wrapper': true,
-            'state--open': this.collapsed ? this.hoverState?.isHovered : this.open,
+            'state--open': this.getIsOpenState(),
             'state--collapsed': this.collapsed,
           }}
         >
           <sdds-side-menu-button
             class="button"
-            // isActive={this.open}
+            active={this.getIsOpenState()}
+            selected={this.selected}
             onClick={() => {
               this.open = !this.open;
             }}

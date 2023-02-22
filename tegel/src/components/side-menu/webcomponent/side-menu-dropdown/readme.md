@@ -9,10 +9,10 @@
 
 | Property      | Attribute      | Description                                                | Type               | Default     |
 | ------------- | -------------- | ---------------------------------------------------------- | ------------------ | ----------- |
-| `active`      | `active`       |                                                            | `boolean`          | `false`     |
 | `buttonLabel` | `button-label` |                                                            | `string`           | `undefined` |
 | `initialOpen` | `initial-open` | If the dropdown should be open from the start              | `boolean`          | `false`     |
 | `placement`   | `placement`    | Placement of the dropdown menu relative to the button TODO | `"end" \| "start"` | `'start'`   |
+| `selected`    | `selected`     |                                                            | `boolean`          | `false`     |
 
 
 ## Dependencies
