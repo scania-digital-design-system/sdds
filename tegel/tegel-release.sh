@@ -17,6 +17,12 @@ if [ "$tag" != "beta" ] && [ "$tag" != "latest" ]; then
   exit 1
 fi
 
+# Create git tag
+git tag @scania/tegel@$version
+
+# Push git tag
+git push origin @scania/tegel@$version
+
 # Update the version in package.json
 npm version $version
 
