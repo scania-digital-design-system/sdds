@@ -18,6 +18,15 @@ const Template = () =>
             gap: var(--sdds-spacing-element-24);
         }
 
+        sdds-textfield,
+        sdds-slider {
+            width: 25%;
+        }
+
+        sdds-textarea {
+            width: 50%;
+        }
+
         .checkbox-container,
         .toggle-container {
             display: flex;
@@ -32,7 +41,6 @@ const Template = () =>
         }
 
         sdds-toast {
-            display: none;
             position: fixed;
             bottom: 16px;
             right: 16px;
@@ -49,14 +57,23 @@ const Template = () =>
     <main class="demo-wrapper">
         <form id="sdds-form" name="my-form" class="form">
             <sdds-textfield
-                name="full-name"
+                name="first-name"
                 type="text"
                 size="lg"
                 state="default"s
-                label="Your name"
+                label="First name"
                 label-position="inside"
                 no-min-width
-                placeholder="Name"
+                >
+            </sdds-textfield>
+            <sdds-textfield
+                name="last-name"
+                type="text"
+                size="lg"
+                state="default"s
+                label="Last name"
+                label-position="inside"
+                no-min-width
                 >
             </sdds-textfield>
             <sdds-textarea
@@ -64,6 +81,7 @@ const Template = () =>
                 label-position="inside"
                 name="my-textarea"
                 type="text"
+                rows="10"
             ></sdds-textarea>
 
             
@@ -121,15 +139,14 @@ const Template = () =>
                 label="How many years have you been at Scania?"
                 input>
             </sdds-slider>
-
-            <div class="submit-button-container">
-                <input
-                class="sdds-btn sdds-btn-fullbleed sdds-btn-primary sdds-btn-md"
+            <input
                 type="submit"
-                />
-            </div>
+                value="Submit form"
+                class="sdds-btn sdds-btn-primary"
+            />
+            
         </form>
-        <sdds-toast type="success" header="Form submitted.">
+        <sdds-toast class="hide" type="success" header="Form submitted.">
             <div slot="toast-subheader">Check out the console.log for the result.</div>
         </sdds-toast>
     </main>
@@ -144,11 +161,13 @@ const Template = () =>
         form = document.querySelector('[name="my-form"]')
         toast = document.querySelector('sdds-toast')
         toast.addEventListener('sddsClose',()=> {
-            toast.style.display = 'none';
+            toast.classList.remove('show')
+            toast.classList.add('hide')
         })
 
         form.addEventListener('submit', (event) => {
-            toast.style.display = 'block';
+            toast.classList.remove('hide')
+            toast.classList.add('show')
             event.preventDefault();
             event.stopPropagation();
 
