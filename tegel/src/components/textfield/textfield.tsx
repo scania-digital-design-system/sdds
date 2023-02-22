@@ -4,6 +4,7 @@ import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
   tag: 'sdds-textfield',
   styleUrl: 'textfield.scss',
   shadow: false,
+  scoped: true,
 })
 export class Textfield {
   /** Textinput for focus state */
@@ -118,13 +119,6 @@ export class Textfield {
   }
 
   render() {
-    let className = ' sdds-textfield-input';
-    if (this.size === 'md') {
-      className += `${className}-md`;
-    }
-    if (this.size === 'sm') {
-      className += `${className}-sm`;
-    }
     return (
       <div
         class={`
@@ -165,7 +159,7 @@ export class Textfield {
           <div class="sdds-textfield-input-container">
             <input
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
-              class={className}
+              class={`sdds-textfield-input-${this.size}`}
               type={this.type}
               disabled={this.disabled}
               readonly={this.readOnly}

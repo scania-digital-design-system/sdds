@@ -4,6 +4,7 @@ import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
   tag: 'sdds-textarea',
   styleUrl: 'textarea.scss',
   shadow: false,
+  scoped: true,
 })
 export class Textarea {
   /** Textinput for focus state */
