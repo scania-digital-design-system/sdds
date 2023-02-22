@@ -30,7 +30,7 @@ npm version $version
 npm install
 
 # Build
-npm run Build
+npm run build
 
 #publish
 npm publish -tag $tag
