@@ -22,7 +22,7 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
-      description: 'Size of the component',
+      description: 'Sets the size of the component.',
       control: {
         type: 'radio',
       },
@@ -36,7 +36,7 @@ export default {
     },
     value: {
       name: 'Value',
-      description: 'Set a value to show on the badge',
+      description: 'Sets a value to show on the badge.',
       control: {
         type: 'number',
       },
@@ -47,7 +47,7 @@ export default {
     },
     hidden: {
       name: 'Hidden',
-      description: 'Toggle visibility of badge',
+      description: 'Toggles visibility of the badge.',
       control: {
         type: 'boolean',
       },
