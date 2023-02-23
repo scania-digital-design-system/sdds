@@ -185,8 +185,9 @@
 
       &.upcoming {
         background-color: transparent;
-        border-color: rgb(0 21 51 / 16%);
-        color: rgb(0 21 51 / 38%);
+        border-color: var(--sdds-stepper-label-border-color-upcoming);
+        color: var(--sdds-stepper-label-text-color-upcoming);
+        opacity: var(--sdds-stepper-label-text-opacity-upcoming);
       }
     }
 
@@ -204,7 +205,8 @@
       }
 
       &.upcoming {
-        color: rgb(0 21 51 / 38%);
+        color: var(--sdds-stepper-label-text-color-upcoming);
+        opacity: var(--sdds-stepper-label-text-opacity-upcoming);
       }
     }
   }
