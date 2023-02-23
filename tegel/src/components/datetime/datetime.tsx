@@ -123,9 +123,9 @@ export class Datetime {
   }
 
   /** Set the input as focus when clicking the whole datetime with suffix/prefix */
-  handleFocusClick(): void {
+  handleFocusClick(e): void {
     this.textInput.focus();
-    this.sddsFocus.emit();
+    this.sddsFocus.emit(e);
   }
 
   /** Set the input as focus when clicking the whole datetime with suffix/prefix */
@@ -165,7 +165,7 @@ export class Datetime {
           </label>
         )}
         <div
-          onClick={() => this.handleFocusClick()}
+          onClick={(e) => this.handleFocusClick(e)}
           class="sdds-datetime-container sdds-datetime-container"
         >
           <div class="sdds-datetime-input-container">

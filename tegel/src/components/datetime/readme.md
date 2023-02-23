@@ -25,7 +25,7 @@
 
 | Event        | Description                   | Type                      |
 | ------------ | ----------------------------- | ------------------------- |
-| `sddsBlur`   | Blur event for the datetime   | `CustomEvent<any>`        |
+| `sddsBlur`   | Blur event for the datetime   | `CustomEvent<FocusEvent>` |
 | `sddsChange` | Change event for the datetime | `CustomEvent<any>`        |
 | `sddsFocus`  | Focus event for the datetime  | `CustomEvent<FocusEvent>` |
 
