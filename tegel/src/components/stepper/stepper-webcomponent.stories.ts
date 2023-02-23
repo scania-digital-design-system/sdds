@@ -63,6 +63,10 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
     },
   },
   args: {
