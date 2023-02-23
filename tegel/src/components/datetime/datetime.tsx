@@ -60,7 +60,7 @@ export class Datetime {
   @Event({
     composed: true,
     bubbles: true,
-    cancelable: true,
+    cancelable: false,
   })
   sddsBlur: EventEmitter<FocusEvent>;
 
