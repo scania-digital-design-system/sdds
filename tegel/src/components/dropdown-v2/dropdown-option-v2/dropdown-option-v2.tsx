@@ -40,15 +40,6 @@ export class DropdownOptionV2 {
     }
   }
 
-  componentWillRender() {
-    if (!this.label) {
-      console.log(this.host.innerHTML);
-      this.label = this.host.innerHTML.replace('<!---->', '');
-      this.host.setAttribute('label', this.label);
-      this.host.innerHTML = '';
-    }
-  }
-
   render() {
     return (
       <Host>
