@@ -227,8 +227,6 @@
 
   /* DROPDOWN LIST */
   .dropdown-menu {
-    position: relative;
-
     [role='listbox'] {
       z-index: z(dropdown);
       position: absolute;
@@ -251,18 +249,7 @@
         top: auto;
         transform-origin: bottom;
         box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
-
-        &.lg {
-          bottom: 56px;
-        }
-
-        &.md {
-          bottom: 48px;
-        }
-
-        &.sm {
-          bottom: 40px;
-        }
+        bottom: 100%;
       }
 
       &.label-outside {
