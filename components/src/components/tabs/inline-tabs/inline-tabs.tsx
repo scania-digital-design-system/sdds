@@ -6,6 +6,8 @@ import {
   Prop,
   h,
   Method,
+  EventEmitter,
+  Event
 } from '@stencil/core';
 
 @Component({
@@ -242,13 +244,28 @@ export class InlineTabs {
     tab.visible = false;
   }
 
+  /** Emitted when a tab is selected. */
+  @Event({
+    eventName: 'sddsChange',
+    composed: true,
+    cancelable: false,
+    bubbles: true,
+  })
+  sddsChange: EventEmitter<{
+    tabKey: string
+  }>;
+
   switchToTab(key: string) {
     this.tabs.map((tab) => {
       if (tab.key == key) {
         this._showTab(tab);
+        this.sddsChange.emit({
+          tabKey: key
+        })
       } else {
         this._hideTab(tab);
       }
+      
     });
 
     this.tabs = Array.from(this.tabs);

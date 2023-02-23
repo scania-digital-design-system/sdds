@@ -68,6 +68,16 @@ const Template = ({ autoHeight = false, modeVariant }) => `
     </div>
 
   </sdds-inline-tabs>
+
+  <script>
+    tabs = document.querySelector('sdds-inline-tabs');
+
+    tabs.addEventListener('sddsChange', (event) => {
+      console.log(event)
+    })
+
+
+  </script>
 `;
 
 export const Basic = Template.bind({});

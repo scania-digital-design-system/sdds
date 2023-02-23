@@ -14,6 +14,13 @@
 | `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50                                      | `"primary" \| "secondary"` | `'primary'` |
 
 
+## Events
+
+| Event        | Description                     | Type                               |
+| ------------ | ------------------------------- | ---------------------------------- |
+| `sddsChange` | Emitted when a tab is selected. | `CustomEvent<{ tabKey: string; }>` |
+
+
 ## Methods
 
 ### `showTab(key: string) => Promise<void>`
