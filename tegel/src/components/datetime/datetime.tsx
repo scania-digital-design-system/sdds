@@ -62,7 +62,7 @@ export class Datetime {
     bubbles: true,
     cancelable: true,
   })
-  sddsBlur: EventEmitter;
+  sddsBlur: EventEmitter<FocusEvent>;
 
   /** Focus event for the datetime */
   @Event({
