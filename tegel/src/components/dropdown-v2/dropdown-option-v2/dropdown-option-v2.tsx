@@ -40,6 +40,14 @@ export class DropdownOptionV2 {
     }
   }
 
+  componentWillRender() {
+    if (!this.label) {
+      this.label = this.host.innerHTML.replace('<!---->', '');
+      this.host.setAttribute('label', this.label);
+      this.host.innerHTML = '';
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -65,7 +73,7 @@ export class DropdownOptionV2 {
                 checked={this.selected}
                 disabled={this.disabled}
               >
-                {this.label}
+                {this.label ? this.label : <slot></slot>}
               </sdds-checkbox>
             ) : (
               <button
@@ -82,7 +90,7 @@ export class DropdownOptionV2 {
             ${this.multiselect ? 'multiselect' : ''}
             `}
               >
-                {this.label}
+                {this.label ? this.label : <slot></slot>}
                 {!this.multiselect && this.selected && (
                   <sdds-icon name="tick" size="16px"></sdds-icon>
                 )}

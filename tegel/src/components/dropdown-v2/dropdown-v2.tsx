@@ -179,7 +179,7 @@ export class DropdownV2 {
 
   addEventHandler = (element: HTMLSddsDropdownOptionV2Element, index?: number) => {
     if (this.multiselect) {
-      element.addEventListener('checkboxChange', () => {
+      element.addEventListener('sddsChange', () => {
         this.addMultiSelectEventListener(element);
       });
     } else {
