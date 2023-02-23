@@ -28,7 +28,6 @@ export default {
         type: 'radio',
       },
       table: {
-        type: { summary: 'string' },
         defaultValue: { summary: 'horizontal' },
       },
       options: ['Horizontal', 'Vertical'],
@@ -40,7 +39,6 @@ export default {
         type: 'radio',
       },
       table: {
-        type: { summary: 'string' },
         defaultValue: { summary: 'below' },
       },
       options: ['Below', 'Aside'],
@@ -53,18 +51,17 @@ export default {
         type: 'radio',
       },
       table: {
-        type: { summary: 'string' },
         defaultValue: { summary: 'lg' },
       },
       options: ['Large', 'Small'],
     },
     hideLabels: {
-      name: 'Show/Hide labels',
+      name: 'Hide labels',
+      description: 'Hides the labels for all stepper items.',
       control: {
         type: 'boolean',
       },
       table: {
-        type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
       },
     },
