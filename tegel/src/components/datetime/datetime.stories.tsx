@@ -182,9 +182,9 @@ const datetimeTemplate = ({
   <div class="demo-wrapper">
 
     <sdds-datetime
-      id="datetime"
+      id="storybook-datetime"
       ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
       type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
@@ -197,15 +197,17 @@ const datetimeTemplate = ({
 
 
     <script>
-
-
-    /* You can listen for the 'customChange' event to get value updates. */
-      const datetimeEl = document.getElementById('datetime');
-      datetimeEl.addEventListener('customChange', (event) => {
-        console.log(event.target.value);
+    /* DEMO Code: Used only for Storybook demo purposes */
+      const datetimeEl = document.getElementById('storybook-datetime');
+      datetimeEl.addEventListener('sddsChange', (event) => {
+        console.log("Firing sddsChange: " + event.target.value);
       });
-
-
+      datetimeEl.addEventListener('sddsFocus', (event) => {
+        console.log("Firing sddsFocus: " + event.target.value);
+      });
+      datetimeEl.addEventListener('sddsBlur', (event) => {
+        console.log("Firing sddsBlur: " + event.target.value);
+      });
     </script>
   </div>`,
   );
