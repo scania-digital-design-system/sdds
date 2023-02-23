@@ -29,9 +29,9 @@
 
 ## Events
 
-| Event            | Description | Type                                                                               |
-| ---------------- | ----------- | ---------------------------------------------------------------------------------- |
-| `dropdownSelect` |             | `CustomEvent<{ dropdownId: string; value: { value: string; label: string; }[]; }>` |
+| Event            | Description | Type                                                                |
+| ---------------- | ----------- | ------------------------------------------------------------------- |
+| `dropdownSelect` |             | `CustomEvent<{ dropdownId: string; value: { label: string; }[]; }>` |
 
 
 ## Dependencies

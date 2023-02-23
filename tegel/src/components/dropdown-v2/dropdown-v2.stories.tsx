@@ -149,23 +149,19 @@ export default {
 
 const multiDefaultOptionJSON = (multiDefaultOption: string[]) => `[
     {
-      "value": "option-1",
       "label":"Option 1",
       "disabled":"true",
       "selected":${multiDefaultOption.includes('Option 1') ? 'true' : 'false'}
     },
     {
-      "value":"option-2",
       "label":"Option 2",
       "selected":${multiDefaultOption.includes('Option 2') ? 'true' : 'false'}
     },
     {
-      "value":"option-3",
       "label":"Option 3",
       "selected":${multiDefaultOption.includes('Option 3') ? 'true' : 'false'}
     },
     {
-      "value":"option-4",
       "label":"Option 4",
       "selected":${multiDefaultOption.includes('Option 4') ? 'true' : 'false'}
     }
@@ -174,23 +170,19 @@ const multiDefaultOptionJSON = (multiDefaultOption: string[]) => `[
 const defaultOptionJSON = (defaultOption: string) => `
 [
   {
-    "value": "option-1",
     "label":"Option 1",
     "disabled":"true",
     "selected":"${defaultOption === 'Option 1'}"
   },
   {
-    "value":"option-2",
     "label":"Option 2",
     "selected":"${defaultOption === 'Option 2'}"
   },
   {
-    "value":"option-3",
     "label":"Option 3",
     "selected": "${defaultOption === 'Option 3'}"
   },
   {
-    "value":"option-4",
     "label":"Option 4",
     "selected": "${defaultOption === 'Option 4'}"
   }
@@ -199,39 +191,33 @@ const defaultOptionJSON = (defaultOption: string) => `
 const multiDefaultOptionChildren = (multiDefaultOption: string[]) => `
       <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 1') ? 'selected' : ''
-      } value="option-1" label="Option-1" disabled>
+      }  label="Option-1" disabled>
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 2') ? 'selected' : ''
-      } value="option-2" label="Option-2">
+      }  label="Option-2">
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 3') ? 'selected' : ''
-      } value="option-3" label="Option-3">
+      }  label="Option-3">
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 ${
         multiDefaultOption.includes('Option 4') ? 'selected' : ''
-      } value="option-4" label="Option-4">
+      }  label="Option-4">
       </sdds-dropdown-option-v2>
  `;
 const defaultOptionChildren = (defaultOption: string) => `
       <sdds-dropdown-option-v2 ${
         defaultOption === 'Option 1' ? 'selected' : ''
-      } value="option-1" label="Option-1" disabled>
+      } label="Option-1" disabled>
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 ${
-        defaultOption === 'Option 2' ? 'selected' : ''
-      } value="option-2" label="Option-2">
+      <sdds-dropdown-option-v2 ${defaultOption === 'Option 2' ? 'selected' : ''}  label="Option-2">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 ${
-        defaultOption === 'Option 3' ? 'selected' : ''
-      } value="option-3" label="Option-3">
+      <sdds-dropdown-option-v2 ${defaultOption === 'Option 3' ? 'selected' : ''}  label="Option-3">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 ${
-        defaultOption === 'Option 4' ? 'selected' : ''
-      } value="option-4" label="Option-4">
+      <sdds-dropdown-option-v2 ${defaultOption === 'Option 4' ? 'selected' : ''} " label="Option-4">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 value="test">
+      <sdds-dropdown-option-v2 >
         Option 7
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 label="Option-5">
@@ -323,9 +309,3 @@ const Template = ({
 
     `);
 export const WebComponent = Template.bind({});
-
-/*   <script>
-        document.addEventListener('dropdownSelect', (event)=> {
-          console.log('Dropdown with id:', event.detail.dropdownId, 'had selection made, chosen value(s) are:', event.detail.value)
-        })
-    </script> */

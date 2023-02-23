@@ -69,14 +69,12 @@ export class DropdownV2 {
   @Prop() dropdownHeight: string;
 
   @State() value: Array<{
-    value: string;
     label: string;
   }>;
 
   @State() noResult: boolean = false;
 
   @State() dataChildElements: Array<{
-    value: string;
     label: string;
     selected?: any;
     disabled?: boolean;
@@ -106,18 +104,17 @@ export class DropdownV2 {
     }
   };
 
-  setMultiselectValue = (newValue: { value: string; label: string }) => {
+  setMultiselectValue = (newValue: { label: string }) => {
     this.value = this.value ? [...this.value, newValue] : [newValue];
   };
 
-  setSingleSelectValue = (newValue: { value: string; label: string }) => {
+  setSingleSelectValue = (newValue: { label: string }) => {
     this.value = [newValue];
   };
 
   handleChildElementMultiselectSelection = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       this.setMultiselectValue({
-        value: element.getAttribute('value'),
         label: element.getAttribute('label'),
       });
       element.setAttribute('selected', '');
@@ -139,7 +136,6 @@ export class DropdownV2 {
         ) {
           element.setAttribute('selected', '');
           this.setSingleSelectValue({
-            value: element.getAttribute('value'),
             label: element.getAttribute('label'),
           });
         }
@@ -159,7 +155,6 @@ export class DropdownV2 {
       this.dataChildElements.forEach((dataElement, index) => {
         if (dataElement.selected) {
           this.setMultiselectValue({
-            value: this.dataChildElements[index].value,
             label: this.dataChildElements[index].label,
           });
         }
@@ -168,7 +163,6 @@ export class DropdownV2 {
       this.dataChildElements.forEach((dataElement, index) => {
         if (dataElement.selected === true || dataElement.selected === 'true') {
           this.setSingleSelectValue({
-            value: this.dataChildElements[index].value,
             label: this.dataChildElements[index].label,
           });
           this.host.setAttribute('value', JSON.stringify(this.value[0]));
@@ -192,16 +186,11 @@ export class DropdownV2 {
   addEventListenerForCheckbox = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       element.removeAttribute('selected');
-      this.value = this.value.filter(
-        (item) =>
-          item.value !== element.getAttribute('value') &&
-          item.label !== element.getAttribute('label'),
-      );
+      this.value = this.value.filter((item) => item.label !== element.getAttribute('label'));
       this.host.setAttribute('value', JSON.stringify(this.value));
     } else {
       element.setAttribute('selected', '');
       this.setMultiselectValue({
-        value: element.value,
         label: element.getAttribute('label'),
       });
       this.host.setAttribute('value', JSON.stringify(this.value));
@@ -211,16 +200,11 @@ export class DropdownV2 {
   addMultiSelectEventListener = (element: HTMLSddsDropdownOptionV2Element) => {
     if (element.hasAttribute('selected') && element.getAttribute('selected') !== 'false') {
       element.removeAttribute('selected');
-      this.value = this.value.filter(
-        (item) =>
-          item.value !== element.getAttribute('value') &&
-          item.label !== element.getAttribute('label'),
-      );
+      this.value = this.value.filter((item) => item.label !== element.getAttribute('label'));
       this.host.setAttribute('value', JSON.stringify(this.value));
     } else {
       element.setAttribute('selected', '');
       this.setMultiselectValue({
-        value: element.value,
         label: element.getAttribute('label'),
       });
       this.host.setAttribute('value', JSON.stringify(this.value));
@@ -231,7 +215,6 @@ export class DropdownV2 {
     element.setAttribute('selected', '');
     this.value = [
       {
-        value: element.getAttribute('value'),
         label: element.getAttribute('label'),
       },
     ];
@@ -289,16 +272,11 @@ export class DropdownV2 {
       this.value = [
         ...this.value,
         {
-          value: this.dataChildElements[index].value,
           label: this.dataChildElements[index].label,
         },
       ];
     } else {
-      this.value = this.value.filter(
-        (item) =>
-          item.value !== this.dataChildElements[index].value &&
-          item.label !== this.dataChildElements[index].label,
-      );
+      this.value = this.value.filter((item) => item.label !== this.dataChildElements[index].label);
     }
   }
 
@@ -316,7 +294,6 @@ export class DropdownV2 {
         this.value = [
           ...this.value,
           {
-            value: this.dataChildElements[index].value,
             label: this.dataChildElements[index].label,
           },
         ];
@@ -327,9 +304,7 @@ export class DropdownV2 {
           selected: index === itemIndex ? false : dataItem.selected,
         }));
         this.value = this.value.filter(
-          (item) =>
-            item.value !== this.dataChildElements[index].value &&
-            item.label !== this.dataChildElements[index].label,
+          (item) => item.label !== this.dataChildElements[index].label,
         );
         this.host.setAttribute('value', JSON.stringify(this.value));
       }
@@ -338,20 +313,17 @@ export class DropdownV2 {
         if (itemIndex === index) {
           this.value = [
             {
-              value: item.value,
               label: item.label,
             },
           ];
           this.host.setAttribute('value', JSON.stringify(this.value[0]));
           return {
-            value: this.dataChildElements[index].value,
             label: this.dataChildElements[index].label,
             disabled: this.dataChildElements[index].disabled,
             selected: true,
           };
         }
         return {
-          value: this.dataChildElements[itemIndex].value,
           label: this.dataChildElements[itemIndex].label,
           disabled: this.dataChildElements[itemIndex].disabled,
           selected: false,
@@ -366,10 +338,7 @@ export class DropdownV2 {
       if (this.data) {
         this.dataChildElements = this.dataChildElements.map((element) => ({
           ...element,
-          hidden: !(
-            element.value.toLowerCase().includes(query.toLowerCase()) ||
-            element.label.toLowerCase().includes(query.toLowerCase())
-          ),
+          hidden: !element.label.toLowerCase().includes(query.toLowerCase()),
         }));
         this.noResult = !this.dataChildElements.some((item) => item.hidden === false);
       } else {
@@ -439,7 +408,6 @@ export class DropdownV2 {
   dropdownSelect: EventEmitter<{
     dropdownId: string;
     value: Array<{
-      value: string;
       label: string;
     }>;
   }>;
@@ -563,7 +531,6 @@ export class DropdownV2 {
               this.dataChildElements.map((item, index) => (
                 <sdds-dropdown-option-v2
                   hidden={item.hidden}
-                  value={item.value}
                   label={item.label}
                   selected={item.selected}
                   disabled={item.disabled}

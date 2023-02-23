@@ -10,9 +10,6 @@ export class DropdownOptionV2 {
   /** Sets the dropdown option in a selected state */
   @Prop() selected: boolean = false;
 
-  /** The value of the dropdown option */
-  @Prop() value: string;
-
   /** Label text for the dropdown */
   @Prop() label: string;
 
