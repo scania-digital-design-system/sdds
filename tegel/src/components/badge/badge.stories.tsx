@@ -20,14 +20,18 @@ export default {
     ],
   },
   argTypes: {
-    hidden: {
-      name: 'Hidden',
-      description: 'Toggle visibility of badge',
+    size: {
+      name: 'Size',
+      description: 'Size of the component',
       control: {
-        type: 'boolean',
+        type: 'radio',
+      },
+      options: {
+        Large: 'lg',
+        Small: 'sm',
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'lg' },
       },
     },
     value: {
@@ -41,25 +45,21 @@ export default {
         defaultValue: { summary: null },
       },
     },
-    size: {
-      name: 'Size',
-      description: 'Size of the component',
-      options: {
-        Large: 'lg',
-        Small: 'sm',
-      },
+    hidden: {
+      name: 'Hidden',
+      description: 'Toggle visibility of badge',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'lg' },
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
-    hidden: false,
     size: 'lg',
     value: 1,
+    hidden: false,
   },
 };
 
