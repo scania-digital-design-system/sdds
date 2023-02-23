@@ -1,5 +1,3 @@
-@import './textarea-vars.scss';
-
 @mixin textfield-base {
   border-radius: 4px 4px 0 0;
   width: 100%;
@@ -29,7 +27,7 @@
       color: var(--sdds-textarea-disabled-placeholder);
     }
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       color: var(--sdds-textarea-disabled-label);
     }
   }
@@ -51,7 +49,7 @@
   }
 }
 
-.sdds-textarea-container {
+.textarea-container {
   //@extend .sdds-textfield-container;
   border-radius: 4px 4px 0 0;
   position: relative;
@@ -72,16 +70,16 @@
   }
 }
 
-.sdds-textarea-container {
-  .sdds-textarea-wrapper {
+.textarea-container {
+  .textarea-wrapper {
     position: relative;
     width: unset;
     min-width: 100%;
   }
 }
 
-.sdds-textarea-container:not(.sdds-textarea-disabled) {
-  .sdds-textarea-wrapper {
+.textarea-container:not(.textarea-disabled) {
+  .textarea-wrapper {
     &::before,
     &::after {
       content: '';
@@ -107,7 +105,7 @@
   }
 }
 
-.sdds-textarea-input {
+.textarea-input {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -129,7 +127,7 @@
 }
 
 // Need to override default resizer in FF & Safari
-.sdds-textarea-resizer-icon {
+.textarea-resizer-icon {
   color: var(--sdds-textarea-resize-icon);
   position: absolute;
   display: block;
@@ -145,7 +143,7 @@
   }
 }
 
-.sdds-textarea-label {
+.textarea-label {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
@@ -154,9 +152,9 @@
   color: var(--sdds-textarea-label-color);
 }
 
-.sdds-textarea-container {
-  &.sdds-textarea-label-inside {
-    .sdds-textarea-label {
+.textarea-container {
+  &.textarea-label-inside {
+    .textarea-label {
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
       transition: 0.1s ease all;
@@ -169,21 +167,21 @@
       left: var(--sdds-spacing-element-16);
     }
 
-    .sdds-textarea-input {
+    .textarea-input {
       @include placeholder-label;
     }
   }
 
-  &.sdds-textarea-focus {
-    &.sdds-textarea-label-inside {
-      .sdds-textarea-label {
+  &.textarea-focus {
+    &.textarea-label-inside {
+      .textarea-label {
         font: var(--sdds-detail-07);
         letter-spacing: var(--sdds-detail-07-ls);
         top: var(--sdds-spacing-element-8);
       }
     }
 
-    .sdds-textarea-wrapper {
+    .textarea-wrapper {
       &::before,
       &::after {
         width: 50%;
@@ -191,9 +189,9 @@
     }
   }
 
-  &.sdds-textarea-data {
-    &.sdds-textarea-label-inside {
-      .sdds-textarea-label {
+  &.textarea-data {
+    &.textarea-label-inside {
+      .textarea-label {
         font: var(--sdds-detail-07);
         letter-spacing: var(--sdds-detail-07-ls);
         top: var(--sdds-spacing-element-8);
@@ -202,14 +200,14 @@
   }
 }
 
-.sdds-textarea-textcounter {
+.textarea-textcounter {
   //@extend .sdds-textfield-textcounter;
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   color: var(--sdds-textarea-textcounter);
   float: right;
 
-  & .sdds-textfield-textcounter-divider {
+  & .textfield-textcounter-divider {
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     color: var(--sdds-textarea-textcounter-divider);
@@ -222,7 +220,7 @@
   padding-top: var(--sdds-spacing-element-4);
 }
 
-.sdds-textarea-helper {
+.textarea-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: flex;
@@ -233,50 +231,50 @@
   flex-grow: 2;
   flex-basis: auto;
 
-  ~ .sdds-textarea-textcounter {
+  ~ .textarea-textcounter {
     flex-basis: auto;
   }
 }
 
 // Different state
 
-.sdds-textarea-success {
-  .sdds-textarea-input {
+.textarea-success {
+  .textarea-input {
     border-bottom-color: var(--sdds-textarea-border-bottom-success);
   }
 }
 
-.sdds-textarea-error {
-  .sdds-textarea-input {
+.textarea-error {
+  .textarea-input {
     border-bottom-color: var(--sdds-textarea-border-bottom-error);
   }
 
-  .sdds-textarea-wrapper {
+  .textarea-wrapper {
     &::after,
     &::before {
       background: var(--sdds-textarea-bar-error);
     }
   }
 
-  .sdds-textarea-helper {
+  .textarea-helper {
     color: var(--sdds-textarea-helper-error);
   }
 }
 
 //Disabled state
-.sdds-textarea-disabled {
-  .sdds-textarea-input {
+.textarea-disabled {
+  .textarea-input {
     border-bottom-color: transparent;
   }
 
-  .sdds-textarea-label {
+  .textarea-label {
     color: var(--sdds-textarea-disabled-label);
   }
 }
 
 //Read only state
 
-.sdds-textarea-icon__readonly {
+.textarea-icon__readonly {
   display: none;
   position: absolute;
   right: 18px;
@@ -298,25 +296,25 @@
   }
 }
 
-.sdds-textarea-readonly {
+.textarea-readonly {
   pointer-events: none;
 
-  .sdds-textarea-icon__readonly {
+  .textarea-icon__readonly {
     display: block;
 
     &:hover {
-      ~ .sdds-textarea-icon__readonly-label {
+      ~ .textarea-icon__readonly-label {
         display: block;
       }
     }
   }
 
-  .sdds-textfield-input {
+  .textfield-input {
     padding-right: 54px;
     background-color: transparent;
   }
 
-  .sdds-textfield-container {
+  .textfield-container {
     background-color: transparent;
   }
 }

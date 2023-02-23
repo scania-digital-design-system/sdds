@@ -122,44 +122,36 @@ export class Textfield {
     return (
       <div
         class={`
-        ${this.noMinWidth ? 'sdds-form-textfield-nomin' : ''}
-        ${
-          this.focusInput && !this.disabled
-            ? 'sdds-form-textfield sdds-textfield-focus'
-            : ' sdds-form-textfield'
-        }
-        ${this.value ? 'sdds-textfield-data' : ''}
+        ${this.noMinWidth ? 'form-textfield-nomin' : ''}
+        ${this.focusInput && !this.disabled ? 'form-textfield textfield-focus' : ' form-textfield'}
+        ${this.value ? 'textfield-data' : ''}
         ${
           this.labelPosition === 'inside' && this.size !== 'sm'
-            ? 'sdds-textfield-container-label-inside'
+            ? 'textfield-container-label-inside'
             : ''
         }
-        ${this.disabled ? 'sdds-form-textfield-disabled' : ''}
-        ${this.readOnly ? 'sdds-form-textfield-readonly' : ''}
+        ${this.disabled ? 'form-textfield-disabled' : ''}
+        ${this.readOnly ? 'form-textfield-readonly' : ''}
         ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
-        ${this.size === 'md' ? 'sdds-form-textfield-md' : ''}
-        ${this.size === 'sm' ? 'sdds-form-textfield-sm' : ''}
-        ${
-          this.state === 'error' || this.state === 'success'
-            ? `sdds-form-textfield-${this.state}`
-            : ''
-        }
+        ${this.size === 'md' ? 'form-textfield-md' : ''}
+        ${this.size === 'sm' ? 'form-textfield-sm' : ''}
+        ${this.state === 'error' || this.state === 'success' ? `form-textfield-${this.state}` : ''}
         `}
       >
         {this.labelPosition === 'outside' && (
-          <div class="sdds-textfield-label-outside">
+          <div class="textfield-label-outside">
             <div>{this.label}</div>
           </div>
         )}
-        <div onClick={() => this.textInput.focus()} class="sdds-textfield-container">
-          <div class={`sdds-textfield-slot-wrap-prefix sdds-textfield-${this.state}`}>
-            <slot name="sdds-prefix" />
+        <div onClick={() => this.textInput.focus()} class="textfield-container">
+          <div class={`textfield-slot-wrap-prefix textfield-${this.state}`}>
+            <slot name="prefix" />
           </div>
 
-          <div class="sdds-textfield-input-container">
+          <div class="textfield-input-container">
             <input
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
-              class={`sdds-textfield-input-${this.size}`}
+              class={`textfield-input-${this.size}`}
               type={this.type}
               disabled={this.disabled}
               readonly={this.readOnly}
@@ -183,23 +175,23 @@ export class Textfield {
             />
 
             {this.labelPosition === 'inside' && this.size !== 'sm' && (
-              <label class="sdds-textfield-label-inside">{this.label}</label>
+              <label class="textfield-label-inside">{this.label}</label>
             )}
           </div>
-          <div class="sdds-textfield-bar"></div>
+          <div class="textfield-bar"></div>
 
-          <div class={`sdds-textfield-slot-wrap-suffix sdds-textfield-${this.state}`}>
-            <slot name="sdds-suffix" />
+          <div class={`textfield-slot-wrap-suffix textfield-${this.state}`}>
+            <slot name="suffix" />
           </div>
-          <span class="sdds-textfield-icon__readonly">
+          <span class="textfield-icon__readonly">
             <sdds-icon name="edit_inactive" size="20px"></sdds-icon>
           </span>
-          <span class="sdds-textfield-icon__readonly-label">This field is non-editable</span>
+          <span class="textfield-icon__readonly-label">This field is non-editable</span>
         </div>
 
-        <div class="sdds-textfield-helper">
+        <div class="textfield-helper">
           {this.state === 'error' && (
-            <div class="sdds-textfield-helper-error-state">
+            <div class="textfield-helper-error-state">
               <sdds-icon name="error" size="16px"></sdds-icon>
               {this.helper}
             </div>
@@ -207,9 +199,9 @@ export class Textfield {
           {this.state !== 'error' && this.helper}
 
           {this.maxLength > 0 && (
-            <div class="sdds-textfield-textcounter">
+            <div class="textfield-textcounter">
               {this.value === null ? 0 : this.value?.length}
-              <span class="sdds-textfield-textcounter-divider"> / </span>
+              <span class="textfield-textcounter-divider"> / </span>
               {this.maxLength}
             </div>
           )}
