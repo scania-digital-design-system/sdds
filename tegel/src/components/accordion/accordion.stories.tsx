@@ -5,46 +5,46 @@ import readmeItem from './accordion-item/readme.md';
 export default {
   title: 'Components/Accordion',
   argTypes: {
-    iconPosition: {
-      name: 'Expand icon position',
-      control: {
-        type: 'radio',
-      },
-      options: { End: 'end', Start: 'start' },
-      description: 'The horizontal position of the expand icon.',
-      table: {
-        defaultValue: { summary: 'end' },
-      },
-    },
-    disabled: {
-      name: 'Disable all items',
-      description: 'Disable all accordion items.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
-    paddingReset: {
-      name: 'Less padding right',
-      description: 'Less padding on the right inside accordion items.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variation adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
+    iconPosition: {
+      name: 'Expand icon position',
+      description: 'Sets the horizontal position of the expand icon.',
+      control: {
+        type: 'radio',
+      },
+      options: { End: 'end', Start: 'start' },
+      table: {
+        defaultValue: { summary: 'end' },
+      },
+    },
+    paddingReset: {
+      name: 'Less padding right',
+      description: 'Sets less padding on the right inside accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      name: 'Disable all items',
+      description: 'Disables all accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -64,10 +64,10 @@ export default {
     ],
   },
   args: {
-    disabled: false,
-    paddingReset: false,
-    iconPosition: 'end',
     modeVariant: 'Inherit from parent',
+    iconPosition: 'end',
+    paddingReset: false,
+    disabled: false,
   },
 };
 
