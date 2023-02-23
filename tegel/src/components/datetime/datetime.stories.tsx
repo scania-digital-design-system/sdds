@@ -166,7 +166,7 @@ const datetimeTemplate = ({
         default:
           return 'Invalid type';
       }
-    }
+    } else return false;
   };
 
   return formatHtmlPreview(
