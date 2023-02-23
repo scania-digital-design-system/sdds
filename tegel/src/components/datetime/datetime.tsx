@@ -175,7 +175,7 @@ export class Datetime {
               type={this.type}
               disabled={this.disabled}
               value={this.value}
-              autoFocus={this.autofocus}
+              autofocus={this.autofocus}
               name={this.name}
               onInput={(e) => this.handleInput(e)}
               onBlur={(e) => this.handleBlur(e)}
