@@ -6,12 +6,16 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SideMenuUser {
+  /** The heading text. */
   @Prop() heading!: string;
 
+  /** The subheading text. */
   @Prop() subheading: string;
 
+  /** The image source. */
   @Prop() imageSrc: string;
 
+  /** The image alt text. */
   @Prop() imageAlt: string;
 
   render() {

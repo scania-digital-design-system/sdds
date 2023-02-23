@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `active` | `active`  |             | `boolean` | `false` |
+| Property | Attribute | Description                                                                                                                      | Type      | Default |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `active` | `active`  | If the button should appear active. Can be used when the button is triggering a dropdown, and the dropdown is open, for example. | `boolean` | `false` |
 
 
 ## Dependencies

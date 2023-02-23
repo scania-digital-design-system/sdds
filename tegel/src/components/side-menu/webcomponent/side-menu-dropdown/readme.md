@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                | Type               | Default     |
-| ------------- | -------------- | ---------------------------------------------------------- | ------------------ | ----------- |
-| `buttonLabel` | `button-label` |                                                            | `string`           | `undefined` |
-| `initialOpen` | `initial-open` | If the dropdown should be open from the start              | `boolean`          | `false`     |
-| `placement`   | `placement`    | Placement of the dropdown menu relative to the button TODO | `"end" \| "start"` | `'start'`   |
-| `selected`    | `selected`     |                                                            | `boolean`          | `false`     |
+| Property      | Attribute      | Description                                                                                       | Type      | Default     |
+| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `buttonLabel` | `button-label` | The label of the button that opens the dropdown. This is an alternative to the button-label slot. | `string`  | `undefined` |
+| `initialOpen` | `initial-open` | If the dropdown should be open from the start.                                                    | `boolean` | `false`     |
+| `selected`    | `selected`     | If the button that opens the dropdown should appear selected.                                     | `boolean` | `false`     |
 
 
 ## Dependencies

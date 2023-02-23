@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `alt`    | `alt`     |             | `string` | `undefined` |
-| `src`    | `src`     |             | `string` | `undefined` |
+| Property | Attribute | Description         | Type     | Default     |
+| -------- | --------- | ------------------- | -------- | ----------- |
+| `alt`    | `alt`     | The image alt text. | `string` | `undefined` |
+| `src`    | `src`     | The image source.   | `string` | `undefined` |
 
 
 ## Dependencies

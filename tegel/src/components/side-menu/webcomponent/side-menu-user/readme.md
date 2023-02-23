@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property               | Attribute    | Description | Type     | Default     |
-| ---------------------- | ------------ | ----------- | -------- | ----------- |
-| `heading` _(required)_ | `heading`    |             | `string` | `undefined` |
-| `imageAlt`             | `image-alt`  |             | `string` | `undefined` |
-| `imageSrc`             | `image-src`  |             | `string` | `undefined` |
-| `subheading`           | `subheading` |             | `string` | `undefined` |
+| Property               | Attribute    | Description          | Type     | Default     |
+| ---------------------- | ------------ | -------------------- | -------- | ----------- |
+| `heading` _(required)_ | `heading`    | The heading text.    | `string` | `undefined` |
+| `imageAlt`             | `image-alt`  | The image alt text.  | `string` | `undefined` |
+| `imageSrc`             | `image-src`  | The image source.    | `string` | `undefined` |
+| `subheading`           | `subheading` | The subheading text. | `string` | `undefined` |
 
 
 ## Dependencies

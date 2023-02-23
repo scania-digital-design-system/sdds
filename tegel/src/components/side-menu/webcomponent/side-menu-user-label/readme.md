@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property               | Attribute    | Description | Type     | Default     |
-| ---------------------- | ------------ | ----------- | -------- | ----------- |
-| `heading` _(required)_ | `heading`    |             | `string` | `undefined` |
-| `subheading`           | `subheading` |             | `string` | `undefined` |
+| Property               | Attribute    | Description          | Type     | Default     |
+| ---------------------- | ------------ | -------------------- | -------- | ----------- |
+| `heading` _(required)_ | `heading`    | The heading text.    | `string` | `undefined` |
+| `subheading`           | `subheading` | The subheading text. | `string` | `undefined` |
 
 
 ## Dependencies

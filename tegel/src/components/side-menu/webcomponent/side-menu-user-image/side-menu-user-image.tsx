@@ -8,8 +8,10 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SideMenuUserImage {
+  /** The image source. */
   @Prop() src: string;
 
+  /** The image alt text. */
   @Prop() alt: string;
 
   render() {

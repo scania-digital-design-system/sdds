@@ -6,8 +6,10 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class SideMenuUserLabel {
+  /** The heading text. */
   @Prop() heading!: string;
 
+  /** The subheading text. */
   @Prop() subheading: string;
 
   render() {

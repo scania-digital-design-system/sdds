@@ -8,9 +8,11 @@ import { Component, h, State, Host, Element, Listen, Prop } from '@stencil/core'
 export class SddsSideMenuButton {
   @Element() host: HTMLSddsSideMenuButtonElement;
 
-  /** Gives the appearance of a selected button */
+  /** If it should appear selected. */
   @Prop() selected: boolean = false;
 
+  /** If it should appear active. Can be used when the button is
+   * triggering a dropdown, and the dropdown is open, for example. */
   @Prop() active: boolean = false;
 
   @State() collapsed: boolean = false;

@@ -15,8 +15,10 @@ export class SddsSideMenu {
   })
   collapsedSideMenuEventEmitter: EventEmitter<any>;
 
+  /* If the side menu is open or not */
   @Prop({ reflect: true }) open: boolean = false;
 
+  /* If the side menu should be shown persistently on desktop screens */
   @Prop({ reflect: true }) persistent: boolean = false;
 
   /** If collapsed, only a persistent desktop menu can be collapsed */

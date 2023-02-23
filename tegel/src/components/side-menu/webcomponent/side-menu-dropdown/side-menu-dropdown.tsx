@@ -8,15 +8,15 @@ import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@ste
 export class SideMenuDropdown {
   @Element() host: HTMLSddsSideMenuButtonElement;
 
-  /** If the dropdown should be open from the start */
+  /** If the dropdown should be open from the start. */
   @Prop() initialOpen: boolean = false;
 
+  /** The label of the button that opens the dropdown.
+   * This is an alternative to the button-label slot. */
   @Prop() buttonLabel: string;
 
+  /** If the button that opens the dropdown should appear selected. */
   @Prop() selected: boolean = false;
-
-  /** Placement of the dropdown menu relative to the button TODO*/
-  @Prop() placement: 'start' | 'end' = 'start';
 
   @State() open: boolean = false;
 

@@ -12,14 +12,14 @@ export class SideMenuCollapseButton {
 
   sideMenuEl: HTMLSddsSideMenuElement;
 
-  connectedCallback() {
-    this.sideMenuEl = this.host.closest('sdds-side-menu');
-    this.collapsed = this.sideMenuEl.collapsed;
-  }
-
   @Listen('tegelCollapsedSideMenu', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
     this.collapsed = event.detail.collapsed;
+  }
+
+  connectedCallback() {
+    this.sideMenuEl = this.host.closest('sdds-side-menu');
+    this.collapsed = this.sideMenuEl.collapsed;
   }
 
   render() {

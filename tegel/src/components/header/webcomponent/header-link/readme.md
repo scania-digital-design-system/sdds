@@ -7,12 +7,14 @@
 
 ## Properties
 
-| Property            | Attribute  | Description | Type      | Default      |
-| ------------------- | ---------- | ----------- | --------- | ------------ |
-| `href` _(required)_ | `href`     |             | `string`  | `undefined`  |
-| `rel`               | `rel`      |             | `string`  | `'noopener'` |
-| `selected`          | `selected` |             | `boolean` | `false`      |
-| `target`            | `target`   |             | `string`  | `undefined`  |
+| Property   | Attribute  | Description                                                                                              | Type      | Default      |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------- | --------- | ------------ |
+| `download` | `download` | Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `undefined`  |
+| `href`     | `href`     | The URL the link should point to.                                                                        | `string`  | `''`         |
+| `hreflang` | `hreflang` | Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `undefined`  |
+| `rel`      | `rel`      | Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `'noopener'` |
+| `selected` | `selected` | If it should appear selected.                                                                            | `boolean` | `false`      |
+| `target`   | `target`   | Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `undefined`  |
 
 
 ## Shadow Parts

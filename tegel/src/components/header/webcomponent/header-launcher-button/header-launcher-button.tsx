@@ -6,6 +6,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderLauncherButton {
+  /** If the button should appear active. Can be used when the button is
+   * triggering a dropdown, and the dropdown is open, for example. */
   @Prop() active = false;
 
   render() {

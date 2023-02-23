@@ -8,17 +8,26 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 export class SideMenuDropdownListLink {
   @Element() host: HTMLSddsSideMenuButtonElement;
 
-  /** Gives the appearance of a selected button */
+  /** If the button should appear selected */
   @Prop() selected: boolean = false;
 
-  @Prop() href!: string;
+  /** The link URL. */
+  @Prop() href!: HTMLAnchorElement['href'];
+
+  /** Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
+  @Prop() hreflang: HTMLAnchorElement['hreflang'];
 
   // 'noopener' is a security measure for legacy browsers that prevents
   // the opened page from getting access to the original page when using
   // target='_blank'.
-  @Prop() rel: string = 'noopener';
+  /** Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
+  @Prop() rel: HTMLAnchorElement['rel'] = 'noopener';
 
-  @Prop() target: string;
+  /** Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
+  @Prop() download: HTMLAnchorElement['download'];
+
+  /** Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
+  @Prop() target: HTMLAnchorElement['target'];
 
   @State() dropdownHasIcon: boolean = false;
 
@@ -26,14 +35,14 @@ export class SideMenuDropdownListLink {
 
   sideMenuEl: HTMLSddsSideMenuElement;
 
-  connectedCallback() {
-    this.sideMenuEl = this.host.closest('sdds-side-menu');
-    this.collapsed = this.sideMenuEl.collapsed;
-  }
-
   @Listen('tegelCollapsedSideMenu', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
     this.collapsed = event.detail.collapsed;
+  }
+
+  connectedCallback() {
+    this.sideMenuEl = this.host.closest('sdds-side-menu');
+    this.collapsed = this.sideMenuEl.collapsed;
   }
 
   componentDidLoad() {
@@ -63,7 +72,9 @@ export class SideMenuDropdownListLink {
             'state--selected': this.selected,
           }}
           href={this.href}
+          hreflang={this.hreflang}
           rel={this.rel}
+          download={this.download}
           target={this.target}
         >
           <slot></slot>

@@ -6,6 +6,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderLogo {
+  /** The href for the logo link. */
   @Prop() linkHref: string = 'https://www.scania.com';
 
   render() {

@@ -8,12 +8,14 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 export class HeaderDropdown {
   @Element() host: HTMLElement;
 
+  /** The label of the button that opens the dropdown.
+   * This is an alternative to the button-label slot. */
   @Prop() buttonLabel: string;
 
-  @Prop() active: boolean = false;
-
+  /** If the dropdown icon (downwards chevron) should be hidden. */
   @Prop() noDropdownIcon: boolean = false;
 
+  /** If the button that opens the dropdown should appear selected. */
   @Prop() selected: boolean = false;
 
   @State() open: boolean = false;
