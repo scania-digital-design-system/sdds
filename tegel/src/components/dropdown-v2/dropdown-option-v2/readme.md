@@ -10,7 +10,7 @@
 | Property   | Attribute  | Description                                  | Type      | Default     |
 | ---------- | ---------- | -------------------------------------------- | --------- | ----------- |
 | `disabled` | `disabled` | Sets the dropdown option in a disabled state | `boolean` | `false`     |
-| `label`    | `label`    | The value of the dropdown option             | `string`  | `undefined` |
+| `label`    | `label`    | Label text for the dropdown                  | `string`  | `undefined` |
 | `selected` | `selected` | Sets the dropdown option in a selected state | `boolean` | `false`     |
 | `value`    | `value`    | The value of the dropdown option             | `string`  | `undefined` |
 

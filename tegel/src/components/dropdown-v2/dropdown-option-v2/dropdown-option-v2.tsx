@@ -13,7 +13,7 @@ export class DropdownOptionV2 {
   /** The value of the dropdown option */
   @Prop() value: string;
 
-  /** The value of the dropdown option */
+  /** Label text for the dropdown */
   @Prop() label: string;
 
   /** Sets the dropdown option in a disabled state */
