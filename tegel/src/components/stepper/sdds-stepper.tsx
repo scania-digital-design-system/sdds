@@ -3,7 +3,7 @@ import { HostElement, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-stepper',
-  styleUrl: 'stepper-component.scss',
+  styleUrl: 'sdds-stepper.scss',
   shadow: true,
 })
 export class SddsStepper {

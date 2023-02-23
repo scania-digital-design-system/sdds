@@ -2,7 +2,7 @@ import { Component, Host, h, Prop, Element, State, Method } from '@stencil/core'
 
 @Component({
   tag: 'sdds-stepper-item',
-  styleUrl: 'stepper-item.scss',
+  styleUrl: 'sdds-stepper-item.scss',
   shadow: true,
 })
 export class SddsStepper {
