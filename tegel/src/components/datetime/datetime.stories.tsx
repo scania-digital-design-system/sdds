@@ -171,7 +171,6 @@ const datetimeTemplate = ({
 
   return formatHtmlPreview(
     `
-
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
@@ -179,34 +178,35 @@ const datetimeTemplate = ({
         }
     </style>
 
-  <div class="demo-wrapper">
-
-    <sdds-datetime
-      id="storybook-datetime"
-      name="datetime-input"
-      ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
-      type="${typeLookup[type]}"
-      size="${sizeLookup[size]}"
-      state="${stateLookup[state]}"
-      ${disabled ? 'disabled' : ''}
-      ${minWidth ? 'no-min-width' : ''}
-      ${label ? `label="${labelText}" ` : ''}
-      ${helper ? `helper="${helperText}" ` : ''}
-      >
-    </sdds-datetime>
-  </div>
+    <div class="demo-wrapper">
+      <sdds-datetime
+        id="storybook-datetime"
+        name="datetime-input"
+        ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+        ${
+          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+        }
+        type="${typeLookup[type]}"
+        size="${sizeLookup[size]}"
+        state="${stateLookup[state]}"
+        ${disabled ? 'disabled' : ''}
+        ${minWidth ? 'no-min-width' : ''}
+        ${label ? `label="${labelText}" ` : ''}
+        ${helper ? `helper="${helperText}" ` : ''}
+        >
+      </sdds-datetime>
+    </div>
 
     <script>
     /* DEMO Code: Used only for Storybook demo purposes */
-      const datetimeEl = document.getElementById('storybook-datetime');
-      datetimeEl.addEventListener('sddsChange', (event) => {
+      datetimeElement = document.getElementById('storybook-datetime');
+      datetimeElement.addEventListener('sddsChange', (event) => {
         console.log("Firing sddsChange: " + event.target.value);
       });
-      datetimeEl.addEventListener('sddsFocus', (event) => {
+      datetimeElement.addEventListener('sddsFocus', (event) => {
         console.log("Firing sddsFocus: " + event.target.value);
       });
-      datetimeEl.addEventListener('sddsBlur', (event) => {
+      datetimeElement.addEventListener('sddsBlur', (event) => {
         console.log("Firing sddsBlur: " + event.target.value);
       });
     </script>
