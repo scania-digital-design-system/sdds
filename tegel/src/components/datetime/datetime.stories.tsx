@@ -183,6 +183,7 @@ const datetimeTemplate = ({
 
     <sdds-datetime
       id="storybook-datetime"
+      name="datetime-input"
       ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
       type="${typeLookup[type]}"
@@ -194,7 +195,7 @@ const datetimeTemplate = ({
       ${helper ? `helper="${helperText}" ` : ''}
       >
     </sdds-datetime>
-
+  </div>
 
     <script>
     /* DEMO Code: Used only for Storybook demo purposes */
@@ -209,7 +210,7 @@ const datetimeTemplate = ({
         console.log("Firing sddsBlur: " + event.target.value);
       });
     </script>
-  </div>`,
+`,
   );
 };
 

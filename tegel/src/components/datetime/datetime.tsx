@@ -159,7 +159,11 @@ export class Datetime {
         ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
         `}
       >
-        {this.label && <div class="sdds-datetime-label">{this.label}</div>}
+        {this.label && (
+          <label htmlFor={this.name} class="sdds-datetime-label">
+            {this.label}
+          </label>
+        )}
         <div
           onClick={() => this.handleFocusClick()}
           class="sdds-datetime-container sdds-datetime-container"
