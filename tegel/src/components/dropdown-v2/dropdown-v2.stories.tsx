@@ -215,7 +215,7 @@ const defaultOptionChildren = (defaultOption: string) => `
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 ${defaultOption === 'Option 3' ? 'selected' : ''}  label="Option-3">
       </sdds-dropdown-option-v2>
-      <sdds-dropdown-option-v2 ${defaultOption === 'Option 4' ? 'selected' : ''} " label="Option-4">
+      <sdds-dropdown-option-v2 ${defaultOption === 'Option 4' ? 'selected' : ''} label="Option-4">
       </sdds-dropdown-option-v2>
       <sdds-dropdown-option-v2 >
         Option 7
