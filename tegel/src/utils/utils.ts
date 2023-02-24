@@ -35,7 +35,7 @@ export const appendHiddenInput = (
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  additionalAttributes: Array<{ key: string; value: string }>,
+  additionalAttributes: Array<{ key: string; value: string }>
 ) => {
   const input = element.ownerDocument!.createElement('input');
   input.type = 'hidden';
