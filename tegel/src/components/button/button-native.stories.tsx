@@ -22,13 +22,16 @@ export default {
     ],
   },
   argTypes: {
-    text: {
-      name: 'Text',
-      description: 'The text to be displayed on the button',
+    modeVariant: {
+      name: 'Mode variant',
       control: {
-        type: 'text',
+        type: 'radio',
       },
-      if: { arg: 'onlyIcon', truthy: false },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      description: 'Button mode variant.',
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
     btnType: {
       name: 'Type',
@@ -53,16 +56,13 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
+    text: {
+      name: 'Text',
+      description: 'The text to be displayed on the button',
       control: {
-        type: 'radio',
+        type: 'text',
       },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Button mode variant.',
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     fullbleed: {
       name: 'Fullbleed',
@@ -75,14 +75,6 @@ export default {
         defaultValue: { summary: false },
       },
       if: { arg: 'onlyIcon', eq: false },
-    },
-    disabled: {
-      name: 'Disabled',
-      type: 'boolean',
-      description: 'Choose to disable the button',
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     onlyIcon: {
       name: 'Only Icon',
@@ -113,30 +105,38 @@ export default {
       options: ['Native', 'Web Component'],
       if: { arg: 'size', neq: 'Extra small' },
     },
+    disabled: {
+      name: 'Disabled',
+      type: 'boolean',
+      description: 'Choose to disable the button',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
   args: {
-    text: 'Button',
+    modeVariant: 'Primary',
     btnType: 'Primary',
     size: 'Large',
-    modeVariant: 'Primary',
+    text: 'Button',
     fullbleed: false,
-    disabled: false,
     onlyIcon: false,
     icon: 'none',
     iconType: 'Native',
+    disabled: false,
   },
 };
 
 const NativeTemplate = ({
-  size,
   modeVariant,
   btnType,
-  fullbleed,
+  size,
   text = 'Button',
-  disabled = '',
+  fullbleed,
   onlyIcon,
   icon,
   iconType,
+  disabled = '',
 }) => {
   const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
   const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
