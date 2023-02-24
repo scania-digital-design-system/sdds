@@ -30,7 +30,7 @@ export default {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Button mode variant.',
+      description: 'Mode variant adjusts the components colors to have better visibility depending on global mode and background.',
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
@@ -38,7 +38,7 @@ export default {
     btnType: {
       name: 'Type',
       description:
-        'Four different button types to help the user to distinguish the level of importance of the task they represent',
+        'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -49,6 +49,7 @@ export default {
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the button.',
       control: {
         type: 'radio',
       },
@@ -56,11 +57,10 @@ export default {
       table: {
         defaultValue: { summary: 'lg' },
       },
-      description: 'Size of the button',
     },
     text: {
       name: 'Text',
-      description: 'The text to be displayed on the button',
+      description: 'Sets the text to be displayed on the button.',
       control: {
         type: 'text',
       },
@@ -69,7 +69,7 @@ export default {
     fullbleed: {
       name: 'Fullbleed',
       type: 'boolean',
-      description: 'Fluid width in certain components-old',
+      description: 'Sets a fluid width on the button.',
       table: {
         defaultValue: { summary: false },
       },
@@ -77,7 +77,7 @@ export default {
     },
     onlyIcon: {
       name: 'Only Icon',
-      description: 'Displays only the icon and excludes any text from the button',
+      description: 'Displays only the icon and excludes any text from the button.',
       control: {
         type: 'boolean',
       },
@@ -88,7 +88,7 @@ export default {
     },
     icon: {
       name: 'Icon',
-      description: 'Icon to display on the button. Choose "none" to exclude the icon.',
+      description: 'Sets icon to be displayed on the button. Choose "none" to exclude the icon.',
       control: {
         type: 'select',
       },
@@ -100,7 +100,7 @@ export default {
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
@@ -113,7 +113,7 @@ export default {
     disabled: {
       name: 'Disabled',
       type: 'boolean',
-      description: 'Choose to disable the button',
+      description: 'Disables the button.',
       table: {
         defaultValue: { summary: false },
       },
