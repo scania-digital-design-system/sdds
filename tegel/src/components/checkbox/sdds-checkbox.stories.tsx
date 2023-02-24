@@ -22,19 +22,19 @@ export default {
   argTypes: {
     label: {
       name: 'Label text',
-      description: 'The label of the component',
+      description: 'Sets the label of the component.',
       type: 'string',
     },
     checked: {
       name: 'Checked',
-      description: 'Checks the checkbox',
+      description: 'Checks the checkbox.',
       control: {
         type: 'boolean',
       },
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the checkbox',
+      description: 'Disables the checkbox.',
       control: {
         type: 'boolean',
       },
