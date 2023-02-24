@@ -24,19 +24,18 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts the components colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Mode variant adjusts the components colors to have better visibility depending on global mode and background.',
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
     btnType: {
       name: 'Type',
-      description:
-        'Four different button types to help the user to distinguish the level of importance of the task they represent.',
+      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -66,7 +65,6 @@ export default {
     },
     fullbleed: {
       name: 'Fullbleed',
-      defaultValue: false,
       description: 'Sets a fluid width on the button.',
       control: {
         type: 'boolean',
@@ -113,8 +111,10 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      type: 'boolean',
       description: 'Disables the button.',
+      control: {
+        type: 'boolean',
+      },
       table: {
         defaultValue: { summary: false },
       },
