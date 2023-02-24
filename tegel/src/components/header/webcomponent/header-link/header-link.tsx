@@ -9,8 +9,8 @@ export class HeaderLink {
   /** If it should appear selected. */
   @Prop() selected: boolean = false;
 
-  /** The URL the link should point to. */
-  @Prop() href: string = '';
+  /** The link URL. */
+  @Prop() href!: string;
 
   /** Native anchor tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
   @Prop() hreflang: HTMLAnchorElement['hreflang'];

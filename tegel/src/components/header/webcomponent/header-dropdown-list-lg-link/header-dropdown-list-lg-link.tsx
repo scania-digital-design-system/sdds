@@ -5,6 +5,9 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderDropdownListLgLink {
+  /** If it should appear selected. */
+  @Prop() selected: boolean = false;
+
   /** The link URL */
   @Prop() href!: HTMLAnchorElement['href'];
 
@@ -28,6 +31,7 @@ export class HeaderDropdownListLgLink {
       <Host role="listitem">
         <sdds-core-header-menu-lg-link
           exportparts="a"
+          selected={this.selected}
           href={this.href}
           hreflang={this.hreflang}
           rel={this.rel}

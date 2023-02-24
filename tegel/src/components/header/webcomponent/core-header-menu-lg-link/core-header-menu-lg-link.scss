@@ -31,4 +31,12 @@
       cursor: pointer;
     }
   }
+
+  .state--selected {
+    background-color: var(--sdds-nav-item-background-selected);
+    padding-right: 4px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: var(--sdds-nav-item-border-color-active);
+  }
 }

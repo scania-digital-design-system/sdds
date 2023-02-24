@@ -6,6 +6,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderDropdownListLink {
+  /** If it should appear selected. */
   @Prop() selected: boolean = false;
 
   /** The link URL */

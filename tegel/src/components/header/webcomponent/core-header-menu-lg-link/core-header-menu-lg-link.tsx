@@ -6,6 +6,9 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class CoreHeaderMenuLgLink {
+  /** If it should appear selected. */
+  @Prop() selected: boolean = false;
+
   /** The link URL */
   @Prop() href!: HTMLAnchorElement['href'];
 
@@ -29,6 +32,9 @@ export class CoreHeaderMenuLgLink {
       <Host>
         <a
           part="a"
+          class={{
+            'state--selected': this.selected,
+          }}
           href={this.href}
           hreflang={this.hreflang}
           rel={this.rel}

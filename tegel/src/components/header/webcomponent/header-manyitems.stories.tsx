@@ -30,13 +30,12 @@ const Template = () =>
   formatHtmlPreview(
     `
     <script>
-      /* For demonstration purposes only. Don't do this at home. */
+      /* For demonstration purposes only. Do this in the preferred way of your framework instead. */
       window.demoSideMenu = document.querySelector('#demo-side-menu');
     </script>
     <style>
       :root {
         --app-bar-height: 64px;
-        --side-menu-width: 272px;
       }
       /* Note: to make the layout fill the entire viewport height you'll need to set the */
       /* height of the parent element and all of its ancestors to 100%. */
@@ -57,6 +56,7 @@ const Template = () =>
 
       @media (min-width: 672px) {
         #demo-side-menu {
+          /* We suggest you attach the persistent side menu to your layout like this: */
           height: calc(100vh - var(--app-bar-height));
           position: sticky;
           top: var(--app-bar-height);
@@ -190,7 +190,8 @@ const Template = () =>
         </sdds-side-menu>
 
         <main class="sdds-u-w-100 sdds-u-h-100 sdds-u-p3" style="box-sizing: border-box;">
-          <p>If there are more than three buttons and/or links, they should be placed in a persistent side menu, which is always visible on large screens.</p>
+          <p>If there are more than a few buttons and/or links in the header, they might not fit on medium size screens. 
+          <br/>In that case they should be placed in a persistent side menu — which is always visible on large screens.</p>
 
           <p>Tip: Resize the window to see the side menu become a drawer.</p>
         </main>

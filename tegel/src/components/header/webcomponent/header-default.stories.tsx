@@ -3,6 +3,14 @@ import readme from './readme.md';
 import readmeHamburger from './header-hamburger/readme.md';
 import readmeTitle from './header-title/readme.md';
 import readmeButton from './header-button/readme.md';
+import readmeLink from './header-link/readme.md';
+import readmeDropdown from './header-dropdown/readme.md';
+import readmeDropdownList from './header-dropdown-list/readme.md';
+import readmeDropdownListLink from './header-dropdown-list-link/readme.md';
+import readmeDropdownListLg from './header-dropdown-list-lg/readme.md';
+import readmeDropdownListLgLink from './header-dropdown-list-lg-link/readme.md';
+import readmeDropdownListLgUser from './header-dropdown-list-lg-user/readme.md';
+import readmeLauncher from './header-launcher/readme.md';
 
 export default {
   title: 'Components/HeaderV2',
@@ -12,6 +20,14 @@ export default {
       'Header hamburger': readmeHamburger,
       'Header title': readmeTitle,
       'Header button': readmeButton,
+      'Header link': readmeLink,
+      'Header dropdown': readmeDropdown,
+      'Header dropdown list': readmeDropdownList,
+      'Header dropdown list link': readmeDropdownListLink,
+      'Header dropdown list lg': readmeDropdownListLg,
+      'Header dropdown list lg link': readmeDropdownListLgLink,
+      'Header dropdown list lg user': readmeDropdownListLgUser,
+      'Header launcher': readmeLauncher,
     },
     layout: 'fullscreen',
     docs: {
@@ -44,37 +60,12 @@ export default {
   },
 };
 
-// <!--
-// <sdds-header-launcher-button slot="end"></sdds-header-launcher-button>
-// -->
-
-// <sdds-header-launcher slot="end" variant="list">
-// <sdds-header-button>Button</sdds-header-button>
-// <sdds-header-button>Button</sdds-header-button>
-// </sdds-header-launcher>
-
-// <!--
-// <sdds-header-launcher slot="end" variant="grid">
-//   <sdds-header-button-orig><sdds-icon name="truck" size="32px"></sdds-icon>Button</sdds-header-button-orig>
-//   <sdds-header-button-orig>Button</sdds-header-button-orig>
-// </sdds-header-launcher>
-// -->
-
-// <!--
-// <sdds-header-launcher slot="end">
-//   <sdds-header-launcher-grid>
-//     <sdds-header-launcher-grid-button><sdds-icon name="truck" size="32px"></sdds-icon>Button</sdds-header-launcher-grid-button>
-//     <sdds-header-launcher-grid-button>Button</sdds-header-launcher-grid-button>
-//   </sdds-header-launcher-grid>
-// </sdds-header-launcher>
-// -->
-
 const Template = () =>
   formatHtmlPreview(
     `
   <sdds-header>
     <sdds-header-title>
-      Simple header
+      Example: launcher
     </sdds-header-title>
 
     <sdds-header-launcher slot="end">

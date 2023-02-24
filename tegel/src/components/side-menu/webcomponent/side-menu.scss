@@ -49,6 +49,21 @@
       transform: scaleY(1);
     }
   }
+
+  .state--upper-slot-empty {
+    .sdds-side-menu-list-upper {
+      display: none;
+    }
+
+    .sdds-side-menu-list-end {
+      margin-top: 0;
+    }
+
+    ::slotted([slot='end']) {
+      border-top: none;
+      border-bottom: 1px solid var(--sdds-sidebar-side-menu-bottom-menu-border-top);
+    }
+  }
 }
 
 @media (min-width: 672px) {

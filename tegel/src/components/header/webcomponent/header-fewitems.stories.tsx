@@ -30,7 +30,7 @@ const Template = () =>
   formatHtmlPreview(
     `
     <script>
-      /* For demonstration purposes only. Don't do this at home. */
+      /* For demonstration purposes only. Do this in the preferred way of your framework instead. */
       window.demoSideMenu = document.querySelector('#demo-side-menu');
     </script>
     <style>
@@ -65,13 +65,13 @@ const Template = () =>
       Trucks
     </sdds-header-link>
 
-    <sdds-header-dropdown selected>
+    <sdds-header-dropdown>
       <span slot="button-label">Drivers</span>
       <sdds-header-dropdown-list>
         <sdds-header-dropdown-list-link>
           Wolverine
         </sdds-header-dropdown-list-link>
-        <sdds-header-dropdown-list-link selected>
+        <sdds-header-dropdown-list-link>
           Professor X
         </sdds-header-dropdown-list-link>
       </sdds-header-dropdown-list>
@@ -118,18 +118,18 @@ const Template = () =>
       </sdds-header-launcher-grid>
     </sdds-header-launcher>
 
-    <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show">
+    <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show" selected>
       <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
       <sdds-header-dropdown-list-lg>
         <sdds-header-dropdown-list-lg-user
           heading="Name Nameson"
           subheading="Company name">
         </sdds-header-dropdown-list-lg-user>
-        <sdds-header-dropdown-list-lg-link>
-          Long link label here lorem ipsum
+        <sdds-header-dropdown-list-lg-link selected>
+          My Instructions
         </sdds-header-dropdown-list-lg-link>
         <sdds-header-dropdown-list-lg-link>
-          Link there
+          Task List
         </sdds-header-dropdown-list-lg-link>
       </sdds-header-dropdown-list-lg>
     </sdds-header-dropdown>
@@ -166,42 +166,27 @@ const Template = () =>
       </sdds-side-menu-dropdown-list>
     </sdds-side-menu-dropdown>
 
-    <sdds-side-menu-dropdown slot="end" class="demo-xs-hide">
-      <sdds-side-menu-user-image slot="button-icon">
-        <img
-          src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
-          alt="User menu."
-        /> 
-      </sdds-side-menu-user-image>
-      <span slot="button-label">
-        Name Namesson
-        <div style="color: gray;">Company name</div>
-      </span>
+    <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected>
+      <sdds-side-menu-user 
+        slot="button-label" 
+        heading="Name Namesson" 
+        subheading="Company name" 
+        image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
+        image-alt="">
+      </sdds-side-menu-user>
       <sdds-side-menu-dropdown-list>
-        <sdds-side-menu-dropdown-list-link>Albin Larsson</sdds-side-menu-dropdown-list-link>
-        <sdds-side-menu-dropdown-list-link>Viktor Skofors</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>
+        <sdds-side-menu-dropdown-list-link>Task List</sdds-side-menu-dropdown-list-link>
       </sdds-side-menu-dropdown-list>
     </sdds-side-menu-dropdown>
-
-    <sdds-side-menu-button slot="end" class="demo-xs-hide">
-      <sdds-side-menu-user-image slot="icon">
-        <img
-          src="https://via.placeholder.com/50"
-          alt="User menu."
-        /> 
-      </sdds-side-menu-user-image>
-      <span >
-        Name Namesson
-        <div style="color: gray;">Company name</div>
-      </span>
-    </sdds-side-menu-button>
 
   </sdds-side-menu>
 
 
   <main class="sdds-u-w-100 sdds-u-h-100 sdds-u-p3" style="box-sizing: border-box;">
     <p>If the header contains navigational items like links or buttons, a side menu is needed for small screens.</p>
-    <p>Tip: Resize the window to see the buttons move in to the side menu.</p>
+    <p><i>Tip: Resize the window to see the buttons move in to the side menu drawer.</i></p>
+    <p><i>Note: This example has an alterate launcher menu with a grid layout.</i></p>
   </main>
   `,
   );

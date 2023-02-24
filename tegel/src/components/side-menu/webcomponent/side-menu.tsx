@@ -1,4 +1,14 @@
-import { Component, Event, EventEmitter, h, Host, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-side-menu',
@@ -6,6 +16,8 @@ import { Component, Event, EventEmitter, h, Host, Prop, State, Watch } from '@st
   shadow: true,
 })
 export class SddsSideMenu {
+  @Element() host: HTMLSddsSideMenuElement;
+
   /** Broadcasts collapsed state to child components */
   @Event({
     eventName: 'tegelCollapsedSideMenu',
@@ -24,13 +36,15 @@ export class SddsSideMenu {
   /** If collapsed, only a persistent desktop menu can be collapsed */
   @Prop({ reflect: true }) collapsed: boolean = false;
 
-  @State() state_isClosed: boolean = true;
+  @State() isUpperSlotEmpty: boolean = false;
 
-  @State() state_isOpen: boolean = false;
+  @State() isClosed: boolean = true;
 
-  @State() state_isClosing: boolean = false;
+  @State() isOpen: boolean = false;
 
-  @State() state_isOpening: boolean = false;
+  @State() isClosing: boolean = false;
+
+  @State() isOpening: boolean = false;
 
   connectedCallback() {
     this.collapsedSideMenuEventEmitter.emit({
@@ -40,6 +54,14 @@ export class SddsSideMenu {
 
   componentDidLoad() {
     setTimeout(() => this.onOpenChange(this.open), 500);
+
+    const upperSlot = this.host.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
+    const upperSlotElements = upperSlot.assignedElements();
+    const hasUpperSlotElements = upperSlotElements?.length > 0;
+
+    if (!hasUpperSlotElements) {
+      this.isUpperSlotEmpty = true;
+    }
   }
 
   @Watch('open')
@@ -60,24 +82,24 @@ export class SddsSideMenu {
   }
 
   setOpening() {
-    this.state_isClosed = false;
+    this.isClosed = false;
     setTimeout(() => {
-      this.state_isOpening = true;
+      this.isOpening = true;
 
       setTimeout(() => {
-        this.state_isOpening = false;
-        this.state_isOpen = true;
+        this.isOpening = false;
+        this.isOpen = true;
       }, 400);
     });
   }
 
   setClosing() {
-    this.state_isOpen = false;
-    this.state_isClosing = true;
+    this.isOpen = false;
+    this.isClosing = true;
 
     setTimeout(() => {
-      this.state_isClosing = false;
-      this.state_isClosed = true;
+      this.isClosing = false;
+      this.isClosed = true;
     }, 400);
   }
 
@@ -87,15 +109,16 @@ export class SddsSideMenu {
         <div
           class={{
             'wrapper': true,
-            'state--open': this.state_isOpen || this.state_isOpening,
-            'state--closed': this.state_isClosed,
+            'state--upper-slot-empty': this.isUpperSlotEmpty,
+            'state--open': this.isOpen || this.isOpening,
+            'state--closed': this.isClosed,
           }}
         >
           <slot name="overlay"></slot>
           <aside class={`menu`}>
             <slot name="close-button"></slot>
             <div class="sdds-side-menu-wrapper">
-              <ul class={`sdds-side-menu-list`}>
+              <ul class={`sdds-side-menu-list sdds-side-menu-list-upper`}>
                 <slot></slot>
               </ul>
               <ul class={`sdds-side-menu-list sdds-side-menu-list-end`}>
