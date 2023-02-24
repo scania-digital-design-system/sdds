@@ -93,6 +93,9 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        defaultValue: { summary: 'none' },
+      },
       options: ['none', ...iconsNames],
       if: { arg: 'size', neq: 'Extra small' },
     },
@@ -103,6 +106,9 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
       if: { arg: 'size', neq: 'Extra small' },
     },
     disabled: {
@@ -115,7 +121,7 @@ export default {
     },
   },
   args: {
-    modeVariant: 'Primary',
+    modeVariant: 'Inherit from parent',
     btnType: 'Primary',
     size: 'Large',
     text: 'Button',
