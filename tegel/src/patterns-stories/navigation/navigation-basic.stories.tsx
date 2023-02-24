@@ -1,33 +1,11 @@
-import { formatHtmlPreview } from '../../../utils/utils';
+import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
-import readmeHamburger from './header-hamburger/readme.md';
-import readmeTitle from './header-title/readme.md';
-import readmeButton from './header-button/readme.md';
-import readmeLink from './header-link/readme.md';
-import readmeDropdown from './header-dropdown/readme.md';
-import readmeDropdownList from './header-dropdown-list/readme.md';
-import readmeDropdownListLink from './header-dropdown-list-link/readme.md';
-import readmeDropdownListLg from './header-dropdown-list-lg/readme.md';
-import readmeDropdownListLgLink from './header-dropdown-list-lg-link/readme.md';
-import readmeDropdownListLgUser from './header-dropdown-list-lg-user/readme.md';
-import readmeLauncher from './header-launcher/readme.md';
 
 export default {
-  title: 'Components/Header',
+  title: 'Patterns/Navigation',
   parameters: {
     notes: {
-      'Header': readme,
-      'Header hamburger': readmeHamburger,
-      'Header title': readmeTitle,
-      'Header button': readmeButton,
-      'Header link': readmeLink,
-      'Header dropdown': readmeDropdown,
-      'Header dropdown list': readmeDropdownList,
-      'Header dropdown list link': readmeDropdownListLink,
-      'Header dropdown list lg': readmeDropdownListLg,
-      'Header dropdown list lg link': readmeDropdownListLgLink,
-      'Header dropdown list lg user': readmeDropdownListLgUser,
-      'Header launcher': readmeLauncher,
+      Readme: readme,
     },
     layout: 'fullscreen',
     docs: {
@@ -73,6 +51,17 @@ const Template = () =>
       <sdds-header-launcher-list>
         <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
         <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+      </sdds-header-launcher-list>
+      <sdds-header-launcher-list-title>Lame apps</sdds-header-launcher-list-title>
+      <sdds-header-launcher-list>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
       </sdds-header-launcher-list>
     </sdds-header-launcher>
 
@@ -82,9 +71,9 @@ const Template = () =>
   </sdds-header>
   
   <main class="sdds-u-w-100 sdds-u-p3" style="box-sizing: border-box;">
-    <p>Find complete examples under the <a href="/?path=/story/patterns-navigation--basic">Patterns section</a>.</p>
+    <p>If the header only contains a title, launcher, and logo, no side menu is needed.</p>
   </main>
   `,
   );
 
-export const Default = Template.bind({});
+export const Basic = Template.bind({});

@@ -10,7 +10,7 @@ export class HeaderButton {
    * triggering a dropdown, and the dropdown is open, for example. */
   @Prop() active: boolean = false;
 
-  /** If it should appear selected. */
+  /** If the button should appear selected. */
   @Prop() selected: boolean = false;
 
   render() {

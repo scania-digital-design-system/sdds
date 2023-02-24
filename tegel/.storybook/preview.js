@@ -129,7 +129,7 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
+      order: ['Intro', 'Foundations', 'Utilities', 'Patterns', 'Components'],
     },
     enableShortcuts: false,
   },

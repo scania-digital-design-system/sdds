@@ -1,8 +1,12 @@
-import { formatHtmlPreview } from '../../../utils/utils';
+import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
-  title: 'Components/HeaderV2',
+  title: 'Patterns/Navigation',
   parameters: {
+    notes: {
+      Readme: readme,
+    },
     layout: 'fullscreen',
     docs: {
       source: {
@@ -108,7 +112,7 @@ const Template = ({ dummyHtml }) =>
       <sdds-header-launcher slot="end">
         <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
         <sdds-header-launcher-list>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Spider man</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-link href="https://tegel.scania.com">Spider-Man</sdds-header-launcher-list-link>
           <sdds-header-launcher-list-link href="https://tegel.scania.com">Groot</sdds-header-launcher-list-link>
         </sdds-header-launcher-list>
         <sdds-header-launcher-list-title>Evil</sdds-header-launcher-list-title>
@@ -165,11 +169,11 @@ const Template = ({ dummyHtml }) =>
         <sdds-side-menu-dropdown initial-open selected>
           <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
           <span slot="button-label">
-            Drivers
+            Wheel types
           </span>
           <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Spiderman</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" selected>Spiderwoman</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Hub-centric wheel</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" selected>Rim wheel</sdds-side-menu-dropdown-list-link>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
 
@@ -178,20 +182,10 @@ const Template = ({ dummyHtml }) =>
           Values
         </sdds-side-menu-button>
 
-        <sdds-side-menu-dropdown slot="end">
-          <sdds-icon slot="button-icon" name="heart" size="24"></sdds-icon>
-          <span slot="button-label">
-            Drivers
-          </span>
-          <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link href="https://scania.com">Albin Larsson</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link href="https://scania.com">Viktor Skofors</sdds-side-menu-dropdown-list-link>
-          </sdds-side-menu-dropdown-list>
-        </sdds-side-menu-dropdown>
 
         <sdds-side-menu-button slot="end">
-          <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
-          Values
+          <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
+          My Calendar
         </sdds-side-menu-button>
 
         <sdds-side-menu-button slot="end" class="demo-xs-hide">
@@ -212,9 +206,9 @@ const Template = ({ dummyHtml }) =>
         <p>If there are more than a few buttons and/or links in the header, they might not fit on medium size screens. 
         <br/>In that case they should be placed in a persistent side menu — which is always visible on large screens.</p>
 
-        <p>Note that the side menu is sticky, and should not scroll with the main content of the page.</p>
+        <p><i>Note: The side menu is sticky, and should not scroll with the main content of the page.</i></p>
 
-        <p>The collapse button is optional.</p>
+        <p><i>Note: The collapse button is optional.</i></p>
 
         ${dummyHtml}
       </main>
@@ -223,4 +217,4 @@ const Template = ({ dummyHtml }) =>
   `,
   );
 
-export const ManyHeaderItemsAlt = Template.bind({});
+export const ManyNavigationItems = Template.bind({});
