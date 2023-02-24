@@ -1,4 +1,4 @@
-@import './radio-button-theme-vars.scss';
+@import './radio-button-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-radio-button {
@@ -7,11 +7,10 @@
   display: flex;
   align-items: center;
   margin-left: -4px;
-
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-radio-button-color);
-  
+
   .sdds-form-input[type='radio'] {
     appearance: none;
     outline: none;
@@ -24,7 +23,8 @@
     cursor: pointer;
 
     + label {
-      padding: var(--sdds-spacing-element-4) 0 var(--sdds-spacing-element-4) var(--sdds-spacing-element-4);
+      padding: var(--sdds-spacing-element-4) 0 var(--sdds-spacing-element-4)
+        var(--sdds-spacing-element-4);
       cursor: pointer;
     }
 
@@ -122,7 +122,7 @@
       transform: scale(0);
       opacity: 0;
     }
-  
+
     100% {
       transform: scale(1);
       opacity: 0.24;

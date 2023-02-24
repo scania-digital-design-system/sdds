@@ -1,6 +1,6 @@
 @import '../../mixins/z-index';
 @import '../../mixins/box-sizing';
-@import '../link/link-theme-vars.scss';
+@import '../link/link-vars.scss';
 
 :host(.hide) {
   display: none;

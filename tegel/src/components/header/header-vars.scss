@@ -49,8 +49,7 @@
   --sdds-header-searchbar-result-item-core-color: var(--sdds-black);
   --sdds-header-searchbar-result-item-core-background: var(--sdds-white);
   --sdds-header-searchbar-result-category-border-color: var(--sdds-grey-300);
-  --sdds-header-searchbar-result-category-background: var(--sdds-white); 
-
+  --sdds-header-searchbar-result-category-background: var(--sdds-white);
 
   /* Searchbar Results All */
   --sdds-header-searchbar-all-result-item-color: var(--sdds-black);
@@ -77,9 +76,7 @@
   --sdds-header-app-launcher-item-background: var(--sdds-white);
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-100);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-700);
-
   --sdds-header-app-launcher-open-btn-color: var(--sdds-black);
-
 
   /* MOBILE AND TABLET */
   --sdds-header-mobile-nav-center-background: var(--sdds-white);
@@ -87,7 +84,6 @@
   --sdds-header-mobile-nav-center-item-border-color-active-after: var(--sdds-blue-400);
   --sdds-header-mobile-nav-center-dropdown-item--last-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-nav-toolbar-border-color: var(--sdds-grey-300);
-
   --sdds-header-mobile-searchbar-container-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-searchbar-input-background: var(--sdds-white);
   --sdds-header-mobile-searchbar-input-color: var(--sdds-black);
@@ -106,13 +102,10 @@
 
 .sdds-mode-dark {
   --sdds-header-background: var(--sdds-blue-900);
-
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
-
   --sdds-header-mob-menu-open-color: var(--sdds-white);
   --sdds-header-mob-menu-open-background: var(--sdds-blue-800);
   --sdds-header-mob-menu-open-border: var(--sdds-blue-700);
-
   --sdds-nav-item-background: var(--sdds-grey-800);
   --sdds-nav-item-background-hover: var(--sdds-grey-700);
   --sdds-nav-item-background-active: var(--sdds-grey-700);
@@ -123,7 +116,7 @@
   --sdds-header-nav-item-color: var(--sdds-white);
   --sdds-header-nav-item-background-active: var(--sdds-blue-800);
   --sdds-nav-dropdown-item-background: var(--sdds-grey-800);
-  --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800); 
+  --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
 
   // /* Searchbar */
@@ -149,7 +142,7 @@
   --sdds-header-searchbar-result-item-core-color: var(--sdds-white);
   --sdds-header-searchbar-result-item-core-background: var(--sdds-grey-958);
   --sdds-header-searchbar-result-category-border-color: var(--sdds-grey-700);
-  --sdds-header-searchbar-result-category-background: var(--sdds-grey-958); 
+  --sdds-header-searchbar-result-category-background: var(--sdds-grey-958);
 
   // /* Searchbar Results All */
   --sdds-header-searchbar-all-result-item-color: var(--sdds-white);
@@ -166,7 +159,7 @@
   --sdds-header-avatar-item-color: var(--sdds-grey-50);
   --sdds-header-avatar-item-btn-background: var(--sdds-grey-800);
 
-   // /* App Launcher */
+  // /* App Launcher */
   --sdds-header-app-launcher-menu-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-btn-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-btn-color: var(--sdds-white);
@@ -183,7 +176,6 @@
   --sdds-header-mobile-nav-center-item-border-color-active-after: var(--sdds-blue-400);
   --sdds-header-mobile-nav-center-dropdown-item--last-border-color: var(--sdds-grey-868);
   --sdds-header-mobile-nav-toolbar-border-color: var(--sdds-grey-868);
-
   --sdds-header-mobile-searchbar-container-border-color: var(--sdds-grey-868);
   --sdds-header-mobile-searchbar-input-background: var(--sdds-grey-958);
   --sdds-header-mobile-searchbar-input-color: var(--sdds-white);
@@ -195,10 +187,7 @@
   --sdds-header-mobile-searchbar-open-btn-background-hover: var(--sdds-grey-868);
   --sdds-header-mobile-searchbar-btn-svg-fill: var(--sdds-white);
   --sdds-header-mobile-searchbar-container-color: var(--sdds-white);
-
   --sdds-header-mobile-avatar--item-btn-background: var(--sdds-grey-958);
   --sdds-header-mobile-avatar--item-btn-background-hover: var(--sdds-grey-868);
-  --sdds-header-mobile-avatar--item-btn-color: var(--sdds-white);   
-
-
+  --sdds-header-mobile-avatar--item-btn-color: var(--sdds-white);
 }

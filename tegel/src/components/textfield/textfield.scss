@@ -1,4 +1,4 @@
-@import './textfield-theme-vars.scss';
+@import './textfield-vars.scss';
 
 @mixin textfield-base {
   border-radius: 4px 4px 0 0;
@@ -294,7 +294,6 @@
       color: var(--sdds-textfield-label-disabled);
     }
   }
-
 }
 
 //Read only state
