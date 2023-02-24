@@ -9,16 +9,11 @@
     .menu {
       /** Should control only height, position, and overflow here. 
         Width and appearance are set inside nested components */
-      // display: none;
       flex-direction: column;
-
-      // position: absolute;
-      // right: 0;
 
       @include sdds-scrollbar;
 
       overflow-y: auto;
-      width: 320px;
       max-height: calc(100vh - 64px);
       box-shadow: var(--sdds-nav-dropdown-menu-box);
       background-color: var(--sdds-header-app-launcher-menu-background);
@@ -35,9 +30,6 @@
     }
 
     &.state--open {
-      // .menu {
-      //   display: block;
-      // }
       .button {
         position: relative;
         z-index: z(tooltip) + 1;
