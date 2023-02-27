@@ -31,6 +31,14 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    state: {
+      name: 'State',
+      description: 'Switch between success or error state',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Success', 'Error'],
+    },
     type: {
       name: 'Type',
       description: 'Set the field to display date, time or both',
@@ -38,15 +46,6 @@ export default {
         type: 'radio',
       },
       options: ['Datetime', 'Date', 'Time'],
-    },
-    defaultValue: {
-      name: 'Default value',
-      description:
-        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Custom'],
     },
     size: {
       name: 'Size',
@@ -57,16 +56,18 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
     },
+    defaultValue: {
+      name: 'Default value',
+      description:
+        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Custom'],
+    },
     minWidth: {
       name: 'Min width',
       description: 'Toggle min width',
-      control: {
-        type: 'boolean',
-      },
-    },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
       control: {
         type: 'boolean',
       },
@@ -101,42 +102,41 @@ export default {
       },
       if: { arg: 'helper', eq: true },
     },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
+    disabled: {
+      description: 'Set textfield to disabled state',
+      name: 'Disabled',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['None', 'Success', 'Error'],
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
+    state: 'None',
     type: 'Datetime',
     size: 'Large',
     defaultValue: 'None',
     minWidth: 'Default',
-    disabled: false,
-    state: 'None',
     label: true,
     labelText: 'Label text',
     helper: true,
     helperText: 'Helper text',
-    modeVariant: 'Inherit from parent',
+    disabled: false,
   },
 };
 
 const datetimeTemplate = ({
   modeVariant,
+  state,
   type,
   size,
+  defaultValue,
   minWidth,
-  disabled,
   label,
   labelText,
-  state,
   helper,
   helperText,
-  defaultValue,
+  disabled,
 }) => {
   const typeLookup = {
     Datetime: 'datetime-local',
