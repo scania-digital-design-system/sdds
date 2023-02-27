@@ -50,6 +50,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
     },
     headerPlacement: {
       name: 'Header placement',
@@ -67,6 +70,9 @@ export default {
       description: 'Sets the image in the card body. Cannot be combined with divider.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     bodyText: {
