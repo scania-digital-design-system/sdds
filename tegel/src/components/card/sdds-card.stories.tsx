@@ -23,7 +23,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component, based on current mode.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -34,28 +34,28 @@ export default {
     },
     header: {
       name: 'Header text',
-      description: 'The header text',
+      description: 'Sets the header text.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader text',
-      description: 'The subheader text',
+      description: 'Sets the subheader text.',
       control: {
         type: 'text',
       },
     },
     headerImg: {
       name: 'Header image',
-      description: 'Image for the header',
+      description: 'Sets the image for the header.',
       control: {
         type: 'boolean',
       },
     },
     headerPlacement: {
       name: 'Header placement',
-      description: 'Placement of the header',
+      description: 'Sets the placement of the header, above or below the body image.',
       control: {
         type: 'radio',
       },
@@ -66,21 +66,21 @@ export default {
     },
     bodyImg: {
       name: 'Body image',
-      description: 'Image in body on card.',
+      description: 'Sets the image in the card body. Cannot be combined with divider.',
       control: {
         type: 'boolean',
       },
     },
     bodyContent: {
       name: 'Body text',
-      description: 'The body text for the card',
+      description: 'Sets the body text for the card.',
       control: {
         type: 'text',
       },
     },
     bodyDivider: {
       name: 'Body divider',
-      description: 'Adds a divider above the body content.',
+      description: 'Adds a divider above the body content. Cannot be combined with body image.',
       control: {
         type: 'boolean',
       },
@@ -91,6 +91,7 @@ export default {
     },
     cardBottom: {
       name: 'Content of the bottom of the card',
+      description: 'Slot to add custom HTML elements to the bottom of the card.',
       control: {
         type: 'text',
       },
