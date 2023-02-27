@@ -95,7 +95,7 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      description: 'Adds a helper text.',
+      description: 'Sets the helper text.',
       control: {
         type: 'text',
       },
