@@ -25,7 +25,7 @@ export default {
   argTypes: {
     type: {
       name: 'Type',
-      description: 'Changes type of component',
+      description: 'Changes the type of the component.',
       options: ['Default', 'Error', 'Information'],
       control: {
         type: 'radio',
@@ -36,35 +36,35 @@ export default {
     },
     header: {
       name: 'Header',
-      description: 'Text to display in header section',
+      description: 'Sets text to be displayed in the header section.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader',
-      description: 'Text to display in subheader section',
+      description: 'Sets text to be displayed in the subheader section.',
       control: {
         type: 'text',
       },
     },
     linkText: {
       name: 'Link',
-      description: 'Text to display in link section',
+      description: 'Sets text to be displayed in the link section.',
       control: {
         type: 'text',
       },
     },
     href: {
       name: 'Link href',
-      description: 'Href for link',
+      description: 'Sets the href for the link.',
       control: {
         type: 'text',
       },
     },
     linkTarget: {
       name: 'Link target',
-      description: 'Where to open the linked URL.',
+      description: 'Sets where to open the linked URL.',
       control: {
         type: 'radio',
       },
