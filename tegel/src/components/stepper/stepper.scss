@@ -7,16 +7,22 @@
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-stepper-color);
-  display: inline-flex;
+  display: flex;
+  flex: 1;
 
   &--sidetext {
+    display: inline-flex;
+
     .sdds-stepper__step {
       flex-direction: row;
       padding: 0 20px 0 16px;
+      min-width: unset;
+      flex: unset;
 
       &_label {
         margin-top: -8px;
         margin-left: 8px;
+        padding: 0;
       }
 
       &-icon {
@@ -44,6 +50,8 @@
     .sdds-stepper__step {
       flex-direction: row;
       padding: 0 20px 0 16px;
+      min-width: unset;
+      flex: unset;
 
       &:not(:last-child) {
         margin-bottom: 52px;
@@ -52,6 +60,7 @@
       &_label {
         margin-top: -8px;
         margin-left: 8px;
+        padding: 0;
       }
 
       &-icon {
@@ -95,6 +104,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
+    flex: 1 1 0;
+
+    &_label {
+      white-space: nowrap;
+      padding: 0 20px;
+    }
 
     &-icon {
       height: 32px;
