@@ -46,7 +46,7 @@ export default {
     },
     headerImg: {
       name: 'Header image',
-      description: 'Sets the image for the header.',
+      description: 'Toggles an image in the header.',
       control: {
         type: 'boolean',
       },
@@ -67,7 +67,7 @@ export default {
     },
     bodyImg: {
       name: 'Body image',
-      description: 'Sets the image in the card body. Cannot be combined with divider.',
+      description: 'Toggles an image in the card body. Cannot be combined with divider.',
       control: {
         type: 'boolean',
       },
