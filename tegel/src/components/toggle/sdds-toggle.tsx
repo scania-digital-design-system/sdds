@@ -1,4 +1,5 @@
-import { Component, h, Prop, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, h, Prop, Event, Element, EventEmitter, Method } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-toggle',
@@ -13,20 +14,11 @@ export class SddsToggle {
   /** Make the toggle required */
   @Prop() required: boolean = false;
 
-  /** Aria-labelledby for the toggles input element. */
-  @Prop() ariaLabelledby: string;
-
-  /** Aria-describedby for the toggles input element. */
-  @Prop() ariaDescribedby: string;
-
   /** Size of the toggle */
   @Prop() size: 'sm' | 'lg' = 'lg';
 
   /** Name of the toggles input element */
   @Prop() name: string;
-
-  /** Label for the toggle */
-  @Prop() label: string;
 
   /** Headline for the toggle */
   @Prop() headline: string;
@@ -36,6 +28,8 @@ export class SddsToggle {
 
   /** ID of the toggles input element, if not specifed it's randomly generated */
   @Prop() toggleId: string = crypto.randomUUID();
+
+  @Element() host: HostElement;
 
   /** Toggles the toggle. */
   @Method()
@@ -49,15 +43,23 @@ export class SddsToggle {
 
   /** Sends unique toggle identifier and status when it is toggled. */
   @Event({
-    eventName: 'sddsToggleChangeEvent',
+    eventName: 'sddsToggle',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
-  sddsToggleChangeEvent: EventEmitter<{
+  sddsToggle: EventEmitter<{
     toggleId: string;
     checked: boolean;
   }>;
+
+  handleToggle = () => {
+    this.checked = !this.checked;
+    this.sddsToggle.emit({
+      toggleId: this.toggleId,
+      checked: this.checked,
+    });
+  };
 
   render() {
     return (
@@ -66,15 +68,11 @@ export class SddsToggle {
           <div class={`toggle-headline ${this.disabled ? 'disabled' : ''}`}>{this.headline}</div>
         )}
         <input
-          aria-labelledby={this.ariaLabelledby}
-          aria-describedby={this.ariaDescribedby}
-          onChange={() => {
-            this.checked = !this.checked;
-            this.sddsToggleChangeEvent.emit({
-              toggleId: this.toggleId,
-              checked: this.checked,
-            });
-          }}
+          aria-describedby={this.host.getAttribute('aria-describedby')}
+          aria-labelledby={this.host.getAttribute('aria-labelledby')}
+          aria-checked={this.checked}
+          aria-required={this.required}
+          onChange={() => this.handleToggle()}
           class={`${this.size}`}
           checked={this.checked}
           disabled={this.disabled}

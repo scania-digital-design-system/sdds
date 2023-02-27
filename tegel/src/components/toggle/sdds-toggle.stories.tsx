@@ -87,7 +87,9 @@ const Template = ({ label, size, disabled, headline, checked }) =>
 
     <!-- Script tag with eventlistener for demo purposes. -->
     <script>
-      document.addEventListener('sddsToggleChangeEvent', ()=>{
+      toggleElement = document.querySelector('sdds-toggle')
+
+      toggleElement.addEventListener('sddsToggle', (event)=> {
         console.log('Toggle with id: ', event.detail.toggleId, ' is ', event.detail.checked)
       })
     </script>
