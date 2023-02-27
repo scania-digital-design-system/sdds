@@ -19,6 +19,7 @@
   .sdds-mode-variant-primary {
     --sdds-footer-top-background: var(--sdds-footer-top-background-primary);
   }
+
   .sdds-mode-variant-secondary {
     --sdds-footer-top-background: var(--sdds-footer-top-background-secondary);
   }
@@ -38,7 +39,7 @@
   --sdds-footer-main-divider: var(--sdds-blue-600);
   --sdds-footer-main-links-opacity: 0.87;
   --sdds-footer-main-copyright: rgb(255 255 255 / 60%);
-  
+
   .sdds-mode-variant-primary,
   .sdds-mode-variant-secondary {
     --sdds-footer-top-background: var(--sdds-footer-top-background-primary);

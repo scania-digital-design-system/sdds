@@ -1,5 +1,5 @@
 @import '../../mixins/z-index';
-@import './header-theme-vars.scss';
+@import './header-vars.scss';
 @import '../../mixins/focus-state';
 @import '../../mixins/flex-center';
 @import '../../mixins/scrollbar';
@@ -704,9 +704,11 @@ html,
     letter-spacing: var(--sdds-headline-07-ls);
     width: 100%;
   }
-  .sdds-nav__avatar-title{
+
+  .sdds-nav__avatar-title {
     color: var(--sdds-header-avatar-title-color);
   }
+
   .sdds-nav__avatar-subtitle {
     padding-top: 4px;
     color: var(--sdds-header-avatar-subtitle-color);
@@ -876,7 +878,7 @@ html,
         top: 50%;
         left: 24px;
         transform: translateY(-50%);
-        color:var(--sdds-header-mobile-searchbar-container-color);
+        color: var(--sdds-header-mobile-searchbar-container-color);
       }
 
       .sdds-nav__app-searchbar-btn-svg {
