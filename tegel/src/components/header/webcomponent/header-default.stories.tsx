@@ -13,7 +13,7 @@ import readmeDropdownListLgUser from './header-dropdown-list-lg-user/readme.md';
 import readmeLauncher from './header-launcher/readme.md';
 
 export default {
-  title: 'Components/Header',
+  title: 'Components/Header/Web Component',
   parameters: {
     notes: {
       'Header': readme,

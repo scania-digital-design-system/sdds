@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Header (legacy)',
+  title: 'Components/Header/Native',
   parameters: {
     notes: readme,
     layout: 'fullscreen',

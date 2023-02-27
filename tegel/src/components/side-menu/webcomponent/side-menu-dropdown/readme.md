@@ -1,5 +1,22 @@
 # sdds-side-menu-dropdown
 
+The side menu dropdown is a container for navigation items.
+
+Example:
+
+```html
+<sdds-side-menu-dropdown
+  button-label="Dropdown"
+>
+  <sdds-icon slot="button-icon" name="star" size="24"></sdds-icon>
+  <span slot="button-label">Button label</span>
+  <sdds-side-menu-dropdown-list>
+    <sdds-side-menu-dropdown-list-link href="#">Link 1</sdds-side-menu-dropdown-list-link>
+    <sdds-side-menu-dropdown-list-link href="#" selected="true">Link 2</sdds-side-menu-dropdown-list-link>
+    <sdds-side-menu-dropdown-list-link href="#">Link 3</sdds-side-menu-dropdown-list-link>
+  </sdds-side-menu-dropdown-list>
+</sdds-side-menu-dropdown>
+```
 
 
 <!-- Auto Generated Below -->

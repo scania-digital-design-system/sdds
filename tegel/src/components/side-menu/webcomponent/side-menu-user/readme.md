@@ -1,5 +1,18 @@
 # sdds-side-menu-user
 
+The side menu user component is a container for the user image and label(s).
+
+Example:
+  
+  ```html
+  <sdds-side-menu-user
+  image-src="https://via.placeholder.com/150"
+  image-alt="User image"
+  heading="John Doe"
+  subheading=""
+></sdds-side-menu-user>
+  ```
+
 
 
 <!-- Auto Generated Below -->

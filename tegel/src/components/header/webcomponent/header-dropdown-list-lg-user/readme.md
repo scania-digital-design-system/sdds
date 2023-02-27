@@ -1,5 +1,11 @@
 # sdds-header-dropdown-list-lg-user
 
+The header dropdown list lg user is a component that can be used to display user information in a header dropdown.
+Used to construct the header user menu.
+
+Example:
+
+See the code example in the [navigation pattern section](/docs/patterns-navigation--user-menu).
 
 
 <!-- Auto Generated Below -->

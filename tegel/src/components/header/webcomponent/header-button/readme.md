@@ -1,5 +1,25 @@
 # sdds-header-button
 
+The header button is a button that can be used in the header.
+
+Example:
+
+```html
+// HTML
+<sdds-header-button onclick="alert('About us clicked');">
+  About us
+</sdds-header-button>
+
+// React JSX
+<sdds-header-button 
+  onClick={() => {
+    alert('About us clicked');
+  }}
+>
+  About us
+</sdds-header-button>
+```
+
 
 
 <!-- Auto Generated Below -->

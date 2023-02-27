@@ -1,5 +1,14 @@
 # sdds-header-link
 
+The header link is a link that can be used to navigate to another page.
+
+Example:
+
+```html
+<sdds-header-link href="https://www.scania.com" target="_blank">
+  Link
+</sdds-header-link>
+```
 
 
 <!-- Auto Generated Below -->

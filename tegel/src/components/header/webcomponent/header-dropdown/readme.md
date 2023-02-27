@@ -1,5 +1,18 @@
 # sdds-header-dropdown
 
+The header dropdown should contain content will be shown in a popover canvas when its button is clicked.
+
+Example:
+
+```html
+<sdds-header-dropdown>
+  <span slot="button-label">Label</span>
+  <sdds-header-dropdown-list>
+    <sdds-header-dropdown-list-link href="https://www.scania.com">Link 1</sdds-header-dropdown-list-link>
+    <sdds-header-dropdown-list-link href="https://www.scania.com">Link 2</sdds-header-dropdown-list-link>
+  </sdds-header-dropdown-list>
+</sdds-header-dropdown>
+```
 
 
 <!-- Auto Generated Below -->

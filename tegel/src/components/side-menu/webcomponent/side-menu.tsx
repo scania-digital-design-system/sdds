@@ -10,6 +10,13 @@ import {
   Watch,
 } from '@stencil/core';
 
+interface CollapsedEvent {
+  collapsed: boolean;
+}
+
+const OPENING_ANIMATION_DURATION = 400;
+const INITIALIZE_ANIMATION_DELAY = 500;
+
 @Component({
   tag: 'sdds-side-menu',
   styleUrl: 'side-menu.scss',
@@ -18,22 +25,22 @@ import {
 export class SddsSideMenu {
   @Element() host: HTMLSddsSideMenuElement;
 
-  /** Broadcasts collapsed state to child components */
+  /** Broadcasts collapsed state to child components. */
   @Event({
-    eventName: 'tegelCollapsedSideMenu',
+    eventName: 'sddsSideMenuCollapsed',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  collapsedSideMenuEventEmitter: EventEmitter<any>;
+  collapsedEventEmitter: EventEmitter<CollapsedEvent>;
 
-  /* If the side menu is open or not */
+  /** If the side menu is open or not. */
   @Prop({ reflect: true }) open: boolean = false;
 
-  /* If the side menu should be shown persistently on desktop screens */
+  /** If the side menu should always be shown on desktop screens to the side. */
   @Prop({ reflect: true }) persistent: boolean = false;
 
-  /** If collapsed, only a persistent desktop menu can be collapsed */
+  /** If the side menu is collapsed. Only a persistent desktop menu can be collapsed. */
   @Prop({ reflect: true }) collapsed: boolean = false;
 
   @State() isUpperSlotEmpty: boolean = false;
@@ -47,13 +54,13 @@ export class SddsSideMenu {
   @State() isOpening: boolean = false;
 
   connectedCallback() {
-    this.collapsedSideMenuEventEmitter.emit({
+    this.collapsedEventEmitter.emit({
       collapsed: this.collapsed,
     });
   }
 
   componentDidLoad() {
-    setTimeout(() => this.onOpenChange(this.open), 500);
+    setTimeout(() => this.onOpenChange(this.open), INITIALIZE_ANIMATION_DELAY);
 
     const upperSlot = this.host.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
     const upperSlotElements = upperSlot.assignedElements();
@@ -65,42 +72,46 @@ export class SddsSideMenu {
   }
 
   @Watch('open')
-  onOpenChange(newValue: boolean, oldValue?: boolean) {
-    if (newValue && !oldValue) {
+  onOpenChange(newVal: boolean, oldVal?: boolean) {
+    if (newVal && !oldVal) {
       this.setOpening();
     }
-    if (!newValue && oldValue) {
+    if (!newVal && oldVal) {
       this.setClosing();
     }
   }
 
   @Watch('collapsed')
-  onCollapsedChange(newValue: boolean) {
-    this.collapsedSideMenuEventEmitter.emit({
-      collapsed: newValue,
+  onCollapsedChange(newVal: boolean) {
+    this.collapsedEventEmitter.emit({
+      collapsed: newVal,
     });
   }
 
-  setOpening() {
+  async setOpening() {
     this.isClosed = false;
-    setTimeout(() => {
-      this.isOpening = true;
 
-      setTimeout(() => {
-        this.isOpening = false;
-        this.isOpen = true;
-      }, 400);
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
     });
+    this.isOpening = true;
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, OPENING_ANIMATION_DURATION);
+    });
+    this.isOpening = false;
+    this.isOpen = true;
   }
 
-  setClosing() {
+  async setClosing() {
     this.isOpen = false;
     this.isClosing = true;
 
-    setTimeout(() => {
-      this.isClosing = false;
-      this.isClosed = true;
-    }, 400);
+    await new Promise((resolve) => {
+      setTimeout(resolve, OPENING_ANIMATION_DURATION);
+    });
+    this.isClosing = false;
+    this.isClosed = true;
   }
 
   render() {

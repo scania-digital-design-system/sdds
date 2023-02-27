@@ -1,5 +1,6 @@
 # sdds-header-dropdown-list-link
 
+The header dropdown list link is a component that can be used to display a link in a header dropdown list.
 
 
 <!-- Auto Generated Below -->

@@ -1,5 +1,8 @@
 # sdds-header-dropdown-list-lg
 
+The header dropdown list should wrap a dropdowns list items.
+
+This is a large version of the regular dropdown list.
 
 
 <!-- Auto Generated Below -->
