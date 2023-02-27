@@ -64,9 +64,33 @@ export default {
         defaultValue: { summary: 'above' },
       },
     },
+    bodyImg: {
+      name: 'Body image',
+      description: 'Image in body on card.',
+      control: {
+        type: 'boolean',
+      },
+    },
     bodyContent: {
       name: 'Body text',
       description: 'The body text for the card',
+      control: {
+        type: 'text',
+      },
+    },
+    bodyDivider: {
+      name: 'Body divider',
+      description: 'Adds a divider above the body content.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+      if: { arg: 'bodyImg', eq: false },
+    },
+    cardBottom: {
+      name: 'Content of the bottom of the card',
       control: {
         type: 'text',
       },
@@ -81,49 +105,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    bodyDivider: {
-      name: 'Body divider',
-      description: 'Adds a divider above the body content.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'bodyImg', eq: false },
-    },
-    bodyImg: {
-      name: 'Body image',
-      description: 'Image in body on card.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    imageTop: {
-      name: 'Image on top',
-      description: 'Places the body image above the header.',
-      control: {
-        type: 'text',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'image', eq: true },
-    },
-    cardBottom: {
-      name: 'Content of the bottom of the card',
-      control: {
-        type: 'text',
-      },
-    },
   },
   args: {
     modeVariant: 'Inherit from parent',
     header: 'Header text',
     subheader: 'Subheader text',
     headerImg: true,
-    bodyImg: false,
     headerPlacement: 'Above',
+    bodyImg: false,
     bodyContent: '',
     bodyDivider: false,
     cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
@@ -133,15 +122,15 @@ export default {
 
 const Template = ({
   modeVariant,
-  headerPlacement,
   header,
   subheader,
-  bodyContent,
-  clickable,
   headerImg,
+  headerPlacement,
   bodyImg,
+  bodyContent,
   bodyDivider,
   cardBottom,
+  clickable,
 }) =>
   formatHtmlPreview(
     `<style>

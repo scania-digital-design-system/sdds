@@ -19,6 +19,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Change the components mode variant',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     header: {
       name: 'Header text',
       description: 'The header text',
@@ -31,6 +42,31 @@ export default {
       description: 'The subheader text',
       control: {
         type: 'text',
+      },
+    },
+    headerImg: {
+      name: 'Header image',
+      description: 'Image for the header',
+      control: {
+        type: 'boolean',
+      },
+    },
+    headerPlacement: {
+      name: 'Header placement',
+      description: 'Placement of the header',
+      control: {
+        type: 'radio',
+      },
+      options: ['Above', 'Below'],
+      table: {
+        defaultValue: { summary: 'above' },
+      },
+    },
+    bodyImg: {
+      name: 'Body image',
+      description: 'Image in body on card.',
+      control: {
+        type: 'boolean',
       },
     },
     bodyText: {
@@ -67,61 +103,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    bodyImg: {
-      name: 'Body image',
-      description: 'Image in body on card.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    imageTop: {
-      name: 'Image on top',
-      description: 'Sets the image on top',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'image', eq: true },
-    },
-    headerImg: {
-      name: 'Header image',
-      description: 'Image for the header',
-      control: {
-        type: 'boolean',
-      },
-    },
-    headerPlacement: {
-      name: 'Header placement',
-      description: 'Placement of the header',
-      control: {
-        type: 'radio',
-      },
-      options: ['Above', 'Below'],
-      table: {
-        defaultValue: { summary: 'above' },
-      },
-    },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'Change the components mode variant',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
   },
   args: {
     modeVariant: 'Inherit from parent',
     header: 'Header text',
     subheader: 'Subheader text',
     headerImg: true,
-    bodyImg: false,
     headerPlacement: 'Above',
+    bodyImg: false,
     bodyText: '',
     bodyDivider: false,
     cardBottom: '<sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon>',
@@ -130,16 +119,16 @@ export default {
 };
 
 const Template = ({
+  modeVariant,
   header,
   subheader,
-  cardBottom,
-  clickable,
+  headerImg,
+  headerPlacement,
+  bodyImg,
   bodyText,
   bodyDivider,
-  headerPlacement,
-  headerImg,
-  modeVariant,
-  bodyImg,
+  cardBottom,
+  clickable,
 }) =>
   formatHtmlPreview(
     `
