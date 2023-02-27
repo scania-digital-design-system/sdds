@@ -76,6 +76,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
+      if: { arg: 'bodyDivider', eq: false },
     },
     bodyContent: {
       name: 'Body text',
