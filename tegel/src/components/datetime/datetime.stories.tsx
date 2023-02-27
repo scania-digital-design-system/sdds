@@ -117,7 +117,7 @@ export default {
     type: 'Datetime',
     size: 'Large',
     defaultValue: 'None',
-    noMinWidth: 'Default',
+    noMinWidth: false,
     label: 'Label text',
     helper: 'Helper text',
     disabled: false,
