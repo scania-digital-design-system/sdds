@@ -37,9 +37,6 @@ export class SddsDropdownV2 {
   /** Sets the dropdown in an error state */
   @Prop() error: boolean;
 
-  /** Sets the dropdown in a success state */
-  @Prop() success: boolean;
-
   /** Enables multiselect in the dropdown. */
   @Prop() multiselect: boolean;
 
@@ -61,9 +58,7 @@ export class SddsDropdownV2 {
 
   @State() filterResult: number;
 
-  private filterElement;
-
-  private dropdownList;
+  private dropdownList: HTMLDivElement;
 
   private children: Array<HTMLSddsDropdownOptionV2Element>;
 
@@ -160,9 +155,9 @@ export class SddsDropdownV2 {
     renderHiddenInput(this.host, this.name, this.value?.toString(), this.disabled);
     console.log(this.filterResult);
     return (
-      <Host>
+      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         {this.label && this.labelPosition === 'outside' && (
-          <div class="label-outside">{this.labelPosition}</div>
+          <div class="label-outside">{this.label}</div>
         )}
         <div class={`dropdown-select ${this.size}`}>
           {this.filter ? (
@@ -186,7 +181,6 @@ export class SddsDropdownV2 {
                 <input
                   class={`${this.labelPosition === 'inside' ? 'placeholder' : ''}`}
                   // eslint-disable-next-line no-return-assign
-                  ref={(element) => (this.filterElement = element)}
                   type="text"
                   onInput={(event) => this.handleFilter(event)}
                   placeholder={this.placeholder}

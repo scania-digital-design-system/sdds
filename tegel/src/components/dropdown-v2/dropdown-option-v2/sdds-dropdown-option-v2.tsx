@@ -50,14 +50,16 @@ export class SddsDropdownOptionV2 {
   ) => {
     if (event.detail.checked) {
       this.parentElement.setValue(this.value, this.label);
+      this.selected = true;
     } else {
       this.parentElement.removeValue(this.value, this.label);
+      this.selected = false;
     }
   };
 
   render() {
     return (
-      <Host>
+      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         <div
           class={`dropdown-option 
           ${this.size}

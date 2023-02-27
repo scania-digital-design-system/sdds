@@ -22,7 +22,6 @@
 | `openDirection` | `open-direction` | The direction the dropdown should open, auto if not specified.                             | `"auto" \| "down" \| "up"` | `'auto'`      |
 | `placeholder`   | `placeholder`    | Placeholder text for the dropdown.                                                         | `string`                   | `undefined`   |
 | `size`          | `size`           | The size of the dropdown.                                                                  | `"lg" \| "md" \| "sm"`     | `'lg'`        |
-| `success`       | `success`        | Sets the dropdown in a success state                                                       | `boolean`                  | `undefined`   |
 
 
 ## Methods

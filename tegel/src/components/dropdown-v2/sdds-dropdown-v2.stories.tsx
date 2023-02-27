@@ -1,11 +1,12 @@
 import readme from './readme.md';
+import readmeDropdownOption from './dropdown-option-v2/readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Dropdown-v2',
   parameters: {
     layout: 'centered',
-    notes: { Dropdown: readme },
+    notes: { 'Dropdown': readme, 'Dropdown option': readmeDropdownOption },
     design: [
       {
         name: 'Figma',
@@ -67,7 +68,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Inside', 'Outside'],
+      options: ['Outside', 'Inside', 'None'],
       description: 'Label text position',
     },
     labelText: {
@@ -83,7 +84,6 @@ export default {
         type: 'boolean',
       },
     },
-
     helperText: {
       name: 'Helper text',
       description: 'Helper text assists the user with additional information about the dropdown',
@@ -95,7 +95,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Up', 'Down', 'Auto'],
+      options: ['Auto', 'Up', 'Down'],
       table: {
         summary: {
           defaultValue: 'auto',
@@ -134,6 +134,7 @@ const Template = ({
   filter,
   multiselect,
   openDirection,
+  modeVariant,
 }) =>
   formatHtmlPreview(`
   <style>
@@ -147,6 +148,11 @@ const Template = ({
     <div class="demo-wrapper">
         <form>
           <sdds-dropdown-v2
+          ${
+            modeVariant !== 'Inherit from parent'
+              ? `mode-variant="${modeVariant.toLowerCase()}"`
+              : ''
+          }
             name="dropdown"
             label="${labelText}"
             ${
@@ -162,7 +168,7 @@ const Template = ({
             ${multiselect ? 'multiselect' : ''}
             open-direction="${openDirection.toLowerCase()}"
             >
-            <sdds-dropdown-option-v2 value="option-1">
+            <sdds-dropdown-option-v2 selected value="option-1">
               Option 1
             </sdds-dropdown-option-v2>
             <sdds-dropdown-option-v2 disabled value="option-1">
