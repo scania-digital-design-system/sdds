@@ -10,7 +10,7 @@ import {
   Watch,
 } from '@stencil/core';
 
-interface CollapsedEvent {
+export interface CollapsedEvent {
   collapsed: boolean;
 }
 

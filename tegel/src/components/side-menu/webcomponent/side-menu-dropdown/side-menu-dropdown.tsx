@@ -1,4 +1,5 @@
 import { Component, Element, Fragment, h, Host, Listen, Prop, State } from '@stencil/core';
+import { CollapsedEvent } from '../side-menu';
 
 @Component({
   tag: 'sdds-side-menu-dropdown',
@@ -24,8 +25,8 @@ export class SideMenuDropdown {
 
   @State() collapsed: boolean = false;
 
-  @Listen('tegelCollapsedSideMenu', { target: 'body' })
-  collapsedSideMenuEventHandeler(event: CustomEvent<any>) {
+  @Listen('sddsCollapsedSideMenu', { target: 'body' })
+  collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
   }
 
