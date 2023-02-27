@@ -38,6 +38,10 @@
         justify-content: space-between;
         padding: 0 16px;
       }
+
+      &:focus {
+        @include sdds-focus-state;
+      }
     }
 
     .multiselect {
@@ -45,14 +49,6 @@
       align-items: center;
       height: 100%;
       padding: 0 16px;
-
-      sdds-checkbox {
-        // Needs to cover the whole option
-      }
-
-      &:focus {
-        @include sdds-focus-state;
-      }
     }
 
     &:hover {

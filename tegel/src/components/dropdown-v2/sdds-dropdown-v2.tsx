@@ -46,7 +46,7 @@ export class SddsDropdownV2 {
   /** Enables filtration in the dropdown. */
   @Prop() filter: boolean;
 
-  @State() open: boolean = true;
+  @State() open: boolean = false;
 
   @State() value: Array<string>;
 
@@ -162,15 +162,12 @@ export class SddsDropdownV2 {
         <div class={`dropdown-select ${this.size}`}>
           {this.filter ? (
             <button
-              class={`
-              filter
-              ${this.filterHasFocus ? 'focus' : ''}
-              `}
-              onClick={() => {
-                this.filterElement.focus();
-              }}
+              class={`filter`}
               onFocus={() => {
-                this.filterElement.focus();
+                if (!this.open) {
+                  this.filterElement.focus();
+                  this.open = !this.open;
+                }
               }}
             >
               <div class="value-wrapper">
@@ -199,17 +196,11 @@ export class SddsDropdownV2 {
                   name=""
                   id=""
                   onFocus={() => {
-                    this.filterHasFocus = true;
-                  }}
-                  onBlur={() => {
-                    //this.filterHasFocus = false;
+                    this.open = true;
                   }}
                 />
               </div>
               <sdds-icon
-                onClick={() => {
-                  this.open = !this.open;
-                }}
                 class={`${this.open ? 'open' : 'closed'}`}
                 name="chevron_down"
                 size="16px"
