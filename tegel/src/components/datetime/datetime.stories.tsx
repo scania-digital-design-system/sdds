@@ -38,6 +38,9 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'none' },
+      },
     },
     type: {
       name: 'Type',
@@ -46,6 +49,9 @@ export default {
         type: 'radio',
       },
       options: ['Datetime', 'Date', 'Time'],
+      table: {
+        defaultValue: { summary: 'datetime-local' },
+      },
     },
     size: {
       name: 'Size',
@@ -55,15 +61,20 @@ export default {
         // todo: make consistent with other sizes, for example 'xs', 'sm', etc
       },
       options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     defaultValue: {
       name: 'Default value',
-      description:
-        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
+      description: 'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
       control: {
         type: 'radio',
       },
       options: ['None', 'Custom'],
+      table: {
+        defaultValue: { summary: 'none' },
+      },
     },
     noMinWidth: {
       name: 'No minimum width',
@@ -71,10 +82,13 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     label: {
-      description: 'Sets the label text.',
       name: 'Label text',
+      description: 'Sets the label text.',
       control: {
         type: 'text',
       },
@@ -87,10 +101,13 @@ export default {
       },
     },
     disabled: {
-      description: 'Disables the component.',
       name: 'Disabled',
+      description: 'Disables the component.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
