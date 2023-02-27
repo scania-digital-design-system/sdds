@@ -118,15 +118,15 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     header: 'Header text',
     subheader: 'Subheader text',
     headerImg: true,
-    headerPlacement: 'Above',
     bodyImg: false,
+    headerPlacement: 'Above',
     bodyContent: '',
     bodyDivider: false,
     cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
-    modeVariant: 'Inherit from parent',
     clickable: false,
   },
 };
