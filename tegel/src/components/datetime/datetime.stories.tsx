@@ -22,7 +22,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -33,7 +33,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Switch between success or error state',
+      description: 'Switches between success or error state.',
       control: {
         type: 'radio',
       },
@@ -41,7 +41,7 @@ export default {
     },
     type: {
       name: 'Type',
-      description: 'Set the field to display date, time or both',
+      description: 'Sets the field to display date, time or both.',
       control: {
         type: 'radio',
       },
@@ -49,7 +49,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Switch between different sizes',
+      description: 'Switches between different sizes.',
       control: {
         type: 'radio',
         // todo: make consistent with other sizes, for example 'xs', 'sm', etc
@@ -59,7 +59,7 @@ export default {
     defaultValue: {
       name: 'Default value',
       description:
-        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
+        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
       control: {
         type: 'radio',
       },
@@ -73,7 +73,7 @@ export default {
       },
     },
     label: {
-      description: 'Label text for specific textfield',
+      description: 'Sets the label text.',
       name: 'Label text',
       control: {
         type: 'text',
@@ -81,13 +81,13 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      description: 'Add helper text for the textfield',
+      description: 'Adds a helper text.',
       control: {
         type: 'text',
       },
     },
     disabled: {
-      description: 'Set textfield to disabled state',
+      description: 'Disables the component.',
       name: 'Disabled',
       control: {
         type: 'boolean',
