@@ -65,9 +65,9 @@ export default {
       },
       options: ['None', 'Custom'],
     },
-    minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
       control: {
         type: 'boolean',
       },
@@ -116,7 +116,7 @@ export default {
     type: 'Datetime',
     size: 'Large',
     defaultValue: 'None',
-    minWidth: 'Default',
+    noMinWidth: 'Default',
     label: true,
     labelText: 'Label text',
     helper: true,
@@ -131,7 +131,7 @@ const datetimeTemplate = ({
   type,
   size,
   defaultValue,
-  minWidth,
+  noMinWidth,
   label,
   labelText,
   helper,
@@ -174,28 +174,26 @@ const datetimeTemplate = ({
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
-            width: 208px;
+            width: 150px;
         }
     </style>
 
-    <div class="demo-wrapper">
-      <sdds-datetime
-        id="storybook-datetime"
-        name="datetime-input"
-        ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-        ${
-          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
-        }
-        type="${typeLookup[type]}"
-        size="${sizeLookup[size]}"
-        state="${stateLookup[state]}"
-        ${disabled ? 'disabled' : ''}
-        ${minWidth ? 'no-min-width' : ''}
-        ${label ? `label="${labelText}" ` : ''}
-        ${helper ? `helper="${helperText}" ` : ''}
-        >
-      </sdds-datetime>
-    </div>
+  <div class="demo-wrapper">
+
+    <sdds-datetime
+      id="datetime"
+      ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+      type="${typeLookup[type]}"
+      size="${sizeLookup[size]}"
+      state="${stateLookup[state]}"
+      ${disabled ? 'disabled' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
+      ${label ? `label="${labelText}" ` : ''}
+      ${helper ? `helper="${helperText}" ` : ''}
+      >
+    </sdds-datetime>
+
 
     <script>
     /* DEMO Code: Used only for Storybook demo purposes */
