@@ -1,7 +1,7 @@
 :host {
   display: block;
   list-style: none;
-  height: 64px;
+  height: var(--sdds-header-height);
   width: 100%;
   border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
 

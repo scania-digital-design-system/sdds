@@ -13,7 +13,7 @@ export class SideMenuCollapseButton {
 
   sideMenuEl: HTMLSddsSideMenuElement;
 
-  @Listen('sddsCollapsedSideMenu', { target: 'body' })
+  @Listen('sddsSideMenuCollapsed', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
   }

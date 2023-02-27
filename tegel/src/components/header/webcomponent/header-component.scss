@@ -7,7 +7,7 @@
 
   z-index: 3;
   background-color: var(--sdds-header-background);
-  height: 64px;
+  height: var(--sdds-header-height);
   width: 100%;
   display: flex;
   justify-content: start;

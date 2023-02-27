@@ -2,7 +2,7 @@
 @import '../../../../mixins/z-index';
 
 :host {
-  height: 64px;
+  height: var(--sdds-header-height);
   position: relative;
 
   .menu {
@@ -11,7 +11,7 @@
     @include sdds-scrollbar;
 
     overflow-y: auto;
-    max-height: calc(100vh - 64px);
+    max-height: calc(100vh - var(--sdds-header-height));
     box-shadow: var(--sdds-nav-dropdown-menu-box);
     background-color: var(--sdds-header-app-launcher-menu-background);
   }

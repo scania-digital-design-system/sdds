@@ -25,7 +25,7 @@ export class SddsSideMenuButton {
     this.collapsed = this.sideMenuEl.collapsed;
   }
 
-  @Listen('sddsCollapsedSideMenu', { target: 'body' })
+  @Listen('sddsSideMenuCollapsed', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
   }
