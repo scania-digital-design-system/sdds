@@ -78,7 +78,6 @@ const Template = ({ size, style, showLabel, iconType }) => {
     }
 
 
-    <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleLookup[style]}">
 
       <div class="sdds-stepper__step sdds-stepper__step--value">
@@ -104,7 +103,9 @@ const Template = ({ size, style, showLabel, iconType }) => {
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
+        ${
+          showLabel ? '<label class="sdds-stepper__step_label">Step inactive with text</label>' : ''
+        }
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--success">
@@ -122,34 +123,9 @@ const Template = ({ size, style, showLabel, iconType }) => {
       </div>
 
     </div>
-  </div>
     `,
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'Small',
-};
-
-export const TextOnSide = Template.bind({});
-TextOnSide.args = {
-  size: 'Default',
-  style: 'Text on side',
-};
-
-export const Vertical = Template.bind({});
-Vertical.args = {
-  size: 'Default',
-  style: 'Vertical',
-};
-
-export const HideLabel = Template.bind({});
-HideLabel.args = {
-  size: 'Default',
-  style: 'Default',
-  label: 'Hide',
-};
+export const Native = Template.bind({});
+Native.args = {};
