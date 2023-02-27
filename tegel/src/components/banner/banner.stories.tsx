@@ -20,7 +20,7 @@ export default {
   argTypes: {
     state: {
       name: 'Type',
-      description: 'Changes type of component',
+      description: 'Changes the type of the component.',
       options: ['Default', 'Error', 'Info'],
       control: {
         type: 'radio',
@@ -31,21 +31,21 @@ export default {
     },
     header: {
       name: 'Header',
-      description: 'Text to display in header section',
+      description: 'Sets text to be displayed in the header section.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader',
-      description: 'Text to display in subheader section',
+      description: 'Sets text to be displayed in the subheader section.',
       control: {
         type: 'text',
       },
     },
     link: {
       name: 'Link',
-      description: 'Text to display in link section',
+      description: 'Sets text to be displayed in the link section.',
       control: {
         type: 'text',
       },
@@ -53,7 +53,7 @@ export default {
     hideIcon: {
       name: 'Hide icon',
       description:
-        'If an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
+        'Controls if an icon should be displayed. The truck icon is used here as an example, but it should be changed to suit your needs.',
       control: {
         type: 'boolean',
       },
