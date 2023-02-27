@@ -5,11 +5,12 @@
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.16;
   --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-white);
   --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-50);
-  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
-
+  --sdds-inline-tabs-fullbleed-tab-background: var(
+    --sdds-inline-tabs-fullbleed-tab-background-primary
+  );
 
   /* Scroll button */
-  --sdds-inline-tabs-scroll-btn-color:var(--sdds-grey-958);
+  --sdds-inline-tabs-scroll-btn-color: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-scroll-btn-background: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-scroll-btn-background-hover: var(--sdds-grey-300);
   --sdds-inline-tabs-fullbleed-scroll-btn-background-active: var(--sdds-grey-400);
@@ -17,19 +18,23 @@
   /* Tab */
   --sdds-inline-tabs-fullbleed-tab-color: var(--sdds-grey-900);
   --sdds-inline-tabs-fullbleed-tab-color-disabled: var(--sdds-blue-900);
-  --sdds-inline-tabs-fullbleed-tab-color-opacity-disabled: 0.60;
-  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover: #D1D5DB;
+  --sdds-inline-tabs-fullbleed-tab-color-opacity-disabled: 0.6;
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover: #d1d5db;
   --sdds-inline-tabs-fullbleed-tab-color-hover: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-958);
   --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-400);
 
   .sdds-mode-variant-primary {
-  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);    
+    --sdds-inline-tabs-fullbleed-tab-background: var(
+      --sdds-inline-tabs-fullbleed-tab-background-primary
+    );
   }
 
   .sdds-mode-variant-secondary {
-    --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
+    --sdds-inline-tabs-fullbleed-tab-background: var(
+      --sdds-inline-tabs-fullbleed-tab-background-secondary
+    );
   }
 }
 
@@ -38,11 +43,12 @@
   --sdds-inline-tabs-fullbleed-horizontal-divider-opacity: 0.24;
   --sdds-inline-tabs-fullbleed-tab-background-primary: var(--sdds-grey-900);
   --sdds-inline-tabs-fullbleed-tab-background-secondary: var(--sdds-grey-846);
-  --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);
-
+  --sdds-inline-tabs-fullbleed-tab-background: var(
+    --sdds-inline-tabs-fullbleed-tab-background-primary
+  );
 
   /* Scroll button */
-  --sdds-inline-tabs-scroll-btn-color:var(--sdds-grey-50);
+  --sdds-inline-tabs-scroll-btn-color: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-scroll-btn-background: var(--sdds-grey-800);
   --sdds-inline-tabs-fullbleed-scroll-btn-background-hover: var(--sdds-grey-900);
   --sdds-inline-tabs-fullbleed-scroll-btn-background-active: var(--sdds-grey-900);
@@ -51,17 +57,21 @@
   --sdds-inline-tabs-fullbleed-tab-color: var(--sdds-blue-50);
   --sdds-inline-tabs-fullbleed-tab-color-disabled: var(--sdds-blue-50);
   --sdds-inline-tabs-fullbleed-tab-color-opacity-disabled: 0.38;
-  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover:#373D46;
+  --sdds-inline-tabs-fullbleed-tab-indicator-background-hover: #373d46;
   --sdds-inline-tabs-fullbleed-tab-color-hover: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-tab-color-focus: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-tab-color-active: var(--sdds-grey-50);
   --sdds-inline-tabs-fullbleed-tab-indicator-background-active: var(--sdds-blue-300);
 
   .sdds-mode-variant-primary {
-    --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-primary);    
-    }
-  
-    .sdds-mode-variant-secondary {
-      --sdds-inline-tabs-fullbleed-tab-background: var(--sdds-inline-tabs-fullbleed-tab-background-secondary);
-    }
+    --sdds-inline-tabs-fullbleed-tab-background: var(
+      --sdds-inline-tabs-fullbleed-tab-background-primary
+    );
+  }
+
+  .sdds-mode-variant-secondary {
+    --sdds-inline-tabs-fullbleed-tab-background: var(
+      --sdds-inline-tabs-fullbleed-tab-background-secondary
+    );
+  }
 }

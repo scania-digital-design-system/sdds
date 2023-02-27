@@ -3,7 +3,6 @@
   --sdds-textfield-background-primary: var(--sdds-grey-50);
   --sdds-textfield-background-secondary: var(--sdds-white);
   --sdds-textfield-background: var(--sdds-textfield-background-primary);
-
   --sdds-textfield-color: var(--sdds-grey-868);
   --sdds-textfield-placeholder: var(--sdds-grey-500);
 
@@ -42,7 +41,6 @@
 
   // Textfield resize icon
   --sdds-textfield-resize-icon: var(--sdds-grey-500);
-
   --sdds-textfield-background-secondary: var(--sdds-white);
 
   // Border bottom
@@ -65,6 +63,7 @@
     --sdds-textfield-background-disabled: var(--sdds-textfield-background-disabled-secondary);
   }
 }
+
 .sdds-mode-dark {
   --sdds-textfield-background-primary: var(--sdds-grey-900);
   --sdds-textfield-background: var(--sdds-textfield-background-primary);

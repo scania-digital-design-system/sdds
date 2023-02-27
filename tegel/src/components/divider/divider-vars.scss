@@ -4,9 +4,11 @@ $border-types: top, right, bottom, left;
 .sdds-mode-light {
   --sdds-divider-background: var(--sdds-grey-300);
 }
+
 .sdds-mode-dark {
   --sdds-divider-background: var(--sdds-grey-700);
 }
+
 .sdds-theme-colored {
   --sdds-divider-background: var(--sdds-blue-700);
 }
