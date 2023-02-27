@@ -1,6 +1,10 @@
+@import '../../mixins/z-index';
+@import '../../mixins/scrollbar';
+
 :host {
   display: block;
   position: relative;
+  z-index: z(dropdown);
 
   .label-outside {
     font: var(--sdds-detail-05);
@@ -84,6 +88,7 @@
       width: 100%;
       background-color: var(--sdds-dropdown-bg);
       border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
+      border-radius: 4px 4px 0 0;
 
       .value-wrapper {
         padding: 0 16px;
@@ -116,22 +121,42 @@
       }
     }
 
-    button.filter {
+    .filter {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      background-color: var(--sdds-dropdown-bg);
+      border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
+      padding-left: 16px;
+      border-radius: 4px 4px 0 0;
 
       .value-wrapper {
         display: flex;
         width: 100%;
+        height: 100%;
       }
 
       .label-inside-as-placeholder {
         position: absolute;
-      }
 
-      &.focus {
-        .label-inside-as-placeholder {
-          position: absolute;
+        &.lg {
+          top: 20px;
+        }
+
+        &.md {
+          top: 16px;
+        }
+
+        &.sm {
+          display: none;
+        }
+
+        font: var(--sdds-detail-02);
+        letter-spacing: var(--sdds-detail-02-ls);
+        color: var(--sdds-dropdown-placeholder-color);
+
+        &.selected {
           font: var(--sdds-detail-07);
           letter-spacing: var(--sdds-detail-07-ls);
           transition: all 0.2s ease-in-out;
@@ -147,8 +172,14 @@
           &.sm {
             display: none;
           }
-        }
 
+          & + .placeholder {
+            margin-top: 8px;
+          }
+        }
+      }
+
+      &.focus {
         border-bottom-color: transparent;
 
         &::before {
@@ -174,6 +205,7 @@
 
       sdds-icon {
         margin-right: 16px;
+        z-index: calc(z(dropdown) + 1);
       }
     }
   }
@@ -198,6 +230,19 @@
     transform-origin: top;
     transition: transform 0.2s ease-in-out;
     box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
+    border-radius: 0 0 4px 4px;
+    overflow-y: auto;
+    @include sdds-scrollbar;
+
+    &.lg {
+      max-height: 357.5px;
+    }
+
+    &.md {
+    }
+
+    &.sm {
+    }
 
     &.up {
       top: -100%;
@@ -220,6 +265,25 @@
 
     &.open {
       transform: scaleY(1);
+    }
+
+    .no-result {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      background-color: var(--sdds-dropdown-bg);
+
+      &.lg {
+        height: 56px;
+      }
+
+      &.md {
+        height: 48px;
+      }
+
+      &.sm {
+        height: 40px;
+      }
     }
   }
 

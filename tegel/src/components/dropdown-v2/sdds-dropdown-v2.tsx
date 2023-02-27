@@ -46,6 +46,9 @@ export class SddsDropdownV2 {
   /** Enables filtration in the dropdown. */
   @Prop() filter: boolean;
 
+  /** Text that is displayed if filter is used and there are no options that matches the search. */
+  @Prop() noResultText: string = 'No result';
+
   @State() open: boolean = false;
 
   @State() value: Array<string>;
@@ -56,9 +59,9 @@ export class SddsDropdownV2 {
 
   @State() filterHasFocus: boolean = false;
 
-  private filterElement;
+  @State() filterResult: number;
 
-  private filterResult: number;
+  private filterElement;
 
   private dropdownList;
 
@@ -116,6 +119,7 @@ export class SddsDropdownV2 {
       }
       return element;
     });
+    this.filterResult = this.children.length;
   };
 
   componentDidRender() {
@@ -130,7 +134,7 @@ export class SddsDropdownV2 {
       } else {
         element.removeAttribute('hidden');
       }
-      return !element.getAttribute('hidden');
+      return !element.hasAttribute('hidden');
     }).length;
   };
 
@@ -154,6 +158,7 @@ export class SddsDropdownV2 {
 
   render() {
     renderHiddenInput(this.host, this.name, this.value?.toString(), this.disabled);
+    console.log(this.filterResult);
     return (
       <Host>
         {this.label && this.labelPosition === 'outside' && (
@@ -161,15 +166,7 @@ export class SddsDropdownV2 {
         )}
         <div class={`dropdown-select ${this.size}`}>
           {this.filter ? (
-            <button
-              class={`filter`}
-              onFocus={() => {
-                if (!this.open) {
-                  this.filterElement.focus();
-                  this.open = !this.open;
-                }
-              }}
-            >
+            <div class={`filter ${this.open ? 'focus' : ''}`}>
               <div class="value-wrapper">
                 {this.label && this.labelPosition === 'inside' && this.placeholder && (
                   <div class={`label-inside ${this.size}`}>{this.label}</div>
@@ -187,6 +184,7 @@ export class SddsDropdownV2 {
                   </div>
                 )}
                 <input
+                  class={`${this.labelPosition === 'inside' ? 'placeholder' : ''}`}
                   // eslint-disable-next-line no-return-assign
                   ref={(element) => (this.filterElement = element)}
                   type="text"
@@ -198,18 +196,31 @@ export class SddsDropdownV2 {
                   onFocus={() => {
                     this.open = true;
                   }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Escape') {
+                      this.open = false;
+                    }
+                  }}
                 />
               </div>
               <sdds-icon
+                onClick={() => {
+                  this.open = !this.open;
+                }}
                 class={`${this.open ? 'open' : 'closed'}`}
                 name="chevron_down"
                 size="16px"
               ></sdds-icon>
-            </button>
+            </div>
           ) : (
             <button
               onClick={() => {
                 this.open = !this.open;
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') {
+                  this.open = false;
+                }
               }}
               class={`
                 ${this.value ? 'value' : 'placeholder'}
@@ -243,17 +254,19 @@ export class SddsDropdownV2 {
             </button>
           )}
         </div>
-
         {/* DROPDOWN LIST */}
         <div
           ref={(element) => (this.dropdownList = element)}
           class={`dropdown-list
+            ${this.size}
             ${this.open ? 'open' : 'closed'}
             ${this.openDirection}
             ${this.helper.length > 0 ? 'helper-offset' : ''}`}
         >
           <slot></slot>
-          {this.filterResult === 0 && <div>No result</div>}
+          {this.filterResult === 0 && (
+            <div class={`no-result ${this.size}`}>{this.noResultText}</div>
+          )}
         </div>
         {/* DROPDOWN LIST */}
         {this.helper && (
