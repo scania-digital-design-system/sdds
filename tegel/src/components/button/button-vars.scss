@@ -14,11 +14,9 @@
   --sdds-btn-primary-color-focus: var(--sdds-white);
   --sdds-btn-primary-border-color-focus: var(--sdds-blue-600);
   --sdds-btn-primary-outline-color-focus: var(--sdds-blue-600);
-
   --sdds-btn-primary-background-disabled-primary: var(--sdds-grey-50);
   --sdds-btn-primary-background-disabled-secondary: var(--sdds-white);
   --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
-
   --sdds-btn-primary-color-disabled: var(--sdds-grey-400);
   --sdds-btn-primary-border-color-disabled: transparent;
 
@@ -41,7 +39,6 @@
   --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
   --sdds-btn-secondary-outline-color: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-background-disabled: transparent;
-
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
 
@@ -97,8 +94,6 @@
   --sdds-btn-danger-background-disabled-primary: var(--sdds-grey-50);
   --sdds-btn-danger-background-disabled-secondary: var(--sdds-white);
   --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
-
-
   --sdds-btn-danger-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-danger-border-color-disabled: transparent;
 
@@ -110,6 +105,7 @@
     --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
     --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
   }
+
   .sdds-mode-variant-secondary {
     --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-secondary);
     --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-secondary);
@@ -126,7 +122,7 @@
   --sdds-btn-primary-outline-color-focus: var(--sdds-blue-400);
   --sdds-btn-primary-background-disabled-primary: var(--sdds-grey-900);
   --sdds-btn-primary-background-disabled-secondary: var(--sdds-grey-868);
-    --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
+  --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
   --sdds-btn-primary-color-disabled: var(--sdds-grey-600);
 
   /* ICON */ //not used
@@ -207,6 +203,7 @@
     --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-primary);
     --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-primary);
   }
+
   .sdds-mode-variant-secondary {
     --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-disabled-secondary);
     --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-disabled-secondary);
