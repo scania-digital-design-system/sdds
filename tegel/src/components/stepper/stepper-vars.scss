@@ -5,6 +5,9 @@
   --sdds-stepper-icon-step-border-color-warning: var(--sdds-negative);
   --sdds-stepper-icon-step-border-color-success: var(--sdds-positive);
   --sdds-stepper-icon-step-background-success: var(--sdds-positive);
+  --sdds-stepper-label-text-color-upcoming: var(--sdds-blue-900);
+  --sdds-stepper-label-border-color-upcoming: var(--sdds-blue-900);
+  --sdds-stepper-label-text-opacity-upcoming: 0.38;
 
   /* TODO --sdds-blue-900 is not defined */
   --sdds-stepper-icon-sidetext-background-before: var(--sdds-blue-900);
@@ -31,6 +34,9 @@
   --sdds-stepper-icon-vertical-background-before: var(--sdds-white);
   --sdds-stepper-icon-step-background-before: var(--sdds-white);
   --sdds-stepper-icon-step-background-after: var(--sdds-white);
+  --sdds-stepper-label-text-color-upcoming: var(--sdds-blue-50);
+  --sdds-stepper-label-border-color-upcoming: var(--sdds-blue-50);
+  --sdds-stepper-label-text-opacity-upcoming: 0.38;
 
   /* INVERTED */
   --sdds-stepper-color--inverted: var(--sdds-grey-958);

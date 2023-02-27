@@ -5,46 +5,46 @@ import readmeItem from './accordion-item/readme.md';
 export default {
   title: 'Components/Accordion',
   argTypes: {
-    iconPosition: {
-      name: 'Expand icon position',
-      control: {
-        type: 'radio',
-      },
-      options: { End: 'end', Start: 'start' },
-      description: 'The horizontal position of the expand icon.',
-      table: {
-        defaultValue: { summary: 'end' },
-      },
-    },
-    disabled: {
-      name: 'Disable all items',
-      description: 'Disable all accordion items.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
-    paddingReset: {
-      name: 'Less padding right',
-      description: 'Less padding on the right inside accordion items.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
+    iconPosition: {
+      name: 'Expand icon position',
+      description: 'Sets the horizontal position of the expand icon.',
+      control: {
+        type: 'radio',
+      },
+      options: { End: 'end', Start: 'start' },
+      table: {
+        defaultValue: { summary: 'end' },
+      },
+    },
+    paddingReset: {
+      name: 'Less padding right',
+      description: 'Sets less padding on the right inside accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      name: 'Disable all items',
+      description: 'Disables all accordion items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -64,10 +64,10 @@ export default {
     ],
   },
   args: {
-    disabled: false,
-    paddingReset: false,
-    iconPosition: 'end',
     modeVariant: 'Inherit from parent',
+    iconPosition: 'end',
+    paddingReset: false,
+    disabled: false,
   },
 };
 
@@ -77,7 +77,9 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   const paddingResetAttr = paddingReset ? 'padding-reset' : '';
 
   return formatHtmlPreview(`
-    <sdds-accordion ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}>
+    <sdds-accordion ${
+      modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+    }>
       <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
@@ -87,7 +89,16 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum.
       </sdds-accordion-item>
     </sdds-accordion>
-  `);
+
+    <!-- Script tag for demo purposes -->
+  <script>
+    accordionItems = document.querySelectorAll('sdds-accordion-item');
+    for (let i = 0; i < accordionItems.length; i++) {
+      accordionItems[i].addEventListener('sddsToggle',() => {
+        console.log(i + 1 + ". item of accordion is toggled")
+      })
+    }
+  </script>`);
 };
 
 export const Default = Template.bind({});

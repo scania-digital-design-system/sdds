@@ -51,22 +51,23 @@
 @import 'src/components/block/block-native';
 
 //Web component theme variables
-@import 'src/components/accordion/accordion-theme-vars';
-@import 'src/components/button/button-theme-vars';
-@import 'src/components/datetime/datetime-theme-vars';
-@import 'src/components/data-table/data-table-theme-vars';
-@import 'src/components/popover-canvas/popover-canvas-theme-vars';
-@import 'src/components/popover-menu/popover-menu-theme-vars';
+@import 'src/components/accordion/accordion-vars';
+@import 'src/components/button/button-vars';
+@import 'src/components/datetime/datetime-vars';
+@import 'src/components/data-table/data-table-vars';
+@import 'src/components/popover-canvas/popover-canvas-vars';
+@import 'src/components/popover-menu/popover-menu-vars';
 @import 'src/components/popover-menu/popover-menu-item';
-@import 'src/components/tabs/inline-tabs-default/inline-tabs-theme-vars';
-@import 'src/components/tabs/inline-tabs-fullbleed/inline-tabs-fullbleed-theme-vars';
-@import 'src/components/tabs/navigation-tabs/navigation-tabs-theme-vars';
-@import 'src/components/tooltip/tooltip-theme-vars';
-@import 'src/components/block/block-theme-vars';
+@import 'src/components/tabs/inline-tabs-default/inline-tabs-vars';
+@import 'src/components/tabs/inline-tabs-fullbleed/inline-tabs-fullbleed-vars';
+@import 'src/components/tabs/navigation-tabs/navigation-tabs-vars';
+@import 'src/components/tooltip/tooltip-vars';
+@import 'src/components/block/block-vars';
 @import 'src/components/spinner/spinner';
-@import 'src/components/dropdown/dropdown-theme-vars';
+@import 'src/components/dropdown/dropdown-vars';
 @import 'src/components/dropdown/dropdown-select';
 @import 'src/components/modal/modal';
+@import '../components/stepper/stepper-vars.scss';
 
 :root {
   --johnny-red: green;

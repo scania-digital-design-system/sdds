@@ -23,7 +23,7 @@ export class SddsToast {
   @Prop() hidden: boolean = false;
 
   /** ARIA role for the toast. */
-  @Prop() role: 'alert' | 'log' | 'status' = 'alert';
+  @Prop() toastRole: 'alert' | 'log' | 'status' = 'alert';
 
   @Element() host: HostElement;
 
@@ -103,7 +103,7 @@ export class SddsToast {
   render() {
     return (
       <Host
-        role={this.role}
+        toastRole={this.toastRole}
         aria-describedby={this.host.getAttribute('aria-describedby')}
         class={`${this.hidden ? 'hide' : 'show'}`}
       >

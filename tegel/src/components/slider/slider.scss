@@ -1,4 +1,4 @@
-@import 'slider-theme-vars';
+@import 'slider-vars';
 @import '../../mixins/box-sizing';
 
 sdds-slider {
@@ -194,7 +194,7 @@ sdds-slider {
       transform: translateY(-50%);
       height: 16px;
       background-color: var(--sdds-slider-divider-color);
-      color:var(--sdds-slider-divider-values-color);
+      color: var(--sdds-slider-divider-values-color);
       width: 1px;
 
       span {
@@ -267,7 +267,7 @@ sdds-slider {
         &.sdds-slider__control-minus,
         &.sdds-slider__control-plus {
           svg {
-              fill: var(--sdds-slider-controls-color);
+            fill: var(--sdds-slider-controls-color);
           }
         }
       }
@@ -335,6 +335,7 @@ sdds-slider {
     }
   }
 }
+
 .sdds-slider__controls {
   .sdds-slider__control {
     cursor: default;
@@ -342,7 +343,7 @@ sdds-slider {
     &.sdds-slider__control-minus,
     &.sdds-slider__control-plus {
       svg {
-          fill: var(--sdds-slider-controls-color);
+        fill: var(--sdds-slider-controls-color);
       }
     }
   }
