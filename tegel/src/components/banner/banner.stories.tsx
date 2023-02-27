@@ -53,7 +53,7 @@ export default {
     hideIcon: {
       name: 'Hide icon',
       description:
-        'Sets if an icon should be displayed. For type default the truck icon is used in this example, but it should be changed to suit your needs.',
+        'Controls if an icon should be displayed. The truck icon is used here as an example, but it should be changed to suit your needs.',
       control: {
         type: 'boolean',
       },
