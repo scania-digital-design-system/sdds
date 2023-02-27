@@ -24,6 +24,8 @@
  - [sdds-header-hamburger](../header/webcomponent/header-hamburger)
  - [sdds-header-launcher-button](../header/webcomponent/header-launcher-button)
  - [sdds-inline-tabs](../tabs/inline-tabs)
+ - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
+ - [sdds-dropdown-v2](../dropdown-v2)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-navigation-tabs](../tabs/navigation-tabs)
@@ -48,6 +50,8 @@ graph TD;
   sdds-header-hamburger --> sdds-icon
   sdds-header-launcher-button --> sdds-icon
   sdds-inline-tabs --> sdds-icon
+  sdds-dropdown-option-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-navigation-tabs --> sdds-icon

@@ -1,0 +1,71 @@
+@import '../../../mixins/focus-state';
+
+:host {
+  display: block;
+  background-color: var(--sdds-dropdown-option-background);
+
+  .dropdown-option {
+    color: var(--sdds-dropdown-option-color);
+
+    &.selected {
+      background-color: var(--sdds-dropdown-option-background-selected);
+    }
+
+    &.disabled {
+      color: var(--sdds-dropdown-option-color-disabled);
+    }
+
+    &.lg {
+      height: 55px;
+    }
+
+    &.md {
+      height: 47px;
+    }
+
+    &.sm {
+      height: 39px;
+    }
+
+    button {
+      all: unset;
+      width: 100%;
+      height: 100%;
+
+      .single-select {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+      }
+    }
+
+    .multiselect {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 16px;
+
+      sdds-checkbox {
+        // Needs to cover the whole option
+      }
+
+      &:focus {
+        @include sdds-focus-state;
+      }
+    }
+
+    &:hover {
+      background-color: var(--sdds-dropdown-option-background-hover);
+    }
+
+    &:hover.disabled {
+      background-color: var(--sdds-dropdown-option-background);
+      cursor: not-allowed;
+    }
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}

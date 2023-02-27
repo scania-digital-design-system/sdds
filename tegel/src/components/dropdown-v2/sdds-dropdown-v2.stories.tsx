@@ -43,6 +43,12 @@ export default {
         type: 'boolean',
       },
     },
+    multiselect: {
+      name: 'Multiselect',
+      control: {
+        type: 'boolean',
+      },
+    },
     size: {
       name: 'Size',
       control: {
@@ -63,7 +69,6 @@ export default {
       },
       options: ['None', 'Inside', 'Outside'],
       description: 'Label text position',
-      if: { arg: 'filter', neq: true },
     },
     labelText: {
       name: 'Label text',
@@ -109,6 +114,7 @@ export default {
     openDirection: 'Auto',
     error: false,
     filter: false,
+    multiselect: true,
   },
 };
 
@@ -126,6 +132,7 @@ const Template = ({
   size,
   error,
   filter,
+  multiselect,
   openDirection,
 }) =>
   formatHtmlPreview(`
@@ -138,28 +145,52 @@ const Template = ({
   </style>
 
     <div class="demo-wrapper">
-        <sdds-dropdown-v2
-          label="${labelText}"
-          ${
-            labelPosition && labelPosition !== 'None'
-              ? `label-position="${labelPosition.toLowerCase()}"`
-              : ''
-          }
-          placeholder="${placeholder}"
-          helper="${helperText}"
-          size="${sizeLookUp[size]}"
-          ${error ? 'error' : ''}
-          ${filter ? 'filter' : ''}
-          openDirection="${openDirection}"
-          >
-          <sdds-dropdown-option-v2 selected value="option-1">
-            Option 1
-          </sdds-dropdown-option-v2>
-          <sdds-dropdown-option-v2 value="option-1">
-            Option 1
-          </sdds-dropdown-option-v2>
-        </sdds-dropdown-v2>
-      </div>
+        <form>
+          <sdds-dropdown-v2
+            name="dropdown"
+            label="${labelText}"
+            ${
+              labelPosition && labelPosition !== 'None'
+                ? `label-position="${labelPosition.toLowerCase()}"`
+                : ''
+            }
+            placeholder="${placeholder}"
+            helper="${helperText}"
+            size="${sizeLookUp[size]}"
+            ${error ? 'error' : ''}
+            ${filter ? 'filter' : ''}
+            ${multiselect ? 'multiselect' : ''}
+            open-direction="${openDirection.toLowerCase()}"
+            >
+            <sdds-dropdown-option-v2 value="option-1">
+              Option 1
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 disabled value="option-1">
+              Option 2
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-3">
+              Option 3
+            </sdds-dropdown-option-v2>
+          </sdds-dropdown-v2>
+          <input
+                type="submit"
+                value="Submit form"
+            />
+        </form>
+    </div>
+    <script>
+    form = document.querySelector('form')
+    form.addEventListener('submit', (event) => {
+
+    event.preventDefault();
+    event.stopPropagation();
+    const formData = new FormData(form)
+    formData.forEach((value, key) => {
+        console.log('Key:', key, 'Value:', value);
+    });
+  });
+    </script>
+        
   `);
 
 export const WebComponent = Template.bind({});

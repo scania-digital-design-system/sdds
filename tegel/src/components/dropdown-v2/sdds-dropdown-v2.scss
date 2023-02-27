@@ -1,5 +1,6 @@
 :host {
   display: block;
+  position: relative;
 
   .label-outside {
     font: var(--sdds-detail-05);
@@ -30,6 +31,10 @@
       &.sm {
         display: none;
       }
+
+      & + .placeholder {
+        margin-top: 8px;
+      }
     }
 
     .label-inside-as-placeholder {
@@ -53,6 +58,10 @@
 
         &.sm {
           display: none;
+        }
+
+        & + .placeholder {
+          margin-top: 8px;
         }
       }
     }
@@ -78,6 +87,9 @@
 
       .value-wrapper {
         padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       &.placeholder {
@@ -88,7 +100,8 @@
         color: var(--sdds-dropdown-value-color);
       }
 
-      &:focus {
+      &:focus,
+      &.open {
         border-bottom-color: transparent;
 
         &::before {
@@ -100,10 +113,6 @@
           height: 2px;
           background: var(--sdds-dropdown-border-bottom-open);
         }
-      }
-
-      sdds-icon {
-        margin-right: 16px;
       }
     }
 
@@ -162,6 +171,10 @@
           color: var(--sdds-dropdown-placeholder-color);
         }
       }
+
+      sdds-icon {
+        margin-right: 16px;
+      }
     }
   }
 
@@ -176,6 +189,45 @@
 
     &.error {
       color: var(--sdds-negative);
+    }
+  }
+
+  .dropdown-list {
+    position: absolute;
+    width: 100%;
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
+
+    &.up {
+      top: -100%;
+      transform-origin: bottom;
+      display: flex;
+      flex-direction: column-reverse;
+      box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
+
+      &.helper-offset {
+        top: calc(-100% + 16px);
+      }
+    }
+
+    &.closed {
+      transform: scaleY(0);
+
+      // better way to get nice transition on both open and close?
+      visibility: hidden;
+    }
+
+    &.open {
+      transform: scaleY(1);
+    }
+  }
+
+  sdds-icon {
+    transition: transform 0.2s ease-in-out;
+
+    &.open {
+      transform: rotateZ(180deg);
     }
   }
 }
