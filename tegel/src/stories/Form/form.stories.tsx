@@ -150,13 +150,8 @@ const Template = () =>
             <div slot="toast-subheader">Check out the console.log for the result.</div>
         </sdds-toast>
     </main>
-    <div class="sdds-footer">
-        <div class="sdds-footer-main">
-            <div class="sdds-footer-main-brand">
-                <p>Copyright &copy; 2022 Scania</p>
-            </div>
-        </div>
-    </div>
+    <sdds-footer>
+    </sdds-footer>
     <script>
         form = document.querySelector('[name="my-form"]')
         toast = document.querySelector('sdds-toast')
