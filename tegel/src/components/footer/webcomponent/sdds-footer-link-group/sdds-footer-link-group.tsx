@@ -35,7 +35,6 @@ export class SddsFooterLinkGroup {
           <button
             onClick={() => {
               this.open = !this.open;
-              console.log(this.open);
             }}
             class={`footer-top-title-button  ${this.open ? 'expanded' : 'closed'}`}
           >
