@@ -14,7 +14,7 @@ export class SddsFooterLink {
   /** Where to open the linked URL */
   @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
 
-  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
+  /** 'noopener' is a security measure for legacy browsers that prevents the opened page from getting access to the original page when using target='_blank'. */
   @Prop() rel: string = 'noopener';
 
   @Element() host: HostElement;
