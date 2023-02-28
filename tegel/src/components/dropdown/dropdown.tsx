@@ -20,7 +20,7 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
-  /** Set the variant of the the dropdown. */
+  /** Set the variant of the dropdown. */
   @Prop() modeVariant: 'primary' | 'secondary';
 
   /** Placeholder text for dropdown with no selectedLabel item */
@@ -56,7 +56,7 @@ export class Dropdown {
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';
 
-  /** Direction that the dropdown will open. By default set to auto. */
+  /** Direction that the dropdown will open. Default is auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'auto';
 
   @State() optionValues: Array<any> = [];
