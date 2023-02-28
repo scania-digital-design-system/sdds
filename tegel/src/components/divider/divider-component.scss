@@ -1,0 +1,18 @@
+@import './divider-theme-vars.scss';
+
+.sdds-divider {
+  box-sizing: border-box;
+
+  &.horizontal {
+    background-color: var(--sdds-divider-background);
+    height: 1px;
+    width: 100%;
+  }
+
+  &.vertical {
+    background-color: var(--sdds-divider-background);
+    height: 100%;
+    width: 1px;
+    box-sizing: border-box;
+  }
+}
