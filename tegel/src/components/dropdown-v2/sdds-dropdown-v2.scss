@@ -119,6 +119,10 @@
           background: var(--sdds-dropdown-border-bottom-open);
         }
       }
+
+      &:disabled {
+        color: var(--sdds-dropdown-disabled-color);
+      }
     }
 
     .filter {
@@ -130,6 +134,10 @@
       border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
       padding-left: 16px;
       border-radius: 4px 4px 0 0;
+
+      &.disabled {
+        color: var(--sdds-dropdown-disabled-color);
+      }
 
       .value-wrapper {
         display: flex;
@@ -201,6 +209,12 @@
         &::placeholder {
           color: var(--sdds-dropdown-placeholder-color);
         }
+
+        &:disabled {
+          &::placeholder {
+            color: var(--sdds-dropdown-disabled-color);
+          }
+        }
       }
 
       sdds-icon {
@@ -235,31 +249,32 @@
     @include sdds-scrollbar;
 
     &.lg {
-      max-height: 357.5px;
+      max-height: 364px;
     }
 
     &.md {
+      max-height: 312px;
     }
 
     &.sm {
+      max-height: 260px;
     }
 
     &.up {
-      top: -100%;
+      bottom: 100%;
       transform-origin: bottom;
       display: flex;
       flex-direction: column-reverse;
-      box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%);
+      box-shadow: rgb(0 0 0 / 10%) 0 -1px 3px 0;
+      border-radius: 4px 4px 0 0;
 
-      &.helper-offset {
-        top: calc(-100% + 16px);
+      &.label-outside {
+        bottom: calc(100% - 32px);
       }
     }
 
     &.closed {
       transform: scaleY(0);
-
-      // better way to get nice transition on both open and close?
       visibility: hidden;
     }
 

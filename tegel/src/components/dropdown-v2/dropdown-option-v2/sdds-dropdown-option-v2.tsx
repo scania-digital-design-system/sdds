@@ -68,7 +68,14 @@ export class SddsDropdownOptionV2 {
           `}
         >
           {this.multiselect && (
-            <div class="multiselect">
+            <div
+              class="multiselect"
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') {
+                  this.parentElement.close();
+                }
+              }}
+            >
               <sdds-checkbox
                 onSddsChange={(event) => {
                   this.handleMultiselect(event);

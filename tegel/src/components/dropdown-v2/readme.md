@@ -15,7 +15,7 @@
 | `helper`        | `helper`         | Helper text for the dropdown.                                                              | `string`                   | `undefined`   |
 | `label`         | `label`          | Label text for the dropdown.                                                               | `string`                   | `undefined`   |
 | `labelPosition` | `label-position` | Label text position                                                                        | `"inside" \| "outside"`    | `undefined`   |
-| `modeVariant`   | `mode-variant`   |                                                                                            | `"primary" \| "secondary"` | `undefined`   |
+| `modeVariant`   | `mode-variant`   | Mode variant of the component, based on current mode.                                      | `"primary" \| "secondary"` | `undefined`   |
 | `multiselect`   | `multiselect`    | Enables multiselect in the dropdown.                                                       | `boolean`                  | `undefined`   |
 | `name`          | `name`           | Name for the dropdowns input element.                                                      | `string`                   | `undefined`   |
 | `noResultText`  | `no-result-text` | Text that is displayed if filter is used and there are no options that matches the search. | `string`                   | `'No result'` |

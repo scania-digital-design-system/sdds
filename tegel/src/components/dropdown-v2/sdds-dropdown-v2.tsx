@@ -23,6 +23,7 @@ export class SddsDropdownV2 {
   /** Label text position */
   @Prop() labelPosition: 'inside' | 'outside';
 
+  /** Mode variant of the component, based on current mode. */
   @Prop() modeVariant: 'primary' | 'secondary';
 
   /** The direction the dropdown should open, auto if not specified. */
@@ -57,6 +58,8 @@ export class SddsDropdownV2 {
   @State() filterHasFocus: boolean = false;
 
   @State() filterResult: number;
+
+  @Element() host: HostElement;
 
   private dropdownList: HTMLDivElement;
 
@@ -101,9 +104,15 @@ export class SddsDropdownV2 {
     this.open = false;
   }
 
-  @Element() host: HostElement;
-
   connectedCallback = () => {
+    this.getChildren();
+  };
+
+  componentDidRender() {
+    this.getOpenDirection();
+  }
+
+  getChildren = () => {
     this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     this.children.map((element) => {
       if (element.selected) {
@@ -117,9 +126,18 @@ export class SddsDropdownV2 {
     this.filterResult = this.children.length;
   };
 
-  componentDidRender() {
-    this.getOpenDirection();
-  }
+  getOpenDirection = () => {
+    if (this.openDirection === 'auto') {
+      const dropdownMenuHeight = this.dropdownList.offsetHeight;
+      const distanceToBottom = this.host.getBoundingClientRect().top;
+      const viewportHeight = window.innerHeight;
+      if (distanceToBottom + dropdownMenuHeight + 57 > viewportHeight) {
+        this.openDirection = 'up';
+      } else {
+        this.openDirection = 'down';
+      }
+    }
+  };
 
   handleFilter = (event) => {
     const query = event.target.value.toLowerCase();
@@ -138,19 +156,6 @@ export class SddsDropdownV2 {
     this.selected = !!this.value;
   }
 
-  getOpenDirection = () => {
-    if (this.openDirection === 'auto') {
-      const dropdownMenuHeight = this.dropdownList.offsetHeight;
-      const distanceToBottom = this.host.getBoundingClientRect().top;
-      const viewportHeight = window.innerHeight;
-      if (distanceToBottom + dropdownMenuHeight + 57 > viewportHeight) {
-        this.openDirection = 'up';
-      } else {
-        this.openDirection = 'down';
-      }
-    }
-  };
-
   render() {
     renderHiddenInput(this.host, this.name, this.value?.toString(), this.disabled);
     console.log(this.filterResult);
@@ -161,7 +166,7 @@ export class SddsDropdownV2 {
         )}
         <div class={`dropdown-select ${this.size}`}>
           {this.filter ? (
-            <div class={`filter ${this.open ? 'focus' : ''}`}>
+            <div class={`filter ${this.disabled ? 'disabled' : ''} ${this.open ? 'focus' : ''}`}>
               <div class="value-wrapper">
                 {this.label && this.labelPosition === 'inside' && this.placeholder && (
                   <div class={`label-inside ${this.size}`}>{this.label}</div>
@@ -185,8 +190,7 @@ export class SddsDropdownV2 {
                   onInput={(event) => this.handleFilter(event)}
                   placeholder={this.placeholder}
                   value={this.value ? this.valueLabels : null}
-                  name=""
-                  id=""
+                  disabled={this.disabled}
                   onFocus={() => {
                     this.open = true;
                   }}
@@ -220,6 +224,7 @@ export class SddsDropdownV2 {
                 ${this.value ? 'value' : 'placeholder'}
                 ${this.open ? 'open' : 'closed'}
                 `}
+              disabled={this.disabled}
             >
               <div class={`value-wrapper ${this.size}`}>
                 {this.label && this.labelPosition === 'inside' && this.placeholder && (
@@ -255,7 +260,7 @@ export class SddsDropdownV2 {
             ${this.size}
             ${this.open ? 'open' : 'closed'}
             ${this.openDirection}
-            ${this.helper.length > 0 ? 'helper-offset' : ''}`}
+            ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
           <slot></slot>
           {this.filterResult === 0 && (

@@ -6,6 +6,7 @@
 
   .dropdown-option {
     color: var(--sdds-dropdown-option-color);
+    border-bottom: 1px solid var(--sdds-dropdown-option-border);
 
     &.selected {
       background-color: var(--sdds-dropdown-option-background-selected);

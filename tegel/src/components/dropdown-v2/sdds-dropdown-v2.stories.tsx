@@ -34,29 +34,44 @@ export default {
     },
     error: {
       name: 'Error',
+      description: 'Sets the dropdown in an error state.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     filter: {
       name: 'Filter',
+      description: 'Adds filter functionality to the dropdown.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     multiselect: {
       name: 'Multiselect',
+      description: 'Adds multiselect functionality to the dropdown.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     size: {
       name: 'Size',
+      description: 'Size of the dropdown',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     placeholder: {
       name: 'Placeholder',
@@ -65,11 +80,14 @@ export default {
     },
     labelPosition: {
       name: 'Label position',
+      description: 'Label text position',
       control: {
         type: 'radio',
       },
       options: ['Outside', 'Inside', 'None'],
-      description: 'Label text position',
+      table: {
+        defaultValue: { summary: 'outside' },
+      },
     },
     labelText: {
       name: 'Label text',
@@ -82,6 +100,9 @@ export default {
       description: 'Disables the component',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     helperText: {
@@ -135,6 +156,7 @@ const Template = ({
   multiselect,
   openDirection,
   modeVariant,
+  disabled,
 }) =>
   formatHtmlPreview(`
   <style>
@@ -166,16 +188,29 @@ const Template = ({
             ${error ? 'error' : ''}
             ${filter ? 'filter' : ''}
             ${multiselect ? 'multiselect' : ''}
+            ${disabled ? 'disabled' : ''}
             open-direction="${openDirection.toLowerCase()}"
             >
             <sdds-dropdown-option-v2 selected value="option-1">
               Option 1
             </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 disabled value="option-1">
+            <sdds-dropdown-option-v2 disabled value="option-2">
               Option 2
             </sdds-dropdown-option-v2>
             <sdds-dropdown-option-v2 value="option-3">
               Option 3
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-4">
+              Option 4
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-5">
+              Option 5
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-6">
+              Option 6
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-7">
+              Option 7
             </sdds-dropdown-option-v2>
           </sdds-dropdown-v2>
           <input
