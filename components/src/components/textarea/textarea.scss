@@ -1,5 +1,5 @@
 //TODO: Remove dependencies on textfield!!!
-@import "../textfield/textfield.scss";
+@import '../textfield/textfield.scss';
 
 .sdds-textarea-container {
   @extend .sdds-textfield-container;
@@ -11,6 +11,10 @@
   background-color: transparent;
   flex-flow: row wrap;
   border-bottom: 0;
+
+  &.no-min-width {
+    min-width: unset;
+  }
 }
 
 .sdds-textarea-wrapper {
@@ -63,7 +67,7 @@
 }
 
 .sdds-textarea-label {
-  @include type-style("detail-05");
+  @include type-style('detail-05');
 
   display: block;
   z-index: 2;
@@ -74,7 +78,7 @@
 .sdds-textarea-container {
   &.sdds-textarea-label-inside {
     .sdds-textarea-label {
-      @include type-style("detail-02");
+      @include type-style('detail-02');
       @include label-inside-transition;
 
       color: var(--sdds-textfield-label-inside-color);
@@ -91,7 +95,7 @@
   &.sdds-textarea-focus {
     &.sdds-textarea-label-inside {
       .sdds-textarea-label {
-        @include type-style("detail-07");
+        @include type-style('detail-07');
 
         top: var(--sdds-spacing-element-8);
       }
@@ -108,7 +112,7 @@
   &.sdds-textarea-data {
     &.sdds-textarea-label-inside {
       .sdds-textarea-label {
-        @include type-style("detail-07");
+        @include type-style('detail-07');
 
         top: var(--sdds-spacing-element-8);
       }
@@ -185,7 +189,7 @@
     right: 18px;
     top: 48px;
 
-    @include type-style("detail-05");
+    @include type-style('detail-05');
 
     padding: 8px;
     color: var(--sdds-white);

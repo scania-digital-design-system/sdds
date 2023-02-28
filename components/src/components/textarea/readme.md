@@ -15,6 +15,7 @@
 | `labelPosition` | `label-position` | Label position: `no-label` (default), `inside`, `outside` | `string`  | `'no-label'` |
 | `maxlength`     | `maxlength`      | Max length of input                                       | `number`  | `undefined`  |
 | `name`          | `name`           | Name attribute                                            | `string`  | `''`         |
+| `noMinWidth`    | `no-min-width`   | With setting                                              | `boolean` | `false`      |
 | `placeholder`   | `placeholder`    | Placeholder text                                          | `string`  | `''`         |
 | `readonly`      | `readonly`       | Set input in readonly state                               | `boolean` | `false`      |
 | `rows`          | `rows`           | Textarea rows attribute                                   | `number`  | `undefined`  |

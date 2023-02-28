@@ -94,6 +94,16 @@ export default {
         type: 'number',
       },
     },
+    minWidth: {
+      name: 'No minimum width',
+      description: 'Toggle the minimum width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     state: {
       name: 'State',
       description: 'Switch between success or error state',
@@ -114,6 +124,7 @@ export default {
     rows: 5,
     state: 'Default',
     modeVariant: 'Inherit from parent',
+    minWidth: false,
   },
 };
 
@@ -127,6 +138,7 @@ const Template = ({
   helper,
   maxLength,
   modeVariant,
+  minWidth,
   rows,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
@@ -158,6 +170,7 @@ const Template = ({
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'read-only' : ''}
+          ${minWidth ? 'no-min-width' : ''}
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
