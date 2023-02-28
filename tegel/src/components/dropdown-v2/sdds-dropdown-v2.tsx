@@ -120,14 +120,13 @@ export class SddsDropdownV2 {
 
   getChildren = () => {
     this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
-    this.children.map((element) => {
+    this.children.forEach((element) => {
       if (element.selected) {
         this.value = this.value ? (this.value = [...this.value, element.value]) : [element.value];
         this.valueLabels = this.valueLabels
           ? (this.valueLabels = [...this.valueLabels, element.textContent])
           : [element.textContent];
       }
-      return element;
     });
     this.filterResult = this.children.length;
   };
