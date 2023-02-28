@@ -128,14 +128,14 @@ export default {
     modeVariant: 'Inherit from parent',
     size: 'Large',
     placeholder: 'Placeholder',
-    disabled: false,
-    labelPosition: 'Outside',
     labelText: 'Label text',
-    helperText: 'Helper text',
-    openDirection: 'Auto',
+    labelPosition: 'Outside',
+    disabled: false,
     error: false,
     filter: false,
-    multiselect: true,
+    multiselect: false,
+    helperText: 'Helper text',
+    openDirection: 'Auto',
   },
 };
 
@@ -219,6 +219,7 @@ const Template = ({
             />
         </form>
     </div>
+    <!-- JUST FOR DEMO ON FORMS -->
     <script>
     form = document.querySelector('form')
     form.addEventListener('submit', (event) => {
@@ -230,6 +231,11 @@ const Template = ({
         console.log('Key:', key, 'Value:', value);
     });
   });
+
+    dropdown = document.querySelector('sdds-dropdown-v2')
+    dropdown.addEventListener('sddsChange', (event) => {
+      console.log(event)
+    })
     </script>
         
   `);

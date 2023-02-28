@@ -24,6 +24,13 @@
 | `size`          | `size`           | The size of the dropdown.                                                                  | `"lg" \| "md" \| "sm"`     | `'lg'`        |
 
 
+## Events
+
+| Event        | Description                    | Type                                            |
+| ------------ | ------------------------------ | ----------------------------------------------- |
+| `sddsChange` | Change event for the dropdown. | `CustomEvent<{ name: string; value: string; }>` |
+
+
 ## Methods
 
 ### `close() => Promise<void>`

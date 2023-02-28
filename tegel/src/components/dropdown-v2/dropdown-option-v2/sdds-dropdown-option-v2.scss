@@ -7,6 +7,8 @@
   .dropdown-option {
     color: var(--sdds-dropdown-option-color);
     border-bottom: 1px solid var(--sdds-dropdown-option-border);
+    font: var(--sdds-detail-02);
+    letter-spacing: var(--sdds-detail-02-ls);
 
     &.selected {
       background-color: var(--sdds-dropdown-option-background-selected);
@@ -34,6 +36,7 @@
       height: 100%;
 
       .single-select {
+        color: var(--sdds-dropdown-option-color);
         display: flex;
         align-items: center;
         justify-content: space-between;

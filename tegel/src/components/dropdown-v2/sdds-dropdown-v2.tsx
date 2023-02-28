@@ -1,5 +1,5 @@
 import { Component, Host, h, Element, State } from '@stencil/core';
-import { HostElement, Method, Prop, Watch } from '@stencil/core/internal';
+import { Event, EventEmitter, HostElement, Listen, Method, Prop } from '@stencil/core/internal';
 import { renderHiddenInput } from '../../utils/utils';
 
 @Component({
@@ -53,8 +53,6 @@ export class SddsDropdownV2 {
 
   @State() valueLabels: Array<string>;
 
-  @State() selected: boolean = false;
-
   @State() filterHasFocus: boolean = false;
 
   @State() filterResult: number;
@@ -83,6 +81,10 @@ export class SddsDropdownV2 {
         return element;
       });
     }
+    this.sddsChange.emit({
+      name: this.name,
+      value: this.value.toString(),
+    });
   }
 
   /** @internal Method for removing the value of the dropdown. */
@@ -96,6 +98,10 @@ export class SddsDropdownV2 {
     } else {
       this.value = null;
     }
+    this.sddsChange.emit({
+      name: this.name,
+      value: this.value.toString(),
+    });
   }
 
   /** Method for closing the dropdown. */
@@ -118,8 +124,8 @@ export class SddsDropdownV2 {
       if (element.selected) {
         this.value = this.value ? (this.value = [...this.value, element.value]) : [element.value];
         this.valueLabels = this.valueLabels
-          ? (this.valueLabels = [...this.valueLabels, element.innerHTML])
-          : [element.innerHTML];
+          ? (this.valueLabels = [...this.valueLabels, element.textContent])
+          : [element.textContent];
       }
       return element;
     });
@@ -142,7 +148,7 @@ export class SddsDropdownV2 {
   handleFilter = (event) => {
     const query = event.target.value.toLowerCase();
     this.filterResult = this.children.filter((element) => {
-      if (!element.innerHTML.toLowerCase().includes(query.toLowerCase())) {
+      if (!element.textContent.toLowerCase().includes(query.toLowerCase())) {
         element.setAttribute('hidden', '');
       } else {
         element.removeAttribute('hidden');
@@ -151,9 +157,27 @@ export class SddsDropdownV2 {
     }).length;
   };
 
-  @Watch('value')
-  selectionMade() {
-    this.selected = !!this.value;
+  /** Change event for the dropdown. */
+  @Event({
+    eventName: 'sddsChange',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsChange: EventEmitter<{
+    name: string;
+    value: string;
+  }>;
+
+  @Listen('click', { target: 'window' })
+  onAnyClick(event: MouseEvent) {
+    if (this.open) {
+      // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
+      const isClickOutside = !event.composedPath().includes(this.host as any);
+      if (isClickOutside) {
+        this.open = false;
+      }
+    }
   }
 
   render() {

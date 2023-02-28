@@ -26,6 +26,7 @@
  - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
  - [sdds-dropdown-v2](../dropdown-v2)
+ - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-navigation-tabs](../tabs/navigation-tabs)
@@ -52,6 +53,7 @@ graph TD;
   sdds-inline-tabs --> sdds-icon
   sdds-dropdown-option-v2 --> sdds-icon
   sdds-dropdown-v2 --> sdds-icon
+  sdds-footer-link-group --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-navigation-tabs --> sdds-icon

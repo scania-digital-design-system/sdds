@@ -36,7 +36,7 @@ export class SddsDropdownOptionV2 {
     this.modeVariant = this.parentElement.modeVariant;
     this.multiselect = this.parentElement.multiselect;
     this.size = this.parentElement.size;
-    this.label = this.host.innerHTML;
+    this.label = this.host.textContent.trim();
   };
 
   handleSingleselect = () => {
