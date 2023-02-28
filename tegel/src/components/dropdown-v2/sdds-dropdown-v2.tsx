@@ -68,9 +68,7 @@ export class SddsDropdownV2 {
   async setValue(newValue: string, newValueLabel: string) {
     if (this.multiselect) {
       this.value = this.value ? (this.value = [...this.value, newValue]) : [newValue];
-      this.valueLabels = this.valueLabels
-        ? (this.valueLabels = [...this.valueLabels, newValueLabel])
-        : [newValueLabel];
+      this.valueLabels = this.valueLabels ? [...this.valueLabels, newValueLabel] : [newValueLabel];
     } else {
       this.value = [newValue];
       this.valueLabels = [newValueLabel];
@@ -122,7 +120,7 @@ export class SddsDropdownV2 {
     this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     this.children.forEach((element) => {
       if (element.selected) {
-        this.value = this.value ? (this.value = [...this.value, element.value]) : [element.value];
+        this.value = this.value ? [...this.value, element.value] : [element.value];
         this.valueLabels = this.valueLabels
           ? (this.valueLabels = [...this.valueLabels, element.textContent])
           : [element.textContent];
