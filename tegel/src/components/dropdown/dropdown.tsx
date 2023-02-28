@@ -87,12 +87,15 @@ export class Dropdown {
 
   @State() listItemArray: any;
 
+  @State() listItemObject: any;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
-    this.listItemArray = Array.from(this.host.children);
+    this.listItemObject = this.host.children;
+    this.listItemArray = Array.from(this.listItemObject);
     this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
       this.optionLabels.push(listItem.innerText.trim());
@@ -173,7 +176,7 @@ export class Dropdown {
             } else {
               this.listItemIndex = 0;
             }
-            this.listItemArray[this.listItemIndex].focus();
+            (this.listItemObject[this.listItemIndex] as HTMLElement).focus();
           }
           break;
         case 'ArrowUp':
@@ -184,7 +187,7 @@ export class Dropdown {
             } else {
               this.listItemIndex = this.listItemArray.length - 1;
             }
-            this.listItemArray[this.listItemIndex].focus();
+            (this.listItemObject[this.listItemIndex] as HTMLElement).focus();
           }
           break;
 
