@@ -1,5 +1,5 @@
 :root,
-.sdds-theme-light {
+.sdds-mode-light {
   /* Horizontal divider */
   --sdds-inline-tabs-horizontal-divider-background: var(--sdds-blue-900);
   --sdds-inline-tabs-horizontal-divider-opacity: 0.16;
@@ -38,7 +38,7 @@
   }
 }
 
-.sdds-theme-dark {
+.sdds-mode-dark {
   --sdds-inline-tabs-horizontal-divider-background: var(--sdds-blue-100);
   --sdds-inline-tabs-horizontal-divider-opacity: 0.24;
   --sdds-inline-tabs-tab-background-primary: var(--sdds-grey-900);
