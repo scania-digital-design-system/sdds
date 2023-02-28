@@ -106,8 +106,9 @@ const Template = ({ modeVariant, tabType }) =>
     <script>
     selectedTab = document.getElementsByClassName('selectedTab')[0]
     selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
+    tabs = document.querySelector('sdds-folder-tabs');
   
-    document.addEventListener('sddsChange', (event) => {
+    tabs.addEventListener('sddsChange', (event) => {
       selectedTab.innerHTML = event.detail.selectedTab
       selectedTabIndex.innerHTML = event.detail.selectedTabIndex
     })
