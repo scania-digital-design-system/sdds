@@ -156,7 +156,7 @@
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
 .form-textfield.textfield-container-label-inside {
-  .textfield-input {
+  .textfield-input-lg {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: 15px;
 
@@ -209,7 +209,7 @@
       top: 8px;
     }
 
-    .textfield-input ~ .textfield-label-inside {
+    .textfield-input-lg ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 

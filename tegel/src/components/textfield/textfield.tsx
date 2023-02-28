@@ -151,7 +151,7 @@ export class Textfield {
           <div class="textfield-input-container">
             <input
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
-              class={`textfield-input-${this.size}`}
+              class={`textfield-input textfield-input-${this.size}`}
               type={this.type}
               disabled={this.disabled}
               readonly={this.readOnly}
