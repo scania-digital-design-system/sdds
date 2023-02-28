@@ -12,7 +12,7 @@ export class SddsDropdownV2 {
   @Prop() name: string;
 
   /** Sets the dropdown in a disabled state */
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
   /** Helper text for the dropdown. */
   @Prop() helper: string;
@@ -24,7 +24,7 @@ export class SddsDropdownV2 {
   @Prop() labelPosition: 'inside' | 'outside';
 
   /** Mode variant of the component, based on current mode. */
-  @Prop() modeVariant: 'primary' | 'secondary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** The direction the dropdown should open, auto if not specified. */
   @Prop() openDirection: 'up' | 'down' | 'auto' = 'auto';
@@ -36,13 +36,13 @@ export class SddsDropdownV2 {
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Sets the dropdown in an error state */
-  @Prop() error: boolean;
+  @Prop() error: boolean = false;
 
   /** Enables multiselect in the dropdown. */
-  @Prop() multiselect: boolean;
+  @Prop() multiselect: boolean = false;
 
   /** Enables filtration in the dropdown. */
-  @Prop() filter: boolean;
+  @Prop() filter: boolean = false;
 
   /** Text that is displayed if filter is used and there are no options that matches the search. */
   @Prop() noResultText: string = 'No result';

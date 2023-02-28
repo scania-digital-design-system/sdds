@@ -7,18 +7,25 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `disabled` | `disabled` |             | `boolean` | `undefined` |
-| `selected` | `selected` |             | `boolean` | `undefined` |
-| `value`    | `value`    |             | `string`  | `undefined` |
+| Property   | Attribute  | Description                            | Type      | Default     |
+| ---------- | ---------- | -------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled` | Sets the dropdown options as disabled. | `boolean` | `false`     |
+| `selected` | `selected` | Sets the dropdown options as selected. | `boolean` | `false`     |
+| `value`    | `value`    | Value for the dropdown option.         | `string`  | `undefined` |
+
+
+## Events
+
+| Event       | Description                          | Type                                                 |
+| ----------- | ------------------------------------ | ---------------------------------------------------- |
+| `sddsClick` | Click event for the dropdown option. | `CustomEvent<{ selected: boolean; value: string; }>` |
 
 
 ## Methods
 
 ### `deselect() => Promise<void>`
 
-
+Method to deselect the dropdown option.
 
 #### Returns
 

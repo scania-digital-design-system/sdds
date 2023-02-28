@@ -1,5 +1,5 @@
-import { Component, Host, h, Prop, State, Element } from '@stencil/core';
-import { HostElement, Method } from '@stencil/core/internal';
+import { Component, Host, h, Prop, State, Element, Event } from '@stencil/core';
+import { EventEmitter, HostElement, Method } from '@stencil/core/internal';
 import { SddsCheckboxCustomEvent } from '../../../components';
 
 @Component({
@@ -8,11 +8,14 @@ import { SddsCheckboxCustomEvent } from '../../../components';
   shadow: true,
 })
 export class SddsDropdownOptionV2 {
+  /** Value for the dropdown option. */
   @Prop() value: string;
 
-  @Prop() selected: boolean;
+  /** Sets the dropdown options as selected. */
+  @Prop() selected: boolean = false;
 
-  @Prop() disabled: boolean;
+  /** Sets the dropdown options as disabled. */
+  @Prop() disabled: boolean = false;
 
   @State() multiselect: boolean;
 
@@ -26,6 +29,7 @@ export class SddsDropdownOptionV2 {
 
   private label: string;
 
+  /** Method to deselect the dropdown option. */
   @Method()
   async deselect() {
     this.selected = false;
@@ -40,22 +44,48 @@ export class SddsDropdownOptionV2 {
   };
 
   handleSingleselect = () => {
-    this.selected = true;
-    this.parentElement.setValue(this.value, this.label);
-    this.parentElement.close();
+    if (!this.disabled) {
+      this.selected = true;
+      this.parentElement.setValue(this.value, this.label);
+      this.parentElement.close();
+      this.handleClick();
+    }
   };
 
   handleMultiselect = (
     event: SddsCheckboxCustomEvent<{ checkboxId: string; checked: boolean; value?: string }>,
   ) => {
-    if (event.detail.checked) {
-      this.parentElement.setValue(this.value, this.label);
-      this.selected = true;
-    } else {
-      this.parentElement.removeValue(this.value, this.label);
-      this.selected = false;
+    if (!this.disabled) {
+      if (event.detail.checked) {
+        this.parentElement.setValue(this.value, this.label);
+        this.selected = true;
+        this.handleClick();
+      } else {
+        this.parentElement.removeValue(this.value, this.label);
+        this.selected = false;
+        this.handleClick();
+      }
     }
   };
+
+  handleClick = () => {
+    this.sddsClick.emit({
+      value: this.value,
+      selected: this.selected,
+    });
+  };
+
+  /** Click event for the dropdown option. */
+  @Event({
+    eventName: 'sddsClick',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsClick: EventEmitter<{
+    selected: boolean;
+    value: string;
+  }>;
 
   render() {
     return (
