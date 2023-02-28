@@ -230,7 +230,7 @@ export class Dropdown {
     }
   }
 
-  @Listen('selectOption')
+  @Listen('sddsSelect')
   selectOptionHandler(event: CustomEvent<any>) {
     this.open = this.type === 'multiselect';
     if (this.type !== 'multiselect') {

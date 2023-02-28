@@ -30,13 +30,18 @@ export class DropdownOption {
   /** Value is a unique string that will be used for application logic */
   @Prop({ reflect: true }) value: string;
 
+  /** Fires on click on one of the dropdown items */
   @Event({
-    eventName: 'selectOption',
+    eventName: 'sddsSelect',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
-  selectOption: EventEmitter<any>;
+  sddsSelect: EventEmitter<{
+    value: string | number;
+    label: string | number;
+    parent: any;
+  }>;
 
   isMultiSelectOption: boolean;
 
@@ -53,7 +58,7 @@ export class DropdownOption {
   @Listen('keydown')
   onKeyDown(event: KeyboardEvent) {
     if (event.code === 'Enter') {
-      this.selectOptionHandler({
+      this.handleClick({
         value: this.value,
         label: this.host.innerText,
         parent: this.host.parentNode,
@@ -68,14 +73,12 @@ export class DropdownOption {
       .classList.contains('sdds-dropdown-multiselect');
   }
 
-  selectOptionHandler(value) {
+  handleClick(value) {
     if (!this.disabled) {
       const listOptions = value.parent.childNodes;
-      this.selectOption.emit(value);
+      this.sddsSelect.emit(value);
       if (!this.isMultiSelectOption) {
         listOptions.forEach((optionEl) => {
-          // TODO: fix and enable rule
-          // eslint-disable-next-line no-param-reassign
           optionEl.selected = false;
         });
       }
@@ -102,7 +105,7 @@ export class DropdownOption {
           if (this.isMultiSelectOption) {
             ev.stopPropagation();
           }
-          return this.selectOptionHandler({
+          return this.handleClick({
             value: this.value,
             label: this.host.innerText,
             parent: ev.target.parentNode,

@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `selectOption` |             | `CustomEvent<any>` |
+| Event        | Description                                 | Type                                                                              |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------------------------- |
+| `sddsSelect` | Fires on click on one of the dropdown items | `CustomEvent<{ value: string \| number; label: string \| number; parent: any; }>` |
 
 
 ## Dependencies
