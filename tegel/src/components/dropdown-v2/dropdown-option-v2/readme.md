@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                            | Type      | Default     |
-| ---------- | ---------- | -------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled` | Sets the dropdown options as disabled. | `boolean` | `false`     |
-| `selected` | `selected` | Sets the dropdown options as selected. | `boolean` | `false`     |
-| `value`    | `value`    | Value for the dropdown option.         | `string`  | `undefined` |
+| Property   | Attribute   | Description                            | Type      | Default     |
+| ---------- | ----------- | -------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled`  | Sets the dropdown options as disabled. | `boolean` | `false`     |
+| `parentEl` | `parent-el` |                                        | `any`     | `undefined` |
+| `selected` | `selected`  | Sets the dropdown options as selected. | `boolean` | `false`     |
+| `value`    | `value`     | Value for the dropdown option.         | `string`  | `undefined` |
 
 
 ## Events
@@ -36,6 +37,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [sdds-dropdown-v2](..)
+
 ### Depends on
 
 - [sdds-checkbox](../../checkbox)
@@ -46,6 +51,7 @@ Type: `Promise<void>`
 graph TD;
   sdds-dropdown-option-v2 --> sdds-checkbox
   sdds-dropdown-option-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-dropdown-option-v2
   style sdds-dropdown-option-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -17,6 +17,8 @@ export class SddsDropdownOptionV2 {
   /** Sets the dropdown options as disabled. */
   @Prop() disabled: boolean = false;
 
+  @Prop() parentEl: any;
+
   @State() multiselect: boolean;
 
   @State() size: 'sm' | 'md' | 'lg' = 'lg';
@@ -36,7 +38,10 @@ export class SddsDropdownOptionV2 {
   }
 
   connectedCallback = () => {
-    this.parentElement = this.host.parentElement as HTMLSddsDropdownV2Element;
+    this.parentElement =
+      this.host.parentElement.tagName === 'SDDS-DROPDOWN-V2'
+        ? (this.host.parentElement as HTMLSddsDropdownV2Element)
+        : ((this.host.getRootNode() as ShadowRoot).host as HTMLSddsDropdownV2Element);
     this.modeVariant = this.parentElement.modeVariant;
     this.multiselect = this.parentElement.multiselect;
     this.size = this.parentElement.size;

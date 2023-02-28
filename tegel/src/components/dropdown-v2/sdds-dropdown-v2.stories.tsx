@@ -110,6 +110,13 @@ export default {
       description: 'Helper text assists the user with additional information about the dropdown',
       control: 'text',
     },
+    childType: {
+      name: 'Child type',
+      description:
+        'Render the child elements either via the data prop, or passing them as children to the dropdown.',
+      control: 'radio',
+      options: ['Elements', 'Data'],
+    },
     openDirection: {
       name: 'Open direction',
       description: 'The direction the dropdown will open.',
@@ -135,6 +142,7 @@ export default {
     filter: false,
     multiselect: false,
     helperText: 'Helper text',
+    childType: 'Elements',
     openDirection: 'Auto',
   },
 };
@@ -144,6 +152,27 @@ const sizeLookUp = {
   Medium: 'md',
   Small: 'sm',
 };
+
+const data = [
+  {
+    label: 'Option 1',
+    value: 'option-1',
+    disabled: 'false',
+    selected: 'false',
+  },
+  {
+    label: 'Option 2',
+    value: 'option-2',
+    disabled: 'false',
+    selected: 'false',
+  },
+  {
+    label: 'Option 3',
+    value: 'option-3',
+    disabled: 'false',
+    selected: 'false',
+  },
+];
 
 const Template = ({
   placeholder,
@@ -157,6 +186,7 @@ const Template = ({
   openDirection,
   modeVariant,
   disabled,
+  childType,
 }) =>
   formatHtmlPreview(`
   <style>
@@ -170,6 +200,7 @@ const Template = ({
     <div class="demo-wrapper">
         <form>
           <sdds-dropdown-v2
+          
           ${
             modeVariant !== 'Inherit from parent'
               ? `mode-variant="${modeVariant.toLowerCase()}"`
@@ -190,28 +221,33 @@ const Template = ({
             ${multiselect ? 'multiselect' : ''}
             ${disabled ? 'disabled' : ''}
             open-direction="${openDirection.toLowerCase()}"
+            ${childType === 'Data' ? `data='${JSON.stringify(data)}'` : ''}
             >
-            <sdds-dropdown-option-v2 selected value="option-1">
-              Option 1
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 disabled value="option-2">
-              Option 2
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 value="option-3">
-              Option 3
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 value="option-4">
-              Option 4
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 value="option-5">
-              Option 5
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 value="option-6">
-              Option 6
-            </sdds-dropdown-option-v2>
-            <sdds-dropdown-option-v2 value="option-7">
-              Option 7
-            </sdds-dropdown-option-v2>
+            ${
+              childType === 'Elements'
+                ? `<sdds-dropdown-option-v2 selected value="option-1">
+                Option 1
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 disabled value="option-2">
+                  Option 2
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 value="option-3">
+                  Option 3
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 value="option-4">
+                  Option 4
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 value="option-5">
+                  Option 5
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 value="option-6">
+                  Option 6
+               </sdds-dropdown-option-v2>
+               <sdds-dropdown-option-v2 value="option-7">
+                  Option 7
+               </sdds-dropdown-option-v2>`
+                : ''
+            }
           </sdds-dropdown-v2>
           <input
                 type="submit"
@@ -241,3 +277,32 @@ const Template = ({
   `);
 
 export const WebComponent = Template.bind({});
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /*
+
+            <sdds-dropdown-option-v2 selected value="option-1">
+              Option 1
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 disabled value="option-2">
+              Option 2
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-3">
+              Option 3
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-4">
+              Option 4
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-5">
+              Option 5
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-6">
+              Option 6
+            </sdds-dropdown-option-v2>
+            <sdds-dropdown-option-v2 value="option-7">
+              Option 7
+            </sdds-dropdown-option-v2>
+
+*/
+}

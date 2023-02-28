@@ -47,6 +47,8 @@ export class SddsDropdownV2 {
   /** Text that is displayed if filter is used and there are no options that matches the search. */
   @Prop() noResultText: string = 'No result';
 
+  @Prop() data: any;
+
   @State() open: boolean = false;
 
   @State() value: Array<string>;
@@ -59,9 +61,18 @@ export class SddsDropdownV2 {
 
   @Element() host: HostElement;
 
+  private parsedData: any;
+
   private dropdownList: HTMLDivElement;
 
   private children: Array<HTMLSddsDropdownOptionV2Element>;
+
+  /** Method that resets the dropdown. */
+  @Method()
+  async reset() {
+    this.value = [];
+    this.valueLabels = [];
+  }
 
   /** @internal Method for setting the value of the dropdown. */
   @Method()
@@ -109,24 +120,34 @@ export class SddsDropdownV2 {
   }
 
   connectedCallback = () => {
+    if (this.data) {
+      this.parsedData = JSON.parse(this.data);
+    }
     this.getChildren();
   };
 
   componentDidRender() {
+    if (this.data) {
+      this.children = Array.from(
+        this.dropdownList.children,
+      ) as Array<HTMLSddsDropdownOptionV2Element>;
+    }
     this.getOpenDirection();
   }
 
   getChildren = () => {
-    this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
-    this.children.forEach((element) => {
-      if (element.selected) {
-        this.value = this.value ? [...this.value, element.value] : [element.value];
-        this.valueLabels = this.valueLabels
-          ? (this.valueLabels = [...this.valueLabels, element.textContent])
-          : [element.textContent];
-      }
-    });
-    this.filterResult = this.children.length;
+    if (!this.data) {
+      this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
+      this.filterResult = this.children.length;
+      this.children.forEach((element) => {
+        if (element.selected) {
+          this.value = this.value ? [...this.value, element.value] : [element.value];
+          this.valueLabels = this.valueLabels
+            ? [...this.valueLabels, element.textContent]
+            : [element.textContent];
+        }
+      });
+    }
   };
 
   getOpenDirection = () => {
@@ -179,7 +200,6 @@ export class SddsDropdownV2 {
 
   render() {
     renderHiddenInput(this.host, this.name, this.value?.toString(), this.disabled);
-    console.log(this.filterResult);
     return (
       <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         {this.label && this.labelPosition === 'outside' && (
@@ -283,7 +303,20 @@ export class SddsDropdownV2 {
             ${this.openDirection}
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
-          <slot></slot>
+          {this.data ? (
+            this.parsedData?.map((element) => (
+              <sdds-dropdown-option-v2
+                disabled={element.disabled}
+                selected={element.selected}
+                value={element.value}
+                parentEl={this.host}
+              >
+                {element.label}
+              </sdds-dropdown-option-v2>
+            ))
+          ) : (
+            <slot></slot>
+          )}
           {this.filterResult === 0 && (
             <div class={`no-result ${this.size}`}>{this.noResultText}</div>
           )}

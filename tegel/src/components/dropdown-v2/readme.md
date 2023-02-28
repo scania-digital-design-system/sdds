@@ -9,6 +9,7 @@
 
 | Property        | Attribute        | Description                                                                                | Type                       | Default       |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------ | -------------------------- | ------------- |
+| `data`          | `data`           |                                                                                            | `any`                      | `undefined`   |
 | `disabled`      | `disabled`       | Sets the dropdown in a disabled state                                                      | `boolean`                  | `false`       |
 | `error`         | `error`          | Sets the dropdown in an error state                                                        | `boolean`                  | `false`       |
 | `filter`        | `filter`         | Enables filtration in the dropdown.                                                        | `boolean`                  | `false`       |
@@ -43,17 +44,31 @@ Type: `Promise<void>`
 
 
 
+### `reset() => Promise<void>`
+
+Method that resets the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
 ### Depends on
 
 - [sdds-icon](../icon)
+- [sdds-dropdown-option-v2](dropdown-option-v2)
 
 ### Graph
 ```mermaid
 graph TD;
   sdds-dropdown-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-dropdown-option-v2
+  sdds-dropdown-option-v2 --> sdds-checkbox
+  sdds-dropdown-option-v2 --> sdds-icon
   style sdds-dropdown-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
