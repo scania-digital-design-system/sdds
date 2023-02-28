@@ -122,5 +122,4 @@ const Template = ({ topPart, modeVariant}) =>
   `,
   );
 
-export const Default = Template.bind({});
-
+export const Native = Template.bind({});

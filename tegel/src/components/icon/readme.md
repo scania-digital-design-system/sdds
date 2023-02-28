@@ -1,7 +1,5 @@
 # sdds-icon
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -20,6 +18,7 @@
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
+ - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-slider](../slider)
@@ -34,6 +33,7 @@ graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
+  sdds-footer-link-group --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-slider --> sdds-icon
