@@ -43,7 +43,8 @@
     "build-stencil:watch": "stencil build --docs-readme --watch",
     "start-storybook": "start-storybook -p 6006",
     "tegel": "concurrently --raw  'npm:build-stencil:watch' 'npm:start-storybook'",
-    "commit": "npm run --prefix ../ commit"
+    "commit": "npm run --prefix ../ commit",
+    "tegel-release": "./tegel-release.sh"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
