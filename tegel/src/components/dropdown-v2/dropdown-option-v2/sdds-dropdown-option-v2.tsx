@@ -48,7 +48,7 @@ export class SddsDropdownOptionV2 {
     this.label = this.host.textContent.trim();
   };
 
-  handleSingleselect = () => {
+  handleSingleSelect = () => {
     if (!this.disabled) {
       this.selected = true;
       this.parentElement.setValue(this.value, this.label);
@@ -125,7 +125,7 @@ export class SddsDropdownOptionV2 {
           {!this.multiselect && (
             <button
               onClick={() => {
-                this.handleSingleselect();
+                this.handleSingleSelect();
               }}
               disabled={this.disabled}
             >
