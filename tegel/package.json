@@ -25,7 +25,8 @@
     "url": "git+https://github.com/scania-digital-design-system/sdds.git"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "loader/"
   ],
   "publishConfig": {
     "access": "public"
