@@ -171,7 +171,7 @@ const datetimeTemplate = ({
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
-            width: 150px;
+            width: 180px;
         }
     </style>
 
