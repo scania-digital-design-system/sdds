@@ -14,13 +14,6 @@
 | `value`    | `value`    | Value is a unique string that will be used for application logic | `string`  | `undefined` |
 
 
-## Events
-
-| Event                | Description                                 | Type                                                                                                  |
-| -------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `internalSddsSelect` | Fires on click on one of the dropdown items | `CustomEvent<{ value: string \| number; label: string \| number; parent: HTMLSddsDropdownElement; }>` |
-
-
 ## Dependencies
 
 ### Used by
