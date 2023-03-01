@@ -47,6 +47,9 @@ export class SddsDropdownV2 {
   /** Text that is displayed if filter is used and there are no options that matches the search. */
   @Prop() noResultText: string = 'No result';
 
+  /** Default value selected in the dropdown. */
+  @Prop() defaultValue: string | Array<string>;
+
   @Prop() data: any;
 
   @State() open: boolean = false;
@@ -139,13 +142,15 @@ export class SddsDropdownV2 {
     if (!this.data) {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
       this.filterResult = this.children.length;
-      this.children.forEach((element) => {
-        if (element.selected) {
+      this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
+        if (this.defaultValue.includes(element.value)) {
+          element.selectOption();
           this.value = this.value ? [...this.value, element.value] : [element.value];
           this.valueLabels = this.valueLabels
             ? [...this.valueLabels, element.textContent]
             : [element.textContent];
         }
+        return element;
       });
     }
   };
@@ -308,7 +313,6 @@ export class SddsDropdownV2 {
               <sdds-dropdown-option-v2
                 key={index}
                 disabled={element.disabled}
-                selected={element.selected}
                 value={element.value}
                 parentEl={this.host}
               >

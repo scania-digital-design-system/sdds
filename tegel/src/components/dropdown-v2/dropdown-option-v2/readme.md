@@ -11,15 +11,14 @@
 | ---------- | ----------- | -------------------------------------- | --------- | ----------- |
 | `disabled` | `disabled`  | Sets the dropdown options as disabled. | `boolean` | `false`     |
 | `parentEl` | `parent-el` |                                        | `any`     | `undefined` |
-| `selected` | `selected`  | Sets the dropdown options as selected. | `boolean` | `false`     |
 | `value`    | `value`     | Value for the dropdown option.         | `string`  | `undefined` |
 
 
 ## Events
 
-| Event       | Description                          | Type                                                 |
-| ----------- | ------------------------------------ | ---------------------------------------------------- |
-| `sddsClick` | Click event for the dropdown option. | `CustomEvent<{ selected: boolean; value: string; }>` |
+| Event        | Description                          | Type                                                 |
+| ------------ | ------------------------------------ | ---------------------------------------------------- |
+| `sddsSelect` | Click event for the dropdown option. | `CustomEvent<{ selected: boolean; value: string; }>` |
 
 
 ## Methods
@@ -27,6 +26,16 @@
 ### `deselect() => Promise<void>`
 
 Method to deselect the dropdown option.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `selectOption() => Promise<void>`
+
+Method to select the dropdown option.
 
 #### Returns
 

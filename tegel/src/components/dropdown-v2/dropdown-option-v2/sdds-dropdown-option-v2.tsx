@@ -11,11 +11,11 @@ export class SddsDropdownOptionV2 {
   /** Value for the dropdown option. */
   @Prop() value: string;
 
-  /** Sets the dropdown options as selected. */
-  @Prop() selected: boolean = false;
-
   /** Sets the dropdown options as disabled. */
   @Prop() disabled: boolean = false;
+
+  /** Sets the dropdown options as selected. */
+  @State() selected: boolean = false;
 
   @Prop() parentEl: any;
 
@@ -35,6 +35,12 @@ export class SddsDropdownOptionV2 {
   @Method()
   async deselect() {
     this.selected = false;
+  }
+
+  /** Method to select the dropdown option. */
+  @Method()
+  async selectOption() {
+    this.selected = true;
   }
 
   connectedCallback = () => {
@@ -74,7 +80,7 @@ export class SddsDropdownOptionV2 {
   };
 
   handleClick = () => {
-    this.sddsClick.emit({
+    this.sddsSelect.emit({
       value: this.value,
       selected: this.selected,
     });
@@ -82,12 +88,12 @@ export class SddsDropdownOptionV2 {
 
   /** Click event for the dropdown option. */
   @Event({
-    eventName: 'sddsClick',
+    eventName: 'sddsSelect',
     composed: true,
-    bubbles: true,
     cancelable: false,
+    bubbles: true,
   })
-  sddsClick: EventEmitter<{
+  sddsSelect: EventEmitter<{
     selected: boolean;
     value: string;
   }>;

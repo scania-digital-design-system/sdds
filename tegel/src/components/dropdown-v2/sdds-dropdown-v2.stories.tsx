@@ -117,6 +117,24 @@ export default {
       control: 'radio',
       options: ['Elements', 'Data'],
     },
+    defaultOption: {
+      name: 'Default options',
+      description: 'Sets a pre-selected option.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+      if: { arg: 'multiselect', eq: false },
+    },
+    multiDefaultOption: {
+      name: 'Default options',
+      description: 'Sets a pre-selected option.',
+      control: {
+        type: 'check',
+      },
+      options: ['Option 1', 'Option 2', 'Option 3', 'Option 3'],
+      if: { arg: 'multiselect', eq: true },
+    },
     openDirection: {
       name: 'Open direction',
       description: 'The direction the dropdown will open.',
@@ -143,6 +161,7 @@ export default {
     multiselect: false,
     helperText: 'Helper text',
     childType: 'Elements',
+    defaultOption: 'No default',
     openDirection: 'Auto',
   },
 };
@@ -153,24 +172,30 @@ const sizeLookUp = {
   Small: 'sm',
 };
 
+const defaultOptionLookUp = {
+  'Option 1': 'option-1',
+  'Option 2': 'option-2',
+  'Option 3': 'option-3',
+};
+
+const getMultiselectDefaultValue = (multiDefaultOption: string[]) =>
+  multiDefaultOption.map((item) => defaultOptionLookUp[item]);
+
 const data = [
   {
     label: 'Option 1',
     value: 'option-1',
     disabled: 'false',
-    selected: 'false',
   },
   {
     label: 'Option 2',
     value: 'option-2',
     disabled: 'false',
-    selected: 'false',
   },
   {
     label: 'Option 3',
     value: 'option-3',
     disabled: 'false',
-    selected: 'false',
   },
 ];
 
@@ -187,6 +212,8 @@ const Template = ({
   modeVariant,
   disabled,
   childType,
+  defaultOption,
+  multiDefaultOption,
 }) =>
   formatHtmlPreview(`
   <style>
@@ -200,7 +227,16 @@ const Template = ({
     <div class="demo-wrapper">
         <form>
           <sdds-dropdown-v2
-          
+          ${
+            defaultOption && defaultOption !== 'No default'
+              ? `default-value="${defaultOptionLookUp[defaultOption]}"`
+              : ''
+          }
+          ${
+            multiDefaultOption && multiDefaultOption
+              ? `default-value="${getMultiselectDefaultValue(multiDefaultOption)}"`
+              : ''
+          }
           ${
             modeVariant !== 'Inherit from parent'
               ? `mode-variant="${modeVariant.toLowerCase()}"`
@@ -225,7 +261,7 @@ const Template = ({
             >
             ${
               childType === 'Elements'
-                ? `<sdds-dropdown-option-v2 selected value="option-1">
+                ? `<sdds-dropdown-option-v2 value="option-1">
                 Option 1
                </sdds-dropdown-option-v2>
                <sdds-dropdown-option-v2 disabled value="option-2">
