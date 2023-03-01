@@ -78,7 +78,7 @@ export class SddsDropdownV2 {
   @Method()
   async setValue(newValue: string, newValueLabel: string) {
     if (this.multiselect) {
-      this.value = this.value ? (this.value = [...this.value, newValue]) : [newValue];
+      this.value = this.value ? [...this.value, newValue] : [newValue];
       this.valueLabels = this.valueLabels ? [...this.valueLabels, newValueLabel] : [newValueLabel];
     } else {
       this.value = [newValue];
