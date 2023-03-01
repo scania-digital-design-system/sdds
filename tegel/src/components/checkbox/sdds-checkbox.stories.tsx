@@ -20,34 +20,42 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the checkbox',
+    label: {
+      name: 'Label text',
+      description: 'Sets the label of the component.',
       control: {
-        type: 'boolean',
+        type: 'text',
       },
     },
     checked: {
       name: 'Checked',
-      description: 'Checks the checkbox',
+      description: 'Checks the checkbox.',
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
-    label: {
-      name: 'Label text',
-      description: 'The label of the component',
-      type: 'string',
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the checkbox.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
-    disabled: false,
-    checked: false,
     label: 'Label',
+    checked: false,
+    disabled: false,
   },
 };
 
-const Template = ({ checked, disabled, label }) =>
+const Template = ({ label, checked, disabled }) =>
   formatHtmlPreview(`
     <sdds-checkbox
         ${checked ? 'checked' : ''}
