@@ -33,7 +33,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Switches between success or error state.',
+      description: 'Switches between success and error state.',
       control: {
         type: 'radio',
       },
