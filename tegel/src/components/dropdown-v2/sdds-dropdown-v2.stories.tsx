@@ -233,7 +233,7 @@ const Template = ({
               : ''
           }
           ${
-            multiDefaultOption && multiDefaultOption
+            multiDefaultOption
               ? `default-value="${getMultiselectDefaultValue(multiDefaultOption)}"`
               : ''
           }
