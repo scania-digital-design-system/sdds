@@ -23,7 +23,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component, based on current mode.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -34,28 +34,31 @@ export default {
     },
     header: {
       name: 'Header text',
-      description: 'The header text',
+      description: 'Sets the header text.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader text',
-      description: 'The subheader text',
+      description: 'Sets the subheader text.',
       control: {
         type: 'text',
       },
     },
     headerImg: {
       name: 'Header image',
-      description: 'Image for the header',
+      description: 'Toggles an image in the header.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
       },
     },
     headerPlacement: {
       name: 'Header placement',
-      description: 'Placement of the header',
+      description: 'Sets the placement of the header, above or below the body image.',
       control: {
         type: 'radio',
       },
@@ -64,9 +67,38 @@ export default {
         defaultValue: { summary: 'above' },
       },
     },
+    bodyImg: {
+      name: 'Body image',
+      description: 'Toggles an image in the card body. Cannot be combined with divider.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+      if: { arg: 'bodyDivider', eq: false },
+    },
     bodyContent: {
       name: 'Body text',
-      description: 'The body text for the card',
+      description: 'Sets the body text for the card.',
+      control: {
+        type: 'text',
+      },
+    },
+    bodyDivider: {
+      name: 'Body divider',
+      description: 'Adds a divider above the body content. Cannot be combined with body image.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+      if: { arg: 'bodyImg', eq: false },
+    },
+    cardBottom: {
+      name: 'Content of the bottom of the card',
+      description: 'Slot to add custom HTML elements to the bottom of the card.',
       control: {
         type: 'text',
       },
@@ -81,43 +113,9 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    bodyDivider: {
-      name: 'Body divider',
-      description: 'Adds a divider above the body content.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'bodyImg', eq: false },
-    },
-    bodyImg: {
-      name: 'Body image',
-      description: 'Image in body on card.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    imageTop: {
-      name: 'Image on top',
-      description: 'Places the body image above the header.',
-      control: {
-        type: 'text',
-      },
-      table: {
-        defaultValue: { summary: false },
-      },
-      if: { arg: 'image', eq: true },
-    },
-    cardBottom: {
-      name: 'Content of the bottom of the card',
-      control: {
-        type: 'text',
-      },
-    },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     header: 'Header text',
     subheader: 'Subheader text',
     headerImg: true,
@@ -126,22 +124,21 @@ export default {
     bodyContent: '',
     bodyDivider: false,
     cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
-    modeVariant: 'Inherit from parent',
     clickable: false,
   },
 };
 
 const Template = ({
   modeVariant,
-  headerPlacement,
   header,
   subheader,
-  bodyContent,
-  clickable,
   headerImg,
+  headerPlacement,
   bodyImg,
+  bodyContent,
   bodyDivider,
   cardBottom,
+  clickable,
 }) =>
   formatHtmlPreview(
     `<style>
