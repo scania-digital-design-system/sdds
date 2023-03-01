@@ -324,7 +324,7 @@ i.sdds-btn-icon[slot='icon'] {
 }
 
 :host(sdds-button[fullbleed]) {
-  width: inherit;
+  width: 100%;
   justify-content: center;
 }
 

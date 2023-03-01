@@ -24,18 +24,20 @@ export default {
     ],
   },
   argTypes: {
-    text: {
-      name: 'Text',
-      description: 'The text to be displayed on the button',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
-        type: 'text',
+        type: 'radio',
       },
-      if: { arg: 'onlyIcon', truthy: false },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
     },
     btnType: {
       name: 'Type',
-      description:
-        'Four different button types to help the user to distinguish the level of importance of the task they represent',
+      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -46,6 +48,7 @@ export default {
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the button.',
       control: {
         type: 'radio',
       },
@@ -53,39 +56,29 @@ export default {
       table: {
         defaultValue: { summary: 'lg' },
       },
-      description: 'Size of the button',
     },
-    modeVariant: {
-      name: 'Mode variant',
+    text: {
+      name: 'Text',
+      description: 'Sets the text to be displayed on the button.',
       control: {
-        type: 'radio',
+        type: 'text',
       },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Button mode variant.',
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     fullbleed: {
       name: 'Fullbleed',
-      type: 'boolean',
-      description: 'Fluid width in certain components-old',
+      description: 'Sets a fluid width on the button.',
+      control: {
+        type: 'boolean',
+      },
       table: {
         defaultValue: { summary: false },
       },
       if: { arg: 'onlyIcon', truthy: false },
     },
-    disabled: {
-      name: 'Disabled',
-      type: 'boolean',
-      description: 'Choose to disable the button',
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
     onlyIcon: {
       name: 'Only Icon',
-      description: 'Displays only the icon and excludes any text from the button',
+      description: 'Displays only the icon and excludes any text from the button.',
       control: {
         type: 'boolean',
       },
@@ -96,46 +89,62 @@ export default {
     },
     icon: {
       name: 'Icon',
-      description: 'Icon to display on the button. Choose "none" to exclude the icon.',
+      description: 'Sets icon to be displayed on the button. Choose "none" to exclude the icon.',
       control: {
         type: 'select',
       },
       options: ['none', ...iconsNames],
+      table: {
+        defaultValue: { summary: 'none' },
+      },
       if: { arg: 'size', neq: 'Extra small' },
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Web Component' },
+      },
       if: { arg: 'size', neq: 'Extra small' },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the button.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
-    text: 'Button',
+    modeVariant: 'Inherit from parent',
     btnType: 'Primary',
     size: 'Large',
-    modeVariant: 'Primary',
+    text: 'Button',
     fullbleed: false,
-    disabled: false,
     onlyIcon: false,
     icon: 'none',
     iconType: 'Web Component',
+    disabled: false,
   },
 };
 
 const WebComponentTemplate = ({
-  onlyIcon,
-  size,
   modeVariant,
   btnType,
+  size,
+  text = 'Button',
   fullbleed,
-  disabled,
+  onlyIcon,
   icon,
   iconType,
-  text = 'Button',
+  disabled,
 }) => {
   const btnTypeLookUp = {
     Primary: 'primary',
