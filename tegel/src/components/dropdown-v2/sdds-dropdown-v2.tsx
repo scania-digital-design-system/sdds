@@ -304,8 +304,9 @@ export class SddsDropdownV2 {
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
           {this.data ? (
-            this.parsedData?.map((element) => (
+            this.parsedData?.map((element, index) => (
               <sdds-dropdown-option-v2
+                key={index}
                 disabled={element.disabled}
                 selected={element.selected}
                 value={element.value}
