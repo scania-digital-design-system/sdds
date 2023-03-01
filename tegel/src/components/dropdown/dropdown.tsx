@@ -233,7 +233,7 @@ export class Dropdown {
     }
   }
 
-  @Listen('sddsSelect')
+  @Listen('internalSddsSelect')
   selectOptionHandler(event: CustomEvent<any>) {
     this.open = this.type === 'multiselect';
     if (this.type !== 'multiselect') {

@@ -75,7 +75,7 @@ export class DropdownFilter {
     this.findData();
   }
 
-  @Listen('sddsSelect')
+  @Listen('internalSddsSelect')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selectedOptionState = event.detail.value;
     this.selectedLabel = event.detail.label;

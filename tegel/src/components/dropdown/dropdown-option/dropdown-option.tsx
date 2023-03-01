@@ -32,15 +32,15 @@ export class DropdownOption {
 
   /** Fires on click on one of the dropdown items */
   @Event({
-    eventName: 'sddsSelect',
+    eventName: 'internalSddsSelect',
     composed: true,
     cancelable: false,
     bubbles: true,
   })
-  sddsSelect: EventEmitter<{
+  internalSddsSelect: EventEmitter<{
     value: string | number;
     label: string | number;
-    parent: any;
+    parent: HTMLSddsDropdownElement;
   }>;
 
   isMultiSelectOption: boolean;
@@ -76,7 +76,7 @@ export class DropdownOption {
   handleClick(value) {
     if (!this.disabled) {
       const listOptions = value.parent.childNodes;
-      this.sddsSelect.emit(value);
+      this.internalSddsSelect.emit(value);
       if (!this.isMultiSelectOption) {
         listOptions.forEach((optionEl) => {
           optionEl.selected = false;
@@ -101,14 +101,14 @@ export class DropdownOption {
   render() {
     return (
       <Host
-        onClick={(ev) => {
+        onClick={(event) => {
           if (this.isMultiSelectOption) {
-            ev.stopPropagation();
+            event.stopPropagation();
           }
           return this.handleClick({
             value: this.value,
             label: this.host.innerText,
-            parent: ev.target.parentNode,
+            parent: event.target.parentNode,
           });
         }}
         class={{
