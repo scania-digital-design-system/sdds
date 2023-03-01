@@ -166,12 +166,11 @@ const datetimeTemplate = ({
         default:
           return 'Invalid type';
       }
-    }
+    } else return false;
   };
 
   return formatHtmlPreview(
     `
-
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
@@ -179,35 +178,39 @@ const datetimeTemplate = ({
         }
     </style>
 
-  <div class="demo-wrapper">
-
-    <sdds-datetime
-      id="datetime"
-      ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
-      type="${typeLookup[type]}"
-      size="${sizeLookup[size]}"
-      state="${stateLookup[state]}"
-      ${disabled ? 'disabled' : ''}
-      ${minWidth ? 'no-min-width' : ''}
-      ${label ? `label="${labelText}" ` : ''}
-      ${helper ? `helper="${helperText}" ` : ''}
-      >
-    </sdds-datetime>
-
+    <div class="demo-wrapper">
+      <sdds-datetime
+        id="storybook-datetime"
+        name="datetime-input"
+        ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+        ${
+          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+        }
+        type="${typeLookup[type]}"
+        size="${sizeLookup[size]}"
+        state="${stateLookup[state]}"
+        ${disabled ? 'disabled' : ''}
+        ${minWidth ? 'no-min-width' : ''}
+        ${label ? `label="${labelText}" ` : ''}
+        ${helper ? `helper="${helperText}" ` : ''}
+        >
+      </sdds-datetime>
+    </div>
 
     <script>
-
-
-    /* You can listen for the 'customChange' event to get value updates. */
-      const datetimeEl = document.getElementById('datetime');
-      datetimeEl.addEventListener('customChange', (event) => {
-        console.log(event.target.value);
+    /* DEMO Code: Used only for Storybook demo purposes */
+      datetimeElement = document.getElementById('storybook-datetime');
+      datetimeElement.addEventListener('sddsChange', (event) => {
+        console.log("Firing sddsChange: " + event.target.value);
       });
-
-
+      datetimeElement.addEventListener('sddsFocus', (event) => {
+        console.log("Firing sddsFocus: " + event.target.value);
+      });
+      datetimeElement.addEventListener('sddsBlur', (event) => {
+        console.log("Firing sddsBlur: " + event.target.value);
+      });
     </script>
-  </div>`,
+`,
   );
 };
 

@@ -12,9 +12,9 @@
 | `disabled`     | `disabled`      | Set input in disabled state                                                                                             | `boolean`                              | `false`            |
 | `helper`       | `helper`        | Helper text for the component                                                                                           | `string`                               | `''`               |
 | `label`        | `label`         | Label text for the component                                                                                            | `string`                               | `''`               |
-| `modeVariant`  | `mode-variant`  | Set the variant of the the datetime component.                                                                          | `"primary" \| "secondary"`             | `null`             |
+| `modeVariant`  | `mode-variant`  | Set the variant of the datetime component.                                                                              | `"primary" \| "secondary"`             | `null`             |
 | `name`         | `name`          | Name property                                                                                                           | `string`                               | `''`               |
-| `noMinWidth`   | `no-min-width`  | With setting                                                                                                            | `boolean`                              | `false`            |
+| `noMinWidth`   | `no-min-width`  | Resets min width rule                                                                                                   | `boolean`                              | `false`            |
 | `size`         | `size`          | Size of the input                                                                                                       | `"" \| "md" \| "sm"`                   | `''`               |
 | `state`        | `state`         | Error state of input                                                                                                    | `string`                               | `undefined`        |
 | `type`         | `type`          | Which input type, text, password or similar                                                                             | `"date" \| "datetime-local" \| "time"` | `'datetime-local'` |
@@ -23,9 +23,11 @@
 
 ## Events
 
-| Event          | Description                   | Type               |
-| -------------- | ----------------------------- | ------------------ |
-| `customChange` | Change event for the datetime | `CustomEvent<any>` |
+| Event        | Description                   | Type                      |
+| ------------ | ----------------------------- | ------------------------- |
+| `sddsBlur`   | Blur event for the datetime   | `CustomEvent<FocusEvent>` |
+| `sddsChange` | Change event for the datetime | `CustomEvent<any>`        |
+| `sddsFocus`  | Focus event for the datetime  | `CustomEvent<FocusEvent>` |
 
 
 ## Dependencies

@@ -24,10 +24,10 @@ export class Datetime {
   /** Size of the input */
   @Prop() size: 'sm' | 'md' | '' = '';
 
-  /** With setting */
+  /** Resets min width rule */
   @Prop() noMinWidth: boolean = false;
 
-  /** Set the variant of the the datetime component. */
+  /** Set the variant of the datetime component. */
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Name property */
@@ -54,7 +54,24 @@ export class Datetime {
     bubbles: true,
     cancelable: true,
   })
-  customChange: EventEmitter;
+  sddsChange: EventEmitter;
+
+  /** Blur event for the datetime */
+  @Event({
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
+  /** Focus event for the datetime */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
 
   getDefaultValue = () => {
     const dateTimeObj = {
@@ -97,16 +114,24 @@ export class Datetime {
   // Data input event in value prop
   handleInput(e): void {
     this.value = e.target.value;
+    this.sddsChange.emit(e);
   }
 
   // Change event isn't a composed:true by default in for input
   handleChange(e: Event): void {
-    this.customChange.emit(e);
+    this.sddsChange.emit(e);
   }
 
   /** Set the input as focus when clicking the whole datetime with suffix/prefix */
-  handleFocusClick(): void {
+  handleFocusClick(e): void {
     this.textInput.focus();
+    this.sddsFocus.emit(e);
+  }
+
+  /** Set the input as focus when clicking the whole datetime with suffix/prefix */
+  handleBlur(e): void {
+    this.textInput.blur();
+    this.sddsBlur.emit(e);
   }
 
   render() {
@@ -131,12 +156,16 @@ export class Datetime {
             ? `sdds-form-datetime-${this.state}`
             : ''
         }
-        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}
+        ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
         `}
       >
-        {this.label && <div class="sdds-datetime-label">{this.label}</div>}
+        {this.label && (
+          <label htmlFor={this.name} class="sdds-datetime-label">
+            {this.label}
+          </label>
+        )}
         <div
-          onClick={() => this.handleFocusClick()}
+          onClick={(e) => this.handleFocusClick(e)}
           class="sdds-datetime-container sdds-datetime-container"
         >
           <div class="sdds-datetime-input-container">
@@ -149,6 +178,7 @@ export class Datetime {
               autofocus={this.autofocus}
               name={this.name}
               onInput={(e) => this.handleInput(e)}
+              onBlur={(e) => this.handleBlur(e)}
               onChange={(e) => this.handleChange(e)}
             />
 
