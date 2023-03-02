@@ -25,20 +25,6 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    compactDesign: {
-      name: 'Compact Design',
-      description: 'Enables compact design of the table, rows with less height.',
-      control: {
-        type: 'boolean',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
       description: 'The mode variant of the component',
@@ -50,17 +36,17 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    responsiveDesign: {
-      name: 'Responsive design',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
+    compactDesign: {
+      name: 'Compact Design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
     },
-    noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
+    responsiveDesign: {
+      name: 'Responsive design',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
@@ -93,29 +79,43 @@ export default {
         type: 'boolean',
       },
     },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    noMinWidth: {
+      name: 'No column minimum width limitation',
+      description: 'Enable columns to shrink below width 192px.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    verticalDivider: false,
     compactDesign: false,
     responsiveDesign: false,
     column1sortable: true,
     column2sortable: true,
     column3sortable: true,
     column4sortable: true,
+    verticalDivider: false,
     noMinWidth: false,
   },
 };
 
 const SortingTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
+  compactDesign,
   responsiveDesign,
   column1sortable,
   column2sortable,
   column3sortable,
   column4sortable,
+  verticalDivider,
   noMinWidth,
 }) =>
   formatHtmlPreview(`
