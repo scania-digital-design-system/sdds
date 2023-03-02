@@ -25,6 +25,42 @@ export default {
     },
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
+    compactDesign: {
+      name: 'Compact design',
+      description: 'Enables compact design of the table, rows with less height.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    responsiveDesign: {
+      name: 'Responsive table',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
     enableMultiselect: {
       name: 'Enable multiselect',
       description: 'Enable row selection.',
@@ -40,42 +76,6 @@ export default {
     verticalDivider: {
       name: 'Vertical dividers',
       description: 'When enabled, table has vertical dividers between columns.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
-    compactDesign: {
-      name: 'Compact design',
-      description: 'Enables compact design of the table, rows with less height.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
-    responsiveDesign: {
-      name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -101,19 +101,19 @@ export default {
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: false,
     responsiveDesign: false,
-    noMinWidth: false,
     enableMultiselect: true,
+    verticalDivider: false,
+    noMinWidth: false,
   },
 };
 
 const MultiselectTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
+  compactDesign,
   responsiveDesign,
   enableMultiselect,
+  verticalDivider,
   noMinWidth,
 }) =>
   formatHtmlPreview(`
