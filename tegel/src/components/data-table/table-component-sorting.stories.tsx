@@ -42,12 +42,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     responsiveDesign: {
       name: 'Responsive design',
       description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     column1sortable: {
@@ -56,12 +62,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
       description: 'Enables column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
       },
     },
     column3sortable: {
@@ -70,12 +82,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
       description: 'Enables column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
       },
     },
     verticalDivider: {
@@ -84,12 +102,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     noMinWidth: {
       name: 'No minimum width',
       description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
