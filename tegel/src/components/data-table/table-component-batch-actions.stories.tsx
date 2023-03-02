@@ -25,16 +25,15 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -49,21 +48,32 @@ export default {
         },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
         'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    batchArea: {
+      name: 'Batch code',
+      description: 'Code that user can inject to the toolbar area.',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: '',
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
@@ -85,35 +95,25 @@ export default {
         },
       },
     },
-    batchArea: {
-      name: 'Batch code',
-      description: 'Code that user can inject to the toolbar area.',
-      control: {
-        type: 'text',
-      },
-      defaultValue: {
-        summary: '',
-      },
-    },
   },
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: false,
     responsiveDesign: false,
     batchArea: formatHtmlPreview(
       '<button slot="sdds-table__actionbar" class="sdds-table__actionbar-btn"><sdds-icon class="sdds-table__actionbar-btn-icon" name="settings" size="20px"></sdds-icon> </button><sdds-button slot="sdds-table__actionbar" type="primary" size="sm" text="Download"></sdds-button>',
     ),
+    verticalDivider: false,
     noMinWidth: false,
   },
 };
 
 const BatchActionTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
-  batchArea,
+  compactDesign,
   responsiveDesign,
+  batchArea,
+  verticalDivider,
   noMinWidth,
 }) =>
   formatHtmlPreview(`
