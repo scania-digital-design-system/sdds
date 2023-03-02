@@ -10,8 +10,9 @@
   z-index: z(tab);
 
   button.folder-tab {
+    min-width: 142px;
+    min-width: 100%;
     height: 100%;
-    width: 100%;
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     cursor: pointer;
@@ -36,7 +37,7 @@
       border-top: 2px solid var(--sdds-folder-tab-border-selected);
 
       &::before {
-        content: " ";
+        content: ' ';
         background-color: var(--sdds-folder-tab-background-selected);
         width: 1px;
         top: 0;
@@ -150,13 +151,8 @@
   }
 }
 
-
-:host(.folder-tab) {
-  min-width: 142px;
-}
-
 :host(.last) {
-  .folder-tab{
+  .folder-tab {
     &:not(.selected) {
       border-right-color: transparent;
     }

@@ -10,6 +10,7 @@
   z-index: z(tab);
 
   a.folder-tab {
+    min-width: 142px;
     display: block;
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
@@ -36,7 +37,7 @@
       border-top: 2px solid var(--sdds-folder-tab-border-selected);
 
       &::before {
-        content: " ";
+        content: ' ';
         background-color: var(--sdds-folder-tab-background-selected);
         width: 1px;
         top: 0;
@@ -45,7 +46,6 @@
         display: block;
         position: absolute;
       }
-
 
       .label {
         opacity: var(--sdds-folder-tab-color-opacity-selected);
@@ -152,12 +152,8 @@
   }
 }
 
-:host(.folder-tab) {
-  min-width: 142px;
-}
-
 :host(.last) {
-  .folder-tab{
+  .folder-tab {
     &:not(.selected) {
       border-right-color: transparent;
     }
