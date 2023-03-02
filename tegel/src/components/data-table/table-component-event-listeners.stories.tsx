@@ -43,9 +43,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     responsiveDesign: {
@@ -55,9 +53,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     verticalDivider: {
@@ -67,9 +63,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     noMinWidth: {
@@ -79,9 +73,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: 'false',
-        },
+        defaultValue: { summary: false },
       },
     },
     column1Width: {
