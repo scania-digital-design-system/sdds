@@ -77,7 +77,9 @@ export default {
     column1Width: {
       name: 'Column 1 width',
       description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
+      control: {
+        type: 'text',
+      },
       table: {
         defaultValue: {
           summary: '192px',
@@ -87,9 +89,10 @@ export default {
     },
     column2Width: {
       name: 'Column 2 width',
-      description:
-        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
       table: {
         defaultValue: {
           summary: '192px',
@@ -99,9 +102,10 @@ export default {
     },
     column3Width: {
       name: 'Column 3 width',
-      description:
-        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
       table: {
         defaultValue: {
           summary: '192px',
