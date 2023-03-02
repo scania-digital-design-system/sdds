@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Adding issue in Jira
     steps:
-      - name: Jira login
-        uses: atlassian/gajira-login@v2.0.0
+      - name: Jira Login
+        uses: atlassian/gajira-login@v3
         env:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
