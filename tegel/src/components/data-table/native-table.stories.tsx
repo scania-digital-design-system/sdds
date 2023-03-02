@@ -3,16 +3,15 @@ import { formatHtmlPreview } from '../../utils/utils';
 export default {
   title: 'Components/Data Table/Native',
   argTypes: {
-    tableTitle: {
-      name: 'Table title',
-      description: 'Text that appears in table caption area.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
-        type: 'text',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: '',
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     isCompact: {
@@ -27,9 +26,10 @@ export default {
         },
       },
     },
-    dividers: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    responsiveTable: {
+      name: 'Responsive table',
+      description:
+        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -39,21 +39,21 @@ export default {
         },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
+    tableTitle: {
+      name: 'Table title',
+      description: 'Text that appears in table caption area.',
       control: {
-        type: 'radio',
+        type: 'text',
       },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'Inherit from parent' },
+        defaultValue: {
+          summary: '',
+        },
       },
     },
-    responsiveTable: {
-      name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+    dividers: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
@@ -115,11 +115,11 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
-    tableTitle: 'Native table',
     isCompact: false,
+    responsiveTable: false,
+    tableTitle: 'Native table',
     dividers: false,
     noMinWidthArg: false,
-    responsiveTable: false,
     column1Width: '',
     column2Width: '',
     column3Width: '',
@@ -128,11 +128,11 @@ export default {
 
 const Template = ({
   modeVariant,
-  tableTitle,
   isCompact,
+  responsiveTable,
+  tableTitle,
   dividers,
   noMinWidthArg,
-  responsiveTable,
   column1Width,
   column2Width,
   column3Width,
