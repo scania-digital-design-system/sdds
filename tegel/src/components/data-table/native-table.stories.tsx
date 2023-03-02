@@ -21,9 +21,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     responsiveTable: {
@@ -33,9 +31,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     tableTitle: {
@@ -43,11 +39,6 @@ export default {
       description: 'Sets text that appears in table caption area.',
       control: {
         type: 'text',
-      },
-      table: {
-        defaultValue: {
-          summary: '',
-        },
       },
     },
     dividers: {
@@ -57,9 +48,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     noMinWidthArg: {
@@ -69,9 +58,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     column1Width: {
@@ -79,11 +66,6 @@ export default {
       description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
-      },
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       },
       if: { arg: 'noMinWidthArg', eq: true },
     },
@@ -93,11 +75,6 @@ export default {
       control: {
         type: 'text',
       },
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
-      },
       if: { arg: 'noMinWidthArg', eq: true },
     },
     column3Width: {
@@ -105,11 +82,6 @@ export default {
       description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
-      },
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       },
       if: { arg: 'noMinWidthArg', eq: true },
     },
