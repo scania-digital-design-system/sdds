@@ -101,20 +101,20 @@ const Template = ({ type, width, height, theme }) => {
     ${
       theme === 'Light'
         ? `
-      sdds-divider-light {
+      sdds-theme-light {
         --sdds-divider-color: var(--sdds-grey-300);
       }
-      sdds-divider-light.vertical::before,
-      sdds-divider-light.horizontal::before {
+      sdds-divider.vertical::before,
+      sdds-divider.horizontal::before {
         background-color: var(--sdds-grey-300);
       }
     `
         : `
-      sdds-divider-dark {
+      sdds-theme-dark {
         --sdds-divider-color: var(--sdds-grey-700);
       }
-      sdds-divider-dark.vertical::before,
-      sdds-divider-dark.horizontal::before {
+      sdds-divider.vertical::before,
+      sdds-divider.horizontal::before {
         background-color: var(--sdds-grey-700);
       }
     `
