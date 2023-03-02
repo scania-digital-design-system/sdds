@@ -23,8 +23,9 @@ export default {
       description: 'Choose divider type.',
       control: {
         type: 'radio',
+        options: ['Horizontal', 'Vertical'],
       },
-      options: ['Horizontal', 'Vertical'],
+      defaultValue: 'Horizontal',
       table: {
         defaultValue: { summary: 'Horizontal' },
       },
@@ -45,44 +46,86 @@ export default {
       },
       if: { arg: 'type', eq: 'Vertical' },
     },
+    theme: {
+      name: 'Theme',
+      description: 'Choose divider theme.',
+      control: {
+        type: 'radio',
+        options: ['Light', 'Dark'],
+      },
+      defaultValue: 'Light',
+      table: {
+        defaultValue: { summary: 'Light' },
+      },
+    },
   },
 };
 
-const Template = ({ type, width, height }) => {
+const Template = ({ type, width, height, theme }) => {
   const classLookup = {
     Horizontal: `sdds-divider`,
     Vertical: `sdds-divider vertical`,
   };
 
-  return formatHtmlPreview(
+  const styles = `
+    .demo-div {
+      padding: 0px;
+    }
+    ${
+      height
+        ? `
+      .demo-div {
+        height: ${height}px;
+        width: 1px;
+      }
     `
-      <style>
-         ${
-           height
-             ? `/* demo-div is for demonstration purposes only*/
-        .demo-div {
-          height: ${height}px;
-          width: 1px;
-          padding: 0px;
-        }`
-             : ''
-         }    ${
-      width
-        ? `/* demo-div is for demonstration purposes only*/
-            .demo-div {
-              width: ${width}px;
-              height: 1px;
-              padding: 0px;
-            }`
         : ''
     }
-      </style>
-     
-      
-      <div
-  class="demo-div ${classLookup[type]}"></div>
-  `,
-  );
+    ${
+      width
+        ? `
+      .demo-div {
+        width: ${width}px;
+        height: 1px;
+      }
+    `
+        : ''
+    }
+    sdds-divider {
+      --sdds-divider-color: var(--sdds-grey-300);
+    }
+    sdds-divider.vertical::before,
+    sdds-divider.horizontal::before {
+      background-color: var(--sdds-grey-300);
+    }
+    ${
+      theme === 'Light'
+        ? `
+      sdds-divider-light {
+        --sdds-divider-color: var(--sdds-grey-300);
+      }
+      sdds-divider-light.vertical::before,
+      sdds-divider-light.horizontal::before {
+        background-color: var(--sdds-grey-300);
+      }
+    `
+        : `
+      sdds-divider-dark {
+        --sdds-divider-color: var(--sdds-grey-700);
+      }
+      sdds-divider-dark.vertical::before,
+      sdds-divider-dark.horizontal::before {
+        background-color: var(--sdds-grey-700);
+      }
+    `
+    }
+  `;
+
+  return formatHtmlPreview(`
+    <style>${styles}</style>
+    <div class="demo-div ${classLookup[type]}"></div>
+
+  `);
 };
 
 export const WebComponent = Template.bind({});
