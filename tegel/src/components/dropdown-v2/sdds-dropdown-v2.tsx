@@ -143,7 +143,7 @@ export class SddsDropdownV2 {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
       this.filterResult = this.children.length;
       this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
-        if (this.defaultValue.includes(element.value)) {
+        if (this.defaultValue?.includes(element.value)) {
           element.selectOption();
           this.value = this.value ? [...this.value, element.value] : [element.value];
           this.valueLabels = this.valueLabels
