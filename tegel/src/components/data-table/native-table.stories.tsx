@@ -5,7 +5,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -28,8 +28,7 @@ export default {
     },
     responsiveTable: {
       name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description: 'Enables table to take 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
         type: 'boolean',
       },
@@ -41,7 +40,7 @@ export default {
     },
     tableTitle: {
       name: 'Table title',
-      description: 'Text that appears in table caption area.',
+      description: 'Sets text that appears in table caption area.',
       control: {
         type: 'text',
       },
@@ -53,7 +52,7 @@ export default {
     },
     dividers: {
       name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+      description: 'Enables vertical dividers between table columns.',
       control: {
         type: 'boolean',
       },
@@ -65,8 +64,7 @@ export default {
     },
     noMinWidthArg: {
       name: 'No minimum width',
-      description:
-        'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
@@ -78,8 +76,7 @@ export default {
     },
     column1Width: {
       name: 'Column 1 width',
-      description:
-        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
+      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       type: 'string',
       table: {
         defaultValue: {
@@ -91,7 +88,7 @@ export default {
     column2Width: {
       name: 'Column 2 width',
       description:
-        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
+        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       type: 'string',
       table: {
         defaultValue: {
@@ -103,7 +100,7 @@ export default {
     column3Width: {
       name: 'Column 3 width',
       description:
-        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
+        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       type: 'string',
       table: {
         defaultValue: {
