@@ -25,6 +25,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Active'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     size: {
       name: 'Size',
@@ -33,6 +36,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Small'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     placeholderText: {
       name: 'Placeholder',
@@ -47,6 +53,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     iconPosition: {
       name: 'Icon position',
@@ -56,6 +65,9 @@ export default {
       },
       options: ['Icon left', 'Icon right'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Icon right' },
+      },
     },
     iconType: {
       name: 'Icon type',
@@ -65,6 +77,9 @@ export default {
       },
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
     },
   },
   args: {
