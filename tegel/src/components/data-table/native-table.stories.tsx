@@ -51,7 +51,7 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    noMinWidthArg: {
+    noMinWidth: {
       name: 'No minimum width',
       description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
@@ -67,7 +67,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: { arg: 'noMinWidthArg', eq: true },
+      if: { arg: 'noMinWidth', eq: true },
     },
     column2Width: {
       name: 'Column 2 width',
@@ -75,7 +75,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: { arg: 'noMinWidthArg', eq: true },
+      if: { arg: 'noMinWidth', eq: true },
     },
     column3Width: {
       name: 'Column 3 width',
@@ -83,7 +83,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: { arg: 'noMinWidthArg', eq: true },
+      if: { arg: 'noMinWidth', eq: true },
     },
   },
   args: {
@@ -92,7 +92,7 @@ export default {
     responsiveDesign: false,
     tableTitle: 'Native table',
     verticalDivider: false,
-    noMinWidthArg: false,
+    noMinWidth: false,
     column1Width: '',
     column2Width: '',
     column3Width: '',
@@ -105,7 +105,7 @@ const Template = ({
   responsiveDesign,
   tableTitle,
   verticalDivider,
-  noMinWidthArg,
+  noMinWidth,
   column1Width,
   column2Width,
   column3Width,
@@ -117,7 +117,7 @@ const Template = ({
         ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}
         ${compactDesign ? 'sdds-table--compact' : ''}
         ${verticalDivider ? 'sdds-table--divider' : ''}
-        ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
+        ${noMinWidth ? 'sdds-table--no-min-width' : ''}
         ${responsiveDesign ? 'sdds-table--responsive' : ''}
     ">
     ${tableTitle && `<caption>${tableTitle}</caption>`}

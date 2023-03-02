@@ -87,7 +87,7 @@ export default {
       },
     },
     noMinWidth: {
-      name: 'No column minimum width limitation',
+      name: 'No minimum width',
       description: 'Enable columns to shrink below width 192px.',
       control: {
         type: 'boolean',
