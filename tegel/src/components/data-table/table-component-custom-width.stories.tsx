@@ -92,6 +92,8 @@ export default {
         defaultValue: {
           summary: '192px',
         },
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
@@ -103,6 +105,8 @@ export default {
         defaultValue: {
           summary: '192px',
         },
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
@@ -114,6 +118,8 @@ export default {
         defaultValue: {
           summary: '192px',
         },
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
@@ -125,6 +131,8 @@ export default {
         defaultValue: {
           summary: '192px',
         },
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
