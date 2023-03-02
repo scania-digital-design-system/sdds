@@ -25,16 +25,15 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -49,21 +48,34 @@ export default {
         },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
         'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    rowsPerPageControl: {
+      name: 'Rows per page',
+      description: 'Specify how many rows per page user would like to see',
+      control: {
+        type: 'number',
+      },
+      table: {
+        defaultValue: {
+          summary: 4,
+        },
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
@@ -85,35 +97,23 @@ export default {
         },
       },
     },
-    rowsPerPageControl: {
-      name: 'Rows per page',
-      description: 'Specify how many rows per page user would like to see',
-      control: {
-        type: 'number',
-      },
-      table: {
-        defaultValue: {
-          summary: 4,
-        },
-      },
-    },
   },
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: false,
     responsiveDesign: false,
     rowsPerPageControl: 4,
+    verticalDivider: false,
     noMinWidth: false,
   },
 };
 
 const PaginationTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
-  rowsPerPageControl,
+  compactDesign,
   responsiveDesign,
+  rowsPerPageControl,
+  verticalDivider,
   noMinWidth,
 }) =>
   formatHtmlPreview(`
