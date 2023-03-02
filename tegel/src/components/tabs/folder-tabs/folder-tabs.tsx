@@ -122,8 +122,15 @@ export class InlineTabs {
           item.setAttribute('selected', '');
           this.selectedTab = item.innerHTML;
           this.selectedTabIndex = index;
+          console.log(index);
         }
       });
+      if (index === 0) {
+        item.classList.add('first');
+      }
+      if (index === this.children.length - 1) {
+        item.classList.add('last');
+      }
       if (item.selected) {
         this.selectedTab = item.innerHTML;
         this.selectedTabIndex = index;
