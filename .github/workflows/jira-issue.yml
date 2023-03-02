@@ -12,9 +12,9 @@ jobs:
       - name: Jira Login
         uses: atlassian/gajira-login@v3
         env:
-          JIRA_BASE_URL: https://https://tegel.atlassian.net/
+          JIRA_BASE_URL: https://tegel.atlassian.net/
           JIRA_USER_EMAIL: johan.nilo@scania.com
-          JIRA_API_TOKEN: ATATT3xFfGF0AcZD-YlILh7pU1bNFt73CUr0qsXUGyrpKuWv0LBc8_5mtY3mSvI1kVGkEHmtSmJDOGwuNBX-uPY5Qg4V3uT7Uixl01NC9DMyGIqLRs2_FnL6xu5VWVakxHJJ1q_4xd02kOGvfaJI_BldG-0nRDgJe8BAJPM-FNnopRNqSst2b74=62FE8C51
+          JIRA_API_TOKEN: TATT3xFfGF0y4orF4KxWVPQZa0wnIUZC7KbjjEVZNfeNhCE4PlHkLO2vvVWa1S__n1NVZgdPjEuRMBEkGzSWpZ4vm6OtpRLcl4uF8T90Gg6tJ3Sug3jnHsbqSn4nsNTrRG67lEUQpk0y5XMrU6__jNbtb13pdtIuEsPwUePTbU0m9eXmrt1gK4=98774614
       - name: Jira Create issue
         uses: atlassian/gajira-create@v3
 
