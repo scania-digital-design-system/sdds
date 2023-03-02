@@ -191,4 +191,3 @@ const FilteringTemplate = ({
   </sdds-table>`);
 
 export const Filtering = FilteringTemplate.bind({});
-Filtering.args = {};

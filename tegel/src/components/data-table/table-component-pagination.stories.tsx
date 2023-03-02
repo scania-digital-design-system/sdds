@@ -173,4 +173,3 @@ const PaginationTemplate = ({
   </sdds-table>`);
 
 export const Pagination = PaginationTemplate.bind({});
-Pagination.args = {};

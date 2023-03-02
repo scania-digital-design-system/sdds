@@ -209,4 +209,3 @@ const SortingTemplate = ({
   </sdds-table>`);
 
 export const Sorting = SortingTemplate.bind({});
-Sorting.args = {};

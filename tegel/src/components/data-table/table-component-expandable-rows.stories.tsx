@@ -182,4 +182,3 @@ const ExpandableRowTemplate = ({
   </sdds-table>`);
 
 export const ExpandableRows = ExpandableRowTemplate.bind({});
-ExpandableRows.args = {};

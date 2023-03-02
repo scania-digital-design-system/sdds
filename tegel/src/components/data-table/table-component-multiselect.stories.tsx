@@ -206,4 +206,3 @@ const MultiselectTemplate = ({
   </div>`);
 
 export const Multiselect = MultiselectTemplate.bind({});
-Multiselect.args = {};
