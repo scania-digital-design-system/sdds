@@ -43,9 +43,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     responsiveDesign: {
@@ -55,9 +53,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     verticalDivider: {
@@ -67,9 +63,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     noMinWidth: {
@@ -79,19 +73,12 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     column1Width: {
       name: 'Column 1 width',
       description: 'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       control: {
         type: 'text',
       },
@@ -100,11 +87,6 @@ export default {
     column2Width: {
       name: 'Column 2 width',
       description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       control: {
         type: 'text',
       },
@@ -113,11 +95,6 @@ export default {
     column3Width: {
       name: 'Column 3 width',
       description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       control: {
         type: 'text',
       },
@@ -126,11 +103,6 @@ export default {
     column4Width: {
       name: 'Column 4 width',
       description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
       control: {
         type: 'text',
       },
