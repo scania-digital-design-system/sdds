@@ -22,7 +22,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -31,112 +31,109 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    state: {
+      name: 'State',
+      description: 'Switches between success and error state.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'none' },
+      },
+    },
     type: {
       name: 'Type',
-      description: 'Set the field to display date, time or both',
+      description: 'Sets the field to display date, time or both.',
       control: {
         type: 'radio',
       },
       options: ['Datetime', 'Date', 'Time'],
-    },
-    defaultValue: {
-      name: 'Default value',
-      description:
-        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM ',
-      control: {
-        type: 'radio',
+      table: {
+        defaultValue: { summary: 'datetime-local' },
       },
-      options: ['None', 'Custom'],
     },
     size: {
       name: 'Size',
-      description: 'Switch between different sizes',
+      description: 'Switches between different sizes.',
       control: {
         type: 'radio',
         // todo: make consistent with other sizes, for example 'xs', 'sm', etc
       },
       options: ['Large', 'Medium', 'Small'],
-    },
-    minWidth: {
-      name: 'Min width',
-      description: 'Toggle min width',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: { summary: 'lg' },
       },
     },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
-      control: {
-        type: 'boolean',
-      },
-    },
-    label: {
-      name: 'Label',
-      description: 'Add/remove a label text for the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    labelText: {
-      description: 'Label text for specific textfield',
-      name: 'Label text',
-      control: {
-        type: 'text',
-      },
-      if: { arg: 'label', eq: true },
-    },
-    helper: {
-      name: 'Helper',
-      description: 'Add/remove a helper text for the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    helperText: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
-      },
-      if: { arg: 'helper', eq: true },
-    },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
+    defaultValue: {
+      name: 'Default value',
+      description: 'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
       control: {
         type: 'radio',
       },
-      options: ['None', 'Success', 'Error'],
+      options: ['None', 'Custom'],
+      table: {
+        defaultValue: { summary: 'none' },
+      },
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    label: {
+      name: 'Label text',
+      description: 'Sets the label text.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets the helper text.',
+      control: {
+        type: 'text',
+      },
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
+    state: 'None',
     type: 'Datetime',
     size: 'Large',
     defaultValue: 'None',
-    minWidth: 'Default',
+    noMinWidth: false,
+    label: 'Label text',
+    helper: 'Helper text',
     disabled: false,
-    state: 'None',
-    label: true,
-    labelText: 'Label text',
-    helper: true,
-    helperText: 'Helper text',
-    modeVariant: 'Inherit from parent',
   },
 };
 
 const datetimeTemplate = ({
   modeVariant,
+  state,
   type,
   size,
-  minWidth,
-  disabled,
-  label,
-  labelText,
-  state,
-  helper,
-  helperText,
   defaultValue,
+  noMinWidth,
+  label,
+  helper,
+  disabled,
 }) => {
   const typeLookup = {
     Datetime: 'datetime-local',
@@ -174,28 +171,26 @@ const datetimeTemplate = ({
     <style>
         /* Note: Demo classes used here are just for demo purposes in Storybook */
         .demo-wrapper {
-            width: 208px;
+            width: 180px;
         }
     </style>
 
-    <div class="demo-wrapper">
-      <sdds-datetime
-        id="storybook-datetime"
-        name="datetime-input"
-        ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-        ${
-          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
-        }
-        type="${typeLookup[type]}"
-        size="${sizeLookup[size]}"
-        state="${stateLookup[state]}"
-        ${disabled ? 'disabled' : ''}
-        ${minWidth ? 'no-min-width' : ''}
-        ${label ? `label="${labelText}" ` : ''}
-        ${helper ? `helper="${helperText}" ` : ''}
-        >
-      </sdds-datetime>
-    </div>
+  <div class="demo-wrapper">
+
+    <sdds-datetime
+      id="datetime"
+      ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+      type="${typeLookup[type]}"
+      size="${sizeLookup[size]}"
+      state="${stateLookup[state]}"
+      ${disabled ? 'disabled' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
+      ${label ? `label="${label}" ` : ''}
+      ${helper ? `helper="${helper}" ` : ''}
+      >
+    </sdds-datetime>
+
 
     <script>
     /* DEMO Code: Used only for Storybook demo purposes */
