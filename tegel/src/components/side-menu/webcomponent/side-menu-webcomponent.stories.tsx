@@ -91,7 +91,8 @@ const Template = ({ persistent, collapsible }) =>
     ${
       persistent
         ? `
-    @media (min-width: 672px) {
+        /* the lg breakpoint is used here to match the breakpoint used in the header */
+    @media (min-width: 992px) {
       #demo-side-menu {
         /* We suggest you attach the persistent side menu to your layout like this: */
         height: calc(100vh - var(--app-bar-height));
@@ -108,6 +109,7 @@ const Template = ({ persistent, collapsible }) =>
       display: none;
     }
 
+    // https://tegel.scania.com/components/header#:~:text=breakpoints%20larger%20than-,%24small%2D375.,-On%20smaller%20breakpoints
     @media (min-width: 375px) {
       .demo-xs-hide {
         display: none;

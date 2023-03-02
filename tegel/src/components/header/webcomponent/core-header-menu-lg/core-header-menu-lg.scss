@@ -1,8 +1,10 @@
+@import '../../../../global/_variables.scss';
+
 :host {
   display: block;
   width: 320px;
 
-  @media all and (max-width: 384px) {
+  @media all and (max-width: $media-fullwidth) {
     width: 100vw;
   }
 

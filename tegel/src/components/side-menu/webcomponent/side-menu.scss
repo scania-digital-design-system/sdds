@@ -1,5 +1,7 @@
+@import '../theme/core/spacing/vars';
 @import '../../../mixins/scrollbar';
 @import '../../../mixins/z-index';
+@import '../../../global/variables';
 
 :host([open]) {
   pointer-events: auto;
@@ -66,7 +68,7 @@
   }
 }
 
-@media (min-width: 672px) {
+@media (min-width: $grid-lg) {
   :host([persistent]) {
     pointer-events: auto;
     position: static;
@@ -124,6 +126,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media (max-width: $media-fullwidth) {
+  .menu {
+    width: 100%;
+  }
 }
 
 aside {

@@ -1,3 +1,4 @@
+@import '../theme/core/spacing/vars';
 @import '../../../mixins/box-sizing';
 @import '../../../mixins/flex-center';
 @import '../../../mixins/scrollbar';
@@ -25,7 +26,7 @@
     border-right: 1px solid var(--sdds-header-mob-menu-border);
   }
 
-  @media screen and (min-width: 672px) {
+  @media screen and (min-width: $grid-lg) {
     ::slotted(sdds-header-button),
     ::slotted(sdds-header-link),
     ::slotted(sdds-header-dropdown) {

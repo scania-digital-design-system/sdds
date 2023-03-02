@@ -71,7 +71,8 @@ const Template = ({ dummyHtml }) =>
         flex-grow: 1;
       }
 
-      @media (min-width: 672px) {
+      /* The lg breakpoint is used here to match the breakpoint used in the header & sidemenu. */
+      @media (min-width: 992px) {
         #demo-side-menu {
           /* We suggest you attach the persistent side menu to your layout like this: */
           height: calc(100vh - var(--app-bar-height));

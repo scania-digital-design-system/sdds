@@ -1,5 +1,6 @@
 @import '../../../../mixins/scrollbar';
 @import '../../../../mixins/z-index';
+@import '../../../../global/_variables.scss';
 
 :host {
   .wrapper {
@@ -18,7 +19,7 @@
       box-shadow: var(--sdds-nav-dropdown-menu-box);
       background-color: var(--sdds-header-app-launcher-menu-background);
 
-      @media all and (max-width: 384px) {
+      @media all and (max-width: $media-fullwidth) {
         width: 100vw;
       }
     }

@@ -1,3 +1,6 @@
+@import '../theme/core/spacing/vars';
+@import '../../../../global/_variables.scss';
+
 :host {
   position: sticky;
   bottom: 0;
@@ -17,7 +20,7 @@
   }
 }
 
-@media (min-width: 672px) {
+@media (min-width: $grid-lg) {
   :host {
     display: block;
   }

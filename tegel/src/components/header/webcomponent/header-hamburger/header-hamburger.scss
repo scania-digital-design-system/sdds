@@ -1,3 +1,5 @@
+@import '../theme/core/spacing/vars';
+
 :host {
   sdds-header-button {
     display: block;
@@ -6,7 +8,7 @@
   color: var(--sdds-white);
 }
 
-@media screen and (min-width: 672px) {
+@media screen and (min-width: $grid-lg) {
   :host {
     sdds-header-button {
       display: none;
