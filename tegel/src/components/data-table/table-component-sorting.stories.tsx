@@ -116,6 +116,38 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    column1Width: {
+      name: 'Column 1 width',
+      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column2Width: {
+      name: 'Column 2 width',
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column3Width: {
+      name: 'Column 3 width',
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column4Width: {
+      name: 'Column 4 width',
+      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
@@ -127,6 +159,10 @@ export default {
     column4sortable: true,
     verticalDivider: false,
     noMinWidth: false,
+    column1Width: '',
+    column2Width: '',
+    column3Width: '',
+    column4Width: '',
   },
 };
 
@@ -140,6 +176,10 @@ const SortingTemplate = ({
   column4sortable,
   verticalDivider,
   noMinWidth,
+  column1Width,
+  column2Width,
+  column3Width,
+  column4Width,
 }) =>
   formatHtmlPreview(`
     <sdds-table
@@ -151,10 +191,18 @@ const SortingTemplate = ({
     >
       <sdds-table-toolbar table-title="Sorting"></sdds-table-toolbar>
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}" ${
+                column1Width ? `custom-width="${column1Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}" ${
+                column2Width ? `custom-width="${column2Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}" ${
+                column3Width ? `custom-width="${column3Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right' ${
+                column4Width ? `custom-width="${column4Width}"` : ''
+              }></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
