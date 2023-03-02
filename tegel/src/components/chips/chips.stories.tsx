@@ -18,15 +18,14 @@ export default {
     ],
   },
   argTypes: {
-    state: {
-      name: 'State',
-      description: 'Sets the chips state as active or default.',
+    active: {
+      name: 'Active',
+      description: 'Toggles if the chip is active or not.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Active'],
       table: {
-        defaultValue: { summary: 'Default' },
+        defaultValue: { summary: false },
       },
     },
     size: {
@@ -83,7 +82,7 @@ export default {
     },
   },
   args: {
-    state: 'Default',
+    active: false,
     size: 'Default',
     placeholderText: 'Chip text',
     icon: false,
@@ -93,14 +92,14 @@ export default {
 };
 
 const Template = ({ 
-  state,
+  active,
   size,
   placeholderText, 
   icon, 
   iconPosition, 
   iconType
    }) => {
-  const stateValue = state === 'Active' ? 'sdds-chip-active' : '';
+  const activeValue = active === true ? 'sdds-chip-active' : '';
   const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
     'Icon left': 'sdds-chip-icon-left',
@@ -130,7 +129,7 @@ const Template = ({
     depending on usage (button, checkbox, radio, etc) -->
     <button class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
-    } ${stateValue} ${sizeValue}">
+    } ${activeValue} ${sizeValue}">
       ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
     </button>
     `);
