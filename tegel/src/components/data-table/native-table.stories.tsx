@@ -26,7 +26,7 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Enables table to take 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
