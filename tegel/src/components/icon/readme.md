@@ -18,9 +18,8 @@
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
- - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
- - [sdds-message](../message)
  - [sdds-folder-tabs](../tabs/folder-tabs)
+ - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
  - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
@@ -36,9 +35,8 @@ graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
-  sdds-footer-link-group --> sdds-icon
-  sdds-message --> sdds-icon
   sdds-folder-tabs --> sdds-icon
+  sdds-footer-link-group --> sdds-icon
   sdds-inline-tabs --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
