@@ -27,7 +27,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -45,50 +45,49 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive design',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
     },
     column1sortable: {
       name: 'Column 1 is sortable',
-      description: 'Enabling column 1 to be sorted alphabetically.',
+      description: 'Enables column 1 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
-      description: 'Enabling column 2 to be sorted alphabetically.',
+      description: 'Enables column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column3sortable: {
       name: 'Column 3 is sortable',
-      description: 'Enabling column 3 to be sorted alphabetically.',
+      description: 'Enables column 3 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
-      description: 'Enabling column 4 to be sorted alphabetically.',
+      description: 'Enables column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     verticalDivider: {
       name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+      description: 'Enables vertical dividers between table columns.',
       control: {
         type: 'boolean',
       },
     },
     noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
+      name: 'No minimum width',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
