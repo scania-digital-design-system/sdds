@@ -27,7 +27,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -50,8 +50,7 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
@@ -63,7 +62,7 @@ export default {
     },
     verticalDivider: {
       name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+      description: 'Enables vertical dividers between table columns.',
       control: {
         type: 'boolean',
       },
@@ -74,8 +73,8 @@ export default {
       },
     },
     noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
+      name: 'No minimum width',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
