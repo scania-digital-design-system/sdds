@@ -129,6 +129,10 @@ export class SddsDropdownV2 {
     this.getChildren();
   };
 
+  componentWillLoad() {
+    this.setDefaultOption();
+  }
+
   componentDidRender() {
     if (this.data) {
       this.children = Array.from(
@@ -138,20 +142,23 @@ export class SddsDropdownV2 {
     this.getOpenDirection();
   }
 
+  setDefaultOption = () => {
+    this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
+      if (this.defaultValue?.includes(element.value)) {
+        element.selectOption();
+        this.value = this.value ? [...this.value, element.value] : [element.value];
+        this.valueLabels = this.valueLabels
+          ? [...this.valueLabels, element.textContent]
+          : [element.textContent];
+      }
+      return element;
+    });
+  };
+
   getChildren = () => {
     if (!this.data) {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
       this.filterResult = this.children.length;
-      this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
-        if (this.defaultValue?.includes(element.value)) {
-          element.selectOption();
-          this.value = this.value ? [...this.value, element.value] : [element.value];
-          this.valueLabels = this.valueLabels
-            ? [...this.valueLabels, element.textContent]
-            : [element.textContent];
-        }
-        return element;
-      });
     }
   };
 
