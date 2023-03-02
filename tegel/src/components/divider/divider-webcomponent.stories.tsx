@@ -67,6 +67,26 @@ const Template = ({ type, width, height, theme }) => {
     Vertical: `sdds-divider vertical`,
   };
 
+  const lightStyles = `
+    sdds-theme-light {
+      --sdds-divider-color: var(--sdds-grey-300);
+    }
+    sdds-divider.vertical::before,
+    sdds-divider.horizontal::before {
+      background-color: var(--sdds-grey-300);
+    }
+  `;
+
+  const darkStyles = `
+    sdds-theme-dark {
+      --sdds-divider-color: var(--sdds-grey-700);
+    }
+    sdds-divider.vertical::before,
+    sdds-divider.horizontal::before {
+      background-color: var(--sdds-grey-700);
+    }
+  `;
+
   const styles = `
     .demo-div {
       padding: 0px;
@@ -91,40 +111,12 @@ const Template = ({ type, width, height, theme }) => {
     `
         : ''
     }
-    sdds-divider {
-      --sdds-divider-color: var(--sdds-grey-300);
-    }
-    sdds-divider.vertical::before,
-    sdds-divider.horizontal::before {
-      background-color: var(--sdds-grey-300);
-    }
-    ${
-      theme === 'Light'
-        ? `
-      sdds-theme-light {
-        --sdds-divider-color: var(--sdds-grey-300);
-      }
-      sdds-divider.vertical::before,
-      sdds-divider.horizontal::before {
-        background-color: var(--sdds-grey-300);
-      }
-    `
-        : `
-      sdds-theme-dark {
-        --sdds-divider-color: var(--sdds-grey-700);
-      }
-      sdds-divider.vertical::before,
-      sdds-divider.horizontal::before {
-        background-color: var(--sdds-grey-700);
-      }
-    `
-    }
+    ${theme === 'Light' ? lightStyles : darkStyles}
   `;
 
   return formatHtmlPreview(`
     <style>${styles}</style>
-    <div class="demo-div ${classLookup[type]}"></div>
-
+    <div class="demo-div ${styles} ${classLookup[type]}"></div>
   `);
 };
 
