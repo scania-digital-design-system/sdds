@@ -18,38 +18,6 @@ export default {
     ],
   },
   argTypes: {
-    placeholderText: {
-      name: 'Placeholder',
-      description: 'Set custom chip text',
-      control: {
-        type: 'text',
-      },
-    },
-    icon: {
-      name: 'Icon',
-      description: 'Add an icon to the chip.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    iconType: {
-      name: 'Icon type',
-      description: 'Choose what icon type to use',
-      control: {
-        type: 'radio',
-      },
-      options: ['Native', 'Web Component'],
-      if: { arg: 'icon', eq: true },
-    },
-    iconPosition: {
-      name: 'Icon position',
-      description: 'Set the placement of the icon',
-      control: {
-        type: 'radio',
-      },
-      options: ['Icon left', 'Icon right'],
-      if: { arg: 'icon', eq: true },
-    },
     state: {
       name: 'State',
       description: 'Set the chips state as active or default',
@@ -66,18 +34,57 @@ export default {
       },
       options: ['Default', 'Small'],
     },
+    placeholderText: {
+      name: 'Placeholder',
+      description: 'Set custom chip text',
+      control: {
+        type: 'text',
+      },
+    },
+    icon: {
+      name: 'Icon',
+      description: 'Add an icon to the chip.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    iconPosition: {
+      name: 'Icon position',
+      description: 'Set the placement of the icon',
+      control: {
+        type: 'radio',
+      },
+      options: ['Icon left', 'Icon right'],
+      if: { arg: 'icon', eq: true },
+    },
+    iconType: {
+      name: 'Icon type',
+      description: 'Choose what icon type to use',
+      control: {
+        type: 'radio',
+      },
+      options: ['Native', 'Web Component'],
+      if: { arg: 'icon', eq: true },
+    },
   },
   args: {
-    placeholderText: 'Chip text',
-    icon: false,
-    iconType: 'Native',
-    iconPosition: 'Icon right',
     state: 'Default',
     size: 'Default',
+    placeholderText: 'Chip text',
+    icon: false,
+    iconPosition: 'Icon right',
+    iconType: 'Native',
   },
 };
 
-const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }) => {
+const Template = ({ 
+  state,
+  size,
+  placeholderText, 
+  icon, 
+  iconPosition, 
+  iconType
+   }) => {
   const stateValue = state === 'Active' ? 'sdds-chip-active' : '';
   const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
