@@ -16,7 +16,22 @@ document.addEventListener('sddsClick', (event) => {
 })
 ```
 
-In JSX these events can be listened to by prefixing them with an `on` directly on the component:
+In React these events needs to be listened to by adding an event listener to the element that emits the event. This can be easily done by
+grabbing a reference to the element and adding the event listener inline:
+
+This solution is a workaround based on how React handles events, you can read more on this [here.](https://reactjs.org/docs/events.html)
+
+```jsx
+<sdds-textfield
+  ref={element => element.addEventListener('sddsClick', (event) => {
+    {/* Do something with/based on the event. */}
+    })
+  }
+  >
+</sdds-textfield>
+```
+
+In other JSX-enviroments (apart from React) these events can be listened to by prefixing them with an `on` directly on the component:
 ```jsx
 <sdds-textfield
   onSddsChange={(event) => {/* Do something with/based on the event. */}}
@@ -24,6 +39,7 @@ In JSX these events can be listened to by prefixing them with an `on` directly o
 
 </sdds-textfield>
 ```
+
 
 What is attached to the event object is highlighted in our storybook. Under the docs tab of each component the events are outlined,
 inluding what data is passed with the event to the user.
