@@ -22,7 +22,6 @@ export class Divider {
   @Prop() height?: string;
 
   render() {
-    const ariaOrientation = this.direction === 'vertical' ? 'vertical' : undefined;
     let colorClass = '';
 
     if (this.light) {
@@ -31,13 +30,34 @@ export class Divider {
       colorClass = 'sdds-theme-dark';
     }
 
+    const separatorProps = {
+      'role': 'separator',
+      'aria-orientation': this.direction === 'vertical' ? 'vertical' : undefined,
+      'class': `sdds-divider ${this.direction} ${colorClass}`,
+      'style': {
+        width: '1px',
+        height: '1px',
+      },
+    };
+
+    if (this.direction === 'horizontal' && this.width) {
+      separatorProps.style.width = this.width;
+    } else if (this.direction === 'vertical' && this.height) {
+      separatorProps.style.height = this.height;
+    }
+
+    const labelProps = {
+      'class': 'sdds-divider-label',
+      'aria-hidden': true,
+    };
+
+    const labelSlot = document.querySelector('[slot="label"]');
+    const label = labelSlot && labelSlot.textContent;
+
     return (
       <Host>
-        <div
-          class={`sdds-divider ${this.direction} ${colorClass}`}
-          role="separator"
-          aria-orientation={ariaOrientation}
-        />
+        {label && <span {...labelProps}>{label}</span>}
+        {this.direction === 'horizontal' ? <hr {...separatorProps} /> : <div {...separatorProps} />}
       </Host>
     );
   }

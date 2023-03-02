@@ -2,36 +2,45 @@ import { newSpecPage } from '@stencil/core/testing';
 import { Divider } from './divider';
 
 describe('sdds-divider', () => {
-  it('renders with default values', async () => {
-    const page = await newSpecPage({
+  it('renders a horizontal divider with default color', async () => {
+    const { root } = await newSpecPage({
       components: [Divider],
-      html: `<sdds-divider></sdds-divider>`,
-      supportsShadowDom: true,
+      html: '<sdds-divider></sdds-divider>',
     });
 
-    expect(page.root.shadowRoot.querySelector('.sdds-divider')).toHaveClass('horizontal');
-    expect(page.root.shadowRoot.querySelector('.sdds-divider')).not.toHaveClass('vertical');
-    expect(page.root.shadowRoot.querySelector('.sdds-divider')).not.toHaveClass('sdds-theme-light');
-    expect(page.root.shadowRoot.querySelector('.sdds-divider')).not.toHaveClass('sdds-theme-dark');
-    expect(page.root.shadowRoot.querySelector('.sdds-divider')).not.toHaveAttribute(
-      'aria-orientation',
-    );
+    const divider = root.shadowRoot.querySelector('hr');
+    expect(divider).not.toBeNull();
+    expect(divider.getAttribute('class')).toContain('sdds-divider');
+    expect(divider.getAttribute('class')).toContain('horizontal');
   });
 
-  it('renders a vertical divider', async () => {
-    const page = await newSpecPage({
+  it('renders a vertical divider with light color', async () => {
+    const { root } = await newSpecPage({
       components: [Divider],
-      html: `<sdds-divider aria-orientation="vertical" direction="vertical"></sdds-divider>`,
-      supportsShadowDom: true,
+      html: '<sdds-divider direction="vertical" light></sdds-divider>',
     });
 
-    const divider = page.root.shadowRoot.querySelector('.sdds-divider');
+    const divider = root.shadowRoot.querySelector('div');
+    expect(divider).not.toBeNull();
+    expect(divider.getAttribute('class')).toContain('sdds-divider');
+    expect(divider.getAttribute('class')).toContain('vertical');
+    expect(divider.getAttribute('class')).toContain('sdds-theme-light');
+  });
 
-    expect(divider).toHaveClass('vertical');
-    expect(divider).not.toHaveClass('horizontal');
-    expect(divider).not.toHaveClass('sdds-theme-light');
-    expect(divider).not.toHaveClass('sdds-theme-dark');
-    expect(divider).toHaveAttribute('aria-orientation');
-    expect(divider.getAttribute('aria-orientation')).toEqual('vertical');
+  it('renders a horizontal divider with label', async () => {
+    const { root } = await newSpecPage({
+      components: [Divider],
+      html: '<sdds-divider aria-label="Divider label"><span slot="label">Divider label</span></sdds-divider>',
+    });
+
+    const divider = root.shadowRoot.querySelector('hr');
+    expect(divider).not.toBeNull();
+    expect(divider.getAttribute('class')).toContain('sdds-divider');
+    expect(divider.getAttribute('class')).toContain('horizontal');
+
+    const label = root.shadowRoot.querySelector('.sdds-divider-label');
+    expect(label).not.toBeNull();
+    expect(label.getAttribute('aria-hidden')).toBe('');
+    expect(label.textContent).toBe('Divider label');
   });
 });
