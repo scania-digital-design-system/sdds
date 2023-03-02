@@ -125,40 +125,34 @@ export class SddsDropdownV2 {
   connectedCallback = () => {
     if (this.data) {
       this.parsedData = JSON.parse(this.data);
+    } else {
+      this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     }
-    this.getChildren();
   };
 
-  componentWillLoad() {
-    this.setDefaultOption();
-  }
-
-  componentDidRender() {
+  componentDidLoad() {
     if (this.data) {
+      this.parsedData = JSON.parse(this.data);
       this.children = Array.from(
         this.dropdownList.children,
       ) as Array<HTMLSddsDropdownOptionV2Element>;
     }
+    this.setDefaultOption();
     this.getOpenDirection();
   }
 
   setDefaultOption = () => {
-    this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
-      if (this.defaultValue?.includes(element.value)) {
-        element.selectOption();
-        this.value = this.value ? [...this.value, element.value] : [element.value];
-        this.valueLabels = this.valueLabels
-          ? [...this.valueLabels, element.textContent]
-          : [element.textContent];
-      }
-      return element;
-    });
-  };
-
-  getChildren = () => {
-    if (!this.data) {
-      this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
-      this.filterResult = this.children.length;
+    if (this.defaultValue) {
+      this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
+        if (this.defaultValue === element.value) {
+          element.selectOption();
+          this.value = this.value ? [...this.value, element.value] : [element.value];
+          this.valueLabels = this.valueLabels
+            ? [...this.valueLabels, element.textContent]
+            : [element.textContent];
+        }
+        return element;
+      });
     }
   };
 
