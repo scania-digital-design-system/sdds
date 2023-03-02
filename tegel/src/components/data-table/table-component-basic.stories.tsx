@@ -199,4 +199,3 @@ const BasicTemplate = ({
   </sdds-table>`);
 
 export const Default = BasicTemplate.bind({});
-Default.args = {};

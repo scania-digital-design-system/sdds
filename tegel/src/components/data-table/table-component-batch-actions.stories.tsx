@@ -169,4 +169,3 @@ const BatchActionTemplate = ({
   </sdds-table>`);
 
 export const BatchAction = BatchActionTemplate.bind({});
-BatchAction.args = {};
