@@ -153,10 +153,18 @@ const BasicTemplate = ({
       ${noMinWidth ? 'no-min-width' : ''}
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
       <sdds-table-header>
-          <sdds-header-cell ${column1Width ? `style="width: ${column1Width};"` : ''} column-key='truck' column-title='Truck type'></sdds-header-cell>
-          <sdds-header-cell ${column2Width ? `style="width: ${column2Width};"` : ''} column-key='driver' column-title='Driver name'></sdds-header-cell>
-          <sdds-header-cell ${column3Width ? `style="width: ${column3Width};"` : ''} column-key='country' column-title='Country'></sdds-header-cell>
-          <sdds-header-cell ${column4Width ? `style="width: ${column4Width};"` : ''} column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
+          <sdds-header-cell column-key='truck' column-title='Truck type' ${
+            column1Width ? `custom-width="${column1Width}"` : ''
+          }></sdds-header-cell>
+          <sdds-header-cell column-key='driver' column-title='Driver name' ${
+            column2Width ? `custom-width="${column2Width}"` : ''
+          }></sdds-header-cell>
+          <sdds-header-cell column-key='country' column-title='Country' ${
+            column3Width ? `custom-width="${column3Width}"` : ''
+          }></sdds-header-cell>
+          <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right' ${
+            column4Width ? `custom-width="${column4Width}"` : ''
+          }></sdds-header-cell>
       </sdds-table-header>
       <sdds-table-body>
           <sdds-table-body-row>
