@@ -43,16 +43,14 @@ export class InlineTabs {
   children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
 
   calculateButtonWidth() {
-    this.children = this.children.map(
-      (navButton: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
-        if (navButton.offsetWidth > this.buttonWidth) {
-          this.buttonWidth = navButton.offsetWidth;
-        }
-        return navButton;
-      },
-    );
-    this.children.forEach((item) => {
-      item.setTabWidth(this.buttonWidth);
+    this.children = this.children.map((tab: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
+      if (tab.offsetWidth > this.buttonWidth) {
+        this.buttonWidth = tab.offsetWidth;
+      }
+      return tab;
+    });
+    this.children.forEach((tab) => {
+      tab.setTabWidth(this.buttonWidth);
     });
   }
 
@@ -138,6 +136,10 @@ export class InlineTabs {
     this.calculateButtonWidth();
   }
 
+  componentDidUpdate() {
+    this.calculateButtonWidth();
+  }
+
   componentWillRender() {
     if (!this.selectedTab) {
       this.children = Array.from(this.host.children) as Array<
@@ -161,10 +163,6 @@ export class InlineTabs {
       this.showRightScroll = false;
     }
     this.addResizeObserver();
-  }
-
-  componentDidUpdate() {
-    this.calculateButtonWidth();
   }
 
   @Event({

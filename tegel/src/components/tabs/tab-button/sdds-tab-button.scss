@@ -1,7 +1,10 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/z-index';
+@import '../../../mixins/box-sizing';
 
 :host {
+  @include sdds-box-sizing;
+
   display: block;
   position: relative;
   z-index: z(tab);
