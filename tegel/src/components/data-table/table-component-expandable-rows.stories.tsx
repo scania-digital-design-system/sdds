@@ -25,16 +25,15 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -49,21 +48,22 @@ export default {
         },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
     responsiveDesign: {
       name: 'Responsive table',
       description:
         'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
@@ -89,17 +89,17 @@ export default {
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: false,
     responsiveDesign: false,
+    verticalDivider: false,
     noMinWidth: false,
   },
 };
 
 const ExpandableRowTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
+  compactDesign,
   responsiveDesign,
+  verticalDivider,
   noMinWidth,
 }) =>
   formatHtmlPreview(`
