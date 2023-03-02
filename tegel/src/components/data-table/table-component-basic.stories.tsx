@@ -25,16 +25,15 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'The mode variant of the component',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -62,21 +61,22 @@ export default {
         },
       },
     },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
-      },
-    },
     disablePadding: {
       name: 'Disable cell padding',
       description:
         'By default each cell comes with padding. Disabling padding rule can be useful when a users want to insert another HTML element in cell, eg. input.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'When enabled, table has vertical dividers between columns.',
       control: {
         type: 'boolean',
       },
@@ -104,8 +104,8 @@ export default {
     compactDesign: false,
     responsiveDesign: false,
     disablePadding: false,
-    noMinWidth: false,
     verticalDivider: false,
+    noMinWidth: false,
   },
 };
 
@@ -114,8 +114,8 @@ const BasicTemplate = ({
   compactDesign,
   responsiveDesign,
   disablePadding,
-  noMinWidth,
   verticalDivider,
+  noMinWidth,
 }) =>
   formatHtmlPreview(`
   <sdds-table
