@@ -1,2 +1,14 @@
-- name: Jira Create issue
-  uses: atlassian/gajira-create@v3
+name: Sync Issue to Jira issue
+
+on:
+  issues:
+    types: [opened, edited, deleted, closed, reopened]
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    name: Adding issue in Jira
+    steps:       
+    - name: Jira Create issue
+      uses: atlassian/gajira-create@v3
+
