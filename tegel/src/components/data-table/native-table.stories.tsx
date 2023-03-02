@@ -14,7 +14,7 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    isCompact: {
+    compactDesign: {
       name: 'Compact design',
       description: 'Enables compact design of the table, rows with less height.',
       control: {
@@ -24,7 +24,7 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    responsiveTable: {
+    responsiveDesign: {
       name: 'Responsive table',
       description: 'Enables table to take 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
       control: {
@@ -41,7 +41,7 @@ export default {
         type: 'text',
       },
     },
-    dividers: {
+    verticalDivider: {
       name: 'Vertical dividers',
       description: 'Enables vertical dividers between table columns.',
       control: {
@@ -88,10 +88,10 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
-    isCompact: false,
-    responsiveTable: false,
+    compactDesign: false,
+    responsiveDesign: false,
     tableTitle: 'Native table',
-    dividers: false,
+    verticalDivider: false,
     noMinWidthArg: false,
     column1Width: '',
     column2Width: '',
@@ -101,10 +101,10 @@ export default {
 
 const Template = ({
   modeVariant,
-  isCompact,
-  responsiveTable,
+  compactDesign,
+  responsiveDesign,
   tableTitle,
-  dividers,
+  verticalDivider,
   noMinWidthArg,
   column1Width,
   column2Width,
@@ -115,10 +115,10 @@ const Template = ({
         sdds-table
         ${modeVariant === 'Primary' ? 'sdds-mode-variant-primary' : ''}
         ${modeVariant === 'Secondary' ? 'sdds-mode-variant-secondary' : ''}
-        ${isCompact ? 'sdds-table--compact' : ''}
-        ${dividers ? 'sdds-table--divider' : ''}
+        ${compactDesign ? 'sdds-table--compact' : ''}
+        ${verticalDivider ? 'sdds-table--divider' : ''}
         ${noMinWidthArg ? 'sdds-table--no-min-width' : ''}
-        ${responsiveTable ? 'sdds-table--responsive' : ''}
+        ${responsiveDesign ? 'sdds-table--responsive' : ''}
     ">
     ${tableTitle && `<caption>${tableTitle}</caption>`}
     <thead>
@@ -149,4 +149,3 @@ const Template = ({
     `);
 
 export const Default = Template.bind({});
-Default.args = {};
