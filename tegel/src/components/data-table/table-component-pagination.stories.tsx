@@ -86,6 +86,38 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    column1Width: {
+      name: 'Column 1 width',
+      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column2Width: {
+      name: 'Column 2 width',
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column3Width: {
+      name: 'Column 3 width',
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column4Width: {
+      name: 'Column 4 width',
+      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
@@ -94,6 +126,10 @@ export default {
     rowsPerPageControl: 4,
     verticalDivider: false,
     noMinWidth: false,
+    column1Width: '',
+    column2Width: '',
+    column3Width: '',
+    column4Width: '',
   },
 };
 
@@ -104,6 +140,10 @@ const PaginationTemplate = ({
   rowsPerPageControl,
   verticalDivider,
   noMinWidth,
+  column1Width,
+  column2Width,
+  column3Width,
+  column4Width,
 }) =>
   formatHtmlPreview(`
     <sdds-table
@@ -114,10 +154,18 @@ const PaginationTemplate = ({
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
       >
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country'></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' ${
+                column1Width ? `custom-width="${column1Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' ${
+                column2Width ? `custom-width="${column2Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' ${
+                column3Width ? `custom-width="${column3Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right' ${
+                column4Width ? `custom-width="${column4Width}"` : ''
+              }></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
