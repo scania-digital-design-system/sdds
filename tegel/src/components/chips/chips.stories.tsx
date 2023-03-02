@@ -34,9 +34,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Small'],
+      options: ['Large', 'Small'],
       table: {
-        defaultValue: { summary: 'Default' },
+        defaultValue: { summary: 'Large' },
       },
     },
     placeholderText: {
@@ -83,7 +83,7 @@ export default {
   },
   args: {
     active: false,
-    size: 'Default',
+    size: 'Large',
     placeholderText: 'Chip text',
     icon: false,
     iconPosition: 'Icon right',
