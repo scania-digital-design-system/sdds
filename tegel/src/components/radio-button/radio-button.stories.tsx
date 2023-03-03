@@ -39,7 +39,7 @@ export default {
   },
 };
 
-const Template = (args) =>
+const Template = ({label, disabled}) =>
   formatHtmlPreview(`
   <style>
     .demo-fieldset-reset { 
@@ -49,12 +49,12 @@ const Template = (args) =>
       padding: 0; 
     }
   </style>
-  <fieldset class="demo-fieldset-reset" ${args.disabled ? 'disabled' : ''}>
+  <fieldset class="demo-fieldset-reset" ${disabled ? 'disabled' : ''}>
     <div class="sdds-radio-button-group">
       <div class="sdds-radio-item">
         <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" checked>
         <label class="sdds-form-label" for="rb-option-1">
-          ${args.label} 1
+          ${label} 1
         </label>
       </div>
     </div>
@@ -62,7 +62,7 @@ const Template = (args) =>
       <div class="sdds-radio-item">
         <input class="sdds-form-input" type="radio" name="rb-example" id="rb-option-2">
         <label class="sdds-form-label" for="rb-option-2">
-          ${args.label} 2
+          ${label} 2
         </label>
       </div>
     </div>
