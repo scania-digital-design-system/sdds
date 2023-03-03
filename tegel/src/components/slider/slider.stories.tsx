@@ -8,21 +8,21 @@ export default {
       name: 'Min. value',
       description: 'Sets the minimum value for the slider.',
       control: {
-        type: 'text',
+        type: 'number',
       },
     },
     max: {
       name: 'Max. value',
       description: 'Sets the maximum value for the slider.',
       control: {
-        type: 'text',
+        type: 'number',
       },
     },
     initialValue: {
       name: 'Initial value',
       description: 'Sets the initial value for the slider.',
       control: {
-        type: 'text',
+        type: 'number',
       },
     },
     showLabel: {
@@ -38,10 +38,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: {
-        arg: 'showLabel',
-        truthy: true,
-      },
+      if: { arg: 'showLabel', eq: true },
     },
     showTicks: {
       name: 'Show ticks',
@@ -54,12 +51,9 @@ export default {
       name: 'Number of ticks',
       description: 'Sets the number of ticks to be displayed.',
       control: {
-        type: 'text',
+        type: 'number',
       },
-      if: {
-        arg: 'showTicks',
-        truthy: true,
-      },
+      if: { arg: 'showTicks', eq: true },
     },
     showTickNumbers: {
       name: 'Show tick numbers',
@@ -67,10 +61,7 @@ export default {
       control: {
         type: 'boolean',
       },
-      if: {
-        arg: 'showTicks',
-        truthy: true,
-      },
+      if: { arg: 'showTicks', eq: true },
     },
     snapToTicks: {
       name: 'Snap to ticks',
@@ -78,10 +69,7 @@ export default {
       control: {
         type: 'boolean',
       },
-      if: {
-        arg: 'showTicks',
-        truthy: true,
-      },
+      if: { arg: 'showTicks', eq: true },
     },
     showTooltip: {
       name: 'Show tooltip',
@@ -101,12 +89,9 @@ export default {
       name: 'Step value',
       description: 'Sets the value to increment/decrement with when using controls.',
       control: {
-        type: 'text',
+        type: 'number',
       },
-      if: {
-        arg: 'showControls',
-        truthy: true,
-      },
+      if: { arg: 'showControls', eq: true },
     },
     showInput: {
       name: 'Show value input field (not compatible with controls)',
@@ -114,10 +99,7 @@ export default {
       control: {
         type: 'boolean',
       },
-      if: {
-        arg: 'showControls',
-        truthy: false,
-      },
+      if: { arg: 'showControls', eq: false },
     },
     small: {
       name: 'Small',
