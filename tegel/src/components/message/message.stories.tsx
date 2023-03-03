@@ -111,6 +111,11 @@ const Template = ({
 
   return formatHtmlPreview(
     `
+    <style>
+      .demo-wrapper {
+        width: 380px;
+      }
+    </style>
 
     ${
       iconType === 'Native'
@@ -120,20 +125,21 @@ const Template = ({
     </style>`
         : ''
     }
-
-    <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
-      showExtendedMessage ? 'sdds-message-extended-active' : ''
-    } 
-    ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
-    ${noIcon ? '' : iconHtml}
-    <h4 class="sdds-message-single">
-      Single line message goes here.
-    </h4>
-    ${
-      showExtendedMessage
-        ? '<p class="sdds-message-extended">Longer message text can be placed here. Longer message text can be placed here. Longer message text can be placed here.</p>'
-        : ''
-    }
+    <div class="demo-wrapper">
+      <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
+        showExtendedMessage ? 'sdds-message-extended-active' : ''
+      } 
+      ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+      ${noIcon ? '' : iconHtml}
+      <h4 class="sdds-message-single">
+        Single line message goes here.
+      </h4>
+      ${
+        showExtendedMessage
+          ? '<p class="sdds-message-extended">Longer message text can be placed here. Longer message text can be placed here.</p>'
+          : ''
+      }
+    </div>
   </div>
   `,
   );
