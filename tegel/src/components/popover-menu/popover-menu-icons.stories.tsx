@@ -127,4 +127,3 @@ const Template = ({ menuPosition }) => {
 };
 
 export const WithIcons = Template.bind({});
-WithIcons.args = {};

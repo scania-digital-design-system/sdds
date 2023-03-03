@@ -120,4 +120,3 @@ const Template = ({ menuPosition }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {};

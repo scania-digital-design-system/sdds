@@ -94,4 +94,3 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   );
 };
 export const Default = ComponentPopoverCanvas.bind({});
-Default.args = {};
