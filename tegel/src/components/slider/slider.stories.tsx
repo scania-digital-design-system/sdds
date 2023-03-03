@@ -6,35 +6,35 @@ export default {
   argTypes: {
     min: {
       name: 'Min. value',
-      description: 'Minimum value',
+      description: 'Sets the minimum value for the slider.',
       control: {
         type: 'text',
       },
     },
     max: {
       name: 'Max. value',
-      description: 'Maximum value',
+      description: 'Sets the maximum value for the slider.',
       control: {
         type: 'text',
       },
     },
     initialValue: {
       name: 'Initial value',
-      description: 'Initial value for slider',
+      description: 'Sets the initial value for the slider.',
       control: {
         type: 'text',
       },
     },
     showLabel: {
       name: 'Show label',
-      description: 'Show or hide label',
+      description: 'Toggles if the lable should be shown or hidden.',
       control: {
         type: 'boolean',
       },
     },
     labelText: {
       name: 'Label text',
-      description: 'Text for label',
+      description: 'Sets the text for the label.',
       control: {
         type: 'text',
       },
@@ -45,14 +45,14 @@ export default {
     },
     showTicks: {
       name: 'Show ticks',
-      description: 'Show or hide ticks',
+      description: 'Toggles if ticks should be shown or hidden.',
       control: {
         type: 'boolean',
       },
     },
     numTicks: {
       name: 'Number of ticks',
-      description: 'Set the number of ticks to display',
+      description: 'Sets the number of ticks to be displayed.',
       control: {
         type: 'text',
       },
@@ -63,7 +63,7 @@ export default {
     },
     showTickNumbers: {
       name: 'Show tick numbers',
-      description: 'Show or hide tick numbers',
+      description: 'Toggles if tick numbers should be shown or hidden.',
       control: {
         type: 'boolean',
       },
@@ -74,7 +74,7 @@ export default {
     },
     snapToTicks: {
       name: 'Snap to ticks',
-      description: 'Snap the scrubber to the closest tick when dragging',
+      description: 'Snaps the scrubber to the closest tick when dragging.',
       control: {
         type: 'boolean',
       },
@@ -85,21 +85,21 @@ export default {
     },
     showTooltip: {
       name: 'Show tooltip',
-      description: 'Show or hide tooltip',
+      description: 'Toggles if the tooltip should be shown or hidden.',
       control: {
         type: 'boolean',
       },
     },
     showControls: {
       name: 'Show controls (not compatible with input field)',
-      description: 'Show or hide controls',
+      description: 'Toggles if controls should be shown or hidden.',
       control: {
         type: 'boolean',
       },
     },
     step: {
       name: 'Step value',
-      description: 'Value to increment/decrease when using controls',
+      description: 'Sets the value to increment/decrement with when using controls.',
       control: {
         type: 'text',
       },
@@ -110,7 +110,7 @@ export default {
     },
     showInput: {
       name: 'Show value input field (not compatible with controls)',
-      description: 'Show or hide value input field',
+      description: 'Toggles if the values input field should be shown or hidden.',
       control: {
         type: 'boolean',
       },
@@ -121,21 +121,21 @@ export default {
     },
     small: {
       name: 'Small',
-      description: 'Use small variant',
+      description: 'Toggles if the small variant of the scrubber should be used.',
       control: {
         type: 'boolean',
       },
     },
     readonly: {
       name: 'Read Only',
-      description: 'Put control in read-only state',
+      description: 'Puts the control in a read-only state.',
       control: {
         type: 'boolean',
       },
     },
     disabled: {
       name: 'Disabled',
-      description: 'Put control in disabled state',
+      description: 'Disables the slider.',
       control: {
         type: 'boolean',
       },
