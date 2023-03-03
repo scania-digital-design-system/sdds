@@ -23,14 +23,13 @@
     border: none;
     border-right: 1px solid;
     border-right-color: transparent;
+    color: var(--sdds-folder-tab-color);
+    border-top: 2px solid var(--sdds-folder-tab-background);
+    background-color: var(--sdds-folder-tab-background);
 
     .label {
       opacity: var(--sdds-folder-tab-color-opacity);
     }
-
-    color: var(--sdds-folder-tab-color);
-    border-top: 2px solid var(--sdds-folder-tab-background);
-    background-color: var(--sdds-folder-tab-background);
 
     &.selected {
       background-color: var(--sdds-folder-tab-background-selected);
@@ -63,7 +62,7 @@
         opacity: var(--sdds-folder-tab-color-opacity-disabled);
       }
 
-      &:focus {
+      &:focus-visible {
         .label {
           opacity: var(--sdds-folder-tab-color-opacity-disabled);
         }
@@ -72,13 +71,15 @@
       }
     }
 
-    &:focus {
+    &:focus-visible {
       @include sdds-focus-state;
 
       opacity: var(--sdds-folder-tab-color-opacity-focus);
     }
 
     &:hover {
+      background-color: var(--sdds-folder-tab-background-hover);
+
       .label {
         opacity: var(--sdds-folder-tab-color-opacity-hover);
       }
@@ -109,7 +110,7 @@
       }
     }
 
-    &:focus {
+    &:focus-visible {
       @include sdds-focus-state;
     }
 

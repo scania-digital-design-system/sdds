@@ -63,7 +63,7 @@
         opacity: var(--sdds-folder-tab-color-opacity-disabled);
       }
 
-      &:focus {
+      &:focus-visible {
         .label {
           opacity: var(--sdds-folder-tab-color-opacity-disabled);
         }
@@ -72,13 +72,15 @@
       }
     }
 
-    &:focus {
+    &:focus-visible {
       @include sdds-focus-state;
 
       opacity: var(--sdds-folder-tab-color-opacity-focus);
     }
 
     &:hover {
+      background-color: var(--sdds-folder-tab-background-hover);
+
       .label {
         opacity: var(--sdds-folder-tab-color-opacity-hover);
       }
@@ -108,7 +110,7 @@
       }
     }
 
-    &:focus {
+    &:focus-visible {
       @include sdds-focus-state;
     }
 
