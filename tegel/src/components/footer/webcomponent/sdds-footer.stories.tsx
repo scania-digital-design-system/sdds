@@ -40,13 +40,13 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: true },
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    topPart: true,
+    topPart: false,
   },
 };
 
