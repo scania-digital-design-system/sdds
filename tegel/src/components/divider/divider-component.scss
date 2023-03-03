@@ -1,12 +1,9 @@
-@import './divider-theme-vars.scss';
-
 :host {
   .sdds-divider {
     box-sizing: border-box;
 
     &.horizontal {
       background-color: var(--sdds-divider-background);
-      height: 1px;
       width: 100%;
     }
 
