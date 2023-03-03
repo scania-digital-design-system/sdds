@@ -20,7 +20,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -30,30 +30,30 @@ export default {
       },
     },
     messageType: {
-      name: 'Message Type',
-      description: 'The type of the message.',
+      name: 'Message type',
+      description: 'Changes the type of the component.',
       control: {
         type: 'radio',
       },
       options: ['Information', 'Error', 'Warning', 'Success'],
     },
     showExtendedMessage: {
-      name: 'Extended Message',
-      description: 'Show an extended message',
+      name: 'Extended message',
+      description: 'Shows an extended message.',
       control: {
         type: 'boolean',
       },
     },
     icon: {
       name: 'Icon',
-      description: 'Show icon',
+      description: 'Shows the icon.',
       control: {
         type: 'boolean',
       },
     },
     iconType: {
-      name: 'Icon',
-      description: 'Switch between show a native/web component icon.',
+      name: 'Icon type',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },

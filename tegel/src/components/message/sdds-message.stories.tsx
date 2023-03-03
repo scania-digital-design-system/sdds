@@ -22,7 +22,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -32,8 +32,8 @@ export default {
       },
     },
     messageType: {
-      name: 'Message Type',
-      description: 'The type of the message.',
+      name: 'Message type',
+      description: 'Changes the type of the component.',
       control: {
         type: 'radio',
       },
@@ -44,20 +44,21 @@ export default {
     },
     header: {
       name: 'Header',
-      description: 'Header for the message',
+      description: 'Sets the header for the message.',
       control: {
         type: 'text',
       },
     },
     extendedMessage: {
       name: 'Extended message content',
+      description: 'Sets the content of an extended message.',
       control: {
         type: 'text',
       },
     },
     minimal: {
       name: 'Minimal',
-      description: 'Minimal message styling.',
+      description: 'Applies minimal message styling.',
       control: {
         type: 'boolean',
       },
@@ -67,7 +68,7 @@ export default {
     },
     noIcon: {
       name: 'No icon',
-      description: 'Hide the icon',
+      description: 'Hides the icon.',
       control: {
         type: 'boolean',
       },
