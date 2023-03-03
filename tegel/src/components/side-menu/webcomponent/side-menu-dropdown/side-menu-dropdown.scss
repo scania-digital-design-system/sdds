@@ -53,15 +53,7 @@
   }
 
   .menu {
-    /** Should control only height, position, and overflow here. 
-        Width and appearance are set inside nested components */
     display: none;
     flex-direction: column;
-
-    // width: 100%;
-    // position: static;
-    // left: auto;
-    // top: auto;
-    // box-shadow: none;
   }
 }
