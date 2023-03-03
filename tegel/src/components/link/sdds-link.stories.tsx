@@ -20,29 +20,19 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Display link in disabled state',
-      controls: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     underline: {
       name: 'Underline',
-      description: 'Underline under link text.',
+      description: 'Adds an underline under the link text.',
       controls: {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'true' },
+        defaultValue: { summary: true },
       },
     },
     target: {
       name: 'Target',
-      description: 'Where to open the linked URL.',
+      description: 'Sets where to open the linked URL.',
       control: {
         type: 'radio',
       },
@@ -51,15 +41,25 @@ export default {
         defaultValue: { summary: '_self' },
       },
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the link.',
+      controls: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
   args: {
-    disabled: false,
     underline: true,
     target: '_self',
+    disabled: false,
   },
 };
 
-const Template = ({ disabled, underline, target }) =>
+const Template = ({ underline, target, disabled }) =>
   formatHtmlPreview(
     `
     <sdds-link

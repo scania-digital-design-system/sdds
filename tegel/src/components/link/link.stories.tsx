@@ -18,32 +18,38 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Display link in disabled state',
+    underline: {
+      name: 'Underline',
+      description: 'Adds an underline under the link text.',
       controls: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
     },
-    noUnderline: {
-      name: 'No underline',
-      description: 'Hide underline under link text',
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the link.',
       controls: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
+    underline: true,
     disabled: false,
-    noUnderline: false,
   },
 };
 
-const Template = ({ disabled, noUnderline }) =>
+const Template = ({ underline, disabled }) =>
   formatHtmlPreview(
     `
       <a class="sdds-link ${disabled ? 'disabled' : ''} ${
-      noUnderline ? 'sdds-link--no-underline' : ''
+      underline ? '' : 'sdds-link--no-underline'
     }" href="#">
         This is a link.
       </a>
