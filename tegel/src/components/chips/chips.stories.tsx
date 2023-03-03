@@ -18,67 +18,88 @@ export default {
     ],
   },
   argTypes: {
+    active: {
+      name: 'Active',
+      description: 'Toggles if the chip is active or not.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      name: 'Size',
+      description: 'Sets the chip size.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Large', 'Small'],
+      table: {
+        defaultValue: { summary: 'Large' },
+      },
+    },
     placeholderText: {
       name: 'Placeholder',
-      description: 'Set custom chip text',
+      description: 'Sets custom chip text.',
       control: {
         type: 'text',
       },
     },
     icon: {
       name: 'Icon',
-      description: 'Add an icon to the chip.',
+      description: 'Adds an icon to the chip.',
       control: {
         type: 'boolean',
       },
-    },
-    iconType: {
-      name: 'Icon type',
-      description: 'Choose what icon type to use',
-      control: {
-        type: 'radio',
+      table: {
+        defaultValue: { summary: false },
       },
-      options: ['Native', 'Web Component'],
-      if: { arg: 'icon', eq: true },
     },
     iconPosition: {
       name: 'Icon position',
-      description: 'Set the placement of the icon',
+      description: 'Sets the placement of the icon.',
       control: {
         type: 'radio',
       },
       options: ['Icon left', 'Icon right'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Icon right' },
+      },
     },
-    state: {
-      name: 'State',
-      description: 'Set the chips state as active or default',
+    iconType: {
+      name: 'Icon type',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Active'],
-    },
-    size: {
-      name: 'Size',
-      description: 'Set the chip size',
-      control: {
-        type: 'radio',
+      options: ['Native', 'Web Component'],
+      if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Native' },
       },
-      options: ['Default', 'Small'],
     },
   },
   args: {
+    active: false,
+    size: 'Large',
     placeholderText: 'Chip text',
     icon: false,
-    iconType: 'Native',
     iconPosition: 'Icon right',
-    state: 'Default',
-    size: 'Default',
+    iconType: 'Native',
   },
 };
 
-const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }) => {
-  const stateValue = state === 'Active' ? 'sdds-chip-active' : '';
+const Template = ({ 
+  active,
+  size,
+  placeholderText, 
+  icon, 
+  iconPosition, 
+  iconType
+   }) => {
+  const activeValue = active === true ? 'sdds-chip-active' : '';
   const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
     'Icon left': 'sdds-chip-icon-left',
@@ -108,7 +129,7 @@ const Template = ({ icon, iconPosition, iconType, state, placeholderText, size }
     depending on usage (button, checkbox, radio, etc) -->
     <button class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
-    } ${stateValue} ${sizeValue}">
+    } ${activeValue} ${sizeValue}">
       ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
     </button>
     `);
