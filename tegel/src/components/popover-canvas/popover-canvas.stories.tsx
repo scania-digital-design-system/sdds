@@ -29,7 +29,9 @@ export default {
         'Right end',
         'Auto',
       ],
-      defaultValue: { summary: 'Bottom' },
+      table: {
+        defaultValue: { summary: 'Bottom' },
+      },
     },
   },
   args: {
