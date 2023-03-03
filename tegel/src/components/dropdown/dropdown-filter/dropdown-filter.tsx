@@ -75,7 +75,7 @@ export class DropdownFilter {
     this.findData();
   }
 
-  @Listen('selectOption')
+  @Listen('internalSddsSelect')
   selectOptionHandler(event: CustomEvent<any>) {
     this.selectedOptionState = event.detail.value;
     this.selectedLabel = event.detail.label;
@@ -90,7 +90,7 @@ export class DropdownFilter {
 
   findData() {
     const searchAsRegEx = new RegExp(this.searchTerm, 'gmi');
-    this.filteredContent = this.dataOptions.filter(option => {
+    this.filteredContent = this.dataOptions.filter((option) => {
       if (option.label) {
         const listItem = option.label.toLowerCase();
         const searchResultList = listItem.match(searchAsRegEx);
@@ -105,8 +105,12 @@ export class DropdownFilter {
   }
 
   setOptionsContent() {
-    const newList = this.filteredContent.map(obj => (
-      <sdds-dropdown-option tabindex="0" value={obj.value} class={`${this.selectedOptionState === obj.value ? 'selected' : ''}`}>
+    const newList = this.filteredContent.map((obj) => (
+      <sdds-dropdown-option
+        tabindex="0"
+        value={obj.value}
+        class={`${this.selectedOptionState === obj.value ? 'selected' : ''}`}
+      >
         {obj.label}
       </sdds-dropdown-option>
     ));
@@ -129,7 +133,7 @@ export class DropdownFilter {
     return (
       <Host selected-value={this.selectedValue} selected-text={this.selectedLabel}>
         <sdds-dropdown
-          ref={el => (this.dropdownRef = el)}
+          ref={(el) => (this.dropdownRef = el)}
           exportparts="dropdown-filter-disabled"
           size={this.size}
           label={this.label}
