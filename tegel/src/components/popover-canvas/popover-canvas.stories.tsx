@@ -29,7 +29,7 @@ export default {
         'Right end',
         'Auto',
       ],
-      defaultValue: { summary: 'Auto' },
+      defaultValue: { summary: 'Bottom' },
     },
   },
   args: {
