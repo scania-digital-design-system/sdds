@@ -220,9 +220,9 @@ export class SddsDropdownV2 {
     return (
       <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         {this.label && this.labelPosition === 'outside' && (
-          <div class="label-outside">{this.label}</div>
+          <div class={`label-outside ${this.disabled ? 'disabled' : ''}`}>{this.label}</div>
         )}
-        <div class={`dropdown-select ${this.size}`}>
+        <div class={`dropdown-select ${this.size} ${this.disabled ? 'disabled' : ''}`}>
           {this.filter ? (
             <div class={`filter ${this.disabled ? 'disabled' : ''} ${this.open ? 'focus' : ''}`}>
               <div class="value-wrapper">
@@ -340,7 +340,7 @@ export class SddsDropdownV2 {
         </div>
         {/* DROPDOWN LIST */}
         {this.helper && (
-          <div class={`helper ${this.error ? 'error' : ''}`}>
+          <div class={`helper ${this.error ? 'error' : ''} ${this.disabled ? 'disabled' : ''}`}>
             {this.error && <sdds-icon name="error" size="16px"></sdds-icon>}
             {this.helper}
           </div>

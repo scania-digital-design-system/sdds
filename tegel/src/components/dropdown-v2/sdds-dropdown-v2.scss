@@ -11,16 +11,29 @@
     letter-spacing: var(--sdds-detail-05-ls);
     color: var(--sdds-dropdown-label-color);
     margin-bottom: 8px;
+
+    &.disabled {
+      color: var(--sdds-dropdown-disabled-color);
+    }
   }
 
   .dropdown-select {
     position: relative;
 
+    &.disabled {
+      .label-inside,
+      .placeholder,
+      .label-inside-as-placeholder,
+      .value-wrapper {
+        color: var(--sdds-dropdown-disabled-color);
+      }
+    }
+
     .label-inside {
       position: absolute;
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
-      color: var(--sdds-dropdown-label-color);
+      color: var(--sdds-dropdown-label-inside-color);
 
       &.lg {
         top: 12px;
@@ -36,7 +49,7 @@
         display: none;
       }
 
-      & + .placeholder {
+      & + .placeholder:not(.sm) {
         margin-top: 8px;
       }
     }
@@ -70,7 +83,7 @@
           display: none;
         }
 
-        & + .placeholder {
+        & + .placeholder:not(.sm) {
           margin-top: 8px;
         }
       }
@@ -95,6 +108,10 @@
       background-color: var(--sdds-dropdown-bg);
       border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
       border-radius: 4px 4px 0 0;
+
+      &:hover {
+        border-bottom: 1px solid var(--sdds-dropdown-border-bottom-hover);
+      }
 
       .value-wrapper {
         padding: 0 16px;
@@ -140,6 +157,10 @@
       border-bottom: 1px solid var(--sdds-dropdown-border-bottom);
       padding-left: 16px;
       border-radius: 4px 4px 0 0;
+
+      &:hover {
+        border-bottom: 1px solid var(--sdds-dropdown-border-bottom-hover);
+      }
 
       &.disabled {
         color: var(--sdds-dropdown-disabled-color);
@@ -187,7 +208,7 @@
             display: none;
           }
 
-          & + .placeholder {
+          & + .placeholder:not(.sm) {
             margin-top: 8px;
           }
         }
@@ -241,6 +262,10 @@
 
     &.error {
       color: var(--sdds-negative);
+    }
+
+    &.disabled {
+      color: var(--sdds-dropdown-disabled-color);
     }
   }
 
