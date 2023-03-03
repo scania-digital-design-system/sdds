@@ -122,7 +122,6 @@ export class InlineTabs {
           item.setAttribute('selected', '');
           this.selectedTab = item.innerHTML;
           this.selectedTabIndex = index;
-          console.log(index);
         }
       });
       if (index === 0) {
