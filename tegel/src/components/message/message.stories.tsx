@@ -47,12 +47,12 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: true },
       },
     },
-    icon: {
-      name: 'Icon',
-      description: 'Shows the icon.',
+    noIcon: {
+      name: 'No icon',
+      description: 'Hides the icon.',
       control: {
         type: 'boolean',
       },
@@ -76,8 +76,8 @@ export default {
   args: {
     modeVariant: 'Inherit from parent',
     messageType: 'Information',
-    showExtendedMessage: false,
-    icon: false,
+    showExtendedMessage: true,
+    noIcon: false,
     iconType: 'Web Component',
   },
 };
@@ -93,7 +93,7 @@ const Template = ({
   modeVariant, 
   messageType, 
   showExtendedMessage, 
-  icon, 
+  noIcon, 
   iconType 
 }) => {
   const messageTypeClass =
@@ -121,11 +121,11 @@ const Template = ({
         : ''
     }
 
-    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
+    <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
       showExtendedMessage ? 'sdds-message-extended-active' : ''
     } 
     ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
-    ${icon ? iconHtml : ''}
+    ${noIcon ? '' : iconHtml}
     <h4 class="sdds-message-single">
       Single line message goes here.
     </h4>
