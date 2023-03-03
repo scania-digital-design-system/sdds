@@ -4,13 +4,6 @@ import readme from './readme.md';
 export default {
   title: 'Components/Slider',
   argTypes: {
-    initialValue: {
-      name: 'Initial value',
-      description: 'Initial value for slider',
-      control: {
-        type: 'text',
-      },
-    },
     min: {
       name: 'Min. value',
       description: 'Minimum value',
@@ -21,6 +14,13 @@ export default {
     max: {
       name: 'Max. value',
       description: 'Maximum value',
+      control: {
+        type: 'text',
+      },
+    },
+    initialValue: {
+      name: 'Initial value',
+      description: 'Initial value for slider',
       control: {
         type: 'text',
       },
@@ -43,13 +43,6 @@ export default {
         truthy: true,
       },
     },
-    showTooltip: {
-      name: 'Show tooltip',
-      description: 'Show or hide tooltip',
-      control: {
-        type: 'boolean',
-      },
-    },
     showTicks: {
       name: 'Show ticks',
       description: 'Show or hide ticks',
@@ -68,6 +61,17 @@ export default {
         truthy: true,
       },
     },
+    showTickNumbers: {
+      name: 'Show tick numbers',
+      description: 'Show or hide tick numbers',
+      control: {
+        type: 'boolean',
+      },
+      if: {
+        arg: 'showTicks',
+        truthy: true,
+      },
+    },
     snapToTicks: {
       name: 'Snap to ticks',
       description: 'Snap the scrubber to the closest tick when dragging',
@@ -79,15 +83,11 @@ export default {
         truthy: true,
       },
     },
-    showTickNumbers: {
-      name: 'Show tick numbers',
-      description: 'Show or hide tick numbers',
+    showTooltip: {
+      name: 'Show tooltip',
+      description: 'Show or hide tooltip',
       control: {
         type: 'boolean',
-      },
-      if: {
-        arg: 'showTicks',
-        truthy: true,
       },
     },
     showControls: {
@@ -119,9 +119,9 @@ export default {
         truthy: false,
       },
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Put control in disabled state',
+    small: {
+      name: 'Small',
+      description: 'Use small variant',
       control: {
         type: 'boolean',
       },
@@ -133,9 +133,9 @@ export default {
         type: 'boolean',
       },
     },
-    small: {
-      name: 'Small',
-      description: 'Use small variant',
+    disabled: {
+      name: 'Disabled',
+      description: 'Put control in disabled state',
       control: {
         type: 'boolean',
       },
@@ -157,41 +157,41 @@ export default {
     ],
   },
   args: {
+    min: '0',
+    max: '100',
     initialValue: '50',
     showLabel: false,
     labelText: 'Label',
-    showTooltip: true,
     showTicks: false,
     numTicks: '3',
     showTickNumbers: false,
-    showControls: false,
-    showInput: false,
-    min: '0',
-    max: '100',
-    step: '1',
-    disabled: false,
-    small: false,
     snapToTicks: false,
+    showTooltip: true,
+    showControls: false,
+    step: '1',
+    showInput: false,
+    small: false,
     readonly: false,
+    disabled: false,
   },
 };
 const Template = ({
-  initialValue,
   min,
   max,
+  initialValue,
   showLabel,
   labelText,
-  showTooltip,
   showTicks,
   numTicks,
   showTickNumbers,
   snapToTicks,
+  showTooltip,
   showControls,
   step,
   showInput,
-  disabled,
-  readonly,
   small,
+  readonly,
+  disabled,
 }) =>
   formatHtmlPreview(`
     <sdds-slider id="sdds-slider"
