@@ -36,6 +36,9 @@ export default {
         type: 'radio',
       },
       options: ['Information', 'Error', 'Warning', 'Success'],
+      table: {
+        defaultValue: { summary: 'Information' },
+      },
     },
     showExtendedMessage: {
       name: 'Extended message',
@@ -43,12 +46,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     icon: {
       name: 'Icon',
       description: 'Shows the icon.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     iconType: {
@@ -59,6 +68,9 @@ export default {
       },
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
+      table: {
+        defaultValue: { summary: 'Web Component' },
+      },
     },
   },
   args: {
