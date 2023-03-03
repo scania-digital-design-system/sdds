@@ -22,7 +22,7 @@ export default {
   argTypes: {
     actions: {
       name: 'Actions',
-      description: 'Behaviour of modal actions',
+      description: 'Defines the behaviour of modal.',
       control: {
         type: 'radio',
       },
@@ -30,7 +30,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Size of modal',
+      description: 'Sets the size of modal.',
       control: {
         type: 'radio',
       },
@@ -38,14 +38,14 @@ export default {
     },
     headline: {
       name: 'Modal headline',
-      description: 'Customize headline',
+      description: 'Sets the headline of the modal.',
       control: {
         type: 'text',
       },
     },
     bodyText: {
       name: 'Modal body text',
-      description: 'Customize body text',
+      description: 'Sets the body text of the modal.',
       control: {
         type: 'text',
       },
