@@ -25,6 +25,9 @@ export default {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+      table: {
+        defaultValue: { summary: 'Static' },
+      },
     },
     size: {
       name: 'Size',
@@ -33,6 +36,9 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
+      table: {
+        defaultValue: { summary: 'Large' },
+      },
     },
     headline: {
       name: 'Modal headline',
@@ -53,6 +59,9 @@ export default {
       description: 'Toggles if the modal is displayed.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
       },
     },
   },

@@ -27,6 +27,9 @@ export default {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+      table: {
+        defaultValue: { summary: 'Static' },
+      },
     },
     size: {
       name: 'Size',
@@ -35,6 +38,9 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     headline: {
       name: 'Modal headline',
