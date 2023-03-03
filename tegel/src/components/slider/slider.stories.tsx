@@ -10,12 +10,18 @@ export default {
       control: {
         type: 'number',
       },
+      table: {
+        defaultValue: { summary: 0 },
+      },
     },
     max: {
       name: 'Max. value',
       description: 'Sets the maximum value for the slider.',
       control: {
         type: 'number',
+      },
+      table: {
+        defaultValue: { summary: 100 },
       },
     },
     initialValue: {
@@ -24,12 +30,18 @@ export default {
       control: {
         type: 'number',
       },
+      table: {
+        defaultValue: { summary: 50 },
+      },
     },
     showLabel: {
       name: 'Show label',
       description: 'Toggles if the lable should be shown or hidden.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     labelText: {
@@ -45,6 +57,9 @@ export default {
       description: 'Toggles if ticks should be shown or hidden.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     numTicks: {
@@ -62,6 +77,9 @@ export default {
         type: 'boolean',
       },
       if: { arg: 'showTicks', eq: true },
+      table: {
+        defaultValue: { summary: 3 },
+      },
     },
     snapToTicks: {
       name: 'Snap to ticks',
@@ -70,6 +88,9 @@ export default {
         type: 'boolean',
       },
       if: { arg: 'showTicks', eq: true },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     showTooltip: {
       name: 'Show tooltip',
@@ -77,12 +98,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
     },
     showControls: {
       name: 'Show controls (not compatible with input field)',
       description: 'Toggles if controls should be shown or hidden.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     step: {
@@ -92,6 +119,9 @@ export default {
         type: 'number',
       },
       if: { arg: 'showControls', eq: true },
+      table: {
+        defaultValue: { summary: 1 },
+      },
     },
     showInput: {
       name: 'Show value input field (not compatible with controls)',
@@ -100,12 +130,18 @@ export default {
         type: 'boolean',
       },
       if: { arg: 'showControls', eq: false },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     small: {
       name: 'Small',
       description: 'Toggles if the small variant of the scrubber should be used.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     readonly: {
@@ -114,12 +150,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     disabled: {
       name: 'Disabled',
       description: 'Disables the slider.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
