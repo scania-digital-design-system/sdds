@@ -27,14 +27,14 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Display link in disabled state',
+      description: 'Disables the link.',
       controls: {
         type: 'boolean',
       },
     },
   },
   args: {
-    underline: false,
+    underline: true,
     disabled: false,
   },
 };

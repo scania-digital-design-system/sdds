@@ -22,7 +22,7 @@ export default {
   argTypes: {
     underline: {
       name: 'Underline',
-      description: 'Underline under link text.',
+      description: 'Adds an underline under the link text.',
       controls: {
         type: 'boolean',
       },
@@ -32,7 +32,7 @@ export default {
     },
     target: {
       name: 'Target',
-      description: 'Where to open the linked URL.',
+      description: 'Sets where to open the linked URL.',
       control: {
         type: 'radio',
       },
@@ -43,7 +43,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Display link in disabled state',
+      description: 'Disables the link.',
       controls: {
         type: 'boolean',
       },
