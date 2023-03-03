@@ -50,8 +50,9 @@ export class SddsDropdownV2 {
   /** Default value selected in the dropdown. */
   @Prop() defaultValue: string;
 
+  // This has to accepts a string to work for vanilla HTML.
   /** Populate the dropdown via a JSON array */
-  @Prop() options: string;
+  @Prop() options: Array<{ value: string; label: string; disabled: boolean }> | string;
 
   @State() open: boolean = false;
 
@@ -125,15 +126,16 @@ export class SddsDropdownV2 {
 
   connectedCallback = () => {
     if (this.options) {
-      this.parsedData = JSON.parse(this.options);
+      this.parsedData = JSON.parse(this.options.toString());
     } else {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     }
+    console.log(this.options.toString());
   };
 
   componentDidLoad() {
     if (this.options) {
-      this.parsedData = JSON.parse(this.options);
+      this.parsedData = JSON.parse(this.options.toString());
       this.children = Array.from(
         this.dropdownList.children,
       ) as Array<HTMLSddsDropdownOptionV2Element>;

@@ -257,7 +257,7 @@ const Template = ({
             ${multiselect ? 'multiselect' : ''}
             ${disabled ? 'disabled' : ''}
             open-direction="${openDirection.toLowerCase()}"
-            ${childType === 'Data' ? `data='${JSON.stringify(data)}'` : ''}
+            ${childType === 'Data' ? `options='${JSON.stringify(data)}'` : ''}
             >
             ${
               childType === 'Elements'
