@@ -72,6 +72,7 @@
     "no-undef": "off",
     "function-paren-newline": "off",
     "dot-notation": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-param-reassign": ["error", { "props": false }]
   }
 }

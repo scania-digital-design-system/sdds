@@ -74,8 +74,6 @@ export class DropdownOption {
       this.selectOption.emit(value);
       if (!this.isMultiSelectOption) {
         listOptions.forEach((optionEl) => {
-          // TODO: fix and enable rule
-          // eslint-disable-next-line no-param-reassign
           optionEl.selected = false;
         });
       }
