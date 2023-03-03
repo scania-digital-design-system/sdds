@@ -18,8 +18,8 @@ export default {
     ],
   },
   argTypes: {
-    noUnderline: {
-      name: 'No underline',
+    underline: {
+      name: 'Underline',
       description: 'Hide underline under link text',
       controls: {
         type: 'boolean',
@@ -34,16 +34,16 @@ export default {
     },
   },
   args: {
-    noUnderline: false,
+    underline: false,
     disabled: false,
   },
 };
 
-const Template = ({ noUnderline, disabled }) =>
+const Template = ({ underline, disabled }) =>
   formatHtmlPreview(
     `
       <a class="sdds-link ${disabled ? 'disabled' : ''} ${
-      noUnderline ? 'sdds-link--no-underline' : ''
+      underline ? '' : 'sdds-link--no-underline'
     }" href="#">
         This is a link.
       </a>
