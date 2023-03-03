@@ -285,28 +285,35 @@ const Template = ({
                 : ''
             }
           </sdds-dropdown-v2>
+          <!-- JUST FOR DEMO ON FORMS -->
           <input
                 type="submit"
                 value="Submit form"
             />
+            <!-- JUST FOR DEMO OF RESET -->
+          <sdds-button text="reset"></sdds-button>
         </form>
     </div>
-    <!-- JUST FOR DEMO ON FORMS -->
+
     <script>
     form = document.querySelector('form')
     form.addEventListener('submit', (event) => {
-
-    event.preventDefault();
-    event.stopPropagation();
-    const formData = new FormData(form)
-    formData.forEach((value, key) => {
+      
+      event.preventDefault();
+      event.stopPropagation();
+      const formData = new FormData(form)
+      formData.forEach((value, key) => {
         console.log('Key:', key, 'Value:', value);
+      });
     });
-  });
-
+    
     dropdown = document.querySelector('sdds-dropdown-v2')
     dropdown.addEventListener('sddsChange', (event) => {
       console.log(event)
+    })
+    button = document.querySelector('sdds-button')
+    button.addEventListener('click', ()=> {
+      dropdown.reset()
     })
     </script>
         

@@ -19,7 +19,6 @@ This property should be a JSON array containing objects of the following structu
 
 | Property        | Attribute        | Description                                                                                | Type                       | Default       |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------ | -------------------------- | ------------- |
-| `data`          | `data`           | Populate the dropdown via a JSON array                                                     | `string`                   | `undefined`   |
 | `defaultValue`  | `default-value`  | Default value selected in the dropdown.                                                    | `string`                   | `undefined`   |
 | `disabled`      | `disabled`       | Sets the dropdown in a disabled state                                                      | `boolean`                  | `false`       |
 | `error`         | `error`          | Sets the dropdown in an error state                                                        | `boolean`                  | `false`       |
@@ -32,6 +31,7 @@ This property should be a JSON array containing objects of the following structu
 | `name`          | `name`           | Name for the dropdowns input element.                                                      | `string`                   | `undefined`   |
 | `noResultText`  | `no-result-text` | Text that is displayed if filter is used and there are no options that matches the search. | `string`                   | `'No result'` |
 | `openDirection` | `open-direction` | The direction the dropdown should open, auto if not specified.                             | `"auto" \| "down" \| "up"` | `'auto'`      |
+| `options`       | `options`        | Populate the dropdown via a JSON array                                                     | `string`                   | `undefined`   |
 | `placeholder`   | `placeholder`    | Placeholder text for the dropdown.                                                         | `string`                   | `undefined`   |
 | `size`          | `size`           | The size of the dropdown.                                                                  | `"lg" \| "md" \| "sm"`     | `'lg'`        |
 

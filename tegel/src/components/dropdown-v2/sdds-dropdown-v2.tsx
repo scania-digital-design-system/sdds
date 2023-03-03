@@ -51,13 +51,15 @@ export class SddsDropdownV2 {
   @Prop() defaultValue: string;
 
   /** Populate the dropdown via a JSON array */
-  @Prop() data: string;
+  @Prop() options: string;
 
   @State() open: boolean = false;
 
-  @State() value: Array<string>;
+  @State() selection: Array<{ value: string; label: string }>;
 
-  @State() valueLabels: Array<string>;
+  /* @State() value: Array<string>;
+
+  @State() valueLabels: Array<string>; */
 
   @State() filterHasFocus: boolean = false;
 
@@ -74,19 +76,18 @@ export class SddsDropdownV2 {
   /** Method that resets the dropdown. */
   @Method()
   async reset() {
-    this.value = [];
-    this.valueLabels = [];
+    this.selection = null;
   }
 
   /** @internal Method for setting the value of the dropdown. */
   @Method()
   async setValue(newValue: string, newValueLabel: string) {
     if (this.multiselect) {
-      this.value = this.value ? [...this.value, newValue] : [newValue];
-      this.valueLabels = this.valueLabels ? [...this.valueLabels, newValueLabel] : [newValueLabel];
+      this.selection = this.selection
+        ? [...this.selection, { value: newValue, label: newValueLabel }]
+        : [{ value: newValue, label: newValueLabel }];
     } else {
-      this.value = [newValue];
-      this.valueLabels = [newValueLabel];
+      this.selection = [{ value: newValue, label: newValueLabel }];
       this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
         if (element.value !== newValue) {
           element.deselect();
@@ -96,24 +97,23 @@ export class SddsDropdownV2 {
     }
     this.sddsChange.emit({
       name: this.name,
-      value: this.value.toString(),
+      value: this.selection.map((item) => item.value).toString(),
     });
   }
 
   /** @internal Method for removing the value of the dropdown. */
   @Method()
-  async removeValue(oldValue: string, oldValueLabel: string) {
+  async removeValue(oldValue: string) {
     if (this.multiselect) {
-      if (this.value) {
-        this.value = this.value.filter((item) => item !== oldValue);
-        this.valueLabels = this.valueLabels.filter((item) => item !== oldValueLabel);
+      if (this.selection) {
+        this.selection = this.selection.filter((item) => item.value !== oldValue);
       }
     } else {
-      this.value = null;
+      this.selection = [];
     }
     this.sddsChange.emit({
       name: this.name,
-      value: this.value.toString(),
+      value: this.selection.map((item) => item.value).toString(),
     });
   }
 
@@ -124,16 +124,16 @@ export class SddsDropdownV2 {
   }
 
   connectedCallback = () => {
-    if (this.data) {
-      this.parsedData = JSON.parse(this.data);
+    if (this.options) {
+      this.parsedData = JSON.parse(this.options);
     } else {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     }
   };
 
   componentDidLoad() {
-    if (this.data) {
-      this.parsedData = JSON.parse(this.data);
+    if (this.options) {
+      this.parsedData = JSON.parse(this.options);
       this.children = Array.from(
         this.dropdownList.children,
       ) as Array<HTMLSddsDropdownOptionV2Element>;
@@ -159,13 +159,12 @@ export class SddsDropdownV2 {
     });
   };
 
-  selectOption(value: string, element: HTMLSddsDropdownOptionV2Element) {
-    if (value === element.value) {
+  selectOption(newValue: string, element: HTMLSddsDropdownOptionV2Element) {
+    if (newValue === element.value) {
       element.selectOption();
-      this.value = this.value ? [...this.value, element.value] : [element.value];
-      this.valueLabels = this.valueLabels
-        ? [...this.valueLabels, element.textContent]
-        : [element.textContent];
+      this.selection = this.selection
+        ? [...this.selection, { value: newValue, label: element.textContent }]
+        : [{ value: newValue, label: element.textContent }];
     }
   }
 
@@ -216,7 +215,12 @@ export class SddsDropdownV2 {
   }
 
   render() {
-    renderHiddenInput(this.host, this.name, this.value?.toString(), this.disabled);
+    renderHiddenInput(
+      this.host,
+      this.name,
+      this.selection?.map((item) => item.value).toString(),
+      this.disabled,
+    );
     return (
       <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         {this.label && this.labelPosition === 'outside' && (
@@ -234,7 +238,7 @@ export class SddsDropdownV2 {
                     class={`
                     label-inside-as-placeholder
                     ${this.size}
-                    ${this.value?.length ? 'selected' : ''}
+                    ${this.selection?.length ? 'selected' : ''}
                     ${this.open ? 'focus' : ''}
                     `}
                   >
@@ -247,7 +251,7 @@ export class SddsDropdownV2 {
                   type="text"
                   onInput={(event) => this.handleFilter(event)}
                   placeholder={this.placeholder}
-                  value={this.value ? this.valueLabels : null}
+                  value={this.selection ? this.selection.map((item) => item.label) : null}
                   disabled={this.disabled}
                   onFocus={() => {
                     this.open = true;
@@ -279,7 +283,7 @@ export class SddsDropdownV2 {
                 }
               }}
               class={`
-                ${this.value ? 'value' : 'placeholder'}
+                ${this.selection ? 'value' : 'placeholder'}
                 ${this.open ? 'open' : 'closed'}
                 `}
               disabled={this.disabled}
@@ -293,14 +297,16 @@ export class SddsDropdownV2 {
                     class={`
                     label-inside-as-placeholder
                     ${this.size}
-                    ${this.value?.length ? 'selected' : ''}
+                    ${this.selection?.length ? 'selected' : ''}
                     `}
                   >
                     {this.label}
                   </div>
                 )}
                 <div class={`placeholder ${this.size}`}>
-                  {this.valueLabels?.length ? this.valueLabels.join(', ') : this.placeholder}
+                  {this.selection?.length
+                    ? this.selection.map((item) => item.label).join(', ')
+                    : this.placeholder}
                 </div>
                 <sdds-icon
                   class={`${this.open ? 'open' : 'closed'}`}
@@ -320,7 +326,7 @@ export class SddsDropdownV2 {
             ${this.openDirection}
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
-          {this.data ? (
+          {this.options ? (
             this.parsedData?.map((element, index: number) => (
               <sdds-dropdown-option-v2
                 key={index}

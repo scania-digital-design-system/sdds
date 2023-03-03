@@ -72,7 +72,7 @@ export class SddsDropdownOptionV2 {
         this.selected = true;
         this.handleClick();
       } else {
-        this.parentElement.removeValue(this.value, this.label);
+        this.parentElement.removeValue(this.value);
         this.selected = false;
         this.handleClick();
       }
