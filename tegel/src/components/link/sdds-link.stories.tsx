@@ -20,16 +20,6 @@ export default {
     ],
   },
   argTypes: {
-    disabled: {
-      name: 'Disabled',
-      description: 'Display link in disabled state',
-      controls: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     underline: {
       name: 'Underline',
       description: 'Underline under link text.',
@@ -51,15 +41,25 @@ export default {
         defaultValue: { summary: '_self' },
       },
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Display link in disabled state',
+      controls: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
   args: {
-    disabled: false,
     underline: true,
     target: '_self',
+    disabled: false,
   },
 };
 
-const Template = ({ disabled, underline, target }) =>
+const Template = ({ underline, target, disabled }) =>
   formatHtmlPreview(
     `
     <sdds-link
