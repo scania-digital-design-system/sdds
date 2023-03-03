@@ -40,10 +40,13 @@ export default {
         'Right start',
         'Right end',
       ],
+      table: {
+        defaultValue: { summary: 'Bottom' },
+      },
     },
   },
   args: {
-    menuPosition: 'Bottom start',
+    menuPosition: 'Bottom',
   },
 };
 
