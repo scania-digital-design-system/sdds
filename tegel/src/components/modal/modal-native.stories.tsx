@@ -150,5 +150,3 @@ const Template = ({
   );
 
 export const Native = Template.bind({});
-
-Native.args = {};

@@ -101,5 +101,3 @@ const ModalTemplate = ({
   );
 
 export const WebComponent = ModalTemplate.bind({});
-
-WebComponent.args = {};
