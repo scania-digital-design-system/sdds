@@ -1,5 +1,15 @@
 # sdds-dropdown-v2
 
+The dropdown can be populated with options either by passing the `<sdds-dropdown-option>` as a child to the element. Or by specifying a data property on the element.
+This property should be a JSON array containing objects of the following structure:
+
+```json
+{ 
+  "value": string;
+  "label": any;
+  "disabled": boolean; 
+}
+```
 
 
 <!-- Auto Generated Below -->
@@ -9,8 +19,8 @@
 
 | Property        | Attribute        | Description                                                                                | Type                       | Default       |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------ | -------------------------- | ------------- |
-| `data`          | `data`           |                                                                                            | `any`                      | `undefined`   |
-| `defaultValue`  | `default-value`  | Default value selected in the dropdown.                                                    | `string \| string[]`       | `undefined`   |
+| `data`          | `data`           | Populate the dropdown via a JSON array                                                     | `string`                   | `undefined`   |
+| `defaultValue`  | `default-value`  | Default value selected in the dropdown.                                                    | `string`                   | `undefined`   |
 | `disabled`      | `disabled`       | Sets the dropdown in a disabled state                                                      | `boolean`                  | `false`       |
 | `error`         | `error`          | Sets the dropdown in an error state                                                        | `boolean`                  | `false`       |
 | `filter`        | `filter`         | Enables filtration in the dropdown.                                                        | `boolean`                  | `false`       |

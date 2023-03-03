@@ -48,9 +48,10 @@ export class SddsDropdownV2 {
   @Prop() noResultText: string = 'No result';
 
   /** Default value selected in the dropdown. */
-  @Prop() defaultValue: string | Array<string>;
+  @Prop() defaultValue: string;
 
-  @Prop() data: any;
+  /** Populate the dropdown via a JSON array */
+  @Prop() data: string;
 
   @State() open: boolean = false;
 
@@ -137,35 +138,45 @@ export class SddsDropdownV2 {
         this.dropdownList.children,
       ) as Array<HTMLSddsDropdownOptionV2Element>;
     }
-    this.setDefaultOption();
-    this.getOpenDirection();
+    if (this.defaultValue) {
+      this.setDefaultOption();
+    }
+    if (this.openDirection === 'auto') {
+      this.getOpenDirection();
+    }
   }
 
   setDefaultOption = () => {
-    if (this.defaultValue) {
-      this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
-        if (this.defaultValue === element.value) {
-          element.selectOption();
-          this.value = this.value ? [...this.value, element.value] : [element.value];
-          this.valueLabels = this.valueLabels
-            ? [...this.valueLabels, element.textContent]
-            : [element.textContent];
-        }
-        return element;
-      });
-    }
+    this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
+      if (this.multiselect) {
+        this.defaultValue.split(',').forEach((value) => {
+          this.selectOption(value, element);
+        });
+      } else {
+        this.selectOption(this.defaultValue, element);
+      }
+      return element;
+    });
   };
 
+  selectOption(value: string, element: HTMLSddsDropdownOptionV2Element) {
+    if (value === element.value) {
+      element.selectOption();
+      this.value = this.value ? [...this.value, element.value] : [element.value];
+      this.valueLabels = this.valueLabels
+        ? [...this.valueLabels, element.textContent]
+        : [element.textContent];
+    }
+  }
+
   getOpenDirection = () => {
-    if (this.openDirection === 'auto') {
-      const dropdownMenuHeight = this.dropdownList.offsetHeight;
-      const distanceToBottom = this.host.getBoundingClientRect().top;
-      const viewportHeight = window.innerHeight;
-      if (distanceToBottom + dropdownMenuHeight + 57 > viewportHeight) {
-        this.openDirection = 'up';
-      } else {
-        this.openDirection = 'down';
-      }
+    const dropdownMenuHeight = this.dropdownList.offsetHeight;
+    const distanceToBottom = this.host.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+    if (distanceToBottom + dropdownMenuHeight + 57 > viewportHeight) {
+      this.openDirection = 'up';
+    } else {
+      this.openDirection = 'down';
     }
   };
 
@@ -310,7 +321,7 @@ export class SddsDropdownV2 {
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
           {this.data ? (
-            this.parsedData?.map((element, index) => (
+            this.parsedData?.map((element, index: number) => (
               <sdds-dropdown-option-v2
                 key={index}
                 disabled={element.disabled}
