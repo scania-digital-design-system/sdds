@@ -24,26 +24,29 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
-      description: 'Footer mode variant',
       table: {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
     topPart: {
       name: 'Top part',
-      description: 'Adds the top part of the footer',
+      description: 'Adds the top part of the footer with more links.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    topPart: true,
+    topPart: false,
   },
 };
 
