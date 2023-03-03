@@ -18,21 +18,6 @@ export default {
     ],
   },
   argTypes: {
-    size: {
-      name: 'Size',
-      description: 'Size of modal',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small', 'Extra small'],
-    },
-    showModal: {
-      name: 'Show modal',
-      description: 'Toggle if the modal is displayed',
-      control: {
-        type: 'boolean',
-      },
-    },
     actions: {
       name: 'Actions',
       description: 'Behaviour of modal actions',
@@ -40,6 +25,14 @@ export default {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+    },
+    size: {
+      name: 'Size',
+      description: 'Size of modal',
+      control: {
+        type: 'radio',
+      },
+      options: ['Large', 'Medium', 'Small', 'Extra small'],
     },
     headline: {
       name: 'Modal headline',
@@ -55,13 +48,19 @@ export default {
         type: 'text',
       },
     },
+    showModal: {
+      name: 'Show modal',
+      description: 'Toggle if the modal is displayed',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
-    headline: 'The buttons for the modal only works in the canvas tab',
-    bodyText:
-      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     actions: 'Static',
     size: 'Large',
+    headline: 'The buttons for the modal only works in the canvas tab',
+    bodyText: 'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     showModal: true,
   },
 };
@@ -73,7 +72,13 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const Template = ({ headline, bodyText, size, actions, showModal }) =>
+const Template = ({ 
+  actions, 
+  size, 
+  headline, 
+  bodyText, 
+  showModal 
+}) =>
   formatHtmlPreview(
     `    <style>
   /* demo-wrapper and demo-styles is for demonstration purposes only*/

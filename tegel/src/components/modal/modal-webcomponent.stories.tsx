@@ -20,14 +20,6 @@ export default {
     ],
   },
   argTypes: {
-    size: {
-      name: 'Size',
-      description: 'Size of modal',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small', 'Extra small'],
-    },
     actions: {
       name: 'Actions',
       description: 'Behaviour of modal actions',
@@ -35,6 +27,14 @@ export default {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+    },
+    size: {
+      name: 'Size',
+      description: 'Size of modal',
+      control: {
+        type: 'radio',
+      },
+      options: ['Large', 'Medium', 'Small', 'Extra small'],
     },
     headline: {
       name: 'Modal headline',
@@ -52,11 +52,10 @@ export default {
     },
   },
   args: {
-    headline: 'The buttons for the modal only works in the canvas tab',
-    bodyText:
-      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     actions: 'Static',
     size: 'Large',
+    headline: 'The buttons for the modal only works in the canvas tab',
+    bodyText:'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
   },
 };
 
@@ -67,7 +66,12 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const ModalTemplate = ({ size, headline, bodyText, actions }) =>
+const ModalTemplate = ({ 
+  actions, 
+  size, 
+  headline, 
+  bodyText 
+}) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
