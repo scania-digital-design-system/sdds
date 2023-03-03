@@ -67,7 +67,7 @@ export class SddsDropdownV2 {
 
   @Element() host: HostElement;
 
-  private parsedData: any;
+  private parsedData: Array<{ value: string; label: string; disabled: boolean }>;
 
   private dropdownList: HTMLDivElement;
 
