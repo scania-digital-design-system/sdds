@@ -21,8 +21,8 @@ export default {
     label: {
       name: 'Label',
       description: 'Sets the label for the radio button.',
-      controls: {
-        type: 'string',
+      control: {
+        type: 'text',
       },
     },
     disabled: {
