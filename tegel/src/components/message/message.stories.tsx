@@ -18,14 +18,6 @@ export default {
     ],
   },
   argTypes: {
-    messageType: {
-      name: 'Message Type',
-      description: 'The type of the message.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Information', 'Error', 'Warning', 'Success'],
-    },
     modeVariant: {
       name: 'Mode variant',
       description: 'The mode variant of the component',
@@ -35,6 +27,21 @@ export default {
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
+    messageType: {
+      name: 'Message Type',
+      description: 'The type of the message.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Information', 'Error', 'Warning', 'Success'],
+    },
+    showExtendedMessage: {
+      name: 'Extended Message',
+      description: 'Show an extended message',
+      control: {
+        type: 'boolean',
       },
     },
     icon: {
@@ -53,20 +60,13 @@ export default {
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
     },
-    showExtendedMessage: {
-      name: 'Extended Message',
-      description: 'Show an extended message',
-      control: {
-        type: 'boolean',
-      },
-    },
   },
   args: {
-    messageType: 'Information',
     modeVariant: 'Inherit from parent',
+    messageType: 'Information',
+    showExtendedMessage: false,
     icon: false,
     iconType: 'Web Component',
-    showExtendedMessage: false,
   },
 };
 
@@ -77,7 +77,13 @@ const nativeIconNameLookup = {
   Success: 'tick',
 };
 
-const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVariant }) => {
+const Template = ({ 
+  modeVariant, 
+  messageType, 
+  showExtendedMessage, 
+  icon, 
+  iconType 
+}) => {
   const messageTypeClass =
     messageType === 'Information'
       ? 'sdds-message-type-informative'

@@ -20,17 +20,6 @@ export default {
     ],
   },
   argTypes: {
-    messageType: {
-      name: 'Message Type',
-      description: 'The type of the message.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Information', 'Error', 'Warning', 'Success'],
-      table: {
-        defaultValue: { summary: 'information' },
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
       description: 'The mode variant of the component',
@@ -40,6 +29,17 @@ export default {
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
         defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
+    messageType: {
+      name: 'Message Type',
+      description: 'The type of the message.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Information', 'Error', 'Warning', 'Success'],
+      table: {
+        defaultValue: { summary: 'information' },
       },
     },
     header: {
@@ -55,16 +55,6 @@ export default {
         type: 'text',
       },
     },
-    noIcon: {
-      name: 'No icon',
-      description: 'Hide the icon',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     minimal: {
       name: 'Minimal',
       description: 'Minimal message styling.',
@@ -75,19 +65,35 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    noIcon: {
+      name: 'No icon',
+      description: 'Hide the icon',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
   args: {
-    messageType: 'Information',
     modeVariant: 'Inherit from parent',
+    messageType: 'Information',
     header: 'Message header',
-    noIcon: false,
-    extendedMessage:
-      'Longer message text can be placed here. Longer message text can be placed here.',
+    extendedMessage: 'Longer message text can be placed here. Longer message text can be placed here.',
     minimal: false,
+    noIcon: false,
   },
 };
 
-const Template = ({ messageType, noIcon, extendedMessage, modeVariant, header, minimal }) =>
+const Template = ({ 
+  modeVariant, 
+  messageType, 
+  header, 
+  extendedMessage, 
+  minimal, 
+  noIcon
+}) =>
   formatHtmlPreview(
     `
     <style>
