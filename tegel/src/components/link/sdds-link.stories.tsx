@@ -27,7 +27,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'true' },
+        defaultValue: { summary: true },
       },
     },
     target: {
@@ -48,7 +48,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },

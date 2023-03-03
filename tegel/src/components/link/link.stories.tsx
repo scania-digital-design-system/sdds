@@ -20,9 +20,12 @@ export default {
   argTypes: {
     underline: {
       name: 'Underline',
-      description: 'Hide underline under link text',
+      description: 'Adds an underline under the link text.',
       controls: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
       },
     },
     disabled: {
@@ -30,6 +33,9 @@ export default {
       description: 'Disables the link.',
       controls: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
