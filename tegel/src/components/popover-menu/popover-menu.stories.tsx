@@ -22,7 +22,7 @@ export default {
   argTypes: {
     menuPosition: {
       name: 'Menu position',
-      description: 'Position of the Popover menu',
+      description: 'Sets the position of the popover menu.',
       control: {
         type: 'select',
       },
