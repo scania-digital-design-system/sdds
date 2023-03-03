@@ -56,12 +56,23 @@ export default {
         type: 'text',
       },
     },
+    showModal: {
+      name: 'Show modal',
+      description: 'Toggles if the modal is displayed.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
+      },
+    },
   },
   args: {
     actions: 'Static',
     size: 'Large',
     headline: 'The buttons for the modal only works in the canvas tab',
     bodyText:'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
+    showModal: true,
   },
 };
 
@@ -76,13 +87,14 @@ const ModalTemplate = ({
   actions, 
   size, 
   headline, 
-  bodyText 
+  bodyText,
+  showModal 
 }) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
 
-  <sdds-modal open id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
+  <sdds-modal ${showModal ? 'open' : ''} id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <span slot="sdds-modal-body">
           ${bodyText}
