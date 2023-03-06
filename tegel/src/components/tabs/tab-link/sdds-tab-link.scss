@@ -53,6 +53,14 @@
 
     &:not(.selected) {
       border-right-color: var(--sdds-folder-tab-divider-color);
+
+      &:hover {
+        background-color: var(--sdds-folder-tab-background-hover);
+
+        .label {
+          opacity: var(--sdds-folder-tab-color-opacity-hover);
+        }
+      }
     }
 
     &.disabled {
@@ -75,14 +83,6 @@
       @include sdds-focus-state;
 
       opacity: var(--sdds-folder-tab-color-opacity-focus);
-    }
-
-    &:hover {
-      background-color: var(--sdds-folder-tab-background-hover);
-
-      .label {
-        opacity: var(--sdds-folder-tab-color-opacity-hover);
-      }
     }
   }
 
