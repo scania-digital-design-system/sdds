@@ -26,7 +26,7 @@ export default {
         type: 'radio',
       },
       options: ['Standard', 'Inverted'],
-      description: 'Variant of the spinner',
+      description: 'Switches the variant of the spinner.',
     },
     size: {
       name: 'Size',
@@ -34,7 +34,7 @@ export default {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
-      description: 'Size of the spinner',
+      description: 'Sets the size of the spinner.',
     },
   },
   args: {
