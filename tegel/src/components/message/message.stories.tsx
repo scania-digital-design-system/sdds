@@ -18,17 +18,9 @@ export default {
     ],
   },
   argTypes: {
-    messageType: {
-      name: 'Message Type',
-      description: 'The type of the message.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Information', 'Error', 'Warning', 'Success'],
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -37,36 +29,56 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    icon: {
-      name: 'Icon',
-      description: 'Show icon',
+    messageType: {
+      name: 'Message type',
+      description: 'Changes the type of the component.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Information', 'Error', 'Warning', 'Success'],
+      table: {
+        defaultValue: { summary: 'Information' },
+      },
+    },
+    showExtendedMessage: {
+      name: 'Extended message',
+      description: 'Shows an extended message.',
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: true },
+      },
+    },
+    noIcon: {
+      name: 'No icon',
+      description: 'Hides the icon.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     iconType: {
-      name: 'Icon',
-      description: 'Switch between show a native/web component icon.',
+      name: 'Icon type',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
       if: { arg: 'icon', eq: true },
-    },
-    showExtendedMessage: {
-      name: 'Extended Message',
-      description: 'Show an extended message',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: { summary: 'Web Component' },
       },
     },
   },
   args: {
-    messageType: 'Information',
     modeVariant: 'Inherit from parent',
-    icon: false,
+    messageType: 'Information',
+    showExtendedMessage: true,
+    noIcon: false,
     iconType: 'Web Component',
-    showExtendedMessage: false,
   },
 };
 
@@ -77,7 +89,13 @@ const nativeIconNameLookup = {
   Success: 'tick',
 };
 
-const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVariant }) => {
+const Template = ({ 
+  modeVariant, 
+  messageType, 
+  showExtendedMessage, 
+  noIcon, 
+  iconType 
+}) => {
   const messageTypeClass =
     messageType === 'Information'
       ? 'sdds-message-type-informative'
@@ -93,6 +111,11 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVarian
 
   return formatHtmlPreview(
     `
+    <style>
+      .demo-wrapper {
+        width: 380px;
+      }
+    </style>
 
     ${
       iconType === 'Native'
@@ -102,20 +125,21 @@ const Template = ({ messageType, icon, iconType, showExtendedMessage, modeVarian
     </style>`
         : ''
     }
-
-    <div class="sdds-message ${messageTypeClass} ${icon ? 'sdds-message-icon-active' : ''} ${
-      showExtendedMessage ? 'sdds-message-extended-active' : ''
-    } 
-    ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
-    ${icon ? iconHtml : ''}
-    <h4 class="sdds-message-single">
-      Single line message goes here.
-    </h4>
-    ${
-      showExtendedMessage
-        ? '<p class="sdds-message-extended">Longer message text can be placed here. Longer message text can be placed here. Longer message text can be placed here.</p>'
-        : ''
-    }
+    <div class="demo-wrapper">
+      <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
+        showExtendedMessage ? 'sdds-message-extended-active' : ''
+      } 
+      ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+      ${noIcon ? '' : iconHtml}
+      <h4 class="sdds-message-single">
+        Single line message goes here.
+      </h4>
+      ${
+        showExtendedMessage
+          ? '<p class="sdds-message-extended">Longer message text can be placed here. Longer message text can be placed here.</p>'
+          : ''
+      }
+    </div>
   </div>
   `,
   );
