@@ -39,14 +39,15 @@ export default {
         'Right',
         'Right start',
         'Right end',
+        'Auto',
       ],
       table: {
-        defaultValue: { summary: 'Bottom' },
+        defaultValue: { summary: 'Auto' },
       },
     },
   },
   args: {
-    menuPosition: 'Bottom',
+    menuPosition: 'Auto',
   },
 };
 
@@ -64,6 +65,7 @@ const Template = ({ menuPosition }) => {
     'Right': 'right',
     'Right start': 'right-start',
     'Right end': 'right-end',
+    'Auto': 'auto',
   };
 
   return formatHtmlPreview(

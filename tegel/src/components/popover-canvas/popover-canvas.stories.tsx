@@ -30,12 +30,12 @@ export default {
         'Auto',
       ],
       table: {
-        defaultValue: { summary: 'Bottom' },
+        defaultValue: { summary: 'Auto' },
       },
     },
   },
   args: {
-    canvasPosition: 'Bottom',
+    canvasPosition: 'Auto',
   },
 };
 
