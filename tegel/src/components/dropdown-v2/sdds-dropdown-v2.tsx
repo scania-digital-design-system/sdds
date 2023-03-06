@@ -58,13 +58,9 @@ export class SddsDropdownV2 {
 
   @State() selection: Array<{ value: string; label: string }>;
 
-  /* @State() value: Array<string>;
-
-  @State() valueLabels: Array<string>; */
-
-  @State() filterHasFocus: boolean = false;
-
   @State() filterResult: number;
+
+  @State() filterFocus: boolean;
 
   @Element() host: HostElement;
 
@@ -230,7 +226,10 @@ export class SddsDropdownV2 {
         )}
         <div class={`dropdown-select ${this.size} ${this.disabled ? 'disabled' : ''}`}>
           {this.filter ? (
-            <div class={`filter ${this.disabled ? 'disabled' : ''} ${this.open ? 'focus' : ''}`}>
+            <div
+              class={`filter ${this.filterFocus ? 'focus' : ''}
+            ${this.disabled ? 'disabled' : ''}`}
+            >
               <div class="value-wrapper">
                 {this.label && this.labelPosition === 'inside' && this.placeholder && (
                   <div class={`label-inside ${this.size}`}>{this.label}</div>
@@ -241,7 +240,6 @@ export class SddsDropdownV2 {
                     label-inside-as-placeholder
                     ${this.size}
                     ${this.selection?.length ? 'selected' : ''}
-                    ${this.open ? 'focus' : ''}
                     `}
                   >
                     {this.label}
@@ -255,8 +253,13 @@ export class SddsDropdownV2 {
                   placeholder={this.placeholder}
                   value={this.selection ? this.selection.map((item) => item.label) : null}
                   disabled={this.disabled}
+                  onBlur={() => {
+                    this.filterFocus = false;
+                    console.log('hej');
+                  }}
                   onFocus={() => {
                     this.open = true;
+                    this.filterFocus = true;
                   }}
                   onKeyDown={(event) => {
                     if (event.key === 'Escape') {

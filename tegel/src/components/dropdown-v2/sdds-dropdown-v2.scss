@@ -128,8 +128,7 @@
         color: var(--sdds-dropdown-value-color);
       }
 
-      &:focus,
-      &.open {
+      &:focus {
         border-bottom-color: transparent;
 
         &::before {
@@ -271,6 +270,7 @@
 
   .dropdown-list {
     position: absolute;
+    margin-top: 1px;
     width: 100%;
     transform-origin: top;
     transition: transform 0.2s ease-in-out;
@@ -293,6 +293,8 @@
 
     &.up {
       bottom: 100%;
+      margin-top: 0;
+      margin-bottom: 1px;
       transform-origin: bottom;
       display: flex;
       flex-direction: column-reverse;
@@ -300,7 +302,7 @@
       border-radius: 4px 4px 0 0;
 
       &.label-outside {
-        bottom: calc(100% - 32px);
+        bottom: calc(100% - 24px);
       }
     }
 
