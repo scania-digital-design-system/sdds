@@ -23,7 +23,7 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
-      description: 'The size of the stepper.',
+      description: 'Sets the size of the stepper.',
       control: {
         type: 'radio',
       },
@@ -34,7 +34,7 @@ export default {
     },
     direction: {
       name: 'Direction',
-      description: 'The direction which the stepper is displayed.',
+      description: 'Sets the direction which the stepper is displayed.',
       control: {
         type: 'radio',
       },
@@ -45,7 +45,7 @@ export default {
     },
     labelPosition: {
       name: 'Text position',
-      description: 'The position of the text, only available when the direction is horizontal.',
+      description: 'Sets the position of the text, only available when the direction is horizontal.',
       control: {
         type: 'radio',
       },
