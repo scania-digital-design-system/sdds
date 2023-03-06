@@ -2,24 +2,31 @@
 
 Welcome to the code conventions section of Tegel, a comprehensive design system that aims to provide a unified and consistent visual language for all of your digital products. In this section, we'll cover the coding standards and conventions that are used to build and maintain Tegel components.
 
-## Component structure
+## General
+ - Use camelCase for variables and functions.
+ - Use PascalCase for classes and interfaces.
+ - Use template literals instead of concatenation.
+ - Use meaningful variable and function names: Name your variables and functions in a way that clearly communicates their purpose.
+Avoid using single-letter variable names, index stead of `i` for index, be descriptive and name the variable `index`.
+ - Use single quotes (') for strings.
 
+## Component structure
 Our component files (e.g. accordion.tsx) should all follow the following structure:
 
- - @Component decorator with the component specific arguments.
- - Component props.
- - Component state.
- - Component host/parent/child element(s).
- - Component variables.
- - Component methods that are exposed on the component (@Method)
- - Events that are emitted from the component. 
- - Event listeners (@Listen)
- - Lifecycle methods (connectedCallback, componentWillLoad, componentDidRender, etc)
- - Methods that are used within the component.
- - Render method.
+1. @Component decorator with the component specific arguments.
+2. Host element for the component (@Element).
+3. Component props.
+4. Component state.
+5. Component variables.
+6. Public methods that are exposed on the component (@Method)
+7. Events that are emitted from the component (@Event). 
+8. Event listeners (@Listen)
+9. Lifecycle methods (connectedCallback, componentWillLoad, componentDidRender, etc)
+10. Methods that are used within the component.
+11. Render method.
+
 
 ### Example: 
-
 ```jsx
  
 @Component({
@@ -28,6 +35,8 @@ Our component files (e.g. accordion.tsx) should all follow the following structu
   shadow: true,
 })
 export class SddsComponent {
+  @Element() host: HostElement;
+
   /** Comment explaning  the use of the the prop */
   @Prop() prop: string;
  
@@ -36,9 +45,7 @@ export class SddsComponent {
 
   @State() state: boolean;
 
-  @Element() host: HostElement;
-
-  parentElement: HTMLSddsComponentParentElement;
+  variable: string
 
   /** Comment explaning the method. */
   @Method()
@@ -76,7 +83,6 @@ export class SddsComponent {
 ```
 
 ## Events
-
 The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the 
 sdds-prefix. This is done in order to not have conflicting events and to make it clear to the user the specified event is something that is emitted
 from a tegel component.
