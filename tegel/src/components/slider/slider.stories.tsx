@@ -31,7 +31,7 @@ export default {
         type: 'number',
       },
       table: {
-        defaultValue: { summary: 50 },
+        defaultValue: { summary: 0 },
       },
     },
     showLabel: {
