@@ -63,7 +63,7 @@ export class RadioButton {
 
         // REMEMBER TO ENABLE ARIA PROPS ONCE ALIGNMENT HAS BEEN MADE!
         // aria-labelledby={this.ariaLabelledBy} 
-        aria-describedby={this.host.getAttribute('aria-describedby')}
+        // aria-describedby={this.host.getAttribute('aria-describedby')}
         required={this.required} 
         disabled={this.disabled}
         onChange={() => {
