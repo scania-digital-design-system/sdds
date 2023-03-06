@@ -1,6 +1,6 @@
-@import '../../../mixins/focus-state';
-@import '../../../mixins/z-index';
-@import '../../../mixins/box-sizing';
+@import '../../../../mixins/focus-state';
+@import '../../../../mixins/z-index';
+@import '../../../../mixins/box-sizing';
 
 :host {
   @include sdds-box-sizing;
@@ -9,7 +9,7 @@
   position: relative;
   z-index: z(tab);
 
-  a.folder-tab {
+  a {
     min-width: 142px;
     display: block;
     font: var(--sdds-headline-07);
@@ -85,78 +85,10 @@
       opacity: var(--sdds-folder-tab-color-opacity-focus);
     }
   }
-
-  a.inline-tab {
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    font: var(--sdds-headline-07);
-    letter-spacing: var(--sdds-headline-07-ls);
-    color: var(--sdds-inline-tabs-tab-color);
-    width: 100%;
-    background-color: var(--sdds-inline-tabs-background);
-
-    .label {
-      margin: 12px 0;
-      padding: 4px 16px;
-      opacity: var(--sdds-inline-tab-color-opacity);
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      &::after {
-        width: 100%;
-      }
-    }
-
-    &:focus-visible {
-      @include sdds-focus-state;
-    }
-
-    &::after {
-      content: ' ';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin-left: auto;
-      width: 0%;
-      margin-right: auto;
-      height: 2px;
-      background-color: var(--sdds-inline-tabs-tab-indicator-background-hover);
-      transition: width 0.15s ease-in-out 0s;
-      z-index: 1;
-    }
-
-    &.selected {
-      color: var(--sdds-inline-tabs-tab-color);
-
-      .label {
-        opacity: var(--sdds-inline-tab-color-opacity-selected);
-      }
-
-      &::after {
-        width: 100%;
-        background-color: var(--sdds-inline-tabs-tab-indicator-background-active);
-      }
-    }
-
-    &.disabled {
-      color: var(--sdds-inline-tabs-tab-color-disabled);
-      pointer-events: none;
-
-      .label {
-        opacity: var(--sdds-inline-tabs-tab-color-opacity-disabled);
-      }
-    }
-  }
 }
 
 :host(.last) {
-  .folder-tab {
-    &:not(.selected) {
-      border-right-color: transparent;
-    }
+  &:not(.selected) {
+    border-right-color: transparent;
   }
 }

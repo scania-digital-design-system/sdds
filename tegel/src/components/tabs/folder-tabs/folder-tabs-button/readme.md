@@ -1,4 +1,4 @@
-# sdds-tab-button
+# sdds-folder-tabs-button
 
 
 

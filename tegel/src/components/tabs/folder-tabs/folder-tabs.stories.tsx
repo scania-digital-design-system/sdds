@@ -1,12 +1,16 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from '../tab-link/readme.md';
-import readmeButton from '../tab-button/readme.md';
+import readmeLink from './folder-tabs-link/readme.md';
+import readmeButton from './folder-tabs-button/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: { 'Inline Tabs': readme, 'Tab button': readmeButton, 'Tab link': readmeLink },
+    notes: {
+      'Folder tabs': readme,
+      'Folder tabs button': readmeButton,
+      'Folder tabs link': readmeLink,
+    },
     backgrounds: { default: 'white' },
     design: [
       {
@@ -61,36 +65,36 @@ const Template = ({ modeVariant, tabType }) =>
       ${
         tabType === 'Link'
           ? `
-      <sdds-tab-link href="#">
+      <sdds-folder-tabs-link href="#">
         First tab
-      </sdds-tab-link>
-      <sdds-tab-link href="#">
+      </sdds-folder-tabs-link>
+      <sdds-folder-tabs-link href="#">
         Second tab is much longer
-      </sdds-tab-link>
-      <sdds-tab-link selected href="#">
+      </sdds-folder-tabs-link>
+      <sdds-folder-tabs-link selected href="#">
         Third tab
-      </sdds-tab-link>
-      <sdds-tab-link disabled href="#">
+      </sdds-folder-tabs-link>
+      <sdds-folder-tabs-link disabled href="#">
         Fourth tab
-      </sdds-tab-link>
+      </sdds-folder-tabs-link>
       `
           : ''
       }
       ${
         tabType === 'Button'
           ? `
-      <sdds-tab-button>
+      <sdds-folder-tabs-button>
         First tab
-      </sdds-tab-button>
-      <sdds-tab-button>
+      </sdds-folder-tabs-button>
+      <sdds-folder-tabs-button>
       Second tab is much longer
-      </sdds-tab-button>
-      <sdds-tab-button selected>
+      </sdds-folder-tabs-button>
+      <sdds-folder-tabs-button selected>
         Third tab
-      </sdds-tab-button>
-      <sdds-tab-button disabled>
+      </sdds-folder-tabs-button>
+      <sdds-folder-tabs-button disabled>
         Fourth tab
-      </sdds-tab-button>
+      </sdds-folder-tabs-button>
       `
           : ''
       }

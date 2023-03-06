@@ -1,12 +1,16 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from '../tab-link/readme.md';
-import readmeButton from '../tab-button/readme.md';
+import readmeLink from './inline-tabs-link/readme.md';
+import readmeButton from './inline-tabs-button/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: { 'Inline tabs': readme, 'Tab button': readmeButton, 'Tab link': readmeLink },
+    notes: {
+      'Inline tabs': readme,
+      'Inline tabs button': readmeButton,
+      'Inline tabs link': readmeLink,
+    },
     design: [
       {
         name: 'Figma',
@@ -55,36 +59,36 @@ const Template = ({ modeVariant, tabType }) =>
       ${
         tabType === 'Link'
           ? `
-        <sdds-tab-link href="#">
+        <sdds-inline-tabs-link href="#">
           First tab
-        </sdds-tab-link>
-        <sdds-tab-link href="#">
+        </sdds-inline-tabs-link>
+        <sdds-inline-tabs-link href="#">
           Second tab is longer
-        </sdds-tab-link>
-        <sdds-tab-link selected href="#">
+        </sdds-inline-tabs-link>
+        <sdds-inline-tabs-link selected href="#">
           Third tab
-        </sdds-tab-link>
-        <sdds-tab-link disabled href="#">
+        </sdds-inline-tabs-link>
+        <sdds-inline-tabs-link disabled href="#">
           Fourth tab
-        </sdds-tab-link>
+        </sdds-inline-tabs-link>
         `
           : ''
       }
       ${
         tabType === 'Button'
           ? `
-        <sdds-tab-button>
+        <sdds-inline-tabs-button>
           First tab
-        </sdds-tab-button>
-        <sdds-tab-button>
+        </sdds-inline-tabs-button>
+        <sdds-inline-tabs-button>
           Second tab is longer
-        </sdds-tab-button>
-        <sdds-tab-button selected>
+        </sdds-inline-tabs-button>
+        <sdds-inline-tabs-button selected>
           Third tab
-        </sdds-tab-button>
-        <sdds-tab-button disabled>
+        </sdds-inline-tabs-button>
+        <sdds-inline-tabs-button disabled>
           Fourth tab
-        </sdds-tab-button>
+        </sdds-inline-tabs-button>
         `
           : ''
       }
@@ -103,8 +107,9 @@ const Template = ({ modeVariant, tabType }) =>
    tabs = document.querySelector('sdds-inline-tabs');
    
    tabs.addEventListener('sddsChange', (event) => {
-     selectedTab.innerHTML = event.detail.selectedTab
-     selectedTabIndex.innerHTML = event.detail.selectedTabIndex
+      console.log(event)
+     selectedTab.innerHTML = event.detail.selectedTab.tab
+     selectedTabIndex.innerHTML = event.detail.selectedTab.tabIndex
    })
    </script>
 `);

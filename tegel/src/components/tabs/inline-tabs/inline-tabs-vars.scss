@@ -16,9 +16,8 @@
   --sdds-inline-tabs-scroll-btn-secondary: var(--sdds-grey-50);
 
   /* Tab */
-  --sdds-inline-tab-color-opacity: 0.6;
-  --sdds-inline-tab-color-opacity-selected: 1;
-  --sdds-inline-tabs-tab-color: var(--sdds-grey-900);
+  --sdds-inline-tabs-tab-color: rgb(29 34 41 / 60%);
+  --sdds-inline-tabs-tab-color-selected: rgb(29 34 41 / 100%);
   --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-900);
   --sdds-inline-tabs-tab-color-opacity-disabled: 0.6;
   --sdds-inline-tabs-tab-indicator-background-hover: #d1d5db;

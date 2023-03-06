@@ -1,28 +1,29 @@
 @import '../../../mixins/focus-state';
 @import '../../../mixins/box-sizing';
+@import '../../../mixins/z-index';
 
-
-.sdds-navigation-tabs {
+:host {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-navigation-tabs-background);
-  position: relative;
   display: flex;
+  background-color: var(--sdds-inline-tabs-background);
+  position: relative;
 
   &::after {
     content: ' ';
     display: block;
-    border-bottom: 1px solid var(--sdds-navigation-tabs-horizontal-divider-background);
-    opacity: var(--sdds-navigation-tabs-horizontal-divider-opacity);
+    border-bottom: 1px solid var(--sdds-inline-tabs-horizontal-divider-background);
+    opacity: var(--sdds-inline-tabs-horizontal-divider-opacity);
     left: 0;
     right: 0;
     bottom: 0;
     position: absolute;
   }
 
-  &-wrapper {
+  .wrapper {
     display: flex;
     flex-wrap: nowrap;
+    white-space: nowrap;
     width: 100%;
     overflow-x: scroll;
     scrollbar-width: none;
@@ -32,153 +33,51 @@
     }
   }
 
-  &-forward {
-    cursor: pointer;
-    width: 48px;
-    height: 100%;
-    border: 0;
-    position: absolute;
+  .scroll-right-button {
     right: 0;
-    top: 0;
-    background-color: var(--sdds-navigation-tabs-scroll-btn-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-
-    &__show {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    &:hover {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-background-hover);
-      text-decoration: none;
-    }
-
-    &:active {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-background-active);
-    }
-
-    &:focus {
-      @include sdds-focus-state;
-    }
+    z-index: calc(z(tab) + 1);
   }
 
-  &-back {
-    cursor: pointer;
-    width: 48px;
-    height: 100%;
-    border: 0;
-    position: absolute;
+  .scroll-left-button {
     left: 0;
-    top: 0;
-    background-color: var(--sdds-navigation-tabs-scroll-btn-background);
-    display: flex;
+    z-index: calc(z(tab) + 1);
+  }
+
+  .scroll-right-button,
+  .scroll-left-button {
+    color: var(--sdds-folder-tabs-scroll-btn-color);
+    cursor: pointer;
+    border: 0;
+    width: 0;
+    background-color: var(--sdds-inline-tabs-scroll-btn-background);
+    display: none;
     justify-content: center;
     align-items: center;
     opacity: 0;
     pointer-events: none;
+    position: sticky;
 
-    &__show {
+    &.show {
+      min-width: 48px;
+      display: block;
       opacity: 1;
       pointer-events: all;
     }
 
     &:hover {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-background-hover);
+      background-color: var(--sdds-folder-tabs-scroll-btn-background-hover);
     }
 
     &:active {
-      background-color: var(--sdds-navigation-tabs-scroll-btn-background-active);
+      background-color: var(--sdds-folder-tabs-scroll-btn-background-active);
     }
 
     &:focus {
       @include sdds-focus-state;
     }
-  }
 
-  /* tab */
-  ::slotted(&-tab) {
-    //fixme: headline-07 has a line-height that is not matching old storybook
-    font: var(--sdds-headline-07);
-    letter-spacing: var(--sdds-headline-07-ls);
-    color: var(--sdds-navigation-tabs-tab-color);
-    opacity:0.6;
-    padding: 26px 0;
-    margin-right: 32px;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    transition: color 0.15s ease-in-out;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-
-    &::after {
-      content: ' ';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin-left: auto;
-      width: 0;
-      margin-right: auto;
-      height: 2px;
-      background-color: var(--sdds-navigation-tabs-tab-indicator-background-hover);
-      transition: width 0.15s ease-in-out;
-      z-index: 1;
+    svg {
+      fill: var(--sdds-folder-tabs-scroll-btn-color);
     }
-  }
-
-  ::slotted(&-tab:first-child) {
-    margin-left: 32px;
-  }
-
-  ::slotted(&-tab:last-child) {
-    margin-right: 32px;
-  }
-
-  /* tab states */
-  ::slotted(&-tab:hover) {
-    color: var(--sdds-navigation-tabs-tab-color-hover);
-    opacity: 1;
-
-    &::after {
-      width: 100%;
-    }
-  }
-
-  ::slotted(&-tab:focus) {
-    @include sdds-focus-state;
-
-    color: var(--sdds-navigation-tabs-tab-color-focus);
-    opacity: 1;
-
-    &::after {
-      width: 0;
-    }
-  }
-
-  ::slotted(&-tab-active) {
-    color: var(--sdds-navigation-tabs-tab-color-active);
-    opacity:1;
-
-    &::after {
-      width: 100%;
-
-      background-color: var(--sdds-navigation-tabs-tab-indicator-background-active);
-    }
-  }
-
-  ::slotted(&-tab-active:focus)::after {
-    width: 100%;
-  }
-
-  ::slotted(&-tab-disabled) {
-    color: var(--sdds-navigation-tabs-tab-color-disabled);
-    opacity: var(--sdds-navigation-tabs-tab-color-opacity-disabled);
-    pointer-events: none;
   }
 }

@@ -1,4 +1,4 @@
-# sdds-inline-tabs
+# sdds-folder-tabs
 
 
 

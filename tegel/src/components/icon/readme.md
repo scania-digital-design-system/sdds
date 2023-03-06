@@ -23,6 +23,7 @@
  - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
+ - [sdds-navigation-tabs](../tabs/navigation-tabs)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
  - [sdds-textarea](../textarea)
@@ -40,6 +41,7 @@ graph TD;
   sdds-inline-tabs --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
+  sdds-navigation-tabs --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon
   sdds-textarea --> sdds-icon

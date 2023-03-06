@@ -12,27 +12,155 @@ export class InlineTabsFullbleed {
 
   @Element() host: HostElement;
 
-  @State() tabs: Array<any> = []; // array with metadata for slotted children
-
   @State() showLeftScroll: boolean = false;
 
   @State() showRightScroll: boolean = false;
 
-  @State() selectedTab: string;
-
-  @State() selectedTabIndex: number;
-
-  navWrapperElement: HTMLElement = null; // reference to container with nav buttons
-
-  componentWidth: number = 0; // visible width of this component
-
-  buttonsWidth: number = 0; // total width of all nav items combined
-
-  scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+  @State() selectedTab: {
+    tab: string;
+    tabIndex: number;
+  };
 
   @State() buttonWidth: number = 0; // current calculated width of the largest nav button
 
-  children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
+  private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+
+  private componentWidth: number = 0; // visible width of this component
+
+  private buttonsWidth: number = 0; // total width of all nav items combined
+
+  private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+
+  private children: Array<HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement>;
+
+  /** Selects a tab based on tabindex, will not select a disabled tab. */
+  @Method()
+  async selectTab(tabIndex: number) {
+    if (!this.children[tabIndex].disabled) {
+      this.children.forEach((element) => element.removeAttribute('selected'));
+      this.children = this.children.map((element, index) => {
+        if (index === tabIndex) {
+          element.setAttribute('selected', '');
+          this.selectedTab = {
+            tab: element.innerText,
+            tabIndex: index,
+          };
+        }
+        return element;
+      });
+    }
+    return {
+      selectedTab: this.selectedTab.tab,
+      selectedTabIndex: this.selectedTab.tabIndex,
+    };
+  }
+
+  @Event({
+    eventName: 'sddsChange',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsChange: EventEmitter<{
+    selectedTab: {
+      tab: string;
+      tabIndex: number;
+    };
+  }>;
+
+  @Watch('selectedTab')
+  handleSelectedTabChange() {
+    this.host.setAttribute('selected-tab', this.selectedTab.tab);
+    this.host.setAttribute('selected-tab-index', `${this.selectedTab.tabIndex}`);
+    this.sddsChange.emit({
+      selectedTab: this.selectedTab,
+    });
+  }
+
+  connectedCallback() {
+    this.children = Array.from(this.host.children) as Array<
+      HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement
+    >;
+    this.children = this.children.map((item, index) => {
+      item.addEventListener('click', () => {
+        if (!item.disabled) {
+          this.children.forEach((element) => element.removeAttribute('selected'));
+          item.setAttribute('selected', '');
+          this.selectedTab = {
+            tab: item.innerText,
+            tabIndex: index,
+          };
+        }
+      });
+      if (item.selected) {
+        this.selectedTab = {
+          tab: item.innerText,
+          tabIndex: index,
+        };
+      }
+      return item;
+    });
+    this.children[0].classList.add('first');
+    this.children[this.children.length - 1].classList.add('last');
+  }
+
+  componentDidLoad() {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const componentWidth = entry.contentRect.width;
+        let buttonsWidth = 0;
+
+        const navButtons = Array.from(this.host.children);
+        navButtons.forEach((navButton: HTMLElement) => {
+          const style = window.getComputedStyle(navButton);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+
+          navButton.classList.add('sdds-inline-tabs-fullbleed--tab');
+        });
+
+        this.componentWidth = componentWidth;
+        this.buttonsWidth = buttonsWidth;
+        this.scrollWidth = buttonsWidth - componentWidth;
+
+        if (this.buttonsWidth > this.componentWidth) {
+          this.evaluateScrollButtons();
+        } else {
+          this.showLeftScroll = false;
+          this.showRightScroll = false;
+        }
+      });
+    });
+
+    resizeObserver.observe(this.navWrapperElement);
+  }
+
+  componentWillRender() {
+    if (!this.selectedTab) {
+      this.children = Array.from(this.host.children) as Array<
+        HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement
+      >;
+      this.children = this.children.map((item, index) => {
+        if (item.selected) {
+          this.selectedTab = {
+            tab: item.innerText,
+            tabIndex: index,
+          };
+        }
+        return item;
+      });
+    }
+  }
+
+  componentDidRender() {
+    if (this.buttonsWidth > this.componentWidth) {
+      this.evaluateScrollButtons();
+    } else {
+      this.showLeftScroll = false;
+      this.showRightScroll = false;
+    }
+    this.addResizeObserver();
+  }
 
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
@@ -90,130 +218,6 @@ export class InlineTabsFullbleed {
 
     resizeObserver.observe(this.navWrapperElement);
   };
-
-  connectedCallback() {
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
-    >;
-    this.children = this.children.map((item, index) => {
-      item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.removeAttribute('selected'));
-          item.setAttribute('selected', '');
-          this.selectedTab = item.innerHTML;
-          this.selectedTabIndex = index;
-        }
-      });
-      if (item.selected) {
-        this.selectedTab = item.innerHTML;
-        this.selectedTabIndex = index;
-      }
-      return item;
-    });
-    this.children[0].classList.add('first');
-    this.children[this.children.length - 1].classList.add('last');
-  }
-
-  componentDidLoad() {
-    const resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        const componentWidth = entry.contentRect.width;
-        let buttonsWidth = 0;
-
-        const navButtons = Array.from(this.host.children);
-        navButtons.forEach((navButton: HTMLElement) => {
-          const style = window.getComputedStyle(navButton);
-          buttonsWidth +=
-            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-
-          navButton.classList.add('sdds-inline-tabs-fullbleed--tab');
-        });
-
-        this.componentWidth = componentWidth;
-        this.buttonsWidth = buttonsWidth;
-        this.scrollWidth = buttonsWidth - componentWidth;
-
-        if (this.buttonsWidth > this.componentWidth) {
-          this.evaluateScrollButtons();
-        } else {
-          this.showLeftScroll = false;
-          this.showRightScroll = false;
-        }
-      });
-    });
-
-    resizeObserver.observe(this.navWrapperElement);
-  }
-
-  componentWillRender() {
-    if (!this.selectedTab) {
-      this.children = Array.from(this.host.children) as Array<
-        HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
-      >;
-      this.children = this.children.map((item, index) => {
-        if (item.selected) {
-          this.selectedTab = item.innerHTML;
-          this.selectedTabIndex = index;
-        }
-        return item;
-      });
-    }
-  }
-
-  componentDidRender() {
-    if (this.buttonsWidth > this.componentWidth) {
-      this.evaluateScrollButtons();
-    } else {
-      this.showLeftScroll = false;
-      this.showRightScroll = false;
-    }
-    this.addResizeObserver();
-  }
-
-  @Event({
-    eventName: 'sddsChange',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sddsChange: EventEmitter<{
-    selectedTab: string;
-    selectedTabIndex: number;
-  }>;
-
-  /** Selects a tab based on tabindex, will not select a disabled tab. */
-  @Method()
-  async selectTab(tabIndex: number) {
-    if (!this.children[tabIndex].disabled) {
-      this.children.forEach((element) => element.removeAttribute('selected'));
-      this.children = this.children.map((element, index) => {
-        if (index === tabIndex) {
-          element.setAttribute('selected', '');
-          this.selectedTab = element.innerHTML;
-          this.selectedTabIndex = tabIndex;
-        }
-        return element;
-      });
-    }
-    return {
-      selectedTab: this.selectedTab,
-      selectedTabIndex: this.selectedTabIndex,
-    };
-  }
-
-  @Watch('selectedTab')
-  handleSelectedTabChange() {
-    this.host.setAttribute('selected-tab', this.selectedTab);
-  }
-
-  @Watch('selectedTabIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-tab-index', `${this.selectedTabIndex}`);
-    this.sddsChange.emit({
-      selectedTab: this.selectedTab,
-      selectedTabIndex: this.selectedTabIndex,
-    });
-  }
 
   render() {
     return (

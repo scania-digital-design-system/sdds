@@ -1,6 +1,6 @@
-# sdds-inline-tabs-fullbleed
+# sdds-inline-tabs
 
-This component neither accepts any properties, nor exposes any methods.
+
 
 <!-- Auto Generated Below -->
 
@@ -14,9 +14,9 @@ This component neither accepts any properties, nor exposes any methods.
 
 ## Events
 
-| Event        | Description | Type                                                              |
-| ------------ | ----------- | ----------------------------------------------------------------- |
-| `sddsChange` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
+| Event        | Description | Type                                                                |
+| ------------ | ----------- | ------------------------------------------------------------------- |
+| `sddsChange` |             | `CustomEvent<{ selectedTab: { tab: string; tabIndex: number; }; }>` |
 
 
 ## Methods

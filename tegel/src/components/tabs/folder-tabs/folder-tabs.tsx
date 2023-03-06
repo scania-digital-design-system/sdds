@@ -40,15 +40,17 @@ export class InlineTabs {
 
   scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  children: Array<HTMLSddsTabButtonElement | HTMLSddsTabLinkElement> = [];
+  children: Array<HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement>;
 
   calculateButtonWidth() {
-    this.children = this.children.map((tab: HTMLSddsTabButtonElement | HTMLSddsTabLinkElement) => {
-      if (tab.offsetWidth > this.buttonWidth) {
-        this.buttonWidth = tab.offsetWidth;
-      }
-      return tab;
-    });
+    this.children = this.children.map(
+      (tab: HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement) => {
+        if (tab.offsetWidth > this.buttonWidth) {
+          this.buttonWidth = tab.offsetWidth;
+        }
+        return tab;
+      },
+    );
     this.children.forEach((tab) => {
       tab.setTabWidth(this.buttonWidth);
     });
@@ -113,7 +115,7 @@ export class InlineTabs {
 
   connectedCallback() {
     this.children = Array.from(this.host.children) as Array<
-      HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+      HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement
     >;
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
@@ -149,7 +151,7 @@ export class InlineTabs {
   componentWillRender() {
     if (!this.selectedTab) {
       this.children = Array.from(this.host.children) as Array<
-        HTMLSddsTabButtonElement | HTMLSddsTabLinkElement
+        HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement
       >;
       this.children = this.children.map((item, index) => {
         if (item.selected) {
