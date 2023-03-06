@@ -1,10 +1,16 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
+import readmeLink from './navigation-tabs-link/readme.md';
+import readmeButton from './navigation-tabs-button/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
-    notes: readme,
+    notes: {
+      'Navigation tabs': readme,
+      'Navigation tabs button': readmeButton,
+      'Navigation tabs link': readmeLink,
+    },
     design: [
       {
         name: 'Figma',

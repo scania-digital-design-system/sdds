@@ -673,10 +673,9 @@ to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
 
 ```
 
-## Inline Tabs & Folder Tabs
+## Inline, Folder & Navigation tabs
 
-### Updated `<sdds-inline-tabs>` and introduced `<sdds-folder-tabs>` with
-### child components `<sdds-tab-link>` & `<sdds-tab-button>`
+### Updated `<sdds-inline-tabs>` and `<sdds-navigation-tabs>` and introduced `<sdds-folder-tabs>`. Introduced child components for all tabs.
 
 Previously we had the `<sdds-inline-tabs>` and `<sdds-inline-tabs-fullbleed>`. These 
 reminded little of eachother in appearence and therefore it made more sense to treat
@@ -684,52 +683,77 @@ these as two totally seperate component. To have a clear distiction between them
 have now renamed the `<ssd-inline-tabs>` to `<sdds-folder-tabs>`, to futher highlight
 its look and its function.
 
-Both of these tabs can function with either buttons or links, therefore we have
-introduced two new child components (`<sdds-tab-link>` & `<sdds-tab-button>`) that 
-work with both the `<sdds-inline-tabs>` and  `<sdds-tab-button>`. The content that is
-displayed under each tab, is no longer handled by the component. And is therefor
-something that you as a user of the components will have to implement yourself. We 
-will of course be peresenting examples of how this could be implemented, and if you 
-have any questions we are always here to help.
+All three of our tabs (inline/folder/navigation) works with either buttons or links, 
+therefore we have introduced two new child components per parent component.
+Folder, Inline and Navigation tabs now all have two child components each, one for
+button and one for link. These are all named the same as the parent component + link/button.
+
+`<sdds-folder-tabs-link>` & `<sdds-folder-tabs-button>`
+`<sdds-inline-tabs-link>` & `<sdds-inline-tabs-button>`
+`<sdds-navigation-tabs-link>` & `<sdds-navigation-tabs-button>`
+
+
+The content that is displayed under each tab, is no longer handled by the component. 
+And is therefor something that you as a user of the components will have to implement 
+yourself. We  will of course be peresenting examples of how this could be implemented, 
+and if you have any questions we are always here to help.
 
 The new components are available here in storybook:
 
  * [Inline tabs](/docs/components-tabs--inline-tabs)
  * [Folder tabs](/docs/components-tabs--folder-tabs)
+ * [Navigation tabs](/docs/components-tabs--navigation-tabs)
 
 
 ```jsx
 // New sdds-inline-tabs with buttons 🆕
 <sdds-inline-tabs>
-  <sdds-tab-button>First tab</sdds-tab-button>
-  <sdds-tab-button>Second tab</sdds-tab-button>
-  <sdds-tab-button selected>Third tab</sdds-tab-button>
-  <sdds-tab-button disabled>Fourth tab</sdds-tab-button>
+  <sdds-inline-tabs-button>First tab</sdds-inline-tabs-button>
+  <sdds-inline-tabs-button>Second tab</sdds-inline-tabs-button>
+  <sdds-inline-tabs-button selected>Third tab</sdds-inline-tabs-button>
+  <sdds-inline-tabs-button disabled>Fourth tab</sdds-inline-tabs-button>
 </sdds-inline-tabs>
 
 // New sdds-inline-tabs with links 🆕
 <sdds-inline-tabs>
-  <sdds-tab-link link-href="#">First tab</sdds-tab-link>
-  <sdds-tab-link link-href="#">Second tab</sdds-tab-link>
-  <sdds-tab-link selected link-href="#">Third tab</sdds-tab-link>
-  <sdds-tab-link disabled link-href="#">Fourth tab</sdds-tab-link>
+  <sdds-inline-tabs-link link-href="#">First tab</sdds-inline-tabs-link>
+  <sdds-inline-tabs-link link-href="#">Second tab</sdds-inline-tabs-link>
+  <sdds-inline-tabs-link selected link-href="#">Third tab</sdds-inline-tabs-link>
+  <sdds-inline-tabs-link disabled link-href="#">Fourth tab</sdds-inline-tabs-link>
 </sdds-inline-tabs>
 
 // New sdds-folder-tabs with buttons 🆕
 <sdds-folder-tabs>
-  <sdds-tab-button>First tab</sdds-tab-button>
-  <sdds-tab-button>Second tab</sdds-tab-button>
-  <sdds-tab-button selected>Third tab</sdds-tab-button>
-  <sdds-tab-button disabled>Fourth tab</sdds-tab-button>
+  <sdds-folder-tabs-button>First tab</sdds-folder-tabs-button>
+  <sdds-folder-tabs-button>Second tab</sdds-folder-tabs-button>
+  <sdds-folder-tabs-button selected>Third tab</sdds-folder-tabs-button>
+  <sdds-folder-tabs-button disabled>Fourth tab</sdds-folder-tabs-button>
 </sdds-folder-tabs>
 
 // New sdds-folder-tabs with links 🆕
 <sdds-folder-tabs>
-  <sdds-tab-link link-href="#">First tab</sdds-tab-link>
-  <sdds-tab-link link-href="#">Second tab</sdds-tab-link>
-  <sdds-tab-link selected link-href="#">Third tab</sdds-tab-link>
-  <sdds-tab-link disabled link-href="#">Fourth tab</sdds-tab-link>
+  <sdds-folder-tabs-link link-href="#">First tab</sdds-folder-tabs-link>
+  <sdds-folder-tabs-link link-href="#">Second tab</sdds-folder-tabs-link>
+  <sdds-folder-tabs-link selected link-href="#">Third tab</sdds-folder-tabs-link>
+  <sdds-folder-tabs-link disabled link-href="#">Fourth tab</sdds-folder-tabs-link>
 </sdds-folder-tabs>
+
+
+// New sdds-navigation-tabs with buttons 🆕
+<sdds-navigation-tabs>
+  <sdds-navigation-tabs-button>First tab</sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button>Second tab</sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button selected>Third tab</sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button disabled>Fourth tab</sdds-navigation-tabs-button>
+</sdds-navigation-tabs>
+
+// New sdds-navigation-tabs with links 🆕
+<sdds-navigation-tabs>
+  <sdds-navigation-tabs-link link-href="#">First tab</sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link link-href="#">Second tab</sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link selected link-href="#">Third tab</sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link disabled link-href="#">Fourth tab</sdds-navigation-tabs-link>
+</sdds-navigation-tabs>
 ```
 
 ## Textarea
