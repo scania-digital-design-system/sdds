@@ -21,6 +21,17 @@ export default {
     notes: { 'Stepper': readmeStepper, 'Stepper Item': readmeStepperItem },
   },
   argTypes: {
+    size: {
+      name: 'Size',
+      description: 'The size of the stepper.',
+      control: {
+        type: 'radio',
+      },
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
+      options: ['Large', 'Small'],
+    },
     direction: {
       name: 'Direction',
       description: 'The direction which the stepper is displayed.',
@@ -44,17 +55,6 @@ export default {
       options: ['Below', 'Aside'],
       if: { arg: 'direction', neq: 'Vertical' },
     },
-    size: {
-      name: 'Size',
-      description: 'The size of the stepper.',
-      control: {
-        type: 'radio',
-      },
-      table: {
-        defaultValue: { summary: 'lg' },
-      },
-      options: ['Large', 'Small'],
-    },
     hideLabels: {
       name: 'Hide labels',
       description: 'Hides the labels for all stepper items.',
@@ -67,10 +67,10 @@ export default {
     },
   },
   args: {
+    size: 'Large',
     direction: 'Horizontal',
     labelPosition: 'Below',
     hideLabels: false,
-    size: 'Large',
   },
 };
 
@@ -78,7 +78,12 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ size, hideLabels, labelPosition, direction }) =>
+const Template = ({ 
+  size, 
+  direction, 
+  labelPosition, 
+  hideLabels, 
+}) =>
   formatHtmlPreview(
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
