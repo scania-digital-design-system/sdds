@@ -20,43 +20,59 @@ export default {
     ],
   },
   argTypes: {
-    size: {
-      name: 'Size',
-      description: 'Size of modal',
-      control: {
-        type: 'radio',
-      },
-      options: ['Large', 'Medium', 'Small', 'Extra small'],
-    },
     actions: {
       name: 'Actions',
-      description: 'Behaviour of modal actions',
+      description: 'Defines the behaviour of modal.',
       control: {
         type: 'radio',
       },
       options: ['Sticky', 'Static'],
+      table: {
+        defaultValue: { summary: 'Static' },
+      },
+    },
+    size: {
+      name: 'Size',
+      description: 'Sets the size of modal.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Large', 'Medium', 'Small', 'Extra small'],
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
     },
     headline: {
       name: 'Modal headline',
-      description: 'Customize headline',
+      description: 'Sets the headline of the modal.',
       control: {
         type: 'text',
       },
     },
     bodyText: {
       name: 'Modal body text',
-      description: 'Customize body text',
+      description: 'Sets the body text of the modal.',
       control: {
         type: 'text',
       },
     },
+    showModal: {
+      name: 'Show modal',
+      description: 'Toggles if the modal is displayed.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
+      },
+    },
   },
   args: {
-    headline: 'The buttons for the modal only works in the canvas tab',
-    bodyText:
-      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     actions: 'Static',
     size: 'Large',
+    headline: 'The buttons for the modal only works in the canvas tab',
+    bodyText:'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
+    showModal: true,
   },
 };
 
@@ -67,12 +83,18 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const ModalTemplate = ({ size, headline, bodyText, actions }) =>
+const ModalTemplate = ({ 
+  actions, 
+  size, 
+  headline, 
+  bodyText,
+  showModal 
+}) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
 
-  <sdds-modal open id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
+  <sdds-modal ${showModal ? 'open' : ''} id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <span slot="sdds-modal-body">
           ${bodyText}
@@ -91,5 +113,3 @@ const ModalTemplate = ({ size, headline, bodyText, actions }) =>
   );
 
 export const WebComponent = ModalTemplate.bind({});
-
-WebComponent.args = {};
