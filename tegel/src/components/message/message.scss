@@ -5,13 +5,12 @@
   @include sdds-box-sizing;
 
   display: block;
-  padding: 16px 32px 16px 20px;
+  padding: 16px;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   color: var(--sdds-grey-958);
   background-color: var(--sdds-message-background);
-  margin-bottom: 12px;
 
   &-single {
     font: var(--sdds-headline-07);
@@ -57,7 +56,7 @@
   /* modifiers */
 
   &-icon-active {
-    padding: 18px 32px 18px 20px;
+    padding: 18px;
 
     .sdds-message-single,
     .sdds-message-extended {
