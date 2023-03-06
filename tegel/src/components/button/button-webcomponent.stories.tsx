@@ -26,7 +26,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -37,7 +38,8 @@ export default {
     },
     btnType: {
       name: 'Type',
-      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent.',
+      description:
+        'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -185,7 +187,6 @@ const WebComponentTemplate = ({
       disabled ? 'disabled' : ''
     } ${fullbleed ? 'fullbleed' : ''}
     ${!onlyIcon ? `text="${text}"` : ''}
-    text="${onlyIcon ? '' : text}" 
     ${
       modeVariant !== 'Inherit from parent'
         ? `mode-variant="${modeVariantLookup[modeVariant]}"`
