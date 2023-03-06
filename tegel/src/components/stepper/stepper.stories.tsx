@@ -24,7 +24,10 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Small'],
+      options: ['Large', 'Small'],
+      table: {
+        defaultValue: { summary: 'Large' },
+      },
     },
     style: {
       name: 'Style',
@@ -33,6 +36,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Text on side', 'Vertical'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     iconType: {
       name: 'Icon type',
@@ -41,6 +47,9 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
     },
     hideLabels: {
       name: 'Hide labels',
@@ -48,10 +57,13 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
-    size: 'Default',
+    size: 'Large',
     style: 'Default',
     iconType: 'Native',
     hideLabels: false,

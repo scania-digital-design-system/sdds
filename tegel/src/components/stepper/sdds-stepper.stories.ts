@@ -27,10 +27,10 @@ export default {
       control: {
         type: 'radio',
       },
+      options: ['Large', 'Small'],
       table: {
         defaultValue: { summary: 'lg' },
       },
-      options: ['Large', 'Small'],
     },
     direction: {
       name: 'Direction',
@@ -38,10 +38,10 @@ export default {
       control: {
         type: 'radio',
       },
+      options: ['Horizontal', 'Vertical'],
       table: {
         defaultValue: { summary: 'horizontal' },
       },
-      options: ['Horizontal', 'Vertical'],
     },
     labelPosition: {
       name: 'Text position',
@@ -49,11 +49,11 @@ export default {
       control: {
         type: 'radio',
       },
+      options: ['Below', 'Aside'],
+      if: { arg: 'direction', neq: 'Vertical' },
       table: {
         defaultValue: { summary: 'below' },
       },
-      options: ['Below', 'Aside'],
-      if: { arg: 'direction', neq: 'Vertical' },
     },
     hideLabels: {
       name: 'Hide labels',
@@ -62,7 +62,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },
