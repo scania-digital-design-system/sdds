@@ -71,7 +71,6 @@ const Template = ({label, disabled}) =>
     name="rb-example"
     value="option2"
     radio-id="option-2"
-    ${label ? `label="${label} 2"` : ''}
     required=false
     ${disabled ? 'disabled' : ''} 
   >
