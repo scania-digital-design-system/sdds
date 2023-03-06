@@ -2,45 +2,85 @@ import { newSpecPage } from '@stencil/core/testing';
 import { Divider } from './divider';
 
 describe('sdds-divider', () => {
-  it('renders a horizontal divider with default color', async () => {
-    const { root } = await newSpecPage({
+  it('renders the horizontal version with default classes', async () => {
+    const page = await newSpecPage({
       components: [Divider],
       html: '<sdds-divider></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
     });
-
-    const divider = root.shadowRoot.querySelector('hr');
-    expect(divider).not.toBeNull();
-    expect(divider.getAttribute('class')).toContain('sdds-divider');
-    expect(divider.getAttribute('class')).toContain('horizontal');
+    const { root } = page;
+    expect(root).toEqualHtml(`
+      <sdds-divider role="separator" class="sdds-divider horizontal ">
+        <mock:shadow-root>
+          <hr>
+        </mock:shadow-root>
+      </sdds-divider>
+    `);
   });
 
-  it('renders a vertical divider with light color', async () => {
-    const { root } = await newSpecPage({
+  it('renders the vertical version with default classes', async () => {
+    const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider direction="vertical" light></sdds-divider>',
+      html: '<sdds-divider direction="vertical"></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
     });
-
-    const divider = root.shadowRoot.querySelector('div');
-    expect(divider).not.toBeNull();
-    expect(divider.getAttribute('class')).toContain('sdds-divider');
-    expect(divider.getAttribute('class')).toContain('vertical');
-    expect(divider.getAttribute('class')).toContain('sdds-theme-light');
+    const { root } = page;
+    expect(root).toEqualHtml(`
+      <sdds-divider aria-orientation="vertical" class="sdds-divider vertical" direction="vertical" role="separator">
+        <mock:shadow-root>
+          <div></div>
+        </mock:shadow-root>
+      </sdds-divider>
+    `);
   });
 
-  it('renders a horizontal divider with label', async () => {
-    const { root } = await newSpecPage({
+  it('sets the light class when the light prop is true', async () => {
+    const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider aria-label="Divider label"><span slot="label">Divider label</span></sdds-divider>',
+      html: '<sdds-divider light></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
     });
+    const { root } = page;
+    expect(root).toHaveClass('sdds-theme-light');
+  });
 
-    const divider = root.shadowRoot.querySelector('hr');
-    expect(divider).not.toBeNull();
-    expect(divider.getAttribute('class')).toContain('sdds-divider');
-    expect(divider.getAttribute('class')).toContain('horizontal');
+  it('sets the dark class when the dark prop is true', async () => {
+    const page = await newSpecPage({
+      components: [Divider],
+      html: '<sdds-divider dark></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
+    });
+    const { root } = page;
+    expect(root).toHaveClass('sdds-theme-dark');
+  });
 
-    const label = root.shadowRoot.querySelector('.sdds-divider-label');
-    expect(label).not.toBeNull();
-    expect(label.getAttribute('aria-hidden')).toBe('');
-    expect(label.textContent).toBe('Divider label');
+  it('sets the class based on the direction prop', async () => {
+    const page = await newSpecPage({
+      components: [Divider],
+      html: '<sdds-divider direction="vertical"></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
+    });
+    const { root } = page;
+    expect(root).toHaveClass('vertical');
+  });
+
+  it('sets the class based on the light prop', async () => {
+    const page = await newSpecPage({
+      components: [Divider],
+      html: '<sdds-divider light></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
+    });
+    const { root } = page;
+    expect(root).toHaveClass('sdds-theme-light');
+  });
+
+  it('sets the class based on the dark prop', async () => {
+    const page = await newSpecPage({
+      components: [Divider],
+      html: '<sdds-divider dark></sdds-divider>',
+      supportsShadowDom: true, // enable ShadowDOM
+    });
+    const { root } = page;
+    expect(root).toHaveClass('sdds-theme-dark');
   });
 });

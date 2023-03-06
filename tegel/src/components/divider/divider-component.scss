@@ -1,6 +1,8 @@
+@import '../../mixins/box-sizing';
+
 :host {
   .sdds-divider {
-    box-sizing: border-box;
+    @include sdds-box-sizing;
 
     &.horizontal {
       background-color: var(--sdds-divider-background);
@@ -11,7 +13,6 @@
       background-color: var(--sdds-divider-background);
       height: 100%;
       width: 1px;
-      box-sizing: border-box;
     }
   }
 }

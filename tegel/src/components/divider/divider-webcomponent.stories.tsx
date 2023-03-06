@@ -23,28 +23,12 @@ export default {
       description: 'Choose divider type.',
       control: {
         type: 'radio',
-        options: ['Horizontal', 'Vertical'],
+        options: ['horizontal', 'vertical'],
       },
-      defaultValue: 'Horizontal',
+      defaultValue: 'horizontal',
       table: {
-        defaultValue: { summary: 'Horizontal' },
+        defaultValue: { summary: 'horizontal' },
       },
-    },
-    width: {
-      name: 'Width',
-      description: 'Choose divider width.',
-      control: {
-        type: 'number',
-      },
-      if: { arg: 'type', eq: 'Horizontal' },
-    },
-    height: {
-      name: 'Height',
-      description: 'Choose divider height.',
-      control: {
-        type: 'number',
-      },
-      if: { arg: 'type', eq: 'Vertical' },
     },
     theme: {
       name: 'Theme',
@@ -61,29 +45,39 @@ export default {
   },
 };
 
-const Template = ({ type, width, height, theme }) => {
+const Template = ({ type, theme }) => {
   const classLookup = {
-    Horizontal: `sdds-divider`,
-    Vertical: `sdds-divider vertical`,
+    horizontal: `sdds-divider horizontal`,
+    vertical: `sdds-divider vertical`,
   };
 
   const lightStyles = `
-    sdds-theme-light {
+    .sdds-theme-light {
       --sdds-divider-color: var(--sdds-grey-300);
     }
-    sdds-divider.vertical::before,
-    sdds-divider.horizontal::before {
+    .sdds-divider.vertical > div {
       background-color: var(--sdds-grey-300);
+      height: 100px;
+      width: 1px;
+    }
+    .sdds-divider.horizontal > hr {
+      background-color: var(--sdds-grey-300);
+      width: 100px;
     }
   `;
 
   const darkStyles = `
-    sdds-theme-dark {
+    .sdds-theme-dark {
       --sdds-divider-color: var(--sdds-grey-700);
     }
-    sdds-divider.vertical::before,
-    sdds-divider.horizontal::before {
+    .sdds-divider.vertical > div {
       background-color: var(--sdds-grey-700);
+      height: 100px;
+      width: 1px;
+    }
+    .sdds-divider.horizontal > hr {
+      background-color: var(--sdds-grey-700);
+      width: 100px;
     }
   `;
 
@@ -91,33 +85,37 @@ const Template = ({ type, width, height, theme }) => {
     .demo-div {
       padding: 0px;
     }
-    ${
-      height
-        ? `
-      .demo-div {
-        height: ${height}px;
-        width: 1px;
-      }
-    `
-        : ''
-    }
-    ${
-      width
-        ? `
-      .demo-div {
-        width: ${width}px;
-        height: 1px;
-      }
-    `
-        : ''
-    }
     ${theme === 'Light' ? lightStyles : darkStyles}
   `;
 
   return formatHtmlPreview(`
     <style>${styles}</style>
-    <div class="demo-div ${styles} ${classLookup[type]}"></div>
+    <div class="${styles} ${classLookup[type]} ${theme === 'Dark' ? 'dark' : ''}">
+      ${type === 'horizontal' ? '<hr />' : '<div></div>'}
+    </div>
   `);
 };
 
-export const WebComponent = Template.bind({});
+export const HorizontalLight = Template.bind({});
+HorizontalLight.args = {
+  type: 'horizontal',
+  theme: 'Light',
+};
+
+export const HorizontalDark = Template.bind({});
+HorizontalDark.args = {
+  type: 'horizontal',
+  theme: 'Dark',
+};
+
+export const VerticalDark = Template.bind({});
+VerticalDark.args = {
+  type: 'vertical',
+  theme: 'Dark',
+};
+
+export const VerticalLight = Template.bind({});
+VerticalLight.args = {
+  type: 'vertical',
+  theme: 'Light',
+};
