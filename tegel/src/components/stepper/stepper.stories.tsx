@@ -34,13 +34,6 @@ export default {
       },
       options: ['Default', 'Text on side', 'Vertical'],
     },
-    showLabel: {
-      name: 'Show label text',
-      description: 'Show or hide the label text',
-      control: {
-        type: 'boolean',
-      },
-    },
     iconType: {
       name: 'Icon type',
       description: 'Native/Web Component',
@@ -49,16 +42,28 @@ export default {
       },
       options: ['Native', 'Web Component'],
     },
+    hideLabels: {
+      name: 'Hide labels',
+      description: 'Show or hide the label text',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     size: 'Default',
     style: 'Default',
-    showLabel: true,
     iconType: 'Native',
+    hideLabels: false,
   },
 };
 
-const Template = ({ size, style, showLabel, iconType }) => {
+const Template = ({ 
+  size, 
+  style, 
+  iconType, 
+  hideLabels 
+}) => {
   const sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
@@ -84,7 +89,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">1</span>
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step value</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step value</label>'}
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--warning">
@@ -96,7 +101,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
             : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}"></sdds-icon> `
         }
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step warning</label>'}
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--inactive">
@@ -104,7 +109,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
         ${
-          showLabel ? '<label class="sdds-stepper__step_label">Step inactive with text</label>' : ''
+          hideLabels ? '' : '<label class="sdds-stepper__step_label">Step inactive with text</label>'
         }
       </div>
 
@@ -119,7 +124,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         </div>`
         }
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step success</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step success</label>'}
       </div>
 
     </div>
