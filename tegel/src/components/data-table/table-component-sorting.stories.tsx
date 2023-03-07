@@ -62,18 +62,12 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: true },
-      },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
       description: 'Enables column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: true },
       },
     },
     column3sortable: {
@@ -82,18 +76,12 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: true },
-      },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
       description: 'Enables column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: true },
       },
     },
     verticalDivider: {
