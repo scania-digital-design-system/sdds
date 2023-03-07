@@ -27,15 +27,9 @@ export default {
   argTypes: {
     bodyData: {
       name: 'Data',
-      description:
-        'An array of objects with keys matching the header cell `column-key` attributes. Can be passed as an array object, or as a stringified array.',
+      description: 'An array of objects with keys matching the header cell `column-key` attributes. Can be passed as an array object, or as a stringified array.',
       control: {
         type: 'array',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
       },
     },
   },
@@ -60,4 +54,3 @@ const DataPropertyTemplate = ({ bodyData }) =>
   </sdds-table>`);
 
 export const DataProperty = DataPropertyTemplate.bind({});
-DataProperty.args = {};

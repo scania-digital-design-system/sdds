@@ -25,23 +25,9 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    compactDesign: {
-      name: 'Compact Design',
-      description: 'Enables compact design of the table, rows with less height.',
-      control: {
-        type: 'boolean',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'The mode variant of the component',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -50,73 +36,138 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    responsiveDesign: {
-      name: 'Responsive design',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too.',
+    compactDesign: {
+      name: 'Compact Design',
+      description: 'Enables compact design of the table, rows with less height.',
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
-    noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
+    responsiveDesign: {
+      name: 'Responsive design',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     column1sortable: {
       name: 'Column 1 is sortable',
-      description: 'Enabling column 1 to be sorted alphabetically.',
+      description: 'Enables column 1 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
-      description: 'Enabling column 2 to be sorted alphabetically.',
+      description: 'Enables column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column3sortable: {
       name: 'Column 3 is sortable',
-      description: 'Enabling column 3 to be sorted alphabetically.',
+      description: 'Enables column 3 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
-      description: 'Enabling column 4 to be sorted alphabetically.',
+      description: 'Enables column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
       },
     },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'Enables vertical dividers between table columns.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    column1Width: {
+      name: 'Column 1 width',
+      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column2Width: {
+      name: 'Column 2 width',
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column3Width: {
+      name: 'Column 3 width',
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column4Width: {
+      name: 'Column 4 width',
+      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    verticalDivider: false,
     compactDesign: false,
     responsiveDesign: false,
     column1sortable: true,
     column2sortable: true,
     column3sortable: true,
     column4sortable: true,
+    verticalDivider: false,
     noMinWidth: false,
+    column1Width: '',
+    column2Width: '',
+    column3Width: '',
+    column4Width: '',
   },
 };
 
 const SortingTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
+  compactDesign,
   responsiveDesign,
   column1sortable,
   column2sortable,
   column3sortable,
   column4sortable,
+  verticalDivider,
   noMinWidth,
+  column1Width,
+  column2Width,
+  column3Width,
+  column4Width,
 }) =>
   formatHtmlPreview(`
     <sdds-table
@@ -128,14 +179,21 @@ const SortingTemplate = ({
     >
       <sdds-table-toolbar table-title="Sorting"></sdds-table-toolbar>
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}"></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}" ${
+                column1Width ? `custom-width="${column1Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}" ${
+                column2Width ? `custom-width="${column2Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}" ${
+                column3Width ? `custom-width="${column3Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right' ${
+                column4Width ? `custom-width="${column4Width}"` : ''
+              }></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
   </sdds-table>`);
 
 export const Sorting = SortingTemplate.bind({});
-Sorting.args = {};
