@@ -20,45 +20,62 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
-      description: 'Size of the stepper',
+      description: 'Sets the size of the stepper.',
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Small'],
+      options: ['Large', 'Small'],
+      table: {
+        defaultValue: { summary: 'Large' },
+      },
     },
     style: {
       name: 'Style',
-      description: 'Style of the stepper',
+      description: 'Sets the style of the stepper.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Text on side', 'Vertical'],
-    },
-    showLabel: {
-      name: 'Show label text',
-      description: 'Show or hide the label text',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: { summary: 'Default' },
       },
     },
     iconType: {
       name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Switch between showing a native or a web component icon.',
       control: {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
+    },
+    hideLabels: {
+      name: 'Hide labels',
+      description: 'Hides the labels for all stepper items.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   args: {
-    size: 'Default',
+    size: 'Large',
     style: 'Default',
-    showLabel: true,
     iconType: 'Native',
+    hideLabels: false,
   },
 };
 
-const Template = ({ size, style, showLabel, iconType }) => {
+const Template = ({ 
+  size, 
+  style, 
+  iconType, 
+  hideLabels 
+}) => {
   const sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
@@ -84,7 +101,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         <div class="sdds-stepper__step-icon">
           <span class="sdds-stepper__step-icon-value">1</span>
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step value</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step value</label>'}
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--warning">
@@ -96,7 +113,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
             : `<sdds-icon name="warning" size="${size === 'Small' ? '16px' : '18px'}"></sdds-icon> `
         }
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step warning</label>'}
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--inactive">
@@ -104,7 +121,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
         ${
-          showLabel ? '<label class="sdds-stepper__step_label">Step inactive with text</label>' : ''
+          hideLabels ? '' : '<label class="sdds-stepper__step_label">Step inactive with text</label>'
         }
       </div>
 
@@ -119,7 +136,7 @@ const Template = ({ size, style, showLabel, iconType }) => {
         </div>`
         }
         </div>
-        ${showLabel ? '<label class="sdds-stepper__step_label">Step success</label>' : ''}
+        ${hideLabels ? '' : '<label class="sdds-stepper__step_label">Step success</label>'}
       </div>
 
     </div>

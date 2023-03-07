@@ -21,39 +21,39 @@ export default {
     notes: { 'Stepper': readmeStepper, 'Stepper Item': readmeStepperItem },
   },
   argTypes: {
-    direction: {
-      name: 'Direction',
-      description: 'The direction which the stepper is displayed.',
-      control: {
-        type: 'radio',
-      },
-      table: {
-        defaultValue: { summary: 'horizontal' },
-      },
-      options: ['Horizontal', 'Vertical'],
-    },
-    labelPosition: {
-      name: 'Text position',
-      description: 'The position of the text, only available when the direction is horizontal.',
-      control: {
-        type: 'radio',
-      },
-      table: {
-        defaultValue: { summary: 'below' },
-      },
-      options: ['Below', 'Aside'],
-      if: { arg: 'direction', neq: 'Vertical' },
-    },
     size: {
       name: 'Size',
-      description: 'The size of the stepper.',
+      description: 'Sets the size of the stepper.',
       control: {
         type: 'radio',
       },
+      options: ['Large', 'Small'],
       table: {
         defaultValue: { summary: 'lg' },
       },
-      options: ['Large', 'Small'],
+    },
+    direction: {
+      name: 'Direction',
+      description: 'Sets the direction which the stepper is displayed.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Horizontal', 'Vertical'],
+      table: {
+        defaultValue: { summary: 'horizontal' },
+      },
+    },
+    labelPosition: {
+      name: 'Text position',
+      description: 'Sets the position of the text, only available when the direction is horizontal.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Below', 'Aside'],
+      if: { arg: 'direction', neq: 'Vertical' },
+      table: {
+        defaultValue: { summary: 'below' },
+      },
     },
     hideLabels: {
       name: 'Hide labels',
@@ -62,15 +62,15 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
+    size: 'Large',
     direction: 'Horizontal',
     labelPosition: 'Below',
     hideLabels: false,
-    size: 'Large',
   },
 };
 
@@ -78,7 +78,12 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ size, hideLabels, labelPosition, direction }) =>
+const Template = ({ 
+  size, 
+  direction, 
+  labelPosition, 
+  hideLabels, 
+}) =>
   formatHtmlPreview(
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
