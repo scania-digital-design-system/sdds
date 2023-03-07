@@ -76,6 +76,11 @@ button.sdds-chip {
 
     .sdds-chip-icon {
       right: 8px;
+
+      sdds-icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
