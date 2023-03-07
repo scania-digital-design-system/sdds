@@ -33,7 +33,7 @@ Type: `Promise<void>`
 
 
 
-### `selectOption() => Promise<void>`
+### `select() => Promise<void>`
 
 Method to select the dropdown option.
 

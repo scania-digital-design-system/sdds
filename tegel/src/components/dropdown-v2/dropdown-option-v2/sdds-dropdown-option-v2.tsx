@@ -39,9 +39,21 @@ export class SddsDropdownOptionV2 {
 
   /** Method to select the dropdown option. */
   @Method()
-  async selectOption() {
+  async select() {
     this.selected = true;
   }
+
+  /** Click event for the dropdown option. */
+  @Event({
+    eventName: 'sddsSelect',
+    composed: true,
+    cancelable: false,
+    bubbles: true,
+  })
+  sddsSelect: EventEmitter<{
+    selected: boolean;
+    value: string;
+  }>;
 
   connectedCallback = () => {
     this.parentElement =
@@ -85,18 +97,6 @@ export class SddsDropdownOptionV2 {
       selected: this.selected,
     });
   };
-
-  /** Click event for the dropdown option. */
-  @Event({
-    eventName: 'sddsSelect',
-    composed: true,
-    cancelable: false,
-    bubbles: true,
-  })
-  sddsSelect: EventEmitter<{
-    selected: boolean;
-    value: string;
-  }>;
 
   render() {
     return (

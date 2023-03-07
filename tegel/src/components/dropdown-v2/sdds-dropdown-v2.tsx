@@ -73,10 +73,11 @@ export class SddsDropdownV2 {
   /** Method that resets the dropdown. */
   @Method()
   async reset() {
-    this.selection = null;
+    this.children.forEach((element) => element.deselect());
+    this.handleChange();
   }
 
-  /** @internal Method for setting the value of the dropdown. */
+  /** Method for setting the value of the dropdown. */
   @Method()
   async setValue(newValue: string, newValueLabel: string) {
     if (this.multiselect) {
@@ -92,26 +93,24 @@ export class SddsDropdownV2 {
         return element;
       });
     }
-    this.sddsChange.emit({
-      name: this.name,
-      value: this.selection.map((item) => item.value).toString(),
-    });
+    this.handleChange();
+    return this.selection;
   }
 
-  /** @internal Method for removing the value of the dropdown. */
+  /** Method for removing a selected value in the dropdown. */
   @Method()
   async removeValue(oldValue: string) {
     if (this.multiselect) {
-      if (this.selection) {
-        this.selection = this.selection.filter((item) => item.value !== oldValue);
-      }
+      this.children.forEach((element) => {
+        if (element.value === oldValue) {
+          element.deselect();
+        }
+      });
     } else {
-      this.selection = [];
+      this.reset();
     }
-    this.sddsChange.emit({
-      name: this.name,
-      value: this.selection.map((item) => item.value).toString(),
-    });
+    this.handleChange();
+    return this.selection;
   }
 
   /** Method for closing the dropdown. */
@@ -120,13 +119,62 @@ export class SddsDropdownV2 {
     this.open = false;
   }
 
+  /** Change event for the dropdown. */
+  @Event({
+    eventName: 'sddsChange',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsChange: EventEmitter<{
+    name: string;
+    value: string;
+  }>;
+
+  /** Focus event for the dropdown. */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
+
+  /** Blur event for the dropdown. */
+  @Event({
+    eventName: 'sddsBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
+  /** Input event for the dropdown. */
+  @Event({
+    eventName: 'sddsInput',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsInput: EventEmitter<InputEvent>;
+
+  @Listen('click', { target: 'window' })
+  onAnyClick(event: MouseEvent) {
+    if (this.open) {
+      // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
+      const isClickOutside = !event.composedPath().includes(this.host as any);
+      if (isClickOutside) {
+        this.open = false;
+      }
+    }
+  }
+
   connectedCallback = () => {
     if (this.options) {
       this.parsedData = JSON.parse(this.options.toString());
     } else {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     }
-    console.log(this.options.toString());
   };
 
   componentDidLoad() {
@@ -147,24 +195,25 @@ export class SddsDropdownV2 {
   setDefaultOption = () => {
     this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
       if (this.multiselect) {
-        this.defaultValue.split(',').forEach((value) => {
-          this.selectOption(value, element);
+        this.defaultValue.split(',').forEach((defaultValue) => {
+          if (defaultValue === element.value) {
+            element.select();
+            this.selection = this.selection
+              ? [...this.selection, { value: element.value, label: element.textContent }]
+              : [{ value: element.value, label: element.textContent }];
+          }
         });
       } else {
-        this.selectOption(this.defaultValue, element);
+        if (this.defaultValue === element.value) {
+          this.reset();
+          element.select();
+          this.selection = [{ value: element.value, label: element.textContent }];
+        }
       }
       return element;
     });
+    this.handleChange();
   };
-
-  selectOption(newValue: string, element: HTMLSddsDropdownOptionV2Element) {
-    if (newValue === element.value) {
-      element.selectOption();
-      this.selection = this.selection
-        ? [...this.selection, { value: newValue, label: element.textContent }]
-        : [{ value: newValue, label: element.textContent }];
-    }
-  }
 
   getOpenDirection = () => {
     const dropdownMenuHeight = this.dropdownList.offsetHeight;
@@ -178,6 +227,7 @@ export class SddsDropdownV2 {
   };
 
   handleFilter = (event) => {
+    this.sddsInput.emit(event);
     const query = event.target.value.toLowerCase();
     this.filterResult = this.children.filter((element) => {
       if (!element.textContent.toLowerCase().includes(query.toLowerCase())) {
@@ -189,28 +239,20 @@ export class SddsDropdownV2 {
     }).length;
   };
 
-  /** Change event for the dropdown. */
-  @Event({
-    eventName: 'sddsChange',
-    composed: true,
-    bubbles: true,
-    cancelable: false,
-  })
-  sddsChange: EventEmitter<{
-    name: string;
-    value: string;
-  }>;
+  handleFocus = (event) => {
+    this.sddsFocus.emit(event);
+  };
 
-  @Listen('click', { target: 'window' })
-  onAnyClick(event: MouseEvent) {
-    if (this.open) {
-      // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
-      const isClickOutside = !event.composedPath().includes(this.host as any);
-      if (isClickOutside) {
-        this.open = false;
-      }
-    }
-  }
+  handleBlur = (event) => {
+    this.sddsBlur.emit(event);
+  };
+
+  handleChange = () => {
+    this.sddsChange.emit({
+      name: this.name,
+      value: this.selection?.map((item) => item.value).toString() ?? null,
+    });
+  };
 
   render() {
     renderHiddenInput(
@@ -249,17 +291,18 @@ export class SddsDropdownV2 {
                   class={`${this.labelPosition === 'inside' ? 'placeholder' : ''}`}
                   // eslint-disable-next-line no-return-assign
                   type="text"
-                  onInput={(event) => this.handleFilter(event)}
                   placeholder={this.placeholder}
                   value={this.selection ? this.selection.map((item) => item.label) : null}
                   disabled={this.disabled}
-                  onBlur={() => {
+                  onInput={(event) => this.handleFilter(event)}
+                  onBlur={(event) => {
                     this.filterFocus = false;
-                    console.log('hej');
+                    this.handleBlur(event);
                   }}
-                  onFocus={() => {
+                  onFocus={(event) => {
                     this.open = true;
                     this.filterFocus = true;
+                    this.handleFocus(event);
                   }}
                   onKeyDown={(event) => {
                     if (event.key === 'Escape') {

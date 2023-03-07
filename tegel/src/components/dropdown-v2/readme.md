@@ -40,7 +40,10 @@ This property should be a JSON array containing objects of the following structu
 
 | Event        | Description                    | Type                                            |
 | ------------ | ------------------------------ | ----------------------------------------------- |
+| `sddsBlur`   | Blur event for the dropdown.   | `CustomEvent<FocusEvent>`                       |
 | `sddsChange` | Change event for the dropdown. | `CustomEvent<{ name: string; value: string; }>` |
+| `sddsFocus`  | Focus event for the dropdown.  | `CustomEvent<FocusEvent>`                       |
+| `sddsInput`  | Input event for the dropdown.  | `CustomEvent<InputEvent>`                       |
 
 
 ## Methods
@@ -55,6 +58,16 @@ Type: `Promise<void>`
 
 
 
+### `removeValue(oldValue: string) => Promise<{ value: string; label: string; }[]>`
+
+Method for removing a selected value in the dropdown.
+
+#### Returns
+
+Type: `Promise<{ value: string; label: string; }[]>`
+
+
+
 ### `reset() => Promise<void>`
 
 Method that resets the dropdown.
@@ -62,6 +75,16 @@ Method that resets the dropdown.
 #### Returns
 
 Type: `Promise<void>`
+
+
+
+### `setValue(newValue: string, newValueLabel: string) => Promise<{ value: string; label: string; }[]>`
+
+Method for setting the value of the dropdown.
+
+#### Returns
+
+Type: `Promise<{ value: string; label: string; }[]>`
 
 
 
