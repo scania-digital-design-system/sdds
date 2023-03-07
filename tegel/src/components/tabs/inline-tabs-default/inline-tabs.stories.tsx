@@ -21,13 +21,6 @@ export default {
     ],
   },
   argTypes: {
-    autoHeight: {
-      name: 'Same height',
-      description: 'Make all tab panels as tall as the tallest tab panel',
-      control: {
-        type: 'boolean',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
       control: {
@@ -38,15 +31,17 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    backgrounds: {
-      table: {
-        disable: true,
+    autoHeight: {
+      name: 'Same height',
+      description: 'Make all tab panels as tall as the tallest tab panel',
+      control: {
+        type: 'boolean',
       },
     },
   },
   args: {
-    autoHeight: false,
     modeVariant: 'Inherit from parent',
+    autoHeight: false,
   },
 };
 // eslint-disable-next-line arrow-body-style
