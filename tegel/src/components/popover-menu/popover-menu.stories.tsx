@@ -22,7 +22,7 @@ export default {
   argTypes: {
     menuPosition: {
       name: 'Menu position',
-      description: 'Position of the Popover menu',
+      description: 'Sets the position of the popover menu.',
       control: {
         type: 'select',
       },
@@ -39,11 +39,15 @@ export default {
         'Right',
         'Right start',
         'Right end',
+        'Auto',
       ],
+      table: {
+        defaultValue: { summary: 'Auto' },
+      },
     },
   },
   args: {
-    menuPosition: 'Bottom start',
+    menuPosition: 'Auto',
   },
 };
 
@@ -61,6 +65,7 @@ const Template = ({ menuPosition }) => {
     'Right': 'right',
     'Right start': 'right-start',
     'Right end': 'right-end',
+    'Auto': 'auto',
   };
 
   return formatHtmlPreview(
@@ -117,4 +122,3 @@ const Template = ({ menuPosition }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {};
