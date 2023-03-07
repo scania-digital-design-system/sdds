@@ -31,11 +31,11 @@
     cursor: not-allowed;
     caret-color: transparent;
     pointer-events: none;
-    color: var(--sdds-grey-800);
+    color: var(--sdds-dropdown-disabled);
     border: none;
 
     &::placeholder {
-      color: var(--sdds-grey-800);
+      color: var(--sdds-dropdown-disabled);
     }
   }
 }
