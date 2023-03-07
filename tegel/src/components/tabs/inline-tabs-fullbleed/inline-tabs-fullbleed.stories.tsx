@@ -48,4 +48,3 @@ const Template = ({ modeVariant }) =>
 `);
 
 export const InlineTabsFullbleed = Template.bind({});
-InlineTabsFullbleed.args = {};
