@@ -9,26 +9,15 @@ export class Divider {
   /** Direction of the Divider, horizontal if not specified. */
   @Prop() direction: 'horizontal' | 'vertical' = 'horizontal';
 
-  /** Sets the divider to light version */
-  @Prop() light: boolean = false;
-
-  /** Sets the divider to dark version */
-  @Prop() dark: boolean = false;
+  /** Color of the Divider, light if not specified. */
+  @Prop() type: 'light' | 'dark' = 'light';
 
   render() {
-    let colorClass = '';
-
-    if (this.light) {
-      colorClass = 'sdds-theme-light';
-    } else if (this.dark) {
-      colorClass = 'sdds-theme-dark';
-    }
-
     return (
       <Host
         role="separator"
         aria-orientation={this.direction === 'vertical' ? 'vertical' : undefined}
-        class={`sdds-divider ${this.direction} ${colorClass}`}
+        class={`sdds-divider sdds-divider-${this.type} ${this.direction}`}
       >
         {this.direction === 'horizontal' ? <hr /> : <div />}
       </Host>

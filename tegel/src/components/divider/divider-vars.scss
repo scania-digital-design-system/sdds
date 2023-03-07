@@ -12,3 +12,11 @@ $border-types: top, right, bottom, left;
 .sdds-theme-colored {
   --sdds-divider-background: var(--sdds-blue-700);
 }
+
+.sdds-divider-light {
+  --sdds-divider-background: var(--sdds-grey-300);
+}
+
+.sdds-divider-dark {
+  --sdds-divider-background: var(--sdds-grey-700);
+}

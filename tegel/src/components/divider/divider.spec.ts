@@ -10,7 +10,7 @@ describe('sdds-divider', () => {
     });
     const { root } = page;
     expect(root).toEqualHtml(`
-      <sdds-divider role="separator" class="sdds-divider horizontal ">
+      <sdds-divider role="separator" class="sdds-divider sdds-divider-light horizontal">
         <mock:shadow-root>
           <hr>
         </mock:shadow-root>
@@ -26,7 +26,7 @@ describe('sdds-divider', () => {
     });
     const { root } = page;
     expect(root).toEqualHtml(`
-      <sdds-divider aria-orientation="vertical" class="sdds-divider vertical" direction="vertical" role="separator">
+      <sdds-divider aria-orientation="vertical" class="sdds-divider sdds-divider-light vertical" direction="vertical" role="separator">
         <mock:shadow-root>
           <div></div>
         </mock:shadow-root>
@@ -34,24 +34,24 @@ describe('sdds-divider', () => {
     `);
   });
 
-  it('sets the light class when the light prop is true', async () => {
+  it('sets the light class when the type prop is not specified or set to "light"', async () => {
     const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider light></sdds-divider>',
+      html: '<sdds-divider></sdds-divider>',
       supportsShadowDom: true, // enable ShadowDOM
     });
     const { root } = page;
-    expect(root).toHaveClass('sdds-theme-light');
+    expect(root).toHaveClass('sdds-divider-light');
   });
 
-  it('sets the dark class when the dark prop is true', async () => {
+  it('sets the dark class when the type prop is set to "dark"', async () => {
     const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider dark></sdds-divider>',
+      html: '<sdds-divider type="dark"></sdds-divider>',
       supportsShadowDom: true, // enable ShadowDOM
     });
     const { root } = page;
-    expect(root).toHaveClass('sdds-theme-dark');
+    expect(root).toHaveClass('sdds-divider-dark');
   });
 
   it('sets the class based on the direction prop', async () => {
@@ -64,23 +64,13 @@ describe('sdds-divider', () => {
     expect(root).toHaveClass('vertical');
   });
 
-  it('sets the class based on the light prop', async () => {
+  it('sets the class based on the type prop', async () => {
     const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider light></sdds-divider>',
+      html: '<sdds-divider type="dark"></sdds-divider>',
       supportsShadowDom: true, // enable ShadowDOM
     });
     const { root } = page;
-    expect(root).toHaveClass('sdds-theme-light');
-  });
-
-  it('sets the class based on the dark prop', async () => {
-    const page = await newSpecPage({
-      components: [Divider],
-      html: '<sdds-divider dark></sdds-divider>',
-      supportsShadowDom: true, // enable ShadowDOM
-    });
-    const { root } = page;
-    expect(root).toHaveClass('sdds-theme-dark');
+    expect(root).toHaveClass('sdds-divider-dark');
   });
 });

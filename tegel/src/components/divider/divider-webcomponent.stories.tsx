@@ -52,7 +52,7 @@ const Template = ({ type, theme }) => {
   };
 
   const lightStyles = `
-    .sdds-theme-light {
+    .sdds-divider-light {
       --sdds-divider-color: var(--sdds-grey-300);
     }
     .sdds-divider.vertical > div {
@@ -67,7 +67,7 @@ const Template = ({ type, theme }) => {
   `;
 
   const darkStyles = `
-    .sdds-theme-dark {
+    .sdds-divider-dark {
       --sdds-divider-color: var(--sdds-grey-700);
     }
     .sdds-divider.vertical > div {

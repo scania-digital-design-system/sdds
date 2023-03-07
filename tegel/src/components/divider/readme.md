@@ -9,9 +9,8 @@
 
 | Property    | Attribute   | Description                                            | Type                         | Default        |
 | ----------- | ----------- | ------------------------------------------------------ | ---------------------------- | -------------- |
-| `dark`      | `dark`      | Sets the divider to dark version                       | `boolean`                    | `false`        |
 | `direction` | `direction` | Direction of the Divider, horizontal if not specified. | `"horizontal" \| "vertical"` | `'horizontal'` |
-| `light`     | `light`     | Sets the divider to light version                      | `boolean`                    | `false`        |
+| `type`      | `type`      | Color of the Divider, light if not specified.          | `"dark" \| "light"`          | `'light'`      |
 
 
 ----------------------------------------------
