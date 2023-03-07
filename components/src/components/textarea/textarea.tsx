@@ -56,15 +56,15 @@ export class Textarea {
 
   /** Change event for the textarea */
   @Event({
-    eventName: 'sddsChange',
+    eventName: 'customChange',
     composed: true,
     bubbles: true,
     cancelable: false,
   })
-  sddsChange: EventEmitter;
+  customChange: EventEmitter;
 
   handleChange(event): void {
-    this.sddsChange.emit(event);
+    this.customChange.emit(event);
   }
 
   /** Blur event for the textarea */
