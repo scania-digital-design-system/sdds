@@ -60,8 +60,6 @@ const Template = ({label, disabled}) =>
     name="rb-example"
     value="option1"
     radio-id="option-1"
-    aria-labelled-by="option-1"
-    aria-describedby="option-1"
     required=false
     ${disabled ? 'disabled' : ''}
     checked="true" 
@@ -73,9 +71,6 @@ const Template = ({label, disabled}) =>
     name="rb-example"
     value="option2"
     radio-id="option-2"
-    aria-labelled-by="option-2"
-    aria-described-by="option-2"
-    ${label ? `label="${label} 2"` : ''}
     required=false
     ${disabled ? 'disabled' : ''} 
   >
