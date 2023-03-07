@@ -55,6 +55,24 @@ export class SddsDropdownOptionV2 {
     value: string;
   }>;
 
+  /** Focus event for the dropdown option. */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
+
+  /** Blur event for the dropdown option. */
+  @Event({
+    eventName: 'sddsBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
   connectedCallback = () => {
     this.parentElement =
       this.host.parentElement.tagName === 'SDDS-DROPDOWN-V2'
@@ -98,6 +116,14 @@ export class SddsDropdownOptionV2 {
     });
   };
 
+  handleFocus = (event) => {
+    this.sddsFocus.emit(event);
+  };
+
+  handleBlur = (event) => {
+    this.sddsBlur.emit(event);
+  };
+
   render() {
     return (
       <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
@@ -133,6 +159,8 @@ export class SddsDropdownOptionV2 {
               onClick={() => {
                 this.handleSingleSelect();
               }}
+              onFocus={(event) => this.handleFocus(event)}
+              onBlur={(event) => this.handleBlur(event)}
               disabled={this.disabled}
             >
               <div class="single-select">

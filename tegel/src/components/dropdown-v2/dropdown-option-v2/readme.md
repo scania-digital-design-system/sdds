@@ -18,6 +18,8 @@
 
 | Event        | Description                          | Type                                                 |
 | ------------ | ------------------------------------ | ---------------------------------------------------- |
+| `sddsBlur`   | Blur event for the dropdown option.  | `CustomEvent<FocusEvent>`                            |
+| `sddsFocus`  | Focus event for the dropdown option. | `CustomEvent<FocusEvent>`                            |
 | `sddsSelect` | Click event for the dropdown option. | `CustomEvent<{ selected: boolean; value: string; }>` |
 
 
