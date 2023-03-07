@@ -11,6 +11,7 @@ type Props = {
   enableExpandableRows: boolean;
   enableResponsive: boolean;
   modeVariant: 'primary' | 'secondary' | null;
+  textAlign: string;
 };
 
 export type InternalSddsPropChange = {
@@ -56,15 +57,15 @@ export class Table {
 
   /** @internal Broadcasts changes to the tables props */
   @Event({
-    eventName: 'internalSddsPropChange',
+    eventName: 'internalSddsTablePropChange',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  internalSddsPropChange: EventEmitter<InternalSddsPropChange>;
+  internalSddsTablePropChange: EventEmitter<InternalSddsPropChange>;
 
   emitInternalSddsPropChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
-    this.internalSddsPropChange.emit({
+    this.internalSddsTablePropChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,

@@ -48,7 +48,7 @@ export class TableHeaderRow {
   })
   internalSddsMainCheckboxSelect: EventEmitter<any>;
 
-  @Listen('internalSddsPropChange', { target: 'body' })
+  @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed

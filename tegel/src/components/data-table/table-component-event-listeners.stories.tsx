@@ -143,8 +143,8 @@ const EventListenersTemplate = ({
         document.getElementById('event-value-textarea').value = e.detail;
       });
 
-      window.addEventListener('sddsPaginationChange', e => {
-        document.getElementById('event-name-textarea').value = 'sddsPaginationChange';
+      window.addEventListener('sddsPageChange', e => {
+        document.getElementById('event-name-textarea').value = 'sddsPageChange';
         document.getElementById('event-value-textarea').value = e.detail;
       });
     </script>

@@ -57,7 +57,7 @@ export class TableBodyRow {
     this.internalSddsRowChange.emit(this.bodyCheckBoxStatus);
   }
 
-  @Listen('internalSddsPropChange', { target: 'body' })
+  @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed

@@ -83,7 +83,7 @@ export class TableFooter {
   })
   internalSddsEnablePagination: EventEmitter<any>;
 
-  @Listen('internalSddsPropChange', { target: 'body' })
+  @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
@@ -191,15 +191,15 @@ export class TableFooter {
 
   /** Event to send current page value back to sdds-table-body component, can also be listened to in order to implement custom pagination logic. */
   @Event({
-    eventName: 'sddsPaginationChange',
+    eventName: 'sddsPageChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsPaginationChange: EventEmitter<any>;
+  sddsPageChange: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.sddsPaginationChange.emit([this.tableId, value]);
+    this.sddsPageChange.emit([this.tableId, value]);
   }
 
   clientPaginationPrev = (event) => {
