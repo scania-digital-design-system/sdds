@@ -25,16 +25,15 @@ export default {
     },
   },
   argTypes: {
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -44,93 +43,68 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
+        defaultValue: { summary: false },
       },
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'Enables vertical dividers between table columns.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     noMinWidth: {
       name: 'No minimum width',
-      description:
-        'Resets min-width rule and enabled setting column width value less then 192px which is default one. When enabled, controls for columns width will show here.',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
       },
     },
     column1Width: {
       name: 'Column 1 width',
-      description:
-        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
+      description: 'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
     column2Width: {
       name: 'Column 2 width',
-      description:
-        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
     column3Width: {
       name: 'Column 3 width',
-      description:
-        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
     column4Width: {
       name: 'Column 4 width',
-      description:
-        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit too next tot the value, eg. 200px.',
-      type: 'string',
-      table: {
-        defaultValue: {
-          summary: '192px',
-        },
+      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
       },
       if: { arg: 'noMinWidth', eq: true },
     },
@@ -138,8 +112,8 @@ export default {
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: true,
     responsiveDesign: false,
+    verticalDivider: true,
     noMinWidth: true,
     column1Width: '321px',
     column2Width: '400px',
@@ -151,8 +125,8 @@ export default {
 const BasicTemplate = ({
   modeVariant,
   compactDesign,
-  verticalDivider,
   responsiveDesign,
+  verticalDivider,
   noMinWidth,
   column1Width,
   column2Width,
@@ -222,4 +196,3 @@ const BasicTemplate = ({
   </sdds-table>`);
 
 export const CustomWidth = BasicTemplate.bind({});
-CustomWidth.args = {};

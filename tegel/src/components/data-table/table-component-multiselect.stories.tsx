@@ -25,28 +25,15 @@ export default {
     },
   },
   argTypes: {
-    enableMultiselect: {
-      name: 'Enable multiselect',
-      description: 'Enable row selection.',
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: {
-          summary: true,
-        },
-      },
-    },
-    verticalDivider: {
-      name: 'Vertical dividers',
-      description: 'When enabled, table has vertical dividers between columns.',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     compactDesign: {
@@ -56,65 +43,107 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
-      },
-    },
-    modeVariant: {
-      name: 'Mode variant',
-      description: 'The mode variant of the component',
-      control: {
-        type: 'radio',
-      },
-      options: ['Inherit from parent', 'Primary', 'Secondary'],
-      table: {
-        defaultValue: { summary: 'Inherit from parent' },
+        defaultValue: { summary: false },
       },
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description:
-        'Table takes 100% of available width. For column values less then 192px, "No minimum width" has to be enabled too. ',
+      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: false,
-        },
+        defaultValue: { summary: false },
+      },
+    },
+    enableMultiselect: {
+      name: 'Enable multiselect',
+      description: 'Enables row selection.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: true },
+      },
+    },
+    verticalDivider: {
+      name: 'Vertical dividers',
+      description: 'Enables vertical dividers between table columns.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     noMinWidth: {
-      name: 'No column minimum width limitation',
-      description: 'Enable columns to shrink below width 192px.',
+      name: 'No minimum width',
+      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: 'false',
-        },
+        defaultValue: { summary: false },
       },
+    },
+    column1Width: {
+      name: 'Column 1 width',
+      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column2Width: {
+      name: 'Column 2 width',
+      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column3Width: {
+      name: 'Column 3 width',
+      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
+    },
+    column4Width: {
+      name: 'Column 4 width',
+      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'noMinWidth', eq: true },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
     compactDesign: false,
-    verticalDivider: false,
     responsiveDesign: false,
-    noMinWidth: false,
     enableMultiselect: true,
+    verticalDivider: false,
+    noMinWidth: false,
+    column1Width: '',
+    column2Width: '',
+    column3Width: '',
+    column4Width: '',
   },
 };
 
 const MultiselectTemplate = ({
-  verticalDivider,
-  compactDesign,
   modeVariant,
+  compactDesign,
   responsiveDesign,
   enableMultiselect,
+  verticalDivider,
   noMinWidth,
+  column1Width,
+  column2Width,
+  column3Width,
+  column4Width,
 }) =>
   formatHtmlPreview(`
 <script>
@@ -151,10 +180,18 @@ const MultiselectTemplate = ({
         }
     >
           <sdds-table-header>
-              <sdds-header-cell column-key='truck' column-title='Truck type'></sdds-header-cell>
-              <sdds-header-cell column-key='driver' column-title='Driver name'></sdds-header-cell>
-              <sdds-header-cell column-key='country' column-title='Country'></sdds-header-cell>
-              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
+              <sdds-header-cell column-key='truck' column-title='Truck type' ${
+                column1Width ? `custom-width="${column1Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='driver' column-title='Driver name' ${
+                column2Width ? `custom-width="${column2Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='country' column-title='Country' ${
+                column3Width ? `custom-width="${column3Width}"` : ''
+              }></sdds-header-cell>
+              <sdds-header-cell column-key='mileage' column-title='Mileage' text-align='right' ${
+                column4Width ? `custom-width="${column4Width}"` : ''
+              }></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
@@ -169,4 +206,3 @@ const MultiselectTemplate = ({
   </div>`);
 
 export const Multiselect = MultiselectTemplate.bind({});
-Multiselect.args = {};
