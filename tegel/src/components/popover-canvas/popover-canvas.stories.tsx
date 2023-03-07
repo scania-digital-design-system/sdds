@@ -10,8 +10,7 @@ export default {
   argTypes: {
     canvasPosition: {
       name: 'Canvas position',
-      description: 'Position of the PopoverCanvas',
-      type: { summary: 'string' },
+      description: 'Sets the position of the popover canvas.',
       control: {
         type: 'select',
       },
@@ -30,11 +29,13 @@ export default {
         'Right end',
         'Auto',
       ],
-      defaultValue: { summary: 'Auto' },
+      table: {
+        defaultValue: { summary: 'Auto' },
+      },
     },
   },
   args: {
-    canvasPosition: 'Bottom',
+    canvasPosition: 'Auto',
   },
 };
 
@@ -93,4 +94,3 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
   );
 };
 export const Default = ComponentPopoverCanvas.bind({});
-Default.args = {};
