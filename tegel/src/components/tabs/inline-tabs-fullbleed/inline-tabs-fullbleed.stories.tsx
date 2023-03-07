@@ -21,6 +21,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
