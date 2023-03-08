@@ -1,4 +1,14 @@
-import { Component, h, Host, Prop, Element, Method } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  Element,
+  Method,
+  State,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-modal',
@@ -6,6 +16,8 @@ import { Component, h, Host, Prop, Element, Method } from '@stencil/core';
   shadow: true,
 })
 export class Modal {
+  @Element() el: HTMLElement;
+
   /** Disables closing modal on clicking on overlay area. */
   @Prop() prevent: boolean = false;
 
@@ -15,51 +27,131 @@ export class Modal {
   /** Sticky or Static Actions  */
   @Prop() actions: 'sticky' | 'static' = 'static';
 
-  /* Opens or closes the modal. */
-  @Prop() open: boolean = false;
+  /** CSS selector for the element that will open the modal. */
+  @Prop() selector: string;
 
-  @Element() el: HTMLElement;
+  /** Element that will open the modal (takes priority over selector) */
+  @Prop() referenceEl: HTMLElement;
+
+  /** Controls wether the modal is shown or not. If this is set hiding and showing
+   * will be decided by this prop and will need to be controlled from the outside.
+   */
+  @Prop() show: boolean;
+
+  @State() isShown: boolean = false;
 
   closeButtonEl: HTMLElement;
 
-  /** Shows the modal  */
+  /** Shows the modal.  */
   @Method()
   async openModal() {
-    this.open = true;
+    this.handleShow();
   }
 
-  setDissmissButtons() {
-    const nodes = this.el.querySelectorAll('[data-dismiss-modal]');
-
-    [...Array.from(nodes), this.closeButtonEl].forEach((el) => {
-      el.addEventListener('click', () => {
-        this.open = false;
-      });
-    });
+  /** Closes the modal. */
+  @Method()
+  async closeModal() {
+    this.handleClose();
   }
 
-  handleClick(e) {
-    const targetList = e.composedPath();
-    const target = targetList[0];
-    if (
-      target.classList[0] === 'sdds-modal-close' ||
-      (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
-    ) {
-      this.open = false;
+  /** Emitts when the modal is closed. */
+  @Event({
+    eventName: 'sddsClose',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsClose: EventEmitter<any>;
+
+  /** Emitts when the modal is opened. */
+  @Event({
+    eventName: 'sddsShow',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsShow: EventEmitter<any>;
+
+  connectedCallback() {
+    if (this.show !== null) {
+      this.isShown = this.show;
     }
+  }
+
+  componentDidLoad() {
+    this.setSelectorButton();
   }
 
   componentDidRender() {
     this.setDissmissButtons();
   }
 
+  handleClose = (event?) => {
+    const closeEvent = this.sddsClose.emit(event);
+    if (!closeEvent.defaultPrevented) {
+      this.isShown = false;
+    }
+  };
+
+  handleShow = (event?) => {
+    const showEvent = this.sddsShow.emit(event);
+    if (!showEvent.defaultPrevented) {
+      this.isShown = true;
+    }
+  };
+
+  getSelector = (referenceEl) => {
+    if (referenceEl) {
+      referenceEl.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (this.isShown) {
+          this.handleClose(event);
+        } else {
+          this.handleShow(event);
+        }
+      });
+    }
+  };
+
+  setSelectorButton = () => {
+    if (this.selector || this.referenceEl) {
+      const referenceEl = this.referenceEl ?? document.querySelector(this.selector);
+      if (referenceEl) {
+        this.getSelector(referenceEl);
+      } else {
+        console.error(
+          `Could not initialize modal: element with selector '${this.selector}' not found.`,
+        );
+      }
+    }
+  };
+
+  setDissmissButtons() {
+    this.el.querySelectorAll('[data-dismiss-modal]').forEach((dismissButton) => {
+      dismissButton.addEventListener('click', (event) => {
+        this.handleClose(event);
+      });
+    });
+  }
+
+  handleOverlayClick(event) {
+    const targetList = event.composedPath();
+    const target = targetList[0];
+    if (
+      target.classList[0] === 'sdds-modal-close' ||
+      (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
+    ) {
+      this.handleClose(event);
+    }
+  }
+
   render() {
     return (
       <Host
         onClick={(event) => {
-          this.handleClick(event);
+          this.handleOverlayClick(event);
         }}
-        class={`sdds-modal-backdrop ${this.open ? 'show' : 'hide'}`}
+        class={`sdds-modal-backdrop ${this.isShown ? 'show' : 'hide'}`}
       >
         <div
           class={`sdds-modal ${this.actions ? `sdds-modal__actions-${this.actions}` : ''} ${

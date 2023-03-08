@@ -5,19 +5,39 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                         | Type                           | Default    |
-| --------- | --------- | --------------------------------------------------- | ------------------------------ | ---------- |
-| `actions` | `actions` | Sticky or Static Actions                            | `"static" \| "sticky"`         | `'static'` |
-| `open`    | `open`    |                                                     | `boolean`                      | `false`    |
-| `prevent` | `prevent` | Disables closing modal on clicking on overlay area. | `boolean`                      | `false`    |
-| `size`    | `size`    | Size of modal                                       | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`     |
+| Property      | Attribute  | Description                                                                                                                                                | Type                           | Default     |
+| ------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------- |
+| `actions`     | `actions`  | Sticky or Static Actions                                                                                                                                   | `"static" \| "sticky"`         | `'static'`  |
+| `prevent`     | `prevent`  | Disables closing modal on clicking on overlay area.                                                                                                        | `boolean`                      | `false`     |
+| `referenceEl` | --         | Element that will open the modal (takes priority over selector)                                                                                            | `HTMLElement`                  | `undefined` |
+| `selector`    | `selector` | CSS selector for the element that will open the modal.                                                                                                     | `string`                       | `undefined` |
+| `show`        | `show`     | Controls wether the modal is shown or not. If this is set hiding and showing will be decided by this prop and will need to be controlled from the outside. | `boolean`                      | `undefined` |
+| `size`        | `size`     | Size of modal                                                                                                                                              | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`      |
+
+
+## Events
+
+| Event       | Description                      | Type               |
+| ----------- | -------------------------------- | ------------------ |
+| `sddsClose` | Emitts when the modal is closed. | `CustomEvent<any>` |
+| `sddsShow`  | Emitts when the modal is opened. | `CustomEvent<any>` |
 
 
 ## Methods
 
+### `closeModal() => Promise<void>`
+
+Closes the modal.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `openModal() => Promise<void>`
 
-Shows the modal
+Shows the modal.
 
 #### Returns
 
