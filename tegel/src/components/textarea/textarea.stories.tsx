@@ -88,7 +88,7 @@ export default {
         type: 'number',
       },
     },
-    minWidth: {
+    noMinWidth: {
       name: 'No minimum width',
       description: 'Enables component to shrink below 208px which is the default width.',
       control: {
@@ -128,7 +128,7 @@ export default {
     helper: '',
     rows: 5,
     maxLength: 0,
-    minWidth: false,
+    noMinWidth: false,
     readonly: false,
     disabled: false,
   },
@@ -143,7 +143,7 @@ const Template = ({
   helper,
   rows,
   maxLength,
-  minWidth,
+  noMinWidth,
   readonly,
   disabled,
 }) => {
@@ -176,7 +176,7 @@ const Template = ({
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'read-only' : ''}
-          ${minWidth ? 'no-min-width' : ''}
+          ${noMinWidth ? 'no-min-width' : ''}
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
