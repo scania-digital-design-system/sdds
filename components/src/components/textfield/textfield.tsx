@@ -71,7 +71,8 @@ export class Textfield {
   sddsInput: EventEmitter<InputEvent>;
 
   // Data input event in value prop
-  handleInput(event): void {
+  this.value = event.target.value;
+  this.sddsInput.emit(event);
     this.sddsInput.emit(event);
     this.value = event.target.value;
   }
