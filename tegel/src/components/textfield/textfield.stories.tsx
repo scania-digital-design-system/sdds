@@ -135,7 +135,7 @@ export default {
         type: 'number',
       },
     },
-    minWidth: {
+    noMinWidth: {
       name: 'No minimum width',
       description: 'Enables component to shrink below 208px which is the default width.',
       control: {
@@ -180,7 +180,7 @@ export default {
     suffix: false,
     suffixType: 'Icon',
     maxLength: 0,
-    minWidth: 'Default',
+    noMinWidth: 'Default',
     readonly: false,
     disabled: false,
   },
@@ -200,7 +200,7 @@ const Template = ({
   suffix,
   suffixType,
   maxLength,
-  minWidth,
+  noMinWidth,
   readonly,
   disabled,
 }) => {
@@ -233,7 +233,7 @@ const Template = ({
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'read-only' : ''}
-      ${minWidth ? 'no-min-width' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
           prefix
