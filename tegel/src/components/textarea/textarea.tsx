@@ -4,6 +4,7 @@ import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
   tag: 'sdds-textarea',
   styleUrl: 'textarea.scss',
   shadow: false,
+  scoped: true,
 })
 export class Textarea {
   /** Textinput for focus state */
@@ -119,23 +120,21 @@ export class Textarea {
     return (
       <div
         class={`
-        sdds-textarea-container
-        ${this.noMinWidth ? 'no-min-width' : ''}
-        ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
-        ${this.focusInput ? 'sdds-textarea-focus' : ''}
-        ${this.disabled ? 'sdds-textarea-disabled' : ''}
-        ${this.readOnly ? 'sdds-textarea-readonly' : ''}
+        textarea-container
+        ${this.labelPosition === 'inside' ? 'textarea-label-inside' : ''}
+        ${this.focusInput ? 'textarea-focus' : ''}
+        ${this.disabled ? 'textarea-disabled' : ''}
+        ${this.readOnly ? 'textarea-readonly' : ''}
         ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}
-        ${this.value ? 'sdds-textarea-data' : ''}
-        ${this.state === 'error' || this.state === 'success' ? `sdds-textarea-${this.state}` : ''}
+        ${this.value ? 'textarea-data' : ''}
+        ${this.state === 'error' || this.state === 'success' ? `textarea-${this.state}` : ''}
+        ${this.noMinWidth ? 'no-min-width' : ''}
         `}
       >
-        {this.labelPosition !== 'no-label' && (
-          <span class={'sdds-textarea-label'}>{this.label}</span>
-        )}
-        <div class="sdds-textarea-wrapper">
+        {this.labelPosition !== 'no-label' && <span class={'textarea-label'}>{this.label}</span>}
+        <div class="textarea-wrapper">
           <textarea
-            class={'sdds-textarea-input'}
+            class={'textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
             readonly={this.readOnly}
@@ -159,7 +158,7 @@ export class Textarea {
             onInput={(event) => this.handleInput(event)}
             onChange={(event) => this.handleChange(event)}
           ></textarea>
-          <span class="sdds-textarea-resizer-icon">
+          <span class="textarea-resizer-icon">
             <svg
               width="12"
               height="12"
@@ -175,20 +174,20 @@ export class Textarea {
               />
             </svg>
           </span>
-          <span class="sdds-textarea-icon__readonly">
+          <span class="textarea-icon__readonly">
             <sdds-icon name="edit_inactive"></sdds-icon>
           </span>
-          <span class="sdds-textarea-icon__readonly-label">This field is non-editable</span>
+          <span class="textarea-icon__readonly-label">This field is non-editable</span>
         </div>
-        <span class={'sdds-textarea-helper'}>
+        <span class={'textarea-helper'}>
           {this.state === 'error' && <sdds-icon name="error" size="16px"></sdds-icon>}
           {this.helper}
         </span>
 
         {this.maxLength > 0 && (
-          <div class={'sdds-textarea-textcounter'}>
+          <div class={'textarea-textcounter'}>
             {this.value === null ? 0 : this.value?.length}
-            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxLength}
+            <span class="textfield-textcounter-divider"> / </span> {this.maxLength}
           </div>
         )}
       </div>
