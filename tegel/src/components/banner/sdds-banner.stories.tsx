@@ -31,7 +31,7 @@ export default {
         type: 'radio',
       },
       table: {
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: 'none' },
       },
     },
     header: {
@@ -80,9 +80,6 @@ export default {
         type: 'select',
       },
       options: [...iconsNames, 'none'],
-      table: {
-        defaultValue: { summary: 'none' },
-      },
       if: { arg: 'type', eq: 'Default' },
     },
     persistent: {
@@ -92,7 +89,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },
