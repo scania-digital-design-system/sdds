@@ -60,14 +60,15 @@
 @import 'src/components/datetime/datetime-vars';
 @import 'src/components/dropdown/dropdown-select';
 @import 'src/components/dropdown/dropdown-vars';
-@import 'src/components/inline-tabs/inline-tabs-vars';
 @import 'src/components/modal/modal';
-@import 'src/components/navigation-tabs/navigation-tabs-vars';
 @import 'src/components/popover-canvas/popover-canvas-vars';
 @import 'src/components/popover-menu/popover-menu-item';
 @import 'src/components/popover-menu/popover-menu-vars';
 @import 'src/components/spinner/spinner';
 @import 'src/components/stepper/stepper-vars.scss';
+@import 'src/components/tabs/folder-tabs/folder-tabs-vars';
+@import 'src/components/tabs/inline-tabs/inline-tabs-vars';
+@import 'src/components/tabs/navigation-tabs/navigation-tabs-vars';
 @import 'src/components/textarea/textarea-vars';
 @import 'src/components/textfield/textfield-vars';
 @import 'src/components/tooltip/tooltip-vars';
