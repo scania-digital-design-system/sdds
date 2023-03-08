@@ -69,7 +69,7 @@ export class SddsComponent {
   handlePropChange(){
   }
 
-    /** Comment explaning the method. */
+  /** Comment explaning the method. */
   @Method()
   async handleComponent(){
   }
