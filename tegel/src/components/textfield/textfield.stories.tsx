@@ -38,13 +38,19 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     type: {
       name: 'Type',
       description: 'Which type of textfield',
       control: {
         type: 'radio',
-        options: ['Password', 'Text'],
+      },
+      options: ['Password', 'Text'],
+      table: {
+        defaultValue: { summary: 'Text' },
       },
     },
     size: {
@@ -52,7 +58,10 @@ export default {
       description: 'Switches between different sizes.',
       control: {
         type: 'radio',
-        options: ['Large', 'Medium', 'Small'],
+      },
+      options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: { summary: 'Large' },
       },
     },
     label: {
@@ -69,6 +78,9 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'None' },
+      },
     },
     placeholderText: {
       name: 'Placeholder',
@@ -102,6 +114,9 @@ export default {
       },
       options: ['Icon', 'Text'],
       if: { arg: 'prefix', eq: true },
+      table: {
+        defaultValue: { summary: 'Icon' },
+      },
     },
     suffix: {
       name: 'Suffix',
@@ -121,6 +136,9 @@ export default {
       },
       options: ['Icon', 'Text'],
       if: { arg: 'suffix', eq: true },
+      table: {
+        defaultValue: { summary: 'Icon' },
+      },
     },
     maxLength: {
       name: 'Max length',
@@ -145,12 +163,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     disabled: {
       description: 'Disables the textfield.',
       name: 'Disabled',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
