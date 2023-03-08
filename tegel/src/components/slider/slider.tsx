@@ -46,7 +46,7 @@ export class Slider {
   @Prop() name: string = '';
 
   /** Sets the size of the scrubber */
-  @Prop() size: 'sm' | '' = '';
+  @Prop() size: 'sm' | 'lg' = 'lg';
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = false;

@@ -132,14 +132,15 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    small: {
-      name: 'Small',
-      description: 'Toggles if the small variant of the scrubber should be used.',
+    scrubberSize: {
+      name: 'Scrubber size',
+      description: 'Switches between the large and small version of the scrubber.',
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
+      options: ['Large', 'Small'],
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'lg' },
       },
     },
     readonly: {
@@ -192,11 +193,17 @@ export default {
     showControls: false,
     step: '1',
     showInput: false,
-    small: false,
+    scrubberSize: 'Large',
     readonly: false,
     disabled: false,
   },
 };
+
+const sizeLookUp = {
+  'Large': 'lg',
+  'Small': 'sm',
+};
+
 const Template = ({
   min,
   max,
@@ -211,7 +218,7 @@ const Template = ({
   showControls,
   step,
   showInput,
-  small,
+  scrubberSize,
   readonly,
   disabled,
 }) =>
@@ -229,7 +236,7 @@ const Template = ({
       ${showControls ? 'controls' : ''} 
       ${showInput ? 'input' : ''} 
       ${disabled ? 'disabled' : ''} 
-      ${small ? 'size="sm"' : ''}
+      size="${sizeLookUp[scrubberSize]}"
       ${readonly ? 'read-only' : ''} 
       >
 
