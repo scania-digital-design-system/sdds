@@ -236,7 +236,7 @@ const Template = ({
       ${showControls ? 'controls' : ''} 
       ${showInput ? 'input' : ''} 
       ${disabled ? 'disabled' : ''} 
-      size="${sizeLookUp[scrubberSize]}"
+      scrubber-size="${sizeLookUp[scrubberSize]}"
       ${readonly ? 'read-only' : ''} 
       >
 
