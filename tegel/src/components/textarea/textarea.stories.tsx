@@ -39,7 +39,7 @@ export default {
       },
       options: ['Default', 'Success', 'Error'],
       table: {
-        defaultValue: { summary: 'Default' },
+        defaultValue: { summary: 'default' },
       },
     },
     label: {
@@ -57,7 +57,7 @@ export default {
       },
       options: ['None', 'Inside', 'Outside'],
       table: {
-        defaultValue: { summary: 'None' },
+        defaultValue: { summary: 'no-label' },
       },
     },
     placeholder: {
