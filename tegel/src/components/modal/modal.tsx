@@ -106,7 +106,6 @@ export class Modal {
   };
 
   setSelectorButton = () => {
-    console.log('hej');
     if (this.selector || this.referenceEl) {
       const referenceEl = this.referenceEl ?? document.querySelector(this.selector);
       if (referenceEl) {
