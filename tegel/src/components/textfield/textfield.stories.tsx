@@ -39,7 +39,7 @@ export default {
       },
       options: ['Default', 'Success', 'Error'],
       table: {
-        defaultValue: { summary: 'Default' },
+        defaultValue: { summary: 'default' },
       },
     },
     type: {
@@ -50,7 +50,7 @@ export default {
       },
       options: ['Password', 'Text'],
       table: {
-        defaultValue: { summary: 'Text' },
+        defaultValue: { summary: 'text' },
       },
     },
     size: {
@@ -61,7 +61,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
       table: {
-        defaultValue: { summary: 'Large' },
+        defaultValue: { summary: 'lg' },
       },
     },
     label: {
@@ -79,7 +79,7 @@ export default {
       },
       options: ['None', 'Inside', 'Outside'],
       table: {
-        defaultValue: { summary: 'None' },
+        defaultValue: { summary: 'no-label' },
       },
     },
     placeholderText: {
@@ -102,9 +102,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     prefixType: {
       name: 'Prefix type',
@@ -114,18 +111,12 @@ export default {
       },
       options: ['Icon', 'Text'],
       if: { arg: 'prefix', eq: true },
-      table: {
-        defaultValue: { summary: 'Icon' },
-      },
     },
     suffix: {
       name: 'Suffix',
       description: 'Adds a suffix symbol or text after the textfield.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
       },
     },
     suffixType: {
@@ -136,9 +127,6 @@ export default {
       },
       options: ['Icon', 'Text'],
       if: { arg: 'suffix', eq: true },
-      table: {
-        defaultValue: { summary: 'Icon' },
-      },
     },
     maxLength: {
       name: 'Max length',
