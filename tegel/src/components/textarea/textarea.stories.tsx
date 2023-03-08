@@ -20,13 +20,6 @@ export default {
     ],
   },
   argTypes: {
-    placeholder: {
-      name: 'Placeholder',
-      description: 'Placeholder text',
-      control: {
-        type: 'text',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
       description: 'Change the components mode variant',
@@ -38,9 +31,60 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
+    state: {
+      name: 'State',
+      description: 'Switch between success or error state',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Success', 'Error'],
+    },
+    label: {
+      description: 'Label text for specific textfield',
+      name: 'Label text',
+      control: {
+        type: 'text',
+      },
+    },
+    labelPosition: {
+      name: 'Label position',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Inside', 'Outside'],
+      description: 'Label text position',
+    },
+    placeholder: {
+      name: 'Placeholder',
+      description: 'Placeholder text',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Add helper text for the textfield',
+      control: {
+        type: 'text',
+      },
+    },
+    rows: {
+      name: 'Rows',
+      description: 'Set the number of rows',
+      control: {
+        type: 'number',
+      },
+    },
+    maxLength: {
+      name: 'Max length',
+      description: 'Set a maximum value of how long the text can be.',
+      control: {
+        type: 'number',
+      },
+    },
+    minWidth: {
+      name: 'No minimum width',
+      description: 'Toggle the minimum width.',
       control: {
         type: 'boolean',
       },
@@ -58,45 +102,9 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    label: {
-      description: 'Label text for specific textfield',
-      name: 'Label text',
-      control: {
-        type: 'text',
-      },
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    helper: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
-      },
-    },
-    maxLength: {
-      name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
-      control: {
-        type: 'number',
-      },
-    },
-    rows: {
-      name: 'Rows',
-      description: 'Set the number of rows',
-      control: {
-        type: 'number',
-      },
-    },
-    minWidth: {
-      name: 'No minimum width',
-      description: 'Toggle the minimum width.',
+    disabled: {
+      description: 'Set textfield to disabled state',
+      name: 'Disabled',
       control: {
         type: 'boolean',
       },
@@ -104,42 +112,34 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Success', 'Error'],
-    },
   },
   args: {
-    placeholder: 'Placeholder',
-    disabled: false,
-    readonly: false,
+    modeVariant: 'Inherit from parent',
+    state: 'Default',
     label: 'Label',
     labelPosition: 'None',
+    placeholder: 'Placeholder',
     helper: '',
-    maxLength: 0,
     rows: 5,
-    state: 'Default',
-    modeVariant: 'Inherit from parent',
+    maxLength: 0,
     minWidth: false,
+    readonly: false,
+    disabled: false,
   },
 };
 
 const Template = ({
-  placeholder,
-  disabled,
-  readonly,
+  modeVariant,
+  state,
   label,
   labelPosition,
-  state,
+  placeholder,
   helper,
-  maxLength,
-  modeVariant,
-  minWidth,
   rows,
+  maxLength,
+  minWidth,
+  readonly,
+  disabled,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
