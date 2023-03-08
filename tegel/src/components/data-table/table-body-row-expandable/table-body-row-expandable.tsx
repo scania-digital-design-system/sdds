@@ -44,7 +44,7 @@ export class TableBodyRowExpandable {
 
   tableEl: HTMLSddsTableElement;
 
-  /** @internal Sends out status of itw own expended status feature to table header component */
+  /** @internal Sends out expanded status which is used by the table header component */
   @Event({
     eventName: 'internalSddsRowExpanded',
     bubbles: true,
@@ -53,14 +53,14 @@ export class TableBodyRowExpandable {
   })
   internalSddsRowExpanded: EventEmitter<any>;
 
-  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  /** @internal Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
-    eventName: 'sddsPagination',
+    eventName: 'internalSddsPagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsPagination: EventEmitter<string>;
+  internalSddsPagination: EventEmitter<string>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
@@ -88,7 +88,7 @@ export class TableBodyRowExpandable {
   }
 
   componentDidLoad() {
-    this.sddsPagination.emit(this.tableId);
+    this.internalSddsPagination.emit(this.tableId);
   }
 
   componentWillRender() {

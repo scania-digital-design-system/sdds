@@ -153,7 +153,7 @@ export class TableFooter {
     this.runPagination();
   }
 
-  @Listen('sddsPagination', { target: 'body' })
+  @Listen('internalSddsPagination', { target: 'body' })
   sddsPaginationListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail) {
       this.runPagination();

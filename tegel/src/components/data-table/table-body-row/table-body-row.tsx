@@ -80,14 +80,14 @@ export class TableBodyRow {
   })
   internalSddsRowChange: EventEmitter<boolean>;
 
-  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  /** @internal Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
-    eventName: 'sddsPagination',
+    eventName: 'internalSddsPagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsPagination: EventEmitter<string>;
+  internalSddsPagination: EventEmitter<string>;
 
   @Listen('internalSddsMainCheckboxSelect', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
@@ -116,7 +116,7 @@ export class TableBodyRow {
   }
 
   componentDidLoad() {
-    this.sddsPagination.emit(this.tableId);
+    this.internalSddsPagination.emit(this.tableId);
   }
 
   render() {
