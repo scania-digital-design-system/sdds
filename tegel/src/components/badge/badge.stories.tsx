@@ -41,9 +41,6 @@ export default {
         type: 'number',
       },
       if: { arg: 'size', neq: 'sm' },
-      table: {
-        defaultValue: { summary: null },
-      },
     },
     hidden: {
       name: 'Hidden',
