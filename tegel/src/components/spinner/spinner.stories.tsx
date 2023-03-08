@@ -28,7 +28,7 @@ export default {
       },
       options: ['Standard', 'Inverted'],
       table: {
-        defaultValue: { summary: 'Standard' },
+        defaultValue: { summary: 'standard' },
       },
     },
     size: {
@@ -39,7 +39,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
       table: {
-        defaultValue: { summary: 'Large' },
+        defaultValue: { summary: 'lg' },
       },
     },
   },
