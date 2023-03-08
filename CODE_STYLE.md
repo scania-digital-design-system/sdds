@@ -45,7 +45,7 @@ export class SddsComponent {
   /** Comment explaning  the use of the the prop */
   @Prop() prop: string;
  
- /** Comment explaning  the use of the the prop */
+  /** Comment explaning the use of the the prop */
   @Prop() secondProp: string;
 
   @State() state: boolean;
