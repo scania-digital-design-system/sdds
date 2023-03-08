@@ -23,14 +23,15 @@ export class SddsBreadcrumbItem {
 
   render() {
     return (
-      <li
+      <div
+        role="listitem"
         class={`${this.current ? 'current' : ''} 
-        ${this.disabled ? 'disabled' : ''}`}
+      ${this.disabled ? 'disabled' : ''}`}
       >
         <a href={!this.disabled ? this.href : null} target={this.target} rel={this.rel}>
           <slot></slot>
         </a>
-      </li>
+      </div>
     );
   }
 }

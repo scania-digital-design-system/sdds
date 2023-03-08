@@ -1,6 +1,6 @@
 @import '../../../mixins/focus-state';
 
-li {
+[role='listitem'] {
   display: flex;
   align-items: center;
   color: var(--sdds-breadcrumb-color);
