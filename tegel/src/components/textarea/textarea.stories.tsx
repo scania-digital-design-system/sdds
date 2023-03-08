@@ -22,7 +22,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Change the components mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -33,58 +33,58 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Switch between success or error state',
+      description: 'Switches between success and error state.',
       control: {
         type: 'radio',
       },
       options: ['Default', 'Success', 'Error'],
     },
     label: {
-      description: 'Label text for specific textfield',
       name: 'Label text',
+      description: 'Sets the label text.',
       control: {
         type: 'text',
       },
     },
     labelPosition: {
-      name: 'Label position',
+      name: 'Label position.',
+      description: 'Sets the label text position.',
       control: {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
     },
     placeholder: {
       name: 'Placeholder',
-      description: 'Placeholder text',
+      description: 'Sets the placeholder text.',
       control: {
         type: 'text',
       },
     },
     helper: {
       name: 'Helper text',
-      description: 'Add helper text for the textfield',
+      description: 'Sets the helper text.',
       control: {
         type: 'text',
       },
     },
     rows: {
       name: 'Rows',
-      description: 'Set the number of rows',
+      description: 'Sets the number of rows.',
       control: {
         type: 'number',
       },
     },
     maxLength: {
       name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
+      description: 'Sets a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
     },
     minWidth: {
       name: 'No minimum width',
-      description: 'Toggle the minimum width.',
+      description: 'Enables component to shrink below 208px which is the default width.',
       control: {
         type: 'boolean',
       },
@@ -93,8 +93,8 @@ export default {
       },
     },
     readonly: {
-      description: 'Set textfield to read-only state',
       name: 'Read only',
+      description: 'Sets the textarea to read-only state.',
       control: {
         type: 'boolean',
       },
@@ -103,8 +103,8 @@ export default {
       },
     },
     disabled: {
-      description: 'Set textfield to disabled state',
       name: 'Disabled',
+      description: 'Disables the textarea.',
       control: {
         type: 'boolean',
       },
