@@ -67,6 +67,11 @@ button.sdds-chip {
 
     .sdds-chip-icon {
       left: 8px;
+
+      sdds-icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
@@ -76,6 +81,11 @@ button.sdds-chip {
 
     .sdds-chip-icon {
       right: 8px;
+
+      sdds-icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
