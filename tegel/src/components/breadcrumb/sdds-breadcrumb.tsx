@@ -9,15 +9,15 @@ export class SddsBreadcrumb {
   @Element() el: HTMLElement;
 
   connectedCallback() {
-    this.el.children[this.el.children.length - 1].classList.add('sdds-breadcrumb-item-last');
+    this.el.children[this.el.children.length - 1].classList.add('last');
   }
 
   render() {
     return (
       <nav>
-        <ol class={'sdds-breadcrumb'}>
+        <div role="list" class={'sdds-breadcrumb'}>
           <slot></slot>
-        </ol>
+        </div>
       </nav>
     );
   }
