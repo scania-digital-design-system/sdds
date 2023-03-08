@@ -42,7 +42,7 @@ Our component files (e.g. accordion.tsx) should follow the following structure, 
 export class SddsComponent {
   @Element() host: HostElement;
 
-  /** Comment explaning  the use of the the prop */
+  /** Comment explaning the use of the the prop */
   @Prop() prop: string;
  
   /** Comment explaning the use of the the prop */
