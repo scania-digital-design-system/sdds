@@ -110,12 +110,12 @@ export default {
       description: 'Helper text assists the user with additional information about the dropdown',
       control: 'text',
     },
-    childType: {
-      name: 'Child type',
+    optionType: {
+      name: 'Option type',
       description:
-        'Render the child elements either via the data prop, or passing them as children to the dropdown.',
+        'Render the options either via the options prop, or passing them as children to the dropdown.',
       control: 'radio',
-      options: ['Elements', 'Data'],
+      options: ['Children', 'Property'],
     },
     defaultOption: {
       name: 'Default options',
@@ -160,7 +160,7 @@ export default {
     filter: false,
     multiselect: false,
     helperText: 'Helper text',
-    childType: 'Elements',
+    optionType: 'Children',
     defaultOption: 'No default',
     openDirection: 'Auto',
   },
@@ -211,7 +211,7 @@ const Template = ({
   openDirection,
   modeVariant,
   disabled,
-  childType,
+  optionType,
   defaultOption,
   multiDefaultOption,
 }) =>
@@ -257,10 +257,10 @@ const Template = ({
             ${multiselect ? 'multiselect' : ''}
             ${disabled ? 'disabled' : ''}
             open-direction="${openDirection.toLowerCase()}"
-            ${childType === 'Data' ? `options='${JSON.stringify(data)}'` : ''}
+            ${optionType === 'Property' ? `options='${JSON.stringify(data)}'` : ''}
             >
             ${
-              childType === 'Elements'
+              optionType === 'Children'
                 ? `<sdds-dropdown-option-v2 value="option-1">
                 Option 1
                </sdds-dropdown-option-v2>
