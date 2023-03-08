@@ -1,6 +1,5 @@
-@import './textfield-vars.scss';
-
 @mixin textfield-base {
+  all: unset;
   border-radius: 4px 4px 0 0;
   width: 100%;
   box-sizing: border-box;
@@ -29,14 +28,14 @@
       color: var(--sdds-textfield-placeholder-disabled);
     }
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       color: var(--sdds-textfield-label-disabled);
     }
   }
 }
 
 //Sizes
-.sdds-textfield-input {
+.textfield-input-lg {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -44,7 +43,7 @@
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
-.sdds-textfield-input-md {
+.textfield-input-md {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -52,7 +51,7 @@
   padding: var(--sdds-spacing-element-16);
 }
 
-.sdds-textfield-input-sm {
+.textfield-input-sm {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -61,7 +60,7 @@
 }
 
 //Container for input field and prefix/suffix
-.sdds-textfield-container {
+.textfield-container {
   border-radius: 4px 4px 0 0;
   display: flex;
   position: relative;
@@ -75,16 +74,16 @@
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
-  .sdds-form-textfield-md & {
+  .form-textfield-md & {
     height: 48px;
   }
 
-  .sdds-form-textfield-sm & {
+  .form-textfield-sm & {
     height: 40px;
   }
 }
 
-.sdds-textfield-input-container {
+.textfield-input-container {
   position: relative;
   width: 100%;
 }
@@ -99,7 +98,7 @@
 } */
 
 //Textfield label
-.sdds-textfield-label-outside > * {
+.textfield-label-outside > * {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
@@ -107,7 +106,7 @@
   color: var(--sdds-textfield-label-color);
 }
 
-.sdds-textfield-label-inside {
+.textfield-label-inside {
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   position: absolute;
@@ -145,7 +144,7 @@
 }
 
 //Form control
-.sdds-form-textfield {
+.form-textfield {
   display: block;
   min-width: 208px;
 
@@ -156,43 +155,43 @@
 
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
-.sdds-form-textfield.sdds-textfield-container-label-inside {
-  .sdds-textfield-input {
+.form-textfield.textfield-container-label-inside {
+  .textfield-input-lg {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: 15px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 20px;
     }
 
     @include placeholder-label;
   }
 
-  .sdds-textfield-input-md {
+  .textfield-input-md {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  .sdds-textfield-input-sm {
+  .textfield-input-sm {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  &.sdds-textfield-focus,
-  &.sdds-textfield-data {
-    .sdds-textfield-input-sm ~ .sdds-textfield-label-inside {
+  &.textfield-focus,
+  &.textfield-data {
+    .textfield-input-sm ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -201,7 +200,7 @@
       top: 8px;
     }
 
-    .sdds-textfield-input-md ~ .sdds-textfield-label-inside {
+    .textfield-input-md ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -210,7 +209,7 @@
       top: 8px;
     }
 
-    .sdds-textfield-input ~ .sdds-textfield-label-inside {
+    .textfield-input-lg ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -222,7 +221,7 @@
 }
 
 //Textfield bottom bar when in focus
-.sdds-textfield-bar {
+.textfield-bar {
   position: absolute;
   width: 100%;
 
@@ -236,11 +235,11 @@
     background: var(--sdds-textfield-bar);
     transition: 0.35s ease all;
 
-    .sdds-form-textfield-md & {
+    .form-textfield-md & {
       top: 46px;
     }
 
-    .sdds-form-textfield-sm & {
+    .form-textfield-sm & {
       top: 40px;
     }
   }
@@ -253,21 +252,21 @@
     right: 50%;
   }
 
-  .sdds-textfield-focus &::before,
-  .sdds-textfield-focus &::after {
+  .textfield-focus &::before,
+  .textfield-focus &::after {
     width: 50%;
   }
 }
 
 //Helper text
-.sdds-textfield-helper {
+.textfield-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: flex;
   gap: 8px;
   justify-content: space-between;
 
-  & .sdds-textfield-textcounter {
+  & .textfield-textcounter {
     margin-left: auto;
   }
 
@@ -277,19 +276,19 @@
 }
 
 //Disabled state
-.sdds-form-textfield-disabled {
-  .sdds-textfield-container {
+.form-textfield-disabled {
+  .textfield-container {
     border-bottom-color: transparent;
   }
 
-  .sdds-textfield-slot-wrap-prefix,
-  .sdds-textfield-slot-wrap-suffix {
+  .textfield-slot-wrap-prefix,
+  .textfield-slot-wrap-suffix {
     > * {
       color: var(--sdds-textfield-ps-color-disabled);
     }
   }
 
-  .sdds-textfield-label-outside {
+  .textfield-label-outside {
     > * {
       color: var(--sdds-textfield-label-disabled);
     }
@@ -298,7 +297,7 @@
 
 //Read only state
 
-.sdds-textfield-icon__readonly {
+.textfield-icon__readonly {
   display: none;
   position: absolute;
   right: 18px;
@@ -319,43 +318,43 @@
   }
 }
 
-.sdds-form-textfield-readonly {
+.form-textfield-readonly {
   pointer-events: none;
 
-  .sdds-textfield-icon__readonly {
+  .textfield-icon__readonly {
     display: block;
 
     &:hover {
-      ~ .sdds-textfield-icon__readonly-label {
+      ~ .textfield-icon__readonly-label {
         display: block;
       }
     }
   }
 
-  .sdds-textfield-input {
+  .textfield-input {
     padding-right: 54px;
     background-color: transparent;
   }
 }
 
 //Success state
-.sdds-form-textfield-success {
-  .sdds-textfield-container {
+.form-textfield-success {
+  .textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
 //Error State
-.sdds-form-textfield-error {
-  .sdds-textfield-helper {
+.form-textfield-error {
+  .textfield-helper {
     color: var(--sdds-textfield-helper-error);
   }
 
-  .sdds-textfield-container {
+  .textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
-  .sdds-textfield-bar {
+  .textfield-bar {
     &::before,
     &::after {
       background: var(--sdds-textfield-bar-error);
@@ -368,20 +367,20 @@
   }
 }
 
-// .sdds-textfield-textcounter {
-.sdds-textfield-helper-error-state {
+// .textfield-textcounter {
+.textfield-helper-error-state {
   display: flex;
   gap: 8px;
   flex-wrap: nowrap;
 }
 
-.sdds-textfield-textcounter {
+.textfield-textcounter {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   color: var(--sdds-textfield-textcounter);
   float: right;
 
-  & .sdds-textfield-textcounter-divider {
+  & .textfield-textcounter-divider {
     // @include type-style('detail-05');
     color: var(--sdds-textfield-textcounter-divider);
   }
@@ -394,7 +393,7 @@ slot[name="sdds-suffix"]::slotted(*) {
   color: var(--sdds-textfield-ps-color);
 } */
 
-.sdds-textfield-slot-wrap-prefix {
+.textfield-slot-wrap-prefix {
   align-self: center;
 
   > * {
@@ -404,15 +403,15 @@ slot[name="sdds-suffix"]::slotted(*) {
     color: var(--sdds-textfield-ps-color);
   }
 
-  &.sdds-textfield-error {
+  &.textfield-error {
     sdds-icon,
-    .sdds-icon {
+    .icon {
       color: var(--sdds-negative);
     }
   }
 }
 
-.sdds-textfield-slot-wrap-suffix {
+.textfield-slot-wrap-suffix {
   align-self: center;
 
   > * {
@@ -422,9 +421,9 @@ slot[name="sdds-suffix"]::slotted(*) {
     color: var(--sdds-textfield-ps-color);
   }
 
-  &.sdds-textfield-error {
+  &.textfield-error {
     sdds-icon,
-    .sdds-icon {
+    .icon {
       color: var(--sdds-negative);
     }
   }
@@ -441,7 +440,7 @@ slot[name='sdds-suffix']::slotted(sdds-icon) {
 slot[name='sdds-prefix']::slotted(*) {
   padding-left: var(--sdds-spacing-element-20);
 
-  & ~ .sdds-textfield-input {
+  & ~ .textfield-input {
     padding-left: var(--sdds-spacing-element-12);
   }
 }
