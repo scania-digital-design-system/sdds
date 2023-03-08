@@ -91,14 +91,7 @@ export default {
   },
 };
 
-const Template = ({ 
-  active,
-  size,
-  placeholderText, 
-  icon, 
-  iconPosition, 
-  iconType
-   }) => {
+const Template = ({ active, size, placeholderText, icon, iconPosition, iconType }) => {
   const activeValue = active === true ? 'sdds-chip-active' : '';
   const sizeValue = size === 'Small' ? 'sdds-chip-sm' : '';
   const iconPositionLookup = {
@@ -110,8 +103,8 @@ const Template = ({
   const iconSvg = `
     ${
       iconType === 'Native'
-        ? '<i class="sdds-chip-icon sdds-icon notification"></i>'
-        : '<sdds-icon class="sdds-chip-icon" name="notification" size="16px"></sdds-icon>'
+        ? '<i class=" sdds-icon notification"></i>'
+        : '<sdds-icon name="notification" size="16px"></sdds-icon>'
     }
     `;
 
@@ -130,7 +123,15 @@ const Template = ({
     <button class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''
     } ${activeValue} ${sizeValue}">
-      ${icon ? iconSvg : ''}<span class="sdds-chip-text">${placeholderText}</span>
+      ${
+        icon
+          ? `
+      <div class="sdds-chip-icon">
+        ${iconSvg}
+      </div>
+      `
+          : ''
+      }<span class="sdds-chip-text">${placeholderText}</span>
     </button>
     `);
 };
