@@ -38,6 +38,9 @@ export default {
         type: 'radio',
       },
       options: ['Default', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'Default' },
+      },
     },
     label: {
       name: 'Label text',
@@ -53,6 +56,9 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'None' },
+      },
     },
     placeholder: {
       name: 'Placeholder',
