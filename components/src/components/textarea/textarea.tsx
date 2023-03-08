@@ -59,7 +59,7 @@ export class Textarea {
     eventName: 'customChange',
     composed: true,
     bubbles: true,
-    cancelable: false,
+    cancelable: true,
   })
   customChange: EventEmitter;
 
@@ -69,48 +69,48 @@ export class Textarea {
 
   /** Blur event for the textarea */
   @Event({
-    eventName: 'sddsBlur',
+    eventName: 'customBlur',
     composed: true,
     bubbles: true,
-    cancelable: false,
+    cancelable: true,
   })
-  sddsBlur: EventEmitter<FocusEvent>;
+  customBlur: EventEmitter<FocusEvent>;
 
   handleBlur(event): void {
-    this.sddsBlur.emit(event);
+    this.customBlur.emit(event);
     this.focusInput = false;
   }
 
   /** Input event for the textarea */
   @Event({
-    eventName: 'sddsInput',
+    eventName: 'customInput',
     composed: true,
     bubbles: true,
-    cancelable: false,
+    cancelable: true,
   })
-  sddsInput: EventEmitter<InputEvent>;
+  customInput: EventEmitter<InputEvent>;
 
   // Data input event in value prop
   handleInput(event): void {
-    this.sddsInput.emit(event);
+    this.customInput.emit(event);
     this.value = event.target.value;
   }
 
   /** Focus event for the textarea */
   @Event({
-    eventName: 'sddsFocus',
+    eventName: 'customFocus',
     composed: true,
     bubbles: true,
-    cancelable: false,
+    cancelable: true,
   })
-  sddsFocus: EventEmitter<FocusEvent>;
+  customFocus: EventEmitter<FocusEvent>;
 
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
   handleFocus(event): void {
     if (!this.readonly) {
       this.textEl.focus();
       this.focusInput = true;
-      this.sddsFocus.emit(event);
+      this.customFocus.emit(event);
     }
   }
 
