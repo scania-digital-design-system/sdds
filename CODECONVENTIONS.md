@@ -17,12 +17,12 @@ Our component files (e.g. accordion.tsx) should all follow the following structu
 2. Host element for the component (@Element).
 3. Component props.
 4. Component state.
-5. Component variables.
+5. Private variables.
 6. Public methods that are exposed on the component (@Method)
 7. Events that are emitted from the component (@Event). 
 8. Event listeners (@Listen)
-9. Lifecycle methods (connectedCallback, componentWillLoad, componentDidRender, etc)
-10. Methods that are used within the component.
+9. Private methods.
+10. Lifecycle methods (connectedCallback, componentWillLoad, componentDidRender, etc).
 11. Render method.
 
 
@@ -64,13 +64,13 @@ export class SddsComponent {
   @Listen('sddsEvent', { target: 'body' })
   handleListener(){}
 
+  handleClick(){}
+
   connectedCallback(){
   }
 
   componentWillLoad() {
   }
-
-  handleClick(){}
 
   render() {
     return (
