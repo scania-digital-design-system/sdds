@@ -22,6 +22,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -32,7 +33,7 @@ export default {
     },
     state: {
       name: 'State',
-      description: 'Switch between success or error state',
+      description: 'Switches between success and error state.',
       control: {
         type: 'radio',
       },
@@ -48,44 +49,44 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Switch between different sizes',
+      description: 'Switches between different sizes.',
       control: {
         type: 'radio',
         options: ['Large', 'Medium', 'Small'],
       },
     },
     label: {
-      description: 'Label text for specific textfield',
       name: 'Label text',
+      description: 'Sets the label text.',
       control: {
         type: 'text',
       },
     },
     labelPosition: {
       name: 'Label position',
+      description: 'Sets the label text position.',
       control: {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
     },
     placeholderText: {
       name: 'Placeholder',
-      description: 'Placeholder text',
+      description: 'Sets the placeholder text.',
       control: {
         type: 'text',
       },
     },
     helper: {
       name: 'Helper text',
-      description: 'Add helper text for the textfield',
+      description: 'Sets the helper text.',
       control: {
         type: 'text',
       },
     },
     prefix: {
       name: 'Prefix',
-      description: 'Add prefix symbol/text before the textfield',
+      description: 'Adds a prefix symbol or text before the textfield.',
       control: {
         type: 'boolean',
       },
@@ -95,7 +96,7 @@ export default {
     },
     prefixType: {
       name: 'Prefix type',
-      description: 'Choose icon or text for prefix.',
+      description: 'Switches between icon and text for the prefix.',
       control: {
         type: 'radio',
       },
@@ -104,7 +105,7 @@ export default {
     },
     suffix: {
       name: 'Suffix',
-      description: 'Add suffix symbol/text after the textfield',
+      description: 'Adds a suffix symbol or text after the textfield.',
       control: {
         type: 'boolean',
       },
@@ -114,7 +115,7 @@ export default {
     },
     suffixType: {
       name: 'Suffix type',
-      description: 'Choose icon or text for suffix.',
+      description: 'Swithces between icon or text for the suffix.',
       control: {
         type: 'radio',
       },
@@ -123,14 +124,14 @@ export default {
     },
     maxLength: {
       name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
+      description: 'Sets a maximum value of how long the text can be.',
       control: {
         type: 'number',
       },
     },
     minWidth: {
       name: 'No minimum width',
-      description: 'Toggle the minimum width.',
+      description: 'Enables component to shrink below 208px which is the default width.',
       control: {
         type: 'boolean',
       },
@@ -139,14 +140,14 @@ export default {
       },
     },
     readonly: {
-      description: 'Set textfield to read only',
+      description: 'Sets the textfield to read-only state.',
       name: 'Read Only',
       control: {
         type: 'boolean',
       },
     },
     disabled: {
-      description: 'Set textfield to disabled state',
+      description: 'Disables the textfield.',
       name: 'Disabled',
       control: {
         type: 'boolean',
