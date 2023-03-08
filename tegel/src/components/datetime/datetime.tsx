@@ -22,7 +22,7 @@ export class Datetime {
   @Prop() disabled: boolean = false;
 
   /** Size of the input */
-  @Prop() size: 'sm' | 'md' | '' = '';
+  @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Resets min width rule */
   @Prop() noMinWidth: boolean = false;
