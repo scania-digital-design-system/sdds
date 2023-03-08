@@ -50,20 +50,63 @@ export class Textfield {
 
   /** Change event for the textfield */
   @Event({
+    eventName: 'sddsChange',
     composed: true,
     bubbles: true,
-    cancelable: true,
+    cancelable: false,
   })
-  customChange: EventEmitter;
+  sddsChange: EventEmitter;
 
-  // Data input event in value prop
-  handleInput(e): void {
-    this.value = e.target.value;
+  handleChange(event): void {
+    this.sddsChange.emit(event);
   }
 
-  // Change event isn't a composed:true by default in for input
-  handleChange(e): void {
-    this.customChange.emit(e);
+  /** Input event for the textfield */
+  @Event({
+    eventName: 'sddsInput',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsInput: EventEmitter<InputEvent>;
+
+  // Data input event in value prop
+  this.value = event.target.value;
+  this.sddsInput.emit(event);
+    this.sddsInput.emit(event);
+    this.value = event.target.value;
+  }
+
+  /** Focus event for the textfield */
+  @Event({
+    eventName: 'sddsFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsFocus: EventEmitter<FocusEvent>;
+
+  /** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  handleFocus(event): void {
+    console.log('hej');
+    this.textInput.focus();
+    this.focusInput = true;
+    this.sddsFocus.emit(event);
+  }
+
+  /** Blur event for the textfield */
+  @Event({
+    eventName: 'sddsBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsBlur: EventEmitter<FocusEvent>;
+
+  /** Set the input as focus when clicking the whole textfield with suffix/prefix */
+  handleBlur(event): void {
+    this.focusInput = false;
+    this.sddsBlur.emit(event);
   }
 
   /** Set the input as focus when clicking the whole textfield with suffix/prefix */
@@ -110,24 +153,13 @@ export class Textfield {
           <slot name="sdds-label" />
         </div>
 
-        <div onClick={() => this.handleFocusClick()} class="sdds-textfield-container">
+        <div onClick={() => this.textInput.focus()} class="sdds-textfield-container">
           <div class="sdds-textfield-slot-wrap-prefix">
             <slot name="sdds-prefix" />
           </div>
 
           <div class="sdds-textfield-input-container">
             <input
-              onFocus={(e) => {
-                if (this.readonly) {
-                  e.preventDefault();
-                  this.textInput.blur();
-                  return;
-                }
-                this.focusInput = true;
-              }}
-              onBlur={() => {
-                this.focusInput = false;
-              }}
               ref={(inputEl) => (this.textInput = inputEl as HTMLInputElement)}
               class={className}
               type={this.type}
@@ -136,9 +168,18 @@ export class Textfield {
               value={this.value}
               autofocus={this.autofocus}
               maxlength={this.maxlength}
+              readonly={this.readonly}
               name={this.name}
-              onInput={(e) => this.handleInput(e)}
-              onChange={(e) => this.handleChange(e)}
+              onInput={(event) => this.handleInput(event)}
+              onChange={(event) => this.handleChange(event)}
+              onFocus={(event) => {
+                if (!this.readonly) {
+                  this.handleFocus(event);
+                }
+              }}
+              onBlur={(event) => {
+                this.handleBlur(event);
+              }}
             />
 
             {this.labelInside.length > 0 && this.size !== 'sm' && (

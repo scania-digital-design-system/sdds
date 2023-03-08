@@ -56,25 +56,62 @@ export class Textarea {
 
   /** Change event for the textarea */
   @Event({
+    eventName: 'customChange',
     composed: true,
     bubbles: true,
     cancelable: true,
   })
   customChange: EventEmitter;
 
-  // Data input event in value prop
-  handleInput(e): void {
-    this.value = e.target.value;
+  handleChange(event): void {
+    this.customChange.emit(event);
   }
+
+  /** Blur event for the textarea */
+  @Event({
+    eventName: 'customBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customBlur: EventEmitter<FocusEvent>;
+
+  handleBlur(event): void {
+    this.customBlur.emit(event);
+    this.focusInput = false;
+  }
+
+  /** Input event for the textarea */
+  @Event({
+    eventName: 'customInput',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customInput: EventEmitter<InputEvent>;
+
+  // Data input event in value prop
+  handleInput(event): void {
+    this.customInput.emit(event);
+    this.value = event.target.value;
+  }
+
+  /** Focus event for the textarea */
+  @Event({
+    eventName: 'customFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customFocus: EventEmitter<FocusEvent>;
 
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
-  handleFocusClick(): void {
-    this.textEl.focus();
-    this.focusInput = true;
-  }
-
-  handleChange(e): void {
-    this.customChange.emit(e);
+  handleFocus(event): void {
+    if (!this.readonly) {
+      this.textEl.focus();
+      this.focusInput = true;
+      this.customFocus.emit(event);
+    }
   }
 
   render() {
@@ -90,17 +127,11 @@ export class Textarea {
         ${this.value ? 'sdds-textarea-data' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
-        onClick={() => this.handleFocusClick()}
+        onClick={(event) => this.handleFocus(event)}
       >
         {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
         <div class="sdds-textarea-wrapper">
           <textarea
-            onFocus={() => {
-              this.focusInput = true;
-            }}
-            onBlur={() => {
-              this.focusInput = false;
-            }}
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
@@ -112,8 +143,10 @@ export class Textarea {
             maxlength={this.maxlength}
             cols={this.cols}
             rows={this.rows}
-            onInput={(e) => this.handleInput(e)}
-            onChange={(e) => this.handleChange(e)}
+            onFocus={(event) => this.handleFocus(event)}
+            onBlur={(event) => this.handleBlur(event)}
+            onInput={(event) => this.handleInput(event)}
+            onChange={(event) => this.handleChange(event)}
           ></textarea>
           <span class="sdds-textarea-resizer-icon">
             <svg

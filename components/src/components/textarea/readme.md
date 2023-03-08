@@ -25,9 +25,12 @@
 
 ## Events
 
-| Event          | Description                   | Type               |
-| -------------- | ----------------------------- | ------------------ |
-| `customChange` | Change event for the textarea | `CustomEvent<any>` |
+| Event          | Description                   | Type                      |
+| -------------- | ----------------------------- | ------------------------- |
+| `customBlur`   | Blur event for the textarea   | `CustomEvent<FocusEvent>` |
+| `customChange` | Change event for the textarea | `CustomEvent<any>`        |
+| `customFocus`  | Focus event for the textarea  | `CustomEvent<FocusEvent>` |
+| `customInput`  | Input event for the textarea  | `CustomEvent<InputEvent>` |
 
 
 ----------------------------------------------
