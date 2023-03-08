@@ -40,8 +40,6 @@ export class Modal {
 
   @State() isShown: boolean = false;
 
-  closeButtonEl: HTMLElement;
-
   /** Shows the modal.  */
   @Method()
   async openModal() {
@@ -76,14 +74,8 @@ export class Modal {
     if (this.show !== null) {
       this.isShown = this.show;
     }
-  }
-
-  componentDidLoad() {
-    this.setSelectorButton();
-  }
-
-  componentDidRender() {
     this.setDissmissButtons();
+    this.setSelectorButton();
   }
 
   handleClose = (event?) => {
@@ -114,6 +106,7 @@ export class Modal {
   };
 
   setSelectorButton = () => {
+    console.log('hej');
     if (this.selector || this.referenceEl) {
       const referenceEl = this.referenceEl ?? document.querySelector(this.selector);
       if (referenceEl) {
@@ -160,13 +153,7 @@ export class Modal {
         >
           <div class="sdds-modal-header">
             <slot name="sdds-modal-headline"></slot>
-            <button
-              class="sdds-modal-close"
-              aria-label="close"
-              ref={(el) => {
-                this.closeButtonEl = el as HTMLElement;
-              }}
-            >
+            <button class="sdds-modal-close" aria-label="close" onClick={() => this.handleClose()}>
               <sdds-icon name="cross" size="20px"></sdds-icon>
             </button>
           </div>
