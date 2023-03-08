@@ -1,6 +1,5 @@
 @import '../../mixins/z-index';
 @import './dropdown-core';
-@import './dropdown-vars.scss';
 @import '../../global/scania-fonts-vars.scss';
 
 @import '../checkbox/checkbox.scss';
@@ -32,11 +31,11 @@
     cursor: not-allowed;
     caret-color: transparent;
     pointer-events: none;
-    color: var(--sdds-grey-400);
+    color: var(--sdds-dropdown-disabled);
     border: none;
 
     &::placeholder {
-      color: var(--sdds-grey-400);
+      color: var(--sdds-dropdown-disabled);
     }
   }
 }
