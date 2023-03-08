@@ -1,11 +1,11 @@
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-breadcrumb-item',
-  styleUrl: 'sdds-breadcrumb-item.scss',
+  tag: 'sdds-breadcrumb-link',
+  styleUrl: 'sdds-breadcrumb-link.scss',
   shadow: true,
 })
-export class SddsBreadcrumbItem {
+export class SddsBreadcrumbLink {
   /** Boolean for the current link */
   @Prop() current: boolean = false;
 
@@ -23,14 +23,15 @@ export class SddsBreadcrumbItem {
 
   render() {
     return (
-      <li
+      <div
+        role="listitem"
         class={`${this.current ? 'current' : ''} 
-        ${this.disabled ? 'disabled' : ''}`}
+      ${this.disabled ? 'disabled' : ''}`}
       >
         <a href={!this.disabled ? this.href : null} target={this.target} rel={this.rel}>
           <slot></slot>
         </a>
-      </li>
+      </div>
     );
   }
 }
