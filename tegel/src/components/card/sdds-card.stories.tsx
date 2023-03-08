@@ -29,7 +29,7 @@ export default {
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     header: {
