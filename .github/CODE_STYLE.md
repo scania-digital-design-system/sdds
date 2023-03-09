@@ -10,8 +10,42 @@ Welcome to the code conventions section of Tegel, a comprehensive design system 
 Avoid using single-letter variable names, instead of `i` for index, be descriptive and name the variable `index`.
  - Use single quotes (') for strings.
 
+
+## Folder structure
+
+All components are located in the `src/components` directory. Each component in this folder has a dedicated folder named as the
+componenet minus the `sdds`-prefix. For our button the file path is `src/components/button`. This folder should have two subdirectories,
+one for the web component and one for the HTML/CSS version of the component. For the `<sdds-button>` this is be
+`src/components/button/web-component` and for the HTML/CSS version of this component it is `src/components/button/css-component`. Since
+these components share some css variables, these are located in a scss file in the `src/components/button` directory. The name of the variables
+file is 'component-name'-vars.scss (`button-vars.scss`).
+
+### File naming
+
+For all components that are pure HTML/CSS components their files should be prefixed with `css-`. This is to clearly separeate what files are part
+of our web components and which are only used for HTML/CSS components. For our button the means that the styling related to the HTML/CSS version 
+of our component the file name is `css-button.scss`. 
+
+### Example - folder structure for button
+
+```
+├── src
+│   ├── components
+│   │   ├── button
+│   │   │   ├──button-vars.scss
+│   │   │   │
+│   │   │   ├──web-component
+│   │   │   │   ├──button.tsx
+│   │   │   │   ├──button.scss
+│   │   │   │
+│   │   │   ├──css-component
+│   │   │   │   ├──css-button.scss
+```
+
+
 ## Component structure
-Our component files (e.g. accordion.tsx) should follow the following structure, in order:
+
+Our component files (e.g. button.tsx) should follow the following structure, in order:
 
 1. Props, state and variables
    - @Component decorator with the component specific arguments.
@@ -42,17 +76,17 @@ Our component files (e.g. accordion.tsx) should follow the following structure, 
 export class SddsComponent {
   @Element() host: HostElement;
 
-  /** Comment explaning the use of the the prop */
+  /** Comment explaining the use of the the prop */
   @Prop() prop: string;
  
-  /** Comment explaning the use of the the prop */
+  /** Comment explaining the use of the the prop */
   @Prop() secondProp: string;
 
   @State() state: boolean;
 
   variable: string
 
-  /** Comment explaning the event. */
+  /** Comment explaining the event. */
   @Event({
     eventName: 'sddsEvent',
     composed: true ,
@@ -69,7 +103,7 @@ export class SddsComponent {
   handlePropChange(){
   }
 
-  /** Comment explaning the method. */
+  /** Comment explaining the method. */
   @Method()
   async handleComponent(){
   }
