@@ -7,7 +7,7 @@ Welcome to the code conventions section of Tegel, a comprehensive design system 
  - Use PascalCase for classes and interfaces.
  - Use template literals instead of concatenation.
  - Use meaningful variable and function names: Name your variables and functions in a way that clearly communicates their purpose.
-Avoid using single-letter variable names, index stead of `i` for index, be descriptive and name the variable `index`.
+Avoid using single-letter variable names, instead of `i` for index, be descriptive and name the variable `index`.
  - Use single quotes (') for strings.
 
 ## Component structure
