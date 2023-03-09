@@ -21,15 +21,9 @@ export default {
     ],
   },
   argTypes: {
-    autoHeight: {
-      name: 'Same height',
-      description: 'Make all tab panels as tall as the tallest tab panel',
-      control: {
-        type: 'boolean',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -38,15 +32,20 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    backgrounds: {
+    autoHeight: {
+      name: 'Same height',
+      description: 'Makes all tab panels as tall as the tallest tab panel.',
+      control: {
+        type: 'boolean',
+      },
       table: {
-        disable: true,
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
-    autoHeight: false,
     modeVariant: 'Inherit from parent',
+    autoHeight: false,
   },
 };
 // eslint-disable-next-line arrow-body-style
@@ -72,4 +71,3 @@ const Template = ({ autoHeight = false, modeVariant }) => {
 };
 
 export const InlineTabs = Template.bind({});
-InlineTabs.args = {};
