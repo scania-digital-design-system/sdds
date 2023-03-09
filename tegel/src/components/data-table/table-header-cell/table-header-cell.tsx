@@ -9,9 +9,9 @@ import {
   Listen,
   Element,
 } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
   'compactDesign',
@@ -66,35 +66,35 @@ export class TableHeaderCell {
 
   tableEl: HTMLSddsTableElement;
 
-  /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component */
+  /** Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'sortColumnDataEvent',
+    eventName: 'sddsSortChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortColumnDataEvent: EventEmitter<any>;
+  sddsSortChange: EventEmitter<any>;
 
-  /** Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
+  /** @internal Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
-    eventName: 'textAlignEvent',
+    eventName: 'internalSddsTextAlign',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  textAlignEvent: EventEmitter<any>;
+  internalSddsTextAlign: EventEmitter<any>;
 
-  /** Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell */
+  /** @internal Sends unique table identifier, column key so the body cells with the same key change background when user hovers over header cell */
   @Event({
-    eventName: 'headCellHoverEvent',
+    eventName: 'internalSddsHover',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  headCellHoverEvent: EventEmitter<any>;
+  internalSddsHover: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsPropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -108,8 +108,8 @@ export class TableHeaderCell {
   }
 
   // Listen to parent data-table if sorting is allowed
-  @Listen('sortingSwitcherEvent', { target: 'body' })
-  sortingSwitcherEventListener(event: CustomEvent<any>) {
+  @Listen('internalSddsSortingChange', { target: 'body' })
+  internalSddsSortingChangeListener(event: CustomEvent<any>) {
     const [receivedID, receivedSortingStatus] = event.detail;
     if (this.tableId === receivedID) {
       this.disableSortingBtn = receivedSortingStatus;
@@ -117,7 +117,7 @@ export class TableHeaderCell {
   }
 
   // target is set to body so other instances of same component "listen" and react to the change
-  @Listen('sortColumnDataEvent', { target: 'body' })
+  @Listen('sddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       // grab only value at position 1 as it is the "key"
@@ -129,11 +129,6 @@ export class TableHeaderCell {
         }, 200);
       }
     }
-  }
-
-  @Listen('enableMultiselectEvent', { target: 'body' })
-  enableMultiselectEventListener(event: CustomEvent<any>) {
-    if (this.tableId === event.detail[0]) [, this.enableMultiselect] = event.detail;
   }
 
   connectedCallback() {
@@ -155,7 +150,7 @@ export class TableHeaderCell {
       this.textAlignState = 'left';
     }
     // To enable body cells text align per rules set in head cell
-    this.textAlignEvent.emit([this.tableId, this.columnKey, this.textAlignState]);
+    this.internalSddsTextAlign.emit([this.tableId, this.columnKey, this.textAlignState]);
 
     this.enableToolbarDesign =
       this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
@@ -171,7 +166,7 @@ export class TableHeaderCell {
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
     // Use array to send both key and sorting direction
-    this.sortColumnDataEvent.emit([this.tableId, key, this.sortingDirection]);
+    this.sddsSortChange.emit([this.tableId, key, this.sortingDirection]);
   };
 
   headerCellContent = () => {
@@ -237,7 +232,7 @@ export class TableHeaderCell {
   };
 
   onHeadCellHover = (key) => {
-    this.headCellHoverEvent.emit([this.tableId, key]);
+    this.internalSddsHover.emit([this.tableId, key]);
   };
 
   render() {

@@ -11,9 +11,10 @@ type Props = {
   enableExpandableRows: boolean;
   enableResponsive: boolean;
   modeVariant: 'primary' | 'secondary' | null;
+  textAlign: string;
 };
 
-export type TablePropsChangedEvent = {
+export type InternalSddsTablePropChange = {
   tableId: string;
   changed: Array<keyof Props>;
 } & Partial<Props>;
@@ -54,17 +55,17 @@ export class Table {
 
   @Element() host: HTMLElement;
 
-  /** Broadcasts changes to the tables props */
+  /** @internal Broadcasts changes to the tables props */
   @Event({
-    eventName: 'tablePropsChangedEvent',
+    eventName: 'internalSddsTablePropChange',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
+  internalSddsTablePropChange: EventEmitter<InternalSddsTablePropChange>;
 
-  emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
-    this.tablePropsChangedEvent.emit({
+  emitInternalSddsPropChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
+    this.internalSddsTablePropChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,
@@ -73,32 +74,32 @@ export class Table {
 
   @Watch('enableMultiselect')
   enableMultiselectChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableMultiselect', newValue);
+    this.emitInternalSddsPropChange('enableMultiselect', newValue);
   }
 
   @Watch('enableExpandableRows')
   enableExpandableRowsChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
+    this.emitInternalSddsPropChange('enableExpandableRows', newValue);
   }
 
   @Watch('compactDesign')
   compactDesignChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('compactDesign', newValue);
+    this.emitInternalSddsPropChange('compactDesign', newValue);
   }
 
   @Watch('verticalDividers')
   verticalDividersChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('verticalDividers', newValue);
+    this.emitInternalSddsPropChange('verticalDividers', newValue);
   }
 
   @Watch('noMinWidth')
   noMinWidthChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('noMinWidth', newValue);
+    this.emitInternalSddsPropChange('noMinWidth', newValue);
   }
 
   @Watch('modeVariant')
   modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
-    this.emitTablePropsChangedEvent('modeVariant', newValue);
+    this.emitInternalSddsPropChange('modeVariant', newValue);
   }
 
   render() {

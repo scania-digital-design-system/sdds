@@ -20,10 +20,9 @@
 
 ## Events
 
-| Event                   | Description                                                                                          | Type               |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
-| `currentPageValueEvent` | Event to send current page value back to sdds-table-body component                                   | `CustomEvent<any>` |
-| `enablePaginationEvent` | Event that footer sends out in order to receive other necessary information from other subcomponents | `CustomEvent<any>` |
+| Event            | Description                                                                                                                                | Type               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `sddsPageChange` | Event to send current page value back to sdds-table-body component, can also be listened to in order to implement custom pagination logic. | `CustomEvent<any>` |
 
 
 ----------------------------------------------

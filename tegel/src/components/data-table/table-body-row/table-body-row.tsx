@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, State, Event, EventEmitter, Listen } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'enableMultiselect',
   'verticalDividers',
   'compactDesign',
@@ -42,7 +42,7 @@ export class TableBodyRow {
     } else {
       row.classList.remove('sdds-table__row--selected');
     }
-    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
+    this.internalSddsRowChange.emit(this.bodyCheckBoxStatus);
   }
 
   bodyCheckBoxStatusUpdater(status) {
@@ -54,11 +54,11 @@ export class TableBodyRow {
     } else {
       row.classList.remove('sdds-table__row--selected');
     }
-    this.bodyRowToTable.emit(this.bodyCheckBoxStatus);
+    this.internalSddsRowChange.emit(this.bodyCheckBoxStatus);
   }
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsTablePropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -71,33 +71,33 @@ export class TableBodyRow {
     }
   }
 
-  /** Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control */
+  /** @internal Send status of single row to the parent, sdds-table component that hold logic for data export and main checkbox control */
   @Event({
-    eventName: 'bodyRowToTable',
+    eventName: 'internalSddsRowChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  bodyRowToTable: EventEmitter<boolean>;
+  internalSddsRowChange: EventEmitter<boolean>;
 
-  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  /** @internal Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
-    eventName: 'runPaginationEvent',
+    eventName: 'internalSddsPagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  runPaginationEvent: EventEmitter<string>;
+  internalSddsPagination: EventEmitter<string>;
 
-  @Listen('mainCheckboxSelectedEvent', { target: 'body' })
+  @Listen('internalSddsMainCheckboxSelect', { target: 'body' })
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       this.bodyCheckBoxStatusUpdater(event.detail[1]);
     }
   }
 
-  @Listen('updateBodyCheckboxesEvent', { target: 'body' })
-  updateBodyCheckboxesEventListener(event: CustomEvent<any>) {
+  @Listen('internalSddsCheckboxChange', { target: 'body' })
+  internalSddsCheckboxChangeListener(event: CustomEvent<any>) {
     const [receivedID, receivedBodyCheckboxStatus] = event.detail;
     if (this.tableId === receivedID) {
       this.bodyCheckBoxStatusUpdater(receivedBodyCheckboxStatus);
@@ -116,7 +116,7 @@ export class TableBodyRow {
   }
 
   componentDidLoad() {
-    this.runPaginationEvent.emit(this.tableId);
+    this.internalSddsPagination.emit(this.tableId);
   }
 
   render() {
