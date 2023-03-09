@@ -20,16 +20,9 @@ export default {
     ],
   },
   argTypes: {
-    placeholder: {
-      name: 'Placeholder',
-      description: 'Placeholder text',
-      control: {
-        type: 'text',
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
-      description: 'Change the components mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -38,9 +31,66 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
+    state: {
+      name: 'State',
+      description: 'Switches between success and error state.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Success', 'Error'],
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+    },
+    label: {
+      name: 'Label text',
+      description: 'Sets the label text.',
+      control: {
+        type: 'text',
+      },
+    },
+    labelPosition: {
+      name: 'Label position',
+      description: 'Sets the label text position.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No label', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'no-label' },
+      },
+    },
+    placeholder: {
+      name: 'Placeholder',
+      description: 'Sets the placeholder text.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets the helper text.',
+      control: {
+        type: 'text',
+      },
+    },
+    rows: {
+      name: 'Rows',
+      description: 'Sets the number of rows.',
+      control: {
+        type: 'number',
+      },
+    },
+    maxLength: {
+      name: 'Max length',
+      description: 'Sets a maximum value of how long the text can be.',
+      control: {
+        type: 'number',
+      },
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
       control: {
         type: 'boolean',
       },
@@ -49,8 +99,8 @@ export default {
       },
     },
     readonly: {
-      description: 'Set textfield to read-only state',
       name: 'Read only',
+      description: 'Sets the textarea to read-only state.',
       control: {
         type: 'boolean',
       },
@@ -58,95 +108,51 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    label: {
-      description: 'Label text for specific textfield',
-      name: 'Label text',
-      control: {
-        type: 'text',
-      },
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
-      },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    helper: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
-      },
-    },
-    maxLength: {
-      name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
-      control: {
-        type: 'number',
-      },
-    },
-    rows: {
-      name: 'Rows',
-      description: 'Set the number of rows',
-      control: {
-        type: 'number',
-      },
-    },
-    minWidth: {
-      name: 'No minimum width',
-      description: 'Toggle the minimum width.',
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the textarea.',
       control: {
         type: 'boolean',
       },
       table: {
         defaultValue: { summary: false },
       },
-    },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Success', 'Error'],
     },
   },
   args: {
-    placeholder: 'Placeholder',
-    disabled: false,
-    readonly: false,
-    label: 'Label',
-    labelPosition: 'None',
-    helper: '',
-    maxLength: 0,
-    rows: 5,
-    state: 'Default',
     modeVariant: 'Inherit from parent',
-    minWidth: false,
+    state: 'Default',
+    label: 'Label',
+    labelPosition: 'No label',
+    placeholder: 'Placeholder',
+    helper: '',
+    rows: 5,
+    maxLength: 0,
+    noMinWidth: false,
+    readonly: false,
+    disabled: false,
   },
 };
 
 const Template = ({
-  placeholder,
-  disabled,
-  readonly,
+  modeVariant,
+  state,
   label,
   labelPosition,
-  state,
+  placeholder,
   helper,
-  maxLength,
-  modeVariant,
-  minWidth,
   rows,
+  maxLength,
+  noMinWidth,
+  readonly,
+  disabled,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
-    None: 'no-label',
-    Inside: 'inside',
-    Outside: 'outside',
+    'No label': 'no-label',
+    'Inside': 'inside',
+    'Outside': 'outside',
   };
   return formatHtmlPreview(`
   <style>
@@ -170,7 +176,7 @@ const Template = ({
           label-position="${labelPosLookup[labelPosition]}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'read-only' : ''}
-          ${minWidth ? 'no-min-width' : ''}
+          ${noMinWidth ? 'no-min-width' : ''}
           placeholder="${placeholder}"
           ${maxlength}>
         </sdds-textarea>
