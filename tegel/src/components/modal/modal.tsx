@@ -16,7 +16,7 @@ import {
   shadow: true,
 })
 export class Modal {
-  @Element() el: HTMLElement;
+  @Element() host: HTMLElement;
 
   /** Disables closing modal on clicking on overlay area. */
   @Prop() prevent: boolean = false;
@@ -75,9 +75,10 @@ export class Modal {
       this.isShown = this.show;
     }
     this.setDissmissButtons();
-    this.setSelectorButton();
+    this.setOpenButton();
   }
 
+  /** Emits a close event and then close the modal if it is not prevented. */
   handleClose = (event?) => {
     const closeEvent = this.sddsClose.emit(event);
     if (!closeEvent.defaultPrevented) {
@@ -85,6 +86,7 @@ export class Modal {
     }
   };
 
+  /** Emits a show event and then shows the modal if it is not prevented. */
   handleShow = (event?) => {
     const showEvent = this.sddsShow.emit(event);
     if (!showEvent.defaultPrevented) {
@@ -92,7 +94,20 @@ export class Modal {
     }
   };
 
-  getSelector = (referenceEl) => {
+  /** Checks if click on modal is on overlay, if so it closes the modal if prevent is not true. */
+  handleOverlayClick(event) {
+    const targetList = event.composedPath();
+    const target = targetList[0];
+    if (
+      target.classList[0] === 'sdds-modal-close' ||
+      (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
+    ) {
+      this.handleClose(event);
+    }
+  }
+
+  /** Adds an event listener to the reference element that opens/closes the modal. */
+  initializeReferenceElement = (referenceEl) => {
     if (referenceEl) {
       referenceEl.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -105,36 +120,23 @@ export class Modal {
     }
   };
 
-  setSelectorButton = () => {
+  /** Check if there is a referenceElement or selector and adds event listener to them if so. */
+  setOpenButton = () => {
     if (this.selector || this.referenceEl) {
       const referenceEl = this.referenceEl ?? document.querySelector(this.selector);
       if (referenceEl) {
-        this.getSelector(referenceEl);
-      } else {
-        console.error(
-          `Could not initialize modal: element with selector '${this.selector}' not found.`,
-        );
+        this.initializeReferenceElement(referenceEl);
       }
     }
   };
 
+  /** Adds an event listener to the dismiss buttons that closes the modal. */
   setDissmissButtons() {
-    this.el.querySelectorAll('[data-dismiss-modal]').forEach((dismissButton) => {
+    this.host.querySelectorAll('[data-dismiss-modal]').forEach((dismissButton) => {
       dismissButton.addEventListener('click', (event) => {
         this.handleClose(event);
       });
     });
-  }
-
-  handleOverlayClick(event) {
-    const targetList = event.composedPath();
-    const target = targetList[0];
-    if (
-      target.classList[0] === 'sdds-modal-close' ||
-      (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
-    ) {
-      this.handleClose(event);
-    }
   }
 
   render() {
