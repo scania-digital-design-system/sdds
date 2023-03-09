@@ -33,7 +33,7 @@ export class Dropdown {
   @Prop() selectedOption: string;
 
   /** Set to true for disabled states */
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
   /** `Controls type of dropdown. */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';

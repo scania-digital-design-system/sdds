@@ -26,6 +26,9 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        summary: { defaultValue: false },
+      },
     },
     size: {
       name: 'Size',
@@ -34,6 +37,11 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
       description: 'Size of the dropdown',
+      table: {
+        summary: {
+          defaultValue: 'lg',
+        },
+      },
     },
     openDirection: {
       name: 'Open direction',
@@ -43,9 +51,7 @@ export default {
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto',
-        },
+        summary: { defaultValue: 'auto' },
       },
     },
     labelPosition: {
@@ -55,6 +61,9 @@ export default {
       },
       options: ['None', 'Outside'],
       description: 'Label text position',
+      table: {
+        summary: { defaultValue: 'no-label' },
+      },
     },
     labelText: {
       name: 'Label text',
@@ -89,6 +98,9 @@ export default {
       description: 'Disables the component',
       control: {
         type: 'boolean',
+      },
+      table: {
+        summary: { defaultValue: false },
       },
     },
   },

@@ -29,7 +29,7 @@ export class DropdownFilter {
   @Prop() selectedOption: string;
 
   /** Add the value of the option to set it as default */
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
   @Prop() size: 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large' = 'lg';
