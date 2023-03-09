@@ -33,7 +33,7 @@ export class Modal {
   /** Element that will show the modal (takes priority over selector) */
   @Prop() referenceEl: HTMLElement;
 
-  /** Controls wether the modal is shown or not. If this is set hiding and showing
+  /** Controls whether the modal is shown or not. If this is set hiding and showing
    * will be decided by this prop and will need to be controlled from the outside. */
   @Prop() show: boolean;
 
