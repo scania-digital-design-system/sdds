@@ -23,8 +23,6 @@ export class SddsDropdownOptionV2 {
 
   @State() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  @State() modeVariant: 'primary' | 'secondary';
-
   @Element() host: HostElement;
 
   private parentElement: HTMLSddsDropdownV2Element;
@@ -78,7 +76,6 @@ export class SddsDropdownOptionV2 {
       this.host.parentElement.tagName === 'SDDS-DROPDOWN-V2'
         ? (this.host.parentElement as HTMLSddsDropdownV2Element)
         : ((this.host.getRootNode() as ShadowRoot).host as HTMLSddsDropdownV2Element);
-    this.modeVariant = this.parentElement.modeVariant;
     this.multiselect = this.parentElement.multiselect;
     this.size = this.parentElement.size;
     this.label = this.host.textContent.trim();
@@ -126,7 +123,7 @@ export class SddsDropdownOptionV2 {
 
   render() {
     return (
-      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+      <Host>
         <div
           class={`dropdown-option 
           ${this.size}
