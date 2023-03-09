@@ -9,9 +9,9 @@ import {
   State,
   Element,
 } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'compactDesign',
   'noMinWidth',
   'verticalDividers',
@@ -43,17 +43,17 @@ export class TableToolbar {
 
   tableEl: HTMLSddsTableElement;
 
-  /** Used for sending users input to main parent <sdds-table> component */
+  /** Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'tableFilteringTerm',
+    eventName: 'sddsFilter',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  tableFilteringTerm: EventEmitter<any>;
+  sddsFilter: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsTablePropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -81,7 +81,7 @@ export class TableToolbar {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    this.tableFilteringTerm.emit([this.tableId, searchTerm]);
+    this.sddsFilter.emit([this.tableId, searchTerm]);
 
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');

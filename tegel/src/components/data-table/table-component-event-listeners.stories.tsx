@@ -133,18 +133,18 @@ const EventListenersTemplate = ({
   formatHtmlPreview(`
     <script>
       // Note: Script here is only for demo purposes
-      window.addEventListener('tableFilteringTerm', e => {
-        document.getElementById('event-name-textarea').value = 'tableFilteringTerm';
+      window.addEventListener('sddsFilter', e => {
+        document.getElementById('event-name-textarea').value = 'sddsFilter';
         document.getElementById('event-value-textarea').value = e.detail;
       });
 
-      window.addEventListener('sortColumnDataEvent', e => {
-        document.getElementById('event-name-textarea').value = 'sortColumnDataEvent';
+      window.addEventListener('sddsSortChange', e => {
+        document.getElementById('event-name-textarea').value = 'sddsSortChange';
         document.getElementById('event-value-textarea').value = e.detail;
       });
 
-      window.addEventListener('currentPageValueEvent', e => {
-        document.getElementById('event-name-textarea').value = 'currentPageValueEvent';
+      window.addEventListener('sddsPageChange', e => {
+        document.getElementById('event-name-textarea').value = 'sddsPageChange';
         document.getElementById('event-value-textarea').value = e.detail;
       });
     </script>

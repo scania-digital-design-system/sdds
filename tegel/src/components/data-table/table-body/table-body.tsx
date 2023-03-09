@@ -11,9 +11,9 @@ import {
   Watch,
 } from '@stencil/core';
 import dummyData from './dummy-data.json';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
 ];
@@ -87,35 +87,35 @@ export class TableBody {
     this.bodyDataOriginal = [...this.innerBodyData];
   }
 
-  /** Event that sends unique table identifier and enable/disable status for sorting functionality */
+  /** @internal Event that sends unique table identifier and enable/disable status for sorting functionality */
   @Event({
-    eventName: 'sortingSwitcherEvent',
+    eventName: 'internalSddsSortingChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sortingSwitcherEvent: EventEmitter<any>;
+  internalSddsSortingChange: EventEmitter<any>;
 
-  /** Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
+  /** @internal Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled */
   @Event({
-    eventName: 'updateBodyCheckboxesEvent',
+    eventName: 'internalSddsCheckboxChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  updateBodyCheckboxesEvent: EventEmitter<any>;
+  internalSddsCheckboxChange: EventEmitter<any>;
 
-  /** Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
+  /** @internal Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used */
   @Event({
-    eventName: 'updateMainCheckboxEvent',
+    eventName: 'internalSddsMainCheckboxChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  updateMainCheckboxEvent: EventEmitter<any>;
+  internalSddsMainCheckboxChange: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsTablePropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -151,8 +151,8 @@ export class TableBody {
 
   uncheckAll = () => {
     this.mainCheckboxStatus = false;
-    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
-    this.updateBodyCheckboxesEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
   };
 
   sortData(keyValue, sortingDirection) {
@@ -168,8 +168,8 @@ export class TableBody {
     }
   }
 
-  // Listen to sortColumnData from data-table-header-element
-  @Listen('sortColumnDataEvent', { target: 'body' })
+  // Listen to sortColumnData from data-table-header-element - TODO
+  @Listen('sddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
     if (this.tableId === receivedID) {
@@ -194,7 +194,7 @@ export class TableBody {
     this.multiselectArrayJSON = JSON.stringify(this.multiselectArray);
   };
 
-  @Listen('mainCheckboxSelectedEvent', { target: 'body' })
+  @Listen('internalSddsMainCheckboxChange', { target: 'body' }) // -
   headCheckboxListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       [, this.mainCheckboxStatus] = event.detail;
@@ -211,13 +211,13 @@ export class TableBody {
 
     this.mainCheckboxStatus = numberOfRows === numberOfRowsSelected;
 
-    this.updateMainCheckboxEvent.emit([this.tableId, this.mainCheckboxStatus]);
+    this.internalSddsMainCheckboxChange.emit([this.tableId, this.mainCheckboxStatus]);
 
     this.selectedDataExporter();
   };
 
   // No need to read the value, event is here just to trigger another function
-  @Listen('bodyRowToTable', { target: 'body' })
+  @Listen('internalSddsRowChange', { target: 'body' })
   bodyCheckboxListener() {
     this.bodyCheckBoxClicked();
   }
@@ -272,7 +272,7 @@ export class TableBody {
         });
 
         this.disableAllSorting = true;
-        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
+        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
 
         const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
 
@@ -293,14 +293,14 @@ export class TableBody {
         }
 
         this.disableAllSorting = false;
-        this.sortingSwitcherEvent.emit([this.tableId, this.disableAllSorting]);
+        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
       }
     }
   }
 
-  // Listen to tableFilteringTerm from tableToolbar component
-  @Listen('tableFilteringTerm', { target: 'body' })
-  tableFilteringTermListener(event: CustomEvent<any>) {
+  // Listen to sddsFilter from tableToolbar component
+  @Listen('sddsFilter', { target: 'body' })
+  sddsFilterListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail[0]) {
       this.searchFunction(event.detail[1]);
     }
