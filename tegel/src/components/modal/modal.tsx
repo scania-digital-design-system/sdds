@@ -34,10 +34,10 @@ export class Modal {
   @Prop() referenceEl: HTMLElement;
 
   /** Controls wether the modal is shown or not. If this is set hiding and showing
-   * will be decided by this prop and will need to be controlled from the outside.
-   */
+   * will be decided by this prop and will need to be controlled from the outside. */
   @Prop() show: boolean;
 
+  // State that keeps track of open/closed state for the modal.
   @State() isShown: boolean = false;
 
   /** Shows the modal.  */
