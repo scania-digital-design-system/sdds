@@ -32,6 +32,14 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    state: {
+      name: 'State',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Error'],
+      description: 'Support error state',
+    },
     size: {
       name: 'Size',
       control: {
@@ -40,10 +48,18 @@ export default {
       options: ['Large', 'Medium', 'Small'],
       description: 'Size of the dropdown',
     },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
     },
     labelPosition: {
       name: 'Label position',
@@ -59,20 +75,10 @@ export default {
       description: 'Label text helps to describe what the dropdown contains',
       if: { arg: 'labelPosition', neq: 'None' },
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    state: {
-      name: 'State',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
+    placeholder: {
+      name: 'Placeholder',
+      type: 'string',
+      description: 'Placeholder text when no option is selected',
     },
     helper: {
       name: 'Add helper text',
@@ -94,47 +100,41 @@ export default {
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
-    openDirection: {
-      name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component',
       control: {
-        type: 'radio',
-      },
-      options: ['Up', 'Down', 'Auto'],
-      table: {
-        summary: {
-          defaultValue: 'auto',
-        },
+        type: 'boolean',
       },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    size: 'Large',
-    placeholder: 'Placeholder',
     state: 'Default',
-    disabled: false,
+    size: 'Large',
+    openDirection: 'Auto',
     labelPosition: 'None',
     labelText: 'Label text',
+    placeholder: 'Placeholder',
     helper: false,
     helperText: 'Helper text',
     defaultOption: 'Option 1',
-    openDirection: 'Auto',
+    disabled: false,
   },
 };
 
 const Template = ({
   modeVariant,
+  state = 'default',
   size,
-  disabled = false,
+  openDirection,
+  labelText,
   labelPosition,
+  placeholder,
   helper,
   helperText,
-  labelText,
-  state = 'default',
-  placeholder,
   defaultOption,
-  openDirection,
+  disabled = false,
 }) => {
   const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };

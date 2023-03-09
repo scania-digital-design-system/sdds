@@ -18,10 +18,13 @@ export default {
     ],
   },
   argTypes: {
-    label: {
-      name: 'Label',
-      type: 'string',
-      description: 'Label text helps to describe what the dropdown contains',
+    state: {
+      name: 'State',
+      control: {
+        type: 'radio',
+      },
+      options: ['Default', 'Error'],
+      description: 'Support error state',
     },
     size: {
       name: 'Size',
@@ -31,20 +34,10 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    state: {
-      name: 'State',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
+    label: {
+      name: 'Label',
+      type: 'string',
+      description: 'Label text helps to describe what the dropdown contains',
     },
     helper: {
       name: 'Helper text',
@@ -53,17 +46,30 @@ export default {
       },
       description: 'Helper text assists the user with additional information about the dropdown',
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
-    label: '',
-    size: 'Large',
-    disabled: false,
     state: 'Default',
+    size: 'Large',
+    label: '',
     helper: '',
+    disabled: false,
   },
 };
 
-const NativeTemplate = ({ disabled, size, helper, label, state }) => {
+const NativeTemplate = ({ 
+  state, 
+  size, 
+  label, 
+  helper, 
+  disabled 
+}) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
   <style>
