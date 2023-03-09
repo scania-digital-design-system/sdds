@@ -6,16 +6,13 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Accordion {
-  /** Enable or disable divider lines between items */
-  @Prop() divider: boolean = true;
-
   /** Set the variant of the the accordion. */
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   render() {
     return (
       <Host
-        class={`sdds-accordion ${this.divider ? 'sdds-accordion-divider' : ''} ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}
+        class={`sdds-accordion ${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}
       >
         <slot></slot>
       </Host>
