@@ -38,9 +38,6 @@ export default {
         type: 'radio',
       },
       options: ['None', 'Success', 'Error'],
-      table: {
-        defaultValue: { summary: 'none' },
-      },
     },
     type: {
       name: 'Type',

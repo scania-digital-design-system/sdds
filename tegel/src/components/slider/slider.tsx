@@ -25,19 +25,19 @@ export class Slider {
   @Prop() showTickNumbers: boolean = false;
 
   /** Decide to show the tooltip or not */
-  @Prop() tooltip: boolean = null;
+  @Prop() tooltip: boolean = false;
 
   /** Sets the disabled state for the whole component  */
-  @Prop() disabled: boolean = null;
+  @Prop() disabled: boolean = false;
 
   /** Sets the read only state for the whole component  */
-  @Prop() readOnly: boolean = null;
+  @Prop() readOnly: boolean = false;
 
   /** Decide to show the controls or not */
-  @Prop() controls: boolean = null;
+  @Prop() controls: boolean = false;
 
   /** Decide to show the input field or not */
-  @Prop() input: boolean = null;
+  @Prop() input: boolean = false;
 
   /** Defines how much to increment/decrement the value when using controls */
   @Prop() step: string = '1';
@@ -49,7 +49,7 @@ export class Slider {
   @Prop() size: 'sm' | '' = '';
 
   /** Snap to the ticks grid */
-  @Prop() snap: boolean = null;
+  @Prop() snap: boolean = false;
 
   /** Id for the sliders input element, randomly generated if not specified. */
   @Prop() sliderId: string = crypto.randomUUID();

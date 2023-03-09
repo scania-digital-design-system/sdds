@@ -28,7 +28,7 @@ export default {
       },
       options: ['Sticky', 'Static'],
       table: {
-        defaultValue: { summary: 'Static' },
+        defaultValue: { summary: 'static' },
       },
     },
     size: {
@@ -39,7 +39,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small', 'Extra small'],
       table: {
-        defaultValue: { summary: 'lg' },
+        defaultValue: { summary: 'md' },
       },
     },
     headline: {
@@ -61,9 +61,6 @@ export default {
       description: 'Toggles if the modal is displayed.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: true },
       },
     },
   },

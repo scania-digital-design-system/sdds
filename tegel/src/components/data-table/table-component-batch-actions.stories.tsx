@@ -79,9 +79,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     column1Width: {
       name: 'Column 1 width',

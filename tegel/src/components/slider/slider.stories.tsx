@@ -40,9 +40,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     labelText: {
       name: 'Label text',
@@ -58,9 +55,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     numTicks: {
       name: 'Number of ticks',
@@ -69,6 +63,10 @@ export default {
         type: 'number',
       },
       if: { arg: 'showTicks', eq: true },
+      
+      table: {
+        defaultValue: { summary: 0 },
+      },
     },
     showTickNumbers: {
       name: 'Show tick numbers',
@@ -78,7 +76,7 @@ export default {
       },
       if: { arg: 'showTicks', eq: true },
       table: {
-        defaultValue: { summary: 3 },
+        defaultValue: { summary: false },
       },
     },
     snapToTicks: {
@@ -99,7 +97,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: true },
+        defaultValue: { summary: false },
       },
     },
     showControls: {

@@ -29,7 +29,7 @@ export default {
       },
       options: ['Inherit from parent', 'Primary', 'Secondary'],
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'Inherit from parent' },
       },
     },
     header: {
@@ -52,9 +52,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: true },
-      },
     },
     headerPlacement: {
       name: 'Header placement',
@@ -73,9 +70,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
       if: { arg: 'bodyDivider', eq: false },
     },
     bodyContent: {
@@ -91,10 +85,10 @@ export default {
       control: {
         type: 'boolean',
       },
+      if: { arg: 'bodyImg', eq: false },
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'bodyImg', eq: false },
     },
     cardBottom: {
       name: 'Content of the bottom of the card',
