@@ -23,7 +23,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -44,18 +44,18 @@ export default {
     },
     size: {
       name: 'Size',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
       table: {
         summary: { defaultValue: 'lg' },
       },
     },
     openDirection: {
       name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+      description: 'Sets which direction the dropdown will open in.',
       control: {
         type: 'radio',
       },
@@ -66,40 +66,40 @@ export default {
     },
     labelPosition: {
       name: 'Label position',
+      description: 'Sets the label text position.',
       control: {
         type: 'radio',
       },
       options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
       table: {
         summary: { defaultValue: 'no-label' },
       },
     },
     labelText: {
       name: 'Label text',
+      description: 'Sets a label text to help describe what the dropdown contains.',
       control: {
         type: 'text',
       },
-      description: 'Label text helps to describe what the dropdown contains',
       if: { arg: 'labelPosition', neq: 'None' },
     },
     placeholder: {
       name: 'Placeholder',
+      description: 'Sets the placeholder text when no option is selected.',
       control: {
         type: 'text',
       },
-      description: 'Placeholder text when no option is selected',
     },
     helper: {
       name: 'Add helper text',
+      description: 'Adds a helper text.',
       control: {
         type: 'boolean',
       },
-      description: 'Adds a helper text.',
     },
     helperText: {
       name: 'Helper text',
-      description: 'Helper text assists the user with additional information about the dropdown',
+      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
@@ -108,7 +108,7 @@ export default {
     defaultOption: {
       if: { arg: 'type', neq: 'Multiselect' },
       name: 'Default option',
-      description: 'Sets a pre-selected option and replaces placeholder',
+      description: 'Sets a pre-selected option and replaces the placeholder.',
       control: {
         type: 'radio',
       },
@@ -116,7 +116,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the component',
+      description: 'Disables the dropdown.',
       control: {
         type: 'boolean',
       },

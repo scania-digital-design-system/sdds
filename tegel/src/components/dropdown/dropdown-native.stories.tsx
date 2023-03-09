@@ -27,7 +27,7 @@ export default {
     },
     size: {
       name: 'Size',
-      description: 'Size of the dropdown',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
@@ -35,21 +35,21 @@ export default {
     },
     label: {
       name: 'Label',
+      description: 'Sets a label text to help describe what the dropdown contains.',
       control: {
         type: 'text',
       },
-      description: 'Label text helps to describe what the dropdown contains',
     },
     helper: {
       name: 'Helper text',
+      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
-      description: 'Helper text assists the user with additional information about the dropdown',
     },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the component',
+      description: 'Disables the dropdown.',
       control: {
         type: 'boolean',
       },
