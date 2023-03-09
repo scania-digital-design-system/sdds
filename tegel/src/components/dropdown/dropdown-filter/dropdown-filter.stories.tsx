@@ -35,17 +35,23 @@ export default {
       options: ['Large', 'Medium', 'Small'],
       description: 'Size of the dropdown',
     },
+    openDirection: {
+      name: 'Open direction',
+      description: 'The direction the dropdown will open.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Up', 'Down', 'Auto'],
+      table: {
+        summary: {
+          defaultValue: 'auto',
+        },
+      },
+    },
     placeholder: {
       name: 'Placeholder',
       type: 'string',
       description: 'Placeholder text when no option is selected',
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
     },
     helper: {
       name: 'Helper text',
@@ -62,41 +68,35 @@ export default {
       },
       options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
-    openDirection: {
-      name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the component',
       control: {
-        type: 'radio',
-      },
-      options: ['Up', 'Down', 'Auto'],
-      table: {
-        summary: {
-          defaultValue: 'auto',
-        },
+        type: 'boolean',
       },
     },
   },
   args: {
+    state: false,
     size: 'Large',
+    openDirection: 'Auto',
     placeholder: 'Placeholder',
-    disabled: false,
     helper: '',
     defaultOption: 'Option 1',
-    state: false,
-    openDirection: 'Auto',
+    disabled: false,
   },
 };
 
 const FilterTemplate = ({
-  size,
-  disabled = false,
-  helper = '',
-  label,
   state = false,
-  placeholder,
-  labelPosition,
-  defaultOption,
+  size,
   openDirection,
+  labelPosition,
+  labelText,
+  placeholder,
+  helper = '',
+  defaultOption,
+  disabled = false,
 }) => {
   // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };

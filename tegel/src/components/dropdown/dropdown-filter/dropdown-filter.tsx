@@ -38,7 +38,7 @@ export class DropdownFilter {
   @Prop() inline: boolean = false;
 
   /** Position of label */
-  @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
+  @Prop() labelPosition: 'no-label' | 'outside' = 'no-label';
 
   /** Support `error` state */
   @Prop() state: boolean = false;
