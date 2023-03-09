@@ -17,9 +17,12 @@ export class Divider {
       <Host
         role="separator"
         aria-orientation={this.direction === 'vertical' ? 'vertical' : undefined}
-        class={`sdds-divider sdds-divider-${this.type} ${this.direction}`}
       >
-        {this.direction === 'horizontal' ? <hr /> : <div />}
+        {this.direction === 'horizontal' ? (
+          <hr class={`divider divider-${this.type} ${this.direction}`} />
+        ) : (
+          <div class={`divider divider-${this.type} ${this.direction}`} />
+        )}
       </Host>
     );
   }

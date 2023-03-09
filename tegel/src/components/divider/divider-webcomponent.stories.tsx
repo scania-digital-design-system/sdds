@@ -1,9 +1,11 @@
 import { formatHtmlPreview } from '../../utils/utils';
+import readme from './readme.md';
 
 export default {
   title: 'Components/Divider',
   parameters: {
     layout: 'centered',
+    notes: { Divider: readme },
     design: [
       {
         name: 'Figma',
@@ -18,9 +20,9 @@ export default {
     ],
   },
   argTypes: {
-    type: {
-      name: 'Type',
-      description: 'Choose divider type.',
+    direction: {
+      name: 'Direction',
+      description: 'Choose divider direction.',
       control: {
         type: 'radio',
         options: ['horizontal', 'vertical'],
@@ -30,92 +32,32 @@ export default {
         defaultValue: { summary: 'horizontal' },
       },
     },
-    theme: {
-      name: 'Theme',
-      description: 'Choose divider theme.',
+    type: {
+      name: 'Type',
+      description: 'Choose divider type.',
       control: {
         type: 'radio',
-        options: ['Light', 'Dark'],
+        options: ['light', 'dark'],
       },
-      defaultValue: 'Light',
+      defaultValue: 'light',
       table: {
-        defaultValue: { summary: 'Light' },
+        defaultValue: { summary: 'light' },
       },
     },
   },
 };
 
-const Template = ({ type, theme }) => {
-  const classLookup = {
-    horizontal: `sdds-divider horizontal`,
-    vertical: `sdds-divider vertical`,
-  };
+const Template = ({ direction, type }) =>
+  formatHtmlPreview(`
+  <div style="${
+    direction === 'horizontal' ? 'width: 150px;' : 'height: 150px; position: relative;'
+  }">
+    <sdds-divider direction="${direction}" type="${type}"></sdds-divider>
+  </div>
+`);
 
-  const lightStyles = `
-    .sdds-divider-light {
-      --sdds-divider-color: var(--sdds-grey-300);
-    }
-    .sdds-divider.vertical > div {
-      background-color: var(--sdds-grey-300);
-      height: 100px;
-      width: 1px;
-    }
-    .sdds-divider.horizontal > hr {
-      background-color: var(--sdds-grey-300);
-      width: 100px;
-    }
-  `;
-
-  const darkStyles = `
-    .sdds-divider-dark {
-      --sdds-divider-color: var(--sdds-grey-700);
-    }
-    .sdds-divider.vertical > div {
-      background-color: var(--sdds-grey-700);
-      height: 100px;
-      width: 1px;
-    }
-    .sdds-divider.horizontal > hr {
-      background-color: var(--sdds-grey-700);
-      width: 100px;
-    }
-  `;
-
-  const styles = `
-    .demo-div {
-      padding: 0px;
-    }
-    ${theme === 'Light' ? lightStyles : darkStyles}
-  `;
-
-  return formatHtmlPreview(`
-    <style>${styles}</style>
-    <div class="${styles} ${classLookup[type]} ${theme === 'Dark' ? 'dark' : ''}">
-      ${type === 'horizontal' ? '<hr />' : '<div></div>'}
-    </div>
-  `);
-};
-
-export const HorizontalLight = Template.bind({});
-HorizontalLight.args = {
-  type: 'horizontal',
-  theme: 'Light',
-};
-
-export const HorizontalDark = Template.bind({});
-HorizontalDark.args = {
-  type: 'horizontal',
-  theme: 'Dark',
-};
-
-export const VerticalDark = Template.bind({});
-VerticalDark.args = {
-  type: 'vertical',
-  theme: 'Dark',
-};
-
-export const VerticalLight = Template.bind({});
-VerticalLight.args = {
-  type: 'vertical',
-  theme: 'Light',
+export const Divider = Template.bind({});
+Divider.args = {
+  direction: 'horizontal',
+  type: 'light',
 };
