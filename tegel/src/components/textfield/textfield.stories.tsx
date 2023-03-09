@@ -48,7 +48,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Password', 'Text'],
+      options: ['Text', 'Password'],
       table: {
         defaultValue: { summary: 'text' },
       },
