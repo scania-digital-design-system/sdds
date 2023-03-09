@@ -14,7 +14,7 @@ type Props = {
   textAlign: string;
 };
 
-export type InternalSddsPropChange = {
+export type InternalSddsTablePropChange = {
   tableId: string;
   changed: Array<keyof Props>;
 } & Partial<Props>;
@@ -62,7 +62,7 @@ export class Table {
     composed: true,
     cancelable: true,
   })
-  internalSddsTablePropChange: EventEmitter<InternalSddsPropChange>;
+  internalSddsTablePropChange: EventEmitter<InternalSddsTablePropChange>;
 
   emitInternalSddsPropChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
     this.internalSddsTablePropChange.emit({

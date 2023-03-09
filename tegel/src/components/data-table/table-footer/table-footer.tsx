@@ -9,9 +9,9 @@ import {
   Prop,
   Element,
 } from '@stencil/core';
-import { InternalSddsPropChange } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: InternalSddsPropChange['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'compactDesign',
   'noMinWidth',
   'verticalDividers',
@@ -84,7 +84,7 @@ export class TableFooter {
   internalSddsEnablePagination: EventEmitter<any>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
-  internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))

@@ -1,7 +1,7 @@
 import { Component, h, Host, State, Event, EventEmitter, Listen, Element } from '@stencil/core';
-import { InternalSddsPropChange } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: InternalSddsPropChange['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'enableMultiselect',
   'enableExpandableRows',
   'verticalDividers',
@@ -49,7 +49,7 @@ export class TableHeaderRow {
   internalSddsMainCheckboxSelect: EventEmitter<any>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
-  internalSddsPropChangeListener(event: CustomEvent<InternalSddsPropChange>) {
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
