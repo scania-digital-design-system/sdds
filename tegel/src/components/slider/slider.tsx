@@ -46,7 +46,7 @@ export class Slider {
   @Prop() name: string = '';
 
   /** Sets the size of the scrubber */
-  @Prop() size: 'sm' | '' = '';
+  @Prop() scrubberSize: 'sm' | 'lg' = 'lg';
 
   /** Snap to the ticks grid */
   @Prop() snap: boolean = false;
@@ -452,7 +452,7 @@ export class Slider {
 
     this.useSmall = false;
 
-    if (this.size === 'sm') {
+    if (this.scrubberSize === 'sm') {
       this.useSmall = true;
     }
 
