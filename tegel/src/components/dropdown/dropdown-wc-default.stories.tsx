@@ -91,19 +91,11 @@ export default {
       },
     },
     helper: {
-      name: 'Add helper text',
-      description: 'Adds a helper text.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    helperText: {
       name: 'Helper text',
       description: 'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
-      if: { arg: 'helper', eq: true },
     },
     defaultOption: {
       if: { arg: 'type', neq: 'Multiselect' },
@@ -133,8 +125,7 @@ export default {
     labelPosition: 'None',
     labelText: 'Label text',
     placeholder: 'Placeholder',
-    helper: false,
-    helperText: 'Helper text',
+    helper: '',
     defaultOption: 'Option 1',
     disabled: false,
   },
@@ -149,7 +140,6 @@ const Template = ({
   labelPosition,
   placeholder,
   helper,
-  helperText,
   defaultOption,
   disabled = false,
 }) => {
@@ -187,7 +177,7 @@ const Template = ({
           open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosLookup[labelPosition]}"
           ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
-          ${helper ? `helper="${helperText}"` : ''}
+          ${helper !== '' ? `helper="${helper}"` : ''}
           state="${state}"
           type="default"
           default-option="${defaultOptionLookup[defaultOption]}" >
