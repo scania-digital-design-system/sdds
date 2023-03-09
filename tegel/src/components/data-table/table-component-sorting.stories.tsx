@@ -62,12 +62,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     column2sortable: {
       name: 'Column 2 is sortable',
       description: 'Enables column 2 to be sorted alphabetically.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     column3sortable: {
@@ -76,12 +82,18 @@ export default {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     column4sortable: {
       name: 'Column 4 is sortable',
       description: 'Enables column 4 to be sorted alphabetically.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
     verticalDivider: {
@@ -99,9 +111,6 @@ export default {
       description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
       },
     },
     column1Width: {

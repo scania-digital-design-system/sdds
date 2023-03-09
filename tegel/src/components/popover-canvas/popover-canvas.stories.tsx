@@ -30,7 +30,7 @@ export default {
         'Auto',
       ],
       table: {
-        defaultValue: { summary: 'Auto' },
+        defaultValue: { summary: 'auto' },
       },
     },
   },

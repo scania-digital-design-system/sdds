@@ -63,9 +63,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: true },
-      },
     },
     verticalDivider: {
       name: 'Vertical dividers',
@@ -82,9 +79,6 @@ export default {
       description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
       },
     },
     column1Width: {

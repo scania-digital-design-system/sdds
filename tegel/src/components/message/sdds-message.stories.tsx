@@ -63,7 +63,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     noIcon: {
@@ -73,7 +73,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },
