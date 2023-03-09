@@ -20,23 +20,9 @@ export default {
     ],
   },
   argTypes: {
-    placeholderText: {
-      name: 'Placeholder',
-      description: 'Placeholder text',
-      control: {
-        type: 'text',
-      },
-    },
-    type: {
-      name: 'Type',
-      description: 'Which type of textfield',
-      control: {
-        type: 'radio',
-        options: ['Password', 'Text'],
-      },
-    },
     modeVariant: {
       name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -45,66 +31,81 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    size: {
-      name: 'Size',
-      description: 'Switch between different sizes',
+    state: {
+      name: 'State',
+      description: 'Switches between success and error state.',
       control: {
         type: 'radio',
-        options: ['Large', 'Medium', 'Small'],
       },
-    },
-    minWidth: {
-      name: 'No minimum width',
-      description: 'Toggle the minimum width.',
-      control: {
-        type: 'boolean',
-      },
+      options: ['Default', 'Success', 'Error'],
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'default' },
       },
     },
-    disabled: {
-      description: 'Set textfield to disabled state',
-      name: 'Disabled',
+    type: {
+      name: 'Type',
+      description: 'Which type of textfield',
       control: {
-        type: 'boolean',
+        type: 'radio',
+      },
+      options: ['Text', 'Password'],
+      table: {
+        defaultValue: { summary: 'text' },
       },
     },
-    readonly: {
-      description: 'Set textfield to read only',
-      name: 'Read Only',
+    size: {
+      name: 'Size',
+      description: 'Switches between different sizes.',
       control: {
-        type: 'boolean',
+        type: 'radio',
+      },
+      options: ['Large', 'Medium', 'Small'],
+      table: {
+        defaultValue: { summary: 'lg' },
       },
     },
     label: {
-      description: 'Label text for specific textfield',
       name: 'Label text',
+      description: 'Sets the label text.',
       control: {
         type: 'text',
       },
     },
     labelPosition: {
       name: 'Label position',
+      description: 'Sets the label text position.',
       control: {
         type: 'radio',
       },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
+      options: ['No label', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'no-label' },
+      },
+    },
+    placeholderText: {
+      name: 'Placeholder',
+      description: 'Sets the placeholder text.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets the helper text.',
+      control: {
+        type: 'text',
+      },
     },
     prefix: {
       name: 'Prefix',
-      description: 'Add prefix symbol/text before the textfield',
+      description: 'Adds a prefix symbol or text before the textfield.',
       control: {
         type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: false },
       },
     },
     prefixType: {
       name: 'Prefix type',
-      description: 'Choose icon or text for prefix.',
+      description: 'Switches between icon and text for the prefix.',
       control: {
         type: 'radio',
       },
@@ -113,7 +114,30 @@ export default {
     },
     suffix: {
       name: 'Suffix',
-      description: 'Add suffix symbol/text after the textfield',
+      description: 'Adds a suffix symbol or text after the textfield.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    suffixType: {
+      name: 'Suffix type',
+      description: 'Swithces between icon or text for the suffix.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Icon', 'Text'],
+      if: { arg: 'suffix', eq: true },
+    },
+    maxLength: {
+      name: 'Max length',
+      description: 'Sets a maximum value of how long the text can be.',
+      control: {
+        type: 'number',
+      },
+    },
+    noMinWidth: {
+      name: 'No minimum width',
+      description: 'Enables component to shrink below 208px which is the default width.',
       control: {
         type: 'boolean',
       },
@@ -121,75 +145,64 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    suffixType: {
-      name: 'Suffix type',
-      description: 'Choose icon or text for suffix.',
+    readonly: {
+      description: 'Sets the textfield to read-only state.',
+      name: 'Read Only',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Icon', 'Text'],
-      if: { arg: 'suffix', eq: true },
-    },
-    helper: {
-      name: 'Helper text',
-      description: 'Add helper text for the textfield',
-      control: {
-        type: 'text',
+      table: {
+        defaultValue: { summary: false },
       },
     },
-    maxLength: {
-      name: 'Max length',
-      description: 'Set a maximum value of how long the text can be.',
+    disabled: {
+      description: 'Disables the textfield.',
+      name: 'Disabled',
       control: {
-        type: 'number',
+        type: 'boolean',
       },
-    },
-    state: {
-      name: 'State',
-      description: 'Switch between success or error state',
-      control: {
-        type: 'radio',
+      table: {
+        defaultValue: { summary: false },
       },
-      options: ['Default', 'Success', 'Error'],
     },
   },
   args: {
-    placeholderText: 'Placeholder',
-    disabled: false,
-    readonly: false,
-    label: 'Label',
-    labelPosition: 'None',
-    helper: '',
-    maxLength: 0,
+    modeVariant: 'Inherit from parent',
     state: 'Default',
-    suffix: false,
-    suffixType: 'Icon',
+    type: 'Text',
+    size: 'Large',
+    label: 'Label',
+    labelPosition: 'No label',
+    placeholderText: 'Placeholder',
+    helper: '',
     prefix: false,
     prefixType: 'Icon',
-    minWidth: 'Default',
-    size: 'Large',
-    type: 'Text',
-    modeVariant: 'Inherit from parent',
+    suffix: false,
+    suffixType: 'Icon',
+    maxLength: 0,
+    noMinWidth: 'Default',
+    readonly: false,
+    disabled: false,
   },
 };
 
 const Template = ({
+  modeVariant,
+  state,
   type,
-  placeholderText,
   size,
-  minWidth,
-  disabled,
-  readonly,
   label,
   labelPosition,
-  state,
+  placeholderText,
   helper,
   prefix,
   prefixType,
   suffix,
   suffixType,
   maxLength,
-  modeVariant,
+  noMinWidth,
+  readonly,
+  disabled,
 }) => {
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
@@ -220,7 +233,7 @@ const Template = ({
       ${maxlength}
       ${disabled ? 'disabled' : ''}
       ${readonly ? 'read-only' : ''}
-      ${minWidth ? 'no-min-width' : ''}
+      ${noMinWidth ? 'no-min-width' : ''}
       placeholder="${placeholderText}" >
         ${
           prefix
