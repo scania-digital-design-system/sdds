@@ -77,7 +77,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Inside', 'Outside'],
+      options: ['No label', 'Inside', 'Outside'],
       table: {
         defaultValue: { summary: 'no-label' },
       },
@@ -172,7 +172,7 @@ export default {
     type: 'Text',
     size: 'Large',
     label: 'Label',
-    labelPosition: 'None',
+    labelPosition: 'No label',
     placeholderText: 'Placeholder',
     helper: '',
     prefix: false,
