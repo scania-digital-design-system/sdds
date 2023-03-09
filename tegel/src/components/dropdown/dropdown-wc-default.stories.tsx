@@ -33,12 +33,11 @@ export default {
       },
     },
     state: {
-      name: 'State',
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
     },
     size: {
       name: 'Size',
@@ -118,7 +117,7 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
-    state: 'Default',
+    state: false,
     size: 'Large',
     openDirection: 'Auto',
     labelPosition: 'None',
@@ -133,7 +132,7 @@ export default {
 
 const Template = ({
   modeVariant,
-  state = 'default',
+  state = false,
   size,
   openDirection,
   labelText,
@@ -144,7 +143,7 @@ const Template = ({
   defaultOption,
   disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+  // const stateValue = state ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
   const defaultOptionLookup = {
@@ -179,7 +178,7 @@ const Template = ({
           label-position="${labelPosLookup[labelPosition]}"
           ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
           ${helper ? `helper="${helperText}"` : ''}
-          state="${stateValue}"
+          state="${state}"
           type="default"
           default-option="${defaultOptionLookup[defaultOption]}" >
           <sdds-dropdown-option value="option-1" tabindex="0" disabled>Option 1</sdds-dropdown-option>

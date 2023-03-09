@@ -19,12 +19,11 @@ export default {
   },
   argTypes: {
     state: {
-      name: 'State',
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
     },
     size: {
       name: 'Size',
@@ -57,7 +56,7 @@ export default {
     },
   },
   args: {
-    state: 'Default',
+    state: false,
     size: 'Large',
     label: '',
     helper: '',
@@ -83,7 +82,7 @@ const NativeTemplate = ({
 
 <div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
-    state === 'Error' ? 'sdds-dropdown--error' : ''
+    state ? 'sdds-dropdown--error' : ''
   }" >
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select

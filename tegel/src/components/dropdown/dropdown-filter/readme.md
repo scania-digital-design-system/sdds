@@ -19,7 +19,7 @@
 | `placeholder`    | `placeholder`     | Placeholder text for dropdown with no selected item                                                                                      | `string`                                                 | `''`         |
 | `selectedOption` | `selected-option` | Add the value of the option as string to set it as new selected value                                                                    | `string`                                                 | `undefined`  |
 | `size`           | `size`            | Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated                       | `"large" \| "lg" \| "md" \| "medium" \| "sm" \| "small"` | `'lg'`       |
-| `state`          | `state`           | Support `error` state                                                                                                                    | `string`                                                 | `'default'`  |
+| `state`          | `state`           | Support `error` state                                                                                                                    | `boolean`                                                | `false`      |
 
 
 ## Methods

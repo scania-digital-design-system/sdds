@@ -20,6 +20,13 @@ export default {
     ],
   },
   argTypes: {
+    state: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
+      control: {
+        type: 'boolean',
+      },
+    },
     size: {
       name: 'Size',
       control: {
@@ -75,7 +82,7 @@ export default {
     disabled: false,
     helper: '',
     defaultOption: 'Option 1',
-    state: 'Default',
+    state: false,
     openDirection: 'Auto',
   },
 };
@@ -85,13 +92,13 @@ const FilterTemplate = ({
   disabled = false,
   helper = '',
   label,
-  state = 'default',
+  state = false,
   placeholder,
   labelPosition,
   defaultOption,
   openDirection,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+  // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Outside: 'outside' };
   const defaultOptionLookup = {
@@ -120,7 +127,7 @@ const FilterTemplate = ({
         label-position="${labelPosLookup[labelPosition]}"
         ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
         ${helper !== '' ? `helper="${helper}"` : ''}
-        state="${stateValue}"
+        state="${state}"
         data='[
           {
             "value": "option-1",

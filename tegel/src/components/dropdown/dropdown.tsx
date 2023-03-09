@@ -51,7 +51,7 @@ export class Dropdown {
   @Prop() label: string;
 
   /** Support `error` state */
-  @Prop() state: string = 'default';
+  @Prop() state: boolean = false;
 
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';
@@ -303,7 +303,7 @@ export class Dropdown {
             ? 'sdds-dropdown--selected'
             : ''
         }
-        ${this.state === 'error' ? 'sdds-dropdown--error' : ''}
+        ${this.state ? 'sdds-dropdown--error' : ''}
         ${this.openUpwards ? 'sdds-dropdown--open-upwards' : ''}
         ${
           this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0

@@ -41,7 +41,7 @@ export class DropdownFilter {
   @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
 
   /** Support `error` state */
-  @Prop() state: string = 'default';
+  @Prop() state: boolean = false;
 
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';

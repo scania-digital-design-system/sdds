@@ -23,12 +23,11 @@ export default {
   },
   argTypes: {
     state: {
-      name: 'State',
+      name: 'Error state',
+      description: 'Puts the component in error state.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
     },
     size: {
       name: 'Size',
@@ -107,7 +106,7 @@ export default {
     },
   },
   args: {
-    state: 'Default',
+    state: false,
     size: 'Large',
     openDirection: 'Auto',
     labelPosition: 'None',
@@ -121,7 +120,7 @@ export default {
 };
 
 const Template = ({
-  state = 'default',
+  state = false,
   size,
   openDirection,
   labelPosition,
@@ -132,7 +131,7 @@ const Template = ({
   multiDefaultOption,
   disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
+  // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
   const multiDefaultOptionValue = multiDefaultOption.map((value) =>
@@ -157,7 +156,7 @@ const Template = ({
           label-position="${labelPosLookup[labelPosition]}"
           ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
           ${helper ? `helper="${helperText}"` : ''}
-          state="${stateValue}"
+          state="${state}"
           type="multiselect"
           default-option="${multiDefaultOptionValue}" >
           <sdds-dropdown-option value="option-1" tabindex="0">Option 1</sdds-dropdown-option>
