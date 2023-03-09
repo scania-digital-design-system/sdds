@@ -85,23 +85,19 @@ const ModalTemplate = ({ actions, size, headline, bodyText, showModal }) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
-
-  <sdds-modal selector="#my-modal-button" ${showModal ? 'open' : ''} id="my-modal" size="${
+  <sdds-modal selector="#my-modal-button" ${showModal ? 'show' : ''} id="my-modal" size="${
       sizeLookUp[size]
     }" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <span slot="sdds-modal-body">
           ${bodyText}
       </span>
-      <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
-      <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
+      <button slot="sdds-modal-actions" data-dismiss-modal class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
+      <button slot="sdds-modal-actions" data-dismiss-modal class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
   <script>
     modal = document.querySelector('sdds-modal')
     modal.addEventListener('sddsClose', (event) => {
-      console.log(event)
-    })
-    modal.addEventListener('sddsShow', (event) => {
       console.log(event)
     })
   </script>

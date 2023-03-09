@@ -61,15 +61,6 @@ export class Modal {
   })
   sddsClose: EventEmitter<any>;
 
-  /** Emitts when the modal is opened. */
-  @Event({
-    eventName: 'sddsShow',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  sddsShow: EventEmitter<any>;
-
   connectedCallback() {
     if (this.show !== null) {
       this.isShown = this.show;
@@ -86,12 +77,8 @@ export class Modal {
     }
   };
 
-  /** Emits a show event and then shows the modal if it is not prevented. */
-  handleShow = (event?) => {
-    const showEvent = this.sddsShow.emit(event);
-    if (!showEvent.defaultPrevented) {
-      this.isShown = true;
-    }
+  handleShow = () => {
+    this.isShown = true;
   };
 
   /** Checks if click on modal is on overlay, if so it closes the modal if prevent is not true. */
@@ -114,7 +101,7 @@ export class Modal {
         if (this.isShown) {
           this.handleClose(event);
         } else {
-          this.handleShow(event);
+          this.handleShow();
         }
       });
     }

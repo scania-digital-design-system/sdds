@@ -20,7 +20,6 @@
 | Event       | Description                      | Type               |
 | ----------- | -------------------------------- | ------------------ |
 | `sddsClose` | Emitts when the modal is closed. | `CustomEvent<any>` |
-| `sddsShow`  | Emitts when the modal is opened. | `CustomEvent<any>` |
 
 
 ## Methods
