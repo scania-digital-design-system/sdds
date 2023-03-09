@@ -29,7 +29,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        summary: { defaultValue: false },
+        defaultValue: { summary: false },
       },
     },
     size: {
@@ -40,7 +40,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
       table: {
-        summary: { defaultValue: 'lg' },
+        defaultValue: { summary: 'lg' },
       },
     },
     openDirection: {
@@ -51,8 +51,7 @@ export default {
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto' } 
+        defaultValue: { summary: 'auto' },
       },
     },
     labelPosition: {
@@ -63,7 +62,7 @@ export default {
       },
       options: ['None', 'Inside', 'Outside'],
       table: {
-        summary: { defaultValue: 'no-label' },
+        defaultValue: { summary: 'no-label' },
       },
     },
     labelText: {
@@ -104,7 +103,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        summary: { defaultValue: false },
+        defaultValue: { summary: false },
       },
     },
   },

@@ -27,7 +27,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        summary: { defaultValue: false },
+        defaultValue: { summary: false },
       },
     },
     size: {
@@ -38,7 +38,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
       table: {
-        summary: { defaultValue: 'lg' },
+        defaultValue: { summary: 'lg' },
       },
     },
     openDirection: {
@@ -49,7 +49,7 @@ export default {
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: { defaultValue: 'auto' },
+        defaultValue: { summary: 'auto' },
       },
     },
     labelPosition: {
@@ -58,9 +58,9 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Outside'],
+      options: ['No label', 'Outside'],
       table: {
-        summary: { defaultValue: 'no-label' },
+        defaultValue: { summary: 'no-label' },
       },
     },
     labelText: {
@@ -100,7 +100,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        summary: { defaultValue: false },
+        defaultValue: { summary: false },
       },
     },
   },
@@ -108,7 +108,7 @@ export default {
     state: false,
     size: 'Large',
     openDirection: 'Auto',
-    labelPosition: 'None',
+    labelPosition: 'No label',
     labelText: 'Label text',
     placeholder: 'Placeholder',
     helper: '',
@@ -130,7 +130,7 @@ const FilterTemplate = ({
 }) => {
   // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Outside: 'outside' };
+  const labelPosLookup = { 'No label': 'no-default', 'Outside': 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
