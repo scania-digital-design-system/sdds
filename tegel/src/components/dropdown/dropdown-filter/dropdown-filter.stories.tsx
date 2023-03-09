@@ -48,6 +48,22 @@ export default {
         },
       },
     },
+    labelPosition: {
+      name: 'Label position',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 'Outside'],
+      description: 'Label text position',
+    },
+    labelText: {
+      name: 'Label text',
+      control: {
+        type: 'text',
+      },
+      description: 'Label text helps to describe what the dropdown contains',
+      if: { arg: 'labelPosition', neq: 'None' },
+    },
     placeholder: {
       name: 'Placeholder',
       type: 'string',
@@ -80,6 +96,8 @@ export default {
     state: false,
     size: 'Large',
     openDirection: 'Auto',
+    labelPosition: 'None',
+    labelText: 'Label text',
     placeholder: 'Placeholder',
     helper: '',
     defaultOption: 'Option 1',
@@ -125,7 +143,7 @@ const FilterTemplate = ({
         disabled="${disabled}"
         open-direction="${openDirection.toLowerCase()}"
         label-position="${labelPosLookup[labelPosition]}"
-        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
+        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
         ${helper !== '' ? `helper="${helper}"` : ''}
         state="${state}"
         data='[
