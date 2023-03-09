@@ -88,7 +88,7 @@
 }
 
 :host(.last) {
-  &:not(.selected) {
+  a:not(.selected) {
     border-right-color: transparent;
   }
 }
