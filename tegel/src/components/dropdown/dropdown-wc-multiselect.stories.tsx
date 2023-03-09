@@ -61,24 +61,32 @@ export default {
     },
     labelText: {
       name: 'Label text',
-      control: 'text',
+      control: {
+        type: 'text',
+      },
       description: 'Label text helps to describe what the dropdown contains',
       if: { arg: 'labelPosition', neq: 'None' },
     },
     placeholder: {
       name: 'Placeholder',
-      type: 'string',
+      control: {
+        type: 'text',
+      },
       description: 'Placeholder text when no option is selected',
     },
     helper: {
       name: 'Add helper text',
-      control: 'boolean',
+      control: {
+        type: 'boolean',
+      },
       description: 'Adds a helper text.',
     },
     helperText: {
       name: 'Helper text',
       description: 'Helper text assists the user with additional information about the dropdown',
-      control: 'text',
+      mcontrol: {
+        type: 'text',
+      },
       if: { arg: 'helper', eq: true },
     },
     multiDefaultOption: {

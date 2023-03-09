@@ -36,7 +36,9 @@ export default {
     },
     label: {
       name: 'Label',
-      type: 'string',
+      control: {
+        type: 'text',
+      },
       description: 'Label text helps to describe what the dropdown contains',
     },
     helper: {
