@@ -69,7 +69,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: { arg: 'labelPosition', neq: 'None' },
+      if: { arg: 'labelPosition', neq: 'No label' },
     },
     placeholder: {
       name: 'Placeholder',
@@ -130,7 +130,7 @@ const FilterTemplate = ({
 }) => {
   // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { 'No label': 'no-default', 'Outside': 'outside' };
+  const labelPosLookup = { 'No label': 'no-label', 'Outside': 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -155,7 +155,7 @@ const FilterTemplate = ({
         disabled="${disabled}"
         open-direction="${openDirection.toLowerCase()}"
         label-position="${labelPosLookup[labelPosition]}"
-        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
+        ${labelPosLookup[labelPosition] !== 'no-label' ? `label="${labelText}"` : ''}
         ${helper !== '' ? `helper="${helper}"` : ''}
         state="${state}"
         data='[

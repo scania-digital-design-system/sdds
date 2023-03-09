@@ -60,7 +60,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['None', 'Inside', 'Outside'],
+      options: ['No label', 'Inside', 'Outside'],
       table: {
         defaultValue: { summary: 'no-label' },
       },
@@ -71,7 +71,7 @@ export default {
       control: {
         type: 'text',
       },
-      if: { arg: 'labelPosition', neq: 'None' },
+      if: { arg: 'labelPosition', neq: 'No label' },
     },
     placeholder: {
       name: 'Placeholder',
@@ -111,7 +111,7 @@ export default {
     state: false,
     size: 'Large',
     openDirection: 'Auto',
-    labelPosition: 'None',
+    labelPosition: 'No label',
     labelText: 'Label text',
     placeholder: 'Placeholder',
     helper: '',
@@ -133,7 +133,7 @@ const Template = ({
 }) => {
   // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
+  const labelPosLookup = { 'No label': 'no-label', 'Inside': 'inside', 'Outside': 'outside' };
   const multiDefaultOptionValue = multiDefaultOption.map((value) =>
     value.toLowerCase().replace(' ', '-'),
   );
@@ -154,7 +154,7 @@ const Template = ({
           disabled="${disabled}"
           open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosLookup[labelPosition]}"
-          ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
+          ${labelPosLookup[labelPosition] !== 'no-label' ? `label="${labelText}"` : ''}
           ${helper !== '' ? `helper="${helper}"` : ''}
           state="${state}"
           type="multiselect"
