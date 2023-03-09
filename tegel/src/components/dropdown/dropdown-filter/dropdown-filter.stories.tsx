@@ -38,9 +38,7 @@ export default {
       },
       options: ['Large', 'Medium', 'Small'],
       table: {
-        summary: {
-          defaultValue: 'lg',
-        },
+        summary: { defaultValue: 'lg' },
       },
     },
     openDirection: {
