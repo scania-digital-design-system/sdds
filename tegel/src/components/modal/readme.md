@@ -9,8 +9,8 @@
 | ------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------- |
 | `actions`     | `actions`  | Sticky or Static Actions                                                                                                                                   | `"static" \| "sticky"`         | `'static'`  |
 | `prevent`     | `prevent`  | Disables closing modal on clicking on overlay area.                                                                                                        | `boolean`                      | `false`     |
-| `referenceEl` | --         | Element that will open the modal (takes priority over selector)                                                                                            | `HTMLElement`                  | `undefined` |
-| `selector`    | `selector` | CSS selector for the element that will open the modal.                                                                                                     | `string`                       | `undefined` |
+| `referenceEl` | --         | Element that will show the modal (takes priority over selector)                                                                                            | `HTMLElement`                  | `undefined` |
+| `selector`    | `selector` | CSS selector for the element that will show the modal.                                                                                                     | `string`                       | `undefined` |
 | `show`        | `show`     | Controls wether the modal is shown or not. If this is set hiding and showing will be decided by this prop and will need to be controlled from the outside. | `boolean`                      | `undefined` |
 | `size`        | `size`     | Size of modal                                                                                                                                              | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`      |
 
@@ -34,7 +34,7 @@ Type: `Promise<void>`
 
 
 
-### `openModal() => Promise<void>`
+### `showModal() => Promise<void>`
 
 Shows the modal.
 

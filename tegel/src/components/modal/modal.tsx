@@ -27,22 +27,22 @@ export class Modal {
   /** Sticky or Static Actions  */
   @Prop() actions: 'sticky' | 'static' = 'static';
 
-  /** CSS selector for the element that will open the modal. */
+  /** CSS selector for the element that will show the modal. */
   @Prop() selector: string;
 
-  /** Element that will open the modal (takes priority over selector) */
+  /** Element that will show the modal (takes priority over selector) */
   @Prop() referenceEl: HTMLElement;
 
   /** Controls wether the modal is shown or not. If this is set hiding and showing
    * will be decided by this prop and will need to be controlled from the outside. */
   @Prop() show: boolean;
 
-  // State that keeps track of open/closed state for the modal.
+  // State that keeps track of show/closed state for the modal.
   @State() isShown: boolean = false;
 
   /** Shows the modal.  */
   @Method()
-  async openModal() {
+  async showModal() {
     this.handleShow();
   }
 
@@ -66,7 +66,7 @@ export class Modal {
       this.isShown = this.show;
     }
     this.setDissmissButtons();
-    this.setOpenButton();
+    this.setShowButton();
   }
 
   /** Emits a close event and then close the modal if it is not prevented. */
@@ -93,7 +93,7 @@ export class Modal {
     }
   }
 
-  /** Adds an event listener to the reference element that opens/closes the modal. */
+  /** Adds an event listener to the reference element that shows/closes the modal. */
   initializeReferenceElement = (referenceEl) => {
     if (referenceEl) {
       referenceEl.addEventListener('click', (event) => {
@@ -108,7 +108,7 @@ export class Modal {
   };
 
   /** Check if there is a referenceElement or selector and adds event listener to them if so. */
-  setOpenButton = () => {
+  setShowButton = () => {
     if (this.selector || this.referenceEl) {
       const referenceEl = this.referenceEl ?? document.querySelector(this.selector);
       if (referenceEl) {
