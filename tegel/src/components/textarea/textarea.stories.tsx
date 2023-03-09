@@ -50,12 +50,12 @@ export default {
       },
     },
     labelPosition: {
-      name: 'Label position.',
+      name: 'Label position',
       description: 'Sets the label text position.',
       control: {
         type: 'radio',
       },
-      options: ['None', 'Inside', 'Outside'],
+      options: ['No label', 'Inside', 'Outside'],
       table: {
         defaultValue: { summary: 'no-label' },
       },
@@ -123,7 +123,7 @@ export default {
     modeVariant: 'Inherit from parent',
     state: 'Default',
     label: 'Label',
-    labelPosition: 'None',
+    labelPosition: 'No label',
     placeholder: 'Placeholder',
     helper: '',
     rows: 5,
@@ -150,9 +150,9 @@ const Template = ({
   const maxlength = maxLength > 0 ? `max-length="${maxLength}"` : '';
   const stateValue = state.toLowerCase();
   const labelPosLookup = {
-    None: 'no-label',
-    Inside: 'inside',
-    Outside: 'outside',
+    'No label': 'no-label',
+    'Inside': 'inside',
+    'Outside': 'outside',
   };
   return formatHtmlPreview(`
   <style>
