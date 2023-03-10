@@ -25,19 +25,9 @@
 
 ## Methods
 
-### `deselect() => Promise<void>`
+### `setSelected(selected: boolean) => Promise<void>`
 
-Method to deselect the dropdown option.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `select() => Promise<void>`
-
-Method to select the dropdown option.
+Method to select/deselect an option if the option is not disabled.
 
 #### Returns
 

@@ -73,7 +73,8 @@ export class SddsDropdownV2 {
   /** Method that resets the dropdown. */
   @Method()
   async reset() {
-    this.children.forEach((element) => element.deselect());
+    this.children.forEach((element) => element.setSelected(false));
+    this.selection = null;
     this.handleChange();
   }
 
@@ -88,7 +89,7 @@ export class SddsDropdownV2 {
       this.selection = [{ value: newValue, label: newValueLabel }];
       this.children = this.children.map((element: HTMLSddsDropdownOptionV2Element) => {
         if (element.value !== newValue) {
-          element.deselect();
+          element.setSelected(false);
         }
         return element;
       });
@@ -103,7 +104,7 @@ export class SddsDropdownV2 {
     if (this.multiselect) {
       this.children.forEach((element) => {
         if (element.value === oldValue) {
-          element.deselect();
+          element.setSelected(false);
         }
       });
     } else {
@@ -197,7 +198,7 @@ export class SddsDropdownV2 {
       if (this.multiselect) {
         this.defaultValue.split(',').forEach((defaultValue) => {
           if (defaultValue === element.value) {
-            element.select();
+            element.setSelected(true);
             this.selection = this.selection
               ? [...this.selection, { value: element.value, label: element.textContent }]
               : [{ value: element.value, label: element.textContent }];
@@ -206,7 +207,7 @@ export class SddsDropdownV2 {
       } else {
         if (this.defaultValue === element.value) {
           this.reset();
-          element.select();
+          element.setSelected(true);
           this.selection = [{ value: element.value, label: element.textContent }];
         }
       }

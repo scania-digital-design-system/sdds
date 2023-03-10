@@ -29,16 +29,12 @@ export class SddsDropdownOptionV2 {
 
   private label: string;
 
-  /** Method to deselect the dropdown option. */
+  /** Method to select/deselect an option if the option is not disabled. */
   @Method()
-  async deselect() {
-    this.selected = false;
-  }
-
-  /** Method to select the dropdown option. */
-  @Method()
-  async select() {
-    this.selected = true;
+  async setSelected(selected: boolean) {
+    if (!this.disabled) {
+      this.selected = selected;
+    }
   }
 
   /** Click event for the dropdown option. */
