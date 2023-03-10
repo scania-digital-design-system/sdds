@@ -4,7 +4,7 @@ import { renderHiddenInput } from '../../utils/utils';
 
 @Component({
   tag: 'sdds-dropdown-v2',
-  styleUrl: 'sdds-dropdown-v2.scss',
+  styleUrl: 'dropdown-v2.scss',
   shadow: true,
 })
 export class SddsDropdownV2 {
