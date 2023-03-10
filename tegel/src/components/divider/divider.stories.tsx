@@ -132,8 +132,8 @@ const BorderTemplate= ({ direction }) => {
 };
 
 
-export const Default = Template.bind({});
-Default.argTypes={
+export const Native = Template.bind({});
+Native.argTypes={
   direction: { table:  { disable: true } }  
  }
 export const Border = BorderTemplate.bind({});
