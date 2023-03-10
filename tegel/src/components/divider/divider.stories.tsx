@@ -29,6 +29,14 @@ export default {
         defaultValue: { summary: 'Horizontal' },
       },
     },
+    direction: {
+      name: 'Direction',
+      description: 'Set the direction of the divider',
+      control: {
+        type: 'select',
+      },
+      options: ['Top', 'Right', 'Bottom', 'Left'],
+    },
     width: {
       name: 'Width',
       description: 'Choose divider width.',
@@ -45,20 +53,12 @@ export default {
       },
       if: { arg: 'type', eq: 'Vertical' },
     },
-    direction: {
-      name: 'Direction',
-      description: 'Set the direction of the divider',
-      control: {
-        type: 'select',
-      },
-      options: ['Top', 'Right', 'Bottom', 'Left'],
-    },
   },
   args: {
     type: 'Horizontal',
+    direction: 'Top',
     width: 150,
     height: 150,
-    direction: 'Top',
   },
 };
 
