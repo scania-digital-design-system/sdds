@@ -25,9 +25,6 @@ export default {
         type: 'radio',
       },
       options: ['Horizontal', 'Vertical'],
-      table: {
-        defaultValue: { summary: 'Horizontal' },
-      },
     },
     direction: {
       name: 'Direction',
