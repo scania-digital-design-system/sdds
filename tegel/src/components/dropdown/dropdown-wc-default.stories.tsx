@@ -143,7 +143,6 @@ const Template = ({
   defaultOption,
   disabled = false,
 }) => {
-  // const stateValue = state ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { 'No label': 'no-label', 'Inside': 'inside', 'Outside': 'outside' };
   const defaultOptionLookup = {

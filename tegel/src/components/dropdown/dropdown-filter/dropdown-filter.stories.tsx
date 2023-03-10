@@ -128,7 +128,6 @@ const FilterTemplate = ({
   defaultOption,
   disabled = false,
 }) => {
-  // const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   const labelPosLookup = { 'No label': 'no-label', 'Outside': 'outside' };
   const defaultOptionLookup = {
