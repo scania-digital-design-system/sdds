@@ -23,7 +23,7 @@ file is 'component-name'-vars.scss (`button-vars.scss`).
 ### File naming
 
 For all components that are pure HTML/CSS components their files should be prefixed with `css-`. This is to clearly separeate what files are part
-of our web components and which are only used for HTML/CSS components. For our button the means that the styling related to the HTML/CSS version 
+of our web components and which are only used for HTML/CSS components. For our button this means that the styling related to the HTML/CSS version 
 of our component the file name is `css-button.scss`. 
 
 ### Example - folder structure for button
