@@ -68,7 +68,8 @@ export default {
     actions: 'Static',
     size: 'Large',
     headline: 'The buttons for the modal only works in the canvas tab',
-    bodyText:'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
+    bodyText:
+      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     showModal: true,
   },
 };
@@ -80,32 +81,26 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const ModalTemplate = ({ 
-  actions, 
-  size, 
-  headline, 
-  bodyText,
-  showModal 
-}) =>
+const ModalTemplate = ({ actions, size, headline, bodyText, showModal }) =>
   formatHtmlPreview(
     `
   <button id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
-
-  <sdds-modal ${showModal ? 'open' : ''} id="my-modal" size="${sizeLookUp[size]}" actions="${actions.toLowerCase()}">
+  <sdds-modal selector="#my-modal-button" ${showModal ? 'show' : ''} id="my-modal" size="${
+      sizeLookUp[size]
+    }" actions="${actions.toLowerCase()}">
       <h5 class="sdds-modal-headline" slot="sdds-modal-headline">${headline}</h5>
       <span slot="sdds-modal-body">
           ${bodyText}
       </span>
-      <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('delete')" class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
-      <button slot="sdds-modal-actions" data-dismiss-modal onclick="console.log('cancel')" class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
+      <button slot="sdds-modal-actions" data-dismiss-modal class="sdds-btn sdds-btn-danger sdds-btn-md">Delete</button>
+      <button slot="sdds-modal-actions" data-dismiss-modal class="sdds-btn sdds-btn-secondary sdds-btn-md">Cancel</button>
   </sdds-modal>
   <script>
-
-    document.getElementById('my-modal-button').addEventListener('click', () => {
-      document.getElementById('my-modal').open = true;
+    modal = document.querySelector('sdds-modal')
+    modal.addEventListener('sddsClose', (event) => {
+      console.log(event)
     })
   </script>
-
   `,
   );
 
