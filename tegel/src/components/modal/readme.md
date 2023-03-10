@@ -5,6 +5,17 @@
 
 ## Properties
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+| Property  | Attribute | Description                                         | Type                           | Default    |
+| --------- | --------- | --------------------------------------------------- | ------------------------------ | ---------- |
+| `actions` | `actions` | Sticky or Static Actions                            | `"static" \| "sticky"`         | `'static'` |
+| `open`    | `open`    |                                                     | `boolean`                      | `false`    |
+| `prevent` | `prevent` | Disables closing modal on clicking on overlay area. | `boolean`                      | `false`    |
+| `size`    | `size`    | Size of modal                                       | `"lg" \| "md" \| "sm" \| "xs"` | `'md'`     |
+=======
+>>>>>>> bc245441 (chore(divider): added auto generated readme)
 | Property      | Attribute  | Description                                                                                                                                                 | Type                           | Default     |
 | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------- |
 | `actions`     | `actions`  | Sticky or Static Actions                                                                                                                                    | `"static" \| "sticky"`         | `'static'`  |
@@ -20,6 +31,10 @@
 | Event       | Description                      | Type               |
 | ----------- | -------------------------------- | ------------------ |
 | `sddsClose` | Emitts when the modal is closed. | `CustomEvent<any>` |
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> bc245441 (chore(divider): added auto generated readme)
 
 
 ## Methods
