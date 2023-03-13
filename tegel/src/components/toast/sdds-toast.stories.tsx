@@ -56,7 +56,7 @@ export default {
     },
   },
   args: {
-    type: 'Success',
+    type: 'Information',
     header: 'Header',
     subheader: '',
     link: false,

@@ -25,7 +25,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Success', 'Info', 'Warning', 'Error'],
+      options: ['Information', 'Success', 'Warning', 'Error'],
     },
     header: {
       name: 'Header',
@@ -67,7 +67,7 @@ export default {
     },
   },
   args: {
-    type: 'Success',
+    type: 'Information',
     header: 'Header',
     subheader: '',
     link: false,
@@ -77,13 +77,13 @@ export default {
 };
 const typeLookup = {
   Success: 'success',
-  Info: 'info',
+  Information: 'info',
   Warning: 'warning',
   Error: 'error',
 };
 const iconLookup = {
   Success: 'tick',
-  Info: 'info',
+  Information: 'info',
   Warning: 'warning',
   Error: 'error',
 };
