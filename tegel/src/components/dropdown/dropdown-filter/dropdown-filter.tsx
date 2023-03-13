@@ -29,7 +29,7 @@ export class DropdownFilter {
   @Prop() selectedOption: string;
 
   /** Add the value of the option to set it as default */
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
   /** Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated */
   @Prop() size: 'sm' | 'md' | 'lg' | 'small' | 'medium' | 'large' = 'lg';
@@ -38,10 +38,10 @@ export class DropdownFilter {
   @Prop() inline: boolean = false;
 
   /** Position of label */
-  @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
+  @Prop() labelPosition: 'no-label' | 'outside' = 'no-label';
 
   /** Support `error` state */
-  @Prop() state: string = 'default';
+  @Prop() state: boolean = false;
 
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';

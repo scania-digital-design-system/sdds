@@ -23,7 +23,7 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant of the component.',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -32,113 +32,119 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    state: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     size: {
       name: 'Size',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
-    },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
-    },
-    labelPosition: {
-      name: 'Label position',
-      control: {
-        type: 'radio',
+      table: {
+        defaultValue: { summary: 'lg' },
       },
-      options: ['None', 'Inside', 'Outside'],
-      description: 'Label text position',
-    },
-    labelText: {
-      name: 'Label text',
-      control: 'text',
-      description: 'Label text helps to describe what the dropdown contains',
-      if: { arg: 'labelPosition', neq: 'None' },
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
-      },
-    },
-    state: {
-      name: 'State',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
-    },
-    helper: {
-      name: 'Add helper text',
-      control: 'boolean',
-      description: 'Adds a helper text.',
-    },
-    helperText: {
-      name: 'Helper text',
-      description: 'Helper text assists the user with additional information about the dropdown',
-      control: 'text',
-      if: { arg: 'helper', eq: true },
-    },
-    defaultOption: {
-      if: { arg: 'type', neq: 'Multiselect' },
-      name: 'Default option',
-      description: 'Sets a pre-selected option and replaces placeholder',
-      control: {
-        type: 'radio',
-      },
-      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
     openDirection: {
       name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+      description: 'Sets which direction the dropdown will open in.',
       control: {
         type: 'radio',
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto',
-        },
+        defaultValue: { summary: 'lg' },
+      },
+    },
+    labelPosition: {
+      name: 'Label position',
+      description: 'Sets the label text position.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No label', 'Inside', 'Outside'],
+      table: {
+        defaultValue: { summary: 'no-label' },
+      },
+    },
+    labelText: {
+      name: 'Label text',
+      description: 'Sets a label text to help describe what the dropdown contains.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'labelPosition', neq: 'No label' },
+    },
+    placeholder: {
+      name: 'Placeholder',
+      description: 'Sets the placeholder text when no option is selected.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      control: {
+        type: 'text',
+      },
+    },
+    defaultOption: {
+      if: { arg: 'type', neq: 'Multiselect' },
+      name: 'Default option',
+      description: 'Sets a pre-selected option and replaces the placeholder.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the dropdown.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
+    state: false,
     size: 'Large',
-    placeholder: 'Placeholder',
-    state: 'Default',
-    disabled: false,
-    labelPosition: 'None',
-    labelText: 'Label text',
-    helper: false,
-    helperText: 'Helper text',
-    defaultOption: 'Option 1',
     openDirection: 'Auto',
+    labelPosition: 'No label',
+    labelText: 'Label text',
+    placeholder: 'Placeholder',
+    helper: '',
+    defaultOption: 'Option 1',
+    disabled: false,
   },
 };
 
 const Template = ({
   modeVariant,
+  state = false,
   size,
-  disabled = false,
-  labelPosition,
-  helper,
-  helperText,
-  labelText,
-  state = 'default',
-  placeholder,
-  defaultOption,
   openDirection,
+  labelText,
+  labelPosition,
+  placeholder,
+  helper,
+  defaultOption,
+  disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Inside: 'inside', Outside: 'outside' };
+  const labelPosLookup = { 'No label': 'no-label', 'Inside': 'inside', 'Outside': 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -169,9 +175,9 @@ const Template = ({
           disabled="${disabled}"
           open-direction="${openDirection.toLowerCase()}"
           label-position="${labelPosLookup[labelPosition]}"
-          ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${labelText}"` : ''}
-          ${helper ? `helper="${helperText}"` : ''}
-          state="${stateValue}"
+          ${labelPosLookup[labelPosition] !== 'no-label' ? `label="${labelText}"` : ''}
+          ${helper !== '' ? `helper="${helper}"` : ''}
+          state="${state}"
           type="default"
           default-option="${defaultOptionLookup[defaultOption]}" >
           <sdds-dropdown-option value="option-1" tabindex="0" disabled>Option 1</sdds-dropdown-option>

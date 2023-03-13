@@ -8,7 +8,7 @@
 | Property         | Attribute         | Description                                                                                                        | Type                                                     | Default      |
 | ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ------------ |
 | `defaultOption`  | `default-option`  | Add the value of the option as string to set it as default                                                         | `string`                                                 | `undefined`  |
-| `disabled`       | `disabled`        | Set to true for disabled states                                                                                    | `boolean`                                                | `undefined`  |
+| `disabled`       | `disabled`        | Set to true for disabled states                                                                                    | `boolean`                                                | `false`      |
 | `helper`         | `helper`          | Add helper text in the bottom of dropdown                                                                          | `string`                                                 | `''`         |
 | `inline`         | `inline`          | Set to true to make the width following the label text length                                                      | `boolean`                                                | `false`      |
 | `label`          | `label`           | Label text for label inside & outside                                                                              | `string`                                                 | `undefined`  |
@@ -18,7 +18,7 @@
 | `placeholder`    | `placeholder`     | Placeholder text for dropdown with no selectedLabel item                                                           | `string`                                                 | `undefined`  |
 | `selectedOption` | `selected-option` | Add the value of the option as string to set it as new selected value                                              | `string`                                                 | `undefined`  |
 | `size`           | `size`            | Controls the size of dropdown. 'sm', 'md' and 'lg' correct values and 'small', 'medium' and 'large' are deprecated | `"large" \| "lg" \| "md" \| "medium" \| "sm" \| "small"` | `'lg'`       |
-| `state`          | `state`           | Support `error` state                                                                                              | `string`                                                 | `'default'`  |
+| `state`          | `state`           | Support `error` state                                                                                              | `boolean`                                                | `false`      |
 | `type`           | `type`            | `Controls type of dropdown.                                                                                        | `"default" \| "filter" \| "multiselect"`                 | `'default'`  |
 
 
