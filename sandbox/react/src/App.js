@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import Form from './components/form/Form';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
+import DataTable from './components/dataTable/dataTable';
 
 function App() {
   const [expand, setExpand] = useState(false);
@@ -23,11 +24,14 @@ function App() {
                 <Route path="/form">
                   <Form />
                 </Route>
+                <Route path="/data-table">
+                  <DataTable />
+                </Route>
               </Switch>
             </div>
-            <Footer />
           </div>
         </div>
+        <Footer />
       </Router>
     </div>
   );

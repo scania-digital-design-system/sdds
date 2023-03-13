@@ -50,6 +50,18 @@ const Header = ({ onDrawerClick, expand }) => {
               <p className="sdds-nav__item-core-text">Form</p>
             </Link>
           </li>
+
+          <li
+            className={
+              splitLocation[1] === 'data-table'
+                ? 'sdds-nav__item sdds-nav__item--active'
+                : 'sdds-nav__item'
+            }
+          >
+            <Link className="sdds-nav__item-core" to="/data-table">
+              <p className="sdds-nav__item-core-text">Data Table</p>
+            </Link>
+          </li>
         </ul>
       </div>
 
