@@ -39,9 +39,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      table: {
-        defaultValue: { summary: false },
-      },
     },
     disabled: {
       name: 'Disabled',
