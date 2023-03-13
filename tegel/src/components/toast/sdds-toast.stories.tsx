@@ -34,7 +34,7 @@ export default {
       },
     },
     header: {
-      name: 'Subheader',
+      name: 'Header',
       description: 'Adds a header text.',
       control: {
         type: 'text',

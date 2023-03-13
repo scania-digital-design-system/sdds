@@ -28,7 +28,7 @@ export default {
       options: ['Success', 'Info', 'Warning', 'Error'],
     },
     header: {
-      name: 'Subheader',
+      name: 'Header',
       description: 'Adds a header text.',
       control: {
         type: 'text',
