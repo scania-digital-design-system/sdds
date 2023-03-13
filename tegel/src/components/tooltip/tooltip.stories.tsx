@@ -28,6 +28,7 @@ export default {
   argTypes: {
     tooltipPosition: {
       name: 'Tooltip position',
+      description: 'Sets the position of the tooltip.',
       control: {
         type: 'select',
         options: [
@@ -45,11 +46,10 @@ export default {
           'Right-end',
         ],
       },
-      description: 'Position of the tooltip',
     },
     text: {
       name: 'Tooltip text',
-      description: 'Text that will be displayed inside tooltip',
+      description: 'Sets the sext that will be displayed inside tooltip.',
       control: {
         type: 'text',
       },
@@ -63,8 +63,8 @@ export default {
     },
     mouseOverTooltip: {
       name: 'Open while hovering over tooltip',
+      description: 'Keeps the tooltip visible as long as the mouse hovers over it.',
       control: 'boolean',
-      description: 'Keep the tooltip visible as long as the mouse hover over it',
     },
   },
   args: {
