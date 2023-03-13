@@ -33,13 +33,6 @@ export default {
         type: 'text',
       },
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Should it be disabled?',
-      control: {
-        type: 'boolean',
-      },
-    },
     checked: {
       name: 'Checked',
       description: 'Sets the toggle as checked',
@@ -50,16 +43,23 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Should it be disabled?',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     size: 'Default',
     headline: 'Headline',
-    disabled: false,
     checked: false,
+    disabled: false,
   },
 };
 
-const Template = ({ size, disabled, headline, checked }) => {
+const Template = ({ size, headline, checked, disabled }) => {
   const sizeValue = size === 'Small' ? 'sdds-toggle-sm' : '';
   const headlineDiv =
     headline.length > 0 ? `<div class="sdds-toggle-headline">${headline}</div>` : '';

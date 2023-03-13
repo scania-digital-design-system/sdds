@@ -31,13 +31,6 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
-    label: {
-      name: 'Label',
-      description: 'Label for the toggles input element.',
-      control: {
-        type: 'text',
-      },
-    },
     headline: {
       name: 'Headline',
       description: 'Headline, displayed above the toggle.',
@@ -45,14 +38,11 @@ export default {
         type: 'text',
       },
     },
-    disabled: {
-      name: 'Disabled',
-      description: 'Sets the toggle as disabled',
+    label: {
+      name: 'Label',
+      description: 'Label for the toggles input element.',
       control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
+        type: 'text',
       },
     },
     checked: {
@@ -65,17 +55,27 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    disabled: {
+      name: 'Disabled',
+      description: 'Sets the toggle as disabled',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
   args: {
     size: 'Large',
-    label: 'Label',
     headline: 'Headline',
-    disabled: false,
+    label: 'Label',
     checked: false,
+    disabled: false,
   },
 };
 
-const Template = ({ label, size, disabled, headline, checked }) =>
+const Template = ({ size, headline, label, checked, disabled, }) =>
   formatHtmlPreview(`
       <sdds-toggle
         ${checked ? 'checked' : ''}
