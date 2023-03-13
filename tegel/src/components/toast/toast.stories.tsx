@@ -21,37 +21,32 @@ export default {
   argTypes: {
     type: {
       name: 'Message type',
-      description: 'Changes the type of message',
+      description: 'Changes the type of message.',
       control: {
         type: 'radio',
       },
-      options: ['Success', 'Info', 'Warning', 'Error'],
+      options: ['Information', 'Success', 'Warning', 'Error'],
     },
     header: {
-      name: 'Subheader',
-      description: 'Adds a subheader',
+      name: 'Header',
+      description: 'Adds a header text.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader',
-      description: 'Adds a subheader',
+      description: 'Adds a subheader text.',
       control: {
         type: 'text',
       },
     },
     link: {
       name: 'Link',
-      description: 'Adds a CTA link',
-    },
-    iconType: {
-      name: 'Icon type',
-      description: 'Native/Web Component',
+      description: 'Adds a CTA link.',
       control: {
-        type: 'radio',
+        type: 'boolean',
       },
-      options: ['Native', 'Web Component'],
     },
     icon: {
       name: 'Icon',
@@ -61,27 +56,34 @@ export default {
         type: 'select',
       },
       options: ['none', 'recommended', ...iconsNames],
-      if: { arg: 'size', neq: 'xs' },
+    },
+    iconType: {
+      name: 'Icon type',
+      description: 'Switch between showing a native or a web component icon.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Native', 'Web Component'],
     },
   },
   args: {
-    type: 'Success',
+    type: 'Information',
     header: 'Header',
     subheader: '',
     link: false,
-    iconType: 'Web Component',
     icon: 'recommended',
+    iconType: 'Web Component',
   },
 };
 const typeLookup = {
   Success: 'success',
-  Info: 'info',
+  Information: 'info',
   Warning: 'warning',
   Error: 'error',
 };
 const iconLookup = {
   Success: 'tick',
-  Info: 'info',
+  Information: 'info',
   Warning: 'warning',
   Error: 'error',
 };
