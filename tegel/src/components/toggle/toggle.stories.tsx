@@ -24,7 +24,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Default', 'Small'],
+      options: ['Large', 'Small'],
     },
     headline: {
       name: 'Headline',
@@ -40,7 +40,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     disabled: {
@@ -52,7 +52,7 @@ export default {
     },
   },
   args: {
-    size: 'Default',
+    size: 'Large',
     headline: 'Headline',
     checked: false,
     disabled: false,

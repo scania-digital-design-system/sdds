@@ -52,7 +52,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     disabled: {
@@ -62,7 +62,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },
