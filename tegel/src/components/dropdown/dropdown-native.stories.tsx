@@ -18,6 +18,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     state: {
       name: 'Error state',
       description: 'Puts the component in error state.',
@@ -56,6 +67,7 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     state: false,
     size: 'Large',
     label: '',
@@ -64,7 +76,8 @@ export default {
   },
 };
 
-const NativeTemplate = ({ 
+const NativeTemplate = ({
+  modeVariant, 
   state, 
   size, 
   label, 
@@ -83,7 +96,7 @@ const NativeTemplate = ({
 <div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
     state ? 'sdds-dropdown--error' : ''
-  }" >
+  } ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select
        name="nativeDropdown"
