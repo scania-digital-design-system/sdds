@@ -27,7 +27,7 @@ export default {
   argTypes: {
     siteName: {
       name: 'Site name',
-      description: 'Set a custom title for the header',
+      description: 'Sets a custom title for the header.',
       type: 'string',
     },
   },
