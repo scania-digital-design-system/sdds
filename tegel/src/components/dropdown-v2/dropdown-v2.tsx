@@ -50,9 +50,8 @@ export class SddsDropdownV2 {
   /** Default value selected in the dropdown. */
   @Prop() defaultValue: string;
 
-  // This has to accepts a string to work for vanilla HTML.
   /** Populate the dropdown via a JSON array */
-  @Prop() options: Array<{ value: string; label: string; disabled: boolean }> | string;
+  @Prop() options: Array<{ value: string; label: string; disabled: boolean }>;
 
   @State() open: boolean = false;
 
@@ -63,8 +62,6 @@ export class SddsDropdownV2 {
   @State() filterFocus: boolean;
 
   @Element() host: HostElement;
-
-  private parsedData: Array<{ value: string; label: string; disabled: boolean }>;
 
   private dropdownList: HTMLDivElement;
 
@@ -104,6 +101,7 @@ export class SddsDropdownV2 {
     if (this.multiselect) {
       this.children.forEach((element) => {
         if (element.value === oldValue) {
+          this.selection = this.selection.filter((item) => item.value !== element.value);
           element.setSelected(false);
         }
       });
@@ -171,16 +169,13 @@ export class SddsDropdownV2 {
   }
 
   connectedCallback = () => {
-    if (this.options) {
-      this.parsedData = JSON.parse(this.options.toString());
-    } else {
+    if (!this.options) {
       this.children = Array.from(this.host.children) as Array<HTMLSddsDropdownOptionV2Element>;
     }
   };
 
   componentDidLoad() {
     if (this.options) {
-      this.parsedData = JSON.parse(this.options.toString());
       this.children = Array.from(
         this.dropdownList.children,
       ) as Array<HTMLSddsDropdownOptionV2Element>;
@@ -225,6 +220,13 @@ export class SddsDropdownV2 {
     } else {
       this.openDirection = 'down';
     }
+  };
+
+  getValue = () => {
+    if (this.filter) {
+      return this.selection?.map((item) => item.label).toString();
+    }
+    return this.selection?.map((item) => item.label).join(', ');
   };
 
   handleFilter = (event) => {
@@ -293,7 +295,7 @@ export class SddsDropdownV2 {
                   // eslint-disable-next-line no-return-assign
                   type="text"
                   placeholder={this.placeholder}
-                  value={this.selection ? this.selection.map((item) => item.label) : null}
+                  value={this.getValue()}
                   disabled={this.disabled}
                   onInput={(event) => this.handleFilter(event)}
                   onBlur={(event) => {
@@ -353,9 +355,7 @@ export class SddsDropdownV2 {
                   </div>
                 )}
                 <div class={`placeholder ${this.size}`}>
-                  {this.selection?.length
-                    ? this.selection.map((item) => item.label).join(', ')
-                    : this.placeholder}
+                  {this.selection?.length ? this.getValue() : this.placeholder}
                 </div>
                 <sdds-icon
                   class={`${this.open ? 'open' : 'closed'}`}
@@ -376,7 +376,7 @@ export class SddsDropdownV2 {
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
           {this.options ? (
-            this.parsedData?.map((element, index: number) => (
+            JSON.parse(this.options.toString()).map((element, index: number) => (
               <sdds-dropdown-option-v2
                 key={index}
                 disabled={element.disabled}

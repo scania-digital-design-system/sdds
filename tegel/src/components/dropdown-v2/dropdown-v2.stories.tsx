@@ -181,24 +181,6 @@ const defaultOptionLookUp = {
 const getMultiselectDefaultValue = (multiDefaultOption: string[]) =>
   multiDefaultOption.map((item) => defaultOptionLookUp[item]);
 
-const data = [
-  {
-    label: 'Option 1',
-    value: 'option-1',
-    disabled: 'false',
-  },
-  {
-    label: 'Option 2',
-    value: 'option-2',
-    disabled: 'false',
-  },
-  {
-    label: 'Option 3',
-    value: 'option-3',
-    disabled: 'false',
-  },
-];
-
 const Template = ({
   placeholder,
   labelText,
@@ -257,7 +239,6 @@ const Template = ({
             ${multiselect ? 'multiselect' : ''}
             ${disabled ? 'disabled' : ''}
             open-direction="${openDirection.toLowerCase()}"
-            ${optionType === 'Property' ? `options='${JSON.stringify(data)}'` : ''}
             >
             ${
               optionType === 'Children'
@@ -296,6 +277,10 @@ const Template = ({
     </div>
 
     <script>
+
+  
+
+
     form = document.querySelector('form')
     form.addEventListener('submit', (event) => {
       
@@ -315,6 +300,32 @@ const Template = ({
     button.addEventListener('click', ()=> {
       dropdown.reset()
     })
+
+    ${
+      optionType === 'Property'
+        ? `
+        dropdown.options = JSON.stringify(
+          [
+            {
+              label: 'Option 1',
+              value: 'option-1',
+              disabled: 'false',
+            },
+            {
+              label: 'Option 2',
+              value: 'option-2',
+              disabled: 'false',
+            },
+            {
+              label: 'Option 3',
+              value: 'option-3',
+              disabled: 'false',
+            },
+          ]
+        )
+    `
+        : ''
+    }
     </script>
         
   `);
