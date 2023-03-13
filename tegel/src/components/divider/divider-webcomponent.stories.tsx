@@ -20,44 +20,46 @@ export default {
     ],
   },
   argTypes: {
-    direction: {
-      name: 'Direction',
-      description: 'Choose divider direction.',
-      control: {
-        type: 'radio',
-        options: ['horizontal', 'vertical'],
-      },
-      defaultValue: 'horizontal',
-      table: {
-        defaultValue: { summary: 'horizontal' },
-      },
-    },
     type: {
       name: 'Type',
       description: 'Choose divider type.',
       control: {
         type: 'radio',
-        options: ['light', 'dark'],
+        options: ['Horizontal', 'Vertical'],
       },
-      defaultValue: 'light',
       table: {
-        defaultValue: { summary: 'light' },
+        defaultValue: { summary: 'horizontal' },
       },
     },
+    width: {
+      name: 'Width',
+      description: 'Choose divider width.',
+      control: {
+        type: 'number',
+      },
+      if: { arg: 'type', eq: 'Horizontal' },
+    },
+    height: {
+      name: 'Height',
+      description: 'Choose divider height.',
+      control: {
+        type: 'number',
+      },
+      if: { arg: 'type', eq: 'Vertical' },
+    },
+  },
+  args: {
+    type: 'Horizontal',
+    width: 150,
+    height: 150,
   },
 };
 
-const Template = ({ direction, type }) =>
+const Template = ({ type, width, height }) =>
   formatHtmlPreview(`
-  <div style="${
-    direction === 'horizontal' ? 'width: 150px;' : 'height: 150px; position: relative;'
-  }">
-    <sdds-divider direction="${direction}" type="${type}"></sdds-divider>
+  <div style="${type === 'Horizontal' ? `width: ${width}px;` : `height: ${height}px;`}">
+    <sdds-divider type="${type.toLowerCase()}"></sdds-divider>
   </div>
 `);
 
-export const Divider = Template.bind({});
-Divider.args = {
-  direction: 'horizontal',
-  type: 'light',
-};
+export const WebComponent = Template.bind({});
