@@ -55,7 +55,7 @@ export default {
 const Template = ({ modeVariant, tabType }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs
-    mode-variant="${modeVariant.toLowerCase()}">
+    ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
       ${
         tabType === 'Link'
           ? `
