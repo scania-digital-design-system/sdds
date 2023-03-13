@@ -4,7 +4,6 @@ import Header from './components/header/Header';
 import Form from './components/form/Form';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
-import SideMenu from './components/sideMenu/SideMenu';
 
 function App() {
   const [expand, setExpand] = useState(false);
@@ -14,9 +13,8 @@ function App() {
         <sdds-theme />
         <div className={`sdds-navbar-overlay ${expand ? 'expanded' : null}`} />
         <Header onDrawerClick={() => setExpand(!expand)} expand={expand} />
-        <div className="sdds-push sdds-demo-container">
-          <SideMenu expand={expand} />
-          <div className={'sdds-content-push'}>
+        <div className="sdds-demo-container">
+          <div>
             <div className="sdds-container-fluid content-wrapper">
               <Switch>
                 <Route exact path="/">
