@@ -46,6 +46,11 @@ export default {
         'Right',
         'Right-end',
       ],
+      table: {
+        defaultValue: {
+          summary: 'bottom',
+        },
+      },
     },
     text: {
       name: 'Tooltip text',
@@ -66,6 +71,11 @@ export default {
       description: 'Keeps the tooltip visible as long as the mouse hovers over it.',
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
       },
     },
   },
