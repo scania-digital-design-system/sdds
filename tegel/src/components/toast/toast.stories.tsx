@@ -45,14 +45,6 @@ export default {
       name: 'Link',
       description: 'Adds a CTA link.',
     },
-    iconType: {
-      name: 'Icon type',
-      description: 'Switch between showing a native or a web component icon.',
-      control: {
-        type: 'radio',
-      },
-      options: ['Native', 'Web Component'],
-    },
     icon: {
       name: 'Icon',
       description:
@@ -63,14 +55,22 @@ export default {
       options: ['none', 'recommended', ...iconsNames],
       if: { arg: 'size', neq: 'xs' },
     },
+    iconType: {
+      name: 'Icon type',
+      description: 'Switch between showing a native or a web component icon.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Native', 'Web Component'],
+    },
   },
   args: {
     type: 'Success',
     header: 'Header',
     subheader: '',
     link: false,
-    iconType: 'Web Component',
     icon: 'recommended',
+    iconType: 'Web Component',
   },
 };
 const typeLookup = {
