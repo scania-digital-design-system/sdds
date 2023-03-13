@@ -20,18 +20,23 @@ export default {
   argTypes: {
     type: {
       name: 'Type',
-      description: 'Choose divider type.',
+      description: 'Sets the divider type.',
       control: {
         type: 'radio',
       },
       options: ['Horizontal', 'Vertical'],
-      table: {
-        defaultValue: { summary: 'Horizontal' },
+    },
+    direction: {
+      name: 'Direction',
+      description: 'Sets the direction of the divider.',
+      control: {
+        type: 'select',
       },
+      options: ['Top', 'Right', 'Bottom', 'Left'],
     },
     width: {
       name: 'Width',
-      description: 'Choose divider width.',
+      description: 'Sets the divider width.',
       control: {
         type: 'number',
       },
@@ -39,26 +44,18 @@ export default {
     },
     height: {
       name: 'Height',
-      description: 'Choose divider height.',
+      description: 'Sets the divider height.',
       control: {
         type: 'number',
       },
       if: { arg: 'type', eq: 'Vertical' },
     },
-    direction: {
-      name: 'Direction',
-      description: 'Set the direction of the divider',
-      control: {
-        type: 'select',
-      },
-      options: ['Top', 'Right', 'Bottom', 'Left'],
-    },
   },
   args: {
     type: 'Horizontal',
+    direction: 'Top',
     width: 150,
     height: 150,
-    direction: 'Top',
   },
 };
 
@@ -135,8 +132,8 @@ const BorderTemplate= ({ direction }) => {
 };
 
 
-export const Default = Template.bind({});
-Default.argTypes={
+export const Native = Template.bind({});
+Native.argTypes={
   direction: { table:  { disable: true } }  
  }
 export const Border = BorderTemplate.bind({});
