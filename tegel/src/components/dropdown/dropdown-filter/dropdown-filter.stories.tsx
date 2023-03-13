@@ -20,6 +20,17 @@ export default {
     ],
   },
   argTypes: {
+    modeVariant: {
+      name: 'Mode variant',
+      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      control: {
+        type: 'radio',
+      },
+      options: ['Inherit from parent', 'Primary', 'Secondary'],
+      table: {
+        defaultValue: { summary: 'Inherit from parent' },
+      },
+    },
     state: {
       name: 'Error state',
       description: 'Puts the component in error state.',
@@ -105,6 +116,7 @@ export default {
     },
   },
   args: {
+    modeVariant: 'Inherit from parent',
     state: false,
     size: 'Large',
     openDirection: 'Auto',
@@ -118,6 +130,7 @@ export default {
 };
 
 const FilterTemplate = ({
+  modeVariant,
   state = false,
   size,
   openDirection,
@@ -148,6 +161,12 @@ const FilterTemplate = ({
 
     <div class="demo-wrapper">
       <sdds-dropdown-filter
+      ${
+        modeVariant !== 'Inherit from parent'
+          ? `mode-variant="${modeVariant.toLowerCase()}".sdds-option-label {
+        `
+          : ''
+      }
         id="sdds-dropdown-filter"
         size="${sizeLookup[size]}"
         placeholder="${placeholder}"
