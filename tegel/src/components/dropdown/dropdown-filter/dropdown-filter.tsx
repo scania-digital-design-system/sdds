@@ -17,7 +17,7 @@ export class DropdownFilter {
   @State() dropdownRef?: HTMLSddsDropdownElement;
 
   /** Set the variant of the dropdown. */
-  @Prop() modeVariant: 'primary' | 'secondary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string = '';
