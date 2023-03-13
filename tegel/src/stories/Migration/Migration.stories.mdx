@@ -9,11 +9,28 @@ Here is where we document all the breaking changes that we are introducing while
 <!-- ### MD cheatsheet
 https://www.markdownguide.org/cheat-sheet/ -->
 
+
 ---
 
 # Breaking changes
 
 ---
+
+## Event name convention
+
+This change affect all components. 
+
+Previously we have not had a set naming convention for our events. This has led to missaglinement between
+components where some events has had a `custom` prefix, and others have had other ways of indicating whether
+or not it is a custom event or not. We have now settled on a naming convention for all events. 
+Both **external**, events we expect you as a user to interact with, and **internal** events, that are used whithin
+our components to update state/react to changes. 
+
+In short:
+ - External events are named: 'sdds' + native event name. ('sddsClick', 'sddsChange')
+ - Internal events are named: 'internalSdds' + event name. ('internalSddsTablePropsChange', 'internalSddsCheckboxChange')
+
+You can read more about our event naming conventions [here](www.TODOLINKTOCODE_STYLE.md)
 
 ## Removed base font-size and moved to `px` instead of `rem`.
 
