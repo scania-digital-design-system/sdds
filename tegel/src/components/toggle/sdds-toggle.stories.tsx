@@ -22,32 +22,32 @@ export default {
   argTypes: {
     size: {
       name: 'Size',
+      description: 'Sets the size of the toggle.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Small'],
-      description: 'Size of the toggle',
       table: {
         defaultValue: { summary: 'lg' },
       },
     },
     headline: {
       name: 'Headline',
-      description: 'Headline, displayed above the toggle.',
+      description: 'Sets the headline, displayed above the toggle.',
       control: {
         type: 'text',
       },
     },
     label: {
       name: 'Label',
-      description: 'Label for the toggles input element.',
+      description: 'Sets the label for the toggles input element.',
       control: {
         type: 'text',
       },
     },
     checked: {
       name: 'Checked',
-      description: 'Sets the toggle as checked',
+      description: 'Sets the toggle as checked.',
       control: {
         type: 'boolean',
       },
@@ -57,7 +57,7 @@ export default {
     },
     disabled: {
       name: 'Disabled',
-      description: 'Sets the toggle as disabled',
+      description: 'Disables the toggle.',
       control: {
         type: 'boolean',
       },
