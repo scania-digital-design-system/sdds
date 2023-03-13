@@ -31,21 +31,21 @@ export default {
       description: 'Sets the position of the tooltip.',
       control: {
         type: 'select',
-        options: [
-          'Bottom-start',
-          'Bottom',
-          'Bottom-end',
-          'Top-start',
-          'Top',
-          'Top-end',
-          'Left-start',
-          'Left',
-          'Left-end',
-          'Right-start',
-          'Right',
-          'Right-end',
-        ],
       },
+      options: [
+        'Bottom-start',
+        'Bottom',
+        'Bottom-end',
+        'Top-start',
+        'Top',
+        'Top-end',
+        'Left-start',
+        'Left',
+        'Left-end',
+        'Right-start',
+        'Right',
+        'Right-end',
+      ],
     },
     text: {
       name: 'Tooltip text',
@@ -64,7 +64,9 @@ export default {
     mouseOverTooltip: {
       name: 'Open while hovering over tooltip',
       description: 'Keeps the tooltip visible as long as the mouse hovers over it.',
-      control: 'boolean',
+      control: {
+        type: 'boolean',
+      },
     },
   },
   args: {
