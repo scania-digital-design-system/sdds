@@ -21,7 +21,7 @@ export class Dropdown {
   textInput?: HTMLInputElement;
 
   /** Set the variant of the dropdown. */
-  @Prop() modeVariant: 'primary' | 'secondary';
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;

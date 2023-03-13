@@ -16,6 +16,9 @@ export class DropdownFilter {
 
   @State() dropdownRef?: HTMLSddsDropdownElement;
 
+  /** Set the variant of the dropdown. */
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
+
   /** Placeholder text for dropdown with no selected item */
   @Prop() placeholder: string = '';
 
@@ -131,7 +134,9 @@ export class DropdownFilter {
 
   render() {
     return (
-      <Host selected-value={this.selectedValue} selected-text={this.selectedLabel}>
+      <Host selected-value={this.selectedValue} selected-text={this.selectedLabel} class={`
+      ${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}
+     `}>
         <sdds-dropdown
           ref={(el) => (this.dropdownRef = el)}
           exportparts="dropdown-filter-disabled"
