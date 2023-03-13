@@ -56,7 +56,6 @@ export default {
         type: 'select',
       },
       options: ['none', 'recommended', ...iconsNames],
-      if: { arg: 'size', neq: 'xs' },
     },
     iconType: {
       name: 'Icon type',
