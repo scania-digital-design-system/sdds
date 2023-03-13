@@ -22,7 +22,7 @@ export default {
   argTypes: {
     type: {
       name: 'Message type',
-      description: 'Changes the type of message',
+      description: 'Changes the type of message.',
       control: {
         type: 'radio',
       },
@@ -35,21 +35,21 @@ export default {
     },
     header: {
       name: 'Subheader',
-      description: 'Adds a subheader',
+      description: 'Adds a header text.',
       control: {
         type: 'text',
       },
     },
     subheader: {
       name: 'Subheader',
-      description: 'Adds a subheader',
+      description: 'Adds a subheader text.',
       control: {
         type: 'text',
       },
     },
     link: {
       name: 'Link',
-      description: 'Adds a CTA link',
+      description: 'Adds a CTA link.',
       control: {
         type: 'boolean',
       },
