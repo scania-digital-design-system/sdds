@@ -20,80 +20,116 @@ export default {
     ],
   },
   argTypes: {
+    state: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     size: {
       name: 'Size',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
-      description: 'Size of the dropdown',
-    },
-    placeholder: {
-      name: 'Placeholder',
-      type: 'string',
-      description: 'Placeholder text when no option is selected',
-    },
-    disabled: {
-      name: 'Disabled',
-      description: 'Disables the component',
-      control: {
-        type: 'boolean',
+      table: {
+        defaultValue: { summary: 'lg' },
       },
-    },
-    helper: {
-      name: 'Helper text',
-      control: {
-        type: 'text',
-      },
-      description: 'Helper text assists the user with additional information about the dropdown',
-    },
-    defaultOption: {
-      description: 'Sets a pre-selected option and replaces placeholder',
-      name: 'Default option',
-      control: {
-        type: 'radio',
-      },
-      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
     },
     openDirection: {
       name: 'Open direction',
-      description: 'The direction the dropdown will open.',
+      description: 'Sets which direction the dropdown will open in.',
       control: {
         type: 'radio',
       },
       options: ['Up', 'Down', 'Auto'],
       table: {
-        summary: {
-          defaultValue: 'auto',
-        },
+        defaultValue: { summary: 'auto' },
+      },
+    },
+    labelPosition: {
+      name: 'Label position',
+      description: 'Sets the label text position.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No label', 'Outside'],
+      table: {
+        defaultValue: { summary: 'no-label' },
+      },
+    },
+    labelText: {
+      name: 'Label text',
+      description: 'Sets a label text to help describe what the dropdown contains.',
+      control: {
+        type: 'text',
+      },
+      if: { arg: 'labelPosition', neq: 'No label' },
+    },
+    placeholder: {
+      name: 'Placeholder',
+      description: 'Sets the placeholder text when no option is selected.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      control: {
+        type: 'text',
+      },
+    },
+    defaultOption: {
+      name: 'Default option',
+      description: 'Sets a pre-selected option and replaces the placeholder.',
+      control: {
+        type: 'radio',
+      },
+      options: ['No default', 'Option 1', 'Option 2', 'Option 3'],
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Disables the dropdown.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
   args: {
+    state: false,
     size: 'Large',
+    openDirection: 'Auto',
+    labelPosition: 'No label',
+    labelText: 'Label text',
     placeholder: 'Placeholder',
-    disabled: false,
     helper: '',
     defaultOption: 'Option 1',
-    state: 'Default',
-    openDirection: 'Auto',
+    disabled: false,
   },
 };
 
 const FilterTemplate = ({
+  state = false,
   size,
-  disabled = false,
-  helper = '',
-  label,
-  state = 'default',
-  placeholder,
-  labelPosition,
-  defaultOption,
   openDirection,
+  labelPosition,
+  labelText,
+  placeholder,
+  helper = '',
+  defaultOption,
+  disabled = false,
 }) => {
-  const stateValue = state === 'Error' ? 'error' : 'default';
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
-  const labelPosLookup = { None: 'no-default', Outside: 'outside' };
+  const labelPosLookup = { 'No label': 'no-label', 'Outside': 'outside' };
   const defaultOptionLookup = {
     'No default': 'no-default',
     'Option 1': 'option-1',
@@ -118,9 +154,9 @@ const FilterTemplate = ({
         disabled="${disabled}"
         open-direction="${openDirection.toLowerCase()}"
         label-position="${labelPosLookup[labelPosition]}"
-        ${labelPosLookup[labelPosition] !== 'no-default' ? `label="${label}"` : ''}
+        ${labelPosLookup[labelPosition] !== 'no-label' ? `label="${labelText}"` : ''}
         ${helper !== '' ? `helper="${helper}"` : ''}
-        state="${stateValue}"
+        state="${state}"
         data='[
           {
             "value": "option-1",

@@ -18,52 +18,59 @@ export default {
     ],
   },
   argTypes: {
-    label: {
-      name: 'Label',
-      type: 'string',
-      description: 'Label text helps to describe what the dropdown contains',
+    state: {
+      name: 'Error state',
+      description: 'Puts the component in error state.',
+      control: {
+        type: 'boolean',
+      },
     },
     size: {
       name: 'Size',
-      description: 'Size of the dropdown',
+      description: 'Sets the size of the dropdown.',
       control: {
         type: 'radio',
       },
       options: ['Large', 'Medium', 'Small'],
     },
+    label: {
+      name: 'Label',
+      description: 'Sets a label text to help describe what the dropdown contains.',
+      control: {
+        type: 'text',
+      },
+    },
+    helper: {
+      name: 'Helper text',
+      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      control: {
+        type: 'text',
+      },
+    },
     disabled: {
       name: 'Disabled',
-      description: 'Disables the component',
+      description: 'Disables the dropdown.',
       control: {
         type: 'boolean',
       },
     },
-    state: {
-      name: 'State',
-      control: {
-        type: 'radio',
-      },
-      options: ['Default', 'Error'],
-      description: 'Support error state',
-    },
-    helper: {
-      name: 'Helper text',
-      control: {
-        type: 'text',
-      },
-      description: 'Helper text assists the user with additional information about the dropdown',
-    },
   },
   args: {
-    label: '',
+    state: false,
     size: 'Large',
-    disabled: false,
-    state: 'Default',
+    label: '',
     helper: '',
+    disabled: false,
   },
 };
 
-const NativeTemplate = ({ disabled, size, helper, label, state }) => {
+const NativeTemplate = ({ 
+  state, 
+  size, 
+  label, 
+  helper, 
+  disabled 
+}) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
   <style>
@@ -75,7 +82,7 @@ const NativeTemplate = ({ disabled, size, helper, label, state }) => {
 
 <div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
-    state === 'Error' ? 'sdds-dropdown--error' : ''
+    state ? 'sdds-dropdown--error' : ''
   }" >
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select
