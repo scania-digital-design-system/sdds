@@ -1,7 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { Divider } from './divider';
 
-describe('divider', () => {
+describe('sdds-divider', () => {
   it('renders a horizontal divider by default', async () => {
     const page = await newSpecPage({
       components: [Divider],
@@ -15,10 +15,10 @@ describe('divider', () => {
     expect(root.getAttribute('aria-orientation')).toBeFalsy();
   });
 
-  it('renders a vertical divider when type is set to "vertical"', async () => {
+  it('renders a vertical divider when orientation is set to "vertical"', async () => {
     const page = await newSpecPage({
       components: [Divider],
-      html: '<sdds-divider type="vertical"></sdds-divider>',
+      html: '<sdds-divider orientation="vertical"></sdds-divider>',
       supportsShadowDom: true,
     });
     const { root } = page;
