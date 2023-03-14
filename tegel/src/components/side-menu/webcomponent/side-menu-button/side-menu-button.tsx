@@ -21,8 +21,10 @@ export class SddsSideMenuButton {
   sideMenuEl: HTMLSddsSideMenuElement;
 
   connectedCallback() {
+    // closest() will return null if side-menu-button is inside a shadowRoot that
+    // does not contain a side-menu. This is the case for the side-menu-dropdown.
     this.sideMenuEl = this.host.closest('sdds-side-menu');
-    this.collapsed = this.sideMenuEl.collapsed;
+    this.collapsed = this.sideMenuEl?.collapsed;
   }
 
   @Listen('sddsSideMenuCollapsed', { target: 'body' })
