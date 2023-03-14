@@ -1,3 +1,4 @@
+@import '../theme/core/spacing/vars';
 @import '../../../../mixins/focus-state';
 
 :host {
@@ -40,30 +41,36 @@
     }
   }
 
-  .state--selected:not(.state--active) {
+  .state-selected:not(.state-active) {
     button {
       border-left: 4px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
       padding-left: 20px;
       background-color: var(--sdds-sidebar-item-state-selected);
     }
+  }
+}
 
-    &.state--collapsed {
+@media (min-width: $grid-lg) {
+  :host {
+    .state-collapsed {
       button {
-        padding-right: 4px;
-        padding-left: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        slot[name='icon']::slotted(*) {
+          margin-left: 0; // reset rule of normal state
+        }
       }
     }
-  }
 
-  .state--collapsed {
-    button {
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      slot[name='icon']::slotted(*) {
-        margin-left: 0; // reset rule of normal state
+    .state-selected:not(.state-active) {
+      &.state-collapsed {
+        button {
+          padding-right: 4px;
+          padding-left: 0;
+        }
       }
     }
   }

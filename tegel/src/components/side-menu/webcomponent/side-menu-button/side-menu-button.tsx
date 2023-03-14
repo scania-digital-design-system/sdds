@@ -35,9 +35,9 @@ export class SddsSideMenuButton {
       <Host>
         <li
           class={{
-            'state--selected': this.selected,
-            'state--active': this.active,
-            'state--collapsed': this.collapsed,
+            'state-selected': this.selected,
+            'state-active': this.active,
+            'state-collapsed': this.collapsed,
           }}
         >
           <button>

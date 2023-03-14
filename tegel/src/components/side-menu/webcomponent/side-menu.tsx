@@ -14,6 +14,7 @@ export interface CollapsedEvent {
   collapsed: boolean;
 }
 
+const GRID_LG_BREAKPOINT = '992px';
 const OPENING_ANIMATION_DURATION = 400;
 const INITIALIZE_ANIMATION_DELAY = 500;
 
@@ -53,10 +54,22 @@ export class SddsSideMenu {
 
   @State() isOpening: boolean = false;
 
+  matchesLgBreakpointMq: MediaQueryList;
+
+  handleMatchesLgBreakpointChange: (e: MediaQueryListEvent) => void = (e) => {
+    const isBelowLg = !e.matches;
+    if (isBelowLg) {
+      this.collapsed = false;
+    }
+  };
+
   connectedCallback() {
     this.collapsedEventEmitter.emit({
       collapsed: this.collapsed,
     });
+
+    this.matchesLgBreakpointMq = window.matchMedia(`(min-width: ${GRID_LG_BREAKPOINT})`);
+    this.matchesLgBreakpointMq.addEventListener('change', this.handleMatchesLgBreakpointChange);
   }
 
   componentDidLoad() {
@@ -69,6 +82,10 @@ export class SddsSideMenu {
     if (!hasUpperSlotElements) {
       this.isUpperSlotEmpty = true;
     }
+  }
+
+  disconnectedCallback() {
+    this.matchesLgBreakpointMq.removeEventListener('change', this.handleMatchesLgBreakpointChange);
   }
 
   @Watch('open')
