@@ -76,7 +76,7 @@ const Template = () =>
       </sdds-header-launcher-list>
     </sdds-header-launcher>
 
-    <sdds-header-logo slot="end" link-href="https://design.scania.com">
+    <sdds-header-logo slot="end" link-href="https://scania.com">
     </sdds-header-logo>
 
   </sdds-header>

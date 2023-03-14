@@ -47,7 +47,7 @@ export default {
     },
     collapsible: {
       name: 'Collapsible',
-      description: 'Set the side menu to be collapsible',
+      description: 'Make the side menu collapsible',
       control: {
         type: 'boolean',
       },
@@ -129,6 +129,9 @@ const Template = ({ persistent, collapsible }) =>
       </sdds-header-title>
 
       <i style="color:white">Header items omitted for brevity. See patterns/navigation</i>
+
+      <sdds-header-logo slot="end" link-href="https://scania.com">
+      </sdds-header-logo>
     </sdds-header>
 
     <div class="demo-wrap-side-menu-and-main">
