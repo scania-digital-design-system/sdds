@@ -75,7 +75,6 @@ export class Textfield {
     this.value = event.target.value;
     this.value = event.target.value;
     this.sddsInput.emit(event);
-    this.sddsInput.emit(event);
     this.value = event.target.value;
   }
 
