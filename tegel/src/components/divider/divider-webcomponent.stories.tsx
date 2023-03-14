@@ -20,9 +20,9 @@ export default {
     ],
   },
   argTypes: {
-    type: {
-      name: 'Type',
-      description: 'Choose divider type.',
+    orientation: {
+      name: 'Orientation',
+      description: 'Choose divider orientation.',
       control: {
         type: 'radio',
         options: ['Horizontal', 'Vertical'],
@@ -33,32 +33,32 @@ export default {
     },
     width: {
       name: 'Width',
-      description: 'Choose divider width.',
+      description: 'Sets the divider width.',
       control: {
         type: 'number',
       },
-      if: { arg: 'type', eq: 'Horizontal' },
+      if: { arg: 'orientation', eq: 'Horizontal' },
     },
     height: {
       name: 'Height',
-      description: 'Choose divider height.',
+      description: 'Sets the divider height.',
       control: {
         type: 'number',
       },
-      if: { arg: 'type', eq: 'Vertical' },
+      if: { arg: 'orientation', eq: 'Vertical' },
     },
   },
   args: {
-    type: 'Horizontal',
+    orientation: 'Horizontal',
     width: 150,
     height: 150,
   },
 };
 
-const Template = ({ type, width, height }) =>
+const Template = ({ orientation, width, height }) =>
   formatHtmlPreview(`
-  <div style="${type === 'Horizontal' ? `width: ${width}px;` : `height: ${height}px;`}">
-    <sdds-divider type="${type.toLowerCase()}"></sdds-divider>
+  <div style="${orientation === 'Horizontal' ? `width: ${width}px;` : `height: ${height}px;`}">
+    <sdds-divider orientation="${orientation.toLowerCase()}"></sdds-divider>
   </div>
 `);
 

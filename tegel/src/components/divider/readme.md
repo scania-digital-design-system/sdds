@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                                       | Type                         | Default        |
-| -------- | --------- | ------------------------------------------------- | ---------------------------- | -------------- |
-| `type`   | `type`    | Type of the Divider, horizontal if not specified. | `"horizontal" \| "vertical"` | `'horizontal'` |
+| Property      | Attribute     | Description                                              | Type                         | Default        |
+| ------------- | ------------- | -------------------------------------------------------- | ---------------------------- | -------------- |
+| `orientation` | `orientation` | Orientation of the Divider, horizontal if not specified. | `"horizontal" \| "vertical"` | `'horizontal'` |
 
 
 ----------------------------------------------

@@ -6,13 +6,16 @@ import { Component, Prop, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class Divider {
-  /** Type of the Divider, horizontal if not specified. */
-  @Prop() type: 'horizontal' | 'vertical' = 'horizontal';
+  /** Orientation of the Divider, horizontal if not specified. */
+  @Prop() orientation: 'horizontal' | 'vertical' = 'horizontal';
 
   render() {
     return (
-      <Host role="separator" aria-orientation={this.type === 'vertical' ? 'vertical' : undefined}>
-        <div class={`divider ${this.type}`} />
+      <Host
+        role="separator"
+        aria-orientation={this.orientation === 'vertical' ? 'vertical' : undefined}
+      >
+        <div class={`divider ${this.orientation}`} />
       </Host>
     );
   }
