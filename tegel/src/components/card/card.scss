@@ -108,9 +108,14 @@
 
   .sdds-card-footer {
     padding: var(--sdds-spacing-element-16);
+    
 
     a {
       padding-right: var(--sdds-spacing-element-16);
     }
+    sdds-icon {
+      color: var(--sdds-card-icon-color);
+    }
+
   }
 }

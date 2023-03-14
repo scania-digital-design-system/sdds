@@ -117,7 +117,7 @@ export default {
     bodyImg: false,
     bodyContent: '',
     bodyDivider: false,
-    cardBottom: `<div slot="card-bottom"><sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon></div>`,
+    cardBottom: `<sdds-icon slot="card-bottom" style="font-size: 20px;" name="arrow_right"></sdds-icon>`,
     clickable: false,
   },
 };
