@@ -502,6 +502,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * With setting
+         */
+        "noMinWidth": boolean;
+        /**
           * Placeholder text
          */
         "placeholder": string;
@@ -1147,6 +1151,10 @@ declare namespace LocalJSX {
     }
     interface SddsModal {
         /**
+          * Event the is emitted whenever the modal is closed, either via the x button or by clicking the backdrop.
+         */
+        "onSddsClose"?: (event: CustomEvent<any>) => void;
+        /**
           * Disables closing modal on clicking on overlay area.
          */
         "prevent"?: boolean;
@@ -1356,9 +1364,25 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * With setting
+         */
+        "noMinWidth"?: boolean;
+        /**
+          * Blur event for the textarea
+         */
+        "onCustomBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
           * Change event for the textarea
          */
         "onCustomChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Focus event for the textarea
+         */
+        "onCustomFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Input event for the textarea
+         */
+        "onCustomInput"?: (event: CustomEvent<InputEvent>) => void;
         /**
           * Placeholder text
          */
@@ -1406,9 +1430,21 @@ declare namespace LocalJSX {
          */
         "nominwidth"?: boolean;
         /**
+          * Blur event for the textfield
+         */
+        "onSddsBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
           * Change event for the textfield
          */
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onSddsChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Focus event for the textfield
+         */
+        "onSddsFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Input event for the textfield
+         */
+        "onSddsInput"?: (event: CustomEvent<InputEvent>) => void;
         /**
           * Placeholder text
          */
