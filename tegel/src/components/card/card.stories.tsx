@@ -121,7 +121,7 @@ export default {
     bodyImg: false,
     bodyText: '',
     bodyDivider: false,
-    cardBottom: '<sdds-icon style="font-size: 20px;" name="arrow_right"></sdds-icon>',
+    cardBottom: '<sdds-icon style="font-size: 20px; color: var(--sdds-card-icon-color);" name="arrow_right"></sdds-icon>',
     clickable: false,
   },
 };

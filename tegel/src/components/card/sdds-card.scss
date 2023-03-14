@@ -78,10 +78,7 @@
     display: flex;
     padding: 16px;
 
-  }   
-  slot[name='card-bottom']::slotted(sdds-icon) {
-    color: var(--sdds-card-icon-color);
-  }   
+  } 
 }
 
 button {
