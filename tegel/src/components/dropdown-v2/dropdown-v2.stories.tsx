@@ -207,98 +207,68 @@ const Template = ({
   </style>
 
     <div class="demo-wrapper">
-        <form>
-          <sdds-dropdown-v2
+        <sdds-dropdown-v2
+        ${
+          defaultOption && defaultOption !== 'No default'
+            ? `default-value="${defaultOptionLookUp[defaultOption]}"`
+            : ''
+        }
+        ${
+          multiDefaultOption
+            ? `default-value="${getMultiselectDefaultValue(multiDefaultOption)}"`
+            : ''
+        }
+        ${
+          modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
+        }
+          name="dropdown"
+          label="${labelText}"
           ${
-            defaultOption && defaultOption !== 'No default'
-              ? `default-value="${defaultOptionLookUp[defaultOption]}"`
+            labelPosition && labelPosition !== 'None'
+              ? `label-position="${labelPosition.toLowerCase()}"`
               : ''
           }
+          placeholder="${placeholder}"
+          helper="${helperText}"
+          size="${sizeLookUp[size]}"
+          ${error ? 'error' : ''}
+          ${filter ? 'filter' : ''}
+          ${multiselect ? 'multiselect' : ''}
+          ${disabled ? 'disabled' : ''}
+          open-direction="${openDirection.toLowerCase()}"
+          >
           ${
-            multiDefaultOption
-              ? `default-value="${getMultiselectDefaultValue(multiDefaultOption)}"`
+            optionType === 'Children'
+              ? `<sdds-dropdown-option-v2 value="option-1">
+              Option 1
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 disabled value="option-2">
+                Option 2
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 value="option-3">
+                Option 3
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 value="option-4">
+                Option 4
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 value="option-5">
+                Option 5
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 value="option-6">
+                Option 6
+              </sdds-dropdown-option-v2>
+              <sdds-dropdown-option-v2 value="option-7">
+                Option 7
+              </sdds-dropdown-option-v2>`
               : ''
           }
-          ${
-            modeVariant !== 'Inherit from parent'
-              ? `mode-variant="${modeVariant.toLowerCase()}"`
-              : ''
-          }
-            name="dropdown"
-            label="${labelText}"
-            ${
-              labelPosition && labelPosition !== 'None'
-                ? `label-position="${labelPosition.toLowerCase()}"`
-                : ''
-            }
-            placeholder="${placeholder}"
-            helper="${helperText}"
-            size="${sizeLookUp[size]}"
-            ${error ? 'error' : ''}
-            ${filter ? 'filter' : ''}
-            ${multiselect ? 'multiselect' : ''}
-            ${disabled ? 'disabled' : ''}
-            open-direction="${openDirection.toLowerCase()}"
-            >
-            ${
-              optionType === 'Children'
-                ? `<sdds-dropdown-option-v2 value="option-1">
-                Option 1
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 disabled value="option-2">
-                  Option 2
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 value="option-3">
-                  Option 3
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 value="option-4">
-                  Option 4
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 value="option-5">
-                  Option 5
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 value="option-6">
-                  Option 6
-               </sdds-dropdown-option-v2>
-               <sdds-dropdown-option-v2 value="option-7">
-                  Option 7
-               </sdds-dropdown-option-v2>`
-                : ''
-            }
-          </sdds-dropdown-v2>
-          <!-- JUST FOR DEMO ON FORMS -->
-          <input
-                type="submit"
-                value="Submit form"
-            />
-            <!-- JUST FOR DEMO OF RESET -->
-          <sdds-button text="reset"></sdds-button>
-        </form>
+        </sdds-dropdown-v2>
     </div>
 
     <script>
-
-  
-
-
-    form = document.querySelector('form')
-    form.addEventListener('submit', (event) => {
-      
-      event.preventDefault();
-      event.stopPropagation();
-      const formData = new FormData(form)
-      formData.forEach((value, key) => {
-        console.log('Key:', key, 'Value:', value);
-      });
-    });
-    
     dropdown = document.querySelector('sdds-dropdown-v2')
     dropdown.addEventListener('sddsChange', (event) => {
       console.log(event)
-    })
-    button = document.querySelector('sdds-button')
-    button.addEventListener('click', ()=> {
-      dropdown.reset()
     })
 
     ${
