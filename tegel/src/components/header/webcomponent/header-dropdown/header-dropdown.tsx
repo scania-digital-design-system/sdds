@@ -22,7 +22,7 @@ export class HeaderDropdown {
 
   @State() buttonEl?: HTMLSddsHeaderButtonElement;
 
-  @Listen('click', { target: 'window' })
+  @Listen('click', { target: 'document' })
   onAnyClick(event: MouseEvent) {
     // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
     const isClickOutside = !event.composedPath().includes(this.host as any);
