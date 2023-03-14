@@ -28,28 +28,33 @@ export default {
   argTypes: {
     tooltipPosition: {
       name: 'Tooltip position',
+      description: 'Sets the position of the tooltip.',
       control: {
         type: 'select',
-        options: [
-          'Bottom-start',
-          'Bottom',
-          'Bottom-end',
-          'Top-start',
-          'Top',
-          'Top-end',
-          'Left-start',
-          'Left',
-          'Left-end',
-          'Right-start',
-          'Right',
-          'Right-end',
-        ],
       },
-      description: 'Position of the tooltip',
+      options: [
+        'Bottom-start',
+        'Bottom',
+        'Bottom-end',
+        'Top-start',
+        'Top',
+        'Top-end',
+        'Left-start',
+        'Left',
+        'Left-end',
+        'Right-start',
+        'Right',
+        'Right-end',
+      ],
+      table: {
+        defaultValue: {
+          summary: 'bottom',
+        },
+      },
     },
     text: {
       name: 'Tooltip text',
-      description: 'Text that will be displayed inside tooltip',
+      description: 'Sets the sext that will be displayed inside tooltip.',
       control: {
         type: 'text',
       },
@@ -63,8 +68,15 @@ export default {
     },
     mouseOverTooltip: {
       name: 'Open while hovering over tooltip',
-      control: 'boolean',
-      description: 'Keep the tooltip visible as long as the mouse hover over it',
+      description: 'Keeps the tooltip visible as long as the mouse hovers over it.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
   },
   args: {
