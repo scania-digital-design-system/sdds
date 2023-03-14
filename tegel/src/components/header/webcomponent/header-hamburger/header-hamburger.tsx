@@ -9,12 +9,8 @@ export class HeaderHamburger {
   render() {
     return (
       <Host>
-        <sdds-header-button style={{ 'border-left': 'none' }}>
-          <sdds-icon
-            style={{ 'margin-left': '-4px', 'position': 'relative', 'left': '2px' }}
-            name="burger"
-            size="20px"
-          ></sdds-icon>
+        <sdds-header-button>
+          <sdds-icon name="burger" size="20px"></sdds-icon>
         </sdds-header-button>
       </Host>
     );
