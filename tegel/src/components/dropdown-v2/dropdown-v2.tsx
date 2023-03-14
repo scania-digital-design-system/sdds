@@ -292,7 +292,6 @@ export class SddsDropdownV2 {
                 )}
                 <input
                   class={`${this.labelPosition === 'inside' ? 'placeholder' : ''}`}
-                  // eslint-disable-next-line no-return-assign
                   type="text"
                   placeholder={this.placeholder}
                   value={this.getValue()}
@@ -376,7 +375,7 @@ export class SddsDropdownV2 {
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
           {this.options ? (
-            JSON.parse(this.options.toString()).map((element, index: number) => (
+            this.options.map((element, index: number) => (
               <sdds-dropdown-option-v2
                 key={index}
                 disabled={element.disabled}

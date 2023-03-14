@@ -274,8 +274,7 @@ const Template = ({
     ${
       optionType === 'Property'
         ? `
-        dropdown.options = JSON.stringify(
-          [
+        dropdown.options = [
             {
               label: 'Option 1',
               value: 'option-1',
@@ -292,7 +291,7 @@ const Template = ({
               disabled: 'false',
             },
           ]
-        )
+        
     `
         : ''
     }
