@@ -1,6 +1,6 @@
-# sdds-navigation-tabs
+# sdds-inline-tabs
 
-This component neither accepts any properties, nor exposes any methods.
+
 
 <!-- Auto Generated Below -->
 
@@ -41,8 +41,8 @@ Type: `Promise<{ selectedTab: string; selectedTabIndex: number; }>`
 ### Graph
 ```mermaid
 graph TD;
-  sdds-navigation-tabs --> sdds-icon
-  style sdds-navigation-tabs fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-inline-tabs --> sdds-icon
+  style sdds-inline-tabs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

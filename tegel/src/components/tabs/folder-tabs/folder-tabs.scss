@@ -5,28 +5,14 @@
 :host {
   @include sdds-box-sizing;
 
-  display: flex;
-  background-color: var(--sdds-inline-tabs-background);
-  position: relative;
-
-  &::after {
-    content: ' ';
-    display: block;
-    border-bottom: 1px solid var(--sdds-inline-tabs-horizontal-divider-background);
-    opacity: var(--sdds-inline-tabs-horizontal-divider-opacity);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-  }
+  overflow: hidden;
+  outline: 0;
 
   .wrapper {
     display: flex;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    width: 100%;
     overflow-x: scroll;
     scrollbar-width: none;
+    position: relative;
 
     &::-webkit-scrollbar {
       display: none;
@@ -34,22 +20,23 @@
   }
 
   .scroll-right-button {
-    right: 0;
     z-index: calc(z(tab) + 1);
+    right: 0;
   }
 
   .scroll-left-button {
-    left: 0;
     z-index: calc(z(tab) + 1);
+    left: 0;
   }
 
   .scroll-right-button,
   .scroll-left-button {
+    height: 50px;
     color: var(--sdds-folder-tabs-scroll-btn-color);
     cursor: pointer;
     border: 0;
     width: 0;
-    background-color: var(--sdds-inline-tabs-scroll-btn-background);
+    background-color: var(--sdds-folder-tabs-scroll-btn-background);
     display: none;
     justify-content: center;
     align-items: center;
