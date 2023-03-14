@@ -120,6 +120,12 @@
   }
 }
 
+.helper-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .sdds-textarea-textcounter {
   @extend .sdds-textfield-textcounter;
 
@@ -131,8 +137,8 @@
 .sdds-textarea-helper {
   @extend .sdds-textfield-helper;
 
-  flex-grow: 2;
-  flex-basis: auto;
+  display: flex;
+  gap: 8px;
 
   ~ .sdds-textarea-textcounter {
     flex-basis: auto;
