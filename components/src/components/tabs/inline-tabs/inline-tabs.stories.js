@@ -16,8 +16,8 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Primary', 'Secondary'],
-      defaultValue: 'Primary',
+      options: ['primary', 'secondary'],
+      defaultValue: 'primary',
     },
   },
 };
