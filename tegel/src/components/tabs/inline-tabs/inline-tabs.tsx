@@ -1,26 +1,16 @@
-import {
-  Component,
-  Host,
-  State,
-  Element,
-  h,
-  Prop,
-  Event,
-  EventEmitter,
-  Watch,
-  Method,
-} from '@stencil/core';
+import { Component, Host, State, Element, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { HostElement, Method, Watch } from '@stencil/core/internal';
 
 @Component({
-  tag: 'sdds-navigation-tabs',
-  styleUrl: 'navigation-tabs.scss',
+  tag: 'sdds-inline-tabs',
+  styleUrl: 'inline-tabs.scss',
   shadow: true,
 })
-export class NavigationTabs {
+export class InlineTabsFullbleed {
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
   @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
-  @Element() host: HTMLElement;
+  @Element() host: HostElement;
 
   @State() showLeftScroll: boolean = false;
 
@@ -31,6 +21,8 @@ export class NavigationTabs {
     tabIndex: number;
   };
 
+  @State() buttonWidth: number = 0; // current calculated width of the largest nav button
+
   private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
   private componentWidth: number = 0; // visible width of this component
@@ -39,7 +31,7 @@ export class NavigationTabs {
 
   private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  private children: Array<HTMLSddsNavigationTabsLinkElement | HTMLSddsNavigationTabsButtonElement>;
+  private children: Array<HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement>;
 
   /** Selects a tab based on tabindex, will not select a disabled tab. */
   @Method()
@@ -87,7 +79,7 @@ export class NavigationTabs {
 
   connectedCallback() {
     this.children = Array.from(this.host.children) as Array<
-      HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement
+      HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement
     >;
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
@@ -100,12 +92,6 @@ export class NavigationTabs {
           };
         }
       });
-      if (index === 0) {
-        item.classList.add('first');
-      }
-      if (index === this.children.length - 1) {
-        item.classList.add('last');
-      }
       if (item.selected) {
         this.selectedTab = {
           tab: item.innerText,
@@ -114,10 +100,6 @@ export class NavigationTabs {
       }
       return item;
     });
-
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsNavigationTabsLinkElement | HTMLSddsNavigationTabsButtonElement
-    >;
     this.children[0].classList.add('first');
     this.children[this.children.length - 1].classList.add('last');
   }
@@ -134,7 +116,7 @@ export class NavigationTabs {
           buttonsWidth +=
             navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
-          navButton.classList.add('sdds-navigation-tabs-tab');
+          navButton.classList.add('sdds-inline-tabs-fullbleed--tab');
         });
 
         this.componentWidth = componentWidth;
@@ -153,17 +135,42 @@ export class NavigationTabs {
     resizeObserver.observe(this.navWrapperElement);
   }
 
+  componentWillRender() {
+    if (!this.selectedTab) {
+      this.children = Array.from(this.host.children) as Array<
+        HTMLSddsInlineTabsButtonElement | HTMLSddsInlineTabsLinkElement
+      >;
+      this.children = this.children.map((item, index) => {
+        if (item.selected) {
+          this.selectedTab = {
+            tab: item.innerText,
+            tabIndex: index,
+          };
+        }
+        return item;
+      });
+    }
+  }
+
+  componentDidRender() {
+    if (this.buttonsWidth > this.componentWidth) {
+      this.evaluateScrollButtons();
+    } else {
+      this.showLeftScroll = false;
+      this.showRightScroll = false;
+    }
+    this.addResizeObserver();
+  }
+
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll + this.buttonsWidth;
-
+    this.navWrapperElement.scrollLeft = scroll + 95;
     this.evaluateScrollButtons();
   }
 
   scrollLeft() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll - this.buttonsWidth;
-
+    this.navWrapperElement.scrollLeft = scroll - 10;
     this.evaluateScrollButtons();
   }
 
@@ -182,6 +189,35 @@ export class NavigationTabs {
       this.showLeftScroll = true;
     }
   }
+
+  addResizeObserver = () => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const componentWidth = entry.contentRect.width;
+        let buttonsWidth = 0;
+
+        const navButtons = Array.from(this.host.children);
+        navButtons.forEach((navButton: HTMLElement) => {
+          const style = window.getComputedStyle(navButton);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        });
+
+        this.componentWidth = componentWidth;
+        this.buttonsWidth = buttonsWidth;
+        this.scrollWidth = buttonsWidth - componentWidth;
+
+        if (this.buttonsWidth > this.componentWidth) {
+          this.evaluateScrollButtons();
+        } else {
+          this.showLeftScroll = false;
+          this.showRightScroll = false;
+        }
+      });
+    });
+
+    resizeObserver.observe(this.navWrapperElement);
+  };
 
   render() {
     return (

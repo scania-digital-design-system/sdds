@@ -11,7 +11,8 @@
   --sdds-navigation-tabs-scroll-btn-background-active: var(--sdds-grey-400);
 
   /* Tab */
-  --sdds-navigation-tabs-tab-color: var(--sdds-grey-900);
+  --sdds-navigation-tabs-tab-color: rgb(29 34 41 / 60%);
+  --sdds-navigation-tabs-tab-color-selected: rgb(29 34 41 / 100%);
   --sdds-navigation-tabs-tab-color-disabled: var(--sdds-blue-900);
   --sdds-navigation-tabs-tab-color-opacity-disabled: 0.6;
   --sdds-navigation-tabs-tab-indicator-background-hover: #d1d5db;
@@ -19,6 +20,8 @@
   --sdds-navigation-tabs-tab-color-focus: var(--sdds-grey-958);
   --sdds-navigation-tabs-tab-color-active: var(--sdds-grey-958);
   --sdds-navigation-tabs-tab-indicator-background-active: var(--sdds-blue-400);
+  --sdds-navigation-tabs-tab-color-opacity-disabled: 0.6;
+  --sdds-navigation-tabs-tab-indicator-background-hover: #d1d5db;
 }
 
 .sdds-mode-dark {
@@ -40,4 +43,6 @@
   --sdds-navigation-tabs-tab-color-focus: var(--sdds-grey-50);
   --sdds-navigation-tabs-tab-color-active: var(--sdds-grey-50);
   --sdds-navigation-tabs-tab-indicator-background-active: var(--sdds-blue-300);
+  --sdds-navigation-tabs-tab-color-opacity-disabled: 0.38;
+  --sdds-navigation-tabs-tab-indicator-background-hover: #373d46;
 }
