@@ -29,7 +29,7 @@ export class SideMenuCollapseButton {
         <div
           class={{
             'wrapper': true,
-            'state--collapsed': this.collapsed,
+            'state-collapsed': this.collapsed,
           }}
         >
           <sdds-side-menu-button

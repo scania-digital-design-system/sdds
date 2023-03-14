@@ -7,13 +7,13 @@
   list-style: none;
   width: 100%;
 
-  .state--selected {
+  .state-selected {
     border-left: 4px solid var(--sdds-nav-item-border-color-active);
     padding-left: 20px;
     background-color: var(--sdds-nav-item-background-selected);
   }
 
-  .state--dropdown-has-icon:not(.state--collapsed) {
+  .state-dropdown-has-icon:not(.state-collapsed) {
     padding-left: 56px;
   }
 

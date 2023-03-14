@@ -41,7 +41,7 @@
     }
   }
 
-  .state--active {
+  .state-active {
     button {
       background-color: var(--sdds-header-nav-item-dropdown-opened-background);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
@@ -49,7 +49,7 @@
     }
   }
 
-  .state--selected:not(.state--active) {
+  .state-selected:not(.state-active) {
     button {
       background-color: var(--sdds-header--basic-element-background-selected);
       padding-top: 4px;

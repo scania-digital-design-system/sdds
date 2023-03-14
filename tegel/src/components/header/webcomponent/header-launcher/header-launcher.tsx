@@ -45,8 +45,8 @@ export class HeaderLauncher {
         <div
           class={{
             'wrapper': true,
-            'state--open': this.open,
-            'state--list-type-menu': this.hasListTypeMenu,
+            'state-open': this.open,
+            'state-list-type-menu': this.hasListTypeMenu,
           }}
         >
           <sdds-header-launcher-button

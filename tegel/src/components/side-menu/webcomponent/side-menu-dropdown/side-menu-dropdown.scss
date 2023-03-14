@@ -11,7 +11,7 @@
     transition: all 0.2s ease-in-out;
   }
 
-  .state--open {
+  .state-open {
     .dropdown-icon {
       transform: rotateZ(180deg);
     }
@@ -21,7 +21,7 @@
     }
   }
 
-  .state--collapsed {
+  .state-collapsed {
     .menu {
       --side-menu-width: 68px;
 
@@ -44,7 +44,7 @@
     }
   }
 
-  :not(.state--collapsed) {
+  :not(.state-collapsed) {
     .menu {
       ::slotted(sdds-side-menu-dropdown-list) {
         width: 100%;

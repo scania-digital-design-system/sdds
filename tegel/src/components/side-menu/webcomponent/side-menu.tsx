@@ -137,9 +137,9 @@ export class SddsSideMenu {
         <div
           class={{
             'wrapper': true,
-            'state--upper-slot-empty': this.isUpperSlotEmpty,
-            'state--open': this.isOpen || this.isOpening,
-            'state--closed': this.isClosed,
+            'state-upper-slot-empty': this.isUpperSlotEmpty,
+            'state-open': this.isOpen || this.isOpening,
+            'state-closed': this.isClosed,
           }}
         >
           <slot name="overlay"></slot>

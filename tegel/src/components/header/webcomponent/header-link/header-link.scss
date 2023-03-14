@@ -2,7 +2,7 @@
 @import '../../../../mixins/focus-state';
 
 :host {
-  .state--selected {
+  .state-selected {
     a {
       background-color: var(--sdds-header--basic-element-background-selected);
       padding-top: 4px;

@@ -68,9 +68,9 @@ export class SideMenuDropdownListLink {
         <a
           part="a"
           class={{
-            'state--dropdown-has-icon': this.dropdownHasIcon,
-            'state--collapsed': this.collapsed,
-            'state--selected': this.selected,
+            'state-dropdown-has-icon': this.dropdownHasIcon,
+            'state-collapsed': this.collapsed,
+            'state-selected': this.selected,
           }}
           href={this.href}
           hreflang={this.hreflang}

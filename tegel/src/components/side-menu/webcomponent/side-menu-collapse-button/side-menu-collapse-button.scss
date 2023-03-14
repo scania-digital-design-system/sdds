@@ -13,7 +13,7 @@
     transition: all 0.2s ease-in-out;
   }
 
-  .state--collapsed {
+  .state-collapsed {
     .icon {
       transform: rotateZ(90deg) rotateX(180deg);
     }

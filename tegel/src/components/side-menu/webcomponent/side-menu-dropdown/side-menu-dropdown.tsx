@@ -82,8 +82,8 @@ export class SideMenuDropdown {
         <div
           class={{
             'wrapper': true,
-            'state--open': this.getIsOpenState(),
-            'state--collapsed': this.collapsed,
+            'state-open': this.getIsOpenState(),
+            'state-collapsed': this.collapsed,
           }}
         >
           <sdds-side-menu-button

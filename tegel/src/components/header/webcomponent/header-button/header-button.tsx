@@ -18,8 +18,8 @@ export class HeaderButton {
       <Host>
         <sdds-core-header-item
           class={{
-            'state--active': this.active,
-            'state--selected': this.selected,
+            'state-active': this.active,
+            'state-selected': this.selected,
           }}
         >
           <button>

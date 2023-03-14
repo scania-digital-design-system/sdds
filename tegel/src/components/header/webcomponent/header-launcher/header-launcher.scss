@@ -24,13 +24,13 @@
       }
     }
 
-    &.state--list-type-menu {
+    &.state-list-type-menu {
       .menu {
         height: calc(100vh - var(--sdds-header-height));
       }
     }
 
-    &.state--open {
+    &.state-open {
       .button {
         position: relative;
         z-index: z(tooltip) + 1;

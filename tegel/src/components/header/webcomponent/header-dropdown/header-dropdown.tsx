@@ -40,7 +40,7 @@ export class HeaderDropdown {
       <Host>
         <div
           class={{
-            'state--open': this.open,
+            'state-open': this.open,
           }}
         >
           <sdds-header-button

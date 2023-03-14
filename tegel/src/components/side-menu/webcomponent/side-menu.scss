@@ -34,11 +34,11 @@
     }
   }
 
-  .state--closed {
+  .state-closed {
     display: none;
   }
 
-  .state--open {
+  .state-open {
     slot[name='overlay']::slotted(sdds-side-menu-overlay) {
       opacity: 0.4;
     }
@@ -52,7 +52,7 @@
     }
   }
 
-  .state--upper-slot-empty {
+  .state-upper-slot-empty {
     .sdds-side-menu-list-upper {
       display: none;
     }
@@ -94,7 +94,7 @@
       width: 272px;
     }
 
-    .state--closed {
+    .state-closed {
       display: block;
     }
 

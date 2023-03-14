@@ -30,7 +30,6 @@ export class HeaderDropdownListLgLink {
     return (
       <Host role="listitem">
         <sdds-core-header-menu-lg-link
-          exportparts="a"
           selected={this.selected}
           href={this.href}
           hreflang={this.hreflang}

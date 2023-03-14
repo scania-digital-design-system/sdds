@@ -32,7 +32,7 @@ export class HeaderLink {
       <Host>
         <sdds-core-header-item
           class={{
-            'state--selected': this.selected,
+            'state-selected': this.selected,
           }}
         >
           <a

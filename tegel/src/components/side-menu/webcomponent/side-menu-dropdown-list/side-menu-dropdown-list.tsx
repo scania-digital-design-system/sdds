@@ -29,7 +29,7 @@ export class SideMenuDropdownList {
         <div
           role="list"
           class={{
-            'state--collapsed': this.collapsed,
+            'state-collapsed': this.collapsed,
           }}
         >
           <slot></slot>

@@ -31,9 +31,8 @@ export class CoreHeaderMenuLgLink {
     return (
       <Host>
         <a
-          part="a"
           class={{
-            'state--selected': this.selected,
+            'state-selected': this.selected,
           }}
           href={this.href}
           hreflang={this.hreflang}
