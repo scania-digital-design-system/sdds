@@ -213,6 +213,12 @@ Please read through our [contributing guidelines](https://github.com/scania-digi
 - [Report bug](https://github.com/scania-digital-design-system/sdds/issues)
 - [Request feature](https://github.com/scania-digital-design-system/sdds/issues/new)
 
+
+## Code conventions
+
+TODO - Needs the correct link.
+The code conventions used in (and enforced by) Tegel is documented [here](www.TBD.se).
+
 ### Setting up the development environment
 
 1. Make sure you are using the required node.js version specified in `tegel/package.json` (node 16 at the time of writing).
