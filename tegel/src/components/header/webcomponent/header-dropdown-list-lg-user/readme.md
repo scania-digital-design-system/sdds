@@ -16,8 +16,8 @@ See the code example in the [navigation pattern section](/docs/patterns-navigati
 | Property     | Attribute    | Description                                          | Type     | Default     |
 | ------------ | ------------ | ---------------------------------------------------- | -------- | ----------- |
 | `heading`    | `heading`    | Heading, usually the users first name and last name. | `string` | `undefined` |
-| `imageAlt`   | `image-alt`  | Image alt text.                                      | `string` | `undefined` |
-| `imageUrl`   | `image-url`  | Image URL.                                           | `string` | `undefined` |
+| `imgAlt`     | `img-alt`    | Image alt text.                                      | `string` | `undefined` |
+| `imgUrl`     | `img-url`    | Image URL.                                           | `string` | `undefined` |
 | `subheading` | `subheading` | Subheading.                                          | `string` | `undefined` |
 
 

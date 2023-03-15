@@ -17,13 +17,6 @@
 | `target`            | `target`   | Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `undefined`  |
 
 
-## Shadow Parts
-
-| Part  | Description |
-| ----- | ----------- |
-| `"a"` |             |
-
-
 ## Dependencies
 
 ### Used by

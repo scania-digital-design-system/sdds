@@ -7,10 +7,10 @@ import { Component, h, Prop, Element, Host } from '@stencil/core';
 })
 export class HeaderDropdownListLgUser {
   /** Image URL. */
-  @Prop() imageUrl: string;
+  @Prop() imgUrl: string;
 
   /** Image alt text. */
-  @Prop() imageAlt: string;
+  @Prop() imgAlt: string;
 
   /** Heading, usually the users first name and last name. */
   @Prop() heading: string;
@@ -24,7 +24,7 @@ export class HeaderDropdownListLgUser {
     return (
       <Host role="listitem">
         <div class="user-box">
-          {this.imageUrl && <img src={this.imageUrl} alt={this.imageAlt} />}
+          {this.imgUrl && <img src={this.imgUrl} alt={this.imgAlt} />}
           <slot name="image"></slot>
           <div class="user-content">
             <div class="header">

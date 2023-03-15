@@ -13,15 +13,15 @@ export class SideMenuUser {
   @Prop() subheading: string;
 
   /** The image source. */
-  @Prop() imageSrc: string;
+  @Prop() imgSrc: string;
 
   /** The image alt text. */
-  @Prop() imageAlt: string;
+  @Prop() imgAlt: string;
 
   render() {
     return (
       <Host role="listitem">
-        <sdds-side-menu-user-image src={this.imageSrc} alt={this.imageAlt}>
+        <sdds-side-menu-user-image src={this.imgSrc} alt={this.imgAlt}>
           <slot name="image"></slot>
         </sdds-side-menu-user-image>
         <sdds-side-menu-user-label

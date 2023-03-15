@@ -23,8 +23,8 @@ Example:
 | Property               | Attribute    | Description          | Type     | Default     |
 | ---------------------- | ------------ | -------------------- | -------- | ----------- |
 | `heading` _(required)_ | `heading`    | The heading text.    | `string` | `undefined` |
-| `imageAlt`             | `image-alt`  | The image alt text.  | `string` | `undefined` |
-| `imageSrc`             | `image-src`  | The image source.    | `string` | `undefined` |
+| `imgAlt`               | `img-alt`    | The image alt text.  | `string` | `undefined` |
+| `imgSrc`               | `img-src`    | The image source.    | `string` | `undefined` |
 | `subheading`           | `subheading` | The subheading text. | `string` | `undefined` |
 
 
