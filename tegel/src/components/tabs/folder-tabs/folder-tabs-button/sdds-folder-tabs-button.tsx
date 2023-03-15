@@ -30,7 +30,7 @@ export class SddsFolderTabsButton {
           disabled={this.disabled}
         >
           <div class="label">
-            <slot></slot>
+            <slot name="label"></slot>
           </div>
         </button>
       </Host>
