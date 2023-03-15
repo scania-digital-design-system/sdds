@@ -100,7 +100,7 @@ export class Slider {
 
   resizeObserverAdded: boolean = false;
 
-  /** Sends unique checkbox identifier and value when the slider has a change in value. */
+  /** Sends the value of the slider when changed. */
   @Event({
     eventName: 'sddsChange',
     composed: true,
@@ -429,13 +429,13 @@ export class Slider {
       this.tickValues.push(this.getMax());
     }
 
-    if (this.disabled !== null) {
+    if (this.disabled) {
       this.disabledState = true;
     } else {
       this.disabledState = false;
     }
 
-    if (this.readOnly !== null) {
+    if (this.readOnly) {
       this.readonlyState = true;
     } else {
       this.readonlyState = false;
@@ -444,9 +444,9 @@ export class Slider {
     this.useInput = false;
     this.useControls = false;
 
-    if (this.controls !== null) {
+    if (this.controls) {
       this.useControls = true;
-    } else if (this.input !== null) {
+    } else if (this.input) {
       this.useInput = true;
     }
 
@@ -458,7 +458,7 @@ export class Slider {
 
     this.useSnapping = false;
 
-    if (this.snap !== null) {
+    if (this.snap) {
       this.useSnapping = true;
     }
 
@@ -487,7 +487,6 @@ export class Slider {
           min={this.min}
           max={this.max}
           disabled={this.disabled}
-          id={this.sliderId}
         ></input>
 
         <div
@@ -562,7 +561,7 @@ export class Slider {
                   this.scrubberElement = el as HTMLElement;
                 }}
               >
-                {this.tooltip !== null && (
+                {this.tooltip && (
                   <div class="sdds-slider__value">
                     {this.value}
                     <svg
