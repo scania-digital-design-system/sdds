@@ -62,7 +62,7 @@ const Template = ({ label, checked, disabled }) =>
         ${disabled ? 'disabled' : ''}
         value="checkbox-value"
         >
-        ${label}
+        <div slot="label">${label}</div>
     </sdds-checkbox>
     
     <!-- Script tag with event listener for demo purposes. -->
