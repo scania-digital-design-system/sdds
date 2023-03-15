@@ -75,14 +75,14 @@ export default {
   },
 };
 
-const Template = ({ size, headline, label, checked, disabled, }) =>
+const Template = ({ size, headline, label, checked, disabled }) =>
   formatHtmlPreview(`
       <sdds-toggle
         ${checked ? 'checked' : ''}
         ${disabled ? 'disabled' : ''}
         ${headline ? `headline="${headline}"` : ''}
         size="${size === 'Large' ? 'lg' : 'sm'}">
-        ${label}
+        <div slot="label">${label}</div>
     </sdds-toggle>
 
     <!-- Script tag with eventlistener for demo purposes. -->

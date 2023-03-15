@@ -83,7 +83,7 @@ export class SddsToggle {
           role="switch"
         />
         <label class={`${this.disabled ? 'disabled' : ''}`} htmlFor={this.toggleId}>
-          <slot></slot>
+          <slot name="label"></slot>
         </label>
       </div>
     );
