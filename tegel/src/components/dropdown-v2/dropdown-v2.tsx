@@ -1,5 +1,13 @@
 import { Component, Host, h, Element, State } from '@stencil/core';
-import { Event, EventEmitter, HostElement, Listen, Method, Prop } from '@stencil/core/internal';
+import {
+  Event,
+  EventEmitter,
+  HostElement,
+  Listen,
+  Method,
+  Prop,
+  Watch,
+} from '@stencil/core/internal';
 import { renderHiddenInput } from '../../utils/utils';
 
 @Component({
@@ -64,6 +72,8 @@ export class SddsDropdownV2 {
   @Element() host: HostElement;
 
   private dropdownList: HTMLDivElement;
+
+  private inputElement: HTMLInputElement;
 
   private children: Array<HTMLSddsDropdownOptionV2Element>;
 
@@ -164,6 +174,16 @@ export class SddsDropdownV2 {
       const isClickOutside = !event.composedPath().includes(this.host as any);
       if (isClickOutside) {
         this.open = false;
+      }
+    }
+  }
+
+  // If the dropdown gets closed this sets the value of the drodpown to the current selection labels.
+  @Watch('open')
+  handleOpenState() {
+    if (this.filter && this.multiselect) {
+      if (!this.open) {
+        this.inputElement.value = this.selection?.map((item) => item.label).toString();
       }
     }
   }
@@ -291,6 +311,8 @@ export class SddsDropdownV2 {
                   </div>
                 )}
                 <input
+                  // eslint-disable-next-line no-return-assign
+                  ref={(element) => (this.inputElement = element)}
                   class={`${this.labelPosition === 'inside' ? 'placeholder' : ''}`}
                   type="text"
                   placeholder={this.placeholder}
