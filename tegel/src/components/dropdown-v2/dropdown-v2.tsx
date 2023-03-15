@@ -404,7 +404,7 @@ export class SddsDropdownV2 {
                 value={element.value}
                 parentEl={this.host}
               >
-                {element.label}
+                <div slot="label">{element.label}</div>
               </sdds-dropdown-option-v2>
             ))
           ) : (
