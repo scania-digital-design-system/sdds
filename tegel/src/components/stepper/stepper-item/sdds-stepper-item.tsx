@@ -57,7 +57,7 @@ export class SddsStepper {
               ></sdds-icon>
             ) : (
               <div class="number sdds-detail-05">
-                <slot></slot>
+                <slot name="number"></slot>
               </div>
             )}
           </div>
