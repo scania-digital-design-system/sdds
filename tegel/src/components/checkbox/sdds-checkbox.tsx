@@ -110,7 +110,7 @@ export class SddsCheckbox {
           }}
         />
         <label htmlFor={this.checkboxId}>
-          <slot></slot>
+          <slot name="label"></slot>
         </label>
       </div>
     );
