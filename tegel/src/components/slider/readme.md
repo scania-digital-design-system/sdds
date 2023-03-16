@@ -29,9 +29,9 @@
 
 ## Events
 
-| Event        | Description                                                                       | Type                              |
-| ------------ | --------------------------------------------------------------------------------- | --------------------------------- |
-| `sddsChange` | Sends unique checkbox identifier and value when the slider has a change in value. | `CustomEvent<{ value: string; }>` |
+| Event        | Description                                 | Type                              |
+| ------------ | ------------------------------------------- | --------------------------------- |
+| `sddsChange` | Sends the value of the slider when changed. | `CustomEvent<{ value: string; }>` |
 
 
 ## Methods
