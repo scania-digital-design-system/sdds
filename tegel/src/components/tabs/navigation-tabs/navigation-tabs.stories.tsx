@@ -61,13 +61,13 @@ const Template = ({ tabType, modeVariant }) =>
       ${
         tabType === 'Link'
           ? `
-      <sdds-navigation-tabs-link selected href="#" > First tab
+      <sdds-navigation-tabs-link selected href="#" > <div slot="label">First tab</div>
       </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" > Second tab
+      <sdds-navigation-tabs-link href="#" > <div slot="label">Second is much longer</div>
       </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" > Third tab
+      <sdds-navigation-tabs-link href="#" > <div slot="label">Third tab</div>
       </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" disabled> Fourth tab
+      <sdds-navigation-tabs-link href="#" disabled> <div slot="label">Fourth tab</div>
       </sdds-navigation-tabs-link>
       `
           : ''
@@ -75,13 +75,13 @@ const Template = ({ tabType, modeVariant }) =>
       ${
         tabType === 'Button'
           ? `
-      <sdds-navigation-tabs-button selected> First tab
+      <sdds-navigation-tabs-button selected> <div slot="label">First tab</div>
       </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button> Second tab
+      <sdds-navigation-tabs-button> <div slot="label">Second is much longer</div>
       </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button > Third tab
+      <sdds-navigation-tabs-button > <div slot="label">Third tab</div>
       </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button disabled> Fourth tab
+      <sdds-navigation-tabs-button disabled> <div slot="label">Fourth tab</div>
       </sdds-navigation-tabs-button>
       `
           : ''

@@ -66,16 +66,16 @@ const Template = ({ modeVariant, tabType }) =>
         tabType === 'Link'
           ? `
       <sdds-folder-tabs-link href="#">
-        First tab
+        <div slot="label">First tab</div>
       </sdds-folder-tabs-link>
       <sdds-folder-tabs-link href="#">
-        Second tab is much longer
+        <div slot="label">Second tab is much longer</div>
       </sdds-folder-tabs-link>
       <sdds-folder-tabs-link selected href="#">
-        Third tab
+        <div slot="label">Third tab</div>
       </sdds-folder-tabs-link>
       <sdds-folder-tabs-link disabled href="#">
-        Fourth tab
+        <div slot="label">Fourth tab</div>
       </sdds-folder-tabs-link>
       `
           : ''
@@ -84,16 +84,16 @@ const Template = ({ modeVariant, tabType }) =>
         tabType === 'Button'
           ? `
       <sdds-folder-tabs-button>
-        First tab
+        <div slot="label">First tab</div>
       </sdds-folder-tabs-button>
       <sdds-folder-tabs-button>
-      Second tab is much longer
+      <div slot="label">Second tab is much longer</div>
       </sdds-folder-tabs-button>
       <sdds-folder-tabs-button selected>
-        Third tab
+        <div slot="label">Third tab</div>
       </sdds-folder-tabs-button>
       <sdds-folder-tabs-button disabled>
-        Fourth tab
+        <div slot="label">Fourth tab</div>
       </sdds-folder-tabs-button>
       `
           : ''

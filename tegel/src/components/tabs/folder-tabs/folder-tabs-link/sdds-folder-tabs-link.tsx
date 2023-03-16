@@ -43,7 +43,7 @@ export class SddsFolderTabsLink {
           rel={this.rel}
         >
           <div class="label">
-            <slot></slot>
+            <slot name="label"></slot>
           </div>
         </a>
       </Host>

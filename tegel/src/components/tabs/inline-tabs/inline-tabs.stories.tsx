@@ -60,16 +60,16 @@ const Template = ({ modeVariant, tabType }) =>
         tabType === 'Link'
           ? `
         <sdds-inline-tabs-link href="#">
-          First tab
+          <div slot="label">First tab</div>
         </sdds-inline-tabs-link>
         <sdds-inline-tabs-link href="#">
-          Second tab is longer
+          <div slot="label">Second tab is longer</div>
         </sdds-inline-tabs-link>
         <sdds-inline-tabs-link selected href="#">
-          Third tab
+          <div slot="label">Third tab</div>
         </sdds-inline-tabs-link>
         <sdds-inline-tabs-link disabled href="#">
-          Fourth tab
+          <div slot="label">Fourth tab</div>
         </sdds-inline-tabs-link>
         `
           : ''
@@ -78,16 +78,16 @@ const Template = ({ modeVariant, tabType }) =>
         tabType === 'Button'
           ? `
         <sdds-inline-tabs-button>
-          First tab
+          <div slot="label">First tab</div>
         </sdds-inline-tabs-button>
         <sdds-inline-tabs-button>
-          Second tab is longer
+          <div slot="label">Second tab is longer</div>
         </sdds-inline-tabs-button>
         <sdds-inline-tabs-button selected>
-          Third tab
+          <div slot="label">Third tab</div>
         </sdds-inline-tabs-button>
         <sdds-inline-tabs-button disabled>
-          Fourth tab
+          <div slot="label">Fourth tab</div>
         </sdds-inline-tabs-button>
         `
           : ''
