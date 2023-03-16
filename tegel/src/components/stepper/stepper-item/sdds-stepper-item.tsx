@@ -56,9 +56,7 @@ export class SddsStepper {
                 size={this.size === 'lg' ? '20px' : '16px'}
               ></sdds-icon>
             ) : (
-              <div class="number sdds-detail-05">
-                <slot></slot>
-              </div>
+              <slot name="index"></slot>
             )}
           </div>
           {!this.hideLabel && (
