@@ -39,7 +39,7 @@
     }
   }
 
-  a::after {
+  ::slotted(*)::after {
     content: '\203A';
     color: var(--sdds-breadcrumb-separator-color);
     margin-right: 4px;
@@ -51,7 +51,7 @@
 }
 
 :host(.last) {
-  a::after {
+  ::slotted(*)::after {
     display: none;
   }
 }

@@ -29,7 +29,7 @@ export class SddsBreadcrumbLink {
       ${this.disabled ? 'disabled' : ''}`}
       >
         <a href={!this.disabled ? this.href : null} target={this.target} rel={this.rel}>
-          <slot></slot>
+          <slot name="label"></slot>
         </a>
       </div>
     );
