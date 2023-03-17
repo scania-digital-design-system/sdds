@@ -29,7 +29,7 @@ export class SddsFooterLink {
     return (
       <div role="listitem" class={`${this.parentIsTopPart ? 'top-part-child' : ''}`}>
         <a target={this.target} rel={this.rel} href={this.href}>
-          <slot></slot>
+          <slot name="label"></slot>
         </a>
       </div>
     );

@@ -66,33 +66,60 @@ const Template = ({ topPart, modeVariant }) =>
           ? `
       <div slot="top">
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div></sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div></sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div></sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
         </sdds-footer-link-group>
       </div>
       `
@@ -100,9 +127,15 @@ const Template = ({ topPart, modeVariant }) =>
       }
       <div slot="main-left">
         <sdds-footer-link-group>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
+          <sdds-footer-link href="#">
+          <div slot="label">Link text</div>
+          </sdds-footer-link>
         </sdds-footer-link-group>
       </div>
       <div slot="main-right">
