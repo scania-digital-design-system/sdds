@@ -68,7 +68,9 @@ const Template = ({ underline, target, disabled }) =>
         href="#"
         target="${target}"
         >
-        This is a link.
+        <div slot="label">
+          This is a link.
+        </div>
     </sdds-link>
   `,
   );

@@ -33,7 +33,7 @@ export class SddsLink {
         target={this.target}
         rel={this.rel}
       >
-        <slot></slot>
+        <slot name="label"></slot>
       </a>
     );
   }
