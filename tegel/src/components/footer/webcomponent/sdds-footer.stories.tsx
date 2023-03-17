@@ -24,7 +24,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -65,33 +66,33 @@ const Template = ({ topPart, modeVariant }) =>
           ? `
       <div slot="top">
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
 
         <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
       </div>
       `
@@ -99,20 +100,20 @@ const Template = ({ topPart, modeVariant }) =>
       }
       <div slot="main-left">
         <sdds-footer-link-group>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
-          <sdds-footer-link link-href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
+          <sdds-footer-link href="#">Link text</sdds-footer-link>
         </sdds-footer-link-group>
       </div>
       <div slot="main-right">
         <sdds-footer-link-group>
-          <sdds-footer-link link-href="#">
+          <sdds-footer-link href="#">
           <sdds-icon name="truck"></sdds-icon>
           </sdds-footer-link>
-          <sdds-footer-link link-href="#">
+          <sdds-footer-link href="#">
             <sdds-icon name="truck"></sdds-icon>
           </sdds-footer-link>
-          <sdds-footer-link link-href="#">
+          <sdds-footer-link href="#">
             <sdds-icon name="truck"></sdds-icon>
           </sdds-footer-link>
         </sdds-footer-link-group>
