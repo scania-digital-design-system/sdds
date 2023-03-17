@@ -196,11 +196,17 @@
 
     &--inactive {
       .sdds-stepper__step-icon {
-        border-color: rgb(0 21 51 / 16%);
+        border-color: var(--sdds-stepper-label-border-color-upcoming);
+        opacity: var(--sdds-stepper-label-text-opacity-upcoming);
+
+        &::after, &::before {
+          opacity: unset;
+          opacity: 0.38;
+        }
       }
 
       .sdds-stepper__step-icon-value {
-        opacity: 0.38;
+        opacity: 1;
       }
 
       .sdds-stepper__step_label {

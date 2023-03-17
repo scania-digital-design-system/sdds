@@ -84,10 +84,18 @@ const Template = ({ size, direction, labelPosition, hideLabels }) =>
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
-    <sdds-stepper-item state="success" label-text="Step label">1</sdds-stepper-item>
-    <sdds-stepper-item state="current" label-text="Current step">3</sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">3</sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">4</sdds-stepper-item>
+    <sdds-stepper-item state="success" label-text="Step label">
+      <div slot="index">1</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item state="current" label-text="Current step">
+      <div slot="index">2</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item label-text="Step label">
+      <div slot="index">3</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item label-text="Step label">
+      <div slot="index">4</div>
+    </sdds-stepper-item>
   </sdds-stepper>
         `,
   );
@@ -98,11 +106,19 @@ const TemplateWithError = ({ size, hideLabels, labelPosition, direction }) =>
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
       direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } direction="${direction.toLowerCase()}">
-  <sdds-stepper-item state="success" label-text="Step label">1</sdds-stepper-item>
-  <sdds-stepper-item state="error" label-text="Step label">2</sdds-stepper-item>
-  <sdds-stepper-item state="current" label-text="Current step">3</sdds-stepper-item>
-  <sdds-stepper-item label-text="Step label">4</sdds-stepper-item>
-</sdds-stepper>
-      `,
+    <sdds-stepper-item state="success" label-text="Step label">
+      <div slot="index">1</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item state="error" label-text="Current step">
+      <div slot="index">2</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item label-text="Step label">
+      <div slot="index">3</div>
+    </sdds-stepper-item>
+    <sdds-stepper-item label-text="Step label">
+      <div slot="index">4</div>
+    </sdds-stepper-item>
+  </sdds-stepper>
+        `,
   );
 export const WebComponentWithError = TemplateWithError.bind({});
