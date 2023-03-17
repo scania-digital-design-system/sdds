@@ -44,7 +44,7 @@ export default {
   },
 };
 
-const Template = ({label, disabled}) =>
+const Template = ({ label, disabled }) =>
   formatHtmlPreview(`
   <style>
   .demo-fieldset-reset { 
@@ -64,7 +64,9 @@ const Template = ({label, disabled}) =>
     ${disabled ? 'disabled' : ''}
     checked="true" 
   >
-    ${label} 1
+    <div slot="label">
+      ${label} 1
+    </div>
   </sdds-radio-button>
 
   <sdds-radio-button
@@ -74,7 +76,9 @@ const Template = ({label, disabled}) =>
     required=false
     ${disabled ? 'disabled' : ''} 
   >
-    ${label} 2
+    <div slot="label">
+      ${label} 2
+    </div>
   </sdds-radio-button>
     
   </fieldset>

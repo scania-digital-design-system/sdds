@@ -8,7 +8,6 @@ import { HostElement } from '@stencil/core/internal';
   scoped: true,
 })
 export class RadioButton {
-
   /** Name of radio button, used for reference. */
   @Prop() name: string;
 
@@ -25,13 +24,13 @@ export class RadioButton {
 
   /** Unique radio button identifier. */
   @Prop() radioId: string = crypto.randomUUID();
-  
+
   /** Decides if the radio button is checked or not. */
   @Prop({ reflect: true }) checked: boolean = false;
-  
+
   /** Decides if the radio button is required or not. */
   @Prop() required: boolean = false;
-  
+
   /** Decides if the radio button is disabled or not. */
   @Prop() disabled: boolean = false;
 
@@ -52,30 +51,30 @@ export class RadioButton {
   render() {
     return (
       <div class="sdds-radio-button">
-        <input 
-        class="sdds-form-input" 
-        type="radio" 
-        name={this.name}
-        id={this.radioId} 
-        value={this.value}
-        checked={this.checked} 
-        aria-checked={this.checked} 
-
-        // REMEMBER TO ENABLE ARIA PROPS ONCE ALIGNMENT HAS BEEN MADE!
-        // aria-labelledby={this.ariaLabelledBy} 
-        // aria-describedby={this.host.getAttribute('aria-describedby')}
-        required={this.required} 
-        disabled={this.disabled}
-        onChange={() => {
-          this.sddsChange.emit({
-             radioId: this.radioId,
-             value: this.value,
-          })
-        }} />
+        <input
+          class="sdds-form-input"
+          type="radio"
+          name={this.name}
+          id={this.radioId}
+          value={this.value}
+          checked={this.checked}
+          aria-checked={this.checked}
+          // REMEMBER TO ENABLE ARIA PROPS ONCE ALIGNMENT HAS BEEN MADE!
+          // aria-labelledby={this.ariaLabelledBy}
+          // aria-describedby={this.host.getAttribute('aria-describedby')}
+          required={this.required}
+          disabled={this.disabled}
+          onChange={() => {
+            this.sddsChange.emit({
+              radioId: this.radioId,
+              value: this.value,
+            });
+          }}
+        />
         <label htmlFor={this.radioId}>
-          <slot></slot>
+          <slot name="label"></slot>
         </label>
-        </div>
+      </div>
     );
   }
 }
