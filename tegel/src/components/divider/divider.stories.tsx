@@ -18,9 +18,9 @@ export default {
     ],
   },
   argTypes: {
-    type: {
-      name: 'Type',
-      description: 'Sets the divider type.',
+    orientation: {
+      name: 'Orientation',
+      description: 'Choose divider orientation.',
       control: {
         type: 'radio',
       },
@@ -40,7 +40,7 @@ export default {
       control: {
         type: 'number',
       },
-      if: { arg: 'type', eq: 'Horizontal' },
+      if: { arg: 'orientation', eq: 'Horizontal' },
     },
     height: {
       name: 'Height',
@@ -48,11 +48,11 @@ export default {
       control: {
         type: 'number',
       },
-      if: { arg: 'type', eq: 'Vertical' },
+      if: { arg: 'orientation', eq: 'Vertical' },
     },
   },
   args: {
-    type: 'Horizontal',
+    orientation: 'Horizontal',
     direction: 'Top',
     width: 150,
     height: 150,
@@ -60,7 +60,7 @@ export default {
 };
 
 
-const Template = ({ type, width, height }) => {
+const Template = ({ orientation, width, height }) => {
   const classLookup = {
     Horizontal: `sdds-divider`,
     Vertical: `sdds-divider-vertical`,
@@ -92,7 +92,7 @@ const Template = ({ type, width, height }) => {
      
       
       <div
-  class="demo-div ${classLookup[type]}"></div>
+  class="demo-div ${classLookup[orientation]}"></div>
   `,
 );
 };
@@ -142,7 +142,7 @@ Border.args={
 } 
  
 Border.argTypes={
- type: { table:  { disable: true } }  
+ orientation: { table:  { disable: true } }  
 }
 
 
