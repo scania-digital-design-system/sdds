@@ -128,7 +128,7 @@ export class SddsBanner {
           {this.subheader && <span class={`banner-subheader`}>{this.subheader}</span>}
           {this.linkText && this.href && (
             <sdds-link href={this.href} rel={this.linkRel} target={this.linkTarget}>
-              {this.linkText}
+              <div slot="label">{this.linkText}</div>
             </sdds-link>
           )}
         </div>
