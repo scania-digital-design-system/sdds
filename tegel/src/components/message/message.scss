@@ -108,7 +108,7 @@
         display: none;
 
         &-informative {
-          display: block;
+          display: flex;
           color: var(--sdds-information);
         }
 
@@ -130,7 +130,7 @@
         display: none;
 
         &-error {
-          display: block;
+          display: flex;
           color: var(--sdds-negative);
         }
 
@@ -152,7 +152,7 @@
         display: none;
 
         &-warning {
-          display: block;
+          display: flex;
           color: var(--sdds-warning);
         }
 
@@ -174,7 +174,7 @@
         display: none;
 
         &-success {
-          display: block;
+          display: flex;
           color: var(--sdds-positive);
         }
 
