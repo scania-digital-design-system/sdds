@@ -21,6 +21,8 @@
   --sdds-folder-tab-background-selected-primary: var(--sdds-white);
   --sdds-folder-tab-background-selected-secondary: var(--sdds-grey-50);
   --sdds-folder-tab-divider-color: rgb(0 21 51 / 16%);
+  --sdds-folder-tab-item-color: rgba(0, 21, 51, 0.6);
+  --sdds-folder-tab-item-color-disabled: rgba(0, 21, 51, 0.16);
 
   .sdds-mode-variant-primary {
     --sdds-folder-tab-background-selected: var(--sdds-folder-tab-background-selected-primary);
@@ -55,6 +57,8 @@
   --sdds-folder-tab-background-selected-primary: var(--sdds-grey-900);
   --sdds-folder-tab-background-selected-secondary: var(--sdds-grey-868);
   --sdds-folder-tab-divider-color: var(--sdds-blue-100);
+  --sdds-folder-tab-item-color: rgba(228, 233, 241, 0.6);
+  --sdds-folder-tab-item-color-disabled: rgba(228, 233, 241, 0.16);
 
   .sdds-mode-variant-primary {
     --sdds-folder-tab-background-selected: var(--sdds-folder-tab-background-selected-primary);

@@ -122,7 +122,7 @@ export class InlineTabs {
         if (!item.disabled) {
           this.children.forEach((element) => element.removeAttribute('selected'));
           item.setAttribute('selected', '');
-          this.selectedTab = item.innerHTML;
+          this.selectedTab = item.innerText;
           this.selectedTabIndex = index;
         }
       });
@@ -133,7 +133,7 @@ export class InlineTabs {
         item.classList.add('last');
       }
       if (item.selected) {
-        this.selectedTab = item.innerHTML;
+        this.selectedTab = item.innerText;
         this.selectedTabIndex = index;
       }
       return item;
@@ -155,7 +155,7 @@ export class InlineTabs {
       >;
       this.children = this.children.map((item, index) => {
         if (item.selected) {
-          this.selectedTab = item.innerHTML;
+          this.selectedTab = item.innerText;
           this.selectedTabIndex = index;
         }
         return item;
@@ -192,7 +192,7 @@ export class InlineTabs {
       this.children = this.children.map((element, index) => {
         if (index === tabIndex) {
           element.setAttribute('selected', '');
-          this.selectedTab = element.innerHTML;
+          this.selectedTab = element.innerText;
           this.selectedTabIndex = tabIndex;
         }
         return element;

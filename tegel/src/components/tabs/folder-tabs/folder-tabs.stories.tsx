@@ -44,7 +44,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Button', 'Link'],
+      options: ['Button', 'Link', 'Item'],
     },
     backgrounds: {
       table: {
@@ -95,6 +95,24 @@ const Template = ({ modeVariant, tabType }) =>
       <sdds-folder-tabs-button disabled>
         <div slot="label">Fourth tab</div>
       </sdds-folder-tabs-button>
+      `
+          : ''
+      }
+      ${
+        tabType === 'Item'
+          ? `
+      <sdds-folder-tabs-item>
+        <button>First tab</button>
+      </sdds-folder-tabs-item>
+      <sdds-folder-tabs-item>
+        <button>Second tab is much longer</button>
+      </sdds-folder-tabs-item>
+      <sdds-folder-tabs-item selected>
+        <button>Third tab</button>
+      </sdds-folder-tabs-item>
+      <sdds-folder-tabs-item disabled>
+        <button>Fourth tab</button>
+      </sdds-folder-tabs-item>
       `
           : ''
       }
