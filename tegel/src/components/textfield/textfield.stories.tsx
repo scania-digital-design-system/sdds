@@ -239,17 +239,22 @@ const Template = ({
         ${
           prefix
             ? `
-        <span slot="prefix">
-          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
-        </span>`
+          ${
+            prefixType === 'Text'
+              ? '<span slot="prefix">$</span>'
+              : '<sdds-icon slot="prefix" name="truck" size="20px"></sdds-icon>'
+          }
+        `
             : ''
         }
         ${
           suffix
             ? `
-        <span slot="suffix">
-          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
-        </span>`
+          ${
+            suffixType === 'Text'
+              ? '<span slot="suffix">$</span>'
+              : '<sdds-icon slot="suffix" name="truck" size="20px"></sdds-icon>'
+          }        `
             : ''
         }
         </sdds-textfield>

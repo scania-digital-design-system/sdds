@@ -344,11 +344,6 @@
       background: var(--sdds-textfield-bar-error);
     }
   }
-
-  slot[name='sdds-prefix']::slotted(sdds-icon),
-  slot[name='sdds-suffix']::slotted(sdds-icon) {
-    color: var(--sdds-textfield-icon-error);
-  }
 }
 
 // .textfield-textcounter {
@@ -370,59 +365,26 @@
   }
 }
 
-.textfield-slot-wrap-prefix {
-  align-self: center;
-
-  > * {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
-    margin-left: 16px;
-    color: var(--sdds-textfield-ps-color);
-  }
-
-  &.textfield-error {
-    sdds-icon,
-    .icon {
-      color: var(--sdds-negative);
-    }
-  }
-}
-
+.textfield-slot-wrap-prefix,
 .textfield-slot-wrap-suffix {
   align-self: center;
 
   > * {
     font: var(--sdds-detail-02);
     letter-spacing: var(--sdds-detail-02-ls);
-    margin-right: 16px;
+    margin: 0 0 0 16px;
     color: var(--sdds-textfield-ps-color);
   }
 
   &.textfield-error {
-    sdds-icon,
-    .icon {
-      color: var(--sdds-negative);
+    span {
+      color: var(--sdds-textfield-ps-color-error);
     }
   }
 }
 
-//TODO: When new icons are available have a look at this one
-slot[name='sdds-prefix']::slotted(sdds-icon),
-slot[name='sdds-suffix']::slotted(sdds-icon) {
-  font-size: 24px; //FIXME: When new icons is available it should be 16x16
-  line-height: 0;
-}
-
-//Text gerenerated infront of the input field
-slot[name='sdds-prefix']::slotted(*) {
-  padding-left: var(--sdds-spacing-element-20);
-
-  & ~ .textfield-input {
-    padding-left: var(--sdds-spacing-element-12);
+.textfield-slot-wrap-suffix {
+  > * {
+    margin: 0 16px 0 0;
   }
-}
-
-//Text generated after the input field
-slot[name='sdds-suffix']::slotted(*) {
-  padding-right: var(--sdds-spacing-element-20);
 }
