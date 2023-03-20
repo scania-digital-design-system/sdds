@@ -1,7 +1,6 @@
 :root,
 .sdds-mode-light {
   --sdds-slider-label-color: var(--sdds-grey-958);
-  --sdds-slider-label-color-disabled: var(--sdds-grey-400);
   --sdds-slider-thumb-color: var(--sdds-blue-800);
   --sdds-slider-divider-color: var(--sdds-grey-400);
   --sdds-slider-track-color: var(--sdds-grey-400);
@@ -12,11 +11,13 @@
   --sdds-slider-inputfield-background: var(--sdds-white);
   --sdds-slider-inputfield-box-shadow: var(--sdds-grey-400);
   --sdds-slider-divider-values-color: var(--sdds-grey-958);
+  --sdds-slider-disabled: var(--sdds-grey-400);
+  --sdds-slider-value-tooltip-background: var(--sdds-grey-800);
+  --sdds-slider-value-tooltip-color: var(--sdds-white);
 }
 
 .sdds-mode-dark {
   --sdds-slider-label-color: var(--sdds-grey-100);
-  --sdds-slider-label-color-disabled: var(--sdds-grey-700);
   --sdds-slider-thumb-color: var(--sdds-grey-100);
   --sdds-slider-divider-color: var(--sdds-grey-700);
   --sdds-slider-track-color: var(--sdds-grey-700);
@@ -27,4 +28,7 @@
   --sdds-slider-inputfield-background: var(--sdds-grey-900);
   --sdds-slider-inputfield-box-shadow: var(--sdds-grey-800);
   --sdds-slider-divider-values-color: var(--sdds-grey-100);
+  --sdds-slider-disabled: var(--sdds-grey-700);
+  --sdds-slider-value-tooltip-background: var(--sdds-grey-200);
+  --sdds-slider-value-tooltip-color: var(--sdds-grey-958);
 }
