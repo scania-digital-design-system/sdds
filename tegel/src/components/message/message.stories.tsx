@@ -20,7 +20,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -89,13 +90,7 @@ const nativeIconNameLookup = {
   Success: 'tick',
 };
 
-const Template = ({ 
-  modeVariant, 
-  messageType, 
-  showExtendedMessage, 
-  noIcon, 
-  iconType 
-}) => {
+const Template = ({ modeVariant, messageType, showExtendedMessage, noIcon, iconType }) => {
   const messageTypeClass =
     messageType === 'Information'
       ? 'sdds-message-type-informative'
@@ -107,7 +102,7 @@ const Template = ({
   const iconHtml =
     iconType === 'Native'
       ? `<i class="sdds-message-icon sdds-icon ${iconClass} ${nativeIconNameLookup[messageType]}"></i>`
-      : `<div><sdds-icon class="sdds-message-icon ${iconClass}" name="${nativeIconNameLookup[messageType]}" size="20"></sdds-icon></div>`;
+      : `<div class="sdds-message-icon ${iconClass}"><sdds-icon name="${nativeIconNameLookup[messageType]}" size="20"></sdds-icon></div>`;
 
   return formatHtmlPreview(
     `
@@ -127,9 +122,13 @@ const Template = ({
     }
     <div class="demo-wrapper">
       <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
-        showExtendedMessage ? 'sdds-message-extended-active' : ''
-      } 
-      ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+      showExtendedMessage ? 'sdds-message-extended-active' : ''
+    } 
+      ${
+        modeVariant === 'Inherit from parent'
+          ? ''
+          : `sdds-mode-variant-${modeVariant.toLowerCase()}`
+      }">
       ${noIcon ? '' : iconHtml}
       <h4 class="sdds-message-single">
         Single line message goes here.
