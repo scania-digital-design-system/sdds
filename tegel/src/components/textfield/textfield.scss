@@ -90,14 +90,6 @@
 
 //Textfield label
 
-/* slot[name="sdds-label"]::slotted(*) {
-  @include type-style("detail-05");
-  display: block;
-  margin-bottom: var(--sdds-spacing-element-8);
-  color: var(--sdds-textfield-label-color);
-} */
-
-//Textfield label
 .textfield-label-outside > * {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
@@ -117,14 +109,6 @@
 
 @mixin placeholder-label {
   &::placeholder {
-    color: transparent;
-  }
-
-  &::input-placeholder {
-    color: transparent;
-  }
-
-  &:placeholder {
     color: transparent;
   }
 
@@ -386,13 +370,6 @@
   }
 }
 
-/* slot[name="sdds-prefix"]::slotted(*),
-slot[name="sdds-suffix"]::slotted(*) {
-  @include type-style("detail-02");
-  align-self: center;
-  color: var(--sdds-textfield-ps-color);
-} */
-
 .textfield-slot-wrap-prefix {
   align-self: center;
 
@@ -429,10 +406,10 @@ slot[name="sdds-suffix"]::slotted(*) {
   }
 }
 
-//TODO: When new icons are avaliable have a look at this one
+//TODO: When new icons are available have a look at this one
 slot[name='sdds-prefix']::slotted(sdds-icon),
 slot[name='sdds-suffix']::slotted(sdds-icon) {
-  font-size: 24px; //FIXME: When new icons is avaliable it should be 16x16
+  font-size: 24px; //FIXME: When new icons is available it should be 16x16
   line-height: 0;
 }
 
