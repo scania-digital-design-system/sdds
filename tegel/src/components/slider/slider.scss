@@ -257,7 +257,7 @@ sdds-slider {
     }
 
     label {
-      color: var(--sdds-slider-label-color-disabled);
+      color: var(--sdds-slider-disabled);
     }
 
     .sdds-slider__controls {
@@ -267,7 +267,7 @@ sdds-slider {
         &.sdds-slider__control-minus,
         &.sdds-slider__control-plus {
           svg {
-            fill: var(--sdds-slider-controls-color);
+            fill: var(--sdds-slider-disabled);
           }
         }
       }
@@ -275,14 +275,14 @@ sdds-slider {
 
     .sdds-slider__input-values {
       .sdds-slider__input-value {
-        color: var(--sdds-slider-controls-color);
+        color: var(--sdds-slider-disabled);
       }
 
       .sdds-slider__input-field-wrapper {
         pointer-events: none;
 
         input.sdds-slider__input-field {
-          color: var(--sdds-slider-controls-color);
+          color: var(--sdds-slider-disabled);
           pointer-events: none;
         }
       }
@@ -294,14 +294,14 @@ sdds-slider {
 
     .sdds-slider__track {
       .sdds-slider__track-fill {
-        background-color: var(--sdds-slider-track-fill-color);
+        background-color: var(--sdds-slider-disabled);
       }
     }
 
     .sdds-slider__value-dividers {
       .sdds-slider__value-divider {
         span {
-          color: var(--sdds-slider-track-fill-color);
+          color: var(--sdds-slider-disabled);
         }
       }
     }
@@ -310,7 +310,7 @@ sdds-slider {
       pointer-events: none;
 
       .sdds-slider__scrubber-inner {
-        background: var(--sdds-slider-track-color);
+        background-color: var(--sdds-slider-disabled);
         cursor: default;
       }
     }
@@ -336,14 +336,31 @@ sdds-slider {
   }
 }
 
-.sdds-slider__controls {
-  .sdds-slider__control {
-    cursor: default;
+.sdds-slider {
+  .sdds-slider__controls {
+    .sdds-slider__control {
+      cursor: default;
 
-    &.sdds-slider__control-minus,
-    &.sdds-slider__control-plus {
-      svg {
-        fill: var(--sdds-slider-controls-color);
+      &.sdds-slider__control-minus,
+      &.sdds-slider__control-plus {
+        sdds-icon {
+          color: var(--sdds-slider-controls-color);
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    .sdds-slider__controls {
+      .sdds-slider__control {
+        cursor: default;
+
+        &.sdds-slider__control-minus,
+        &.sdds-slider__control-plus {
+          sdds-icon {
+            color: var(--sdds-slider-disabled);
+          }
+        }
       }
     }
   }
