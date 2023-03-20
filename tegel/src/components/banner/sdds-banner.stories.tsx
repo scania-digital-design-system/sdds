@@ -48,31 +48,14 @@ export default {
         type: 'text',
       },
     },
-    linkText: {
+    link: {
       name: 'Link',
-      description: 'Sets text to be displayed in the link section.',
+      description: 'Sets a link to be displayed in the link section.',
       control: {
         type: 'text',
       },
     },
-    href: {
-      name: 'Link href',
-      description: 'Sets the href for the link.',
-      control: {
-        type: 'text',
-      },
-    },
-    linkTarget: {
-      name: 'Link target',
-      description: 'Sets where to open the linked URL.',
-      control: {
-        type: 'radio',
-      },
-      options: ['_self', '_blank', '_parent', '_top'],
-      table: {
-        defaultValue: { summary: '_self' },
-      },
-    },
+
     icon: {
       name: 'Icon',
       description: 'Name of icon to display, choose `none` to remove the icon.',
@@ -96,28 +79,23 @@ export default {
   args: {
     type: 'Default',
     header: 'This is a header text area',
-    subheader: 'SubHeader text area',
-    linkText: 'Learn more',
-    href: 'tegel.scania.com',
-    linkTarget: '_self',
+    subheader: '<div slot="banner-subheader">Short subheader</div>',
+    link: '<sdds-link slot="banner-link" href="/">Link example</sdds-link>',
     icon: 'truck',
     persistent: false,
   },
 };
 
-const Template = ({ type, icon, header, subheader, linkText, href, persistent, linkTarget }) =>
+const Template = ({ type, icon, header, subheader, persistent, link }) =>
   formatHtmlPreview(`
       <sdds-banner
           ${type !== 'Default' ? `type="${type.toLowerCase()}"` : ''}
           ${icon !== 'none' ? `icon="${icon}"` : ''}
           ${header !== '' ? `header="${header}"` : ''}
-          ${subheader !== '' ? `subheader="${subheader}"` : ''}
-          ${linkText !== '' ? `link-text="${linkText}"` : ''}
-          ${href !== '' ? `href="${href}"` : ''}
-          ${linkTarget !== '' ? `link-target="${linkTarget}"` : ''}
-
           ${persistent ? `persistent` : ''}
           >
+          ${subheader ? `${subheader}` : ''}
+          ${link ? `${link}` : ''}
       </sdds-banner>
 
       <!-- Script tag with eventlistener for demo purposes. -->
