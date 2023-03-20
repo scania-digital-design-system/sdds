@@ -120,10 +120,11 @@ sdds-slider {
     position: absolute;
     transform: translate(-50%, -100%);
     top: -24px;
-    background-color: var(--sdds-grey-800);
-    color: var(--sdds-white);
+    background-color: var(--sdds-slider-value-tooltip-background);
+    color: var(--sdds-slider-value-tooltip-color);
 
     svg {
+      color: var(--sdds-slider-value-tooltip-background);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);

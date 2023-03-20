@@ -12,6 +12,8 @@
   --sdds-slider-inputfield-box-shadow: var(--sdds-grey-400);
   --sdds-slider-divider-values-color: var(--sdds-grey-958);
   --sdds-slider-disabled: var(--sdds-grey-400);
+  --sdds-slider-value-tooltip-background: var(--sdds-grey-800);
+  --sdds-slider-value-tooltip-color: var(--sdds-white);
 }
 
 .sdds-mode-dark {
@@ -27,4 +29,6 @@
   --sdds-slider-inputfield-box-shadow: var(--sdds-grey-800);
   --sdds-slider-divider-values-color: var(--sdds-grey-100);
   --sdds-slider-disabled: var(--sdds-grey-700);
+  --sdds-slider-value-tooltip-background: var(--sdds-grey-200);
+  --sdds-slider-value-tooltip-color: var(--sdds-grey-958);
 }
