@@ -43,7 +43,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Button', 'Link'],
+      options: ['Button', 'Link', 'Item'],
     },
   },
   args: {
@@ -90,6 +90,24 @@ const Template = ({ modeVariant, tabType }) =>
           <div slot="label">Fourth tab</div>
         </sdds-inline-tabs-button>
         `
+          : ''
+      }
+      ${
+        tabType === 'Item'
+          ? `
+      <sdds-inline-tabs-item>
+        <button>First tab</button>
+      </sdds-inline-tabs-item>
+      <sdds-inline-tabs-item>
+        <button>Second tab is much longer</button>
+      </sdds-inline-tabs-item>
+      <sdds-inline-tabs-item selected>
+        <button>Third tab</button>
+      </sdds-inline-tabs-item>
+      <sdds-inline-tabs-item disabled>
+        <button>Fourth tab</button>
+      </sdds-inline-tabs-item>
+      `
           : ''
       }
    </sdds-inline-tabs>
