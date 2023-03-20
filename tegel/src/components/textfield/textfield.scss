@@ -395,6 +395,7 @@ slot[name="sdds-suffix"]::slotted(*) {
 
 .textfield-slot-wrap-prefix {
   align-self: center;
+  margin-left: 14px ;
 
   > * {
     font: var(--sdds-detail-02);
@@ -413,6 +414,7 @@ slot[name="sdds-suffix"]::slotted(*) {
 
 .textfield-slot-wrap-suffix {
   align-self: center;
+  margin-right: 14px;
 
   > * {
     font: var(--sdds-detail-02);
