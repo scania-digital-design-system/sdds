@@ -41,6 +41,8 @@
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
+  --sdds-btn-icon-secondary-color-focus: var(--sdds-black);
+  --sdds-btn-icon-secondary-fill-focus: var(--sdds-black);
 
   /* ICON */ //not used
   --sdds-btn-icon-secondary-fill: var(--sdds-black);
@@ -49,10 +51,6 @@
   /* ICON HOVER */ //not used
   --sdds-btn-icon-secondary-fill-hover: var(--sdds-grey-50);
   --sdds-btn-icon-secondary-color-hover: var(--sdds-grey-50);
-
-  /* ICON FOCUS */ //not used
-  --sdds-btn-icon-secondary-fill-focus: var(--sdds-black);
-  --sdds-btn-icon-secondary-color-focus: var(--sdds-black);
 
   //Ghost
   --sdds-btn-ghost-background: transparent;
@@ -147,6 +145,8 @@
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(255 255 255 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(255 255 255 / 38%);
+  --sdds-btn-icon-secondary-color-focus: var(--sdds-white);
+  --sdds-btn-icon-secondary-fill-focus: var(--sdds-white);
 
   /* ICON */ //not used
   --sdds-btn-icon-secondary-fill: var(--sdds-grey-50);
