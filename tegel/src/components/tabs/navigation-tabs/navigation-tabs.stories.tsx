@@ -43,7 +43,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: ['Button', 'Link'],
+      options: ['Button', 'Link', 'Item'],
     },
   },
   args: {
@@ -61,11 +61,11 @@ const Template = ({ tabType, modeVariant }) =>
       ${
         tabType === 'Link'
           ? `
-      <sdds-navigation-tabs-link selected href="#" > <div slot="label">First tab</div>
+      <sdds-navigation-tabs-link href="#" > <div slot="label">First tab</div>
       </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" > <div slot="label">Second is much longer</div>
+      <sdds-navigation-tabs-link href="#" > <div slot="label">Second tab is much longer</div>
       </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" > <div slot="label">Third tab</div>
+      <sdds-navigation-tabs-link selected href="#" > <div slot="label">Third tab</div>
       </sdds-navigation-tabs-link>
       <sdds-navigation-tabs-link href="#" disabled> <div slot="label">Fourth tab</div>
       </sdds-navigation-tabs-link>
@@ -75,14 +75,32 @@ const Template = ({ tabType, modeVariant }) =>
       ${
         tabType === 'Button'
           ? `
-      <sdds-navigation-tabs-button selected> <div slot="label">First tab</div>
+      <sdds-navigation-tabs-button> <div slot="label">First tab</div>
       </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button> <div slot="label">Second is much longer</div>
+      <sdds-navigation-tabs-button> <div slot="label">Second tab is much longer</div>
       </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button > <div slot="label">Third tab</div>
+      <sdds-navigation-tabs-button selected> <div slot="label">Third tab</div>
       </sdds-navigation-tabs-button>
       <sdds-navigation-tabs-button disabled> <div slot="label">Fourth tab</div>
       </sdds-navigation-tabs-button>
+      `
+          : ''
+      }
+      ${
+        tabType === 'Item'
+          ? `
+      <sdds-navigation-tabs-item>
+        <button>First tab</button>
+      </sdds-navigation-tabs-item>
+      <sdds-navigation-tabs-item>
+        <button>Second tab is much longer</button>
+      </sdds-navigation-tabs-item>
+      <sdds-navigation-tabs-item selected>
+        <button>Third tab</button>
+      </sdds-navigation-tabs-item>
+      <sdds-navigation-tabs-item disabled>
+        <button>Fourth tab</button>
+      </sdds-navigation-tabs-item>
       `
           : ''
       }
