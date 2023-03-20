@@ -16,17 +16,16 @@
   --sdds-dropdown-border-not-focused: var(--sdds-grey-600);
   --sdds-dropdown-option-color: var(--sdds-grey-900);
   --sdds-dropdown-option-disabled-color: var(--sdds-grey-400);
+  --sdds-dropdown-background-disabled: var(--sdds-dropdown-background);
 
   .sdds-mode-variant-primary {
     --sdds-dropdown-background: var(--sdds-grey-50);
     --sdds-dropdown-background-hover: var(--sdds-grey-100);
-    --sdds-dropdown-background-disabled: var(--sdds-grey-50);
   }
 
   .sdds-mode-variant-secondary {
     --sdds-dropdown-background: var(--sdds-white);
     --sdds-dropdown-background-hover: var(--sdds-grey-50);
-    --sdds-dropdown-background-disabled: var(--sdds-white);
   }
 }
 
@@ -35,7 +34,6 @@
   --sdds-dropdown-color: var(--sdds-grey-400);
   --sdds-dropdown-background: var(--sdds-grey-868);
   --sdds-dropdown-background-hover: var(--sdds-grey-800);
-  --sdds-dropdown-background-disabled: var(--sdds-grey-900);
   --sdds-dropdown-disabled: var(--sdds-grey-800);
   --sdds-dropdown-border: var(--sdds-grey-800);
   --sdds-dropdown-label-inside: var(--sdds-grey-400);
@@ -44,16 +42,15 @@
   --sdds-dropdown-border-not-focused: var(--sdds-grey-600);
   --sdds-dropdown-option-color: var(--sdds-grey-50);
   --sdds-dropdown-option-disabled-color: var(--sdds-grey-800);
+  --sdds-dropdown-background-disabled: var(--sdds-dropdown-background);
 
   .sdds-mode-variant-primary {
     --sdds-dropdown-background: var(--sdds-grey-868);
     --sdds-dropdown-background-hover: var(--sdds-grey-800);
-    --sdds-dropdown-background-disabled: var(--sdds-grey-868);
   }
 
   .sdds-mode-variant-secondary {
     --sdds-dropdown-background: var(--sdds-grey-900);
     --sdds-dropdown-background-hover: var(--sdds-grey-800);
-    --sdds-dropdown-background-disabled: var(--sdds-grey-900);
   }
 }
