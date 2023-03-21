@@ -38,8 +38,7 @@
   }
 
   ::slotted(*:focus-visible) {
-    outline: 2px solid var(--sdds-blue-400);
-    outline-offset: -2px;
+    @include sdds-focus-state;
   }
 
   .inline-tab-item {

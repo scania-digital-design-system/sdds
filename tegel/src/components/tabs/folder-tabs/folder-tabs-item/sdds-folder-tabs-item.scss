@@ -11,6 +11,7 @@
     all: unset;
     min-width: 142px;
     display: block;
+    width: calc(100% - 32px);
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     cursor: pointer;
@@ -45,8 +46,7 @@
   }
 
   ::slotted(*:focus-visible) {
-    outline: 2px solid var(--sdds-blue-400);
-    outline-offset: -2px;
+    @include sdds-focus-state;
   }
 
   .disabled {
