@@ -16,10 +16,10 @@
   --sdds-inline-tabs-scroll-btn-secondary: var(--sdds-grey-50);
 
   /* Tab */
-  --sdds-inline-tabs-tab-color: rgb(29 34 41 / 60%);
-  --sdds-inline-tabs-tab-color-selected: rgb(29 34 41 / 100%);
+  --sdds-inline-tabs-tab-color: rgba(0 21 51 /60%); // blue-900
+  --sdds-inline-tabs-tab-color-selected: var(--sdds-grey-958);
   --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-900);
-  --sdds-inline-tabs-tab-color-opacity-disabled: 0.6;
+  --sdds-inline-tabs-tab-color-opacity-disabled: 0.38;
   --sdds-inline-tabs-tab-indicator-background-hover: #d1d5db;
   --sdds-inline-tabs-tab-color-hover: var(--sdds-grey-958);
   --sdds-inline-tabs-tab-color-focus: var(--sdds-grey-958);
@@ -54,10 +54,11 @@
 
   /* Tab */
   --sdds-inline-tab-color-opacity: 0.6;
-  --sdds-inline-tab-color-opacity-selected: 1;
-  --sdds-inline-tabs-tab-color: var(--sdds-blue-50);
-  --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-50);
   --sdds-inline-tabs-tab-color-opacity-disabled: 0.38;
+  --sdds-inline-tab-color-opacity-selected: 1;
+  --sdds-inline-tabs-tab-color: rgba(228 233 241/60%); //blue-50
+  --sdds-inline-tabs-tab-color-selected: var(--sdds-grey-50);
+  --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-50);
   --sdds-inline-tabs-tab-indicator-background-hover: #373d46;
   --sdds-inline-tabs-tab-color-hover: var(--sdds-grey-50);
   --sdds-inline-tabs-tab-color-focus: var(--sdds-grey-50);
