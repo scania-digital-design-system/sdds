@@ -34,7 +34,6 @@
       content: '';
       position: absolute;
       box-sizing: border-box;
-      border-radius: 2px;
     }
 
     &::before {
@@ -42,6 +41,7 @@
       height: 24px;
       left: 0;
       top: 0;
+      border-radius: 4px;
     }
 
     &::after {
@@ -51,6 +51,7 @@
       height: 16px;
       left: 4px;
       top: 4px;
+      border-radius: 2px;
     }
 
     &:hover {
