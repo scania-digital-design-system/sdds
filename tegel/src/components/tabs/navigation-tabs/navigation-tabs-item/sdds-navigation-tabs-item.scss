@@ -24,6 +24,10 @@
     margin: 26px 4px;
   }
 
+  ::slotted(*:focus-visible) {
+    @include sdds-focus-state;
+  }
+
   .navigation-tab-item {
     position: relative;
     margin-right: 32px;
@@ -35,15 +39,6 @@
         width: 100%;
       }
     }
-  }
-
-  ::slotted(*:focus-visible) {
-    @include sdds-focus-state;
-  }
-
-  .navigation-tab-item {
-    position: relative;
-    margin-right: 32px;
   }
 
   .navigation-tab-item::after {

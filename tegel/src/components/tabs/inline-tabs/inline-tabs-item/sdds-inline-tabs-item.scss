@@ -24,6 +24,10 @@
     margin: 20px 4px;
   }
 
+  ::slotted(*:focus-visible) {
+    @include sdds-focus-state;
+  }
+
   .inline-tab-item {
     position: relative;
     margin-right: 32px;
@@ -35,15 +39,6 @@
         width: 100%;
       }
     }
-  }
-
-  ::slotted(*:focus-visible) {
-    @include sdds-focus-state;
-  }
-
-  .inline-tab-item {
-    position: relative;
-    margin-right: 32px;
   }
 
   .inline-tab-item::after {
