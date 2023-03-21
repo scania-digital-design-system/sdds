@@ -36,8 +36,9 @@
   --sdds-btn-secondary-border-color-active: rgb(0 0 0 / 87%);
   --sdds-btn-secondary-background-focus: transparent;
   --sdds-btn-secondary-color-focus: var(--sdds-black);
-  --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
+  --sdds-btn-secondary-border-color-focus: var(--sdds-blue-400);
   --sdds-btn-secondary-outline-color: rgb(0 0 0 / 38%);
+  --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-400);
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(0 0 0 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(0 0 0 / 38%);
@@ -139,9 +140,9 @@
   --sdds-btn-secondary-border-color-active: var(--sdds-white);
   --sdds-btn-secondary-background-focus: transparent;
   --sdds-btn-secondary-color-focus: var(--sdds-white);
-  --sdds-btn-secondary-border-color-focus: var(--sdds-blue-300);
+  --sdds-btn-secondary-border-color-focus: var(--sdds-blue-400);
+  --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-400);
   --sdds-btn-secondary-outline-color: var(--sdds-white);
-  --sdds-btn-secondary-outline-color-focus: var(--sdds-blue-300);
   --sdds-btn-secondary-background-disabled: transparent;
   --sdds-btn-secondary-color-disabled: rgb(255 255 255 / 38%);
   --sdds-btn-secondary-border-color-disabled: rgb(255 255 255 / 38%);
