@@ -1,4 +1,4 @@
-@import './checkbox-theme-vars.scss';
+@import './checkbox-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-checkbox-item {
@@ -24,7 +24,7 @@
 
     + label {
       color: var(--sdds-checkbox-color);
-      padding-left: var(--sdds-spacing-element-8);
+      padding-left: var(--sdds-spacing-element-4);
       padding-top: var(--sdds-spacing-element-4);
       padding-bottom: var(--sdds-spacing-element-4);
       cursor: pointer;
@@ -56,16 +56,16 @@
 
     &:hover {
       &::before {
-        background-color: var(--sdds-checkbox-bg-hover);
+        background-color: var(--sdds-checkbox-background-hover);
         opacity: 0.12;
       }
     }
 
     &:focus {
       &::before {
-        background-color: var(--sdds-checkbox-bg-focus);
+        background-color: var(--sdds-checkbox-background-focus);
         opacity: 0.24;
-        animation: cb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
+        transition: opacity 0.2s ease-in-out;
       }
     }
 
@@ -93,7 +93,7 @@
 
 .sdds-form-input[type='checkbox']:checked {
   &::after {
-    background-image: var(--sdds-checkbox-bg-img);
+    background-image: var(--sdds-checkbox-background-img);
     background-color: var(--sdds-checkbox-interaction-01);
     background-repeat: no-repeat;
     background-position: center;
@@ -112,26 +112,9 @@
     }
 
     &::after {
-      background-image: var(--sdds-checkbox-bg-img-disabled);
+      background-image: var(--sdds-checkbox-background-img-disabled);
       background-color: var(--sdds-checkbox-interaction-02);
       color: var(--sdds-checkbox-color-disabled-after);
     }
-  }
-}
-
-@keyframes cb-focus {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0;
   }
 }

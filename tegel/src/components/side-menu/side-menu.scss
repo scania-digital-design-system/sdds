@@ -1,4 +1,4 @@
-@import './side-menu-theme-vars.scss';
+@import './side-menu-vars.scss';
 @import '../../mixins/box-sizing';
 
 /* TODO: HEADER ICON. KINDA WANT THIS IN THE HEADER COMPONENT INSTEAD? */
@@ -42,7 +42,7 @@
       bottom: -1px;
       left: 0;
       right: 0;
-      border: 1px solid var(--sdds-sidebar-item-state-focus-border);
+      border: 1px solid var(--sdds-sidebar-item-state-border-focus);
       z-index: 100;
     }
   }
@@ -256,7 +256,7 @@
 
     .sdds-item--active {
       .sdds-sidebar-nav__item-link {
-        background-color: var(--sdds-sidebar-side-menu-single-item-active-background);
+        background-color: var(--sdds-sidebar-side-menu-single-item-background-active);
         position: relative;
 
         &::before {
@@ -266,7 +266,7 @@
           top: 0;
           bottom: 0;
           width: 4px;
-          background-color: var(--sdds-sidebar-side-menu-single-item-active-border-left);
+          background-color: var(--sdds-sidebar-side-menu-single-item-border-left-active);
         }
       }
     }
@@ -327,7 +327,7 @@
           //@include type-style('headline-07');
           font: var(--sdds-headline-07);
           line-height: var(--sdds-headline-07-ls);
-          color: var(--sdds-sidebar-side-menu-single-subitem-active-color);
+          color: var(--sdds-sidebar-side-menu-single-subitem-color-active);
         }
       }
     }
@@ -392,7 +392,7 @@
     .sdds-sidebar-nav-subnav {
       left: 68px;
       position: absolute;
-      background: var(--sdds-white);
+      background: var(--sdds-sidebar-side-menu-subnav-backgrund);
       width: 245px;
       transform: translateY(-69px);
       z-index: 1;
@@ -405,7 +405,7 @@
         .sdds-sidebar-nav__item-title,
         .sdds-sidebar-nav__item-link {
           padding-left: 24px;
-          border-bottom: 1px solid var(--sdds-grey-300);
+          border-bottom: 1px solid var(--sdds-sidebar-side-menu-single-subitem-divider);
         }
 
         .sdds-sidebar-nav__item-link {

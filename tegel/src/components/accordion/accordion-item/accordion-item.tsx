@@ -23,40 +23,42 @@ export class AccordionItem {
 
   /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
   @Event({
-    eventName: 'accordionItemToggle',
+    eventName: 'sddsToggle',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  accordionItemToggle: EventEmitter<boolean>;
+  sddsToggle: EventEmitter<boolean>;
 
   openAccordion() {
     this.expanded = !this.expanded;
-
-    this.accordionItemToggle.emit(this.expanded);
+    this.sddsToggle.emit(this.expanded);
   }
 
   render() {
     return (
       <Host>
         <div
-          class={`sdds-accordion-item 
-        ${this.disabled ? 'disabled' : ''} 
+          class={`sdds-accordion-item
+        ${this.disabled ? 'disabled' : ''}
         ${this.expanded ? 'expanded' : ''}
         `}
         >
-          <div
+          <button
+            type="button"
+            aria-expanded={this.expanded}
             class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
             onClick={() => this.openAccordion()}
+            disabled={this.disabled}
           >
             <div class="sdds-accordion-title">{this.header}</div>
             <div class="sdds-accordion-icon">
               <sdds-icon name="chevron_down" size="16px"></sdds-icon>
             </div>
-          </div>
+          </button>
           <div
-            class={`sdds-accordion-panel 
-            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}         
+            class={`sdds-accordion-panel
+            ${this.paddingReset ? 'sdds-accordion-panel--padding-reset ' : ''}
             `}
           >
             <slot></slot>

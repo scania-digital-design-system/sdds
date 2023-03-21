@@ -1,17 +1,16 @@
-@import './message-theme-vars.scss';
+@import './message-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-message {
   @include sdds-box-sizing;
 
   display: block;
-  padding: 16px 32px 16px 20px;
+  padding: 16px;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   color: var(--sdds-grey-958);
-  background-color: var(--sdds-grey-50);
-  margin-bottom: 12px;
+  background-color: var(--sdds-message-background);
 
   &-single {
     font: var(--sdds-headline-07);
@@ -57,7 +56,7 @@
   /* modifiers */
 
   &-icon-active {
-    padding: 18px 32px 18px 20px;
+    padding: 18px;
 
     .sdds-message-single,
     .sdds-message-extended {
@@ -98,12 +97,8 @@
 
   &-type {
     &-informative {
-      color: var(--sdds-message-type-informative-color);
-      background-color: var(--sdds-message-type-informative-bg);
-
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-informative-bg-ongrey);
-      }
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-information);
@@ -113,7 +108,7 @@
         display: none;
 
         &-informative {
-          display: block;
+          display: flex;
           color: var(--sdds-information);
         }
 
@@ -124,8 +119,8 @@
     }
 
     &-error {
-      color: var(--sdds-message-type-error-color);
-      background-color: var(--sdds-message-type-error-bg);
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-type-error-background);
 
       &::before {
         background-color: var(--sdds-negative);
@@ -135,7 +130,7 @@
         display: none;
 
         &-error {
-          display: block;
+          display: flex;
           color: var(--sdds-negative);
         }
 
@@ -146,12 +141,8 @@
     }
 
     &-warning {
-      color: var(--sdds-message-type-warning-color);
-      background-color: var(--sdds-message-type-warning-bg);
-
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-warning-bg-ongrey);
-      }
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-warning);
@@ -161,7 +152,7 @@
         display: none;
 
         &-warning {
-          display: block;
+          display: flex;
           color: var(--sdds-warning);
         }
 
@@ -172,12 +163,8 @@
     }
 
     &-success {
-      color: var(--sdds-message-type-success-color);
-      background-color: var(--sdds-message-type-success-bg);
-
-      &.sdds-message-ongrey {
-        background-color: var(--sdds-message-type-success-bg-ongrey);
-      }
+      color: var(--sdds-message-color);
+      background-color: var(--sdds-message-background);
 
       &::before {
         background-color: var(--sdds-positive);
@@ -187,7 +174,7 @@
         display: none;
 
         &-success {
-          display: block;
+          display: flex;
           color: var(--sdds-positive);
         }
 

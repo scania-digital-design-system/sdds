@@ -1,5 +1,6 @@
-@import 'breadcrumb-theme-vars';
+@import 'breadcrumb-vars';
 @import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
 .sdds-breadcrumb {
   @include sdds-box-sizing;

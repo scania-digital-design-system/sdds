@@ -1,9 +1,9 @@
-@import './button-theme-vars.scss';
+@import './button-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-on-white-bg {
-  --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-on-white-background-disabled);
-  --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-on-white-background-disabled);
+  --sdds-btn-primary-background-disabled: var(--sdds-btn-primary-background-secondary-disabled);
+  --sdds-btn-danger-background-disabled: var(--sdds-btn-danger-background-secondary-disabled);
 }
 
 $btn-lg-height: 56px;
@@ -324,11 +324,11 @@ i.sdds-btn-icon[slot='icon'] {
 }
 
 :host(sdds-button[fullbleed]) {
-  width: inherit;
+  width: 100%;
   justify-content: center;
 }
 
-:host(sdds-button[onlyIcon]) {
+:host(sdds-button[only-icon]) {
   .sdds-btn-sm {
     padding: $btn-sm-only-icon-padding;
   }
@@ -342,7 +342,7 @@ i.sdds-btn-icon[slot='icon'] {
   }
 }
 
-:host(sdds-button:not([onlyIcon])) {
+:host(sdds-button:not([only-icon])) {
   display: flex;
   align-items: center;
 

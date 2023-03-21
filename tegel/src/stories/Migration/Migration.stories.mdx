@@ -5,15 +5,33 @@ import { Meta } from '@storybook/addon-docs';
 # Migration Docs
 
 Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
+
 <!-- TODO: remove link to markdownguide.org -->
 <!-- ### MD cheatsheet
 https://www.markdownguide.org/cheat-sheet/ -->
+
 
 ---
 
 # Breaking changes
 
 ---
+
+## Event name convention
+
+This change affects all components. 
+
+Previously we have not had a set naming convention for our events. This has led to misalignment between
+components where some events has had a `custom` prefix, and others have had other ways of indicating whether
+or not it is a custom event. We have now settled on a naming convention for all events. 
+Both **external**, events we expect you as a user to interact with, and **internal**, events that are used within
+our components to update state/react to changes. 
+
+In short:
+ - External events are named: 'sdds' + native event name. ('sddsClick', 'sddsChange')
+ - Internal events are named: 'internalSdds' + event name. ('internalSddsTablePropsChange', 'internalSddsCheckboxChange')
+
+You can read more about our event naming conventions [here](www.TODOLINKTOCODE_STYLE.md)
 
 ## Removed base font-size and moved to `px` instead of `rem`.
 
@@ -38,6 +56,43 @@ If you are however using `rem` in your project you would have to consider that t
 This value will now by default be `16px`. So for the element in you project that are using rem these would have to be
 recalculated.
 
+## Dark mode and mode variants
+
+We are introducing **dark mode** as an addition to our current **light mode**, as well as two mode variants — **primary** and **secondary** — to our codebase. This will require changes to the classes and properties used for styling components. It is important to note that the primary mode variant used to be referred to as "on-white" and the secondary mode variant as "on-grey-50" in light mode.
+
+**Light mode primary** is designed for a **white** background, while **secondary** is designed for a **grey-50** background. Previously, **grey-50** was used as our primary color.
+
+**Dark mode primary** is designed for a **grey-958** background, and **secondary** is designed for a **grey-900** background.
+
+#### What action is required?
+
+It is important to note that some components may have a different appearance due to these changes. The following components will now have a primary and secondary mode:
+
+- Accordion
+- Block
+- Button
+- Card
+- Data-table
+- Datetime
+- Divider
+- Dropdown
+- Footer
+- Message
+- Tab
+- Textarea
+- Textfield
+
+##### Changing mode
+
+Mode is controlled on a top level, using class `sdds-mode-dark` or `sdds-mode-light` (light is default).
+
+##### Changing mode variant
+
+For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input (primary is default). If no class or prop is given, the component is going to inherit the mode variant from its parent.
+
+To switch between the different modes and mode variants, simply use the appropriate classes or properties in your code.
+
+These changes are also planned for the UI kit in Figma.
 
 ## Accordion
 
@@ -68,13 +123,14 @@ Replace `affix="prefix"` with `expand-icon-position="start"` and remove `affix="
 ```
 
 #### Added prop for mode-variant and removed class `sdds-on-white-bg`
-Previously the accordion has used a class (`sdds-on-white-bg`) to determine the variant on the component is
-used. We have now introduced a prop on `<accordion>` called `mode-variant` with options`primary` or
-`seconday` to determine which variant is being shown. For this component `primary` is the default value and
-`seconday` represents the old `sdds-on-white-bg`
+
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced a prop called `mode-variant` with options`primary` or
+`secondary` to determine which variant is being shown. For this component `primary` is the default value and represents the old `sdds-on-white-bg`
 
 ##### What action is required?
+
 Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
 
 ```jsx
 // Old ❌
@@ -85,7 +141,7 @@ Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`
 </sdds-accordion>
 
 // New ✅
-<sdds-accordion mode-variant="seconday">
+<sdds-accordion mode-variant="primary">
   <sdds-accordion-item header="Lorem ipsum" tabindex="0">
     // ...
   </sdds-accordion-item>
@@ -93,6 +149,25 @@ Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant`
 ```
 
 ## Badge
+
+[Web Component](/docs/components-badge--default/)
+
+#### Replaced "isVisible" prop with "hidden"
+
+The visibility of the badge was previously determined by its `isVisible` prop. This has now been changed to a `hidden`
+prop, to align with other components. This prop is `false` by default, so for visible badges it does not have to be set.
+
+##### What action is required?
+
+Replace all intances of `isVisible="false"` with `hidden`.
+
+```jsx
+// Old ❌
+<sdds-badges value="1" is-visible="false" size="default"></sdds-badges>
+
+// New ✅
+<sdds-badges value="1" hidden size="lg"></sdds-badges>
+```
 
 [Web Component](/docs/components-badge--default/)
 
@@ -112,14 +187,13 @@ Replace size value `default` with `lg` or just remove prop as component's defaul
 <sdds-badges value="1" is-visible="true" size="lg"></sdds-badges>
 ```
 
-
 ## Banner
 
 [Native](/docs/components-banner--default/)
 
 #### Replaced built in icon with icon component
 
-Support for just adding a `.sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
+Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
 For accessibility reasons, we recommend wrapping the icon in a native `button` element.
 
 ```jsx
@@ -143,30 +217,30 @@ For accessibility reasons, we recommend wrapping the icon in a native `button` e
 
 [Native](/docs/components-block--default/)
 
-#### Renamed classes `sdds-block__default` and `sdds-block__variant` to conform with convention
+#### Removed classes `sdds-block__ongrey` and `sdds-block__onwhite` to conform with convention
 
-The classes `sdds-block__default` and `sdds-block__variant` was renamed to `sdds-block-primary` and `sdds-block-secondary` to conform with convention.
+The classes `sdds-block__onwhite` and `sdds-block__ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
 
 ##### What action is required?
 
-Replace all instaces of `sdds-block__default` and `sdds-block__variant` with `sdds-block-primary` and `sdds-block-secondary`.
+Replace all instaces of `sdds-block__onwhite` and `sdds-block__ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
 
 ```jsx
 // Old ❌
-<div class="sdds-block sdds-block__default">
-  <p>Content....</p>
-</div>
-<div class="sdds-block sdds-block__variant">
-  <p>Content....</p>
+<div class="sdds-block sdds-block__ongrey">
+    First level content goes here...
+    <div class="sdds-block sdds-block__onwhite">
+        <p>Second level content be here...</p>
+    </div>
 </div>
 
 
 // New ✅
-<div class="sdds-block sdds-block-primary">
-  <p>Content....</p>
-</div>
-<div class="sdds-block sdds-block-secondary">
-  <p>Content....</p>
+<div class="sdds-block sdds-mode-variant-secondary">
+    First level content goes here...
+    <div class="sdds-block sdds-mode-variant-primary">
+        <p>Second level content be here...</p>
+    </div>
 </div>
 ```
 
@@ -197,6 +271,101 @@ If the child of the native `sdds-btn` is a text it will need a class of `sdds-bt
     Some text
   </span>
 </button>
+```
+
+#### Changed prop `variant` to `mode-variant` in web component
+
+We removed the `variant` prop and replaced it with a new prop, `mode-variant`. New available types are `primary`(prev. `variant`) and `secondary`(prev. `default`).
+
+##### What action is required?
+
+Rename `variant` to `mode-variant` and change type name.
+
+```jsx
+// Old ❌
+<sdds-button variant="variant">
+  Button text
+</sdds-button>
+
+// New ✅
+<sdds-button mode-variant="primary">
+  Button text
+</sdds-button>
+```
+
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
+
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+
+##### What action is required?
+
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
+
+```jsx
+// Old ❌
+<button class="sdds-on-white-bg">
+  Some text
+</button>
+
+// New ✅
+<button class="sdds-mode-variant-primary">
+</button>
+```
+
+## Card
+
+[Native](/docs/components-card--default/)
+
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary`
+
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+
+##### What action is required?
+
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
+
+```jsx
+// Old ❌
+<div class="sdds-card sdds-on-white-bg">
+  Content
+</div>
+// New ✅
+<div class="sdds-card sdds-mode-variant-primary">
+  Content
+</div>
+```
+
+## Datetime
+
+[Web Component](/docs/components-datetime--default)
+
+#### Aligned props for ´label´ and 'helper'
+
+Previously `<sdds-datetime>` component components has used slots for label and helper. This has now been
+aligned with other components and this component now accepts two props `label` and `helper` to display
+these texts.
+
+##### What action is required?
+
+Change all `<sdds-datetime>` that are using slots to use the prop instead.
+
+```jsx
+// Old ❌
+<sdds-datetime id="datetime" type="datetime-local" size="lg" state="none" no-min-width>
+  <label slot="sdds-label">Label text</label>
+  <span slot="sdds-helper">Helper text</span>
+</sdds-datetime>
+
+// New ✅
+<sdds-datetime
+  id="datetime"
+  type="datetime-local"
+  size="lg"
+  state="none"
+  no-min-width
+  label="Label text"
+  helper="Helper text"
+></sdds-datetime>
 ```
 
 #### Added class 'sdds-btn-only-icon'
@@ -255,9 +424,73 @@ Rename all instances of `sdds-chip__small` to `sdds-chip-sm`.
 </div>
 ```
 
+#### Renamed class to `sdds-chip-active`
+
+The class `sdds-chip__active` was changed to `sdds-chip-active` to conform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-chip__active` to `sdds-chip-active`.
+
+```jsx
+// Old ❌
+<div class="sdds-chip sdds-chip__small">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
+
+// New ✅
+<div class="sdds-chip sdds-chip-active">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
+```
+
+#### Renamed classes to `sdds-chip-icon-right`/`sdds-chip-icon-left`
+
+The classes `sdds-chip__icon-right`/`sdds-chip__icon-left` was changed to `sdds-chip-icon-right`/`sdds-chip-icon-left` to conform with other class names.
+
+##### What action is required?
+
+Rename all instances of `sdds-chip__icon-right`/`sdds-chip__icon-left` to `sdds-chip-icon-right`/`sdds-chip-icon-left`.
+
+```jsx
+// Old ❌
+<div class="sdds-chip sdds-chip__icon-right">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
+
+// New ✅
+<div class="sdds-chip sdds-chip-icon-right">
+  <span class="sdds-chip-text">Chip text</span>
+</div>
+```
+
+## Divider
+
+[Native](/docs/components-divider--default)
+
+#### All class names changed and divider color is now controled by dark/light mode
+
+Current classes is replaced by `sdds-divider`, `sdds-divider-vertical` and `sdds-divider-border-#{direction}`.
+To change the color a color mode needs to be applied to the element och parent element; `sdds-mode-light`, `sdds-mode-dark` or `sdds-mode-colored`.
+
+##### What action is required?
+
+Rename all classes.
+
+```jsx
+// Old ❌
+<div class="sdds-divider-dark"></div>
+
+// New ✅
+<div class="sdds-mode-dark">
+  <<div class="sdds-divider"></div>
+</div>
+```
+
 ## Dropdown
 
 [Native](/docs/components-dropdown--native)
+[Web component](/docs/components-dropdown--web-component-default)
 
 #### Renamed size classes to `sdds-dropdown-sm`, and `sdds-dropdown-md`
 
@@ -283,6 +516,46 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
 </div>
 ```
 
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` for web component
+
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary` to determine which variant is being shown. `primary` is the default value and represents the old `sdds-on-white-bg`
+
+##### What action is required?
+
+Replace all instances of `class="sdds-on-white-bg"` with the prop `mode-variant` and use `primary` as value.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+
+```jsx
+// Old ❌
+<sdds-dropdown class="sdds-on-white-bg">
+    // ...
+</sdds-dropdown>
+// New ✅
+<sdds-dropdown mode-variant="primary">
+    // ...
+</sdds-dropdown>
+```
+
+#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
+
+We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
+
+##### What action is required?
+
+Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
+
+```jsx
+// Old ❌
+<div class="sdds-dropdown sdds-on-white-bg">
+  // ...
+</div>
+// New ✅
+<div class="sdds-dropdown sdds-mode-variant-primary">
+  // ...
+</div>
+```
+
 ## Message
 
 [Native](/docs/components-message--information)
@@ -290,16 +563,17 @@ Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
 #### Renamed multiple classes to conform with convention.
 
 The following classes was changed to conform with convention:
- * `sdds-message__icon-active` -> `sdds-message-icon-active`
- * `sdds-message__extended-active` -> `sdds-message-extended-active`
- * `sdds-message__type` -> `sdds-message-type`
- * `sdds-message-icon--informative` -> `sdds-message-icon-informative`
- * `sdds-message-icon--error` -> `sdds-message-icon-error`
- * `sdds-message-icon--warning` -> `sdds-message-icon-warning`
- * `sdds-message-icon--success` -> `sdds-message-icon-success`
 
- The overall change is that we are dropping the use of `__` and `--` in class names and are
- moving to single dashes instead.
+- `sdds-message__icon-active` -> `sdds-message-icon-active`
+- `sdds-message__extended-active` -> `sdds-message-extended-active`
+- `sdds-message__type` -> `sdds-message-type`
+- `sdds-message-icon--informative` -> `sdds-message-icon-informative`
+- `sdds-message-icon--error` -> `sdds-message-icon-error`
+- `sdds-message-icon--warning` -> `sdds-message-icon-warning`
+- `sdds-message-icon--success` -> `sdds-message-icon-success`
+
+The overall change is that we are dropping the use of `__` and `--` in class names and are
+moving to single dashes instead.
 
 ##### What action is required?
 
@@ -324,6 +598,27 @@ with a single dash (`-`).
 </div>
 ```
 
+#### Removed classes `sdds-message-ongrey` and `sdds-message-onwhite` to conform with convention
+
+The classes `sdds-message-onwhite` and `sdds-message-ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
+
+##### What action is required?
+
+Replace all instaces of `sdds-message-onwhite` and `sdds-message-ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
+
+```jsx
+// Old ❌
+<div class="sdds-message sdds-message-onwhite">
+    // ...
+</div>
+
+
+// New ✅
+<div class="sdds-message sdds-mode-variant-primary">
+    // ...
+</div>
+```
+
 ## Modal
 
 [Native](/docs/components-modal--native)
@@ -332,9 +627,15 @@ with a single dash (`-`).
 
 The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with other class names.
 
+#### Replaced built in icon with icon component
+
+Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
+For accessibility reasons, we recommend wrapping the icon in a native `button` element.
+
 ##### What action is required?
 
 Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is required if you are using the web component).
+Also use a button element for the button, and set the icon by adding an sdds-icon child. See example below.
 
 ```jsx
 // Old ❌
@@ -347,11 +648,12 @@ Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is req
 // New ✅
 <div class="sdds-modal">
   <div class="sdds-modal-header">
-    <span class="sdds-modal-close"></span>
+    <button class="sdds-modal-close" aria-label="close">
+      <sdds-icon name="cross" size="20px"></sdds-icon>
+    </button>
   </div>
 </div>
 ```
-
 
 ## Stepper
 
@@ -411,6 +713,135 @@ to `sdds-navigation-tabs-tab-active` and `sdds-navigation-tabs-tab-disabled`.
   <a role="link" aria-disabled="true" class="sdds-navigation-tabs-tab-disabled">Disabled tab</a>
 </sdds-navigation-tabs>
 
+```
+
+## Inline, Folder & Navigation tabs
+
+### Updated `<sdds-inline-tabs>` and `<sdds-navigation-tabs>` and introduced `<sdds-folder-tabs>`. Introduced child components for all tabs.
+
+Previously we had the `<sdds-inline-tabs>` and `<sdds-inline-tabs-fullbleed>`. These
+reminded little of eachother in appearence and therefore it made more sense to treat
+these as two totally seperate component. To have a clear distiction between them we
+have now renamed the `<ssd-inline-tabs>` to `<sdds-folder-tabs>`, to futher highlight
+its look and its function.
+
+All three of our tabs (inline/folder/navigation) works with either buttons or links,
+therefore we have introduced two new child components per parent component.
+Folder, Inline and Navigation tabs now all have two child components each, one for
+button and one for link. These are all named the same as the parent component + link/button.
+
+`<sdds-folder-tabs-link>` & `<sdds-folder-tabs-button>`
+`<sdds-inline-tabs-link>` & `<sdds-inline-tabs-button>`
+`<sdds-navigation-tabs-link>` & `<sdds-navigation-tabs-button>`
+
+The content that is displayed under each tab, is no longer handled by the component.
+And is therefor something that you as a user of the components will have to implement
+yourself. We will of course be peresenting examples of how this could be implemented,
+and if you have any questions we are always here to help.
+
+The new components are available here in storybook:
+
+- [Inline tabs](/docs/components-tabs--inline-tabs)
+- [Folder tabs](/docs/components-tabs--folder-tabs)
+- [Navigation tabs](/docs/components-tabs--navigation-tabs)
+
+```jsx
+// New sdds-inline-tabs with buttons 🆕
+<sdds-inline-tabs>
+  <sdds-inline-tabs-button>
+    <div slot="label">First tab</div>
+  </sdds-inline-tabs-button>
+  <sdds-inline-tabs-button>
+    <div slot="label">Second tab</div>
+  </sdds-inline-tabs-button>
+  <sdds-inline-tabs-button selected>
+    <div slot="label">Third tab</div>
+  </sdds-inline-tabs-button>
+  <sdds-inline-tabs-button disabled>
+    <div slot="label">Fourth tab</div>
+  </sdds-inline-tabs-button>
+</sdds-inline-tabs>
+
+// New sdds-inline-tabs with links 🆕
+<sdds-inline-tabs>
+  <sdds-inline-tabs-link link-href="#">
+    <div slot="label">First tab</div>
+  </sdds-inline-tabs-link>
+  <sdds-inline-tabs-link link-href="#">
+    <div slot="label">Second tab</div>
+  </sdds-inline-tabs-link>
+  <sdds-inline-tabs-link selected link-href="#">
+    <div slot="label">Third tab</div>
+  </sdds-inline-tabs-link>
+  <sdds-inline-tabs-link disabled link-href="#">
+    <div slot="label">Fourth tab</div>
+  </sdds-inline-tabs-link>
+</sdds-inline-tabs>
+
+// New sdds-folder-tabs with buttons 🆕
+<sdds-folder-tabs>
+  <sdds-folder-tabs-button>
+    <div slot="label">First tab</div>
+  </sdds-folder-tabs-button>
+  <sdds-folder-tabs-button>
+    <div slot="label">Second tab</div>
+  </sdds-folder-tabs-button>
+  <sdds-folder-tabs-button selected>
+    <div slot="label">Third tab</div>
+  </sdds-folder-tabs-button>
+  <sdds-folder-tabs-button disabled>
+    <div slot="label">Fourth tab</div>
+  </sdds-folder-tabs-button>
+</sdds-folder-tabs>
+
+// New sdds-folder-tabs with links 🆕
+<sdds-folder-tabs>
+  <sdds-folder-tabs-link link-href="#">
+    <div slot="label">First tab</div>
+  </sdds-folder-tabs-link>
+  <sdds-folder-tabs-link link-href="#">
+    <div slot="label">Second tab</div>
+  </sdds-folder-tabs-link>
+  <sdds-folder-tabs-link selected link-href="#">
+    <div slot="label">Third tab</div>
+  </sdds-folder-tabs-link>
+  <sdds-folder-tabs-link disabled link-href="#">
+    <div slot="label">Fourth tab</div>
+  </sdds-folder-tabs-link>
+</sdds-folder-tabs>
+
+
+// New sdds-navigation-tabs with buttons 🆕
+<sdds-navigation-tabs>
+  <sdds-navigation-tabs-button>
+    <div slot="label">First tab</div>
+  </sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button>
+    <div slot="label">Second tab</div>
+  </sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button selected>
+    <div slot="label">Third tab</div>
+  </sdds-navigation-tabs-button>
+  <sdds-navigation-tabs-button disabled>
+    <div slot="label">Fourth tab</div>
+  </sdds-navigation-tabs-button>
+</sdds-navigation-tabs>
+
+// New sdds-navigation-tabs with links 🆕
+<sdds-navigation-tabs>
+  <sdds-navigation-tabs-link link-href="#">
+    <div slot="label">First tab</div>
+  </sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link link-href="#">
+    <div slot="label">Second tab</div>
+  </sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link selected link-href="#">
+    <div slot="label">Third tab</div>
+  </sdds-navigation-tabs-link>
+  <sdds-navigation-tabs-link disabled link-href="#">
+    <div slot="label">Fourth tab</div>
+  </sdds-navigation-tabs-link>
+</sdds-navigation-tabs>
 ```
 
 ## Textarea
@@ -478,6 +909,26 @@ Rename all instances of `autofocus` to `auto-focus`.
     auto-focus
 ></sdds-textarea>
 
+```
+
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
+
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
+
+##### What action is required?
+
+Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` and pass `primary` as value directly on the component element.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+
+```jsx
+// Old ❌
+<div class="sdds-on-white-bg">
+  <sdds-textarea> </sdds-textarea>
+</div>
+// New ✅
+ <sdds-textarea mode-variant="primary">
+ </sdds-textarea>
 ```
 
 ## Textfield
@@ -582,6 +1033,49 @@ Rename all instances of `nominwidth` to `no-min-width`.
 ></sdds-textfield>
 ```
 
+#### Removed slot for helper and added `helper` prop
+
+Previously the textfield has had its helper text set via a slot. This is now changed
+to be a prop instead, to align with other components.
+
+##### What action is required?
+
+Change all instaces of `<span slot='sdds-helper'>${helper}</span>` to attrubute
+`helper="${helper}"`
+
+```jsx
+// Old ❌
+<sdds-textfield
+>
+  <span slot='sdds-helper'>Helper text!</span>
+</sdds-textfield>
+
+// New ✅
+<sdds-textfield
+    helper="Helper text"
+></sdds-textfield>
+```
+
+#### Added prop for mode-variant and removed class `sdds-on-white-bg` on container element
+
+Previously the class `sdds-on-white-bg` was used to determine the mode variant. We have now introduced the prop `mode-variant` with values `primary` or
+`secondary`. `primary` is the default value and represents the old `sdds-on-white-bg`
+
+##### What action is required?
+
+Replace all instances of `class="sdds-on-white-bg"` on container element with the prop `mode-variant` with `primary` as value directly on the component.
+If the component is used on a background with a color of grey-50, mode-variant prop value `secondary` should be passed.
+
+```jsx
+// Old ❌
+<div class="sdds-on-white-bg">
+  <sdds-textfield> </sdds-textfield>
+</div>
+// New ✅
+ <sdds-textfield mode-variant="primary">
+ </sdds-textfield>
+```
+
 ## Toast
 
 #### Changed class name 'sdds-toast-dismiss' to 'sdds-toast-close'
@@ -611,11 +1105,13 @@ Rename all instances of `sdds-toast-dismiss` to `sdds-toast-close`.
   </div>
 </div>
 ```
+
 (**NOTE**: there are more highly suggested changes for this component further down 👇)
 
------ 
+---
 
 # Not breaing but highly suggested changes
+
 ---
 
 ## Side menu
@@ -656,7 +1152,7 @@ to a `<button>` instead.
 
 ##### What action is required?
 
-Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it's child of `sdds-sidebar-nav__extended`.
+Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it is a child of `sdds-sidebar-nav__extended`.
 
 ```jsx
 // Old ❌
@@ -789,10 +1285,9 @@ Change all `<div>` with class `sdds-nav__mob-menu-icon` to span.
 </button>
 ```
 
-
 #### Changed p to span on `sdds-nav__item-core-text`
 
-The header previously had a `<p>` with the class  `sdds-nav__item-core-text`. This has been changed to a `span` instead.
+The header previously had a `<p>` with the class `sdds-nav__item-core-text`. This has been changed to a `span` instead.
 
 ##### What action is required?
 
@@ -816,7 +1311,7 @@ Change all `<p>` with class `sdds-nav__item-core-text` to span.
 
 #### Changed p to span on `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`
 
-The header previously had `<p>` with the class  `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`. These has been changed to `span` instead.
+The header previously had `<p>` with the class `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`. These has been changed to `span` instead.
 
 ##### What action is required?
 
@@ -836,10 +1331,9 @@ Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subti
 </div>
 ```
 
-
 #### Changed `<div>` to span on `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`
 
-The header previously had `<div>` with the class  `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`. These has been changed to `span` instead.
+The header previously had `<div>` with the class `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`. These has been changed to `span` instead.
 
 ##### What action is required?
 
@@ -858,7 +1352,6 @@ Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subti
     <span class='sdds-nav__avatar-subtitle'>Company Name</span>
 </span>
 ```
-
 
 ## Footer
 
@@ -885,7 +1378,6 @@ Change all instances of `<svg>` to `<sdds-icon>`
   <sdds-icon name="chevron_down" size="16px" />
 </span>
 ```
-
 
 ## Toast
 
@@ -919,58 +1411,4 @@ Change all instances the toast dismiss button like shown below:
       </button>
   </div>
 </div>
-```
-
-## Modal
-
-[Web component](/docs/components-modal--web-component)
-
-#### Refactored how the modal is opened and removed dependacy to trigger
-The modal component has previously been opened via a trigger that was added on a button,
-which would be the controler of the button. This has now been refactored and the modal is
-now opened based on its own boolean prop, called `open`. This change is done in order to
-make the component more inline with how these sort of thing are generally done. We also
-dont want to assume that is is a button that controls the open/closed state of the modal
-and this approach gives you more freedom on how you open your modals.
-
-The modal will still have its public method `openModal()` which can be called on the
-element to set its `open` prop to true.
-
-##### What action is required?
-All buttons that has previously been the triggers for the buttons now needs to alter the
-modals `open` prop and set it to `true` in order to open the component.
-
-```jsx
-// Old ❌
-<button class="sdds-btn sdds-btn-primary modal1">
-  Open modal
-</button>
-
-<sdds-modal id="modal-test" size="lg" selector=".modal1" actions="static">
-  <h5 class="sdds-modal-headline" slot="sdds-modal-headline">
-    Headline
-  </h5>
-  <div class="sdds-modal-body" slot="sdds-modal-body">
-    Content....
-  </div>
-</sdds-modal>
-
-
-// New ✅
-<button onclick="openMyModal()" id="my-modal-button" class="sdds-btn sdds-btn-primary">Open modal</button>
-
-<sdds-modal id="my-modal" size="md" actions="static">
-  <h5 class="sdds-modal-headline" slot="sdds-modal-headline">
-    Headline
-  </h5>
-  <div class="sdds-modal-body" slot="sdds-modal-body">
-    Content...
-  </div>
-</sdds-modal>
-<script>
-  /* This is just an example of how it can be done. */
-  const function openMyModal(){
-    document.getElementById("my-modal").setAttribute("open", "true");
-  }
-</script>
 ```

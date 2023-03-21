@@ -6,24 +6,35 @@
   @include sdds-box-sizing;
 
   list-style: none;
-  color: var(--sdds-accordion-colour);
+  color: var(--sdds-accordion-color);
+  position: relative;
+
+  button.sdds-accordion-header-icon-start,
+  button.sdds-accordion-header-icon-end {
+    all: unset;
+  }
 
   .sdds-accordion-header-icon-start,
-  .sdds-accordion-header-icon-end {
+  .sdds-accordion-header-icon-end,
+  button.sdds-accordion-header-icon-start,
+  button.sdds-accordion-header-icon-end {
+    @include sdds-box-sizing;
+
     cursor: pointer;
     display: flex;
     align-items: center;
+    width: 100%;
 
     // fixme: wrong line-height compared to production
     font: var(--sdds-headline-07);
     letter-spacing: var(--sdds-headline-07-ls);
     padding: var(--sdds-spacing-element-16);
-    background-color: var(--sdds-accordion-bg);
+    background-color: var(--sdds-accordion-background);
 
     .sdds-accordion-icon {
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
-      color: var(--sdds-accordion-colour);
+      color: var(--sdds-accordion-color);
 
       & > sdds-icon {
         display: block;
@@ -75,11 +86,11 @@
     .sdds-accordion-header-icon-end,
     .sdds-accordion-header-icon-start,
     .sdds-accordion-panel {
-      color: var(--sdds-accordion-colour-disabled);
+      color: var(--sdds-accordion-color-disabled);
       cursor: not-allowed;
 
       .sdds-accordion-icon {
-        color: var(--sdds-accordion-colour-disabled);
+        color: var(--sdds-accordion-color-disabled);
       }
     }
 
@@ -133,7 +144,7 @@
 
     .sdds-accordion-header-icon-start,
     .sdds-accordion-header-icon-end {
-      background-color: var(--sdds-accordion-bg-focus);
+      background-color: var(--sdds-accordion-background-focus);
       outline: none;
     }
   }
@@ -142,14 +153,14 @@
 :host(:hover) {
   .sdds-accordion-header-icon-start,
   .sdds-accordion-header-icon-end {
-    background-color: var(--sdds-accordion-bg-hover);
+    background-color: var(--sdds-accordion-background-hover);
   }
 }
 
 :host(:active) {
   .sdds-accordion-header-icon-start,
   .sdds-accordion-header-icon-end {
-    background-color: var(--sdds-accordion-bg-active);
+    background-color: var(--sdds-accordion-background-active);
     outline: none;
   }
 }

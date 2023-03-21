@@ -1,10 +1,10 @@
-@import './card-theme-vars.scss';
+@import './card-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-card {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-card-bg);
+  background-color: var(--sdds-card-background);
   border-radius: 4px;
   box-shadow: var(--sdds-card-box);
 
@@ -88,7 +88,7 @@
   }
 
   //divider
-  .sdds-divider-light-border-top {
+  .sdds-divider-border-top {
     margin: 0 var(--sdds-spacing-element-16);
   }
 
@@ -101,14 +101,13 @@
 
   .sdds-card-body {
     font: var(--sdds-detail-03);
+    color: var(--sdds-card-body-color);
     letter-spacing: var(--sdds-detail-03-ls);
     padding: var(--sdds-spacing-element-16);
   }
 
   .sdds-card-footer {
     padding: var(--sdds-spacing-element-16);
-
-    //TODO: Add possibility to move icon to the right when button is present
 
     a {
       padding-right: var(--sdds-spacing-element-16);

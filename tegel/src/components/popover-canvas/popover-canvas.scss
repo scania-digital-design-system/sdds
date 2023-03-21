@@ -5,10 +5,8 @@
 :host {
   @include sdds-box-sizing;
 
-  min-width: 160px;
-  min-height: 160px;
-  background-color: var(--sdds-popover-bg-default);
-  padding: 16px;
+  color: var(--sdds-popover-canvas-color);
+  background-color: var(--sdds-popover-canvas-background);
   box-shadow: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 10%);
   border-radius: 4px;
   z-index: z(tooltip);
@@ -16,6 +14,5 @@
 }
 
 :host(.sdds-popover-canvas-show) {
-  opacity: 1;
   display: block;
 }

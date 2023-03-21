@@ -9,13 +9,12 @@ import {
   Prop,
   Element,
 } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'compactDesign',
   'noMinWidth',
   'verticalDividers',
-  'whiteBackground',
 ];
 
 function removeShakeAnimation(e: AnimationEvent & { target: HTMLElement }) {
@@ -75,17 +74,17 @@ export class TableFooter {
 
   tableEl: HTMLSddsTableElement;
 
-  /** Event that footer sends out in order to receive other necessary information from other subcomponents */
+  /** @internal Event that footer sends out in order to receive other necessary information from other subcomponents */
   @Event({
-    eventName: 'enablePaginationEvent',
+    eventName: 'internalSddsEnablePagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  enablePaginationEvent: EventEmitter<any>;
+  internalSddsEnablePagination: EventEmitter<any>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsTablePropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -121,7 +120,7 @@ export class TableFooter {
       this.columnsNumber = numberOfColumns;
     }
 
-    this.enablePaginationEvent.emit(this.tableId);
+    this.internalSddsEnablePagination.emit(this.tableId);
   }
 
   paginationPrev = (event) => {
@@ -154,8 +153,8 @@ export class TableFooter {
     this.runPagination();
   }
 
-  @Listen('runPaginationEvent', { target: 'body' })
-  runPaginationEventListener(event: CustomEvent<any>) {
+  @Listen('internalSddsPagination', { target: 'body' })
+  sddsPaginationListener(event: CustomEvent<any>) {
     if (this.tableId === event.detail) {
       this.runPagination();
     }
@@ -190,17 +189,17 @@ export class TableFooter {
 
   /* Client based functions below */
 
-  /** Event to send current page value back to sdds-table-body component */
+  /** Event to send current page value back to sdds-table-body component, can also be listened to in order to implement custom pagination logic. */
   @Event({
-    eventName: 'currentPageValueEvent',
+    eventName: 'sddsPageChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  currentPageValueEvent: EventEmitter<any>;
+  sddsPageChange: EventEmitter<any>;
 
   sendPaginationValue(value) {
-    this.currentPageValueEvent.emit([this.tableId, value]);
+    this.sddsPageChange.emit([this.tableId, value]);
   }
 
   clientPaginationPrev = (event) => {
@@ -265,7 +264,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -273,7 +272,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>
@@ -286,7 +284,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -294,7 +292,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>
@@ -327,7 +324,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -335,7 +332,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M22.217 4.273a1 1 0 0 1 0 1.415l-9.888 9.888a.6.6 0 0 0 0 .848l9.888 9.888a1 1 0 0 1-1.414 1.415l-9.889-9.889a2.6 2.6 0 0 1 0-3.677l9.889-9.888a1 1 0 0 1 1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>
@@ -346,7 +342,7 @@ export class TableFooter {
                   >
                     <svg
                       class="sdds-table__footer-btn-svg"
-                      fill="none"
+                      fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 32 32"
                     >
@@ -354,7 +350,6 @@ export class TableFooter {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M9.783 27.727a1 1 0 0 1 0-1.415l9.888-9.888a.6.6 0 0 0 0-.848L9.783 5.688a1 1 0 0 1 1.414-1.415l9.889 9.889a2.6 2.6 0 0 1 0 3.676l-9.889 9.889a1 1 0 0 1-1.414 0Z"
-                        fill="currentColor"
                       />
                     </svg>
                   </button>

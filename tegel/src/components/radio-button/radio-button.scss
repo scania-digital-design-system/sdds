@@ -1,4 +1,4 @@
-@import './radio-button-theme-vars.scss';
+@import './radio-button-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-radio-button-group {
@@ -59,14 +59,14 @@
 
     &:hover {
       &::before {
-        background-color: var(--sdds-radio-button-bg-hover);
+        background-color: var(--sdds-radio-button-background-hover);
         opacity: 0.12;
       }
     }
 
     &:focus {
       &::before {
-        background-color: var(--sdds-radio-button-bg-focus);
+        background-color: var(--sdds-radio-button-background-focus);
         opacity: 0.24;
         animation: rb-focus 0.4s cubic-bezier(0.65, 0.05, 0.38, 0.95) forwards;
       }

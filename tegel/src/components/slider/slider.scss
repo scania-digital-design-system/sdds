@@ -1,12 +1,10 @@
-@import 'slider-theme-vars';
+@import 'slider-vars';
 @import '../../mixins/box-sizing';
 
 sdds-slider {
   @include sdds-box-sizing;
 
   width: 100%;
-
-  --sdds-slider-inputfield-bg: var(--sdds-white);
 
   input[type='range'].sdds-slider-native-element {
     display: none;
@@ -68,7 +66,7 @@ sdds-slider {
     }
 
     .sdds-slider__input-field-wrapper {
-      background-color: var(--sdds-slider-inputfield-bg);
+      background-color: var(--sdds-slider-inputfield-background);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -77,12 +75,12 @@ sdds-slider {
         // @include type-style('detail-02');
         font: var(--sdds-detail-02);
         letter-spacing: var(--sdds-detail-02-ls);
-        color: var(--sdds-grey-700);
+        color: var(--sdds-slider-input-inputfield-color);
         border: 0;
         background-color: transparent;
         text-align: center;
         padding: 12px;
-        box-shadow: inset 0 -1px 0 var(--sdds-grey-400);
+        box-shadow: inset 0 -1px 0 var(--sdds-slider-inputfield-box-shadow);
         border-radius: 4px 4px 0 0;
 
         &:hover {
@@ -103,7 +101,7 @@ sdds-slider {
     letter-spacing: var(--sdds-detail-05-ls);
     user-select: none;
     position: absolute;
-    color: var(--sdds-grey-958);
+    color: var(--sdds-slider-label-color);
     top: -16px;
     transform: translateY(-100%);
 
@@ -122,10 +120,11 @@ sdds-slider {
     position: absolute;
     transform: translate(-50%, -100%);
     top: -24px;
-    background-color: var(--sdds-grey-800);
-    color: var(--sdds-white);
+    background-color: var(--sdds-slider-value-tooltip-background);
+    color: var(--sdds-slider-value-tooltip-color);
 
     svg {
+      color: var(--sdds-slider-value-tooltip-background);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -140,7 +139,7 @@ sdds-slider {
       width: 20px;
       height: 20px;
       border-radius: 100%;
-      background-color: var(--sdds-blue-800);
+      background-color: var(--sdds-slider-thumb-color);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -152,7 +151,7 @@ sdds-slider {
         display: none;
         width: 48px;
         height: 48px;
-        background-color: var(--sdds-blue-800);
+        background-color: var(--sdds-slider-thumb-color);
         position: absolute;
         border-radius: 100%;
         top: 50%;
@@ -195,7 +194,8 @@ sdds-slider {
     .sdds-slider__value-divider {
       transform: translateY(-50%);
       height: 16px;
-      background-color: var(--sdds-grey-400);
+      background-color: var(--sdds-slider-divider-color);
+      color: var(--sdds-slider-divider-values-color);
       width: 1px;
 
       span {
@@ -220,7 +220,7 @@ sdds-slider {
     width: 100%;
     height: 2px;
     border-radius: 1px;
-    background-color: var(--sdds-grey-400);
+    background-color: var(--sdds-slider-track-color);
     position: relative;
 
     &:focus {
@@ -240,7 +240,7 @@ sdds-slider {
     }
 
     .sdds-slider__track-fill {
-      background-color: var(--sdds-blue-800);
+      background-color: var(--sdds-slider-track-fill-color);
       border-radius: 2px;
       height: 4px;
       position: absolute;
@@ -258,7 +258,7 @@ sdds-slider {
     }
 
     label {
-      color: var(--sdds-grey-400);
+      color: var(--sdds-slider-disabled);
     }
 
     .sdds-slider__controls {
@@ -268,9 +268,7 @@ sdds-slider {
         &.sdds-slider__control-minus,
         &.sdds-slider__control-plus {
           svg {
-            path {
-              fill: var(--sdds-grey-400);
-            }
+            fill: var(--sdds-slider-disabled);
           }
         }
       }
@@ -278,14 +276,14 @@ sdds-slider {
 
     .sdds-slider__input-values {
       .sdds-slider__input-value {
-        color: var(--sdds-grey-400);
+        color: var(--sdds-slider-disabled);
       }
 
       .sdds-slider__input-field-wrapper {
         pointer-events: none;
 
         input.sdds-slider__input-field {
-          color: var(--sdds-grey-400);
+          color: var(--sdds-slider-disabled);
           pointer-events: none;
         }
       }
@@ -297,14 +295,14 @@ sdds-slider {
 
     .sdds-slider__track {
       .sdds-slider__track-fill {
-        background-color: var(--sdds-grey-400);
+        background-color: var(--sdds-slider-disabled);
       }
     }
 
     .sdds-slider__value-dividers {
       .sdds-slider__value-divider {
         span {
-          color: var(--sdds-grey-400);
+          color: var(--sdds-slider-disabled);
         }
       }
     }
@@ -313,7 +311,7 @@ sdds-slider {
       pointer-events: none;
 
       .sdds-slider__scrubber-inner {
-        background: var(--sdds-grey-400);
+        background-color: var(--sdds-slider-disabled);
         cursor: default;
       }
     }
@@ -333,6 +331,36 @@ sdds-slider {
         &.pressed {
           width: 20px;
           height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.sdds-slider {
+  .sdds-slider__controls {
+    .sdds-slider__control {
+      cursor: default;
+
+      &.sdds-slider__control-minus,
+      &.sdds-slider__control-plus {
+        sdds-icon {
+          color: var(--sdds-slider-controls-color);
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    .sdds-slider__controls {
+      .sdds-slider__control {
+        cursor: default;
+
+        &.sdds-slider__control-minus,
+        &.sdds-slider__control-plus {
+          sdds-icon {
+            color: var(--sdds-slider-disabled);
+          }
         }
       }
     }

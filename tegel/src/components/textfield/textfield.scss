@@ -1,10 +1,5 @@
-@import './textfield-theme-vars.scss';
-
-.sdds-on-white-bg {
-  --sdds-textfield-bg: var(--sdds-textfield-on-white-bg);
-}
-
 @mixin textfield-base {
+  all: unset;
   border-radius: 4px 4px 0 0;
   width: 100%;
   box-sizing: border-box;
@@ -13,7 +8,7 @@
   outline: none;
   height: 100%;
   color: var(--sdds-textfield-color);
-  background-color: var(--sdds-textfield-bg);
+  background-color: var(--sdds-textfield-background);
 
   &::placeholder {
     opacity: 1;
@@ -26,21 +21,21 @@
 
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--sdds-textfield-disabled-bg);
-    color: var(--sdds-textfield-disabled-color);
+    background-color: var(--sdds-textfield-background-disabled);
+    color: var(--sdds-textfield-color-disabled);
 
     &::placeholder {
-      color: var(--sdds-textfield-disabled-placeholder);
+      color: var(--sdds-textfield-placeholder-disabled);
     }
 
-    ~ .sdds-textfield-label-inside {
-      color: var(--sdds-textfield-disabled-label);
+    ~ .textfield-label-inside {
+      color: var(--sdds-textfield-label-disabled);
     }
   }
 }
 
 //Sizes
-.sdds-textfield-input {
+.textfield-input-lg {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -48,7 +43,7 @@
   padding: var(--sdds-spacing-element-20) var(--sdds-spacing-element-16);
 }
 
-.sdds-textfield-input-md {
+.textfield-input-md {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -56,7 +51,7 @@
   padding: var(--sdds-spacing-element-16);
 }
 
-.sdds-textfield-input-sm {
+.textfield-input-sm {
   @include textfield-base;
 
   font: var(--sdds-detail-02);
@@ -65,13 +60,13 @@
 }
 
 //Container for input field and prefix/suffix
-.sdds-textfield-container {
+.textfield-container {
   border-radius: 4px 4px 0 0;
   display: flex;
   position: relative;
   height: 56px;
   box-sizing: border-box;
-  background-color: var(--sdds-textfield-bg);
+  background-color: var(--sdds-textfield-background);
   border-bottom: 1px solid var(--sdds-textfield-border-bottom);
   transition: border-bottom-color 200ms ease;
 
@@ -79,31 +74,23 @@
     border-bottom-color: var(--sdds-textfield-border-bottom-hover);
   }
 
-  .sdds-form-textfield-md & {
+  .form-textfield-md & {
     height: 48px;
   }
 
-  .sdds-form-textfield-sm & {
+  .form-textfield-sm & {
     height: 40px;
   }
 }
 
-.sdds-textfield-input-container {
+.textfield-input-container {
   position: relative;
   width: 100%;
 }
 
 //Textfield label
 
-/* slot[name="sdds-label"]::slotted(*) {
-  @include type-style("detail-05");
-  display: block;
-  margin-bottom: var(--sdds-spacing-element-8);
-  color: var(--sdds-textfield-label-color);
-} */
-
-//Textfield label
-.sdds-textfield-label-outside > * {
+.textfield-label-outside > * {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: block;
@@ -111,7 +98,7 @@
   color: var(--sdds-textfield-label-color);
 }
 
-.sdds-textfield-label-inside {
+.textfield-label-inside {
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   position: absolute;
@@ -122,14 +109,6 @@
 
 @mixin placeholder-label {
   &::placeholder {
-    color: transparent;
-  }
-
-  &::input-placeholder {
-    color: transparent;
-  }
-
-  &:placeholder {
     color: transparent;
   }
 
@@ -149,7 +128,7 @@
 }
 
 //Form control
-.sdds-form-textfield {
+.form-textfield {
   display: block;
   min-width: 208px;
 
@@ -160,43 +139,43 @@
 
 //Textfield container with label inside
 //Handling position, focus and transition for label inside
-.sdds-form-textfield.sdds-textfield-container-label-inside {
-  .sdds-textfield-input {
+.form-textfield.textfield-container-label-inside {
+  .textfield-input-lg {
     padding-top: var(--sdds-spacing-element-24);
     padding-bottom: 15px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 20px;
     }
 
     @include placeholder-label;
   }
 
-  .sdds-textfield-input-md {
+  .textfield-input-md {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  .sdds-textfield-input-sm {
+  .textfield-input-sm {
     padding-top: var(--sdds-spacing-element-20);
     padding-bottom: 11px;
 
-    ~ .sdds-textfield-label-inside {
+    ~ .textfield-label-inside {
       top: 16px;
     }
 
     @include placeholder-label;
   }
 
-  &.sdds-textfield-focus,
-  &.sdds-textfield-data {
-    .sdds-textfield-input-sm ~ .sdds-textfield-label-inside {
+  &.textfield-focus,
+  &.textfield-data {
+    .textfield-input-sm ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -205,7 +184,7 @@
       top: 8px;
     }
 
-    .sdds-textfield-input-md ~ .sdds-textfield-label-inside {
+    .textfield-input-md ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -214,7 +193,7 @@
       top: 8px;
     }
 
-    .sdds-textfield-input ~ .sdds-textfield-label-inside {
+    .textfield-input-lg ~ .textfield-label-inside {
       font: var(--sdds-detail-07);
       letter-spacing: var(--sdds-detail-07-ls);
 
@@ -226,7 +205,7 @@
 }
 
 //Textfield bottom bar when in focus
-.sdds-textfield-bar {
+.textfield-bar {
   position: absolute;
   width: 100%;
 
@@ -240,11 +219,11 @@
     background: var(--sdds-textfield-bar);
     transition: 0.35s ease all;
 
-    .sdds-form-textfield-md & {
+    .form-textfield-md & {
       top: 46px;
     }
 
-    .sdds-form-textfield-sm & {
+    .form-textfield-sm & {
       top: 40px;
     }
   }
@@ -257,20 +236,21 @@
     right: 50%;
   }
 
-  .sdds-textfield-focus &::before,
-  .sdds-textfield-focus &::after {
+  .textfield-focus &::before,
+  .textfield-focus &::after {
     width: 50%;
   }
 }
 
 //Helper text
-.sdds-textfield-helper {
+.textfield-helper {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   display: flex;
+  gap: 8px;
   justify-content: space-between;
 
-  & .sdds-textfield-textcounter {
+  & .textfield-textcounter {
     margin-left: auto;
   }
 
@@ -280,192 +260,132 @@
 }
 
 //Disabled state
-.sdds-form-textfield-disabled {
-  .sdds-textfield-container {
+.form-textfield-disabled {
+  .textfield-container {
     border-bottom-color: transparent;
   }
 
-  .sdds-textfield-slot-wrap-prefix,
-  .sdds-textfield-slot-wrap-suffix {
+  .textfield-slot-wrap-prefix,
+  .textfield-slot-wrap-suffix {
     > * {
-      color: var(--sdds-textfield-disabled-ps-color);
+      color: var(--sdds-textfield-ps-color-disabled);
     }
   }
 
-  .sdds-textfield-label-outside {
+  .textfield-label-outside {
     > * {
-      color: var(--sdds-textfield-disabled-label);
+      color: var(--sdds-textfield-label-disabled);
     }
   }
-
-  /* slot[name="sdds-prefix"]::slotted(*),
-  slot[name="sdds-suffix"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-ps-color);
-  }
-  slot[name="sdds-label"]::slotted(*) {
-    color: var(--sdds-textfield-disabled-label);
-  } */
 }
 
 //Read only state
 
-.sdds-textfield-icon__readonly {
+.textfield-icon__readonly {
   display: none;
   position: absolute;
   right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 18px;
+  color: var(--sdds-textfield-icon-read-only-label-color);
 
   &-label {
     display: none;
     position: absolute;
     right: 18px;
-    bottom: -24px;
+    top: 48px;
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     padding: 8px;
-    color: var(--sdds-white);
-    background-color: var(--sdds-grey-800);
     white-space: nowrap;
     border-radius: 4px 0 4px 4px;
+    background-color: var(--sdds-textfield-icon-read-only-label-background);
   }
 }
 
-.sdds-form-textfield-readonly {
+.form-textfield-readonly {
   pointer-events: none;
 
-  .sdds-textfield-icon__readonly {
+  .textfield-icon__readonly {
     display: block;
 
     &:hover {
-      ~ .sdds-textfield-icon__readonly-label {
+      ~ .textfield-icon__readonly-label {
         display: block;
       }
     }
   }
 
-  .sdds-textfield-input {
+  .textfield-input {
     padding-right: 54px;
-    background-color: transparent;
-  }
-
-  .sdds-textfield-container {
     background-color: transparent;
   }
 }
 
 //Success state
-.sdds-form-textfield-success {
-  .sdds-textfield-container {
+.form-textfield-success {
+  .textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-success);
   }
 }
 
 //Error State
-.sdds-form-textfield-error {
-  .sdds-textfield-helper {
+.form-textfield-error {
+  .textfield-helper {
     color: var(--sdds-textfield-helper-error);
   }
 
-  .sdds-textfield-container {
+  .textfield-container {
     border-bottom-color: var(--sdds-textfield-border-bottom-error);
   }
 
-  .sdds-textfield-bar {
+  .textfield-bar {
     &::before,
     &::after {
       background: var(--sdds-textfield-bar-error);
     }
   }
-
-  slot[name='sdds-prefix']::slotted(sdds-icon),
-  slot[name='sdds-suffix']::slotted(sdds-icon) {
-    color: var(--sdds-textfield-icon-error);
-  }
 }
 
-// .sdds-textfield-textcounter {
-.sdds-textfield-helper-error-state {
+// .textfield-textcounter {
+.textfield-helper-error-state {
   display: flex;
+  gap: 8px;
   flex-wrap: nowrap;
-
-  svg {
-    margin-right: 8px;
-  }
 }
 
-.sdds-textfield-textcounter {
+.textfield-textcounter {
   font: var(--sdds-detail-05);
   letter-spacing: var(--sdds-detail-05-ls);
   color: var(--sdds-textfield-textcounter);
   float: right;
 
-  & .sdds-textfield-textcounter-divider {
+  & .textfield-textcounter-divider {
     // @include type-style('detail-05');
     color: var(--sdds-textfield-textcounter-divider);
   }
 }
 
-/* slot[name="sdds-prefix"]::slotted(*),
-slot[name="sdds-suffix"]::slotted(*) {
-  @include type-style("detail-02");
+.textfield-slot-wrap-prefix,
+.textfield-slot-wrap-suffix {
   align-self: center;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
+  margin: 0 0 0 14px;
   color: var(--sdds-textfield-ps-color);
-} */
 
-.sdds-textfield-slot-wrap-prefix {
-  align-self: center;
-
-  > * {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
-    margin-left: 16px;
-    color: var(--sdds-textfield-ps-color);
+  &::slotted(:not(sdds-icon)) {
+    margin: 0 0 0 2px;
   }
 
-  &.sdds-textfield-error {
-    sdds-icon,
-    .sdds-icon {
-      color: var(--sdds-negative);
-    }
+  &.textfield-error {
+    color: var(--sdds-textfield-ps-color-error);
   }
 }
 
-.sdds-textfield-slot-wrap-suffix {
-  align-self: center;
+.textfield-slot-wrap-suffix {
+  margin: 0 14px 0 0;
 
-  > * {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
-    margin-right: 16px;
-    color: var(--sdds-textfield-ps-color);
+  &::slotted(:not(sdds-icon)) {
+    margin: 0 2px 0 0;
   }
-
-  &.sdds-textfield-error {
-    sdds-icon,
-    .sdds-icon {
-      color: var(--sdds-negative);
-    }
-  }
-}
-
-//TODO: When new icons are avaliable have a look at this one
-slot[name='sdds-prefix']::slotted(sdds-icon),
-slot[name='sdds-suffix']::slotted(sdds-icon) {
-  font-size: 24px; //FIXME: When new icons is avaliable it should be 16x16
-  line-height: 0;
-}
-
-//Text gerenerated infront of the input field
-slot[name='sdds-prefix']::slotted(*) {
-  padding-left: var(--sdds-spacing-element-20);
-
-  & ~ .sdds-textfield-input {
-    padding-left: var(--sdds-spacing-element-12);
-  }
-}
-
-//Text generated after the input field
-slot[name='sdds-suffix']::slotted(*) {
-  padding-right: var(--sdds-spacing-element-20);
 }

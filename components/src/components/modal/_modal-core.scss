@@ -1,5 +1,5 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 :root,
 html {
@@ -103,7 +103,7 @@ $modals: (
 }
 
 @mixin modal-body {
-  @include type-style("body-01");
+  @include type-style('body-01');
 
   padding-bottom: 40px;
   margin: 0;
@@ -128,7 +128,7 @@ $modals: (
   margin: auto;
   position: relative;
   border-radius: 1rem;
-  padding: 16px;
+  padding: 16px 16px 0;
 }
 
 //Width of modals in different breakpoints
@@ -148,7 +148,7 @@ $modals: (
   .sdds-modal-sm {
     height: 100%;
 
-    slot[name="sdds-modal-actions"]::slotted(*) {
+    slot[name='sdds-modal-actions']::slotted(*) {
       display: flex;
     }
   }
@@ -160,9 +160,10 @@ $modals: (
   position: sticky;
   top: 0;
   background-color: var(--sdds-modal-bg);
+  z-index: 1;
 
   &::before {
-    content: " ";
+    content: ' ';
     position: absolute;
     height: 16px;
     top: -16px;
@@ -176,17 +177,7 @@ $modals: (
     position: sticky;
     bottom: 0;
     background-color: var(--sdds-modal-bg);
-    padding-top: var(--sdds-spacing-element-16);
-
-    &::after {
-      content: " ";
-      position: absolute;
-      height: 17px;
-      bottom: -17px;
-      left: 0;
-      width: 100%;
-      background-color: var(--sdds-modal-bg);
-    }
+    padding: var(--sdds-spacing-element-16) 0;
   }
 }
 

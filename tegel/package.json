@@ -1,6 +1,6 @@
 {
   "name": "@scania/tegel",
-  "version": "0.0.1-beta.10",
+  "version": "0.0.51",
   "description": "Tegel - Scania's Digital Design System",
   "keywords": [
     "tegel",
@@ -43,11 +43,12 @@
     "build-stencil:watch": "stencil build --docs-readme --watch",
     "start-storybook": "start-storybook -p 6006",
     "tegel": "concurrently --raw  'npm:build-stencil:watch' 'npm:start-storybook'",
-    "commit": "npm run --prefix ../ commit"
+    "commit": "npm run --prefix ../ commit",
+    "tegel-release": "./tegel-release.sh"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@stencil/core": "^2.20.0",
+    "@stencil/core": "^3.0.0",
     "@storybook/addon-google-analytics": "^6.2.9",
     "concurrently": "^7.4.0",
     "dotenv": "^16.0.3",

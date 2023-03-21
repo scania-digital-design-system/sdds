@@ -9,13 +9,13 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
-  'whiteBackground',
+  'modeVariant',
 ];
 @Component({
   tag: 'sdds-table-body-row-expandable',
@@ -38,32 +38,32 @@ export class TableBodyRowExpandable {
 
   @State() noMinWidth: boolean = false;
 
-  @State() whiteBackground: boolean = false;
+  @State() modeVariant: 'primary' | 'secondary' = null;
 
   @Element() host: HTMLElement;
 
   tableEl: HTMLSddsTableElement;
 
-  /** Sends out status of itw own expended status feature to table header component */
+  /** @internal Sends out expanded status which is used by the table header component */
   @Event({
-    eventName: 'singleRowExpandedEvent',
+    eventName: 'internalSddsRowExpanded',
     bubbles: true,
     cancelable: true,
     composed: true,
   })
-  singleRowExpandedEvent: EventEmitter<any>;
+  internalSddsRowExpanded: EventEmitter<any>;
 
-  /** Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
+  /** @internal Event that triggers pagination function. Needed as first rows have to be rendered in order for pagination to run */
   @Event({
-    eventName: 'runPaginationEvent',
+    eventName: 'internalSddsPagination',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  runPaginationEvent: EventEmitter<string>;
+  internalSddsPagination: EventEmitter<string>;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsTablePropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -88,7 +88,7 @@ export class TableBodyRowExpandable {
   }
 
   componentDidLoad() {
-    this.runPaginationEvent.emit(this.tableId);
+    this.internalSddsPagination.emit(this.tableId);
   }
 
   componentWillRender() {
@@ -100,7 +100,7 @@ export class TableBodyRowExpandable {
   }
 
   sendValue() {
-    this.singleRowExpandedEvent.emit([this.tableId, this.isExpanded]);
+    this.internalSddsRowExpanded.emit([this.tableId, this.isExpanded]);
   }
 
   onChangeHandler(event) {
@@ -116,7 +116,8 @@ export class TableBodyRowExpandable {
           'sdds-table__row-expand--active': this.isExpanded,
           'sdds-table__compact': this.compactDesign,
           'sdds-table--divider': this.verticalDividers,
-          'sdds-table--on-white-bg': this.whiteBackground,
+          'sdds-mode-variant-primary': this.modeVariant === 'primary',
+          'sdds-mode-variant-secondary': this.modeVariant === 'secondary',
         }}
       >
         <tr class="sdds-table__row">

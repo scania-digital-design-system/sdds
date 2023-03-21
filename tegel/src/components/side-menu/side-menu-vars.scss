@@ -1,0 +1,50 @@
+:root,
+.sdds-mode-light {
+  --sdds-sidebar-mobile-menu-btn-hover: var(--sdds-blue-700);
+  --sdds-sidebar-mobile-menu-btn-icon: var(--sdds-white);
+  --sdds-sidebar-item-state-focus: var(--sdds-grey-50);
+  --sdds-sidebar-item-state-border-focus: var(--sdds-blue-400);
+  --sdds-sidebar-item-state-hover: var(--sdds-grey-50);
+  --sdds-sidebar-item-state-active: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu: var(--sdds-white);
+  --sdds-sidebar-side-menu-border-right: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu-backgrund-cover: var(--sdds-black);
+  --sdds-sidebar-side-menu-mobile-header-border-bottom: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu-bottom-menu-background: var(--sdds-white);
+  --sdds-sidebar-side-menu-bottom-menu-border-top: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu-single-item-border-bottom: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu-single-item-color: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-single-item-background-active: var(--sdds-grey-50);
+  --sdds-sidebar-side-menu-single-item-border-left-active: var(--sdds-blue-400);
+  --sdds-sidebar-side-menu-single-subitem-color: var(--sdds-grey-800);
+  --sdds-sidebar-side-menu-single-subitem-title-color: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-single-subitem-color-active: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-single-subitem-backgrund: var(--sdds-white);
+  --sdds-sidebar-side-menu-single-subitem-divider: var(--sdds-grey-300);
+  --sdds-sidebar-side-menu-subnav-backgrund: var(--sdds-white);
+}
+
+.sdds-mode-dark {
+  --sdds-sidebar-mobile-menu-btn-hover: var(--sdds-blue-700);
+  --sdds-sidebar-mobile-menu-btn-icon: var(--sdds-white);
+  --sdds-sidebar-item-state-focus: var(--sdds-grey-958);
+  --sdds-sidebar-item-state-border-focus: var(--sdds-blue-400);
+  --sdds-sidebar-item-state-hover: var(--sdds-grey-868);
+  --sdds-sidebar-item-state-active: var(--sdds-grey-800);
+  --sdds-sidebar-side-menu: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-border-right: var(--sdds-grey-868);
+  --sdds-sidebar-side-menu-backgrund-cover: var(--sdds-black);
+  --sdds-sidebar-side-menu-mobile-header-border-bottom: var(--sdds-grey-868);
+  --sdds-sidebar-side-menu-bottom-menu-background: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-bottom-menu-border-top: var(--sdds-grey-868);
+  --sdds-sidebar-side-menu-single-item-border-bottom: var(--sdds-grey-868);
+  --sdds-sidebar-side-menu-single-item-color: var(--sdds-grey-50);
+  --sdds-sidebar-side-menu-single-item-background-active: var(--sdds-grey-50);
+  --sdds-sidebar-side-menu-single-item-border-left-active: var(--sdds-blue-400);
+  --sdds-sidebar-side-menu-single-subitem-color: var(--sdds-grey-100);
+  --sdds-sidebar-side-menu-single-subitem-title-color: var(--sdds-grey-50);
+  --sdds-sidebar-side-menu-single-subitem-color-active: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-single-subitem-backgrund: var(--sdds-grey-958);
+  --sdds-sidebar-side-menu-single-subitem-divider: var(--sdds-grey-700);
+  --sdds-sidebar-side-menu-subnav-backgrund: var(--sdds-grey-800);
+}

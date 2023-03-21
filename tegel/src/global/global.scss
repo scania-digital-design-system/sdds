@@ -31,41 +31,48 @@
 
 //CSS component
 @import 'src/components/banner/banner';
+@import 'src/components/block/block-native';
+@import 'src/components/breadcrumb/breadcrumb';
 @import 'src/components/button/button';
-@import 'src/components/stepper/stepper';
-@import 'src/components/divider/divider';
-@import 'src/components/banner/banner';
 @import 'src/components/card/card';
-@import 'src/components/message/message';
-@import 'src/components/radio-button/radio-button';
 @import 'src/components/checkbox/checkbox';
 @import 'src/components/chips/chips';
+@import 'src/components/data-table/native-table';
+@import 'src/components/divider/divider';
+@import 'src/components/footer/footer';
+@import 'src/components/header/header';
 @import 'src/components/link/link';
+@import 'src/components/message/message';
+@import 'src/components/radio-button/radio-button';
+@import 'src/components/side-menu/side-menu';
+@import 'src/components/stepper/stepper';
 @import 'src/components/toggle/toggle';
 @import 'src/components/toast/toast';
-@import 'src/components/footer/footer';
-@import 'src/components/side-menu/side-menu';
-@import 'src/components/header/header';
-@import 'src/components/breadcrumb/breadcrumb';
-@import 'src/components/data-table/native-table';
-@import 'src/components/block/block';
 
 //Web component theme variables
-@import 'src/components/accordion/accordion-theme-vars';
-@import 'src/components/button/button-theme-vars';
-@import 'src/components/datetime/datetime-theme-vars';
-@import 'src/components/popover-canvas/popover-canvas-theme-vars';
-@import 'src/components/popover-menu/popover-menu-theme-vars';
-@import 'src/components/popover-menu/popover-menu-item';
-@import 'src/components/tabs/inline-tabs-default/inline-tabs-theme-vars';
-@import 'src/components/tabs/inline-tabs-fullbleed/inline-tabs-fullbleed-theme-vars';
-@import 'src/components/tabs/navigation-tabs/navigation-tabs-theme-vars';
-@import 'src/components/tooltip/tooltip-theme-vars';
-@import 'src/components/block/block';
-@import 'src/components/spinner/spinner';
-@import 'src/components/dropdown/dropdown-theme-vars';
+@import 'src/components/accordion/accordion-vars';
+@import 'src/components/banner/banner-vars';
+@import 'src/components/breadcrumb/breadcrumb-vars';
+@import 'src/components/data-table/data-table-vars';
+@import 'src/components/block/block-vars';
+@import 'src/components/button/button-vars';
+@import 'src/components/data-table/data-table-vars';
+@import 'src/components/datetime/datetime-vars';
 @import 'src/components/dropdown/dropdown-select';
+@import 'src/components/dropdown/dropdown-vars';
 @import 'src/components/modal/modal';
+@import 'src/components/divider/divider-vars';
+@import 'src/components/popover-canvas/popover-canvas-vars';
+@import 'src/components/popover-menu/popover-menu-item';
+@import 'src/components/popover-menu/popover-menu-vars';
+@import 'src/components/spinner/spinner';
+@import 'src/components/stepper/stepper-vars.scss';
+@import 'src/components/tabs/folder-tabs/folder-tabs-vars';
+@import 'src/components/tabs/inline-tabs/inline-tabs-vars';
+@import 'src/components/tabs/navigation-tabs/navigation-tabs-vars';
+@import 'src/components/textarea/textarea-vars';
+@import 'src/components/textfield/textfield-vars';
+@import 'src/components/tooltip/tooltip-vars';
 
 :root {
   --johnny-red: green;
@@ -76,4 +83,13 @@ body {
   font-size: 14px;
   margin: 0;
   flex: 1;
+}
+
+html,
+.sdds-mode-light {
+  color: var(--sdds-grey-958);
+}
+
+.sdds-mode-dark {
+  color: var(--sdds-white);
 }

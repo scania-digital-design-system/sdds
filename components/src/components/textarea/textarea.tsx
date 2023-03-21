@@ -48,30 +48,70 @@ export class Textarea {
   /** Control of autofocus */
   @Prop() autofocus: boolean = false;
 
+  /** With setting */
+  @Prop() noMinWidth: boolean = false;
+
   /** Listen to the focus state of the input */
   @State() focusInput;
 
   /** Change event for the textarea */
   @Event({
+    eventName: 'customChange',
     composed: true,
     bubbles: true,
     cancelable: true,
   })
   customChange: EventEmitter;
 
-  // Data input event in value prop
-  handleInput(e): void {
-    this.value = e.target.value;
+  handleChange(event): void {
+    this.customChange.emit(event);
   }
+
+  /** Blur event for the textarea */
+  @Event({
+    eventName: 'customBlur',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customBlur: EventEmitter<FocusEvent>;
+
+  handleBlur(event): void {
+    this.customBlur.emit(event);
+    this.focusInput = false;
+  }
+
+  /** Input event for the textarea */
+  @Event({
+    eventName: 'customInput',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customInput: EventEmitter<InputEvent>;
+
+  // Data input event in value prop
+  handleInput(event): void {
+    this.customInput.emit(event);
+    this.value = event.target.value;
+  }
+
+  /** Focus event for the textarea */
+  @Event({
+    eventName: 'customFocus',
+    composed: true,
+    bubbles: true,
+    cancelable: true,
+  })
+  customFocus: EventEmitter<FocusEvent>;
 
   /* Set the input as focus when clicking the whole textfield with suffix/prefix */
-  handleFocusClick(): void {
-    this.textEl.focus();
-    this.focusInput = true;
-  }
-
-  handleChange(e): void {
-    this.customChange.emit(e);
+  handleFocus(event): void {
+    if (!this.readonly) {
+      this.textEl.focus();
+      this.focusInput = true;
+      this.customFocus.emit(event);
+    }
   }
 
   render() {
@@ -79,6 +119,7 @@ export class Textarea {
       <div
         class={`
         sdds-textarea-container
+        ${this.noMinWidth ? 'no-min-width' : ''}
         ${this.labelPosition === 'inside' ? 'sdds-textarea-label-inside' : ''}
         ${this.focusInput ? 'sdds-textarea-focus' : ''}
         ${this.disabled ? 'sdds-textarea-disabled' : ''}
@@ -86,17 +127,11 @@ export class Textarea {
         ${this.value ? 'sdds-textarea-data' : ''}
         ${this.state == 'error' || this.state == 'success' ? `sdds-textarea-${this.state}` : ''}
         `}
-        onClick={() => this.handleFocusClick()}
+        onClick={(event) => this.handleFocus(event)}
       >
         {this.label.length > 0 && <span class={'sdds-textarea-label'}>{this.label}</span>}
         <div class="sdds-textarea-wrapper">
           <textarea
-            onFocus={() => {
-              this.focusInput = true;
-            }}
-            onBlur={() => {
-              this.focusInput = false;
-            }}
             class={'sdds-textarea-input'}
             ref={(inputEl) => (this.textEl = inputEl as HTMLTextAreaElement)}
             disabled={this.disabled}
@@ -108,8 +143,10 @@ export class Textarea {
             maxlength={this.maxlength}
             cols={this.cols}
             rows={this.rows}
-            onInput={(e) => this.handleInput(e)}
-            onChange={(e) => this.handleChange(e)}
+            onFocus={(event) => this.handleFocus(event)}
+            onBlur={(event) => this.handleBlur(event)}
+            onInput={(event) => this.handleInput(event)}
+            onChange={(event) => this.handleChange(event)}
           ></textarea>
           <span class="sdds-textarea-resizer-icon">
             <svg
@@ -156,13 +193,39 @@ export class Textarea {
 
           <span class="sdds-textarea-icon__readonly-label">This field is non-editable</span>
         </div>
-        {this.helper.length > 0 && <span class={'sdds-textarea-helper'}>{this.helper}</span>}
-        {this.maxlength > 0 && (
-          <div class={'sdds-textarea-textcounter'}>
-            {this.value === null ? 0 : this.value?.length}
-            <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
-          </div>
-        )}
+        <div class="helper-wrapper">
+          {this.helper.length > 0 && (
+            <span class={`sdds-textarea-helper ${this.state === 'error' ? 'error' : ''}`}>
+              {this.state === 'error' && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 2.00015C4.6853 2.00015 1.9982 4.68725 1.9982 8.00195C1.9982 11.3167 4.6853 14.0038 8 14.0038C11.3147 14.0038 14.0018 11.3167 14.0018 8.00195C14.0018 4.68725 11.3147 2.00015 8 2.00015ZM1 8.00195C1 4.13596 4.13401 1.00195 8 1.00195C11.866 1.00195 15 4.13596 15 8.00195C15 11.8679 11.866 15.002 8 15.002C4.13401 15.002 1 11.8679 1 8.00195Z"
+                    fill="#FF2340"
+                  />
+                  <path
+                    d="M7.4014 7.2352V5H8.5894V7.2352L8.4134 9.3824H7.5774L7.4014 7.2352ZM7.375 10.0512H8.6246V11.248H7.375V10.0512Z"
+                    fill="#FF2340"
+                  />
+                </svg>
+              )}
+              {this.helper}
+            </span>
+          )}
+          {this.maxlength > 0 && (
+            <div class={'sdds-textarea-textcounter'}>
+              {this.value === null ? 0 : this.value?.length}
+              <span class="sdds-textfield-textcounter-divider"> / </span> {this.maxlength}
+            </div>
+          )}
+        </div>
       </div>
     );
   }

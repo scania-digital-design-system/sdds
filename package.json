@@ -26,7 +26,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-storybook": "^0.5.7",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0",
+    "lerna": "^6.4.0",
     "lerna-changelog": "^2.2.0",
     "lint-staged": "^12.3.7",
     "postcss": "^8.4.12",
@@ -40,8 +40,8 @@
   },
   "scripts": {
     "install": "lerna bootstrap",
-    "start": "lerna run --parallel start",
-    "build": "lerna run --parallel build",
+    "start": "lerna run --parallel start --ignore @scania/tegel",
+    "build": "lerna run --parallel build --ignore @scania/tegel",
     "storybook": "npm run install && lerna run build --parallel && lerna run build-sb",
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
@@ -69,6 +69,7 @@
     }
   },
   "dependencies": {
+    "@lerna/filter-options": "^6.4.0",
     "commitizen": "^4.2.4",
     "commitlint": "^15.0.0",
     "highlight.js": "^11.6.0"

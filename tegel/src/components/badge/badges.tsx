@@ -11,7 +11,7 @@ export class SddsBadges {
   // TODO: Make upper prop accepts numbers too ?
 
   /** Changes visibility of badge */
-  @Prop() isVisible: boolean = true;
+  @Prop() hidden: boolean = false;
 
   /** @deprecated Use size prop instead. Changes badge from large to small size */
   @Prop() isSmall: boolean = false;
@@ -24,7 +24,6 @@ export class SddsBadges {
   @State() text: string = '';
 
   @Watch('value')
-  @Watch('isVisible')
   @Watch('isSmall')
   @Watch('size')
   watchProps() {
@@ -60,7 +59,7 @@ export class SddsBadges {
       <host
         class={`sdds-badges sdds-badges-${this.size} ${
           this.shape === 'pill' ? 'sdds-badges-pill' : ''
-        } ${this.isVisible ? '' : 'sdds-badges-hidden'}`}
+        } ${this.hidden ? 'sdds-badges-hidden' : ''}`}
       >
         <div class="sdds-badges-text">{this.text}</div>
       </host>

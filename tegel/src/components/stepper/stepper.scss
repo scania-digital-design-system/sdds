@@ -1,4 +1,4 @@
-@import './stepper-theme-vars.scss';
+@import './stepper-vars.scss';
 @import '../../mixins/box-sizing';
 
 .sdds-stepper {
@@ -7,16 +7,22 @@
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
   color: var(--sdds-stepper-color);
-  display: inline-flex;
+  display: flex;
+  flex: 1;
 
   &--sidetext {
+    display: inline-flex;
+
     .sdds-stepper__step {
       flex-direction: row;
       padding: 0 20px 0 16px;
+      min-width: unset;
+      flex: unset;
 
       &_label {
         margin-top: -8px;
         margin-left: 8px;
+        padding: 0;
       }
 
       &-icon {
@@ -24,7 +30,7 @@
           content: ' ';
           position: absolute;
           height: 1px;
-          background-color: var(--sdds-stepper-icon-sidetext-bg-before);
+          background-color: var(--sdds-stepper-icon-sidetext-background-before);
           opacity: 0.16;
           right: auto;
           left: -12px;
@@ -44,6 +50,8 @@
     .sdds-stepper__step {
       flex-direction: row;
       padding: 0 20px 0 16px;
+      min-width: unset;
+      flex: unset;
 
       &:not(:last-child) {
         margin-bottom: 52px;
@@ -52,6 +60,7 @@
       &_label {
         margin-top: -8px;
         margin-left: 8px;
+        padding: 0;
       }
 
       &-icon {
@@ -59,7 +68,7 @@
           content: ' ';
           position: absolute;
           height: 45px;
-          background-color: var(--sdds-stepper-icon-sidetext-bg-before);
+          background-color: var(--sdds-stepper-icon-sidetext-background-before);
           opacity: 0.16;
           top: 39px;
           left: 31px;
@@ -95,12 +104,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
+    flex: 1 1 0;
+
+    &_label {
+      white-space: nowrap;
+      padding: 0 20px;
+    }
 
     &-icon {
       height: 32px;
       width: 32px;
       border-radius: 100px;
-      border: 1px solid var(--sdds-stepper-icon-bg);
+      border: 1px solid var(--sdds-stepper-icon-background);
       margin-bottom: 8px;
       display: flex;
       justify-content: center;
@@ -110,7 +126,7 @@
         content: ' ';
         position: absolute;
         height: 1px;
-        background-color: var(--sdds-stepper-icon-step-bg-before);
+        background-color: var(--sdds-stepper-icon-step-background-before);
         opacity: 0.16;
         left: 0;
         right: calc(50% + 16px + 8px);
@@ -120,7 +136,7 @@
         content: ' ';
         position: absolute;
         height: 1px;
-        background-color: var(--sdds-stepper-icon-step-bg-after);
+        background-color: var(--sdds-stepper-icon-step-background-after);
         opacity: 0.16;
         left: calc(50% + 16px + 8px);
         right: 0;
@@ -180,11 +196,17 @@
 
     &--inactive {
       .sdds-stepper__step-icon {
-        border-color: rgb(0 21 51 / 16%);
+        border-color: var(--sdds-stepper-label-border-color-upcoming);
+        opacity: var(--sdds-stepper-label-text-opacity-upcoming);
+
+        &::after, &::before {
+          opacity: unset;
+          opacity: 0.38;
+        }
       }
 
       .sdds-stepper__step-icon-value {
-        opacity: 0.38;
+        opacity: 1;
       }
 
       .sdds-stepper__step_label {
@@ -202,7 +224,7 @@
 
     &--success {
       .sdds-stepper__step-icon {
-        background-color: var(--sdds-stepper-icon-step-bg-success);
+        background-color: var(--sdds-stepper-icon-step-background-success);
         border-color: var(--sdds-stepper-icon-step-border-color-success);
       }
 
@@ -249,11 +271,11 @@
       border: 1px solid var(--sdds-stepper-border-color--inverted);
 
       &::before {
-        background-color: var(--sdds-stepper-bg--inverted-before);
+        background-color: var(--sdds-stepper-background--inverted-before);
       }
 
       &::after {
-        background-color: var(--sdds-stepper-bg--inverted-after);
+        background-color: var(--sdds-stepper-background--inverted-after);
       }
     }
 

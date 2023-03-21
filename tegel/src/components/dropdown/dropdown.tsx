@@ -20,6 +20,9 @@ import {
 export class Dropdown {
   textInput?: HTMLInputElement;
 
+  /** Set the variant of the dropdown. */
+  @Prop() modeVariant: 'primary' | 'secondary' = null;
+
   /** Placeholder text for dropdown with no selectedLabel item */
   @Prop() placeholder: string;
 
@@ -30,7 +33,7 @@ export class Dropdown {
   @Prop() selectedOption: string;
 
   /** Set to true for disabled states */
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
   /** `Controls type of dropdown. */
   @Prop() type: 'default' | 'multiselect' | 'filter' = 'default';
@@ -48,12 +51,12 @@ export class Dropdown {
   @Prop() label: string;
 
   /** Support `error` state */
-  @Prop() state: string = 'default';
+  @Prop() state: boolean = false;
 
   /** Add helper text in the bottom of dropdown */
   @Prop() helper: string = '';
 
-  /** Direction that the dropdown will open. By default set to auto. */
+  /** Direction that the dropdown will open. Default is auto. */
   @Prop() openDirection: 'down' | 'up' | 'auto' = 'auto';
 
   @State() optionValues: Array<any> = [];
@@ -84,12 +87,15 @@ export class Dropdown {
 
   @State() listItemArray: any;
 
+  @State() listItemObject: any;
+
   @Element() host: HTMLElement;
 
   componentWillLoad() {
     // If default option is set, update the default selectedLabel value
     // this.host.children is a HTMLCollection type, cannot use forEach
-    this.listItemArray = Array.from(this.host.children);
+    this.listItemObject = this.host.children;
+    this.listItemArray = Array.from(this.listItemObject);
     this.listItemArray.map((listItem) => {
       this.optionValues.push(listItem.value);
       this.optionLabels.push(listItem.innerText.trim());
@@ -170,7 +176,7 @@ export class Dropdown {
             } else {
               this.listItemIndex = 0;
             }
-            this.listItemArray[this.listItemIndex].focus();
+            (this.listItemObject[this.listItemIndex] as HTMLElement).focus();
           }
           break;
         case 'ArrowUp':
@@ -181,7 +187,7 @@ export class Dropdown {
             } else {
               this.listItemIndex = this.listItemArray.length - 1;
             }
-            this.listItemArray[this.listItemIndex].focus();
+            (this.listItemObject[this.listItemIndex] as HTMLElement).focus();
           }
           break;
 
@@ -227,7 +233,7 @@ export class Dropdown {
     }
   }
 
-  @Listen('selectOption')
+  @Listen('internalSddsSelect')
   selectOptionHandler(event: CustomEvent<any>) {
     this.open = this.type === 'multiselect';
     if (this.type !== 'multiselect') {
@@ -287,16 +293,24 @@ export class Dropdown {
   render() {
     return (
       <Host
-        class={{
-          'sdds-dropdown--open': this.open && !this.disabled,
-          'sdds-dropdown-multiselect': this.type === 'multiselect',
-          'sdds-dropdown-inline': this.inline,
-          'sdds-dropdown--selected': this.selectedLabel.length > 0 || this.selectedLabel === '',
-          'sdds-dropdown--error': this.state === 'error',
-          'sdds-dropdown--open-upwards': this.openUpwards,
-          'sdds-dropdown--label-inside-position':
-            this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0,
-        }}
+        class={`
+        ${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}
+        ${this.open && !this.disabled ? 'sdds-dropdown--open' : ''}
+        ${this.type === 'multiselect' ? 'sdds-dropdown-multiselect' : ''}
+        ${this.inline ? 'sdds-dropdown-inline' : ''}
+        ${
+          this.selectedLabel.length > 0 || this.selectedLabel === ''
+            ? 'sdds-dropdown--selected'
+            : ''
+        }
+        ${this.state ? 'sdds-dropdown--error' : ''}
+        ${this.openUpwards ? 'sdds-dropdown--open-upwards' : ''}
+        ${
+          this.labelPosition === 'inside' && this.selectedLabelsArray.length > 0
+            ? 'sdds-dropdown--label-inside-position'
+            : ''
+        }
+       `}
         selected-value={this.selectedValue}
         selected-text={this.selectedLabel}
         multi-selected-values={JSON.stringify(this.selectedValuesArray)}

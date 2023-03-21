@@ -14,13 +14,6 @@
 | `value`    | `value`    | Value is a unique string that will be used for application logic | `string`  | `undefined` |
 
 
-## Events
-
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `selectOption` |             | `CustomEvent<any>` |
-
-
 ## Dependencies
 
 ### Used by

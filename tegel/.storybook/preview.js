@@ -4,7 +4,6 @@ import { defineCustomElements } from '../loader';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import { addons } from '@storybook/addons';
-import { globals } from '@storybook/api';
 import { UPDATE_GLOBALS } from '@storybook/core-events';
 import './preview.css';
 
@@ -102,12 +101,12 @@ export const parameters = {
     dark: ScaniaThemeDark,
     // Override the default light theme
     light: ScaniaThemeLight,
-    darkClass: 'sdds-theme-dark',
-    lightClass: 'sdds-theme-light',
+    darkClass: 'sdds-mode-dark',
+    lightClass: 'sdds-mode-light',
     stylePreview: true,
   },
   backgrounds: {
-    default: 'grey-50',
+    default: 'white',
     values: [
       {
         name: 'grey-50',
@@ -132,6 +131,7 @@ export const parameters = {
       method: 'alphabetical',
       order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
     },
+    enableShortcuts: false,
   },
   layout: 'padded',
 };

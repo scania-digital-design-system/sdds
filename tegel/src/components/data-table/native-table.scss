@@ -16,8 +16,8 @@
     height: 64px;
     display: table-caption;
     position: relative;
-    background-color: var(--sdds-grey-400);
-    color: var(--sdds-grey-958);
+    background-color: var(--sdds-data-table-toolbar-background);
+    color: var(--sdds-data-table-color);
     padding: var(--sdds-spacing-element-16);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -55,9 +55,9 @@
       letter-spacing: var(--sdds-headline-07-ls);
       display: table-cell;
       text-align: left;
-      color: var(--sdds-grey-958);
-      background-color: var(--sdds-grey-300);
-      border-bottom: 1px solid var(--sdds-grey-400);
+      color: var(--sdds-data-table-color);
+      background-color: var(--sdds-data-table-header-background);
+      border-bottom: 1px solid var(--sdds-data-table-divider);
       padding: var(--sdds-spacing-element-16);
       height: 48px;
       min-width: 192px;
@@ -83,7 +83,7 @@
       letter-spacing: var(--sdds-detail-02-ls);
       display: table-cell;
       box-sizing: border-box;
-      color: var(--sdds-grey-958);
+      color: var(--sdds-data-table-color);
       padding: var(--sdds-spacing-element-16);
       min-width: 192px;
       vertical-align: top;
@@ -92,17 +92,16 @@
     }
   }
 
-  & > thead,
   & > tbody {
     & > tr {
       display: table-row;
-      border-bottom: 1px solid var(--sdds-grey-400);
-      background-color: var(--sdds-white);
+      border-bottom: 1px solid var(--sdds-data-table-divider);
+      background-color: var(--sdds-data-table-body-row-background);
       transition: background-color 200ms ease;
     }
 
     & > tr:hover {
-      background-color: var(--sdds-grey-100);
+      background-color: var(--sdds-data-table-body-row-background-hover);
     }
   }
 
@@ -125,7 +124,7 @@
   &.sdds-table--divider {
     & > thead > tr > th,
     & > tbody > tr > td {
-      border-right: 1px solid var(--sdds-grey-400);
+      border-right: 1px solid var(--sdds-data-table-divider);
     }
 
     & > thead > tr > th:last-child,
@@ -138,16 +137,6 @@
     & > thead > tr > th,
     & > tbody > tr > td {
       min-width: unset;
-    }
-  }
-
-  &.sdds-table--on-white-bg {
-    & > tbody > tr {
-      background-color: var(--sdds-grey-50);
-
-      &:hover {
-        background-color: var(--sdds-grey-200);
-      }
     }
   }
 
@@ -166,7 +155,7 @@
   min-width: 40px;
   border: none;
   background-color: transparent;
-  color: var(--sdds-grey-958);
+  color: var(--sdds-data-table-color);
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 250ms ease;
@@ -177,7 +166,7 @@
   }
 
   &:hover {
-    background-color: var(--sdds-grey-300);
+    background-color: var(--sdds-data-table-footer-btn-hover);
   }
 }
 

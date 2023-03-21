@@ -1,11 +1,10 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
-import { TablePropsChangedEvent } from '../table/table';
+import { InternalSddsTablePropChange } from '../table/table';
 
-const relevantTableProps: TablePropsChangedEvent['changed'] = [
+const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'verticalDividers',
   'compactDesign',
   'noMinWidth',
-  'whiteBackground',
 ];
 @Component({
   tag: 'sdds-body-cell',
@@ -40,8 +39,8 @@ export class TableBodyCell {
 
   tableEl: HTMLSddsTableElement;
 
-  @Listen('tablePropsChangedEvent', { target: 'body' })
-  tablePropsChangedEventListener(event: CustomEvent<TablePropsChangedEvent>) {
+  @Listen('internalSddsPropChange', { target: 'body' })
+  internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
     if (this.tableId === event.detail.tableId) {
       event.detail.changed
         .filter((changedProp) => relevantTableProps.includes(changedProp))
@@ -55,8 +54,8 @@ export class TableBodyCell {
   }
 
   // Listen to headKey from data-table-header-element
-  @Listen('headCellHoverEvent', { target: 'body' })
-  headCellHoverEventListener(event: CustomEvent<any>) {
+  @Listen('internalSddsHover', { target: 'body' })
+  internalSddsHoverListener(event: CustomEvent<any>) {
     const [receivedID, receivedKeyValue] = event.detail;
 
     if (this.tableId === receivedID) {
@@ -64,9 +63,9 @@ export class TableBodyCell {
     }
   }
 
-  // Listen to textAlignEvent from data-table-header-element
-  @Listen('textAlignEvent', { target: 'body' })
-  textAlignEventListener(event: CustomEvent<any>) {
+  // Listen to internalSddsTextAlign from data-table-header-element
+  @Listen('internalSddsTextAlign', { target: 'body' })
+  internalSddsTextAlignListener(event: CustomEvent<any>) {
     const [receivedID, receivedKey, receivedTextAlign] = event.detail;
 
     if (this.tableId === receivedID) {

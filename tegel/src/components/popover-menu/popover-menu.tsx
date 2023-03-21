@@ -1,6 +1,6 @@
 import { Component, Element, Host, Listen, h, Prop, State } from '@stencil/core';
 import { createPopper } from '@popperjs/core';
-import type { Placement } from '@popperjs/core';
+import type { Placement, Instance } from '@popperjs/core';
 
 @Component({
   tag: 'sdds-popover-menu',
@@ -10,8 +10,11 @@ import type { Placement } from '@popperjs/core';
 export class PopoverMenu {
   @Element() popoverMenuElement!: HTMLElement;
 
-  /** The CSS-selector that will trigger this Popover Menu */
+  /** The CSS-selector for an element that will trigger the popover */
   @Prop() selector: string = '';
+
+  /** Element that will trigger the popover (takes priority over selector) */
+  @Prop() referenceEl: HTMLElement;
 
   /** Decides if the Popover Menu should be visible from the start */
   @Prop() show: boolean = false;
@@ -25,6 +28,10 @@ export class PopoverMenu {
   /** Sets the offset distance */
   @Prop() offsetDistance: number = 8;
 
+  @State() renderedShowValue: boolean = false;
+
+  @State() popperInstance: Instance;
+
   @State() target: any;
 
   @Listen('mousedown', { target: 'window' })
@@ -35,18 +42,13 @@ export class PopoverMenu {
   }
 
   componentDidLoad() {
-    this.target = document.querySelector(this.selector);
-    const _this = this;
-    createPopper(this.target, this.popoverMenuElement, {
+    this.target = this.referenceEl ?? document.querySelector(this.selector);
+    this.renderedShowValue = this.show;
+
+    this.popperInstance = createPopper(this.target, this.popoverMenuElement, {
       strategy: 'fixed',
-      placement: _this.placement,
+      placement: this.placement,
       modifiers: [
-        {
-          name: 'positionCalc',
-          enabled: true,
-          phase: 'main',
-          fn({}) {},
-        },
         {
           name: 'offset',
           options: {
@@ -64,7 +66,7 @@ export class PopoverMenu {
       this.show = false;
     };
 
-    this.target.addEventListener('mousedown', event => {
+    this.target.addEventListener('mousedown', (event) => {
       event.stopPropagation();
 
       if (this.show) {
@@ -74,13 +76,26 @@ export class PopoverMenu {
       }
     });
 
-    this.popoverMenuElement.addEventListener('mousemove', event => {
+    this.popoverMenuElement.addEventListener('mousemove', (event) => {
       event.stopPropagation();
     });
 
-    this.popoverMenuElement.addEventListener('mousedown', event => {
+    this.popoverMenuElement.addEventListener('mousedown', (event) => {
       event.stopPropagation();
     });
+  }
+
+  componentDidRender() {
+    if (this.show && !this.renderedShowValue) {
+      // Here we update the popper position since its position is wrong
+      // before it is rendered.
+      this.popperInstance.update();
+    }
+    this.renderedShowValue = this.show;
+  }
+
+  disconnectedCallback() {
+    this.popperInstance?.destroy();
   }
 
   render() {

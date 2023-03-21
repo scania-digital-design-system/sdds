@@ -5,17 +5,17 @@ export default {
   },
   argTypes: {
     modeVariant: {
-      name: "Mode variant",
+      name: 'Mode variant',
       control: {
-        type: 'radio'
-      }, 
-      options: ['Primary', 'Secondary'],
-      defaultValue: 'Primary'
-    }
-  }
+        type: 'radio',
+      },
+      options: ['primary', 'secondary'],
+      defaultValue: 'primary',
+    },
+  },
 };
 
-const Template = ({modeVariant}) => `
+const Template = ({ modeVariant }) => `
   <sdds-inline-tabs-fullbleed id="inline-tabs-fullbleed-example" mode-variant="${modeVariant.toLowerCase()}">
     <a href="#">Tab name</a>
     <a href="#" class="sdds-inline-tabs-fullbleed--tab__active">Tab name</a>

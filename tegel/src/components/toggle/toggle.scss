@@ -1,4 +1,4 @@
-@import './toggle-theme-vars.scss';
+@import './toggle-vars.scss';
 @import '../../mixins/box-sizing';
 
 @mixin activeState {
@@ -89,7 +89,7 @@
   .sdds-toggle-label {
     font: var(--sdds-detail-01);
     letter-spacing: var(--sdds-detail-01-ls);
-    color: var(--sdds-toggle-label-colour);
+    color: var(--sdds-toggle-label-color);
     padding-left: var(--sdds-spacing-element-8);
   }
 
@@ -182,34 +182,25 @@
     .sdds-toggle-input {
       @include activeState;
     }
-
-    // .sdds-toggle-switch{
-    //   &:before{
-    //     background-color: var(--sdds-toggle-off-slider-pressed);
-    //   }
-    // }
-    // .sdds-toggle-input:checked {
-    //   + .sdds-toggle-switch{
-    //     &:before{
-    //       background-color: var(--sdds-toggle-on-slider-pressed);
-    //     }
-    //   }
-    // }
   }
 
   &.disabled {
     cursor: not-allowed;
 
+    &::before {
+      background-color: var(--sdds-toggle-slider-disabled);
+      border: 0;
+    }
+
     .sdds-toggle-input {
       pointer-events: none;
 
-      &,
       &:checked,
       &:checked:focus,
       &:focus {
         + .sdds-toggle-switch {
           &::before {
-            background-color: var(--sdds-toggle-slider-disabled);
+            background-color: var(--sdds-toggle-on-slider-disabled);
             border: 0;
           }
         }
@@ -221,7 +212,7 @@
     }
 
     .sdds-toggle-label {
-      color: var(--sdds-toggle-label-colour-disabled);
+      color: var(--sdds-toggle-label-color-disabled);
       pointer-events: none;
     }
 

@@ -1,11 +1,11 @@
-@import 'banner-theme-vars';
+@import 'banner-vars';
 @import '../../mixins/box-sizing';
 
 :host,
 :root {
-  --sdds-banner-bg-default: var(--sdds-grey-50);
-  --sdds-banner-bg-info: var(--sdds-grey-300);
-  --sdds-banner-bg-error: var(--sdds-red-100);
+  --sdds-banner-background-default: var(--sdds-grey-50);
+  --sdds-banner-background-info: var(--sdds-grey-300);
+  --sdds-banner-background-error: var(--sdds-red-100);
   --sdds-banner-prefix-default-color: var(--sdds-grey-700);
   --sdds-banner-prefix-info-color: var(--sdds-blue-400);
   --sdds-banner-prefix-error-color: var(--sdds-red-500);
@@ -14,16 +14,16 @@
 .sdds-banner {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-banner-bg-default);
+  background-color: var(--sdds-banner-background-default);
   padding: var(--sdds-spacing-element-16);
   display: flex;
 
   &.sdds-banner-info {
-    background-color: var(--sdds-banner-bg-info);
+    background-color: var(--sdds-banner-background-info);
   }
 
   &.sdds-banner-error {
-    background-color: var(--sdds-banner-bg-error);
+    background-color: var(--sdds-banner-background-error);
   }
 }
 

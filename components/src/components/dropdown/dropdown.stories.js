@@ -331,13 +331,13 @@ Multiselect.argTypes = {
     },
   },
 };
-const NativeTemplate = ({ size, helper = 'Helper text', label, state, width }) => `
+const NativeTemplate = ({ size, helper = 'Helper text', label, state, width, disabled }) => `
     <div style="width:${width}px">
         <div class="sdds-dropdown ${size !== 'lg' ? `sdds-dropdown-${size}` : ''} ${
   state === 'error' ? 'sdds-dropdown--error' : ''
 }" >
           <span class="sdds-dropdown-label-outside">${label}</span>
-          <select name="nativeDropdown" id="mySelect">
+          <select ${disabled ? 'disabled' : ''} name="nativeDropdown" id="mySelect">
             <option value="truck">Truck</option>
             <option value="bus">Bus</option>
             <option value="car">Car</option>

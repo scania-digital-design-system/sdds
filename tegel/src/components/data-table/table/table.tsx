@@ -7,13 +7,14 @@ type Props = {
   verticalDividers: boolean;
   compactDesign: boolean;
   noMinWidth: boolean;
-  whiteBackground: boolean;
   enableMultiselect: boolean;
   enableExpandableRows: boolean;
   enableResponsive: boolean;
+  modeVariant: 'primary' | 'secondary' | null;
+  textAlign: string;
 };
 
-export type TablePropsChangedEvent = {
+export type InternalSddsTablePropChange = {
   tableId: string;
   changed: Array<keyof Props>;
 } & Partial<Props>;
@@ -34,9 +35,6 @@ export class Table {
   @Prop({ reflect: true }) noMinWidth: boolean;
   // TODO: Due to unknown reason, one of this items has to be left as is. If all are false, it seems like emitting is not properly done and it affects other events in data table. Try setting it and observe text-align set on header cell
 
-  /** Changes a colors of data data-table when used on white background */
-  @Prop({ reflect: true }) whiteBackground: boolean = false;
-
   /** Enables multiselect feature of data-table */
   @Prop({ reflect: true }) enableMultiselect: boolean = false;
 
@@ -46,6 +44,9 @@ export class Table {
   /** Enables table to take 100% available width with equal spacing of columns */
   @Prop({ reflect: true }) enableResponsive: boolean = false;
 
+  /** Variant of the component, based on current mode. */
+  @Prop({ reflect: true }) modeVariant: 'primary' | 'secondary' = null;
+
   /** ID used for internal table functionality and events, must be unique.
    *
    * **NOTE**: If you're listening for table events you need to set this ID yourself to identify the table, as the default ID is random and will be different every time.
@@ -54,17 +55,17 @@ export class Table {
 
   @Element() host: HTMLElement;
 
-  /** Broadcasts changes to the tables props */
+  /** @internal Broadcasts changes to the tables props */
   @Event({
-    eventName: 'tablePropsChangedEvent',
+    eventName: 'internalSddsTablePropChange',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  tablePropsChangedEvent: EventEmitter<TablePropsChangedEvent>;
+  internalSddsTablePropChange: EventEmitter<InternalSddsTablePropChange>;
 
-  emitTablePropsChangedEvent(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
-    this.tablePropsChangedEvent.emit({
+  emitInternalSddsPropChange(changedValueName: keyof Props, changedValue: Props[keyof Props]) {
+    this.internalSddsTablePropChange.emit({
       tableId: this.tableId,
       changed: [changedValueName],
       [changedValueName]: changedValue,
@@ -73,32 +74,32 @@ export class Table {
 
   @Watch('enableMultiselect')
   enableMultiselectChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableMultiselect', newValue);
+    this.emitInternalSddsPropChange('enableMultiselect', newValue);
   }
 
   @Watch('enableExpandableRows')
   enableExpandableRowsChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('enableExpandableRows', newValue);
+    this.emitInternalSddsPropChange('enableExpandableRows', newValue);
   }
 
   @Watch('compactDesign')
   compactDesignChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('compactDesign', newValue);
+    this.emitInternalSddsPropChange('compactDesign', newValue);
   }
 
   @Watch('verticalDividers')
   verticalDividersChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('verticalDividers', newValue);
+    this.emitInternalSddsPropChange('verticalDividers', newValue);
   }
 
   @Watch('noMinWidth')
   noMinWidthChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('noMinWidth', newValue);
+    this.emitInternalSddsPropChange('noMinWidth', newValue);
   }
 
-  @Watch('whiteBackground')
-  whiteBackgroundChanged(newValue: boolean) {
-    this.emitTablePropsChangedEvent('whiteBackground', newValue);
+  @Watch('modeVariant')
+  modeVariantChanged(newValue: 'primary' | 'secondary' | null) {
+    this.emitInternalSddsPropChange('modeVariant', newValue);
   }
 
   render() {
@@ -110,7 +111,6 @@ export class Table {
             'sdds-table--compact': this.compactDesign,
             'sdds-table--divider': this.verticalDividers,
             'sdds-table--no-min-width': this.noMinWidth,
-            'sdds-table--on-white-bg': this.whiteBackground,
             'sdds-table--responsive': this.enableResponsive,
           }}
         >

@@ -15,15 +15,6 @@
 | `enableDummyData`          | `enable-dummy-data`          | Prop for showcase of rendering JSON in body-data, just for presentation purposes                                                                                        | `boolean` | `false`     |
 
 
-## Events
-
-| Event                       | Description                                                                                                                                                | Type               |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `sortingSwitcherEvent`      | Event that sends unique table identifier and enable/disable status for sorting functionality                                                               | `CustomEvent<any>` |
-| `updateBodyCheckboxesEvent` | Sends unique table identifier and mainCheckbox status to all rows when multiselect feature is enabled                                                      | `CustomEvent<any>` |
-| `updateMainCheckboxEvent`   | Sends unique table identifier and status if mainCheckbox should change its state based on selection status of single rows when multiselect feature is used | `CustomEvent<any>` |
-
-
 ## Dependencies
 
 ### Depends on

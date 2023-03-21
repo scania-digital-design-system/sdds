@@ -1,17 +1,17 @@
-@import './dropdown-theme-vars.scss';
+@import './dropdown-vars.scss';
 
 @mixin dropdown-wrapper {
   font: var(--sdds-detail-ex-02);
   letter-spacing: var(--sdds-detail-ex-02-ls);
-  color: var(--sdds-grey-958);
+  color: var(--sdds-dropdown-color);
   display: flex;
   align-items: center;
-  background-color: var(--sdds-dropdown-bg);
+  background-color: var(--sdds-dropdown-background);
   cursor: pointer;
   transition: box-shadow 0.1s ease-in, border-bottom-color 150ms ease;
   border-radius: 4px 4px 0 0;
   border: none;
-  border-bottom: 1px solid var(--sdds-grey-400);
+  border-bottom: 1px solid var(--sdds-dropdown-border-not-focused);
   box-shadow: none;
   width: 100%;
   text-align: left;
@@ -24,10 +24,9 @@
 
   &:focus {
     &::before {
-      // this is the blue line that appears on input focus
       content: ' ';
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -37,7 +36,7 @@
 
   &:active,
   &.active &.selected {
-    border-bottom-color: var(--sdds-grey-800);
+    border-bottom-color: var(--sdds-dropdown-border-not-focused);
   }
 
   &.is-filter {
@@ -79,13 +78,13 @@
 .sdds-dropdown-label-inside {
   font: var(--sdds-detail-ex-07);
   letter-spacing: var(--sdds-detail-ex-07-ls);
-  color: var(--sdds-grey-700);
+  color: var(--sdds-dropdown-label-inside);
 }
 
 .sdds-dropdown-label-outside {
   font: var(--sdds-detail-ex-05);
   letter-spacing: var(--sdds-detail-ex-05-ls);
   display: block;
-  color: var(--sdds-grey-958);
+  color: var(--sdds-dropdown-label-outside);
   margin-bottom: var(--sdds-spacing-element-8);
 }

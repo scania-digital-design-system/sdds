@@ -1,6 +1,7 @@
 @import '../../mixins/z-index';
-@import 'modal-theme-vars';
+@import 'modal-vars';
 @import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
 //TODO: Find a way to create a mixin in spacings that can be used for screen size in rem
 //Media rules doesn't calculate correct with using rem
@@ -117,7 +118,7 @@ $modals: (
   padding-bottom: var(--sdds-spacing-element-8);
   position: sticky;
   top: 0;
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   z-index: 1;
 
   &::before {
@@ -126,11 +127,12 @@ $modals: (
     height: 16px;
     top: -16px;
     width: 100%;
-    background-color: var(--sdds-modal-bg);
+    background-color: var(--sdds-modal-background);
   }
 }
 
 @mixin modal-headline {
+  color: var(--sdds-modal-text);
   font: var(--sdds-headline-05);
   letter-spacing: var(--sdds-headline-05-ls);
   margin: 0;
@@ -138,11 +140,12 @@ $modals: (
 }
 
 @mixin modal-body {
+  color: var(--sdds-modal-text);
   font: var(--sdds-body-01);
   letter-spacing: var(--sdds-body-01-ls);
   padding-bottom: 40px;
-  margin: 0 -16px 0 0;
   overflow-y: visible;
+  padding-right: 16px;
   @include modal-scroll-inner;
 
   @media (min-width: $screen-l) {
@@ -155,13 +158,14 @@ $modals: (
 .sdds-modal {
   @include sdds-box-sizing;
 
-  background-color: var(--sdds-modal-bg);
+  background-color: var(--sdds-modal-background);
   margin: auto;
   position: relative;
   border-radius: 4px;
   padding: 16px;
   max-height: 85vh;
   overflow-y: auto;
+
   @include modal-scroll-outer;
 
   &__actions-sticky {
@@ -170,7 +174,7 @@ $modals: (
     .sdds-modal-body {
       font: var(--sdds-body-01);
       letter-spacing: var(--sdds-body-01-ls);
-      padding-bottom: 40px;
+      padding-bottom: 96px;
       margin: 0 -16px 0 0;
       max-height: calc(85vh - 36px);
       overflow-y: auto;
@@ -178,10 +182,10 @@ $modals: (
 
     .sdds-modal-actions {
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       right: 0;
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       padding: var(--sdds-spacing-element-16);
       display: flex;
       gap: 16px;
@@ -190,7 +194,7 @@ $modals: (
 
   &__actions-static {
     .sdds-modal-actions {
-      background-color: var(--sdds-modal-bg);
+      background-color: var(--sdds-modal-background);
       display: flex;
       gap: 16px;
     }
@@ -228,6 +232,8 @@ $modals: (
 
 .sdds-modal-headline {
   @include modal-headline;
+
+  color: var(--sdds-modal-text);
 }
 
 .sdds-modal-body {
@@ -235,14 +241,40 @@ $modals: (
 }
 
 .sdds-modal-backdrop {
+  @include sdds-box-sizing;
   @include modal-host;
+}
+
+button.sdds-modal-close {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  appearance: unset;
 }
 
 .sdds-modal-close {
   display: inline-block;
-  width: 16px;
   height: auto;
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.40338 2.34308C3.11048 2.05019 2.63561 2.05019 2.34272 2.34308C2.04982 2.63598 2.04982 3.11085 2.34272 3.40374L6.93897 8L2.34283 12.5961C2.04994 12.889 2.04994 13.3639 2.34283 13.6568C2.63572 13.9497 3.1106 13.9497 3.40349 13.6568L7.99963 9.06066L12.5958 13.6568C12.8887 13.9497 13.3635 13.9497 13.6564 13.6568C13.9493 13.3639 13.9493 12.889 13.6564 12.5961L9.06029 8L13.6565 3.40376C13.9494 3.11086 13.9494 2.63599 13.6565 2.3431C13.3636 2.0502 12.8888 2.0502 12.5959 2.3431L7.99963 6.93934L3.40338 2.34308Z' fill='%23171719'/%3E%3C/svg%3E%0A");
+  color: var(--sdds-modal-icon);
+  cursor: pointer;
+
+  &:focus {
+    @include sdds-focus-state;
+  }
+
+  @media (min-width: $screen-s) {
+    margin-left: var(--sdds-spacing-element-16);
+  }
+
+  @media (min-width: $screen-l) {
+    margin-left: var(--sdds-spacing-element-48);
+  }
+}
+
+//web component with nested svg
+.sdds-modal-close-btn {
+  display: inline-block;
+  height: auto;
   background-repeat: no-repeat;
   cursor: pointer;
 
@@ -252,6 +284,10 @@ $modals: (
 
   @media (min-width: $screen-l) {
     margin-left: var(--sdds-spacing-element-48);
+  }
+
+  svg {
+    fill: var(--sdds-modal-icon);
   }
 }
 
@@ -267,10 +303,11 @@ $modals: (
   .sdds-modal-close {
     border: none;
     background-color: transparent;
+  }
 
-    /* &:focus {
-      //@include sdds-focus-state; FIXME: THIS INCLUDE IS NOT WORKING
-    } */
+  .sdds-modal-close-btn {
+    border: none;
+    background-color: transparent;
   }
 }
 

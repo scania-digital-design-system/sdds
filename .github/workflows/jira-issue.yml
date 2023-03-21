@@ -1,0 +1,19 @@
+name: Sync Issue to Jira issue
+
+on:
+  issues:
+    types: [opened, edited, deleted, closed, reopened]
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    name: Adding issue in Jira
+    steps:
+      - name: Jira Login
+        uses: atlassian/gajira-login@v3
+        env:
+          JIRA_BASE_URL: https://tegel.atlassian.net
+          JIRA_USER_EMAIL: johan.nilo@scania.com
+      - name: Jira Create issue
+        uses: atlassian/gajira-create@v3
+

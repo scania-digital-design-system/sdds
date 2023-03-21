@@ -1,11 +1,15 @@
-@import './chips-theme-vars.scss';
+@import './chips-vars.scss';
 @import '../../mixins/box-sizing';
+@import '../../mixins/focus-state';
 
-.sdds-chip {
+.sdds-chip,
+button.sdds-chip {
+  all: unset;
+
   @include sdds-box-sizing;
 
   color: var(--sdds-chips-color);
-  background-color: var(--sdds-chips-bg);
+  background-color: var(--sdds-chips-background);
   display: inline-flex;
   padding: 8px 16px;
   border-radius: 100px;
@@ -20,7 +24,11 @@
   }
 
   &:hover {
-    background-color: var(--sdds-chips-bg-hover);
+    background-color: var(--sdds-chips-background-hover);
+  }
+
+  &:focus {
+    @include sdds-focus-state;
   }
 
   &-icon {
@@ -34,9 +42,9 @@
     }
   }
 
-  &__active {
+  &-active {
     color: var(--sdds-chips-color-active);
-    background-color: var(--sdds-chips-bg-active);
+    background-color: var(--sdds-chips-background-active);
 
     .sdds-chip-icon {
       path {
@@ -45,29 +53,39 @@
     }
 
     &:hover {
-      background-color: var(--sdds-chips-bg-active-hover);
+      background-color: var(--sdds-chips-background-active-hover);
     }
   }
 
   &-sm,
-  &__small {
+  &-small {
     padding: 4px 16px;
   }
 
-  &__icon-left {
+  &-icon-left {
     padding-left: 32px;
 
     .sdds-chip-icon {
       left: 8px;
+
+      sdds-icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
-  &__icon-right {
+  &-icon-right {
     padding-right: 32px;
     flex-flow: row-reverse;
 
     .sdds-chip-icon {
       right: 8px;
+
+      sdds-icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

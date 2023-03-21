@@ -1,4 +1,16 @@
-import { Component, h, Listen, Host, Prop, State, Element, Watch, Method } from '@stencil/core';
+import {
+  Component,
+  h,
+  Listen,
+  Host,
+  Prop,
+  State,
+  Element,
+  Watch,
+  Method,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 
 @Component({
   tag: 'sdds-modal',
@@ -25,6 +37,11 @@ export class Modal {
     this.show = true;
   }
 
+  @Method()
+  async closeModal() {
+    this.show = false;
+  }
+
   componentDidLoad() {
     const targets = document.querySelectorAll(this.selector);
     this.dismissModal();
@@ -48,6 +65,7 @@ export class Modal {
     nodes.forEach((el) => {
       el.addEventListener('click', () => {
         this.show = false;
+        this.sddsClose.emit();
       });
     });
   }
@@ -62,6 +80,15 @@ export class Modal {
     }
   }
 
+  /** Event the is emitted whenever the modal is closed, either via the x button or by clicking the backdrop. */
+  @Event({
+    eventName: 'sddsClose',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  sddsClose: EventEmitter;
+
   // Click event on valid targets to dismiss the modal
   @Listen('click')
   handleClick(e) {
@@ -72,6 +99,7 @@ export class Modal {
       (target.classList[0] === 'sdds-modal-backdrop' && this.prevent === false)
     ) {
       this.show = false;
+      this.sddsClose.emit();
     }
   }
 
