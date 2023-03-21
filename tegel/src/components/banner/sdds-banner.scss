@@ -51,15 +51,25 @@
       letter-spacing: var(--sdds-headline-06-ls);
     }
 
-    .banner-subheader {
+    slot[name='banner-subheader'] {
+      display: block;
       margin-top: 4px;
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
     }
 
-    sdds-link {
-      width: fit-content;
-      margin-top: 16px;
+    .banner-link {
+      slot[name='banner-link'] {
+        display: block;
+        width: fit-content;
+        margin-top: 16px;
+      }
+
+      &.no-subheader {
+        slot[name='banner-link'] {
+          margin-top: 4px;
+        }
+      }
     }
   }
 
