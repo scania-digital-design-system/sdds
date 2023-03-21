@@ -9,7 +9,7 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class SddsFooterLink {
   /** URL for the link */
-  @Prop() linkHref: string;
+  @Prop() href: string;
 
   /** Where to open the linked URL */
   @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
@@ -28,7 +28,7 @@ export class SddsFooterLink {
   render() {
     return (
       <div role="listitem" class={`${this.parentIsTopPart ? 'top-part-child' : ''}`}>
-        <a target={this.target} rel={this.rel} href={this.linkHref}>
+        <a target={this.target} rel={this.rel} href={this.href}>
           <slot></slot>
         </a>
       </div>

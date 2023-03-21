@@ -38,7 +38,6 @@ export class Textfield {
   @Prop() size: 'sm' | 'md' | 'lg' = 'lg';
 
   /** Mode variant of the textfield */
-
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** With setting */

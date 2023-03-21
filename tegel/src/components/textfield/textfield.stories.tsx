@@ -22,7 +22,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -238,17 +239,22 @@ const Template = ({
         ${
           prefix
             ? `
-        <span slot="sdds-prefix">
-          ${prefixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
-        </span>`
+          ${
+            prefixType === 'Text'
+              ? '<span slot="prefix">$</span>'
+              : '<sdds-icon slot="prefix" name="truck" size="20px"></sdds-icon>'
+          }
+        `
             : ''
         }
         ${
           suffix
             ? `
-        <span slot="sdds-suffix">
-          ${suffixType === 'Text' ? '$' : '<sdds-icon name="truck" size="20px"></sdds-icon> '}
-        </span>`
+          ${
+            suffixType === 'Text'
+              ? '<span slot="suffix">$</span>'
+              : '<sdds-icon slot="suffix" name="truck" size="20px"></sdds-icon>'
+          }        `
             : ''
         }
         </sdds-textfield>

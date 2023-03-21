@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter, Method, Element } from '@stencil/core';
-import { HostElement } from '@stencil/core/internal';
+import { HostElement, State } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-banner',
@@ -12,21 +12,6 @@ export class SddsBanner {
 
   /** Header text. */
   @Prop() header: string;
-
-  /** Subheader text. */
-  @Prop() subheader: string;
-
-  /** Link text. */
-  @Prop() linkText: string;
-
-  /** Href for the link */
-  @Prop() href: string;
-
-  /** Where to open the linked URL */
-  @Prop() linkTarget: '_self' | '_blank' | '_parent' | '_top' = '_self';
-
-  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
-  @Prop() linkRel: string = 'noopener';
 
   /** Type of banner */
   @Prop() type: 'error' | 'information' | 'none' = 'none';
@@ -42,6 +27,10 @@ export class SddsBanner {
 
   /** Hides the banner */
   @Prop() hidden = false;
+
+  @State() hasSubheader: boolean;
+
+  @State() hasLink: boolean;
 
   @Element() host: HostElement;
 
@@ -95,6 +84,9 @@ export class SddsBanner {
     } else if (this.type === 'information') {
       this.icon = 'info';
     }
+    const children = Array.from(this.host.children);
+    this.hasSubheader = children.some((childElement) => childElement.slot === 'banner-subheader');
+    this.hasLink = children.some((childElement) => childElement.slot === 'banner-link');
   }
 
   handleClose = () => {
@@ -125,11 +117,11 @@ export class SddsBanner {
         )}
         <div class={`banner-content ${this.type} ${!this.icon ? 'no-icon' : ''}`}>
           {this.header && <span class={`banner-header`}>{this.header}</span>}
-          {this.subheader && <span class={`banner-subheader`}>{this.subheader}</span>}
-          {this.linkText && this.href && (
-            <sdds-link link-href={this.href} rel={this.linkRel} link-target={this.linkTarget}>
-              {this.linkText}
-            </sdds-link>
+          {this.hasSubheader && <slot name="banner-subheader"></slot>}
+          {this.hasLink && (
+            <div class={`banner-link ${!this.hasSubheader ? 'no-subheader' : ''}`}>
+              <slot name="banner-link"></slot>
+            </div>
           )}
         </div>
         {!this.persistent && (
