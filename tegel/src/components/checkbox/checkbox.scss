@@ -57,14 +57,14 @@
     &:hover {
       &::before {
         background-color: var(--sdds-checkbox-background-hover);
-        opacity: 0.12;
+        opacity: var(--sdds-checkbox-background-opacity-hover);
       }
     }
 
     &:focus {
       &::before {
         background-color: var(--sdds-checkbox-background-focus);
-        opacity: 0.24;
+        opacity: var(--sdds-checkbox-background-opacity-focus);
         transition: opacity 0.2s ease-in-out;
       }
     }
