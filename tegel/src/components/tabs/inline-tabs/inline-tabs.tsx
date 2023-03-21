@@ -164,13 +164,13 @@ export class InlineTabsFullbleed {
 
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll + 95;
+    this.navWrapperElement.scrollLeft = scroll + this.buttonsWidth;
     this.evaluateScrollButtons();
   }
 
   scrollLeft() {
     const scroll = this.navWrapperElement.scrollLeft;
-    this.navWrapperElement.scrollLeft = scroll - 10;
+    this.navWrapperElement.scrollLeft = scroll - this.buttonsWidth;
     this.evaluateScrollButtons();
   }
 
