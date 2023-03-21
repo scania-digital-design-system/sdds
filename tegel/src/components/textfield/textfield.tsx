@@ -144,9 +144,7 @@ export class Textfield {
         )}
         <div onClick={() => this.textInput.focus()} class="textfield-container">
           <div class={`textfield-slot-wrap-prefix textfield-${this.state}`}>
-            <span>
-              <slot name="prefix" />
-            </span>
+            <slot name="prefix" />
           </div>
 
           <div class="textfield-input-container">
@@ -182,9 +180,7 @@ export class Textfield {
           <div class="textfield-bar"></div>
 
           <div class={`textfield-slot-wrap-suffix textfield-${this.state}`}>
-            <span>
-              <slot name="suffix" />
-            </span>
+            <slot name="suffix" />
           </div>
           <span class="textfield-icon__readonly">
             <sdds-icon name="edit_inactive" size="20px"></sdds-icon>

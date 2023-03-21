@@ -368,31 +368,24 @@
 .textfield-slot-wrap-prefix,
 .textfield-slot-wrap-suffix {
   align-self: center;
+  font: var(--sdds-detail-02);
+  letter-spacing: var(--sdds-detail-02-ls);
+  margin: 0 0 0 14px;
+  color: var(--sdds-textfield-ps-color);
 
-  > span {
-    font: var(--sdds-detail-02);
-    letter-spacing: var(--sdds-detail-02-ls);
-    margin: 0 0 0 14px;
-    color: var(--sdds-textfield-ps-color);
-
-    &::slotted(:not(sdds-icon)) {
-      margin: 0 0 0 2px;
-    }
+  &::slotted(:not(sdds-icon)) {
+    margin: 0 0 0 2px;
   }
 
   &.textfield-error {
-    span {
-      color: var(--sdds-textfield-ps-color-error);
-    }
+    color: var(--sdds-textfield-ps-color-error);
   }
 }
 
 .textfield-slot-wrap-suffix {
-  > span {
-    margin: 0 14px 0 0;
+  margin: 0 14px 0 0;
 
-    &::slotted(:not(sdds-icon)) {
-      margin: 0 2px 0 0;
-    }
+  &::slotted(:not(sdds-icon)) {
+    margin: 0 2px 0 0;
   }
 }
