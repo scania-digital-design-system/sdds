@@ -1032,6 +1032,12 @@ html,
         border-top: 1px solid var(--sdds-header-mobile-nav-toolbar-border-color);
       }
 
+      .sdds-nav__item--active {
+        .sdds-nav__item-core {
+          background-color: var(--sdds-header-mobile-avatar--item-btn-background-active);
+        }
+      }
+
       .sdds-nav__item--active::after {
         content: '';
         border-bottom: none;
