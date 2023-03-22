@@ -1,8 +1,8 @@
 :root,
 .sdds-mode-light {
-  --sdds-header-background: var(--sdds-blue-800);
   --sdds-header-overlay: var(--sdds-black);
   --sdds-header-app-name-color: var(--sdds-white);
+  --sdds-header-background: var(--sdds-blue-800);
   --sdds-header-mob-menu-color: var(--sdds-white);
   --sdds-header-mob-menu-open-color: var(--sdds-grey-958);
   --sdds-header-mob-menu-open-background: var(--sdds-white);
@@ -59,10 +59,9 @@
 
   /* Avatar */
   --sdds-header-avatar-item-background: var(--sdds-white);
+  --sdds-header-avatar-item-background-hover: var(--sdds-grey-100);
   --sdds-header-avatar-item-border-color: var(--sdds-grey-300);
   --sdds-header-avatar-subtitle-color: var(--sdds-grey-500);
-  --sdds-header-avatar-item-background: var(--sdds-white);
-  --sdds-header-avatar-item-background-hover: var(--sdds-grey-100);
   --sdds-header-avatar-item-color: var(--sdds-grey-700);
   --sdds-header-avatar-item-btn-background: var(--sdds-white);
 
@@ -70,13 +69,13 @@
   --sdds-header-app-launcher-menu-background: var(--sdds-white);
   --sdds-header-app-launcher-btn-background: var(--sdds-white);
   --sdds-header-app-launcher-btn-color: var(--sdds-white);
+  --sdds-header-app-launcher-open-btn-color: var(--sdds-black);
   --sdds-header-app-launcher-item-border-color: var(--sdds-grey-300);
   --sdds-header-app-launcher-category-title-background: var(--sdds-white);
   --sdds-header-app-launcher-category-title-color: var(--sdds-grey-500);
   --sdds-header-app-launcher-item-background: var(--sdds-white);
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-100);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-700);
-  --sdds-header-app-launcher-open-btn-color: var(--sdds-black);
 
   /* MOBILE AND TABLET */
   --sdds-header-mobile-nav-center-background: var(--sdds-white);
@@ -102,20 +101,20 @@
 
 .sdds-mode-dark {
   --sdds-header-background: var(--sdds-blue-900);
-  --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
   --sdds-header-mob-menu-open-color: var(--sdds-white);
   --sdds-header-mob-menu-open-background: var(--sdds-blue-800);
   --sdds-header-mob-menu-open-border: var(--sdds-blue-700);
   --sdds-nav-item-background: var(--sdds-grey-800);
   --sdds-nav-item-background-hover: var(--sdds-grey-700);
   --sdds-nav-item-background-active: var(--sdds-grey-700);
-  --sdds-nav-item-border-color: var(--sdds-blue-800);
+  --sdds-nav-item-border-color: var(--sdds-blue-700);
   --sdds-nav-item-border-color-active: var(--sdds-blue-300);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-700);
   --sdds-nav-item-core-color-active: var(--sdds-grey-50);
   --sdds-header-nav-item-color: var(--sdds-white);
   --sdds-header-nav-item-background-active: var(--sdds-blue-800);
   --sdds-nav-dropdown-item-background: var(--sdds-grey-800);
+  --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
 
@@ -163,6 +162,7 @@
   --sdds-header-app-launcher-menu-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-btn-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-btn-color: var(--sdds-white);
+  --sdds-header-app-launcher-open-btn-color: var(--sdds-white);
   --sdds-header-app-launcher-item-border-color: var(--sdds-grey-700);
   --sdds-header-app-launcher-category-title-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-category-title-color: var(--sdds-grey-500);
@@ -183,7 +183,7 @@
   --sdds-header-mobile-searchbar-input-expanded-before-background: var(--sdds-black);
   --sdds-header-mobile-searchbar-btn-background: var(--sdds-grey-958);
   --sdds-header-mobile-searchbar-btn-background-hover: var(--sdds-grey-868);
-  --sdds-header-mobile-searchbar-open-btn-background: vvar(--sdds-grey-958);
+  --sdds-header-mobile-searchbar-open-btn-background: var(--sdds-grey-958);
   --sdds-header-mobile-searchbar-open-btn-background-hover: var(--sdds-grey-868);
   --sdds-header-mobile-searchbar-btn-svg-fill: var(--sdds-white);
   --sdds-header-mobile-searchbar-container-color: var(--sdds-white);
