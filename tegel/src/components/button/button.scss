@@ -295,7 +295,14 @@ $iconProps: (fill, color);
         @each $prop in $props {
           cursor: not-allowed;
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-disabled);
+        }
 
+        @if $type == 'ghost' or $type == 'secondary' {
+          .sdds-btn-icon,
+          &.sdds-btn-icon {
+            color: rgb(0 0 0 / 38%);
+          }
+        } @else {
           .sdds-btn-icon,
           &.sdds-btn-icon {
             color: var(--sdds-grey-300);
