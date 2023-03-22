@@ -320,6 +320,12 @@ html {
 
   padding-top: var(--sdds-spacing-element-4);
   color: var(--sdds-textfield-helper);
+
+  .sdds-textfield-helper-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 //Disabled state
