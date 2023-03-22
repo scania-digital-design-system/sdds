@@ -117,6 +117,10 @@ $iconProps: (fill, color);
   }
 
   &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
     // TODO: decide on what tod o with these @include sdds-focus-state;
     outline: 2px solid var(--sdds-blue-400);
     outline-offset: -2px;
@@ -135,7 +139,7 @@ $iconProps: (fill, color);
     font-size: 12px;
     border-radius: 2px;
 
-    &:focus {
+    &:focus-visible {
       // TODO: decide on what tod o with these @include sdds-focus-state;
       outline: 2px solid var(--sdds-blue-400);
       outline-offset: -2px;
@@ -150,7 +154,7 @@ $iconProps: (fill, color);
       padding: $btn-sm-only-icon-padding;
     }
 
-    &:focus {
+    &:focus-visible {
       // TODO: decide on what tod o with these @include sdds-focus-state;
       outline: 2px solid var(--sdds-blue-400);
       outline-offset: -2px;
@@ -179,7 +183,7 @@ $iconProps: (fill, color);
       padding: $btn-md-only-icon-padding;
     }
 
-    &:focus {
+    &:focus-visible {
       // TODO: decide on what tod o with these @include sdds-focus-state;
       outline: 2px solid var(--sdds-blue-400);
       outline-offset: -2px;
@@ -205,7 +209,7 @@ $iconProps: (fill, color);
       padding: $btn-lg-only-icon-padding;
     }
 
-    &:focus {
+    &:focus-visible {
       // TODO: decide on what tod o with these @include sdds-focus-state;
       outline: 2px solid var(--sdds-blue-400);
       outline-offset: -2px;
@@ -266,7 +270,7 @@ $iconProps: (fill, color);
         }
       }
 
-      &:focus {
+      &:focus-visible {
         @each $prop in $props {
           #{$prop}: var(--sdds-btn-#{$type}-#{$prop}-focus);
         }
