@@ -7,27 +7,29 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                  | Type                       | Default |
-| ------------- | -------------- | ------------------------------------------------------------ | -------------------------- | ------- |
-| `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `null`  |
+| Property               | Attribute                | Description                                                                            | Type                       | Default     |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------- | -------------------------- | ----------- |
+| `defaultSelectedIndex` | `default-selected-index` | Sets the default selected tab.                                                         | `number`                   | `undefined` |
+| `modeVariant`          | `mode-variant`           | Variant of the tabs, primary= on white, secondary= on grey50                           | `"primary" \| "secondary"` | `null`      |
+| `selectedIndex`        | `selected-index`         | Sets the selected tab. If this is set all tab changes needs to be handled by the user. | `number`                   | `undefined` |
 
 
 ## Events
 
-| Event        | Description | Type                                                              |
-| ------------ | ----------- | ----------------------------------------------------------------- |
-| `sddsChange` |             | `CustomEvent<{ selectedTab: string; selectedTabIndex: number; }>` |
+| Event        | Description | Type                                         |
+| ------------ | ----------- | -------------------------------------------- |
+| `sddsChange` |             | `CustomEvent<{ selectedTabIndex: number; }>` |
 
 
 ## Methods
 
-### `selectTab(tabIndex: number) => Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+### `selectTab(tabIndex: number) => Promise<{ selectedTabIndex: number; }>`
 
 Sets the passed tabindex as the selected tab.
 
 #### Returns
 
-Type: `Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+Type: `Promise<{ selectedTabIndex: number; }>`
 
 
 

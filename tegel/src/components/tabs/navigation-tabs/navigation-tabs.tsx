@@ -86,9 +86,7 @@ export class NavigationTabs {
   }
 
   connectedCallback() {
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement
-    >;
+    this.children = Array.from(this.host.children) as Array<any>;
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
         if (!item.disabled) {
