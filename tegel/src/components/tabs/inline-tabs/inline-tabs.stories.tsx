@@ -35,16 +35,41 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
+    defaultSelectedIndex: {
+      name: 'Default selected index',
+      description:
+        'Sets the default selected tab, if this is used the tab changes will be done automatically.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 0, 1, 2, 3],
+      table: {
+        defaultValue: { summary: '0' },
+      },
+    },
+    selectedIndex: {
+      name: 'Selected index',
+      description:
+        'Sets the selected tab, if this is used the tab changes has to be handled by the user.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 0, 1, 2, 3],
+      if: { arg: 'defaultSelectedIndex', eq: 'None' },
+    },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    tabType: 'Link',
+    defaultSelectedIndex: 'None',
+    selectedIndex: 'None',
   },
 };
 
-const Template = ({ modeVariant }) =>
+const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
   formatHtmlPreview(`
   <sdds-inline-tabs
+    ${defaultSelectedIndex !== 'None' ? `default-selected-index="${defaultSelectedIndex}"` : ''}
+    ${selectedIndex && selectedIndex !== 'None' ? `selected-index="${selectedIndex}"` : ''}
     ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
       <sdds-inline-tab>
         <button>First tab</button>
