@@ -216,8 +216,7 @@ Please read through our [contributing guidelines](https://github.com/scania-digi
 
 ## Code conventions
 
-TODO - Needs the correct link.
-The code conventions used in (and enforced by) Tegel is documented [here](www.TBD.se).
+The code conventions used in (and enforced by) Tegel is documented [here](https://github.com/scania-digital-design-system/sdds/blob/main/.github/CODE_STYLE.md).
 
 ### Setting up the development environment
 
