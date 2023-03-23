@@ -206,6 +206,7 @@ html,
     .sdds-nav__mob-menu-btn {
       color: var(--sdds-header-mob-menu-open-color);
       background-color: var(--sdds-header-mob-menu-open-background);
+      border-right: none;
       position: absolute;
       height: 64px;
       width: 64px;
@@ -215,7 +216,6 @@ html,
       @media all and (max-width: $grid-sm) {
         left: auto;
         right: 0;
-        border-right: none;
         z-index: 1;
       }
 
