@@ -60,8 +60,6 @@ const Template = ({ modeVariant }) =>
       </sdds-inline-tab>
    </sdds-inline-tabs>
 
-   <button id="test">test</button>
-
    <!-- Demo container. -->
    <div class="demo-container">
      <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
