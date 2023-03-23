@@ -241,25 +241,25 @@ const Template = ({
             optionType === 'Children'
               ? `
               <sdds-dropdown-option-v2 value="option-1">
-                <div slot="label">Option 1</div>
+                Option 1
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 disabled value="option-2">
-                <div slot="label">Option 2</div>
+                Option 2
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 value="option-3">
-                <div slot="label">Option 3</div>
+                Option 3
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 value="option-4">
-                <div slot="label">Option 4</div>
+                Option 4
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 value="option-5">
-                <div slot="label">Option 5</div>
+                Option 5
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 value="option-6">
-                <div slot="label">Option 6</div>
+                Option 6
               </sdds-dropdown-option-v2>
               <sdds-dropdown-option-v2 value="option-7">
-                <div slot="label">Option 7</div>
+                Option 7
               </sdds-dropdown-option-v2>`
               : ''
           }

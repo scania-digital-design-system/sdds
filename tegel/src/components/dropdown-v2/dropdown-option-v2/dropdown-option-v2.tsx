@@ -143,7 +143,9 @@ export class SddsDropdownOptionV2 {
                 disabled={this.disabled}
                 checked={this.selected}
               >
-                <slot name="label"></slot>
+                <div slot="label">
+                  <slot></slot>
+                </div>
               </sdds-checkbox>
             </div>
           )}
@@ -157,7 +159,7 @@ export class SddsDropdownOptionV2 {
               disabled={this.disabled}
             >
               <div class="single-select">
-                <slot name="label"></slot>
+                <slot></slot>
                 {this.selected && <sdds-icon name="tick" size="16px"></sdds-icon>}
               </div>
             </button>
