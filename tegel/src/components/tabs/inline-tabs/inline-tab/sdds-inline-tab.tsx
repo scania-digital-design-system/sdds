@@ -1,20 +1,26 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Method } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-inline-tabs-item',
-  styleUrl: 'sdds-inline-tabs-item.scss',
+  tag: 'sdds-inline-tab',
+  styleUrl: 'sdds-inline-tab.scss',
   shadow: true,
 })
-export class SddsInlineTabsItem {
+export class SddsInlineTab {
   /** Disables the tab. */
   @Prop() disabled: boolean = false;
 
   /** Marks the tab as the selected one. */
   @Prop() selected: boolean = false;
 
+  /** @internal Method to set the tab as selected. Used by the <sdds-folder-tabs> */
+  @Method()
+  async setSelected(selected: boolean) {
+    this.selected = selected;
+  }
+
   render() {
     return (
-      <Host>
+      <Host role="listitem">
         <div
           class={`inline-tab-item  ${this.selected ? 'selected' : ''}
            ${this.disabled ? 'disabled' : ''}`}
