@@ -23,7 +23,7 @@ export class InlineTabs {
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
   /** Sets the default selected tab. */
-  @Prop() defaultSelectedIndex: number;
+  @Prop() defaultSelectedIndex: number = 0;
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
@@ -45,6 +45,7 @@ export class InlineTabs {
 
   children: Array<HTMLSddsFolderTabElement>;
 
+  /** Event emitted when the selected tab is changed. */
   @Event({
     eventName: 'sddsChange',
     composed: true,
@@ -57,7 +58,7 @@ export class InlineTabs {
 
   @Watch('selectedIndex')
   handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-tab-index', `${this.selectedIndex}`);
+    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
   }
 
   /** Sets the passed tabindex as the selected tab. */
@@ -160,30 +161,30 @@ export class InlineTabs {
           });
         }
       });
-      this.selectedIndex = index;
       return item;
     });
   };
 
-  componentDidLoad() {
+  connectedCallback() {
     this.children = Array.from(this.host.children) as Array<HTMLSddsFolderTabElement>;
+    this.children[0].classList.add('first');
+    this.children[this.children.length - 1].classList.add('last');
+  }
+
+  componentDidLoad() {
     if (!this.selectedIndex) {
       this.addEventListenerToTabs();
+      this.children[this.defaultSelectedIndex].setSelected(true);
+      this.selectedIndex = this.defaultSelectedIndex;
+      this.sddsChange.emit({
+        selectedTabIndex: this.selectedIndex,
+      });
     } else {
       this.children[this.selectedIndex].setSelected(true);
       this.sddsChange.emit({
         selectedTabIndex: this.selectedIndex,
       });
     }
-    if (this.defaultSelectedIndex) {
-      this.children[this.defaultSelectedIndex].setSelected(true);
-      this.selectedIndex = this.defaultSelectedIndex;
-      this.sddsChange.emit({
-        selectedTabIndex: this.selectedIndex,
-      });
-    }
-    this.children[0].classList.add('first');
-    this.children[this.children.length - 1].classList.add('last');
     this.calculateButtonWidth();
   }
 
@@ -205,11 +206,11 @@ export class InlineTabs {
     return (
       <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
         <div
+          role="list"
+          class="wrapper"
           ref={(el) => {
             this.navWrapperElement = el as HTMLDivElement;
           }}
-          class="wrapper"
-          role="list"
         >
           <button
             class={`scroll-left-button ${this.showLeftScroll ? 'show' : ''}`}

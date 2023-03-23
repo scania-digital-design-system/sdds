@@ -44,13 +44,12 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
-    defaultSelectedIndex: 0,
   },
 };
 
 const Template = ({ modeVariant }) =>
   formatHtmlPreview(`
-    <sdds-folder-tabs default-selected-index="1"
+    <sdds-folder-tabs
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
       <sdds-folder-tab>
         <button>First tab</button>
