@@ -66,6 +66,8 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
+    defaultSelectedIndex: 'None',
+    selectedIndex: 'None',
   },
 };
 
