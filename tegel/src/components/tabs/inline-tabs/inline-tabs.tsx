@@ -151,7 +151,7 @@ export class InlineTabsFullbleed {
   }
 
   componentDidLoad() {
-    if (!this.selectedIndex) {
+    if (this.selectedIndex === undefined) {
       this.addEventListenerToTabs();
       this.children[this.defaultSelectedIndex].setSelected(true);
       this.selectedIndex = this.defaultSelectedIndex;
@@ -162,18 +162,6 @@ export class InlineTabsFullbleed {
       this.children[this.selectedIndex].setSelected(true);
       this.sddsChange.emit({
         selectedTabIndex: this.selectedIndex,
-      });
-    }
-  }
-
-  componentWillRender() {
-    if (!this.selectedIndex) {
-      this.children = Array.from(this.host.children) as Array<HTMLSddsInlineTabElement>;
-      this.children = this.children.map((item, index) => {
-        if (item.selected) {
-          this.selectedIndex = index;
-        }
-        return item;
       });
     }
   }

@@ -172,7 +172,7 @@ export class InlineTabs {
   }
 
   componentDidLoad() {
-    if (!this.selectedIndex) {
+    if (this.selectedIndex === undefined) {
       this.addEventListenerToTabs();
       this.children[this.defaultSelectedIndex].setSelected(true);
       this.selectedIndex = this.defaultSelectedIndex;

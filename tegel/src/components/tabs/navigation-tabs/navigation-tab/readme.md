@@ -1,4 +1,4 @@
-# sdds-inline-tabs-item
+# sdds-navigation-tabs-item
 
 
 

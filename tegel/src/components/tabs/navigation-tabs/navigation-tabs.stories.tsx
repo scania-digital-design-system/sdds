@@ -1,15 +1,13 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from './navigation-tabs-link/readme.md';
-import readmeButton from './navigation-tabs-button/readme.md';
+import readmeTab from './navigation-tab/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
     notes: {
       'Navigation tabs': readme,
-      'Navigation tabs button': readmeButton,
-      'Navigation tabs link': readmeLink,
+      'Navigation tab': readmeTab,
     },
     design: [
       {
@@ -37,78 +35,59 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    tabType: {
-      name: 'Tab type',
-      description: 'Type of child element, button/link.',
+    defaultSelectedIndex: {
+      name: 'Default selected index',
+      description:
+        'Sets the default selected tab, if this is used the tab changes will be done automatically.',
       control: {
         type: 'radio',
       },
-      options: ['Button', 'Link', 'Item'],
+      options: ['None', 0, 1, 2, 3],
+      table: {
+        defaultValue: { summary: '0' },
+      },
+    },
+    selectedIndex: {
+      name: 'Selected index',
+      description:
+        'Sets the selected tab, if this is used the tab changes has to be handled by the user.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 0, 1, 2, 3],
+      if: { arg: 'defaultSelectedIndex', eq: 'None' },
     },
   },
   args: {
     modeVariant: 'Inherit from parent',
-    tabType: 'Link',
+    defaultSelectedIndex: 'None',
+    selectedIndex: 'None',
   },
 };
 
-// Why role="link" on a disabled link: https://www.scottohara.me/blog/2021/05/28/disabled-links.html
-const Template = ({ tabType, modeVariant }) =>
+const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
   formatHtmlPreview(`
-    <sdds-navigation-tabs 
+    <sdds-navigation-tabs
+      ${defaultSelectedIndex !== 'None' ? `default-selected-index="${defaultSelectedIndex}"` : ''}
+      ${selectedIndex && selectedIndex !== 'None' ? `selected-index="${selectedIndex}"` : ''}
       ${modeVariant !== 'Inherit from parent' ? ` mode-variant="${modeVariant.toLowerCase()}"` : ''}
     >
-      ${
-        tabType === 'Link'
-          ? `
-      <sdds-navigation-tabs-link href="#" > <div slot="label">First tab</div>
-      </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" > <div slot="label">Second tab is much longer</div>
-      </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link selected href="#" > <div slot="label">Third tab</div>
-      </sdds-navigation-tabs-link>
-      <sdds-navigation-tabs-link href="#" disabled> <div slot="label">Fourth tab</div>
-      </sdds-navigation-tabs-link>
-      `
-          : ''
-      }
-      ${
-        tabType === 'Button'
-          ? `
-      <sdds-navigation-tabs-button> <div slot="label">First tab</div>
-      </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button> <div slot="label">Second tab is much longer</div>
-      </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button selected> <div slot="label">Third tab</div>
-      </sdds-navigation-tabs-button>
-      <sdds-navigation-tabs-button disabled> <div slot="label">Fourth tab</div>
-      </sdds-navigation-tabs-button>
-      `
-          : ''
-      }
-      ${
-        tabType === 'Item'
-          ? `
-      <sdds-navigation-tabs-item>
+      <sdds-navigation-tab>
         <button>First tab</button>
-      </sdds-navigation-tabs-item>
-      <sdds-navigation-tabs-item>
+      </sdds-navigation-tab>
+      <sdds-navigation-tab>
         <button>Second tab is much longer</button>
-      </sdds-navigation-tabs-item>
-      <sdds-navigation-tabs-item selected>
+      </sdds-navigation-tab>
+      <sdds-navigation-tab selected>
         <button>Third tab</button>
-      </sdds-navigation-tabs-item>
-      <sdds-navigation-tabs-item disabled>
+      </sdds-navigation-tab>
+      <sdds-navigation-tab disabled>
         <button>Fourth tab</button>
-      </sdds-navigation-tabs-item>
-      `
-          : ''
-      }
+      </sdds-navigation-tab>
     </sdds-navigation-tabs>
 
     <!-- Demo container. -->
     <div class="demo-container">
-      <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
       <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
     </div>
  
@@ -119,9 +98,7 @@ const Template = ({ tabType, modeVariant }) =>
     tabs = document.querySelector('sdds-navigation-tabs');
     
     tabs.addEventListener('sddsChange', (event) => {
-       console.log(event)
-      selectedTab.innerHTML = event.detail.selectedTab.tab
-      selectedTabIndex.innerHTML = event.detail.selectedTab.tabIndex
+      selectedTabIndex.innerHTML = event.detail.selectedTabIndex
     })
     </script>
     `);

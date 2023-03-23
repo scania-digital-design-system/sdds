@@ -1,11 +1,11 @@
-import { Component, Host, h, Prop, Method, State } from '@stencil/core';
+import { Component, Host, h, Prop, State, Method } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-inline-tab',
-  styleUrl: 'sdds-inline-tab.scss',
+  tag: 'sdds-navigation-tab',
+  styleUrl: 'sdds-navigation-tab.scss',
   shadow: true,
 })
-export class SddsInlineTab {
+export class SddsNavigationTab {
   /** Disables the tab. */
   @Prop() disabled: boolean = false;
 
@@ -19,9 +19,9 @@ export class SddsInlineTab {
 
   render() {
     return (
-      <Host role="listitem">
+      <Host>
         <div
-          class={`inline-tab-item  ${this.selected ? 'selected' : ''}
+          class={`navigation-tab-item  ${this.selected ? 'selected' : ''}
            ${this.disabled ? 'disabled' : ''}`}
         >
           <slot></slot>
