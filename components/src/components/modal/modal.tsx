@@ -19,7 +19,7 @@ import {
 })
 export class Modal {
   /** Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1" */
-  @Prop() selector: string = '';
+  @Prop() selector: string;
 
   /** Disables closing modal on clicking on overlay area. */
   @Prop() prevent: boolean = false;
@@ -43,7 +43,10 @@ export class Modal {
   }
 
   componentDidLoad() {
-    const targets = document.querySelectorAll(this.selector);
+    let targets;
+    if (!this.selector) {
+      targets = document.querySelectorAll(this.selector);
+    }
     this.dismissModal();
 
     // If the modal doesn't have a selector to be triggered
