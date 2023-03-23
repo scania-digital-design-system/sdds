@@ -75,7 +75,7 @@ const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
         <button>First tab</button>
       </sdds-inline-tab>
       <sdds-inline-tab>
-        <button>Second tab is longer</button>
+        <button>Second tab is much longer</button>
       </sdds-inline-tab>
       <sdds-inline-tab>
         <button>Third tab</button>
