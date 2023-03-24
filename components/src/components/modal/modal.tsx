@@ -43,9 +43,8 @@ export class Modal {
   }
 
   componentDidLoad() {
-    let targets;
     if (this.selector) {
-      targets = document.querySelectorAll(this.selector);
+      const targets = document.querySelectorAll(this.selector);
 
       // If the modal doesn't have a selector to be triggered
       if (!targets) {
