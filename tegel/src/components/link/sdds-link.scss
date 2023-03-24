@@ -1,8 +1,13 @@
+@import '../../mixins/box-sizing';
+
 a {
+  @include sdds-box-sizing;
+
   cursor: pointer;
   outline: none;
-  color: var(--sdds-link);
 
+  &,
+  &.active,
   &:active {
     color: var(--sdds-link);
     text-decoration: underline;
