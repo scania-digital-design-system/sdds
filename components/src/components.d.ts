@@ -210,6 +210,10 @@ export namespace Components {
          */
         "labelPosition": 'no-label' | 'inside' | 'outside';
         /**
+          * Direction that the dropdown will open. By default set to auto.
+         */
+        "openDirection": 'up' | 'down' | 'auto';
+        /**
           * Placeholder text for dropdown with no selected item
          */
         "placeholder": string;
@@ -1066,6 +1070,10 @@ declare namespace LocalJSX {
           * Position of label: `no-label` (default), `inside`, `outside`
          */
         "labelPosition"?: 'no-label' | 'inside' | 'outside';
+        /**
+          * Direction that the dropdown will open. By default set to auto.
+         */
+        "openDirection"?: 'up' | 'down' | 'auto';
         /**
           * Placeholder text for dropdown with no selected item
          */
