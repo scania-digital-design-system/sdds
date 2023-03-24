@@ -111,7 +111,7 @@ const Template = ({ showIcons, collapsed }) => {
           </li>
         </ul>
       </li>
-      <li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
+      <li class="sdds-sidebar-nav__item sdds-sidebar-nav__item--selected sdds-sidebar-nav__extended">
       <button class="sdds-sidebar-nav__item-link">
       <div>
         <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"></sdds-icon>
