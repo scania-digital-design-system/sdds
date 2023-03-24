@@ -96,6 +96,8 @@
   --sdds-header-mobile-searchbar-container-color: var(--sdds-grey-958);
   --sdds-header-mobile-avatar--item-btn-background: var(--sdds-white);
   --sdds-header-mobile-avatar--item-btn-background-hover: var(--sdds-grey-100);
+  --sdds-header-mobile-avatar--item-btn-background-selected: var(--sdds-grey-100);
+  --sdds-header-mobile-avatar--item-btn-background-active: var(--sdds-grey-300);
   --sdds-header-mobile-avatar--item-btn-color: var(--sdds-grey-958);
 }
 
@@ -189,5 +191,7 @@
   --sdds-header-mobile-searchbar-container-color: var(--sdds-white);
   --sdds-header-mobile-avatar--item-btn-background: var(--sdds-grey-958);
   --sdds-header-mobile-avatar--item-btn-background-hover: var(--sdds-grey-868);
+  --sdds-header-mobile-avatar--item-btn-background-selected: var(--sdds-grey-868);
+  --sdds-header-mobile-avatar--item-btn-background-active: var(--sdds-grey-800);
   --sdds-header-mobile-avatar--item-btn-color: var(--sdds-white);
 }

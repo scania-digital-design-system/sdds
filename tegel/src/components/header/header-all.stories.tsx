@@ -63,7 +63,7 @@ const AllMenusTemplate = ({ siteName }) =>
                   </a>
               </li>
 
-              <li class='sdds-nav__item sdds-nav__item--active'>
+              <li class='sdds-nav__item sdds-nav__item--selected'>
                   <a class='sdds-nav__item-core ' href='#'>
                       <span class='sdds-nav__item-core-text'>Item 2</span>
                   </a>
@@ -79,7 +79,7 @@ const AllMenusTemplate = ({ siteName }) =>
               <ul class='sdds-nav__dropdown-menu'>
                   <li class='sdds-nav__dropdown-item'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
                   <li class='sdds-nav__dropdown-item'><button class='sdds-nav__dropdown-item-core'>Sub item 3</button></li>
-                  <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--active'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
+                  <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--selected'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
               </ul>
               </li>
           </ul>

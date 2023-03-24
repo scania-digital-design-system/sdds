@@ -181,7 +181,7 @@ html,
     }
   }
 
-  .sdds-nav__item--active::after {
+  .sdds-nav__item--selected::after {
     content: '';
     border-bottom: 4px solid var(--sdds-nav-item-border-color-after);
     width: calc(100% + 2px);
@@ -259,7 +259,7 @@ html,
     }
   }
 
-  .sdds-nav__item--active {
+  .sdds-nav__item--selected {
     .sdds-nav__item-core {
       background-color: var(--sdds-header-nav-item-background-active);
     }
@@ -327,7 +327,7 @@ html,
     }
   }
 
-  .sdds-nav__dropdown-item--active {
+  .sdds-nav__dropdown-item--selected {
     border-left: 4px solid var(--sdds-nav-item-border-color-active);
     background: var(--sdds-nav-item-background-active);
 
@@ -1032,27 +1032,42 @@ html,
         border-top: 1px solid var(--sdds-header-mobile-nav-toolbar-border-color);
       }
 
-      .sdds-nav__item--active::after {
-        content: '';
+      .sdds-nav__item--selected {
+        .sdds-nav__item-core {
+          background-color: var(--sdds-header-mobile-avatar--item-btn-background-selected);
+        }
+      }
+
+      .sdds-nav__avatar-item--selected {
+        .sdds-nav__avatar-item-core {
+          background-color: var(--sdds-header-mobile-avatar--item-btn-background-selected);
+        }
+      }
+
+      .sdds-nav__item--selected,
+      .sdds-nav__avatar-btn--selected,
+      .sdds-nav__avatar-item--selected {
         border-bottom: none;
-        border-right: 4px solid var(--sdds-header-mobile-nav-center-item-border-color-active-after);
-        width: 0;
-        height: 100%;
-        display: block;
-        margin-left: 0;
-        top: 0;
-        left: 0;
-        position: absolute;
+        border-left: 4px solid var(--sdds-header-mobile-nav-center-item-border-color-active-after);
       }
 
       .sdds-nav__item-core,
-      .sdds-nav__avatar-btn {
+      .sdds-nav__avatar-btn,
+      .sdds-nav__avatar-item-core {
         background-color: var(--sdds-header-mobile-avatar--item-btn-background);
         color: var(--sdds-header-mobile-avatar--iten-btn-border-color);
 
         &:hover {
           background-color: var(--sdds-header-mobile-avatar--item-btn-background-hover);
         }
+
+        &:active {
+          background-color: var(--sdds-header-mobile-avatar--item-btn-background-active);
+        }
+      }
+
+      .sdds-nav__avatar-btn--selected {
+        background-color: var(--sdds-header-mobile-avatar--item-btn-background-selected);
       }
 
       .sdds-nav__dropdown {
