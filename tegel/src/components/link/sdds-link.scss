@@ -5,8 +5,8 @@ a {
 
   cursor: pointer;
   outline: none;
+  color: var(--sdds-link);
 
-  &,
   &.active,
   &:active {
     color: var(--sdds-link);
