@@ -1,4 +1,5 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-link',
@@ -6,35 +7,28 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: false,
 })
 export class SddsLink {
-  /** URL for the link */
-  @Prop() href: string;
-
-  /** Where to open the linked URL */
-  @Prop() target: '_self' | '_blank' | '_parent' | '_top' = '_self';
-
   /** Disables the link */
   @Prop() disabled: boolean = false;
 
   /** Displays the link with an underline. */
   @Prop() underline: boolean = true;
 
-  /** 'noopener' is a security measure for legacy browsers that preventsthe opened page from getting access to the original page when using target='_blank'. */
-  @Prop() rel: string = 'noopener';
+  @Element() host: HostElement;
+
+  connectedCallback() {
+    this.host.children[0].classList.add('sdds-link-component');
+  }
 
   render() {
     return (
-      <a
+      <div
         class={`
-        ${this.disabled ? 'disabled' : ''}
-        ${this.underline ? '' : 'no-underline'}
-        
-        `}
-        href={this.href}
-        target={this.target}
-        rel={this.rel}
+          ${this.disabled ? 'disabled' : ''}
+          ${!this.underline ? 'no-underline' : ''}
+          `}
       >
         <slot></slot>
-      </a>
+      </div>
     );
   }
 }

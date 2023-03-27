@@ -1,11 +1,9 @@
-@import '../../mixins/box-sizing';
-
-a {
-  @include sdds-box-sizing;
-
+.sdds-link-component {
+  all: unset;
   cursor: pointer;
   outline: none;
   color: var(--sdds-link);
+  text-decoration: underline;
 
   &.active,
   &:active {
@@ -31,17 +29,25 @@ a {
     outline: 2px solid var(--sdds-link-focus);
     outline-offset: -2px;
   }
+}
 
-  &.disabled {
+.disabled {
+  .sdds-link-component {
     color: var(--sdds-link-disabled);
     text-decoration-color: var(--sdds-link-disabled);
     pointer-events: none;
   }
+}
 
-  &.no-underline {
+.no-underline {
+  .sdds-link-component {
     text-decoration: none;
+  }
+}
 
-    &:hover {
+.no-underline {
+  &:hover {
+    .sdds-link-component {
       text-decoration: none;
     }
   }
