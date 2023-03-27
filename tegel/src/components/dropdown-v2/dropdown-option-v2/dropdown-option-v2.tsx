@@ -13,10 +13,9 @@ export class SddsDropdownOptionV2 {
   /** Value for the dropdown option. */
   @Prop() value: string;
 
-  /** Sets the dropdown options as disabled. */
+  /** Sets the option as disabled. */
   @Prop() disabled: boolean = false;
 
-  /** Sets the dropdown options as selected. */
   @State() selected: boolean = false;
 
   @State() multiselect: boolean;
