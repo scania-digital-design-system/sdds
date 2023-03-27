@@ -97,7 +97,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
     accordionItems = document.querySelectorAll('sdds-accordion-item');
     for (let i = 0; i < accordionItems.length; i++) {
       accordionItems[i].addEventListener('sddsToggle',(event) => {
-        console.log(event)
+        console.log(event.detail.expanded)
       })
     }
   </script>`);
