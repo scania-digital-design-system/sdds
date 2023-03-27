@@ -87,7 +87,7 @@ const Template = ({ type, header, subheader, link }) =>
     </sdds-toast>
         <script>
         document.addEventListener('sddsClose', (event) => {
-            console.log('Toast with id: ', event.detail.toastId, ' was closed.')
+            console.log(event)
         })
     </script>
   `,
