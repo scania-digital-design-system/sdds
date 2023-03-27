@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                            | Type      | Default     |
-| ---------- | ----------- | -------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled`  | Sets the dropdown options as disabled. | `boolean` | `false`     |
-| `parentEl` | `parent-el` |                                        | `any`     | `undefined` |
-| `value`    | `value`     | Value for the dropdown option.         | `string`  | `undefined` |
+| Property   | Attribute  | Description                            | Type      | Default     |
+| ---------- | ---------- | -------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled` | Sets the dropdown options as disabled. | `boolean` | `false`     |
+| `value`    | `value`    | Value for the dropdown option.         | `string`  | `undefined` |
 
 
 ## Events

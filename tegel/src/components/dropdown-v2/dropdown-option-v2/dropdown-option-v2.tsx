@@ -8,6 +8,8 @@ import { SddsCheckboxCustomEvent } from '../../../components';
   shadow: true,
 })
 export class SddsDropdownOptionV2 {
+  @Element() host: HostElement;
+
   /** Value for the dropdown option. */
   @Prop() value: string;
 
@@ -17,17 +19,13 @@ export class SddsDropdownOptionV2 {
   /** Sets the dropdown options as selected. */
   @State() selected: boolean = false;
 
-  @Prop() parentEl: any;
-
   @State() multiselect: boolean;
 
   @State() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  @Element() host: HostElement;
+  parentElement: HTMLSddsDropdownV2Element;
 
-  private parentElement: HTMLSddsDropdownV2Element;
-
-  private label: string;
+  label: string;
 
   /** Method to select/deselect an option if the option is not disabled. */
   @Method()
@@ -82,7 +80,10 @@ export class SddsDropdownOptionV2 {
       this.selected = true;
       this.parentElement.setValue(this.value, this.label);
       this.parentElement.close();
-      this.handleClick();
+      this.sddsSelect.emit({
+        value: this.value,
+        selected: this.selected,
+      });
     }
   };
 
@@ -93,20 +94,19 @@ export class SddsDropdownOptionV2 {
       if (event.detail.checked) {
         this.parentElement.setValue(this.value, this.label);
         this.selected = true;
-        this.handleClick();
+        this.sddsSelect.emit({
+          value: this.value,
+          selected: this.selected,
+        });
       } else {
         this.parentElement.removeValue(this.value);
         this.selected = false;
-        this.handleClick();
+        this.sddsSelect.emit({
+          value: this.value,
+          selected: this.selected,
+        });
       }
     }
-  };
-
-  handleClick = () => {
-    this.sddsSelect.emit({
-      value: this.value,
-      selected: this.selected,
-    });
   };
 
   handleFocus = (event) => {
@@ -127,7 +127,7 @@ export class SddsDropdownOptionV2 {
           ${this.disabled ? 'disabled' : ''}
           `}
         >
-          {this.multiselect && (
+          {this.multiselect ? (
             <div
               class="multiselect"
               onKeyDown={(event) => {
@@ -148,8 +148,7 @@ export class SddsDropdownOptionV2 {
                 </div>
               </sdds-checkbox>
             </div>
-          )}
-          {!this.multiselect && (
+          ) : (
             <button
               onClick={() => {
                 this.handleSingleSelect();

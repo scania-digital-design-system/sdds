@@ -16,6 +16,8 @@ import { renderHiddenInput } from '../../utils/utils';
   shadow: true,
 })
 export class SddsDropdownV2 {
+  @Element() host: HostElement;
+
   /** Name for the dropdowns input element. */
   @Prop() name: string;
 
@@ -69,13 +71,11 @@ export class SddsDropdownV2 {
 
   @State() filterFocus: boolean;
 
-  @Element() host: HostElement;
+  dropdownList: HTMLDivElement;
 
-  private dropdownList: HTMLDivElement;
+  inputElement: HTMLInputElement;
 
-  private inputElement: HTMLInputElement;
-
-  private children: Array<HTMLSddsDropdownOptionV2Element>;
+  children: Array<HTMLSddsDropdownOptionV2Element>;
 
   /** Method that resets the dropdown. */
   @Method()
@@ -402,7 +402,6 @@ export class SddsDropdownV2 {
                 key={index}
                 disabled={element.disabled}
                 value={element.value}
-                parentEl={this.host}
               >
                 {element.label}
               </sdds-dropdown-option-v2>
