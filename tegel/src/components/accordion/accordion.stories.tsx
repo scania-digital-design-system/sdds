@@ -7,7 +7,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -80,7 +81,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
     <sdds-accordion ${
       modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
     }>
-      <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
+      <sdds-accordion-item disabled ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
@@ -89,15 +90,15 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum.
       </sdds-accordion-item>
     </sdds-accordion>
-
     <!-- Script tag for demo purposes -->
-  <script>
+  <script>    
     accordionItems = document.querySelectorAll('sdds-accordion-item');
     for (let i = 0; i < accordionItems.length; i++) {
-      accordionItems[i].addEventListener('sddsToggle',() => {
-        console.log(i + 1 + ". item of accordion is toggled")
+      accordionItems[i].addEventListener('sddsToggle',(event) => {
+        console.log(event)
       })
     }
+
   </script>`);
 };
 

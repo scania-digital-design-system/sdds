@@ -17,9 +17,22 @@
 
 ## Events
 
-| Event        | Description                                                                                                               | Type                   |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `sddsToggle` | Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion | `CustomEvent<boolean>` |
+| Event        | Description                                                                     | Type                                  |
+| ------------ | ------------------------------------------------------------------------------- | ------------------------------------- |
+| `sddsToggle` | Fires when the accordion item is clicked but before the it is closed or opened. | `CustomEvent<{ expanded: boolean; }>` |
+
+
+## Methods
+
+### `toggleAccordionItem() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies
