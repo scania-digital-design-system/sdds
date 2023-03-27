@@ -1,0 +1,45 @@
+:root,
+html,
+:host {
+  --sdds-avatar-size-small: 3rem;
+  --sdds-avatar-size-medium: 5rem;
+  --sdds-avatar-size-large: 7rem;
+}
+
+.sdds-avatar {
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  &.sdds-avatar--small {
+    inline-size: var(--sdds-avatar-size-small);
+  }
+
+  &.sdds-avatar--medium {
+    inline-size: var(--sdds-avatar-size-medium);
+  }
+
+  &.sdds-avatar--large {
+    inline-size: var(--sdds-avatar-size-large);
+  }
+
+  .sdds-avatar-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .sdds-avatar__initial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: calc(var(--sdds-avatar-size-medium) / 2);
+    color: #fff;
+    background-color: #7f9cf5;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+}
