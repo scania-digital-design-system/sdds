@@ -118,7 +118,7 @@ export class SddsDropdownOptionV2 {
 
   render() {
     return (
-      <Host>
+      <Host role="option" aria-disabled={this.disabled} aria-selected={this.selected}>
         <div
           class={`dropdown-option 
           ${this.size}

@@ -285,7 +285,10 @@ export class SddsDropdownV2 {
       this.disabled,
     );
     return (
-      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+      <Host
+        role="select"
+        class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}
+      >
         {this.label && this.labelPosition === 'outside' && (
           <div class={`label-outside ${this.disabled ? 'disabled' : ''}`}>{this.label}</div>
         )}
