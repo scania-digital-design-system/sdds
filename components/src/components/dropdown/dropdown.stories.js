@@ -239,6 +239,7 @@ const FilterTemplate = ({
   placeholder,
   defaultOption,
   width,
+  openDirection,
 }) => `
     <div style="width:${width}px">
         <sdds-dropdown-filter
@@ -249,6 +250,7 @@ const FilterTemplate = ({
         helper="${helper}"
         default-option="${defaultOption}"      
         data=${`[{"value":"option-1","label":"Jakarta"},{"value":"option-2","label":"Stockholm"},{"value":"option-3","label":"Barcelona"}]`}
+        open-direction="${openDirection.toLowerCase()}"
         ></sdds-dropdown-filter>
       </div>
   `;
