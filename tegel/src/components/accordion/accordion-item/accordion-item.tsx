@@ -21,9 +21,9 @@ export class AccordionItem {
   /** When true 16px on right padding instead of 64px */
   @Prop() paddingReset: boolean = false;
 
-  /**  */
+  /** Method for toggeling the expanded state of the accordion item. */
   @Method()
-  toggleAccordionItem() {
+  async toggleAccordionItem() {
     const event = this.sddsToggle.emit({
       expanded: this.expanded,
     });

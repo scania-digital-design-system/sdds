@@ -81,15 +81,17 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
     <sdds-accordion ${
       modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''
     }>
-      <sdds-accordion-item disabled ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
+      <sdds-accordion-item header="First item" ${affixAttr} ${disabledAttr} ${paddingResetAttr}>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum doler sit amet.
       </sdds-accordion-item>
-      <sdds-accordion-item header="Second item" ${affixAttr} ${disabledAttr} ${paddingResetAttr} expanded>
+      <sdds-accordion-item ${affixAttr} ${disabledAttr} ${paddingResetAttr} expanded>
+        <div slot="accordion-item-header">Second item</div>
         This is the panel, which contains associated information with the header. Usually it contains text, set in the same size as the header.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet vestibulum fermentum.
       </sdds-accordion-item>
     </sdds-accordion>
+
     <!-- Script tag for demo purposes -->
   <script>    
     accordionItems = document.querySelectorAll('sdds-accordion-item');
@@ -98,9 +100,7 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
         console.log(event)
       })
     }
-
   </script>`);
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const WebComponent = Template.bind({});
