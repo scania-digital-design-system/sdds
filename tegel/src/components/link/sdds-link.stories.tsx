@@ -30,17 +30,6 @@ export default {
         defaultValue: { summary: true },
       },
     },
-    target: {
-      name: 'Target',
-      description: 'Sets where to open the linked URL.',
-      control: {
-        type: 'radio',
-      },
-      options: ['_self', '_blank', '_parent', '_top'],
-      table: {
-        defaultValue: { summary: '_self' },
-      },
-    },
     disabled: {
       name: 'Disabled',
       description: 'Disables the link.',
@@ -54,21 +43,18 @@ export default {
   },
   args: {
     underline: true,
-    target: '_self',
     disabled: false,
   },
 };
 
-const Template = ({ underline, target, disabled }) =>
+const Template = ({ underline, disabled }) =>
   formatHtmlPreview(
     `
     <sdds-link
         ${disabled ? 'disabled' : ''}
         ${underline ? '' : 'underline="false"'}
-        href="#"
-        target="${target}"
         >
-        This is a link.
+        <a href="#">This is a link.</a>
     </sdds-link>
   `,
   );
