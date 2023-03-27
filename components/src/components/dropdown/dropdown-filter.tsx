@@ -1,13 +1,4 @@
-import {
-  Component,
-  h,
-  Host,
-  Listen,
-  Method,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'sdds-dropdown-filter',
@@ -45,6 +36,9 @@ export class DropdownFilter {
 
   /** Set to true to make the width following the label text length */
   @Prop() inline: boolean = false;
+
+  /** Direction that the dropdown will open. By default set to auto. */
+  @Prop() openDirection: 'up' | 'down' | 'auto' = 'auto';
 
   /** Position of label: `no-label` (default), `inside`, `outside` */
   @Prop() labelPosition: 'no-label' | 'inside' | 'outside' = 'no-label';
@@ -127,11 +121,7 @@ export class DropdownFilter {
       return newList;
     }
     return (
-      <sdds-dropdown-option
-        tabindex="-1"
-        value="no-result"
-        class="sdds-option--no-result"
-      >
+      <sdds-dropdown-option tabindex="-1" value="no-result" class="sdds-option--no-result">
         No result
       </sdds-dropdown-option>
     );
@@ -143,10 +133,7 @@ export class DropdownFilter {
 
   render() {
     return (
-      <Host
-        selected-value={this.selectedValue}
-        selected-text={this.selectedLabel}
-      >
+      <Host selected-value={this.selectedValue} selected-text={this.selectedLabel}>
         <sdds-dropdown
           ref={(el) => (this.dropdownRef = el)}
           exportparts="dropdown-filter-disabled"
@@ -161,6 +148,7 @@ export class DropdownFilter {
           selectedOption={this.selectedOption}
           type="filter"
           tabindex={this.disabled ? '-1' : null}
+          openDirection={this.openDirection}
         >
           {this.setOptionsContent()}
         </sdds-dropdown>
