@@ -34,7 +34,7 @@
     .sdds-accordion-icon {
       transform-origin: center;
       transition: transform 0.15s ease-in-out;
-      color: var(--sdds-accordion-color);
+      color: var(--sdds-accordion-icon-color);
 
       & > sdds-icon {
         display: block;
