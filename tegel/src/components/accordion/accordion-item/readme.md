@@ -26,7 +26,7 @@
 
 ### `toggleAccordionItem() => Promise<void>`
 
-Method for toggeling the expanded state of the accordion item.
+Method for toggling the expanded state of the accordion item.
 
 #### Returns
 
