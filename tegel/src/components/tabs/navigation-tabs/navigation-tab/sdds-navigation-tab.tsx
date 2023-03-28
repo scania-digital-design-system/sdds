@@ -19,7 +19,7 @@ export class SddsNavigationTab {
 
   render() {
     return (
-      <Host>
+      <Host role="listitem">
         <div
           class={`navigation-tab-item  ${this.selected ? 'selected' : ''}
            ${this.disabled ? 'disabled' : ''}`}

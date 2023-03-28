@@ -186,9 +186,11 @@ export class NavigationTabs {
 
   render() {
     return (
-      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+      <Host
+        role="list"
+        class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}
+      >
         <div
-          role="list"
           class="wrapper"
           ref={(el) => {
             this.navWrapperElement = el as HTMLElement;
