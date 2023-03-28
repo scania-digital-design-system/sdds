@@ -25,7 +25,6 @@
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-side-menu-close-button](../side-menu/webcomponent/side-menu-close-button)
- - [sdds-side-menu-collapse-button](../side-menu/webcomponent/side-menu-collapse-button)
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
@@ -46,7 +45,6 @@ graph TD;
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-side-menu-close-button --> sdds-icon
-  sdds-side-menu-collapse-button --> sdds-icon
   sdds-side-menu-dropdown --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon

@@ -11,6 +11,8 @@
   .icon {
     transform: rotateZ(90deg);
     transition: all 0.2s ease-in-out;
+    width: 20px;
+    height: 20px;
   }
 
   .state-collapsed {
