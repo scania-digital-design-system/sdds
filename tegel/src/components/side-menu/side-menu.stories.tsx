@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Side Menu/Native',
+  title: 'Components/Side Menu',
   parameters: {
     layout: 'fullscreen',
     docs: {

@@ -7,7 +7,7 @@ import readmeSideMenuCollapseButton from './side-menu-collapse-button/readme.md'
 import readmeSideMenuDropdown from './side-menu-dropdown/readme.md';
 
 export default {
-  title: 'Components/Side Menu/Web Component',
+  title: 'Components/Side Menu',
   parameters: {
     notes: {
       'Side Menu': readme,
