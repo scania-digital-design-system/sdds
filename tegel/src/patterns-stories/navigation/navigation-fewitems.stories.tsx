@@ -140,18 +140,18 @@ const Template = () =>
 
         <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show" selected>
           <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
-          <sdds-header-dropdown-list-lg>
-            <sdds-header-dropdown-list-lg-user
+          <sdds-header-dropdown-list type="lg">
+            <sdds-header-dropdown-list-user
               heading="Name Nameson"
               subheading="Company name">
-            </sdds-header-dropdown-list-lg-user>
-            <sdds-header-dropdown-list-lg-link selected>
+            </sdds-header-dropdown-list-user>
+            <sdds-header-dropdown-list-link selected>
               My Instructions
-            </sdds-header-dropdown-list-lg-link>
-            <sdds-header-dropdown-list-lg-link>
+            </sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-link>
               Task List
-            </sdds-header-dropdown-list-lg-link>
-          </sdds-header-dropdown-list-lg>
+            </sdds-header-dropdown-list-link>
+          </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
         <sdds-header-logo slot="end" link-href="https://design.scania.com">

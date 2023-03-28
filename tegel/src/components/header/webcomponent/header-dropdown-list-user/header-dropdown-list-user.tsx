@@ -1,8 +1,8 @@
 import { Component, h, Prop, Element, Host } from '@stencil/core';
 
 @Component({
-  tag: 'sdds-header-dropdown-list-lg-user',
-  styleUrl: 'header-dropdown-list-lg-user.scss',
+  tag: 'sdds-header-dropdown-list-user',
+  styleUrl: 'header-dropdown-list-user.scss',
   shadow: true,
 })
 export class HeaderDropdownListLgUser {

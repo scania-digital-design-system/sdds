@@ -9,6 +9,9 @@ export class HeaderDropdownListLink {
   /** If the link should appear selected. */
   @Prop() selected: boolean = false;
 
+  /** The type of the list. */
+  @Prop({ reflect: true }) type: 'lg' | 'md' = 'md';
+
   /** The link URL */
   @Prop() href!: HTMLAnchorElement['href'];
 

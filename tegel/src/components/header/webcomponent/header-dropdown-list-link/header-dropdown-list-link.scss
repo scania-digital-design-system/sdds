@@ -7,8 +7,9 @@
   border-bottom: 1px solid var(--sdds-nav-dropdown-item-border-color);
 
   a {
+    all: unset;
     box-sizing: border-box;
-    border-right: 1px solid var(--sdds-nav-item-border-color);
+    border: none;
     display: flex;
     align-items: center;
     height: 100%;
@@ -18,7 +19,6 @@
     letter-spacing: var(--sdds-detail-02-ls);
     background-color: var(--sdds-header-nav-item-dropdown-opened-background);
     color: var(--sdds-header-nav-item-dropdown-opened-color);
-    border: none;
 
     &.active {
       border-left: 4px solid var(--sdds-nav-item-border-color-active);
@@ -37,5 +37,14 @@
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--sdds-nav-item-border-color-active);
+  }
+}
+
+:host([type='lg']) {
+  height: var(--sdds-header-height);
+
+  a {
+    padding: 0 16px;
+    color: var(--sdds-header-app-launcher-item-color);
   }
 }

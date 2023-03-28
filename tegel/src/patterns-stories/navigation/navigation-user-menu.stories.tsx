@@ -115,7 +115,7 @@ const Template = () =>
             image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
             image-alt="">
           </sdds-side-menu-user>
-          <sdds-side-menu-dropdown-list>
+          <sdds-side-menu-dropdown-list type="lg">
             <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>
             <sdds-side-menu-dropdown-list-link>Task List</sdds-side-menu-dropdown-list-link>
           </sdds-side-menu-dropdown-list>

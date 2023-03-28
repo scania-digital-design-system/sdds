@@ -7,9 +7,7 @@ import readmeLink from './header-link/readme.md';
 import readmeDropdown from './header-dropdown/readme.md';
 import readmeDropdownList from './header-dropdown-list/readme.md';
 import readmeDropdownListLink from './header-dropdown-list-link/readme.md';
-import readmeDropdownListLg from './header-dropdown-list-lg/readme.md';
-import readmeDropdownListLgLink from './header-dropdown-list-lg-link/readme.md';
-import readmeDropdownListLgUser from './header-dropdown-list-lg-user/readme.md';
+import readmeDropdownListUser from './header-dropdown-list-user/readme.md';
 import readmeLauncher from './header-launcher/readme.md';
 
 export default {
@@ -24,9 +22,7 @@ export default {
       'Header dropdown': readmeDropdown,
       'Header dropdown list': readmeDropdownList,
       'Header dropdown list link': readmeDropdownListLink,
-      'Header dropdown list lg': readmeDropdownListLg,
-      'Header dropdown list lg link': readmeDropdownListLgLink,
-      'Header dropdown list lg user': readmeDropdownListLgUser,
+      'Header dropdown list user': readmeDropdownListUser,
       'Header launcher': readmeLauncher,
     },
     layout: 'fullscreen',

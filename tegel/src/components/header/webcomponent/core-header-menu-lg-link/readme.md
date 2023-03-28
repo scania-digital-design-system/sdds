@@ -21,13 +21,11 @@
 
 ### Used by
 
- - [sdds-header-dropdown-list-lg-link](../header-dropdown-list-lg-link)
  - [sdds-header-launcher-list-link](../header-launcher-list-link)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-dropdown-list-lg-link --> sdds-core-header-menu-lg-link
   sdds-header-launcher-list-link --> sdds-core-header-menu-lg-link
   style sdds-core-header-menu-lg-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
