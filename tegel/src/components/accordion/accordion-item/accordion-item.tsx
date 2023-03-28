@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
 
 @Component({
   tag: 'sdds-accordion-item',
@@ -21,19 +21,28 @@ export class AccordionItem {
   /** When true 16px on right padding instead of 64px */
   @Prop() paddingReset: boolean = false;
 
-  /** Fires after the accordion item is closed or opened, emitting the value (as boolean) of the current state of the accordion */
+  /** Method for toggeling the expanded state of the accordion item. */
+  @Method()
+  async toggleAccordionItem() {
+    // This is negated in order to emit the value the accordion item will have after it has expanded/redacted.
+    const event = this.sddsToggle.emit({
+      expanded: !this.expanded,
+    });
+    if (!event.defaultPrevented) {
+      this.expanded = !this.expanded;
+    }
+  }
+
+  /** Fires when the accordion item is clicked but before the it is closed or opened. */
   @Event({
     eventName: 'sddsToggle',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsToggle: EventEmitter<boolean>;
-
-  openAccordion() {
-    this.expanded = !this.expanded;
-    this.sddsToggle.emit(this.expanded);
-  }
+  sddsToggle: EventEmitter<{
+    expanded: boolean;
+  }>;
 
   render() {
     return (
@@ -48,10 +57,13 @@ export class AccordionItem {
             type="button"
             aria-expanded={this.expanded}
             class={`sdds-accordion-header-icon-${this.expandIconPosition}`}
-            onClick={() => this.openAccordion()}
+            onClick={() => this.toggleAccordionItem()}
             disabled={this.disabled}
           >
-            <div class="sdds-accordion-title">{this.header}</div>
+            <div class="sdds-accordion-title">
+              {this.header}
+              <slot name="accordion-item-header"></slot>
+            </div>
             <div class="sdds-accordion-icon">
               <sdds-icon name="chevron_down" size="16px"></sdds-icon>
             </div>
