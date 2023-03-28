@@ -30,7 +30,9 @@ export default {
     siteName: {
       name: 'Site name',
       description: 'Set a custom title for the header',
-      type: 'string',
+      control: {
+        type: 'text',
+      },
     },
   },
   args: {
