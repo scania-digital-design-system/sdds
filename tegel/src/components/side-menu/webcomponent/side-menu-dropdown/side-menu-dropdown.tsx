@@ -26,7 +26,7 @@ export class SideMenuDropdown {
   @State() collapsed: boolean = false;
 
   @Listen('sddsSideMenuCollapsed', { target: 'body' })
-  collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
+  collapsedSideMenuEventHandler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
   }
 
