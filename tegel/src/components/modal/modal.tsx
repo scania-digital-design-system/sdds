@@ -97,7 +97,6 @@ export class Modal {
   initializeReferenceElement = (referenceEl) => {
     if (referenceEl) {
       referenceEl.addEventListener('click', (event) => {
-        event.stopPropagation();
         if (this.isShown) {
           this.handleClose(event);
         } else {
