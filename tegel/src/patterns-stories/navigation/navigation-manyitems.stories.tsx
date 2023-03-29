@@ -107,7 +107,7 @@ const Template = ({ dummyHtml }) =>
       </sdds-header-title>
 
       <sdds-header-button slot="end" onclick="alert('clicked')">
-        <sdds-icon name="calendar" size="20px"></sdds-icon>
+        <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
       </sdds-header-button>
 
       <sdds-header-launcher slot="end">

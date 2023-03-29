@@ -24,20 +24,29 @@
       @include sdds-focus-state;
     }
 
-    ::slotted(sdds-icon) {
+    /* Targets icon:
+    - Inside slot[name="icon"]
+    - As only-child in slot w/o name */
+    slot[name='icon']::slotted(sdds-icon),
+    slot:not([name])::slotted(sdds-icon:only-child) {
       position: relative;
       margin-left: -6px;
       left: 3px;
       transition: all 0.2s ease-in-out;
     }
 
-    ::slotted(img) {
+    /* Targets img:
+    - Inside slot[name="icon"]
+    - As only-child in slot w/o name */
+    slot[name='icon']::slotted(img),
+    slot:not([name])::slotted(img:only-child) {
       position: relative;
       margin-left: -20px;
       left: 10px;
       width: 34px;
       height: 34px;
       border-radius: 50%;
+      transition: all 0.2s ease-in-out;
     }
   }
 

@@ -43,6 +43,7 @@ export class HeaderLink {
             download={this.download}
             target={this.target}
           >
+            <slot name="icon" slot="icon"></slot>
             <slot />
           </a>
         </sdds-core-header-item>

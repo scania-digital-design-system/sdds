@@ -10,7 +10,7 @@ export class HeaderHamburger {
     return (
       <Host>
         <sdds-header-button>
-          <sdds-icon name="burger" size="20px"></sdds-icon>
+          <sdds-icon slot="icon" name="burger" size="20px"></sdds-icon>
         </sdds-header-button>
       </Host>
     );

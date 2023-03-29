@@ -11,7 +11,7 @@ Example:
       Example: default
     </sdds-header-title>
 
-    <sdds-header-link href="https://www.scania.com" target="_blank">
+    <sdds-header-link href="https://www.scania.com" target="_blank">Scania</sdds-header-link>
 
     <sdds-header-launcher slot="end">
       <sdds-header-launcher-list-title>Cool apps</sdds-header-launcher-list-title>
@@ -24,7 +24,7 @@ Example:
     <sdds-header-logo slot="end" link-href="https://design.scania.com">
     </sdds-header-logo>
 
-  </sdds-header-link>
+  </sdds-header>
   ```
 
 ## Header components API:

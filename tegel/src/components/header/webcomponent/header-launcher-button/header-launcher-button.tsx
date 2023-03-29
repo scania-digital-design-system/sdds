@@ -14,7 +14,7 @@ export class HeaderLauncherButton {
     return (
       <Host>
         <sdds-header-button active={this.active}>
-          <sdds-icon name="bento" size="20px"></sdds-icon>
+          <sdds-icon slot="icon" name="bento" size="20px"></sdds-icon>
         </sdds-header-button>
       </Host>
     );

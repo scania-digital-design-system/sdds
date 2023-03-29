@@ -23,6 +23,7 @@ export class HeaderButton {
           }}
         >
           <button>
+            <slot name="icon"></slot>
             <slot></slot>
           </button>
         </sdds-core-header-item>

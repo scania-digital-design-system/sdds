@@ -54,7 +54,7 @@ export class HeaderDropdown {
             }}
             selected={this.selected}
           >
-            <slot name="button-icon"></slot>
+            <slot name="button-icon" slot="icon"></slot>
             {this.buttonLabel}
             <slot name="button-label"></slot>
             {!this.noDropdownIcon && (

@@ -98,7 +98,7 @@ const Template = () =>
         </sdds-header-dropdown>
 
         <sdds-header-button slot="end" onclick="alert('Calendar button clicked')">
-          <sdds-icon name="calendar" size="20px"></sdds-icon>
+          <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
         </sdds-header-button>
 
         <sdds-header-launcher slot="end">
