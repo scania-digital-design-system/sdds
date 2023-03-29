@@ -34,19 +34,13 @@ export class SddsToast {
   /** Hides the toast. */
   @Method()
   async hideToast() {
-    this.hidden = true;
-    return {
-      toastId: this.toastId,
-    };
+    this.handleClose();
   }
 
   /** Shows the toast. */
   @Method()
   async showToast() {
-    this.hidden = false;
-    return {
-      toastId: this.toastId,
-    };
+    this.handleShow();
   }
 
   /** Sends unique toast identifier component is closed. */
@@ -81,6 +75,15 @@ export class SddsToast {
     });
     if (!sddsCloseEvent.defaultPrevented) {
       this.hidden = true;
+    }
+  };
+
+  handleShow = () => {
+    const sddsCloseEvent = this.sddsClose.emit({
+      toastId: this.toastId,
+    });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = false;
     }
   };
 
