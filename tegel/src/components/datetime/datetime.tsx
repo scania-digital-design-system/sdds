@@ -50,14 +50,16 @@ export class Datetime {
 
   /** Change event for the datetime */
   @Event({
+    eventName: 'sddsChange',
     composed: true,
     bubbles: true,
-    cancelable: true,
+    cancelable: false,
   })
   sddsChange: EventEmitter;
 
   /** Blur event for the datetime */
   @Event({
+    eventName: 'sddsBlur',
     composed: true,
     bubbles: true,
     cancelable: false,
@@ -183,29 +185,11 @@ export class Datetime {
             />
 
             <div class="datetime-icon icon-datetime-local">
-              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M23.625 2.977a1 1 0 1 0-2 0v2.985l-11.344.01V2.99a1 1 0 1 0-2 0v2.985H6.25a4.2 4.2 0 0 0-4.2 4.2V25.77a4.2 4.2 0 0 0 4.2 4.2h19.54a4.2 4.2 0 0 0 4.2-4.2V10.167a4.2 4.2 0 0 0-4.191-4.2l-2.174-.004V2.977ZM4.05 10.174a2.2 2.2 0 0 1 2.2-2.2l16.376-.013 3.17.006a2.2 2.2 0 0 1 2.195 2.2v1.847H4.05l-.001-1.84Zm0 3.84V25.77a2.2 2.2 0 0 0 2.2 2.2h19.54a2.2 2.2 0 0 0 2.2-2.2V14.014H4.05Z"
-                  fill="currentColor"
-                />
-              </svg>
+              <sdds-icon size="20px" name="calendar"></sdds-icon>
             </div>
 
             <div class="datetime-icon icon-time">
-              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path
-                  d="M17 7a1 1 0 1 0-2 0v8a2 2 0 0 0 2 2h6a1 1 0 1 0 0-2h-6V7Z"
-                  fill="currentColor"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2ZM4 16C4 9.373 9.373 4 16 4s12 5.373 12 12-5.373 12-12 12S4 22.627 4 16Z"
-                  fill="currentColor"
-                />
-              </svg>
+              <sdds-icon size="20px" name="clock"></sdds-icon>
             </div>
           </div>
           <div class="sdds-datetime-bar"></div>
