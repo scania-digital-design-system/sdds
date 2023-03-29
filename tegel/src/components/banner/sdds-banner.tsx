@@ -43,39 +43,29 @@ export class SddsBanner {
   })
   sddsClose: EventEmitter<{
     bannerId: string;
-    hidden: boolean;
+  }>;
+
+  /** Sends unique banner identifier when the close button is pressed. */
+  @Event({
+    eventName: 'sddsShow',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsShow: EventEmitter<{
+    bannerId: string;
   }>;
 
   /** Hides the banner. */
   @Method()
   async hideBanner() {
-    const sddsCloseEvent = this.sddsClose.emit({
-      bannerId: this.bannerId,
-      hidden: this.hidden,
-    });
-    if (!sddsCloseEvent.defaultPrevented) {
-      this.hidden = true;
-    }
-    return {
-      bannerId: this.bannerId,
-      hidden: true,
-    };
+    this.handleClose();
   }
 
   /** Shows the banner */
   @Method()
   async showBanner() {
-    const sddsCloseEvent = this.sddsClose.emit({
-      bannerId: this.bannerId,
-      hidden: this.hidden,
-    });
-    if (!sddsCloseEvent.defaultPrevented) {
-      this.hidden = false;
-    }
-    return {
-      bannerId: this.bannerId,
-      hidden: false,
-    };
+    this.handleShow();
   }
 
   connectedCallback() {
@@ -92,10 +82,18 @@ export class SddsBanner {
   handleClose = () => {
     const sddsCloseEvent = this.sddsClose.emit({
       bannerId: this.bannerId,
-      hidden: this.hidden,
     });
     if (!sddsCloseEvent.defaultPrevented) {
       this.hidden = true;
+    }
+  };
+
+  handleShow = () => {
+    const sddsCloseEvent = this.sddsShow.emit({
+      bannerId: this.bannerId,
+    });
+    if (!sddsCloseEvent.defaultPrevented) {
+      this.hidden = false;
     }
   };
 

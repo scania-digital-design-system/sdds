@@ -80,7 +80,7 @@ export default {
     type: 'Default',
     header: 'This is a header text area',
     subheader: '<div slot="banner-subheader">Short subheader</div>',
-    link: '<sdds-link slot="banner-link" href="/">Link example</sdds-link>',
+    link: '<sdds-link slot="banner-link" ><a href="/">Link example</a></sdds-link>',
     icon: 'truck',
     persistent: false,
   },
@@ -101,7 +101,10 @@ const Template = ({ type, icon, header, subheader, persistent, link }) =>
       <!-- Script tag with eventlistener for demo purposes. -->
       <script>
         document.addEventListener('sddsClose', (event) => {
-          console.log('Closed banner with BannerID: ', event.detail.bannerId)
+          console.log(event)
+        })
+        document.addEventListener('sddsShow', (event) => {
+          console.log(event)
         })
       </script>
     `);
