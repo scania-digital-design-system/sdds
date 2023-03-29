@@ -8,7 +8,7 @@ import {
   Prop,
   Watch,
 } from '@stencil/core/internal';
-import { renderHiddenInput } from '../../utils/utils';
+import { appendHiddenInput } from '../../utils/utils';
 
 @Component({
   tag: 'sdds-dropdown-v2',
@@ -278,7 +278,7 @@ export class SddsDropdownV2 {
   };
 
   render() {
-    renderHiddenInput(
+    appendHiddenInput(
       this.host,
       this.name,
       this.selection?.map((item) => item.value).toString(),
