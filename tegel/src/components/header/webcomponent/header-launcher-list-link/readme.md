@@ -20,12 +20,12 @@
 
 ### Depends on
 
-- [sdds-core-header-menu-lg-link](../core-header-menu-lg-link)
+- [sdds-header-dropdown-list-link](../header-dropdown-list-link)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-launcher-list-link --> sdds-core-header-menu-lg-link
+  sdds-header-launcher-list-link --> sdds-header-dropdown-list-link
   style sdds-header-launcher-list-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

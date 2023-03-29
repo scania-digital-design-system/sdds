@@ -7,10 +7,10 @@ import { Component, Host, h } from '@stencil/core';
 export class HeaderLauncherList {
   render() {
     return (
-      <Host>
-        <sdds-core-header-menu-lg>
+      <Host role="list">
+        <sdds-header-dropdown-list type="lg">
           <slot></slot>
-        </sdds-core-header-menu-lg>
+        </sdds-header-dropdown-list>
       </Host>
     );
   }

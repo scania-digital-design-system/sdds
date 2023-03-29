@@ -26,6 +26,19 @@ The header dropdown list link is a component that can be used to display a link 
 | `"a"` |             |
 
 
+## Dependencies
+
+### Used by
+
+ - [sdds-header-launcher-list-link](../header-launcher-list-link)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-header-launcher-list-link --> sdds-header-dropdown-list-link
+  style sdds-header-dropdown-list-link fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

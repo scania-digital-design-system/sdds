@@ -26,7 +26,8 @@ export class HeaderLauncherListLink {
   render() {
     return (
       <Host>
-        <sdds-core-header-menu-lg-link
+        <sdds-header-dropdown-list-link
+          type="lg"
           exportparts="a"
           href={this.href}
           hreflang={this.hreflang}
@@ -35,7 +36,7 @@ export class HeaderLauncherListLink {
           target={this.target}
         >
           <slot></slot>
-        </sdds-core-header-menu-lg-link>
+        </sdds-header-dropdown-list-link>
       </Host>
     );
   }
