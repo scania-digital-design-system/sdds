@@ -49,34 +49,33 @@ export const appendHiddenInput = (
 };
 
 /**
- * Find the nexxt focusable item index in a list of focusable elements.
- *
- * @param options List of focusable elements, disabled items needs to have a disabled attribute.
- * @param nextItemIndex The index in the list to start the loop on.
+ * Find the next focusable element index in a list of focusable elements.
+ * @param items List of focusable elements, element with a attribute of disabled that is true will be skipped over.
+ * @param nextItemIndex The index in the list to start the search on.
  */
-export const findNextFocusableItem = (options: any[], nextItemIndex: number) => {
-  if (options[nextItemIndex] === undefined) {
+export const findNextFocusableItem = (items: any[], nextItemIndex: number) => {
+  if (items[nextItemIndex] === undefined) {
     return 0;
   }
-  for (let index = nextItemIndex; index < options.length; index++) {
-    if (!options[index].disabled) {
+  for (let index = nextItemIndex; index < items.length; index++) {
+    if (!items[index].disabled) {
       return index;
     }
   }
 };
 
 /**
- * Find the nexxt focusable item index in a list of focusable elements.
+ * Find the previous focusable element index in a list of focusable elements.
  *
- * @param options List of focusable elements, disabled items needs to have a disabled attribute.
- * @param nextItemIndex The index in the list to start the loop on.
+ * @param items List of focusable elements, element with a attribute of disabled that is true will be skipped over.
+ * @param nextItemIndex The index in the list to start the search on.
  */
-export const findPreviousFocusableItem = (options: any[], previousItemIndex: number) => {
-  if (options[previousItemIndex] === undefined) {
-    return options.length - 1;
+export const findPreviousFocusableItem = (items: any[], previousItemIndex: number) => {
+  if (items[previousItemIndex] === undefined) {
+    return items.length - 1;
   }
   for (let index = previousItemIndex; index >= 0; index--) {
-    if (!options[index].disabled) {
+    if (!items[index].disabled) {
       return index;
     }
   }
