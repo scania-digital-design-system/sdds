@@ -10,8 +10,53 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import dummyData from './dummy-data.json';
+
 import { InternalSddsTablePropChange } from '../table/table';
+
+const jsonData = [
+  {
+    truck: 'L-series',
+    driver: 'Sonya Bruce',
+    country: 'Brazil',
+    mileage: 123987,
+  },
+  {
+    truck: 'P-series',
+    driver: 'Guerra Bowman',
+    country: 'Sweden',
+    mileage: 2000852,
+  },
+  {
+    truck: 'G-series',
+    driver: 'Ferrell Wallace',
+    country: 'Germany',
+    mileage: 564,
+  },
+  {
+    truck: 'R-series',
+    driver: 'Cox Burris',
+    country: 'Spain',
+    mileage: 1789357,
+  },
+  {
+    truck: 'S-series',
+    driver: 'Montgomery Cervantes',
+    country: 'Croatia',
+    mileage: 65,
+  },
+  {
+    truck: 'L-series',
+    driver: 'Sheryl Nielsen',
+    country: 'Greece',
+    mileage: 365784,
+  },
+  {
+    truck: 'G-series',
+    driver: 'Benton Gomez',
+    country: 'France',
+    mileage: 80957,
+  },
+];
 
 const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   'enableMultiselect',
@@ -34,9 +79,9 @@ export class TableBody {
   @Prop() bodyData: any;
 
   /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
-  @Prop() enableDummyData: boolean = false;
+  @Prop() enableJsonData: boolean = false;
 
-  @State() dummyData: any = JSON.stringify(dummyData);
+  @State() jsonData: any = JSON.stringify(jsonData);
 
   @Element() host: HTMLElement;
 
@@ -316,8 +361,8 @@ export class TableBody {
       this[tablePropName] = this.tableEl[tablePropName];
     });
 
-    if (this.enableDummyData) {
-      this.bodyData = this.dummyData;
+    if (this.enableJsonData) {
+      this.bodyData = this.jsonData;
     } else if (this.bodyData) {
       this.arrayDataWatcher(this.bodyData);
     }
