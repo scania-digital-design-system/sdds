@@ -5,7 +5,9 @@ import { SddsCheckboxCustomEvent } from '../../../components';
 @Component({
   tag: 'sdds-dropdown-option-v2',
   styleUrl: 'dropdown-option-v2.scss',
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class SddsDropdownOptionV2 {
   @Element() host: HostElement;

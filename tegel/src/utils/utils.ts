@@ -35,7 +35,7 @@ export const appendHiddenInput = (
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  additionalAttributes: Array<{ key: string; value: string }>
+  additionalAttributes: Array<{ key: string; value: string }>,
 ) => {
   const input = element.ownerDocument!.createElement('input');
   input.type = 'hidden';
@@ -45,6 +45,40 @@ export const appendHiddenInput = (
   input.value = value || '';
   if (additionalAttributes) {
     additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+  }
+};
+
+/**
+ * Find the nexxt focusable item index in a list of focusable elements.
+ *
+ * @param options List of focusable elements, disabled items needs to have a disabled attribute.
+ * @param nextItemIndex The index in the list to start the loop on.
+ */
+export const findNextFocusableItem = (options: any[], nextItemIndex: number) => {
+  if (options[nextItemIndex] === undefined) {
+    return 0;
+  }
+  for (let index = nextItemIndex; index < options.length; index++) {
+    if (!options[index].disabled) {
+      return index;
+    }
+  }
+};
+
+/**
+ * Find the nexxt focusable item index in a list of focusable elements.
+ *
+ * @param options List of focusable elements, disabled items needs to have a disabled attribute.
+ * @param nextItemIndex The index in the list to start the loop on.
+ */
+export const findPreviousFocusableItem = (options: any[], previousItemIndex: number) => {
+  if (options[previousItemIndex] === undefined) {
+    return options.length - 1;
+  }
+  for (let index = previousItemIndex; index >= 0; index--) {
+    if (!options[index].disabled) {
+      return index;
+    }
   }
 };
 

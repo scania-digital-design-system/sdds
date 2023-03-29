@@ -8,7 +8,12 @@ import {
   Prop,
   Watch,
 } from '@stencil/core/internal';
-import { appendHiddenInput } from '../../utils/utils';
+import {
+  appendChildElement,
+  appendHiddenInput,
+  findNextFocusableItem,
+  findPreviousFocusableItem,
+} from '../../utils/utils';
 
 @Component({
   tag: 'sdds-dropdown-v2',
@@ -178,6 +183,38 @@ export class SddsDropdownV2 {
     }
   }
 
+  @Listen('keydown')
+  async onKeyDown(event: KeyboardEvent) {
+    // Get the active element
+    const { activeElement } = document;
+    if (!activeElement) {
+      return;
+    }
+
+    if (event.key === 'ArrowDown') {
+      /* Get the index of the currently focus index, if there is no 
+      nextElementSibling return the index for the first child in our dropdown.  */
+
+      const startingIndex = activeElement.nextElementSibling
+        ? this.children.findIndex((element) => element === activeElement.nextElementSibling)
+        : 0;
+
+      const elementIndex = findNextFocusableItem(this.children, startingIndex);
+      this.children[elementIndex].focus();
+    } else if (event.key === 'ArrowUp') {
+      /* Get the index of the currently focus index, if there is no 
+      previousElementSibling return the index for the first last in our dropdown.  */
+      const startingIndex = activeElement.nextElementSibling
+        ? this.children.findIndex((element) => element === activeElement.previousElementSibling)
+        : 0;
+
+      const elementIndex = findPreviousFocusableItem(this.children, startingIndex);
+      this.children[elementIndex].focus();
+    } else if (event.key === 'Escape') {
+      this.open = false;
+    }
+  }
+
   // If the dropdown gets closed this sets the value of the drodpown to the current selection labels.
   @Watch('open')
   handleOpenState() {
@@ -195,11 +232,6 @@ export class SddsDropdownV2 {
   };
 
   componentDidLoad() {
-    if (this.options) {
-      this.children = Array.from(
-        this.dropdownList.children,
-      ) as Array<HTMLSddsDropdownOptionV2Element>;
-    }
     if (this.defaultValue) {
       this.setDefaultOption();
     }
@@ -278,6 +310,25 @@ export class SddsDropdownV2 {
   };
 
   render() {
+    if (this.options) {
+      let id = 0;
+      this.options.forEach((option) => {
+        appendChildElement(
+          this.host,
+          'sdds-dropdown-option-v2',
+          [
+            { key: 'value', value: option.value },
+            { key: 'disabled', value: option.disabled.toString() },
+          ],
+          option.label,
+          `id${id++}`,
+        );
+      });
+      this.children = Array.from(this.host.children).filter(
+        (element) => element.tagName === 'SDDS-DROPDOWN-OPTION-V2',
+      ) as HTMLSddsDropdownOptionV2Element[];
+    }
+
     appendHiddenInput(
       this.host,
       this.name,
@@ -399,19 +450,7 @@ export class SddsDropdownV2 {
             ${this.openDirection}
             ${this.label && this.labelPosition === 'outside' ? 'label-outside' : ''}`}
         >
-          {this.options ? (
-            this.options.map((element, index: number) => (
-              <sdds-dropdown-option-v2
-                key={index}
-                disabled={element.disabled}
-                value={element.value}
-              >
-                {element.label}
-              </sdds-dropdown-option-v2>
-            ))
-          ) : (
-            <slot></slot>
-          )}
+          <slot></slot>
           {this.filterResult === 0 && (
             <div class={`no-result ${this.size}`}>{this.noResultText}</div>
           )}

@@ -37,10 +37,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [sdds-dropdown-v2](..)
-
 ### Depends on
 
 - [sdds-checkbox](../../checkbox)
@@ -51,7 +47,6 @@ Type: `Promise<void>`
 graph TD;
   sdds-dropdown-option-v2 --> sdds-checkbox
   sdds-dropdown-option-v2 --> sdds-icon
-  sdds-dropdown-v2 --> sdds-dropdown-option-v2
   style sdds-dropdown-option-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
