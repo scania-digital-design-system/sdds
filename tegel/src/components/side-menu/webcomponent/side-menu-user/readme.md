@@ -6,8 +6,8 @@ Example:
   
   ```html
   <sdds-side-menu-user
-  image-src="https://via.placeholder.com/150"
-  image-alt="User image"
+  img-src="https://via.placeholder.com/150"
+  img-alt="User image"
   heading="John Doe"
   subheading=""
 ></sdds-side-menu-user>

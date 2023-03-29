@@ -191,8 +191,8 @@ const Template = () =>
             slot="button-label" 
             heading="Name Namesson" 
             subheading="Company name" 
-            image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
-            image-alt="">
+            img-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
+            img-alt="">
           </sdds-side-menu-user>
           <sdds-side-menu-dropdown-list>
             <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>

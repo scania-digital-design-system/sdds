@@ -83,18 +83,18 @@ const Template = () =>
 
         <sdds-header-dropdown slot="end" class="demo-hide demo-xs-show" no-dropdown-icon selected>
           <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
-          <sdds-header-dropdown-list-lg>
-            <sdds-header-dropdown-list-lg-user
+          <sdds-header-dropdown-list type="lg">
+            <sdds-header-dropdown-list-user
               heading="Name Nameson"
               subheading="Company name">
-            </sdds-header-dropdown-list-lg-user>
-            <sdds-header-dropdown-list-lg-link selected>
+            </sdds-header-dropdown-list-user>
+            <sdds-header-dropdown-list-link selected>
               My Instructions
-            </sdds-header-dropdown-list-lg-link>
-            <sdds-header-dropdown-list-lg-link>
+            </sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-link>
               Task List
-            </sdds-header-dropdown-list-lg-link>
-          </sdds-header-dropdown-list-lg>
+            </sdds-header-dropdown-list-link>
+          </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
         <sdds-header-logo slot="end" link-href="https://design.scania.com">
@@ -112,8 +112,8 @@ const Template = () =>
             slot="button-label" 
             heading="Name Namesson" 
             subheading="Company name" 
-            image-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
-            image-alt="">
+            img-src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" 
+            img-alt="">
           </sdds-side-menu-user>
           <sdds-side-menu-dropdown-list type="lg">
             <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>
