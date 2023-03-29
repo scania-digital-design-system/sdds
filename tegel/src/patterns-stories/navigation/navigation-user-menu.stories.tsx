@@ -107,7 +107,7 @@ const Template = () =>
 
         <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
 
-        <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected initial-open>
+        <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected default-open>
           <sdds-side-menu-user 
             slot="button-label" 
             heading="Name Namesson" 

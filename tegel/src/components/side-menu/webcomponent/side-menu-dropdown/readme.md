@@ -27,7 +27,7 @@ Example:
 | Property      | Attribute      | Description                                                                                       | Type      | Default     |
 | ------------- | -------------- | ------------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `buttonLabel` | `button-label` | The label of the button that opens the dropdown. This is an alternative to the button-label slot. | `string`  | `undefined` |
-| `initialOpen` | `initial-open` | If the dropdown should be open from the start.                                                    | `boolean` | `false`     |
+| `defaultOpen` | `default-open` | If the dropdown should be open from the start.                                                    | `boolean` | `false`     |
 | `selected`    | `selected`     | If the button that opens the dropdown should appear selected.                                     | `boolean` | `false`     |
 
 

@@ -167,7 +167,7 @@ const Template = ({ dummyHtml }) =>
           Our services
         </sdds-side-menu-button>
 
-        <sdds-side-menu-dropdown initial-open selected>
+        <sdds-side-menu-dropdown default-open selected>
           <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
           <span slot="button-label">
             Wheel types
