@@ -248,7 +248,7 @@ const Template = ({
 
     slider.removeEventListener('sddsChange', null)
     slider.addEventListener('sddsChange', (event) => {
-      console.log('Slider changed, value:', event.detail.value);
+      console.log(event);
     });
 
     </script>
