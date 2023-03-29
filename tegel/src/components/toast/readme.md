@@ -26,23 +26,23 @@
 
 ## Methods
 
-### `hideToast() => Promise<{ toastId: string; }>`
+### `hideToast() => Promise<void>`
 
 Hides the toast.
 
 #### Returns
 
-Type: `Promise<{ toastId: string; }>`
+Type: `Promise<void>`
 
 
 
-### `showToast() => Promise<{ toastId: string; }>`
+### `showToast() => Promise<void>`
 
 Shows the toast.
 
 #### Returns
 
-Type: `Promise<{ toastId: string; }>`
+Type: `Promise<void>`
 
 
 
