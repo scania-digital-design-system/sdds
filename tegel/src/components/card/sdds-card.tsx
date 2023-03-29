@@ -46,7 +46,7 @@ export class SddsCard {
   @Event({
     eventName: 'sddsClick',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsClick: EventEmitter<{
