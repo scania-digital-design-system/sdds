@@ -40,13 +40,20 @@ export class RadioButton {
   @Event({
     eventName: 'sddsChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsChange: EventEmitter<{
     radioId: string;
     value: string;
   }>;
+
+  handleChange = () => {
+    this.sddsChange.emit({
+      radioId: this.radioId,
+      value: this.value,
+    });
+  };
 
   render() {
     return (
@@ -64,12 +71,7 @@ export class RadioButton {
           // aria-describedby={this.host.getAttribute('aria-describedby')}
           required={this.required}
           disabled={this.disabled}
-          onChange={() => {
-            this.sddsChange.emit({
-              radioId: this.radioId,
-              value: this.value,
-            });
-          }}
+          onChange={() => this.handleChange()}
         />
         <label htmlFor={this.radioId}>
           <slot name="label"></slot>
