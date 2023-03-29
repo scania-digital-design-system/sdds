@@ -318,7 +318,7 @@ i.sdds-btn-icon[slot='icon'] {
 }
 
 :host(sdds-button) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   ::slotted([slot='icon']) {
@@ -354,7 +354,7 @@ i.sdds-btn-icon[slot='icon'] {
 }
 
 :host(sdds-button:not([only-icon])) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   .sdds-btn-sm {
