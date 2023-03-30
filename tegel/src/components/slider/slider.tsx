@@ -104,7 +104,7 @@ export class Slider {
   @Event({
     eventName: 'sddsChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsChange: EventEmitter<{
