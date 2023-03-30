@@ -24,9 +24,9 @@ export class SddsDropdownOptionV2 {
 
   @State() size: 'sm' | 'md' | 'lg' = 'lg';
 
-  parentElement: HTMLSddsDropdownV2Element;
+  private parentElement: HTMLSddsDropdownV2Element;
 
-  label: string;
+  private label: string;
 
   /** Method to select/deselect an option if the option is not disabled. */
   @Method()

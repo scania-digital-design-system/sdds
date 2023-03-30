@@ -76,11 +76,11 @@ export class SddsDropdownV2 {
 
   @State() filterFocus: boolean;
 
-  dropdownList: HTMLDivElement;
+  private dropdownList: HTMLDivElement;
 
-  inputElement: HTMLInputElement;
+  private inputElement: HTMLInputElement;
 
-  children: Array<HTMLSddsDropdownOptionV2Element>;
+  private children: Array<HTMLSddsDropdownOptionV2Element>;
 
   /** Method that resets the dropdown. */
   @Method()
