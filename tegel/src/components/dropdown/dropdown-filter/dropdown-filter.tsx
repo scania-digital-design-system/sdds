@@ -72,7 +72,7 @@ export class DropdownFilter {
     this.filteredContent = this.dataOptions;
   }
 
-  @Listen('inputSearch')
+  @Listen('internalSddsSearch')
   updateOptionsContent(event: CustomEvent<any>) {
     this.searchTerm = event.detail;
     this.findData();
@@ -134,9 +134,13 @@ export class DropdownFilter {
 
   render() {
     return (
-      <Host selected-value={this.selectedValue} selected-text={this.selectedLabel} class={`
+      <Host
+        selected-value={this.selectedValue}
+        selected-text={this.selectedLabel}
+        class={`
       ${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}
-     `}>
+     `}
+      >
         <sdds-dropdown
           ref={(el) => (this.dropdownRef = el)}
           exportparts="dropdown-filter-disabled"
