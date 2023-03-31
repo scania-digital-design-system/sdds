@@ -22,13 +22,6 @@
 | `type`           | `type`            | `Controls type of dropdown.                                                                                        | `"default" \| "filter" \| "multiselect"`                 | `'default'`  |
 
 
-## Events
-
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `inputSearch` |             | `CustomEvent<any>` |
-
-
 ## Methods
 
 ### `resetOption() => Promise<void>`

@@ -225,7 +225,7 @@ export class Dropdown {
     if (typeof this.textInput !== 'undefined' || this.textInput === null) {
       if (!this.selectedLabel && this.selectedLabel.length <= 0) {
         this.textInput.value = '';
-        this.inputSearch.emit('');
+        this.internalSddsSearch.emit('');
       }
       if (this.selectedLabel !== this.textInput.value) {
         this.textInput.value = this.selectedLabel;
@@ -256,17 +256,18 @@ export class Dropdown {
     }
   }
 
+  /** @internal Search event that is emitted to the sdds-dropdown-filter */
   @Event({
-    eventName: 'inputSearch',
+    eventName: 'internalSddsSearch',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
-  inputSearch: EventEmitter<any>;
+  internalSddsSearch: EventEmitter<any>;
 
   handleSearch(ev) {
     const searchTerm = ev.target.value;
-    this.inputSearch.emit(searchTerm);
+    this.internalSddsSearch.emit(searchTerm);
     this.open = true;
   }
 
