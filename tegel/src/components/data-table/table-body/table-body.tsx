@@ -79,7 +79,7 @@ export class TableBody {
   @Prop() bodyData: any;
 
   /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
-  @Prop() enableJsonData: boolean = false;
+  @Prop() enableDummyData: boolean = false;
 
   @State() jsonData: any = JSON.stringify(jsonData);
 
@@ -361,7 +361,7 @@ export class TableBody {
       this[tablePropName] = this.tableEl[tablePropName];
     });
 
-    if (this.enableJsonData) {
+    if (this.enableDummyData) {
       this.bodyData = this.jsonData;
     } else if (this.bodyData) {
       this.arrayDataWatcher(this.bodyData);

@@ -176,7 +176,7 @@ const BatchActionTemplate = ({
                 column4Width ? `style="width: ${column4Width};"` : ''
               } column-key='mileage' column-title='Mileage' text-align='right'></sdds-header-cell>
           </sdds-table-header>
-          <sdds-table-body enable-json-data>
+          <sdds-table-body enable-dummy-data>
           </sdds-table-body>
   </sdds-table>`);
 

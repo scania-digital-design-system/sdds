@@ -12,7 +12,7 @@ import { TableToolbar } from './table-toolbar/table-toolbar';
 const columnKeys = Object.keys(dummyData[0]);
 
 describe('sdds-table filtering', () => {
-  it('should render cells from enable-json-data prop', async () => {
+  it('should render cells from enable-dummy-data prop', async () => {
     const mismatchingCellSpy = jest.fn();
     const matchingCellSpy = jest.fn();
     const page = await newSpecPage({

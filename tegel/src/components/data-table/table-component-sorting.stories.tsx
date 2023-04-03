@@ -208,7 +208,7 @@ const SortingTemplate = ({
     column4Width ? `custom-width="${column4Width}"` : ''
   }></sdds-header-cell>
           </sdds-table-header>
-          <sdds-table-body enable-json-data>
+          <sdds-table-body enable-dummy-data>
           </sdds-table-body>
   </sdds-table>`);
 
