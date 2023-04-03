@@ -27,7 +27,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -48,7 +49,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive design',
-      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
+      description:
+        'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
@@ -108,14 +110,16 @@ export default {
     },
     noMinWidth: {
       name: 'No minimum width',
-      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
+      description:
+        'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
     },
     column1Width: {
       name: 'Column 1 width',
-      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -123,7 +127,8 @@ export default {
     },
     column2Width: {
       name: 'Column 2 width',
-      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -131,7 +136,8 @@ export default {
     },
     column3Width: {
       name: 'Column 3 width',
-      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -139,7 +145,8 @@ export default {
     },
     column4Width: {
       name: 'Column 4 width',
-      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -189,17 +196,17 @@ const SortingTemplate = ({
       <sdds-table-toolbar table-title="Sorting"></sdds-table-toolbar>
           <sdds-table-header>
               <sdds-header-cell column-key='truck' column-title='Truck type' sortable="${column1sortable}" ${
-                column1Width ? `custom-width="${column1Width}"` : ''
-              }></sdds-header-cell>
+    column1Width ? `custom-width="${column1Width}"` : ''
+  }></sdds-header-cell>
               <sdds-header-cell column-key='driver' column-title='Driver name' sortable="${column2sortable}" ${
-                column2Width ? `custom-width="${column2Width}"` : ''
-              }></sdds-header-cell>
+    column2Width ? `custom-width="${column2Width}"` : ''
+  }></sdds-header-cell>
               <sdds-header-cell column-key='country' column-title='Country' sortable="${column3sortable}" ${
-                column3Width ? `custom-width="${column3Width}"` : ''
-              }></sdds-header-cell>
+    column3Width ? `custom-width="${column3Width}"` : ''
+  }></sdds-header-cell>
               <sdds-header-cell column-key='mileage' column-title='Mileage' sortable="${column4sortable}" text-align='right' ${
-                column4Width ? `custom-width="${column4Width}"` : ''
-              }></sdds-header-cell>
+    column4Width ? `custom-width="${column4Width}"` : ''
+  }></sdds-header-cell>
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
