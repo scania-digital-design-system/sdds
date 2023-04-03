@@ -43,7 +43,7 @@ export class TableHeaderRow {
   @Event({
     eventName: 'internalSddsMainCheckboxSelect',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsMainCheckboxSelect: EventEmitter<any>;

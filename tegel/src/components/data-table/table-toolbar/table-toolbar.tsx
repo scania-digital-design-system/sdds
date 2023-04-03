@@ -47,7 +47,7 @@ export class TableToolbar {
   @Event({
     eventName: 'sddsFilter',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsFilter: EventEmitter<any>;

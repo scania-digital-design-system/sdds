@@ -78,7 +78,7 @@ export class TableFooter {
   @Event({
     eventName: 'internalSddsEnablePagination',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsEnablePagination: EventEmitter<any>;
@@ -193,7 +193,7 @@ export class TableFooter {
   @Event({
     eventName: 'sddsPageChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsPageChange: EventEmitter<any>;

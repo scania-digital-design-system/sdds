@@ -75,7 +75,7 @@ export class TableBodyRow {
   @Event({
     eventName: 'internalSddsRowChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsRowChange: EventEmitter<boolean>;
@@ -84,7 +84,7 @@ export class TableBodyRow {
   @Event({
     eventName: 'internalSddsPagination',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsPagination: EventEmitter<string>;
