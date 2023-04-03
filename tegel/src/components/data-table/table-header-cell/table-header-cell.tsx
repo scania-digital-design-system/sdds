@@ -70,7 +70,7 @@ export class TableHeaderCell {
   @Event({
     eventName: 'sddsSortChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   sddsSortChange: EventEmitter<any>;
@@ -79,7 +79,7 @@ export class TableHeaderCell {
   @Event({
     eventName: 'internalSddsTextAlign',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsTextAlign: EventEmitter<any>;
@@ -88,7 +88,7 @@ export class TableHeaderCell {
   @Event({
     eventName: 'internalSddsHover',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsHover: EventEmitter<any>;

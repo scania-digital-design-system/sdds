@@ -91,7 +91,7 @@ export class TableBody {
   @Event({
     eventName: 'internalSddsSortingChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsSortingChange: EventEmitter<any>;
@@ -100,7 +100,7 @@ export class TableBody {
   @Event({
     eventName: 'internalSddsCheckboxChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsCheckboxChange: EventEmitter<any>;
@@ -109,7 +109,7 @@ export class TableBody {
   @Event({
     eventName: 'internalSddsMainCheckboxChange',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsMainCheckboxChange: EventEmitter<any>;

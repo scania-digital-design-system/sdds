@@ -60,7 +60,7 @@ export class Table {
     eventName: 'internalSddsTablePropChange',
     bubbles: true,
     composed: true,
-    cancelable: true,
+    cancelable: false,
   })
   internalSddsTablePropChange: EventEmitter<InternalSddsTablePropChange>;
 

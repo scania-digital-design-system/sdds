@@ -48,7 +48,7 @@ export class TableBodyRowExpandable {
   @Event({
     eventName: 'internalSddsRowExpanded',
     bubbles: true,
-    cancelable: true,
+    cancelable: false,
     composed: true,
   })
   internalSddsRowExpanded: EventEmitter<any>;
@@ -57,7 +57,7 @@ export class TableBodyRowExpandable {
   @Event({
     eventName: 'internalSddsPagination',
     composed: true,
-    cancelable: true,
+    cancelable: false,
     bubbles: true,
   })
   internalSddsPagination: EventEmitter<string>;
