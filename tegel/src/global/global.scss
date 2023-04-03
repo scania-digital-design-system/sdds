@@ -86,17 +86,16 @@ body {
   flex: 1;
 }
 
-html,
 .sdds-mode-light {
   color: var(--sdds-grey-958);
   background-color: var(--sdds-white);
 
-  & .sdds-mode-variant-primary {
+  &.sdds-mode-variant-primary {
     color: var(--sdds-grey-958);
     background-color: var(--sdds-white);
   }
 
-  & .sdds-mode-variant-secondary {
+  &.sdds-mode-variant-secondary {
     color: var(--sdds-grey-958);
     background-color: var(--sdds-grey-50);
   }
@@ -106,12 +105,12 @@ html,
   color: var(--sdds-grey-100);
   background-color: var(--sdds-grey-958);
 
-  & .sdds-mode-variant-primary {
+  &.sdds-mode-variant-primary {
     color: var(--sdds-grey-100);
     background-color: var(--sdds-grey-958);
   }
 
-  & .sdds-mode-variant-secondary {
+  &.sdds-mode-variant-secondary {
     color: var(--sdds-grey-100);
     background-color: var(--sdds-grey-900);
   }
