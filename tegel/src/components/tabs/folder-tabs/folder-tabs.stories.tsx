@@ -1,15 +1,13 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from './folder-tabs-link/readme.md';
-import readmeButton from './folder-tabs-button/readme.md';
+import readmeItem from './folder-tab/readme.md';
 
 export default {
   title: 'Components/Tabs',
   parameters: {
     notes: {
       'Folder tabs': readme,
-      'Folder tabs button': readmeButton,
-      'Folder tabs link': readmeLink,
+      'Folder tabs item': readmeItem,
     },
     backgrounds: { default: 'white' },
     design: [
@@ -38,13 +36,27 @@ export default {
         defaultValue: { summary: 'Inherit from parent' },
       },
     },
-    tabType: {
-      name: 'Tab type',
-      description: 'Type of child element, button/link.',
+    defaultSelectedIndex: {
+      name: 'Default selected index',
+      description:
+        'Sets the default selected tab, if this is used the tab changes will be done automatically.',
       control: {
         type: 'radio',
       },
-      options: ['Button', 'Link'],
+      options: ['None', 0, 1, 2, 3],
+      table: {
+        defaultValue: { summary: '0' },
+      },
+    },
+    selectedIndex: {
+      name: 'Selected index',
+      description:
+        'Sets the selected tab, if this is used the tab changes has to be handled by the user.',
+      control: {
+        type: 'radio',
+      },
+      options: ['None', 0, 1, 2, 3],
+      if: { arg: 'defaultSelectedIndex', eq: 'None' },
     },
     backgrounds: {
       table: {
@@ -54,67 +66,44 @@ export default {
   },
   args: {
     modeVariant: 'Inherit from parent',
-    tabType: 'Button',
+    defaultSelectedIndex: 'None',
+    selectedIndex: 'None',
   },
 };
 
-const Template = ({ modeVariant, tabType }) =>
+const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
   formatHtmlPreview(`
     <sdds-folder-tabs
+      ${defaultSelectedIndex !== 'None' ? `default-selected-index="${defaultSelectedIndex}"` : ''}
+      ${selectedIndex && selectedIndex !== 'None' ? `selected-index="${selectedIndex}"` : ''}
       ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}>
-      ${
-        tabType === 'Link'
-          ? `
-      <sdds-folder-tabs-link href="#">
-        <div slot="label">First tab</div>
-      </sdds-folder-tabs-link>
-      <sdds-folder-tabs-link href="#">
-        <div slot="label">Second tab is much longer</div>
-      </sdds-folder-tabs-link>
-      <sdds-folder-tabs-link selected href="#">
-        <div slot="label">Third tab</div>
-      </sdds-folder-tabs-link>
-      <sdds-folder-tabs-link disabled href="#">
-        <div slot="label">Fourth tab</div>
-      </sdds-folder-tabs-link>
-      `
-          : ''
-      }
-      ${
-        tabType === 'Button'
-          ? `
-      <sdds-folder-tabs-button>
-        <div slot="label">First tab</div>
-      </sdds-folder-tabs-button>
-      <sdds-folder-tabs-button>
-      <div slot="label">Second tab is much longer</div>
-      </sdds-folder-tabs-button>
-      <sdds-folder-tabs-button selected>
-        <div slot="label">Third tab</div>
-      </sdds-folder-tabs-button>
-      <sdds-folder-tabs-button disabled>
-        <div slot="label">Fourth tab</div>
-      </sdds-folder-tabs-button>
-      `
-          : ''
-      }
+      <sdds-folder-tab>
+        <button>First tab</button>
+      </sdds-folder-tab>
+      <sdds-folder-tab>
+        <button>Second tab is much longer</button>
+      </sdds-folder-tab>
+      <sdds-folder-tab>
+        <button>Third tab</button>
+      </sdds-folder-tab>
+      <sdds-folder-tab disabled>
+        <button>Fourth tab</button>
+      </sdds-folder-tab>
     </sdds-folder-tabs>
 
     <!-- Demo container. -->
     <div class="demo-container">
-      <h4 class="sdds-headline-04">Selected tab: <span class="selectedTab"></span></h4>
-      <h4 class="sdds-headline-04">Selected tabindex: <span class="selectedTabIndex"></span></h4>
+      <h4 class="sdds-headline-04">Selected tab index: <span class="selectedTabIndex"></span></h4>
     </div>
-
+    
     <!-- Script tag with eventlistener for demo purposes. -->
     <script>
-    selectedTab = document.getElementsByClassName('selectedTab')[0]
     selectedTabIndex = document.getElementsByClassName('selectedTabIndex')[0]
     tabs = document.querySelector('sdds-folder-tabs');
   
     tabs.addEventListener('sddsChange', (event) => {
-      selectedTab.innerHTML = event.detail.selectedTab
       selectedTabIndex.innerHTML = event.detail.selectedTabIndex
+      console.log('Tab change, selected tab index:', event.detail.selectedTabIndex)
     })
     </script>
 `);

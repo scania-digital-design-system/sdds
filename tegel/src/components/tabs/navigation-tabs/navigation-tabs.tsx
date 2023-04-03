@@ -20,16 +20,18 @@ export class NavigationTabs {
   /** Variant of the tabs, primary= on white, secondary= on grey50 */
   @Prop() modeVariant: 'primary' | 'secondary' = 'primary';
 
+  /** Sets the default selected tab. */
+  @Prop() defaultSelectedIndex: number = 0;
+
+  /** Sets the selected tab.
+   * If this is set all tab changes needs to be handled by the user. */
+  @Prop() selectedIndex: number;
+
   @Element() host: HTMLElement;
 
   @State() showLeftScroll: boolean = false;
 
   @State() showRightScroll: boolean = false;
-
-  @State() selectedTab: {
-    tab: string;
-    tabIndex: number;
-  };
 
   private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
@@ -39,30 +41,32 @@ export class NavigationTabs {
 
   private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  private children: Array<HTMLSddsNavigationTabsLinkElement | HTMLSddsNavigationTabsButtonElement>;
+  private children: Array<HTMLSddsNavigationTabElement>;
 
-  /** Selects a tab based on tabindex, will not select a disabled tab. */
+  /** Sets the passed tabindex as the selected tab. */
   @Method()
   async selectTab(tabIndex: number) {
     if (!this.children[tabIndex].disabled) {
-      this.children.forEach((element) => element.removeAttribute('selected'));
+      this.children.forEach((element) => element.setSelected(false));
       this.children = this.children.map((element, index) => {
         if (index === tabIndex) {
-          element.setAttribute('selected', '');
-          this.selectedTab = {
-            tab: element.innerText,
-            tabIndex: index,
-          };
+          element.setSelected(true);
+          this.selectedIndex = tabIndex;
         }
         return element;
       });
     }
     return {
-      selectedTab: this.selectedTab.tab,
-      selectedTabIndex: this.selectedTab.tabIndex,
+      selectedTabIndex: this.selectedIndex,
     };
   }
 
+  @Watch('selectedIndex')
+  handleSelectedTabIndexChange() {
+    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
+  }
+
+  /** Event emitted when the selected tab is changed. */
   @Event({
     eventName: 'sddsChange',
     composed: true,
@@ -70,88 +74,8 @@ export class NavigationTabs {
     bubbles: true,
   })
   sddsChange: EventEmitter<{
-    selectedTab: {
-      tab: string;
-      tabIndex: number;
-    };
+    selectedTabIndex: number;
   }>;
-
-  @Watch('selectedTab')
-  handleSelectedTabChange() {
-    this.host.setAttribute('selected-tab', this.selectedTab.tab);
-    this.host.setAttribute('selected-tab-index', `${this.selectedTab.tabIndex}`);
-    this.sddsChange.emit({
-      selectedTab: this.selectedTab,
-    });
-  }
-
-  connectedCallback() {
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsFolderTabsLinkElement | HTMLSddsFolderTabsButtonElement
-    >;
-    this.children = this.children.map((item, index) => {
-      item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.removeAttribute('selected'));
-          item.setAttribute('selected', '');
-          this.selectedTab = {
-            tab: item.innerText,
-            tabIndex: index,
-          };
-        }
-      });
-      if (index === 0) {
-        item.classList.add('first');
-      }
-      if (index === this.children.length - 1) {
-        item.classList.add('last');
-      }
-      if (item.selected) {
-        this.selectedTab = {
-          tab: item.innerText,
-          tabIndex: index,
-        };
-      }
-      return item;
-    });
-
-    this.children = Array.from(this.host.children) as Array<
-      HTMLSddsNavigationTabsLinkElement | HTMLSddsNavigationTabsButtonElement
-    >;
-    this.children[0].classList.add('first');
-    this.children[this.children.length - 1].classList.add('last');
-  }
-
-  componentDidLoad() {
-    const resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        const componentWidth = entry.contentRect.width;
-        let buttonsWidth = 0;
-
-        const navButtons = Array.from(this.host.children);
-        navButtons.forEach((navButton: HTMLElement) => {
-          const style = window.getComputedStyle(navButton);
-          buttonsWidth +=
-            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-
-          navButton.classList.add('sdds-navigation-tabs-tab');
-        });
-
-        this.componentWidth = componentWidth;
-        this.buttonsWidth = buttonsWidth;
-        this.scrollWidth = buttonsWidth - componentWidth;
-
-        if (this.buttonsWidth > this.componentWidth) {
-          this.evaluateScrollButtons();
-        } else {
-          this.showLeftScroll = false;
-          this.showRightScroll = false;
-        }
-      });
-    });
-
-    resizeObserver.observe(this.navWrapperElement);
-  }
 
   scrollRight() {
     const scroll = this.navWrapperElement.scrollLeft;
@@ -183,11 +107,90 @@ export class NavigationTabs {
     }
   }
 
+  addResizeObserver = () => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const componentWidth = entry.contentRect.width;
+        let buttonsWidth = 0;
+
+        const navButtons = Array.from(this.host.children);
+        navButtons.forEach((navButton: HTMLElement) => {
+          const style = window.getComputedStyle(navButton);
+          buttonsWidth +=
+            navButton.clientWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+
+          navButton.classList.add('sdds-navigation-tabs-tab');
+        });
+
+        this.componentWidth = componentWidth;
+        this.buttonsWidth = buttonsWidth;
+        this.scrollWidth = buttonsWidth - componentWidth;
+
+        if (this.buttonsWidth > this.componentWidth) {
+          this.evaluateScrollButtons();
+        } else {
+          this.showLeftScroll = false;
+          this.showRightScroll = false;
+        }
+      });
+    });
+    resizeObserver.observe(this.navWrapperElement);
+  };
+
+  addEventListenerToTabs = () => {
+    this.children = Array.from(this.host.children) as Array<HTMLSddsNavigationTabElement>;
+    this.children = this.children.map((item, index) => {
+      item.addEventListener('click', () => {
+        if (!item.disabled) {
+          this.children.forEach((element) => element.setSelected(false));
+          item.setSelected(true);
+          this.selectedIndex = index;
+          this.sddsChange.emit({
+            selectedTabIndex: this.selectedIndex,
+          });
+        }
+      });
+      return item;
+    });
+  };
+
+  connectedCallback() {
+    this.children = Array.from(this.host.children) as Array<any>;
+    this.children[0].classList.add('first');
+    this.children[this.children.length - 1].classList.add('last');
+  }
+
+  componentDidLoad = () => {
+    if (this.selectedIndex === undefined) {
+      console.log(this.selectedIndex);
+      this.addEventListenerToTabs();
+
+      this.children[this.defaultSelectedIndex].setSelected(true);
+      this.selectedIndex = this.defaultSelectedIndex;
+      this.sddsChange.emit({
+        selectedTabIndex: this.selectedIndex,
+      });
+    } else {
+      console.log(this.selectedIndex);
+
+      this.children[this.selectedIndex].setSelected(true);
+      this.sddsChange.emit({
+        selectedTabIndex: this.selectedIndex,
+      });
+    }
+  };
+
+  componentDidRender() {
+    this.addResizeObserver();
+  }
+
   render() {
     return (
-      <Host class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+      <Host
+        role="list"
+        class={`${this.modeVariant ? `sdds-mode-variant-${this.modeVariant}` : ''}`}
+      >
         <div
-          role="list"
           class="wrapper"
           ref={(el) => {
             this.navWrapperElement = el as HTMLElement;
