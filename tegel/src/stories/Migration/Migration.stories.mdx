@@ -10,7 +10,6 @@ Here is where we document all the breaking changes that we are introducing while
 <!-- ### MD cheatsheet
 https://www.markdownguide.org/cheat-sheet/ -->
 
-
 ---
 
 # Breaking changes
@@ -19,17 +18,18 @@ https://www.markdownguide.org/cheat-sheet/ -->
 
 ## Event name convention
 
-This change affects all components. 
+This change affects all components.
 
 Previously we have not had a set naming convention for our events. This has led to misalignment between
 components where some events has had a `custom` prefix, and others have had other ways of indicating whether
-or not it is a custom event. We have now settled on a naming convention for all events. 
+or not it is a custom event. We have now settled on a naming convention for all events.
 Both **external**, events we expect you as a user to interact with, and **internal**, events that are used within
-our components to update state/react to changes. 
+our components to update state/react to changes.
 
 In short:
- - External events are named: 'sdds' + native event name. ('sddsClick', 'sddsChange')
- - Internal events are named: 'internalSdds' + event name. ('internalSddsTablePropsChange', 'internalSddsCheckboxChange')
+
+- External events are named: 'sdds' + native event name. ('sddsClick', 'sddsChange')
+- Internal events are named: 'internalSdds' + event name. ('internalSddsTablePropsChange', 'internalSddsCheckboxChange')
 
 You can read more about our event naming conventions [here](www.TODOLINKTOCODE_STYLE.md)
 
@@ -725,14 +725,15 @@ these as two totally seperate component. To have a clear distiction between them
 have now renamed the `<ssd-inline-tabs>` to `<sdds-folder-tabs>`, to futher highlight
 its look and its function.
 
-All three of our tabs (inline/folder/navigation) works with either buttons or links,
-therefore we have introduced two new child components per parent component.
-Folder, Inline and Navigation tabs now all have two child components each, one for
-button and one for link. These are all named the same as the parent component + link/button.
+All three of our tabs (inline/folder/navigation) are meant to work with either buttons
+or links. Therefore we have created a single child element for each tab, that is
+meant to wrapp the underlying element:
 
-`<sdds-folder-tabs-link>` & `<sdds-folder-tabs-button>`
-`<sdds-inline-tabs-link>` & `<sdds-inline-tabs-button>`
-`<sdds-navigation-tabs-link>` & `<sdds-navigation-tabs-button>`
+```jsx
+<sdds-inline-tab>,
+<sdds-folder-tab> &
+<sdds-navigation-tab>
+```
 
 The content that is displayed under each tab, is no longer handled by the component.
 And is therefor something that you as a user of the components will have to implement
@@ -748,99 +749,99 @@ The new components are available here in storybook:
 ```jsx
 // New sdds-inline-tabs with buttons 🆕
 <sdds-inline-tabs>
-  <sdds-inline-tabs-button>
-    <div slot="label">First tab</div>
-  </sdds-inline-tabs-button>
-  <sdds-inline-tabs-button>
-    <div slot="label">Second tab</div>
-  </sdds-inline-tabs-button>
-  <sdds-inline-tabs-button selected>
-    <div slot="label">Third tab</div>
-  </sdds-inline-tabs-button>
-  <sdds-inline-tabs-button disabled>
-    <div slot="label">Fourth tab</div>
-  </sdds-inline-tabs-button>
+  <sdds-inline-tab>
+    <button>First tab</button>
+  </sdds-inline-tab>
+  <sdds-inline-tab>
+    <button>Second tab</button>
+  </sdds-inline-tab>
+  <sdds-inline-tab>
+    <button>Third tab</button>
+  </sdds-inline-tab>
+  <sdds-inline-tab disabled>
+    <button>Fourth tab</button>
+  </sdds-inline-tab>
 </sdds-inline-tabs>
 
 // New sdds-inline-tabs with links 🆕
 <sdds-inline-tabs>
-  <sdds-inline-tabs-link link-href="#">
-    <div slot="label">First tab</div>
-  </sdds-inline-tabs-link>
-  <sdds-inline-tabs-link link-href="#">
-    <div slot="label">Second tab</div>
-  </sdds-inline-tabs-link>
-  <sdds-inline-tabs-link selected link-href="#">
-    <div slot="label">Third tab</div>
-  </sdds-inline-tabs-link>
-  <sdds-inline-tabs-link disabled link-href="#">
-    <div slot="label">Fourth tab</div>
-  </sdds-inline-tabs-link>
+  <sdds-inline-tab>
+    <a href="#">First tab</a>
+  </sdds-inline-tab>
+  <sdds-inline-tab>
+    <a href="#">Second tab</a>
+  </sdds-inline-tab>
+  <sdds-inline-tab>
+    <a href="#">Third tab</a>
+  </sdds-inline-tab>
+  <sdds-inline-tab disabled>
+    <a href="#">Fourth tab</a>
+  </sdds-inline-tab>
 </sdds-inline-tabs>
 
 // New sdds-folder-tabs with buttons 🆕
 <sdds-folder-tabs>
-  <sdds-folder-tabs-button>
-    <div slot="label">First tab</div>
-  </sdds-folder-tabs-button>
-  <sdds-folder-tabs-button>
-    <div slot="label">Second tab</div>
-  </sdds-folder-tabs-button>
-  <sdds-folder-tabs-button selected>
-    <div slot="label">Third tab</div>
-  </sdds-folder-tabs-button>
-  <sdds-folder-tabs-button disabled>
-    <div slot="label">Fourth tab</div>
-  </sdds-folder-tabs-button>
+  <sdds-folder-tab>
+    <button>First tab</button>
+  </sdds-folder-tab>
+  <sdds-folder-tab>
+    <button>Second tab</button>
+  </sdds-folder-tab>
+  <sdds-folder-tab selected>
+    <button>Third tab</button>
+  </sdds-folder-tab>
+  <sdds-folder-tab disabled>
+    <button>Fourth tab</button>
+  </sdds-folder-tab>
 </sdds-folder-tabs>
 
 // New sdds-folder-tabs with links 🆕
 <sdds-folder-tabs>
-  <sdds-folder-tabs-link link-href="#">
-    <div slot="label">First tab</div>
-  </sdds-folder-tabs-link>
-  <sdds-folder-tabs-link link-href="#">
-    <div slot="label">Second tab</div>
-  </sdds-folder-tabs-link>
-  <sdds-folder-tabs-link selected link-href="#">
-    <div slot="label">Third tab</div>
-  </sdds-folder-tabs-link>
-  <sdds-folder-tabs-link disabled link-href="#">
-    <div slot="label">Fourth tab</div>
-  </sdds-folder-tabs-link>
+  <sdds-folder-tab link-href="#">
+    <a href="#">First tab</a>
+  </sdds-folder-tab>
+  <sdds-folder-tab link-href="#">
+    <a href="#">Second tab</a>
+  </sdds-folder-tab>
+  <sdds-folder-tab>
+    <a href="#">Third tab</a>
+  </sdds-folder-tab>
+  <sdds-folder-tab disabled>
+    <a href="#">Fourth tab</a>
+  </sdds-folder-tab>
 </sdds-folder-tabs>
 
 
 // New sdds-navigation-tabs with buttons 🆕
 <sdds-navigation-tabs>
-  <sdds-navigation-tabs-button>
-    <div slot="label">First tab</div>
-  </sdds-navigation-tabs-button>
-  <sdds-navigation-tabs-button>
-    <div slot="label">Second tab</div>
-  </sdds-navigation-tabs-button>
-  <sdds-navigation-tabs-button selected>
-    <div slot="label">Third tab</div>
-  </sdds-navigation-tabs-button>
-  <sdds-navigation-tabs-button disabled>
-    <div slot="label">Fourth tab</div>
-  </sdds-navigation-tabs-button>
+  <sdds-navigation-tab>
+    <button>First tab</button>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab>
+    <button>Second tab</button>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab>
+    <button>Third tab</button>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab disabled>
+    <button>Fourth tab</button>
+  </sdds-navigation-tab>
 </sdds-navigation-tabs>
 
 // New sdds-navigation-tabs with links 🆕
 <sdds-navigation-tabs>
-  <sdds-navigation-tabs-link link-href="#">
-    <div slot="label">First tab</div>
-  </sdds-navigation-tabs-link>
-  <sdds-navigation-tabs-link link-href="#">
-    <div slot="label">Second tab</div>
-  </sdds-navigation-tabs-link>
-  <sdds-navigation-tabs-link selected link-href="#">
-    <div slot="label">Third tab</div>
-  </sdds-navigation-tabs-link>
-  <sdds-navigation-tabs-link disabled link-href="#">
-    <div slot="label">Fourth tab</div>
-  </sdds-navigation-tabs-link>
+  <sdds-navigation-tab>
+    <a href="#">First tab</a>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab>
+    <a href="#">Second tab</a>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab >
+    <a href="#">Third tab</a>
+  </sdds-navigation-tab>
+  <sdds-navigation-tab disabled >
+    <a href="#">Fourth tab</a>
+  </sdds-navigation-tab>
 </sdds-navigation-tabs>
 ```
 

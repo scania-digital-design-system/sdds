@@ -7,27 +7,29 @@ This component neither accepts any properties, nor exposes any methods.
 
 ## Properties
 
-| Property      | Attribute      | Description                                                  | Type                       | Default     |
-| ------------- | -------------- | ------------------------------------------------------------ | -------------------------- | ----------- |
-| `modeVariant` | `mode-variant` | Variant of the tabs, primary= on white, secondary= on grey50 | `"primary" \| "secondary"` | `'primary'` |
+| Property               | Attribute                | Description                                                                            | Type                       | Default     |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------- | -------------------------- | ----------- |
+| `defaultSelectedIndex` | `default-selected-index` | Sets the default selected tab.                                                         | `number`                   | `0`         |
+| `modeVariant`          | `mode-variant`           | Variant of the tabs, primary= on white, secondary= on grey50                           | `"primary" \| "secondary"` | `'primary'` |
+| `selectedIndex`        | `selected-index`         | Sets the selected tab. If this is set all tab changes needs to be handled by the user. | `number`                   | `undefined` |
 
 
 ## Events
 
-| Event        | Description | Type                                                                |
-| ------------ | ----------- | ------------------------------------------------------------------- |
-| `sddsChange` |             | `CustomEvent<{ selectedTab: { tab: string; tabIndex: number; }; }>` |
+| Event        | Description                                     | Type                                         |
+| ------------ | ----------------------------------------------- | -------------------------------------------- |
+| `sddsChange` | Event emitted when the selected tab is changed. | `CustomEvent<{ selectedTabIndex: number; }>` |
 
 
 ## Methods
 
-### `selectTab(tabIndex: number) => Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+### `selectTab(tabIndex: number) => Promise<{ selectedTabIndex: number; }>`
 
-Selects a tab based on tabindex, will not select a disabled tab.
+Sets the passed tabindex as the selected tab.
 
 #### Returns
 
-Type: `Promise<{ selectedTab: string; selectedTabIndex: number; }>`
+Type: `Promise<{ selectedTabIndex: number; }>`
 
 
 

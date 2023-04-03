@@ -54,6 +54,10 @@
 
   /* Tab */
   --sdds-inline-tab-color-opacity: 0.6;
+  --sdds-inline-tab-color-opacity-selected: 1;
+  --sdds-inline-tabs-tab-color: var(--sdds-blue-50);
+  --sdds-inline-tabs-tab-color-selected: var(--sdds-grey-50);
+  --sdds-inline-tabs-tab-color-disabled: var(--sdds-blue-50);
   --sdds-inline-tabs-tab-color-opacity-disabled: 0.38;
   --sdds-inline-tab-color-opacity-selected: 1;
   --sdds-inline-tabs-tab-color: rgba(228 233 241/60%); //blue-50
