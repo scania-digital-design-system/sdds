@@ -35,15 +35,15 @@ export class InlineTabs {
 
   @State() showRightScroll: boolean = false;
 
-  navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+  private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
-  componentWidth: number = 0; // visible width of this component
+  private componentWidth: number = 0; // visible width of this component
 
-  buttonsWidth: number = 0; // total width of all nav items combined
+  private buttonsWidth: number = 0; // total width of all nav items combined
 
-  scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+  private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  children: Array<HTMLSddsFolderTabElement>;
+  private children: Array<HTMLSddsFolderTabElement>;
 
   /** Event emitted when the selected tab is changed. */
   @Event({
