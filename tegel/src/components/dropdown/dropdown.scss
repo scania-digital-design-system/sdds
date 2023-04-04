@@ -14,8 +14,10 @@
 
 :host,
 ::slotted(*) {
-  --sdds-dropdown-label-outside: var(--sdds-dropdown-label-outside);
-  --sdds-dropdown-label-outside-text-decoration: none;
+  .sdds-dropdown-label-outside {
+    color: var(--sdds-dropdown-label-outside);
+    text-decoration: none;
+  } 
 
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);
