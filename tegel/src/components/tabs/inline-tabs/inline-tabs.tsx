@@ -126,13 +126,18 @@ export class InlineTabsFullbleed {
   addEventListenerToTabs = () => {
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.setSelected(false));
-          item.setSelected(true);
-          this.selectedIndex = index;
-          this.sddsChange.emit({
-            selectedTabIndex: this.selectedIndex,
-          });
+        const sddsChangeEvent = this.sddsChange.emit({
+          selectedTabIndex: this.children.indexOf(item)
+        });
+        if(!sddsChangeEvent.defaultPrevented) {
+          if (!item.disabled) {
+            this.children.forEach((element) => element.setSelected(false));
+            item.setSelected(true);
+            this.selectedIndex = index;
+            this.sddsChange.emit({
+              selectedTabIndex: this.selectedIndex,
+            });
+          }
         }
       });
       return item;
