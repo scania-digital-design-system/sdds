@@ -28,14 +28,14 @@ export function demoFormat(first: string, middle: string, last: string): string 
  * @param name Name of the input.
  * @param value The value of the input.
  * @param disabled Disables the input if true.
- * @param attributes Other attributes that should be passed to the input.
+ * @param additionalAttributes Additional attributes that should be passed to the input.
  */
 export const appendHiddenInput = (
   element: HTMLElement,
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  attributes: Array<{ key: string; value: string }>,
+  additionalAttributes: Array<{ key: string; value: string }>,
 ) => {
   const input = element.ownerDocument!.createElement('input');
   input.type = 'hidden';
@@ -43,7 +43,7 @@ export const appendHiddenInput = (
   input.disabled = disabled;
   input.name = name;
   input.value = value || '';
-  if (attributes) {
-    attributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+  if (additionalAttributes) {
+    additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
   }
 };
