@@ -108,12 +108,12 @@ export class SddsStepper {
   render() {
     return (
       <Host>
-        <ol
+        <div
           role="list"
           class={`${this.orientation} text-position-${this.labelPosition} ${this.size}`}
         >
           <slot></slot>
-        </ol>
+        </div>
       </Host>
     );
   }

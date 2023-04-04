@@ -73,7 +73,7 @@
               top: 16px;
               width: 10px;
               left: auto;
-              right: -18px;
+              right: -10px;
             }
 
             &::before {
@@ -215,8 +215,6 @@
 
 :host(.last) {
   [role='listItem'] {
-    padding-right: 0;
-
     &.sm,
     &.lg {
       &::after {
@@ -238,8 +236,6 @@
 
 :host(.first) {
   [role='listItem'] {
-    padding-left: 0;
-
     &.sm,
     &.lg {
       &::before {
