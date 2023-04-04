@@ -25,15 +25,15 @@ export class InlineTabsFullbleed {
 
   @State() buttonWidth: number = 0; // current calculated width of the largest nav button
 
-  navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+  private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
-  componentWidth: number = 0; // visible width of this component
+  private componentWidth: number = 0; // visible width of this component
 
-  buttonsWidth: number = 0; // total width of all nav items combined
+  private buttonsWidth: number = 0; // total width of all nav items combined
 
-  scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+  private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  children: Array<HTMLSddsInlineTabElement>;
+  private children: Array<HTMLSddsInlineTabElement>;
 
   @Event({
     eventName: 'sddsChange',
