@@ -15,7 +15,7 @@ export class InlineTabsFullbleed {
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
-  @Prop() selectedIndex: number;
+  @Prop({ reflect: true }) selectedIndex: number;
 
   @Element() host: HostElement;
 
@@ -44,11 +44,6 @@ export class InlineTabsFullbleed {
   sddsChange: EventEmitter<{
     selectedTabIndex: number;
   }>;
-
-  @Watch('selectedIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
-  }
 
   /** Selects a tab based on tabindex, will not select a disabled tab. */
   @Method()
