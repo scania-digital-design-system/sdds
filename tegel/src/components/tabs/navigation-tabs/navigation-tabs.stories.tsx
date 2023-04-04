@@ -99,6 +99,7 @@ const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
     
     tabs.addEventListener('sddsChange', (event) => {
       selectedTabIndex.innerHTML = event.detail.selectedTabIndex
+      console.log(event)
     })
     </script>
     `);
