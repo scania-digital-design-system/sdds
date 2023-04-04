@@ -1,7 +1,8 @@
 import { Component, Host, h, Prop, Element, Event } from '@stencil/core';
 import { EventEmitter, HostElement, State, Watch } from '@stencil/core/internal';
-type Props = {
-  direction: 'horizontal' | 'vertical';
+
+type SddsStepperProps = {
+  orientation: 'horizontal' | 'vertical';
   labelPosition: 'aside' | 'below';
   size: 'sm' | 'lg';
   hideLabels: boolean;
@@ -9,8 +10,8 @@ type Props = {
 
 export type InternalSddsStepperPropChange = {
   stepperId: string;
-  changed: Array<keyof Props>;
-} & Partial<Props>;
+  changed: Array<keyof SddsStepperProps>;
+} & Partial<SddsStepperProps>;
 
 @Component({
   tag: 'sdds-stepper',
@@ -73,8 +74,8 @@ export class SddsStepper {
   handleDirectionChange() {
     this.internalSddsPropsChange.emit({
       stepperId: this.stepperId,
-      changed: ['direction'],
-      direction: this.orientation,
+      changed: ['orientation'],
+      orientation: this.orientation,
     });
   }
 
