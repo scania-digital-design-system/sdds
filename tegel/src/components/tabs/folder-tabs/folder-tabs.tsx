@@ -27,7 +27,7 @@ export class InlineTabs {
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
-  @Prop() selectedIndex: number;
+  @Prop({ reflect: true }) selectedIndex: number;
 
   @State() buttonWidth: number = 0;
 
@@ -55,11 +55,6 @@ export class InlineTabs {
   sddsChange: EventEmitter<{
     selectedTabIndex: number;
   }>;
-
-  @Watch('selectedIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
-  }
 
   /** Sets the passed tabindex as the selected tab. */
   @Method()
