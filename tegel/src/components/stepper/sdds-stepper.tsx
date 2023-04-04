@@ -1,5 +1,16 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core';
-import { HostElement, State } from '@stencil/core/internal';
+import { Component, Host, h, Prop, Element, Event } from '@stencil/core';
+import { EventEmitter, HostElement, State, Watch } from '@stencil/core/internal';
+type Props = {
+  direction: 'horizontal' | 'vertical';
+  labelPosition: 'aside' | 'below';
+  size: 'sm' | 'lg';
+  hideLabels: boolean;
+};
+
+export type InternalSddsStepperPropChange = {
+  stepperId: string;
+  changed: Array<keyof Props>;
+} & Partial<Props>;
 
 @Component({
   tag: 'sdds-stepper',
@@ -7,8 +18,8 @@ import { HostElement, State } from '@stencil/core/internal';
   shadow: true,
 })
 export class SddsStepper {
-  /** The direction the children are layed out. */
-  @Prop() direction: 'horizontal' | 'vertical' = 'horizontal';
+  /** The orientation the children are layed out. */
+  @Prop() orientation: 'horizontal' | 'vertical' = 'horizontal';
 
   /** Text position, only available on direction:horizontal */
   @Prop() labelPosition: 'aside' | 'below' = 'below';
@@ -19,16 +30,22 @@ export class SddsStepper {
   /** Hides the label for the child components if true. */
   @Prop() hideLabels: boolean = false;
 
+  /** ID used for internal stepper functionality and events, must be unique.
+   *
+   * **NOTE**: If you're listening for stepper events you need to set this ID yourself to identify the stepper, as the default ID is random and will be different every time.
+   */
+  @Prop() stepperId: string = crypto.randomUUID();
+
   @State() width: number = 0;
 
   @Element() host: HostElement;
 
-  children: Array<HTMLSddsStepperItemElement>;
+  private children: Array<HTMLSddsStepperItemElement>;
 
   componentWillLoad() {
     this.host.children[0].classList.add('first');
     this.host.children[this.host.children.length - 1].classList.add('last');
-    if (this.direction === 'vertical') {
+    if (this.orientation === 'vertical') {
       this.labelPosition = 'aside';
     }
   }
@@ -41,8 +58,51 @@ export class SddsStepper {
           this.width = item.offsetWidth;
         }
       });
-      this.children.forEach((item) => item.setWidth(this.width));
     }
+  }
+
+  @Event({
+    eventName: 'internalSddsPropsChange',
+    composed: true,
+    bubbles: true,
+    cancelable: false,
+  })
+  internalSddsPropsChange: EventEmitter<InternalSddsStepperPropChange>;
+
+  @Watch('orientation')
+  handleDirectionChange() {
+    this.internalSddsPropsChange.emit({
+      stepperId: this.stepperId,
+      changed: ['direction'],
+      direction: this.orientation,
+    });
+  }
+
+  @Watch('labelPosition')
+  handleLabelPositionChange() {
+    this.internalSddsPropsChange.emit({
+      stepperId: this.stepperId,
+      changed: ['labelPosition'],
+      labelPosition: this.labelPosition,
+    });
+  }
+
+  @Watch('size')
+  handleSizeChange() {
+    this.internalSddsPropsChange.emit({
+      stepperId: this.stepperId,
+      changed: ['size'],
+      size: this.size,
+    });
+  }
+
+  @Watch('hideLabels')
+  handleHideLabelsChange() {
+    this.internalSddsPropsChange.emit({
+      stepperId: this.stepperId,
+      changed: ['hideLabels'],
+      hideLabels: this.hideLabels,
+    });
   }
 
   render() {
@@ -50,7 +110,7 @@ export class SddsStepper {
       <Host>
         <ol
           role="list"
-          class={`${this.direction} sdds-stepper-text-position-${this.labelPosition} ${this.size}`}
+          class={`${this.orientation} text-position-${this.labelPosition} ${this.size}`}
         >
           <slot></slot>
         </ol>
