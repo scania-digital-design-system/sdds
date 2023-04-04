@@ -7,7 +7,7 @@ import { InternalSddsStepperPropChange } from '../sdds-stepper';
   shadow: true,
 })
 export class SddsStepper {
-  /** Index of the step. Will be displayed in the step if state is current/upcomming. */
+  /** Index of the step. Will be displayed in the step if state is current/upcoming. */
   @Prop() index: string;
 
   /** State of the stepper-item */
