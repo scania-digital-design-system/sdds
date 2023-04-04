@@ -28,6 +28,9 @@ export class DropdownFilter {
   /** Add the value of the option to set it as default */
   @Prop() defaultOption: string;
 
+   /** Direction that the dropdown will open. Default is auto. */
+   @Prop() openDirection: 'down' | 'up' | 'auto' = 'auto';
+
   /** Add the value of the option as string to set it as new selected value */
   @Prop() selectedOption: string;
 
@@ -155,6 +158,7 @@ export class DropdownFilter {
           selectedOption={this.selectedOption}
           type="filter"
           tabindex={this.disabled ? '-1' : null}
+          openDirection={this.openDirection}
         >
           {this.setOptionsContent()}
         </sdds-dropdown>
