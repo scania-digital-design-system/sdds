@@ -25,7 +25,7 @@ export class NavigationTabs {
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
-  @Prop() selectedIndex: number;
+  @Prop({ reflect: true }) selectedIndex: number;
 
   @Element() host: HTMLElement;
 
@@ -59,11 +59,6 @@ export class NavigationTabs {
     return {
       selectedTabIndex: this.selectedIndex,
     };
-  }
-
-  @Watch('selectedIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
   }
 
   /** Event emitted when the selected tab is changed. */
