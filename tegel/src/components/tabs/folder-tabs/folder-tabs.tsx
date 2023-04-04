@@ -149,20 +149,24 @@ export class InlineTabs {
   };
 
   addEventListenerToTabs = () => {
-    this.children = Array.from(this.host.children) as Array<HTMLSddsFolderTabElement>;
-    this.children = this.children.map((item, index) => {
-      item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.setSelected(false));
-          item.setSelected(true);
-          this.selectedIndex = index;
-          this.sddsChange.emit({
-            selectedTabIndex: this.selectedIndex,
+      this.children = Array.from(this.host.children) as Array<HTMLSddsFolderTabElement>;
+      this.children = this.children.map((item, index) => {
+        item.addEventListener('click', () => {
+          const sddsChangeEvent = this.sddsChange.emit({
+            selectedTabIndex: this.children.indexOf(item)
           });
-        }
+
+          if(!sddsChangeEvent.defaultPrevented) {
+            if (!item.disabled) {
+              this.children.forEach((element) => element.setSelected(false));
+              item.setSelected(true);
+              this.selectedIndex = index;
+            }
+          }
+        });
+        return item;
       });
-      return item;
-    });
+    
   };
 
   connectedCallback() {
