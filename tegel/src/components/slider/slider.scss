@@ -70,6 +70,7 @@ sdds-slider {
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 4px 4px 0 0;
 
       input.sdds-slider__input-field {
         // @include type-style('detail-02');
