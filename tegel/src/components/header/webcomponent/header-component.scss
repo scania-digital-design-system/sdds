@@ -2,40 +2,55 @@
 @import '../../../mixins/box-sizing';
 @import '../../../mixins/flex-center';
 @import '../../../mixins/scrollbar';
+@import '../../../mixins/z-index';
 
-:host {
+sdds-header {
+  display: block;
+  height: var(--sdds-header-height);
+  background-color: var(--sdds-header-background);
+  width: 100%;
+  z-index: z(header);
+}
+
+nav {
   @include sdds-box-sizing;
 
-  z-index: 3;
   background-color: var(--sdds-header-background);
-  height: var(--sdds-header-height);
   width: 100%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  display: block;
 
-  ::slotted(sdds-header-button),
-  ::slotted(sdds-header-link),
-  ::slotted(sdds-header-dropdown) {
+  .sdds-header-component-list {
+    height: var(--sdds-header-height);
+    all: unset;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  sdds-header-button,
+  sdds-header-link,
+  sdds-header-dropdown {
     display: none;
   }
 
-  .middle-spacer {
+  .sdds-header-middle-spacer {
+    all: unset;
+    display: block;
     flex-grow: 1;
-    height: 100%;
+    height: var(--sdds-header-height);
     border-right: 1px solid var(--sdds-header-mob-menu-border);
   }
 
   @media screen and (min-width: $grid-lg) {
-    ::slotted(sdds-header-button),
-    ::slotted(sdds-header-link),
-    ::slotted(sdds-header-dropdown) {
+    sdds-header-button,
+    sdds-header-link,
+    sdds-header-dropdown {
       display: block;
     }
   }
 
-  ::slotted(sdds-header-button:nth-child(3)),
-  ::slotted(sdds-header-link:nth-child(3)) {
+  sdds-header-button:nth-child(3),
+  sdds-header-link:nth-child(3) {
     /* Adds a left border to the button after the title, if any */
     border-left: 1px solid var(--sdds-header-mob-menu-border);
   }

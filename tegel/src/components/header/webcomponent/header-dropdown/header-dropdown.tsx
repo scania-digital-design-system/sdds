@@ -22,6 +22,8 @@ export class HeaderDropdown {
 
   @State() buttonEl?: HTMLSddsHeaderButtonElement;
 
+  uuid: string = crypto.randomUUID();
+
   @Listen('click', { target: 'document' })
   onAnyClick(event: MouseEvent) {
     // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
@@ -44,6 +46,9 @@ export class HeaderDropdown {
           }}
         >
           <sdds-header-button
+            aria-expanded={`${this.open}`}
+            aria-controls={`launcher-${this.uuid}`}
+            aria-current={this.selected ? 'location' : 'false'}
             class="button"
             active={this.open}
             onClick={() => {
@@ -63,6 +68,7 @@ export class HeaderDropdown {
           </sdds-header-button>
           {this.buttonEl && (
             <sdds-popover-canvas
+              id={`sdds-dropdown-${this.uuid}`}
               class="menu"
               referenceEl={this.buttonEl}
               placement="bottom-start"

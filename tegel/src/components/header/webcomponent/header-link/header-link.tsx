@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
+import { inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-header-link',
@@ -6,6 +7,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderLink {
+  @Element() host: HTMLElement;
+
   /** If the link should appear selected. */
   @Prop() selected: boolean = false;
 
@@ -28,6 +31,10 @@ export class HeaderLink {
   @Prop() target: HTMLAnchorElement['target'];
 
   render() {
+    const inheritedLinkProps = {
+      ...inheritAriaAttributes(this.host),
+    };
+
     return (
       <Host>
         <sdds-core-header-item
@@ -36,6 +43,7 @@ export class HeaderLink {
           }}
         >
           <a
+            {...inheritedLinkProps}
             part="a"
             href={this.href}
             hreflang={this.hreflang}

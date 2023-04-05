@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
+import { inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-header-dropdown-list-link',
@@ -6,6 +7,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderDropdownListLink {
+  @Element() host: HTMLElement;
+
   /** If the link should appear selected. */
   @Prop() selected: boolean = false;
 
@@ -31,9 +34,13 @@ export class HeaderDropdownListLink {
   @Prop() target: HTMLAnchorElement['target'];
 
   render() {
+    const inheritedLinkProps = {
+      ...inheritAriaAttributes(this.host),
+    };
     return (
-      <Host role="listitem">
+      <Host>
         <a
+          {...inheritedLinkProps}
           part="a"
           class={{
             'state-selected': this.selected,

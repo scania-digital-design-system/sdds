@@ -36,6 +36,7 @@ const Template = () =>
     <script>
       /* For demonstration purposes only. Do this in the preferred way of your framework instead. */
       window.demoSideMenu = document.querySelector('#demo-side-menu');
+      window.demoHamburger = document.querySelector('#demo-hamburger');
     </script>
     <style>
 
@@ -71,7 +72,9 @@ const Template = () =>
 
     <div class="demo-layout">
       <sdds-header>
-        <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
+        <!-- TODO setting aria-expanded="true" on the hamburger button does not work, as it is not
+          copied to the button element -->
+        <sdds-header-hamburger id="demo-hamburger" onclick="demoSideMenu.open = true;demoHamburger.setAttribute('aria-expanded', true);" aria-label="Open application drawer" aria-haspopup="true" aria-expanded="false"></sdds-header-hamburger>
 
         <sdds-header-title>
           Example: Few items
@@ -88,10 +91,10 @@ const Template = () =>
         <sdds-header-dropdown>
           <span slot="button-label">Wheel types</span>
           <sdds-header-dropdown-list>
-            <sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-link href="https://tegel.scania.com">
               Hub-centric wheel
             </sdds-header-dropdown-list-link>
-            <sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-link href="https://tegel.scania.com">
               Rim wheel
             </sdds-header-dropdown-list-link>
           </sdds-header-dropdown-list>
@@ -101,7 +104,7 @@ const Template = () =>
           <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
         </sdds-header-button>
 
-        <sdds-header-launcher slot="end">
+        <sdds-header-launcher slot="end" aria-label="application-launcher">
           <sdds-header-launcher-grid-title>Operations and Logistics</sdds-header-launcher-grid-title>
           <sdds-header-launcher-grid>
             <sdds-header-launcher-grid-link href="https://tegel.scania.com">
@@ -145,25 +148,25 @@ const Template = () =>
               heading="Name Nameson"
               subheading="Company name">
             </sdds-header-dropdown-list-user>
-            <sdds-header-dropdown-list-link selected>
+            <sdds-header-dropdown-list-link selected href="https://www.scania.com">
               My Instructions
             </sdds-header-dropdown-list-link>
-            <sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-link href="https://www.scania.com">
               Task List
             </sdds-header-dropdown-list-link>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
-        <sdds-header-logo slot="end" link-href="https://design.scania.com">
+        <sdds-header-logo slot="end" href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
         </sdds-header-logo>
 
       </sdds-header>
 
 
       <sdds-side-menu id="demo-side-menu">
-        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
+        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', true);"></sdds-side-menu-overlay>
 
-        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
+        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', true);"></sdds-side-menu-close-button>
 
         <sdds-side-menu-button>
           <sdds-icon slot="icon" name="info" size="24"></sdds-icon>

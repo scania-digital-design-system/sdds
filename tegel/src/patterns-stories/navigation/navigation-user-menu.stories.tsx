@@ -67,7 +67,7 @@ const Template = () =>
 
     <div class="demo-layout">
       <sdds-header>
-        <sdds-header-hamburger class="demo-xs-hide" onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
+        <sdds-header-hamburger class="demo-xs-hide" onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
 
         <sdds-header-title>
           Example: User menu
@@ -97,7 +97,7 @@ const Template = () =>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
-        <sdds-header-logo slot="end" link-href="https://design.scania.com">
+        <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
         </sdds-header-logo>
 
       </sdds-header>

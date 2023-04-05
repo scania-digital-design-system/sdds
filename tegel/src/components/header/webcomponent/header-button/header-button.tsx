@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
+import { inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-header-button',
@@ -6,6 +7,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class HeaderButton {
+  @Element() host: HTMLElement;
+
   /** If the button should appear active. Can be used when the button is
    * triggering a dropdown, and the dropdown is open, for example. */
   @Prop() active: boolean = false;
@@ -14,6 +17,10 @@ export class HeaderButton {
   @Prop() selected: boolean = false;
 
   render() {
+    const inheritedButtonProps = {
+      ...inheritAriaAttributes(this.host),
+    };
+
     return (
       <Host>
         <sdds-core-header-item
@@ -22,7 +29,7 @@ export class HeaderButton {
             'state-selected': this.selected,
           }}
         >
-          <button>
+          <button {...inheritedButtonProps}>
             <slot name="icon"></slot>
             <slot></slot>
           </button>

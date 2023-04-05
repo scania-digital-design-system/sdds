@@ -19,13 +19,6 @@ The header dropdown list link is a component that can be used to display a link 
 | `type`              | `type`     | The type of the list.                                                                                       | `"lg" \| "md"` | `'md'`       |
 
 
-## Shadow Parts
-
-| Part  | Description |
-| ----- | ----------- |
-| `"a"` |             |
-
-
 ## Dependencies
 
 ### Used by

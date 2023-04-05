@@ -14,6 +14,8 @@ export class HeaderLauncher {
 
   @State() hasListTypeMenu = false;
 
+  uuid: string = crypto.randomUUID();
+
   @Listen('click', { target: 'window' })
   onAnyClick(event: MouseEvent) {
     // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
@@ -50,6 +52,8 @@ export class HeaderLauncher {
           }}
         >
           <sdds-header-launcher-button
+            aria-expanded={`${this.open}`}
+            aria-controls={`launcher-${this.uuid}`}
             class="button"
             active={this.open}
             onClick={() => {
@@ -62,6 +66,7 @@ export class HeaderLauncher {
 
           {this.buttonEl && (
             <sdds-popover-canvas
+              id={`sdds-launcher-${this.uuid}`}
               class="menu"
               referenceEl={this.buttonEl}
               placement="bottom-start"

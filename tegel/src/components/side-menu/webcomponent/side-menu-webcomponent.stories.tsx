@@ -122,7 +122,7 @@ const Template = ({ persistent, collapsible }) =>
 
   <div class="demo-layout">
     <sdds-header class="demo-header">
-      <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
+      <sdds-header-hamburger onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
 
       <sdds-header-title>
         My Application
@@ -130,7 +130,7 @@ const Template = ({ persistent, collapsible }) =>
 
       <i style="color:white">Header items omitted for brevity. See patterns/navigation</i>
 
-      <sdds-header-logo slot="end" link-href="https://scania.com">
+      <sdds-header-logo slot="end" link-href="https://scania.com" aria-label="Scania - red gryphon on blue shield">
       </sdds-header-logo>
     </sdds-header>
 
@@ -163,7 +163,7 @@ const Template = ({ persistent, collapsible }) =>
           </span>
           <sdds-side-menu-dropdown-list>
             <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Hub-centric wheel</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" selected>Rim wheel</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" aria-current="page" selected>Rim wheel</sdds-side-menu-dropdown-list-link>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
 

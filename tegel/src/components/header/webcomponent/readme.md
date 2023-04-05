@@ -21,7 +21,7 @@ Example:
       </sdds-header-launcher-list>
     </sdds-header-launcher>
 
-    <sdds-header-logo slot="end" link-href="https://design.scania.com">
+    <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
     </sdds-header-logo>
 
   </sdds-header>

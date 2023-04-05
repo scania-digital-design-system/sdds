@@ -1,3 +1,5 @@
+@import '../../../../mixins/focus-state';
+
 :host {
   display: block;
   box-sizing: border-box;
@@ -28,6 +30,10 @@
     &:hover {
       background-color: var(--sdds-nav-item-background-hover);
       cursor: pointer;
+    }
+
+    &:focus-visible {
+      @include sdds-focus-state;
     }
   }
 

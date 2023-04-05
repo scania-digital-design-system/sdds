@@ -9,9 +9,9 @@ export class CoreHeaderItem {
   render() {
     return (
       <Host>
-        <li>
+        <div class="item">
           <slot></slot>
-        </li>
+        </div>
       </Host>
     );
   }

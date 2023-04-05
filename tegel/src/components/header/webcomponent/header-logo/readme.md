@@ -1,6 +1,6 @@
 # sdds-header-logo
 
-
+Note: Any aria attributes will be passed to the underlying anchor tag.
 
 <!-- Auto Generated Below -->
 

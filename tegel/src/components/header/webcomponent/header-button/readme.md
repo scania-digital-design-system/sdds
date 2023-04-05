@@ -20,7 +20,7 @@ Example:
 </sdds-header-button>
 ```
 
-
+Note: Any aria attributes will be passed to the underlying button tag.
 
 <!-- Auto Generated Below -->
 

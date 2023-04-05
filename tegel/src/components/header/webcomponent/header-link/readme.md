@@ -10,6 +10,8 @@ Example:
 </sdds-header-link>
 ```
 
+Note: Any aria attributes will be passed to the underlying anchor tag.
+
 
 <!-- Auto Generated Below -->
 
@@ -24,13 +26,6 @@ Example:
 | `rel`               | `rel`      | Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `'noopener'` |
 | `selected`          | `selected` | If the link should appear selected.                                                                         | `boolean` | `false`      |
 | `target`            | `target`   | Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `string`  | `undefined`  |
-
-
-## Shadow Parts
-
-| Part  | Description |
-| ----- | ----------- |
-| `"a"` |             |
 
 
 ## Dependencies

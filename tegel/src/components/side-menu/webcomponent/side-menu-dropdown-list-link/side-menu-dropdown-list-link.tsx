@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { CollapsedEvent } from '../side-menu';
+import { inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-side-menu-dropdown-list-link',
@@ -63,9 +64,13 @@ export class SideMenuDropdownListLink {
   }
 
   render() {
+    const inheritedLinkProps = {
+      ...inheritAriaAttributes(this.host),
+    };
     return (
       <Host role="listitem">
         <a
+          {...inheritedLinkProps}
           part="a"
           class={{
             'state-dropdown-has-icon': this.dropdownHasIcon,

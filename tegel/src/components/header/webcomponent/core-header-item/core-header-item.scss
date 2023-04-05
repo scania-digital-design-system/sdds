@@ -5,7 +5,7 @@
   letter-spacing: var(--sdds-headline-07-ls);
   color: var(--sdds-header-nav-item-color);
 
-  li {
+  .item {
     all: unset;
     @include sdds-box-sizing;
 

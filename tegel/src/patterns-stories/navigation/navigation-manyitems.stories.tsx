@@ -100,7 +100,7 @@ const Template = ({ dummyHtml }) =>
 
   <div class="demo-layout">
     <sdds-header class="demo-header">
-      <sdds-header-hamburger onclick="demoSideMenu.open = true;"></sdds-header-hamburger>
+      <sdds-header-hamburger onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
 
       <sdds-header-title>
         Example: Many items
@@ -140,7 +140,7 @@ const Template = ({ dummyHtml }) =>
         </sdds-header-dropdown-list>
       </sdds-header-dropdown>
       
-      <sdds-header-logo slot="end" link-href="https://design.scania.com">
+      <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
       </sdds-header-logo>
 
     </sdds-header>
