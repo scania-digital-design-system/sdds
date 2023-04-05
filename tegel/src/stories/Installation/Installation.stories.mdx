@@ -134,3 +134,15 @@ export class AppModule { }
 <link rel="stylesheet" href="./node_modules/@scania/tegel/dist/tegel/tegel.css">
 ```
 
+## Stencil.js
+
+1. Run `npm install @scania/tegel`
+2. `import '@scania/tegel';` in your stencil component and then you can use your Tegel component of choice like this:
+```ts
+<sdds-button type="primary" size="lg" text="Button"></sdds-button>`
+```
+3. In your global css file (`styles.scss`) import the tegel stylesheet.
+
+```css
+@import url('path_to/node_modules/@scania/tegel/dist/tegel/tegel.css');
+```
