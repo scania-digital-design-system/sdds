@@ -35,16 +35,45 @@ export const appendHiddenInput = (
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  additionalAttributes: Array<{ key: string; value: string }>,
+  additionalAttributes?: Array<{ key: string; value: string }>,
 ) => {
-  const input = element.ownerDocument!.createElement('input');
-  input.type = 'hidden';
-  element.appendChild(input);
+  let input = element.querySelector('input') as HTMLInputElement | null;
+  if (!element.querySelector('input')) {
+    input = element.ownerDocument!.createElement('input');
+    input.type = 'hidden';
+    if (additionalAttributes) {
+      additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+    }
+    element.appendChild(input);
+  }
   input.disabled = disabled;
   input.name = name;
   input.value = value || '';
-  if (additionalAttributes) {
-    additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+};
+
+/**
+ * Appends a child element to the supplied parentElement.
+ * @param parentElement The element on which the child element with be appended.
+ * @param tag Tag for the child element.
+ * @param attributes List of attributes to be added on the child element.
+ * @param slot Slot for the child element.
+ * @param id Id for the child element.
+ */
+export const appendChildElement = (
+  parentElement: HTMLElement,
+  tag: string,
+  attributes: Array<{ key: string; value: string }>,
+  slot: any,
+  id: string,
+) => {
+  if (!parentElement.querySelector(`#${id}`)) {
+    const childElement = parentElement.ownerDocument!.createElement(tag);
+    attributes.forEach((attr) => {
+      childElement.setAttribute(attr.key, attr.value);
+    });
+    childElement.innerHTML = slot;
+    childElement.id = id;
+    parentElement.appendChild(childElement);
   }
 };
 
