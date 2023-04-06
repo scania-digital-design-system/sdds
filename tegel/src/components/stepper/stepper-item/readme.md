@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                     | Type                                              | Default      |
-| -------- | --------- | ------------------------------------------------------------------------------- | ------------------------------------------------- | ------------ |
-| `index`  | `index`   | Index of the step. Will be displayed in the step if state is current/upcomming. | `string`                                          | `undefined`  |
-| `state`  | `state`   | State of the stepper-item                                                       | `"current" \| "error" \| "success" \| "upcoming"` | `'upcoming'` |
+| Property | Attribute | Description                                                                    | Type                                              | Default      |
+| -------- | --------- | ------------------------------------------------------------------------------ | ------------------------------------------------- | ------------ |
+| `index`  | `index`   | Index of the step. Will be displayed in the step if state is current/upcoming. | `string`                                          | `undefined`  |
+| `state`  | `state`   | State of the stepper-item                                                      | `"current" \| "error" \| "success" \| "upcoming"` | `'upcoming'` |
 
 
 ## Dependencies

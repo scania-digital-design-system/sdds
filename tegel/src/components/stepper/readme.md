@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event                     | Description | Type                                                                             |
-| ------------------------- | ----------- | -------------------------------------------------------------------------------- |
-| `internalSddsPropsChange` |             | `CustomEvent<{ stepperId: string; changed: (keyof Props)[]; } & Partial<Props>>` |
+| Event                     | Description | Type                                                                                                   |
+| ------------------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| `internalSddsPropsChange` |             | `CustomEvent<{ stepperId: string; changed: (keyof SddsStepperProps)[]; } & Partial<SddsStepperProps>>` |
 
 
 ----------------------------------------------
