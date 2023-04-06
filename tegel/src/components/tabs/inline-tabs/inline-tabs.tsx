@@ -1,5 +1,5 @@
 import { Component, Host, State, Element, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { HostElement, Method, Watch } from '@stencil/core/internal';
+import { HostElement, Method } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-inline-tabs',

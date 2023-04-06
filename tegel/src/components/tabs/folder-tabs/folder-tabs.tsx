@@ -5,7 +5,6 @@ import {
   Element,
   Prop,
   h,
-  Watch,
   Event,
   EventEmitter,
   Method,

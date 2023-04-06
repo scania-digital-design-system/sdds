@@ -7,7 +7,6 @@ import {
   Prop,
   Event,
   EventEmitter,
-  Watch,
   Method,
 } from '@stencil/core';
 
