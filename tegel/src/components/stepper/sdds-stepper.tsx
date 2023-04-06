@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element, Event } from '@stencil/core';
-import { EventEmitter, HostElement, State, Watch } from '@stencil/core/internal';
+import { EventEmitter, HostElement, Watch } from '@stencil/core/internal';
 
 type SddsStepperProps = {
   orientation: 'horizontal' | 'vertical';
@@ -19,6 +19,8 @@ export type InternalSddsStepperPropChange = {
   shadow: true,
 })
 export class SddsStepper {
+  @Element() host: HostElement;
+
   /** The orientation the children are layed out. */
   @Prop() orientation: 'horizontal' | 'vertical' = 'horizontal';
 
@@ -37,28 +39,11 @@ export class SddsStepper {
    */
   @Prop() stepperId: string = crypto.randomUUID();
 
-  @State() width: number = 0;
-
-  @Element() host: HostElement;
-
-  private children: Array<HTMLSddsStepperItemElement>;
-
   componentWillLoad() {
     this.host.children[0].classList.add('first');
     this.host.children[this.host.children.length - 1].classList.add('last');
     if (this.orientation === 'vertical') {
       this.labelPosition = 'aside';
-    }
-  }
-
-  componentDidLoad() {
-    if (this.labelPosition === 'below') {
-      this.children = Array.from(this.host.children) as Array<HTMLSddsStepperItemElement>;
-      this.children.forEach((item) => {
-        if (item.offsetWidth > this.width) {
-          this.width = item.offsetWidth;
-        }
-      });
     }
   }
 
