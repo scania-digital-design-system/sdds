@@ -497,13 +497,16 @@ export class Slider {
             this.wrapperElement = el as HTMLElement;
           }}
         >
+
+          <label class={this.showTickNumbers && 'offset'}>{this.label}</label>
+
           {this.useInput && (
             <div class="sdds-slider__input-values">
               <div
                 ref={(el) => {
                   this.minusElement = el as HTMLElement;
                 }}
-                class="sdds-slider__input-value"
+                class="sdds-slider__input-value min-value"
               >
                 {this.min}
               </div>
@@ -522,7 +525,7 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            <label class={this.tickValues.length > 0 && 'offset'}>{this.label}</label>
+            
 
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
