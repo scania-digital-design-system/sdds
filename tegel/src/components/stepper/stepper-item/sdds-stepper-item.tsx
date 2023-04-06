@@ -27,7 +27,7 @@ export class SddsStepper {
 
   private stepperId: string;
 
-  /* Needs to be onload to do this on any udpates. */
+  /* Needs to be onload to do this on any updates. */
   componentWillLoad() {
     this.stepperEl = this.el.closest('sdds-stepper');
     this.orientation = this.stepperEl.orientation;
