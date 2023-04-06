@@ -86,7 +86,7 @@ export default {
       },
       options: ['Outside', 'Inside', 'None'],
       table: {
-        defaultValue: { summary: 'outside' },
+        defaultValue: { summary: 'null' },
       },
     },
     labelText: {
