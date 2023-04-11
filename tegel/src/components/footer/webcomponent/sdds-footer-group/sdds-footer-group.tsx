@@ -4,8 +4,7 @@ import { HostElement, State } from '@stencil/core/internal';
 @Component({
   tag: 'sdds-footer-group',
   styleUrl: 'sdds-footer-group.scss',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class SddsFooterGroup {
   @Element() host: HostElement;

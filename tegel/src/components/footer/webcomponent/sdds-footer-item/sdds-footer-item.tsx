@@ -4,8 +4,7 @@ import { HostElement } from '@stencil/core/internal';
 @Component({
   tag: 'sdds-footer-item',
   styleUrl: 'sdds-footer-item.scss',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class SddsFooterItem {
   @Element() host: HostElement;

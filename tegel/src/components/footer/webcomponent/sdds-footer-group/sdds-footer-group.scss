@@ -1,6 +1,7 @@
+@import '../../../../mixins/focus-state';
+
 :host {
   display: block;
-  width: 100%;
 
   .footer-top-title {
     font: var(--sdds-headline-07);
@@ -37,6 +38,10 @@
 
     &:active {
       background-color: var(--sdds-footer-top-button-active);
+    }
+
+    &:focus-visible {
+      @include sdds-focus-state;
     }
 
     sdds-icon {

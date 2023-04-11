@@ -1,12 +1,12 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from './sdds-footer-item/readme.md';
+import readmeItem from './sdds-footer-item/readme.md';
 import readmeLinkGroup from './sdds-footer-group/readme.md';
 
 export default {
   title: 'Components/Footer',
   parameters: {
-    notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer link': readmeLink },
+    notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer item': readmeItem },
     layout: 'fullscreen',
     design: [
       {
