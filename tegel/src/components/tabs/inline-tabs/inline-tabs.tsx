@@ -1,5 +1,5 @@
 import { Component, Host, State, Element, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { HostElement, Method, Watch } from '@stencil/core/internal';
+import { HostElement, Method } from '@stencil/core/internal';
 
 @Component({
   tag: 'sdds-inline-tabs',
@@ -15,7 +15,7 @@ export class InlineTabsFullbleed {
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
-  @Prop() selectedIndex: number;
+  @Prop({ reflect: true }) selectedIndex: number;
 
   @Element() host: HostElement;
 
@@ -25,15 +25,15 @@ export class InlineTabsFullbleed {
 
   @State() buttonWidth: number = 0; // current calculated width of the largest nav button
 
-  navWrapperElement: HTMLElement = null; // reference to container with nav buttons
+  private navWrapperElement: HTMLElement = null; // reference to container with nav buttons
 
-  componentWidth: number = 0; // visible width of this component
+  private componentWidth: number = 0; // visible width of this component
 
-  buttonsWidth: number = 0; // total width of all nav items combined
+  private buttonsWidth: number = 0; // total width of all nav items combined
 
-  scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
+  private scrollWidth: number = 0; // total amount that is possible to scroll in the nav wrapper
 
-  children: Array<HTMLSddsInlineTabElement>;
+  private children: Array<HTMLSddsInlineTabElement>;
 
   @Event({
     eventName: 'sddsChange',
@@ -44,11 +44,6 @@ export class InlineTabsFullbleed {
   sddsChange: EventEmitter<{
     selectedTabIndex: number;
   }>;
-
-  @Watch('selectedIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
-  }
 
   /** Selects a tab based on tabindex, will not select a disabled tab. */
   @Method()
@@ -131,13 +126,18 @@ export class InlineTabsFullbleed {
   addEventListenerToTabs = () => {
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.setSelected(false));
-          item.setSelected(true);
-          this.selectedIndex = index;
-          this.sddsChange.emit({
-            selectedTabIndex: this.selectedIndex,
-          });
+        const sddsChangeEvent = this.sddsChange.emit({
+          selectedTabIndex: this.children.indexOf(item)
+        });
+        if(!sddsChangeEvent.defaultPrevented) {
+          if (!item.disabled) {
+            this.children.forEach((element) => element.setSelected(false));
+            item.setSelected(true);
+            this.selectedIndex = index;
+            this.sddsChange.emit({
+              selectedTabIndex: this.selectedIndex,
+            });
+          }
         }
       });
       return item;
