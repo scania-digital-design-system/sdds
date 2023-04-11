@@ -1,11 +1,11 @@
-import itemReadme from './sdds-breadcrumb-link/readme.md';
+import itemReadme from './sdds-breadcrumb-item/readme.md';
 import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Components/Breadcrumb',
   parameters: {
-    notes: { 'Breadcumb': readme, 'Breadcumb Link': itemReadme },
+    notes: { 'Breadcumb': readme, 'Breadcumb Item': itemReadme },
     design: [
       {
         name: 'Figma',
@@ -25,15 +25,15 @@ const Template = () =>
   formatHtmlPreview(
     `   
       <sdds-breadcrumb>
-        <sdds-breadcrumb-link href="#">
-          <div slot="label">Page 1</div>
-        </sdds-breadcrumb-link>
-        <sdds-breadcrumb-link href="google.se">
-          <div slot="label">Page 2</div>
-        </sdds-breadcrumb-link>
-        <sdds-breadcrumb-link current>
-          <div slot="label">Page 3</div>
-        </sdds-breadcrumb-link>
+        <sdds-breadcrumb-item>
+          <a href="#">Page 1</a>
+        </sdds-breadcrumb-item>
+        <sdds-breadcrumb-item>
+          <a href="#">Page 2</a>
+        </sdds-breadcrumb-item>
+        <sdds-breadcrumb-item current>
+          <a href="#">Page 3</a>
+        </sdds-breadcrumb-item>
       </sdds-breadcrumb>
       `,
   );

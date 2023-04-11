@@ -1,40 +1,35 @@
 @import '../../../mixins/focus-state';
 
 [role='listitem'] {
-  display: flex;
-  align-items: center;
-  color: var(--sdds-breadcrumb-color);
-
-  a {
+  ::slotted(*) {
     color: var(--sdds-breadcrumb-color);
     text-decoration: none;
   }
 
   &:hover {
-    a {
+    ::slotted(*) {
       color: var(--sdds-breadcrumb-color-hover);
       text-decoration: underline;
     }
-
-    cursor: pointer;
   }
 
-  &.disabled {
-    pointer-events: none;
+  &:focus {
+    @include sdds-focus-state;
   }
 
   &.disabled,
   &.current,
   [aria-current='page'] {
-    a {
+    ::slotted(*) {
+      pointer-events: none;
       cursor: default;
       color: var(--sdds-breadcrumb-color-disabled);
     }
 
     &:hover {
-      a {
-        color: var(--sdds-breadcrumb-color-disabled);
+      ::slotted(*) {
         text-decoration: none;
+        cursor: not-allowed;
       }
     }
   }
