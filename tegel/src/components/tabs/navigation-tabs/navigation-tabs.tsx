@@ -7,7 +7,6 @@ import {
   Prop,
   Event,
   EventEmitter,
-  Watch,
   Method,
 } from '@stencil/core';
 
@@ -25,7 +24,7 @@ export class NavigationTabs {
 
   /** Sets the selected tab.
    * If this is set all tab changes needs to be handled by the user. */
-  @Prop() selectedIndex: number;
+  @Prop({ reflect: true }) selectedIndex: number;
 
   @Element() host: HTMLElement;
 
@@ -59,11 +58,6 @@ export class NavigationTabs {
     return {
       selectedTabIndex: this.selectedIndex,
     };
-  }
-
-  @Watch('selectedIndex')
-  handleSelectedTabIndexChange() {
-    this.host.setAttribute('selected-index', `${this.selectedIndex}`);
   }
 
   /** Event emitted when the selected tab is changed. */
@@ -141,13 +135,18 @@ export class NavigationTabs {
     this.children = Array.from(this.host.children) as Array<HTMLSddsNavigationTabElement>;
     this.children = this.children.map((item, index) => {
       item.addEventListener('click', () => {
-        if (!item.disabled) {
-          this.children.forEach((element) => element.setSelected(false));
-          item.setSelected(true);
-          this.selectedIndex = index;
-          this.sddsChange.emit({
-            selectedTabIndex: this.selectedIndex,
-          });
+        const sddsChangeEvent = this.sddsChange.emit({
+          selectedTabIndex: this.children.indexOf(item)
+        });
+        if(!sddsChangeEvent.defaultPrevented) {
+          if (!item.disabled) {
+            this.children.forEach((element) => element.setSelected(false));
+            item.setSelected(true);
+            this.selectedIndex = index;
+            this.sddsChange.emit({
+              selectedTabIndex: this.selectedIndex,
+            });
+          }
         }
       });
       return item;
@@ -162,17 +161,13 @@ export class NavigationTabs {
 
   componentDidLoad = () => {
     if (this.selectedIndex === undefined) {
-      console.log(this.selectedIndex);
       this.addEventListenerToTabs();
-
       this.children[this.defaultSelectedIndex].setSelected(true);
       this.selectedIndex = this.defaultSelectedIndex;
       this.sddsChange.emit({
         selectedTabIndex: this.selectedIndex,
       });
     } else {
-      console.log(this.selectedIndex);
-
       this.children[this.selectedIndex].setSelected(true);
       this.sddsChange.emit({
         selectedTabIndex: this.selectedIndex,
