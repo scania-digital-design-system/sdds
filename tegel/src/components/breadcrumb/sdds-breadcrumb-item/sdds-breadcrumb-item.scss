@@ -13,7 +13,7 @@
     }
   }
 
-  &:focus {
+  &:focus-visible {
     @include sdds-focus-state;
   }
 
