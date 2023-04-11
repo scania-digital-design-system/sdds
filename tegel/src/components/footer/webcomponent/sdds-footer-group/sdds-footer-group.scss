@@ -51,6 +51,11 @@
     display: flex;
     gap: 8px;
 
+    &.left,
+    &.right {
+      gap: 24px;
+    }
+
     &.top-part-child {
       flex-direction: column;
     }
@@ -59,6 +64,11 @@
   @media all and (max-width: 992px) {
     [role='list'].left:not(.top-part-child) {
       flex-direction: column;
+
+      &.left,
+      &.right {
+        gap: 8px;
+      }
     }
 
     [role='list'].top-part-child.closed {

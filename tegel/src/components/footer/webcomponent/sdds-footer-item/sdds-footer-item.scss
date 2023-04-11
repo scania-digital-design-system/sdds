@@ -1,7 +1,7 @@
 @import '../../../../mixins/focus-state';
 
 [role='listitem'] {
-  a {
+  ::slotted(*) {
     font: var(--sdds-headline-06);
     letter-spacing: var(--sdds-headline-06-ls);
     color: var(--sdds-footer-main-links);
@@ -18,7 +18,7 @@
   }
 
   &.top-part-child {
-    a {
+    ::slotted(*) {
       color: var(--sdds-footer-top-links);
       font-family: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', arial, helvetica,
         sans-serif;
@@ -37,7 +37,7 @@
   [role='listitem'].top-part-child {
     border-bottom: 1px solid var(--sdds-footer-top-divider);
 
-    a {
+    ::slotted(*) {
       display: block;
       height: 100%;
       padding: 19px 40px;
