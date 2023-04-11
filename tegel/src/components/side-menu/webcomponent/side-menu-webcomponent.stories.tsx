@@ -122,7 +122,7 @@ const Template = ({ persistent, collapsible }) =>
 
   <div class="demo-layout">
     <sdds-header class="demo-header">
-      <sdds-header-hamburger onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
+      <sdds-header-hamburger onclick="demoSideMenu.open = true;" aria-expanded="false" aria-label="Open application drawer" aria-haspopup="true"></sdds-header-hamburger>
 
       <sdds-header-title>
         My Application

@@ -164,9 +164,9 @@ const Template = () =>
 
 
       <sdds-side-menu id="demo-side-menu">
-        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', true);"></sdds-side-menu-overlay>
+        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-overlay>
 
-        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', true);"></sdds-side-menu-close-button>
+        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>
 
         <sdds-side-menu-button>
           <sdds-icon slot="icon" name="info" size="24"></sdds-icon>

@@ -49,6 +49,7 @@ const Template = ({ dummyHtml }) =>
     <script>
       /* For demonstration purposes only. Do this in the preferred way of your framework instead. */
       window.demoSideMenu = document.querySelector('#demo-side-menu');
+      window.demoHamburger = document.querySelector('#demo-hamburger');
     </script>
     <style>
       :root {
@@ -100,7 +101,7 @@ const Template = ({ dummyHtml }) =>
 
   <div class="demo-layout">
     <sdds-header class="demo-header">
-      <sdds-header-hamburger onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
+      <sdds-header-hamburger onclick="demoSideMenu.open = true;demoHamburger.setAttribute('aria-expanded', true);" aria-label="Open application drawer" aria-haspopup="true" aria-expanded="false"></sdds-header-hamburger>
 
       <sdds-header-title>
         Example: Many items
@@ -148,9 +149,9 @@ const Template = ({ dummyHtml }) =>
     <div class="demo-wrap-side-menu-and-main">
       <!-- Note: the "persistent" property keeps the menu open on desktop -->
       <sdds-side-menu id="demo-side-menu" persistent>
-        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
+        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-overlay>
 
-        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
+        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>
 
         <sdds-side-menu-button>
           <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>

@@ -46,6 +46,7 @@ const Template = () =>
     <script>
       /* For demonstration purposes only. Do this in the preferred way of your framework instead. */
       window.demoSideMenu = document.querySelector('#demo-side-menu');
+      window.demoHamburger = document.querySelector('#demo-hamburger');
     </script>
     <style>
       /* If an extra button in the header is required except on 
@@ -67,7 +68,7 @@ const Template = () =>
 
     <div class="demo-layout">
       <sdds-header>
-        <sdds-header-hamburger class="demo-xs-hide" onclick="demoSideMenu.open = true;" aria-label="Open application drawer"></sdds-header-hamburger>
+        <sdds-header-hamburger class="demo-xs-hide" onclick="demoSideMenu.open = true;demoHamburger.setAttribute('aria-expanded', true);" aria-label="Open application drawer" aria-haspopup="true" aria-expanded="false"></sdds-header-hamburger>
 
         <sdds-header-title>
           Example: User menu
@@ -103,9 +104,9 @@ const Template = () =>
       </sdds-header>
 
       <sdds-side-menu id="demo-side-menu">
-        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
+        <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-overlay>
 
-        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>
+        <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>
 
         <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected default-open>
           <sdds-side-menu-user 
