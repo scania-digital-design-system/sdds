@@ -14,10 +14,10 @@ export class SideMenuDropdownListLink {
   @Prop() selected: boolean = false;
 
   /** The link URL. */
-  @Prop() href!: HTMLAnchorElement['href'];
+  @Prop() href!: string;
 
   /** Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
-  @Prop() hreflang: HTMLAnchorElement['hreflang'];
+  @Prop() hreflang: string;
 
   // 'noopener' is a security measure for legacy browsers that prevents
   // the opened page from getting access to the original page when using
@@ -29,7 +29,7 @@ export class SideMenuDropdownListLink {
   @Prop() download: HTMLAnchorElement['download'];
 
   /** Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. */
-  @Prop() target: HTMLAnchorElement['target'];
+  @Prop() target: '_self' | '_blank' | '_parent' | '_top';
 
   @State() dropdownHasIcon: boolean = false;
 
