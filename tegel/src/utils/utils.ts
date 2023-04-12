@@ -35,15 +35,18 @@ export const appendHiddenInput = (
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  additionalAttributes: Array<{ key: string; value: string }>,
+  additionalAttributes?: Array<{ key: string; value: string | boolean }>,
 ) => {
-  const input = element.ownerDocument!.createElement('input');
-  input.type = 'hidden';
-  element.appendChild(input);
+  let input = element.querySelector('input');
+  if (!input) {
+    input = element.ownerDocument!.createElement('input');
+    input.type = 'hidden';
+    element.appendChild(input);
+  }
   input.disabled = disabled;
   input.name = name;
   input.value = value || '';
   if (additionalAttributes) {
-    additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+    additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value.toString()));
   }
 };
