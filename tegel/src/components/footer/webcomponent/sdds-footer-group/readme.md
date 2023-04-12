@@ -1,4 +1,4 @@
-# sdds-footer-link-group
+# sdds-footer-group
 
 
 
@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  sdds-footer-link-group --> sdds-icon
-  style sdds-footer-link-group fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-footer-group --> sdds-icon
+  style sdds-footer-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

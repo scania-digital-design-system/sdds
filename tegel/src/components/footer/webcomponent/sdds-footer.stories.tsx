@@ -1,12 +1,12 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
-import readmeLink from './sdds-footer-link/readme.md';
-import readmeLinkGroup from './sdds-footer-link-group/readme.md';
+import readmeItem from './sdds-footer-item/readme.md';
+import readmeLinkGroup from './sdds-footer-group/readme.md';
 
 export default {
   title: 'Components/Footer',
   parameters: {
-    notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer link': readmeLink },
+    notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer item': readmeItem },
     layout: 'fullscreen',
     design: [
       {
@@ -65,58 +65,85 @@ const Template = ({ topPart, modeVariant }) =>
         topPart
           ? `
       <div slot="top">
-        <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group title-text="Title">
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+        </sdds-footer-group>
 
-        <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group title-text="Title">
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+        </sdds-footer-group>
 
-        <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group title-text="Title">
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+        </sdds-footer-group>
 
-        <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
-
-        <sdds-footer-link-group title-text="Title">
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group title-text="Title">
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+        </sdds-footer-group>
       </div>
       `
           : ''
       }
       <div slot="main-left">
-        <sdds-footer-link-group>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-          <sdds-footer-link href="#">Link text</sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> Link text</a>
+          </sdds-footer-item>
+        </sdds-footer-group>
       </div>
       <div slot="main-right">
-        <sdds-footer-link-group>
-          <sdds-footer-link href="#">
-          <sdds-icon name="truck"></sdds-icon>
-          </sdds-footer-link>
-          <sdds-footer-link href="#">
-            <sdds-icon name="truck"></sdds-icon>
-          </sdds-footer-link>
-          <sdds-footer-link href="#">
-            <sdds-icon name="truck"></sdds-icon>
-          </sdds-footer-link>
-        </sdds-footer-link-group>
+        <sdds-footer-group>
+          <sdds-footer-item >
+            <a href="#"> <sdds-icon name="truck"></sdds-icon></a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> <sdds-icon name="truck"></sdds-icon></a>
+          </sdds-footer-item>
+          <sdds-footer-item >
+            <a href="#"> <sdds-icon name="truck"></sdds-icon></a>
+          </sdds-footer-item>
+        </sdds-footer-group>
       </div>
     </sdds-footer>
   
