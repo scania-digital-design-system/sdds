@@ -91,12 +91,12 @@ const Template = () =>
         <sdds-header-dropdown>
           <span slot="button-label">Wheel types</span>
           <sdds-header-dropdown-list>
-            <sdds-header-dropdown-list-link href="https://tegel.scania.com">
-              Hub-centric wheel
-            </sdds-header-dropdown-list-link>
-            <sdds-header-dropdown-list-link href="https://tegel.scania.com">
-              Rim wheel
-            </sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-item>
+              <a href="https://tegel.scania.com">Hub-centric wheel</a>
+            </sdds-header-dropdown-list-item>
+            <sdds-header-dropdown-list-item>
+              <a href="https://tegel.scania.com">Rim wheel</a>
+            </sdds-header-dropdown-list-item>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
@@ -107,38 +107,53 @@ const Template = () =>
         <sdds-header-launcher slot="end" aria-label="application-launcher">
           <sdds-header-launcher-grid-title>Operations and Logistics</sdds-header-launcher-grid-title>
           <sdds-header-launcher-grid>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="star" size="32"></sdds-icon>
-              ScaniaCare
-            </sdds-header-launcher-grid-link>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="truck" size="32"></sdds-icon>
-              ScaniaInsight
-            </sdds-header-launcher-grid-link>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
-              ScaniaConnect
-            </sdds-header-launcher-grid-link>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="star" size="32"></sdds-icon>
-              ScaniaPlan
-            </sdds-header-launcher-grid-link>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="truck" size="32"></sdds-icon>
-              ScaniaTrack
-            </sdds-header-launcher-grid-link>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="star" size="32"></sdds-icon>
+                ScaniaCare
+              </a>
+            </sdds-header-launcher-grid-item>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="truck" size="32"></sdds-icon>
+                ScaniaInsight
+              </a>
+            </sdds-header-launcher-grid-item>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="fuel_gauge" size="32"></sdds-icon>
+                ScaniaConnect
+              </a>
+            </sdds-header-launcher-grid-item>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="star" size="32"></sdds-icon>
+                ScaniaPlan
+              </a>
+            </sdds-header-launcher-grid-item>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="truck" size="32"></sdds-icon>
+                ScaniaTrack
+              </a>
+            </sdds-header-launcher-grid-item>
           </sdds-header-launcher-grid>
           <sdds-header-launcher-grid-title>Customer Service</sdds-header-launcher-grid-title>
           <sdds-header-launcher-grid>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="star" size="32"></sdds-icon>
-              ScaniaNet
-            </sdds-header-launcher-grid-link>
-            <sdds-header-launcher-grid-link href="https://tegel.scania.com">
-              <sdds-icon name="truck" size="32"></sdds-icon>
-              ScaniaRisk
-            </sdds-header-launcher-grid-link>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="star" size="32"></sdds-icon>
+                ScaniaNet
+              </a>
+            </sdds-header-launcher-grid-item>
+            <sdds-header-launcher-grid-item>
+              <a href="https://tegel.scania.com">
+                <sdds-icon name="truck" size="32"></sdds-icon>
+                ScaniaRisk
+              </a>
+            </sdds-header-launcher-grid-item>
           </sdds-header-launcher-grid>
+
         </sdds-header-launcher>
 
         <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show" selected>
@@ -148,12 +163,12 @@ const Template = () =>
               heading="Name Nameson"
               subheading="Company name">
             </sdds-header-dropdown-list-user>
-            <sdds-header-dropdown-list-link selected href="https://www.scania.com">
-              My Instructions
-            </sdds-header-dropdown-list-link>
-            <sdds-header-dropdown-list-link href="https://www.scania.com">
-              Task List
-            </sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-item selected>
+              <a href="https://www.scania.com">My Instructions</a>
+            </sdds-header-dropdown-list-item>
+            <sdds-header-dropdown-list-item>
+              <a href="https://www.scania.com">Task List</a>
+            </sdds-header-dropdown-list-item>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 

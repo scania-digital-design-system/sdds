@@ -26,18 +26,8 @@ export default {
       },
     ],
   },
-  argTypes: {
-    siteName: {
-      name: 'Site name',
-      description: 'Set a custom title for the header',
-      control: {
-        type: 'text',
-      },
-    },
-  },
-  args: {
-    siteName: 'Application',
-  },
+  argTypes: {},
+  args: {},
 };
 
 const Template = () =>
@@ -47,26 +37,45 @@ const Template = () =>
     <sdds-header-title>
       Example: default
     </sdds-header-title>
-
     <sdds-header-launcher slot="end" aria-label="application launcher">
       <sdds-header-launcher-list-title>Cool apps</sdds-header-launcher-list-title>
       <sdds-header-launcher-list>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
       </sdds-header-launcher-list>
       <sdds-header-launcher-list-title>Lame apps</sdds-header-launcher-list-title>
       <sdds-header-launcher-list>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Button</a>
+        </sdds-header-launcher-list-item>
       </sdds-header-launcher-list>
     </sdds-header-launcher>
-
+  
     <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
     </sdds-header-logo>
 

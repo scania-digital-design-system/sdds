@@ -44,16 +44,8 @@ export default {
       },
     ],
   },
-  argTypes: {
-    siteName: {
-      name: 'Site name',
-      description: 'Set a custom title for the header',
-      type: 'string',
-    },
-  },
-  args: {
-    siteName: 'Application',
-  },
+  argTypes: {},
+  args: {},
 };
 
 const Template = () =>
@@ -71,6 +63,7 @@ const Template = () =>
         <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
       </sdds-header-launcher-list>
     </sdds-header-launcher>
+
 
     <sdds-header-logo slot="end" link-href="https://scania.com" aria-label="Scania - red gryphon on blue shield">
     </sdds-header-logo>

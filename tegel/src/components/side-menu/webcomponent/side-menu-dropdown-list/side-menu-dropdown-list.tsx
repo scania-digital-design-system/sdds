@@ -25,9 +25,8 @@ export class SideMenuDropdownList {
 
   render() {
     return (
-      <Host>
+      <Host role="list">
         <div
-          role="list"
           class={{
             'state-collapsed': this.collapsed,
           }}

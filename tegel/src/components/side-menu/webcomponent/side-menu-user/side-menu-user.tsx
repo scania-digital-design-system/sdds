@@ -20,7 +20,7 @@ export class SideMenuUser {
 
   render() {
     return (
-      <Host role="listitem">
+      <Host>
         <sdds-side-menu-user-image src={this.imgSrc} alt={this.imgAlt}>
           <slot name="image"></slot>
         </sdds-side-menu-user-image>

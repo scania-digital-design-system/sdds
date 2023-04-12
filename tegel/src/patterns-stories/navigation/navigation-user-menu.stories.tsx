@@ -75,13 +75,17 @@ const Template = () =>
         </sdds-header-title>
 
         <sdds-header-launcher slot="end">
-        <sdds-header-launcher-list-title>Sustainable tools</sdds-header-launcher-list-title>
-        <sdds-header-launcher-list>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        </sdds-header-launcher-list>
-      </sdds-header-launcher>
-
+          <sdds-header-launcher-list-title>Sustainable tools</sdds-header-launcher-list-title>
+          <sdds-header-launcher-list>
+            <sdds-header-launcher-list-item>
+              <a href="https://tegel.scania.com">Button</a>
+            </sdds-header-launcher-list-item>
+            <sdds-header-launcher-list-item>
+              <a href="https://tegel.scania.com">Button</a>
+            </sdds-header-launcher-list-item>
+          </sdds-header-launcher-list>
+        </sdds-header-launcher>
+        
         <sdds-header-dropdown slot="end" class="demo-hide demo-xs-show" no-dropdown-icon selected>
           <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
           <sdds-header-dropdown-list type="lg">
@@ -89,12 +93,12 @@ const Template = () =>
               heading="Name Nameson"
               subheading="Company name">
             </sdds-header-dropdown-list-user>
-            <sdds-header-dropdown-list-link selected>
-              My Instructions
-            </sdds-header-dropdown-list-link>
-            <sdds-header-dropdown-list-link>
-              Task List
-            </sdds-header-dropdown-list-link>
+            <sdds-header-dropdown-list-item selected>
+              <a href="https://www.scania.com">My Instructions</a>
+            </sdds-header-dropdown-list-item>
+            <sdds-header-dropdown-list-item>
+              <a href="https://www.scania.com">Task List</a>
+            </sdds-header-dropdown-list-item>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
@@ -117,10 +121,15 @@ const Template = () =>
             img-alt="">
           </sdds-side-menu-user>
           <sdds-side-menu-dropdown-list type="lg">
-            <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link>Task List</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-item selected>
+              <a href="https://www.scania.com">My Instructions</a>
+            </sdds-side-menu-dropdown-list-item>
+            <sdds-side-menu-dropdown-list-item>
+              <a href="https://www.scania.com">Task List</a>
+            </sdds-side-menu-dropdown-list-item>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
+
 
       </sdds-side-menu>
 

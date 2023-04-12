@@ -110,36 +110,46 @@ const Template = ({ dummyHtml }) =>
       <sdds-header-button slot="end" onclick="alert('clicked')">
         <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
       </sdds-header-button>
-
       <sdds-header-launcher slot="end">
         <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
         <sdds-header-launcher-list>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Spider-Man</sdds-header-launcher-list-link>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Groot</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-item>
+            <a href="https://tegel.scania.com">Spider-Man</a>
+          </sdds-header-launcher-list-item>
+          <sdds-header-launcher-list-item>
+            <a href="https://tegel.scania.com">Groot</a>
+          </sdds-header-launcher-list-item>
         </sdds-header-launcher-list>
         <sdds-header-launcher-list-title>Evil</sdds-header-launcher-list-title>
         <sdds-header-launcher-list>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Dr Octopus</sdds-header-launcher-list-link>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Apocalypse</sdds-header-launcher-list-link>
-          <sdds-header-launcher-list-link href="https://tegel.scania.com">Scarlet Witch</sdds-header-launcher-list-link>
+          <sdds-header-launcher-list-item>
+            <a href="https://tegel.scania.com">Dr Octopus</a>
+          </sdds-header-launcher-list-item>
+          <sdds-header-launcher-list-item>
+            <a href="https://tegel.scania.com">Apocalypse</a>
+          </sdds-header-launcher-list-item>
+          <sdds-header-launcher-list-item>
+            <a href="https://tegel.scania.com">Scarlet Witch</a>
+          </sdds-header-launcher-list-item>
         </sdds-header-launcher-list>
       </sdds-header-launcher>
-
-      <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon  class="demo-hide demo-xs-show">
+      
+      <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show">
         <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
         <sdds-header-dropdown-list type="lg">
           <sdds-header-dropdown-list-user
             heading="Name Nameson"
             subheading="Company name">
           </sdds-header-dropdown-list-user>
-          <sdds-header-dropdown-list-link>
-            Link here
-          </sdds-header-dropdown-list-link>
-          <sdds-header-dropdown-list-link>
-            Link there
-          </sdds-header-dropdown-list-link>
+          <sdds-header-dropdown-list-item>
+            <a href="https://www.scania.com">Link here</a>
+          </sdds-header-dropdown-list-item>
+          <sdds-header-dropdown-list-item>
+            <a href="https://www.scania.com">Link there</a>
+          </sdds-header-dropdown-list-item>
         </sdds-header-dropdown-list>
       </sdds-header-dropdown>
+      
       
       <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
       </sdds-header-logo>

@@ -35,8 +35,9 @@ export class SddsSideMenuButton {
   render() {
     return (
       <Host>
-        <li
+        <div
           class={{
+            'component': true,
             'state-selected': this.selected,
             'state-active': this.active,
             'state-collapsed': this.collapsed,
@@ -46,7 +47,7 @@ export class SddsSideMenuButton {
             <slot name="icon"></slot>
             {!this.collapsed && <slot></slot>}
           </button>
-        </li>
+        </div>
       </Host>
     );
   }
