@@ -1,13 +1,7 @@
 :host {
   display: block;
 
-  $grid-xs: 0;
-  $grid-sm: 608px;
-  $grid-md: 800px;
   $grid-lg: 992px;
-  $grid-xlg: 1184px;
-  $grid-xxlg: 1376px;
-  $grid-max: 1584px;
 
   .footer-top {
     background-color: var(--sdds-footer-top-background);

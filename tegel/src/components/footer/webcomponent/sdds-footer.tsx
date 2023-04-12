@@ -7,16 +7,16 @@ import { Host, HostElement, Prop } from '@stencil/core/internal';
   shadow: true,
 })
 export class SddsFooter {
+  @Element() host: HostElement;
+
   /** Mode variant of the component, based on current mode. */
   @Prop() modeVariant: 'primary' | 'secondary' = null;
 
+  /** Indictes whether or not the footer has a top part. */
   @State() hasTopPart: boolean;
 
-  @Element() host: HostElement;
-
   connectedCallback() {
-    const children = Array.from(this.host.children);
-    this.hasTopPart = children.some((element) => element.slot === 'top');
+    this.hasTopPart = Array.from(this.host.children).some((element) => element.slot === 'top');
   }
 
   render() {

@@ -19,7 +19,7 @@
  - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
  - [sdds-folder-tabs](../tabs/folder-tabs)
- - [sdds-footer-link-group](../footer/webcomponent/sdds-footer-link-group)
+ - [sdds-footer-group](../footer/webcomponent/sdds-footer-group)
  - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
@@ -37,7 +37,7 @@ graph TD;
   sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
   sdds-folder-tabs --> sdds-icon
-  sdds-footer-link-group --> sdds-icon
+  sdds-footer-group --> sdds-icon
   sdds-inline-tabs --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
