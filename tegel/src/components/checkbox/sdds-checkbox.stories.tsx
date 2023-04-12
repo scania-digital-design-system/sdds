@@ -71,12 +71,6 @@ const Template = ({ label, checked, disabled }) =>
         checkboxElement.addEventListener('sddsChange', (event) => {
             console.log('Checkbox with id: ', event.detail.checkboxId, ' is ', event.detail.checked)
         })
-        checkboxElement.addEventListener('sddsFocus',(event) => {
-          console.log(event)
-        })
-        checkboxElement.addEventListener('sddsBlur',(event) => {
-          console.log(event)
-        })
     </script>
   `);
 
