@@ -63,6 +63,10 @@ sdds-slider {
       //@include type-style('detail-02');
       font: var(--sdds-detail-02);
       letter-spacing: var(--sdds-detail-02-ls);
+
+      &.min-value {
+        padding-left: 0px;
+      }
     }
 
     .sdds-slider__input-field-wrapper {
@@ -103,11 +107,11 @@ sdds-slider {
     user-select: none;
     position: absolute;
     color: var(--sdds-slider-label-color);
-    top: -16px;
+    padding-bottom: 16px;
     transform: translateY(-100%);
 
     &.offset {
-      top: -35px;
+      padding-bottom: 34px;
     }
   }
 
