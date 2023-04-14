@@ -3,7 +3,8 @@ import { Component, State, h, Prop, Listen, Event, EventEmitter } from '@stencil
 @Component({
   tag: 'sdds-datetime',
   styleUrl: 'datetime.scss',
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class Datetime {
   /** Textinput for focus state */
