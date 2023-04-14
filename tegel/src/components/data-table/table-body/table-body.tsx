@@ -76,7 +76,7 @@ export class TableBody {
   @Prop() disableSortingFunction: boolean = false;
 
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
-  @Prop() bodyData: any;
+  @Prop({ mutable: true }) bodyData: any;
 
   /** Prop for showcase of rendering JSON in body-data, just for presentation purposes */
   @Prop() enableDummyData: boolean = false;
