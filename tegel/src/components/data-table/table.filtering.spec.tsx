@@ -10,7 +10,13 @@ import { TableHeaderCell } from './table-header-cell/table-header-cell';
 import { TableToolbar } from './table-toolbar/table-toolbar';
 
 const columnKeys = Object.keys(dummyData[0]);
+const crypto = require('crypto');
 
+Object.defineProperty(globalThis, 'crypto', {
+  value: {
+    randomUUID: () => crypto.randomBytes(10),
+  },
+});
 describe('sdds-table filtering', () => {
   it('should render cells from enable-dummy-data prop', async () => {
     const mismatchingCellSpy = jest.fn();
@@ -18,7 +24,7 @@ describe('sdds-table filtering', () => {
     const page = await newSpecPage({
       components: [Table, TableToolbar, TableHeaderRow, TableHeaderCell, TableBody],
       template: () => (
-        <sdds-table>
+        <sdds-table table-id="unique-test-id">
           <sdds-table-toolbar table-title="Filter me" enableFiltering />
           <sdds-table-header>
             <sdds-header-cell column-key={columnKeys[0]} />
