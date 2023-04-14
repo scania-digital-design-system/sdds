@@ -12,5 +12,6 @@ describe('SddsButton Component', () => {
     const { root } = page;
     expect(root.shadowRoot.querySelector('button')).toBeTruthy();
     expect(root.type).toBe('primary');
+    expect(root.size).toBe('lg');
   });
 });
