@@ -172,15 +172,23 @@ export class Slider {
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
+      const trackWidth = this.getTrackWidth();
+      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
 
-      this.supposedValueSlot = Math.round(localLeft / v);
+      let scrubberPositionPX = 0;
+      if (localLeft >= 0 && localLeft <= trackWidth) {
+        scrubberPositionPX = localLeft;
+      } else if (localLeft > trackWidth) {
+        scrubberPositionPX = trackWidth;
+      } else if (localLeft < 0) {
+        scrubberPositionPX = 0;
+      }
+      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
     this.scrubberElement.style.left = `${this.scrubberLeft}px`;
-
     this.updateValue();
     this.updateTrack();
   }
@@ -200,10 +208,19 @@ export class Slider {
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
+      const trackWidth = this.getTrackWidth();
+      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
 
-      this.supposedValueSlot = Math.round(localLeft / v);
+      let scrubberPositionPX = 0;
+      if (localLeft >= 0 && localLeft <= trackWidth) {
+        scrubberPositionPX = localLeft;
+      } else if (localLeft > trackWidth) {
+        scrubberPositionPX = trackWidth;
+      } else if (localLeft < 0) {
+        scrubberPositionPX = 0;
+      }
+      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -216,7 +233,6 @@ export class Slider {
   updateTrack() {
     const trackWidth = this.getTrackWidth();
     const percentageFilled = (this.scrubberLeft / trackWidth) * 100;
-
     this.trackFillElement.style.width = `${percentageFilled}%`;
   }
 
@@ -497,7 +513,6 @@ export class Slider {
             this.wrapperElement = el as HTMLElement;
           }}
         >
-
           <label class={this.showTickNumbers && 'offset'}>{this.label}</label>
 
           {this.useInput && (
@@ -525,8 +540,6 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            
-
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
                 <div
