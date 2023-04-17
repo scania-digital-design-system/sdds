@@ -19,7 +19,8 @@ const Template = () =>
         }
 
         sdds-textfield,
-        sdds-slider {
+        sdds-slider,
+        sdds-datetime {
             width: 25%;
         }
 
@@ -84,18 +85,29 @@ const Template = () =>
                 rows="10"
             ></sdds-textarea>
 
+            <sdds-datetime
+                id="datetime"
+                name="my-datetime"
+                type="datetime-local"
+                size="lg"
+                state="none"
+                label="Label text"
+                helper="Helper text"
+            ></sdds-datetime>
+
+
             
             <div class="toggle-container">
                 <sdds-toggle
                     name="my-toggle"
                     size="lg">
-                    Try to toggle this toggle
+                    <div slot="label">Try to toggle this toggle</div>
                 </sdds-toggle>
                 <sdds-toggle
                     required
                     name="required-toggle"
                     size="lg">
-                    This toggle has to be toggled
+                    <div slot="label">This toggle has to be toggled</div>
                 </sdds-toggle>
             </div>
             
@@ -103,14 +115,14 @@ const Template = () =>
             <sdds-checkbox
                 name="checkbox-1"
                 >
-                Checkbox 1
+                <div slot="label">Checkbox 1</div>
             </sdds-checkbox>
 
             <sdds-checkbox
                 disabled
                 name="checkbox-2"
                 >
-                Checkbox 2
+                <div slot="label">Checkbox 2</div>
             </sdds-checkbox>
             </div>
 
@@ -122,14 +134,15 @@ const Template = () =>
                     radio-id="option-1"
                     checked
                     >
-                    Radio 1
-                </sdds-radio-button>
+                    <div slot="label">Radio 1</div>
+
+                    </sdds-radio-button>
                 <sdds-radio-button
                     name="radio-example"
                     value="option2"
                     radio-id="option-2"
                     >
-                    Radio 2
+                    <div slot="label">Radio 2</div>
                 </sdds-radio-button>
             </fieldset>
 
