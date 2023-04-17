@@ -10,7 +10,8 @@
     height: 100%;
     width: 100%;
 
-    ::slotted(a) {
+    ::slotted(a),
+    ::slotted(button) {
       all: unset;
       box-sizing: border-box;
       border-right: 1px solid var(--sdds-nav-item-border-color);
@@ -26,7 +27,8 @@
       border: none;
     }
 
-    ::slotted(a:hover) {
+    ::slotted(a:hover),
+    ::slotted(button:hover) {
       background-color: var(--sdds-nav-item-background-hover);
       cursor: pointer;
     }
@@ -37,7 +39,8 @@
   }
 
   .component.component-selected {
-    ::slotted(a) {
+    ::slotted(a),
+    ::slotted(button) {
       border-left: 4px solid var(--sdds-nav-item-border-color-active);
       padding-left: 20px;
       background-color: var(--sdds-nav-item-background-selected);
@@ -46,7 +49,8 @@
 
   .component.component-dropdown-has-icon {
     &:not(.component-collapsed) {
-      ::slotted(a) {
+      ::slotted(a),
+      ::slotted(button) {
         padding-left: 56px;
       }
     }

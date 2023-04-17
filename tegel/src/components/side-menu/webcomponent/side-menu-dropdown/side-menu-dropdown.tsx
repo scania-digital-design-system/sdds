@@ -86,7 +86,7 @@ export class SideMenuDropdown {
             'state-collapsed': this.collapsed,
           }}
         >
-          <sdds-side-menu-button
+          <sdds-side-menu-item
             class="button"
             active={this.getIsOpenState()}
             selected={this.selected}
@@ -94,15 +94,17 @@ export class SideMenuDropdown {
               this.open = !this.open;
             }}
           >
-            <slot name="button-icon" slot="icon"></slot>
-            {!this.collapsed && (
-              <Fragment>
-                {this.buttonLabel}
-                <slot name="button-label"></slot>
-                <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
-              </Fragment>
-            )}
-          </sdds-side-menu-button>
+            <button>
+              <slot name="button-icon"></slot>
+              {!this.collapsed && (
+                <Fragment>
+                  {this.buttonLabel}
+                  <slot name="button-label"></slot>
+                  <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+                </Fragment>
+              )}
+            </button>
+          </sdds-side-menu-item>
           <div class="menu">
             {this.collapsed && (
               <h3 class="heading-collapsed">

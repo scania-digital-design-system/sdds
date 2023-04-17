@@ -188,10 +188,13 @@ const Template = () =>
           About
         </sdds-side-menu-button>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
-          Truck types
-        </sdds-side-menu-button>
+        <sdds-side-menu-item selected>
+          <a href="https://www.scania.com">
+            <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
+            Truck types
+          </a>
+        </sdds-side-menu-item>
+
         <sdds-side-menu-dropdown>
           <sdds-icon slot="button-icon" name="tool" size="24"></sdds-icon>
           <span slot="button-label">

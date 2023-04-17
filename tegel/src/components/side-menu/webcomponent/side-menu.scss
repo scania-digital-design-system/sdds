@@ -99,7 +99,7 @@
     }
 
     &:host([collapsed]) {
-      width: 68px;
+      width: 69px; // 68 + 1px for border
 
       .menu {
         width: 68px;

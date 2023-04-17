@@ -35,13 +35,13 @@ Example:
 
 ### Depends on
 
-- [sdds-side-menu-button](../side-menu-button)
+- [sdds-side-menu-item](../side-menu-item)
 - [sdds-icon](../../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-side-menu-dropdown --> sdds-side-menu-button
+  sdds-side-menu-dropdown --> sdds-side-menu-item
   sdds-side-menu-dropdown --> sdds-icon
   style sdds-side-menu-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

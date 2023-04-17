@@ -32,10 +32,6 @@
       background-color: var(--sdds-sidebar-item-state-hover);
     }
 
-    &:active {
-      background-color: var(--sdds-sidebar-item-state-active);
-    }
-
     &:focus-visible {
       @include sdds-focus-state;
     }

@@ -163,20 +163,26 @@ const Template = ({ dummyHtml }) =>
 
         <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
-          About us
-        </sdds-side-menu-button>
+        <sdds-side-menu-item>
+          <button>
+            <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
+            About us
+          </button>
+        </sdds-side-menu-item>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
-          Trucks
-        </sdds-side-menu-button>
+        <sdds-side-menu-item>
+          <a href="https://www.scania.com">
+            <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
+            Trucks
+          </a>
+        </sdds-side-menu-item>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="wifi" size="24"></sdds-icon>
-          Our services
-        </sdds-side-menu-button>
+        <sdds-side-menu-item>
+          <button>
+            <sdds-icon slot="icon" name="wifi" size="24"></sdds-icon>
+            Our services
+          </button>
+        </sdds-side-menu-item>
 
         <sdds-side-menu-dropdown default-open selected>
           <sdds-icon slot="button-icon" name="profile" size="24"></sdds-icon>
@@ -193,26 +199,32 @@ const Template = ({ dummyHtml }) =>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
-          Values
-        </sdds-side-menu-button>
+        <sdds-side-menu-item>
+          <button>
+            <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+            Values
+          </button>
+        </sdds-side-menu-item>
 
 
-        <sdds-side-menu-button slot="end">
-          <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
-          My Calendar
-        </sdds-side-menu-button>
+        <sdds-side-menu-item slot="end">
+          <button>
+            <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
+            My Calendar
+          </button>
+        </sdds-side-menu-item>
 
-        <sdds-side-menu-button slot="end" class="demo-xs-hide">
-          <sdds-side-menu-user heading="Name Namesson" subheading="Company name">
-            <img
-              slot="image"
-              src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
-              alt="User menu."
-            />
-          </sdds-side-menu-user>
-        </sdds-side-menu-button>
+        <sdds-side-menu-item slot="end" class="demo-xs-hide">
+          <button>
+            <sdds-side-menu-user heading="Name Namesson" subheading="Company name">
+              <img
+                slot="image"
+                src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
+                alt="User menu."
+              />
+            </sdds-side-menu-user>
+          </button>
+        </sdds-side-menu-item>
 
         <sdds-side-menu-collapse-button slot="sticky-end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>
 

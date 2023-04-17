@@ -15,12 +15,12 @@ Example:
 
 ### Depends on
 
-- [sdds-side-menu-button](../side-menu-button)
+- [sdds-side-menu-item](../side-menu-item)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-side-menu-collapse-button --> sdds-side-menu-button
+  sdds-side-menu-collapse-button --> sdds-side-menu-item
   style sdds-side-menu-collapse-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

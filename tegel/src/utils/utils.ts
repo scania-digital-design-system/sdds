@@ -150,31 +150,35 @@ export const inheritAriaAttributes = (el: HTMLElement, ignoreList?: string[]) =>
   return inheritAttributes(el, attributesToInherit);
 };
 
-// A helper function that performs a deep-first search on elements
-// to find the first one that matches the given criteria.
-function dfs(
+/**
+ * Recursively finds the first matching element or child based on a provided condition.
+ *
+ * @param {HTMLElement} element - The starting element to search from.
+ * @param {(el: HTMLElement) => boolean} searchPredicate - The condition to match the element, receives an HTMLElement and returns a boolean.
+ * @returns {HTMLElement | null} - The first matching element or child, or null if none is found.
+ */
+export function dfs(
   element: HTMLElement,
   searchPredicate: (el: HTMLElement) => boolean,
 ): HTMLElement | null {
-  // Check if the current element matches the criteria.
   if (searchPredicate(element)) {
     return element;
   }
 
-  // Iterate through the children of the current element.
-  const { children } = element;
-  for (let i = 0; i < children.length; i++) {
-    // Recursively search each child for a matching element.
-    const result = dfs(children[i] as HTMLElement, searchPredicate);
-    if (result) {
-      // If a matching element is found, return it.
-      return result;
-    }
-  }
+  const childElements =
+    element instanceof HTMLSlotElement
+      ? element.assignedElements({ flatten: true })
+      : Array.from(element.children);
 
-  // If no matching element is found, return null.
-  return null;
+  let foundElement: HTMLElement | null = null;
+  childElements.some((child: HTMLElement) => {
+    foundElement = dfs(child, searchPredicate);
+    return foundElement !== null;
+  });
+
+  return foundElement;
 }
+
 // A higher-order function to find the nested child of siblings matching a predicate,
 // based on a sibling traversal function (getNextSibling or getPreviousSibling).
 function getNestedChildOfSiblingsMatching(
