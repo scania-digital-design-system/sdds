@@ -10,20 +10,6 @@
     height: 100%;
     width: 100%;
 
-    &-selected {
-      ::slotted(a) {
-        border-left: 4px solid var(--sdds-nav-item-border-color-active);
-        padding-left: 20px;
-        background-color: var(--sdds-nav-item-background-selected);
-      }
-    }
-
-    &-dropdown-has-icon:not(&-collapsed) {
-      ::slotted(a) {
-        padding-left: 56px;
-      }
-    }
-
     ::slotted(a) {
       all: unset;
       box-sizing: border-box;
@@ -47,6 +33,22 @@
 
     ::slotted(a:focus-visible) {
       @include sdds-focus-state;
+    }
+  }
+
+  .component.component-selected {
+    ::slotted(a) {
+      border-left: 4px solid var(--sdds-nav-item-border-color-active);
+      padding-left: 20px;
+      background-color: var(--sdds-nav-item-background-selected);
+    }
+  }
+
+  .component.component-dropdown-has-icon {
+    &:not(.component-collapsed) {
+      ::slotted(a) {
+        padding-left: 56px;
+      }
     }
   }
 }

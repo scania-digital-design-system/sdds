@@ -192,18 +192,21 @@ const Template = () =>
           <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
           Truck types
         </sdds-side-menu-button>
-
         <sdds-side-menu-dropdown>
           <sdds-icon slot="button-icon" name="tool" size="24"></sdds-icon>
           <span slot="button-label">
             Wheel types
           </span>
           <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link>Hub-centric wheel</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link>Rim wheel</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-item>
+              <a href="https://design.scania.com">Hub-centric wheel</a>
+            </sdds-side-menu-dropdown-list-item>
+            <sdds-side-menu-dropdown-list-item>
+              <a href="https://design.scania.com">Rim wheel</a>
+            </sdds-side-menu-dropdown-list-item>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
-
+        
         <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected>
           <sdds-side-menu-user 
             slot="button-label" 
@@ -213,10 +216,15 @@ const Template = () =>
             img-alt="">
           </sdds-side-menu-user>
           <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link selected>My Instructions</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link>Task List</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-item selected>
+              <a href="https://design.scania.com">My Instructions</a>
+            </sdds-side-menu-dropdown-list-item>
+            <sdds-side-menu-dropdown-list-item>
+              <a href="https://design.scania.com">Task List</a>
+            </sdds-side-menu-dropdown-list-item>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
+      
 
       </sdds-side-menu>
 

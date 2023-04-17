@@ -19,7 +19,6 @@ export class HeaderLauncherGrid {
 
     const headingEl = getPreviousNestedChildOfSiblingsMatching(listRoot, (el) => {
       const e = el;
-      console.log(e);
       return isHeadingElement(e);
     });
 

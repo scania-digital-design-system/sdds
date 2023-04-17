@@ -184,8 +184,12 @@ const Template = ({ dummyHtml }) =>
             Wheel types
           </span>
           <sdds-side-menu-dropdown-list>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com">Hub-centric wheel</sdds-side-menu-dropdown-list-link>
-            <sdds-side-menu-dropdown-list-link href="https://www.scania.com" selected>Rim wheel</sdds-side-menu-dropdown-list-link>
+            <sdds-side-menu-dropdown-list-item>
+              <a href="https://www.scania.com">Hub-centric wheel</a>
+            </sdds-side-menu-dropdown-list-item>
+            <sdds-side-menu-dropdown-list-item selected>
+              <a href="https://www.scania.com">Rim wheel</a>
+            </sdds-side-menu-dropdown-list-item>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
 
