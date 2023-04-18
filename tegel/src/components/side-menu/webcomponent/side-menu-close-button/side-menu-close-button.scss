@@ -21,7 +21,7 @@
       background-color: var(--sdds-sidebar-item-state-hover);
     }
 
-    &:focus {
+    &:focus-visible {
       cursor: pointer;
       border: 1px solid var(--sdds-sidebar-side-menu-single-subitem-selected-border-color);
     }
