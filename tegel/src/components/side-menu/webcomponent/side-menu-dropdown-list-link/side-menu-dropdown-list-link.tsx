@@ -8,7 +8,7 @@ import { inheritAriaAttributes } from '../../../../utils/utils';
   shadow: true,
 })
 export class SideMenuDropdownListLink {
-  @Element() host: HTMLSddsSideMenuButtonElement;
+  @Element() host: HTMLElement;
 
   /** If the button should appear selected */
   @Prop() selected: boolean = false;

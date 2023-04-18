@@ -183,10 +183,12 @@ const Template = () =>
 
         <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>
 
-        <sdds-side-menu-button>
-          <sdds-icon slot="icon" name="info" size="24"></sdds-icon>
-          About
-        </sdds-side-menu-button>
+        <sdds-side-menu-item>
+          <button>
+            <sdds-icon slot="icon" name="info" size="24"></sdds-icon>
+            About
+          </button>
+        </sdds-side-menu-item>
 
         <sdds-side-menu-item selected>
           <a href="https://www.scania.com">

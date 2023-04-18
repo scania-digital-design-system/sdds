@@ -7,7 +7,7 @@ import { CollapsedEvent } from '../side-menu';
   shadow: true,
 })
 export class SideMenuDropdownList {
-  @Element() host: HTMLSddsSideMenuButtonElement;
+  @Element() host: HTMLElement;
 
   @State() collapsed: boolean = false;
 

@@ -10,20 +10,24 @@ Example:
 
   <sdds-side-menu-close-button slot="close-button" onclick="getElementById('sidemenu').open = false;"></sdds-side-menu-close-button>
 
-  <sdds-side-menu-button>
-    <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
-    About us
-  </sdds-side-menu-button>
+  <sdds-side-menu-item>
+    <button>
+      <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+      About us
+    </button>
+  </sdds-side-menu-item>
 
-  <sdds-side-menu-button slot="end">
-    <sdds-side-menu-user heading="Name Namesson" subheading="Company name">
-      <img
-        slot="image"
-        src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
-        alt="User menu."
-      />
-    </sdds-side-menu-user>
-  </sdds-side-menu-button>
+  <sdds-side-menu-item slot="end">
+    <button>
+      <sdds-side-menu-user heading="Name Namesson" subheading="Company name">
+        <img
+          slot="image"
+          src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
+          alt="User menu."
+        />
+      </sdds-side-menu-user>
+    </button>
+  </sdds-side-menu-item>
 </sdds-side-menu>
 ```
 

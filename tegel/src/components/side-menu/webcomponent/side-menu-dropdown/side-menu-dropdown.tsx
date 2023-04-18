@@ -7,7 +7,7 @@ import { CollapsedEvent } from '../side-menu';
   shadow: true,
 })
 export class SideMenuDropdown {
-  @Element() host: HTMLSddsSideMenuButtonElement;
+  @Element() host: HTMLElement;
 
   /** If the dropdown should be open from the start. */
   @Prop() defaultOpen: boolean = false;
