@@ -129,20 +129,8 @@ export class Slider {
   }
 
   @Listen('mouseup', { target: 'window' })
-  handleMouseUp() {
-    if (!this.scrubberGrabbed) {
-      return;
-    }
-
-    this.scrubberGrabbed = false;
-    this.scrubberInnerElement.classList.remove('pressed');
-    this.updateValue();
-
-    this.trackElement.focus();
-  }
-
   @Listen('touchend', { target: 'window' })
-  handleTouchEnd() {
+  handleDragEndEvents() {
     if (!this.scrubberGrabbed) {
       return;
     }
@@ -150,7 +138,6 @@ export class Slider {
     this.scrubberGrabbed = false;
     this.scrubberInnerElement.classList.remove('pressed');
     this.updateValue();
-
     this.trackElement.focus();
   }
 
@@ -415,17 +402,9 @@ export class Slider {
       this.tickValues.push(this.getMax());
     }
 
-    if (this.disabled) {
-      this.disabledState = true;
-    } else {
-      this.disabledState = false;
-    }
+    this.disabledState = this.disabled;
 
-    if (this.readOnly) {
-      this.readonlyState = true;
-    } else {
-      this.readonlyState = false;
-    }
+    this.readonlyState = this.readOnly;
 
     this.useInput = false;
     this.useControls = false;
@@ -436,17 +415,9 @@ export class Slider {
       this.useInput = true;
     }
 
-    this.useSmall = false;
+    this.useSmall = this.scrubberSize === 'sm';
 
-    if (this.scrubberSize === 'sm') {
-      this.useSmall = true;
-    }
-
-    this.useSnapping = false;
-
-    if (this.snap) {
-      this.useSnapping = true;
-    }
+    this.useSnapping = this.snap;
 
     const min = this.getMin();
     const max = this.getMax();
