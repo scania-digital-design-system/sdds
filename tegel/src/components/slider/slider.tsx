@@ -181,7 +181,6 @@ export class Slider {
   }
 
   scrubberCore(event) {
-    console.log(`Event is: ${event.type}`);
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
     let localLeft = 0;
