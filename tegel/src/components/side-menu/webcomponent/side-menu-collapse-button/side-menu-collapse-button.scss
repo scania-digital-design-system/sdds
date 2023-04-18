@@ -17,7 +17,11 @@
 
   .state-collapsed {
     .icon {
-      transform: rotateZ(90deg) rotateX(180deg);
+      transform: translateX(-50%) rotateZ(90deg) rotateX(180deg);
+      color: var(--sdds-sidebar-side-menu-single-item-color);
+      margin-left: 0;
+      position: absolute;
+      left: 50%;
     }
   }
 }
