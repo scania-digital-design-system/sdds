@@ -2,11 +2,10 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 import readmeHamburger from './header-hamburger/readme.md';
 import readmeTitle from './header-title/readme.md';
-import readmeButton from './header-button/readme.md';
-import readmeLink from './header-link/readme.md';
+import readmeItem from './header-item/readme.md';
 import readmeDropdown from './header-dropdown/readme.md';
 import readmeDropdownList from './header-dropdown-list/readme.md';
-import readmeDropdownListLink from './header-dropdown-list-link/readme.md';
+import readmeDropdownListItem from './header-dropdown-list-item/readme.md';
 import readmeDropdownListUser from './header-dropdown-list-user/readme.md';
 import readmeLauncher from './header-launcher/readme.md';
 
@@ -17,11 +16,10 @@ export default {
       'Header': readme,
       'Header hamburger': readmeHamburger,
       'Header title': readmeTitle,
-      'Header button': readmeButton,
-      'Header link': readmeLink,
+      'Header item': readmeItem,
       'Header dropdown': readmeDropdown,
       'Header dropdown list': readmeDropdownList,
-      'Header dropdown list link': readmeDropdownListLink,
+      'Header dropdown list item': readmeDropdownListItem,
       'Header dropdown list user': readmeDropdownListUser,
       'Header launcher': readmeLauncher,
     },
@@ -59,8 +57,15 @@ const Template = () =>
     <sdds-header-launcher slot="end">
       <sdds-header-launcher-list-title>Cool apps</sdds-header-launcher-list-title>
       <sdds-header-launcher-list>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
-        <sdds-header-launcher-list-link href="https://tegel.scania.com">Button</sdds-header-launcher-list-link>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">Trucklyfe</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">HaulHub</a>
+        </sdds-header-launcher-list-item>
+        <sdds-header-launcher-list-item>
+          <a href="https://tegel.scania.com">WheelWizz</a>
+        </sdds-header-launcher-list-item>
       </sdds-header-launcher-list>
     </sdds-header-launcher>
 

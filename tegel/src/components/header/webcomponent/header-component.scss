@@ -27,9 +27,8 @@ nav {
     align-items: center;
   }
 
-  sdds-header-button,
-  sdds-header-link,
-  sdds-header-dropdown {
+  sdds-header-dropdown,
+  sdds-header-item {
     display: none;
   }
 
@@ -42,15 +41,14 @@ nav {
   }
 
   @media screen and (min-width: $grid-lg) {
-    sdds-header-button,
-    sdds-header-link,
-    sdds-header-dropdown {
+    sdds-header-dropdown,
+    sdds-header-item {
       display: block;
     }
   }
 
-  sdds-header-button:nth-child(3),
-  sdds-header-link:nth-child(3) {
+  sdds-header-item:nth-child(3),
+  sdds-header-dropdown:nth-child(3) {
     /* Adds a left border to the button after the title, if any */
     border-left: 1px solid var(--sdds-header-mob-menu-border);
   }

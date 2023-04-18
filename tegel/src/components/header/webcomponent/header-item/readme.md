@@ -1,23 +1,33 @@
-# sdds-header-button
+# sdds-header-item
 
-The header button is a button that can be used in the header.
+The header item is a wrapper that styles a button or link in the header. For accessibility purposes it also serves as the element with the 'listitem' role in the header (the role is applied automatically).
 
 Example:
 
 ```html
-// HTML
-<sdds-header-button onclick="alert('About us clicked');">
-  About us
-</sdds-header-button>
+// HTML - button
+<sdds-header-item>
+  <button onclick="alert('About us clicked');">
+    About us
+  </button>
+</sdds-header-item>
 
-// React JSX
-<sdds-header-button 
-  onClick={() => {
+// HTML - link
+<sdds-header-item>
+  <a href="https://www.scania.com">
+    About us
+  </a>
+</sdds-header-item>
+
+// React JSX - button
+<sdds-header-item>
+  <button onClick={() => {
     alert('About us clicked');
-  }}
->
-  About us
-</sdds-header-button>
+  }}>
+    About us
+  </button>
+</sdds-header-item>
+
 ```
 
 Note: Any aria attributes will be passed to the underlying button tag.
@@ -40,6 +50,7 @@ Note: Any aria attributes will be passed to the underlying button tag.
  - [sdds-header-dropdown](../header-dropdown)
  - [sdds-header-hamburger](../header-hamburger)
  - [sdds-header-launcher-button](../header-launcher-button)
+ - [sdds-header-logo](../header-logo)
 
 ### Depends on
 
@@ -48,11 +59,12 @@ Note: Any aria attributes will be passed to the underlying button tag.
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-button --> sdds-core-header-item
-  sdds-header-dropdown --> sdds-header-button
-  sdds-header-hamburger --> sdds-header-button
-  sdds-header-launcher-button --> sdds-header-button
-  style sdds-header-button fill:#f9f,stroke:#333,stroke-width:4px
+  sdds-header-item --> sdds-core-header-item
+  sdds-header-dropdown --> sdds-header-item
+  sdds-header-hamburger --> sdds-header-item
+  sdds-header-launcher-button --> sdds-header-item
+  sdds-header-logo --> sdds-header-item
+  style sdds-header-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -80,13 +80,17 @@ const Template = () =>
           Example: Few items
         </sdds-header-title>
 
-        <sdds-header-button onclick="alert('About us clicked');">
-          About us
-        </sdds-header-button>
+        <sdds-header-item>
+          <button onclick="alert('About us clicked');">
+            About us
+          </button>
+        </sdds-header-item>
 
-        <sdds-header-link href="https://www.google.se">
-          Truck types
-        </sdds-header-link>
+        <sdds-header-item>
+          <a href="https://www.google.se">
+            Truck types
+          </a>
+        </sdds-header-item>
 
         <sdds-header-dropdown>
           <span slot="button-label">Wheel types</span>
@@ -100,9 +104,11 @@ const Template = () =>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
-        <sdds-header-button slot="end" onclick="alert('Calendar button clicked')">
-          <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
-        </sdds-header-button>
+        <sdds-header-item slot="end">
+          <button onclick="alert('Calendar button clicked')">
+            <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
+          </button>
+        </sdds-header-item>
 
         <sdds-header-launcher slot="end" aria-label="application-launcher">
           <sdds-header-launcher-grid-title>Operations and Logistics</sdds-header-launcher-grid-title>
@@ -190,7 +196,7 @@ const Template = () =>
           </button>
         </sdds-side-menu-item>
 
-        <sdds-side-menu-item selected>
+        <sdds-side-menu-item>
           <a href="https://www.scania.com">
             <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
             Truck types
@@ -211,6 +217,13 @@ const Template = () =>
             </sdds-side-menu-dropdown-list-item>
           </sdds-side-menu-dropdown-list>
         </sdds-side-menu-dropdown>
+
+        <sdds-side-menu-item slot="end" onclick="alert('Calendar button clicked')">
+          <button>
+            <sdds-icon slot="icon" name="calendar" size="24px"></sdds-icon>
+            Calendar
+          </button>
+        </sdds-side-menu-item>
         
         <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected>
           <sdds-side-menu-user 

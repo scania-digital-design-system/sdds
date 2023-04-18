@@ -16,19 +16,6 @@
 | `target`            | `target`   | Native &lt;a&gt; tag attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes. | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined`  |
 
 
-## Dependencies
-
-### Depends on
-
-- [sdds-header-dropdown-list-link](../header-dropdown-list-link)
-
-### Graph
-```mermaid
-graph TD;
-  sdds-header-launcher-list-link --> sdds-header-dropdown-list-link
-  style sdds-header-launcher-list-link fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

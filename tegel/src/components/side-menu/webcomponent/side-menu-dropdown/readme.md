@@ -11,9 +11,15 @@ Example:
   <sdds-icon slot="button-icon" name="star" size="24"></sdds-icon>
   <span slot="button-label">Button label</span>
   <sdds-side-menu-dropdown-list>
-    <sdds-side-menu-dropdown-list-link href="#">Link 1</sdds-side-menu-dropdown-list-link>
-    <sdds-side-menu-dropdown-list-link href="#" selected="true">Link 2</sdds-side-menu-dropdown-list-link>
-    <sdds-side-menu-dropdown-list-link href="#">Link 3</sdds-side-menu-dropdown-list-link>
+    <sdds-side-menu-dropdown-list-item>
+      <a href="#">Link 1</a>
+    </sdds-side-menu-dropdown-list-item>
+    <sdds-side-menu-dropdown-list-item selected="true">
+      <a href="#">Link 2</a>
+    </sdds-side-menu-dropdown-list-item>
+    <sdds-side-menu-dropdown-list-item>
+      <a href="#">Link 3</a>
+    </sdds-side-menu-dropdown-list-item>
   </sdds-side-menu-dropdown-list>
 </sdds-side-menu-dropdown>
 ```

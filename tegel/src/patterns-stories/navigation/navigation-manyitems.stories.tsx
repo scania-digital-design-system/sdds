@@ -107,9 +107,12 @@ const Template = ({ dummyHtml }) =>
         Example: Many items
       </sdds-header-title>
 
-      <sdds-header-button slot="end" onclick="alert('clicked')">
-        <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
-      </sdds-header-button>
+      <sdds-header-item slot="end">
+        <button onclick="alert('clicked')">
+          <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
+        </button>
+      </sdds-header-item>
+
       <sdds-header-launcher slot="end">
         <sdds-header-launcher-list-title>Good</sdds-header-launcher-list-title>
         <sdds-header-launcher-list>

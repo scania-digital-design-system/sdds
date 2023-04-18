@@ -26,15 +26,15 @@ Example:
 
 ### Depends on
 
-- [sdds-header-button](../header-button)
+- [sdds-header-item](../header-item)
 - [sdds-icon](../../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-hamburger --> sdds-header-button
+  sdds-header-hamburger --> sdds-header-item
   sdds-header-hamburger --> sdds-icon
-  sdds-header-button --> sdds-core-header-item
+  sdds-header-item --> sdds-core-header-item
   style sdds-header-hamburger fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -16,13 +16,13 @@ Note: Any aria attributes will be passed to the underlying anchor tag.
 
 ### Depends on
 
-- [sdds-header-link](../header-link)
+- [sdds-header-item](../header-item)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-logo --> sdds-header-link
-  sdds-header-link --> sdds-core-header-item
+  sdds-header-logo --> sdds-header-item
+  sdds-header-item --> sdds-core-header-item
   style sdds-header-logo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

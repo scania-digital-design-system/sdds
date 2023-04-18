@@ -23,31 +23,36 @@ export class SddsSideMenuItem {
 
   slotEl: HTMLSlotElement;
 
-  /**
-   * This function is needed because we can't use CSS selectors to style something in the light dom
-   */
-  updateSlottedSddsIcon() {
+  updateSlotted(
+    searchPredicate: (element: HTMLElement) => boolean,
+    mutationCallback: (element: HTMLElement) => void,
+  ) {
     const assignedElements = this.slotEl.assignedElements({ flatten: true });
     const firstSlottedElement = assignedElements[0] as HTMLElement;
     if (firstSlottedElement) {
-      const isIconOrSvg = (element) =>
-        element.tagName.toLowerCase() === 'sdds-icon' || element.tagName.toLowerCase() === 'svg';
-
-      const iconOrSvg = dfs(firstSlottedElement, isIconOrSvg);
-      if (iconOrSvg) {
-        iconOrSvg.classList.add('__sdds-side-menu-item-icon');
-        if (this.collapsed) {
-          iconOrSvg.classList.add('__sdds-side-menu-item-icon-collapsed');
-        } else {
-          iconOrSvg.classList.remove('__sdds-side-menu-item-icon-collapsed');
-        }
+      const foundElement = dfs(firstSlottedElement, searchPredicate);
+      if (foundElement) {
+        mutationCallback(foundElement);
       }
     }
   }
 
-  updateSlotted() {
+  /**
+   * This function is needed because we can't use CSS selectors to style something in the light dom
+   */
+  updateSlottedElements() {
     if (this.slotEl) {
-      this.updateSlottedSddsIcon();
+      const isIconOrSvg = (element) =>
+        element.tagName.toLowerCase() === 'sdds-icon' || element.tagName.toLowerCase() === 'svg';
+      const addIconClass = (element) => {
+        element.classList.add('__sdds-side-menu-item-icon');
+        if (this.collapsed) {
+          element.classList.add('__sdds-side-menu-item-icon-collapsed');
+        } else {
+          element.classList.remove('__sdds-side-menu-item-icon-collapsed');
+        }
+      };
+      this.updateSlotted(isIconOrSvg, addIconClass);
     }
   }
 
@@ -60,14 +65,14 @@ export class SddsSideMenuItem {
 
   componentDidLoad() {
     this.slotEl = this.host.shadowRoot.querySelector('slot');
-    this.updateSlotted();
-    this.slotEl.addEventListener('slotchange', this.updateSlotted);
+    this.updateSlottedElements();
+    this.slotEl.addEventListener('slotchange', this.updateSlottedElements);
   }
 
   @Listen('sddsSideMenuCollapsed', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
-    this.updateSlotted();
+    this.updateSlottedElements();
   }
 
   render() {

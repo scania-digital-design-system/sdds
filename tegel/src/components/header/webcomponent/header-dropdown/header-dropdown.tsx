@@ -20,7 +20,7 @@ export class HeaderDropdown {
 
   @State() open: boolean = false;
 
-  @State() buttonEl?: HTMLSddsHeaderButtonElement;
+  @State() buttonEl?: HTMLButtonElement;
 
   uuid: string = crypto.randomUUID();
 
@@ -45,27 +45,26 @@ export class HeaderDropdown {
             'state-open': this.open,
           }}
         >
-          <sdds-header-button
-            aria-expanded={`${this.open}`}
-            aria-controls={`launcher-${this.uuid}`}
-            aria-current={this.selected ? 'location' : 'false'}
-            class="button"
-            active={this.open}
-            onClick={() => {
-              this.toggleDropdown();
-            }}
-            ref={(el) => {
-              this.buttonEl = el;
-            }}
-            selected={this.selected}
-          >
-            <slot name="button-icon" slot="icon"></slot>
-            {this.buttonLabel}
-            <slot name="button-label"></slot>
-            {!this.noDropdownIcon && (
-              <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
-            )}
-          </sdds-header-button>
+          <sdds-header-item class="button" active={this.open} selected={this.selected}>
+            <button
+              ref={(el) => {
+                this.buttonEl = el;
+              }}
+              aria-expanded={`${this.open}`}
+              aria-controls={`launcher-${this.uuid}`}
+              aria-current={this.selected ? 'location' : 'false'}
+              onClick={() => {
+                this.toggleDropdown();
+              }}
+            >
+              <slot name="button-icon"></slot>
+              {this.buttonLabel}
+              <slot name="button-label"></slot>
+              {!this.noDropdownIcon && (
+                <sdds-icon class="dropdown-icon" name="chevron_down" size="16px"></sdds-icon>
+              )}
+            </button>
+          </sdds-header-item>
           {this.buttonEl && (
             <sdds-popover-canvas
               id={`sdds-dropdown-${this.uuid}`}

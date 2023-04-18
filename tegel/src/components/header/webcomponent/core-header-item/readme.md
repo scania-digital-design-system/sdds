@@ -9,14 +9,12 @@
 
 ### Used by
 
- - [sdds-header-button](../header-button)
- - [sdds-header-link](../header-link)
+ - [sdds-header-item](../header-item)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-button --> sdds-core-header-item
-  sdds-header-link --> sdds-core-header-item
+  sdds-header-item --> sdds-core-header-item
   style sdds-core-header-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

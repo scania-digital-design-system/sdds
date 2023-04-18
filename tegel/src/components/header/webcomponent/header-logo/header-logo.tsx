@@ -18,7 +18,9 @@ export class HeaderLogo {
     };
     return (
       <Host>
-        <sdds-header-link {...inheritedLinkProps} href={this.linkHref}></sdds-header-link>
+        <sdds-header-item>
+          <a {...inheritedLinkProps} href={this.linkHref}></a>
+        </sdds-header-item>
       </Host>
     );
   }

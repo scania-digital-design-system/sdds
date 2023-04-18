@@ -16,9 +16,11 @@ export class HeaderHamburger {
 
     return (
       <Host>
-        <sdds-header-button {...inheritedButtonProps}>
-          <sdds-icon slot="icon" name="burger" size="20px"></sdds-icon>
-        </sdds-header-button>
+        <sdds-header-item>
+          <button {...inheritedButtonProps}>
+            <sdds-icon slot="icon" class="icon" name="burger" size="20px"></sdds-icon>
+          </button>
+        </sdds-header-item>
       </Host>
     );
   }

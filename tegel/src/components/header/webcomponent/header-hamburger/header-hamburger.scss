@@ -1,21 +1,26 @@
 @import '../theme/core/spacing/vars';
 
 :host {
-  sdds-header-button {
+  color: var(--sdds-white);
+
+  sdds-header-item {
     display: block;
   }
 
-  color: var(--sdds-white);
+  .icon {
+    position: relative;
+    margin-left: -6px;
+    left: 3px;
+    transition: all 0.2s ease-in-out;
+  }
 }
 
 @media screen and (min-width: $grid-lg) {
-  :host {
-    sdds-header-button {
-      display: none;
-    }
+  :host sdds-header-item {
+    display: none;
   }
 
-  :host([persistent]) sdds-header-button {
+  :host([persistent]) sdds-header-item {
     display: block;
   }
 }

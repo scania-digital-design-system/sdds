@@ -16,14 +16,15 @@ export class HeaderLauncherButton {
   render() {
     const buttonProps = {
       ...inheritAriaAttributes(this.host),
-      active: this.active,
     };
 
     return (
       <Host>
-        <sdds-header-button {...buttonProps}>
-          <sdds-icon slot="icon" name="bento" size="20px"></sdds-icon>
-        </sdds-header-button>
+        <sdds-header-item active={this.active}>
+          <button {...buttonProps}>
+            <sdds-icon slot="icon" class="icon" name="bento" size="20px"></sdds-icon>
+          </button>
+        </sdds-header-item>
       </Host>
     );
   }

@@ -8,8 +8,16 @@ Example:
 <sdds-header-dropdown>
   <span slot="button-label">Label</span>
   <sdds-header-dropdown-list>
-    <sdds-header-dropdown-list-link href="https://www.scania.com">Link 1</sdds-header-dropdown-list-link>
-    <sdds-header-dropdown-list-link href="https://www.scania.com">Link 2</sdds-header-dropdown-list-link>
+    <sdds-header-dropdown-list-item>
+      <a href="https://www.scania.com">
+        Link 1
+      </a>
+    </sdds-header-dropdown-list-item>
+    <sdds-header-dropdown-list-item>
+      <a href="https://www.scania.com">
+        Link 2
+      </a>
+    </sdds-header-dropdown-list-item>
   </sdds-header-dropdown-list>
 </sdds-header-dropdown>
 ```
@@ -31,17 +39,17 @@ Example:
 
 ### Depends on
 
-- [sdds-header-button](../header-button)
+- [sdds-header-item](../header-item)
 - [sdds-icon](../../../icon)
 - [sdds-popover-canvas](../../../popover-canvas)
 
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-dropdown --> sdds-header-button
+  sdds-header-dropdown --> sdds-header-item
   sdds-header-dropdown --> sdds-icon
   sdds-header-dropdown --> sdds-popover-canvas
-  sdds-header-button --> sdds-core-header-item
+  sdds-header-item --> sdds-core-header-item
   style sdds-header-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
