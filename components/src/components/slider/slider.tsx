@@ -1,12 +1,4 @@
-import {
-  Component,
-  h,
-  Prop,
-  Listen,
-  EventEmitter,
-  Event,
-  Method,
-} from '@stencil/core';
+import { Component, h, Prop, Listen, EventEmitter, Event, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -178,15 +170,23 @@ export class Slider {
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
+      const trackWidth = this.getTrackWidth();
+      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
 
-      this.supposedValueSlot = Math.round(localLeft / v);
+      let scrubberPositionPX = 0;
+      if (localLeft >= 0 && localLeft <= trackWidth) {
+        scrubberPositionPX = localLeft;
+      } else if (localLeft > trackWidth) {
+        scrubberPositionPX = trackWidth;
+      } else if (localLeft < 0) {
+        scrubberPositionPX = 0;
+      }
+      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
     this.scrubberElement.style.left = `${this.scrubberLeft}px`;
-
     this.updateValue();
     this.updateTrack();
   }
@@ -206,10 +206,19 @@ export class Slider {
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
+      const trackWidth = this.getTrackWidth();
+      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
 
-      this.supposedValueSlot = Math.round(localLeft / v);
+      let scrubberPositionPX = 0;
+      if (localLeft >= 0 && localLeft <= trackWidth) {
+        scrubberPositionPX = localLeft;
+      } else if (localLeft > trackWidth) {
+        scrubberPositionPX = trackWidth;
+      } else if (localLeft < 0) {
+        scrubberPositionPX = 0;
+      }
+      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -239,9 +248,7 @@ export class Slider {
       this.value = `${supposedValue}`;
     } else {
       const percentage = this.scrubberLeft / trackWidth;
-      this.value = `${Math.trunc(
-        this.getMin() + percentage * (this.getMax() - this.getMin())
-      )}`;
+      this.value = `${Math.trunc(this.getMin() + percentage * (this.getMax() - this.getMin()))}`;
     }
 
     this.dispatchChangeEvent();
@@ -385,8 +392,7 @@ export class Slider {
     const percentage = this.scrubberLeft / trackWidth;
     const numTicks = parseInt(this.ticks);
 
-    let currentValue =
-      this.getMin() + percentage * (this.getMax() - this.getMin());
+    let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
 
     currentValue += delta;
 
@@ -476,7 +482,7 @@ export class Slider {
 
     if (min > max) {
       console.warn(
-        'min-prop must have a higher value than max-prop for the component to work correctly.'
+        'min-prop must have a higher value than max-prop for the component to work correctly.',
       );
       this.disabledState = true;
     }
@@ -537,9 +543,7 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            <label class={this.tickValues.length > 0 && 'offset'}>
-              {this.label}
-            </label>
+            <label class={this.tickValues.length > 0 && 'offset'}>{this.label}</label>
 
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
