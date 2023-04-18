@@ -181,25 +181,6 @@ const Template = ({ persistent, collapsible }) =>
           </button>
         </sdds-side-menu-item>
 
-        <sdds-side-menu-item slot="end">
-          <button>
-            <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
-            My Calendar
-          </button>
-        </sdds-side-menu-item>
-
-        <sdds-side-menu-item slot="end" class="demo-xs-hide">
-          <button>
-            <sdds-side-menu-user heading="Name Namesson" subheading="Company name">
-              <img
-                slot="image"
-                src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"
-                alt="User menu."
-              />
-            </sdds-side-menu-user>
-          </button>
-        </sdds-side-menu-item>
-
         ${
           collapsible
             ? `<sdds-side-menu-collapse-button slot="sticky-end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>`
