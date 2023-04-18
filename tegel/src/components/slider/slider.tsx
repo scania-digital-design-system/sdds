@@ -347,12 +347,19 @@ export class Slider {
     }
 
     const trackWidth = this.getTrackWidth();
+    console.log(`trackWidth is: ${trackWidth}`);
     const percentage = this.scrubberLeft / trackWidth;
+    console.log(`Scrubber Left is: ${this.scrubberLeft}`);
+    console.log(`Percentage is: ${percentage}`);
     const numTicks = parseInt(this.ticks);
+    console.log(`Number of ticks is: ${numTicks}`);
 
     let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
 
+    console.log(`currentValue is: ${currentValue}`);
     currentValue += delta;
+
+    console.log(`Current value after delta is: ${currentValue}`);
 
     if (currentValue < this.getMin()) {
       currentValue = this.getMin();
@@ -362,17 +369,24 @@ export class Slider {
 
     this.value = `${currentValue}`;
 
+    console.log(`value is: ${this.value}`);
+
     /* if snapping is enabled, instead just increment or decrement the current "fixed" value from our ticknumber array */
     if (this.useSnapping && numTicks > 0) {
       const stepDir = delta > 0 ? 1 : -1;
       this.supposedValueSlot += stepDir;
+      console.log(`supposedValueSlot is: ${this.supposedValueSlot}`);
 
       if (this.supposedValueSlot < 0) {
         this.supposedValueSlot = 0;
       } else if (this.supposedValueSlot > numTicks + 1) {
         this.supposedValueSlot = numTicks + 1;
       }
+
+      currentValue = this.tickValues[this.supposedValueSlot];
     }
+
+    console.log(`supposedValueSlot is (after contitional): ${this.supposedValueSlot}`);
 
     this.calculateScrubberLeftFromValue(currentValue);
     this.updateTrack();
@@ -394,6 +408,7 @@ export class Slider {
       this.tickValues = [this.getMin()];
 
       const step = (this.getMax() - this.getMin()) / (numTicks + 1);
+      console.log(`Step is initiated: ${this.step}`);
 
       for (let i = 1; i < numTicks + 1; i++) {
         this.tickValues.push(this.getMin() + Math.round(step * i));
