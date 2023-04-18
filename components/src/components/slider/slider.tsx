@@ -164,31 +164,7 @@ export class Slider {
       return;
     }
 
-    const numTicks = parseInt(this.ticks);
-    const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.clientX - trackRect.left;
-    this.supposedValueSlot = -1;
-
-    if (this.useSnapping && numTicks > 0) {
-      const trackWidth = this.getTrackWidth();
-      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
-      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
-
-      let scrubberPositionPX = 0;
-      if (localLeft >= 0 && localLeft <= trackWidth) {
-        scrubberPositionPX = localLeft;
-      } else if (localLeft > trackWidth) {
-        scrubberPositionPX = trackWidth;
-      } else if (localLeft < 0) {
-        scrubberPositionPX = 0;
-      }
-      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
-    }
-
-    this.scrubberLeft = this.constrainScrubber(localLeft);
-    this.scrubberElement.style.left = `${this.scrubberLeft}px`;
-    this.updateValue();
-    this.updateTrack();
+    this.scrubberCore(event);
   }
 
   @Listen('touchmove', { target: 'window' })
@@ -199,9 +175,18 @@ export class Slider {
       return;
     }
 
+    this.scrubberCore(event);
+  }
+
+  scrubberCore(event) {
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.touches[0].clientX - trackRect.left;
+    let localLeft = 0;
+    if (event.type === 'mousemove') {
+      localLeft = event.clientX - trackRect.left;
+    } else if (event.type === 'touchmove') {
+      localLeft = event.touches[0].clientX - trackRect.left;
+    } else console.warn('Slider component: Unsupported event!');
 
     this.supposedValueSlot = -1;
 
