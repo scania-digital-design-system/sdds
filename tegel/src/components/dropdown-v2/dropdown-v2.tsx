@@ -215,12 +215,12 @@ export class SddsDropdownV2 {
     }
   }
 
-  // If the dropdown gets closed this sets the value of the drodpown to the current selection labels.
+  // If the dropdown gets closed this sets the value of the drodpown to the current selection labels or null if no selection is made.
   @Watch('open')
   handleOpenState() {
     if (this.filter && this.multiselect) {
       if (!this.open) {
-        this.inputElement.value = this.selection?.map((item) => item.label).toString();
+        this.inputElement.value = this.selection?.map((item) => item.label).toString() ?? null;
       }
     }
   }
@@ -284,14 +284,24 @@ export class SddsDropdownV2 {
   handleFilter = (event) => {
     this.sddsInput.emit(event);
     const query = event.target.value.toLowerCase();
-    this.filterResult = this.children.filter((element) => {
-      if (!element.textContent.toLowerCase().includes(query.toLowerCase())) {
-        element.setAttribute('hidden', '');
-      } else {
+    /* Check if the query is empty, and if so show all options */
+    if (query === '') {
+      this.children = this.children.map((element) => {
         element.removeAttribute('hidden');
-      }
-      return !element.hasAttribute('hidden');
-    }).length;
+        return element;
+      });
+      this.filterResult = null;
+      /* Hide the options that does not match the query */
+    } else {
+      this.filterResult = this.children.filter((element) => {
+        if (!element.textContent.toLowerCase().includes(query.toLowerCase())) {
+          element.setAttribute('hidden', '');
+        } else {
+          element.removeAttribute('hidden');
+        }
+        return !element.hasAttribute('hidden');
+      }).length;
+    }
   };
 
   handleFocus = (event) => {
