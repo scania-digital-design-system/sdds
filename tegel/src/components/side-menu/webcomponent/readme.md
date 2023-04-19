@@ -12,7 +12,7 @@ Example:
 
   <sdds-side-menu-item>
     <button>
-      <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+      <sdds-icon name="star" size="24"></sdds-icon>
       About us
     </button>
   </sdds-side-menu-item>

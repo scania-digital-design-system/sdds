@@ -106,7 +106,7 @@ const Template = () =>
 
         <sdds-header-item slot="end">
           <button onclick="alert('Calendar button clicked')">
-            <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
+            <sdds-icon name="calendar" size="20px"></sdds-icon>
           </button>
         </sdds-header-item>
 
@@ -191,14 +191,14 @@ const Template = () =>
 
         <sdds-side-menu-item>
           <button>
-            <sdds-icon slot="icon" name="info" size="24"></sdds-icon>
+            <sdds-icon name="info" size="24"></sdds-icon>
             About
           </button>
         </sdds-side-menu-item>
 
         <sdds-side-menu-item>
           <a href="https://www.scania.com">
-            <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
+            <sdds-icon name="truck" size="24"></sdds-icon>
             Truck types
           </a>
         </sdds-side-menu-item>
@@ -220,7 +220,7 @@ const Template = () =>
 
         <sdds-side-menu-item slot="end" onclick="alert('Calendar button clicked')">
           <button>
-            <sdds-icon slot="icon" name="calendar" size="24px"></sdds-icon>
+            <sdds-icon name="calendar" size="24px"></sdds-icon>
             Calendar
           </button>
         </sdds-side-menu-item>

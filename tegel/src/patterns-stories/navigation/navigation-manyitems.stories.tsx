@@ -109,7 +109,7 @@ const Template = ({ dummyHtml }) =>
 
       <sdds-header-item slot="end">
         <button onclick="alert('clicked')">
-          <sdds-icon slot="icon" name="calendar" size="20px"></sdds-icon>
+          <sdds-icon name="calendar" size="20px"></sdds-icon>
         </button>
       </sdds-header-item>
 
@@ -168,21 +168,21 @@ const Template = ({ dummyHtml }) =>
 
         <sdds-side-menu-item>
           <button>
-            <sdds-icon slot="icon" name="timer" size="24"></sdds-icon>
+            <sdds-icon name="timer" size="24"></sdds-icon>
             About us
           </button>
         </sdds-side-menu-item>
 
         <sdds-side-menu-item>
           <a href="https://www.scania.com">
-            <sdds-icon slot="icon" name="truck" size="24"></sdds-icon>
+            <sdds-icon name="truck" size="24"></sdds-icon>
             Trucks
           </a>
         </sdds-side-menu-item>
 
         <sdds-side-menu-item>
           <button>
-            <sdds-icon slot="icon" name="wifi" size="24"></sdds-icon>
+            <sdds-icon name="wifi" size="24"></sdds-icon>
             Our services
           </button>
         </sdds-side-menu-item>
@@ -204,7 +204,7 @@ const Template = ({ dummyHtml }) =>
 
         <sdds-side-menu-item>
           <button>
-            <sdds-icon slot="icon" name="star" size="24"></sdds-icon>
+            <sdds-icon name="star" size="24"></sdds-icon>
             Values
           </button>
         </sdds-side-menu-item>
@@ -212,7 +212,7 @@ const Template = ({ dummyHtml }) =>
 
         <sdds-side-menu-item slot="end">
           <button>
-            <sdds-icon slot="icon" name="calendar" size="24"></sdds-icon>
+            <sdds-icon name="calendar" size="24"></sdds-icon>
             My Calendar
           </button>
         </sdds-side-menu-item>
