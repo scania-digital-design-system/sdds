@@ -53,28 +53,31 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    demoCode: {
+      name: 'Demo code',
+      description: 'Displays code example of component usage. Not part of component props.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
   args: {
     size: 'lg',
     value: 1,
     hidden: false,
+    demoCode: false,
   },
 };
 
-const Template = ({ value, size, hidden }) =>
-  formatHtmlPreview(`
-    <sdds-badges
-      ${value ? `value="${value}"` : ''}
-      ${hidden ? 'hidden' : ''}
-      size="${size}">
-    </sdds-badges>`);
-
-export const Badge = Template.bind({});
-
-const WithDemoTemplate = ({ value, size, visible }) =>
+const Template = ({ value, size, hidden, demoCode }) =>
   formatHtmlPreview(
     `
-    <style>
+    ${
+      demoCode
+        ? `<style>
     /* Note: Demo classes used here are just for demo purposes in Storybook */
     .badges-demo-box {
       margin:5px;
@@ -95,15 +98,17 @@ const WithDemoTemplate = ({ value, size, visible }) =>
       left: 26px;
       top: -2px;
     }
-    </style>
+    </style>`
+        : ''
+    }
 
-    <div class="badges-demo-box">
+    <div class="${demoCode ? 'badges-demo-box' : ''}">
       <sdds-badges
         ${value ? `value="${value}"` : ''}
-        is-visible=${visible}
+        ${hidden ? 'hidden' : ''}
         size="${size}">
       </sdds-badges>
     </div>`,
   );
 
-export const BadgeWithDemo = WithDemoTemplate.bind({});
+export const Badge = Template.bind({});
