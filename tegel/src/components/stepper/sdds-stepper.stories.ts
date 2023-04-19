@@ -32,9 +32,9 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
-    direction: {
-      name: 'Direction',
-      description: 'Sets the direction which the stepper is displayed.',
+    orientation: {
+      name: 'Orientation',
+      description: 'Sets the orientation which the stepper is displayed.',
       control: {
         type: 'radio',
       },
@@ -46,12 +46,12 @@ export default {
     labelPosition: {
       name: 'Text position',
       description:
-        'Sets the position of the text, only available when the direction is horizontal.',
+        'Sets the position of the text, only available when the orientation is horizontal.',
       control: {
         type: 'radio',
       },
       options: ['Below', 'Aside'],
-      if: { arg: 'direction', neq: 'Vertical' },
+      if: { arg: 'orientation', neq: 'Vertical' },
       table: {
         defaultValue: { summary: 'below' },
       },
@@ -69,7 +69,7 @@ export default {
   },
   args: {
     size: 'Large',
-    direction: 'Horizontal',
+    orientation: 'Horizontal',
     labelPosition: 'Below',
     hideLabels: false,
   },
@@ -79,46 +79,24 @@ const sizeLookUp = {
   Large: 'lg',
   Small: 'sm',
 };
-const Template = ({ size, direction, labelPosition, hideLabels }) =>
+const Template = ({ size, orientation, labelPosition, hideLabels }) =>
   formatHtmlPreview(
     `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
-      direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
-    } direction="${direction.toLowerCase()}">
-    <sdds-stepper-item state="success" label-text="Step label">
-      <div slot="index">1</div>
+      orientation === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
+    } orientation="${orientation.toLowerCase()}">
+    <sdds-stepper-item state="success" index="1">
+      <div slot="label">Success step</div>
     </sdds-stepper-item>
-    <sdds-stepper-item state="current" label-text="Current step">
-      <div slot="index">2</div>
+    <sdds-stepper-item state="error" index="2">
+      <div slot="label">Error step</div>
     </sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">
-      <div slot="index">3</div>
+    <sdds-stepper-item state="current" index="3">
+      <div slot="label">Current step</div>
     </sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">
-      <div slot="index">4</div>
+    <sdds-stepper-item index="4">
+      <div slot="label">Upcoming step</div>
     </sdds-stepper-item>
   </sdds-stepper>
         `,
   );
 export const WebComponent = Template.bind({});
-
-const TemplateWithError = ({ size, hideLabels, labelPosition, direction }) =>
-  formatHtmlPreview(
-    `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
-      direction === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
-    } direction="${direction.toLowerCase()}">
-    <sdds-stepper-item state="success" label-text="Step label">
-      <div slot="index">1</div>
-    </sdds-stepper-item>
-    <sdds-stepper-item state="error" label-text="Current step">
-      <div slot="index">2</div>
-    </sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">
-      <div slot="index">3</div>
-    </sdds-stepper-item>
-    <sdds-stepper-item label-text="Step label">
-      <div slot="index">4</div>
-    </sdds-stepper-item>
-  </sdds-stepper>
-        `,
-  );
-export const WebComponentWithError = TemplateWithError.bind({});

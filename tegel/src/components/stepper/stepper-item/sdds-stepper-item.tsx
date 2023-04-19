@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop, Element, State, Method } from '@stencil/core';
+import { Component, Host, h, Prop, Element, State, Listen } from '@stencil/core';
+import { InternalSddsStepperPropChange } from '../sdds-stepper';
 
 @Component({
   tag: 'sdds-stepper-item',
@@ -6,38 +7,49 @@ import { Component, Host, h, Prop, Element, State, Method } from '@stencil/core'
   shadow: true,
 })
 export class SddsStepper {
-  /** Label text for the stepper-item. */
-  @Prop() labelText: string = '';
+  /** Index of the step. Will be displayed in the step if state is current/upcoming. */
+  @Prop() index: string;
 
   /** State of the stepper-item */
   @Prop() state: 'current' | 'error' | 'success' | 'upcoming' = 'upcoming';
 
   @State() hideLabel: boolean;
 
-  @State() size: string;
+  @State() size: 'sm' | 'lg';
 
-  @State() iconSize: string;
+  @State() orientation: 'horizontal' | 'vertical';
 
-  @State() direction: string;
-
-  @State() labelPosition: string;
+  @State() labelPosition: 'aside' | 'below';
 
   @Element() el: HTMLElement;
 
-  stepperEl: HTMLSddsStepperElement;
+  private stepperEl: HTMLSddsStepperElement;
 
+  private stepperId: string;
+
+  /* Needs to be onload to do this on any updates. */
   componentWillLoad() {
     this.stepperEl = this.el.closest('sdds-stepper');
-    this.direction = this.stepperEl.direction;
+    this.orientation = this.stepperEl.orientation;
     this.labelPosition = this.stepperEl.labelPosition;
     this.size = this.stepperEl.size;
     this.hideLabel = this.stepperEl.hideLabels;
+    this.stepperId = this.stepperEl.stepperId;
   }
 
-  /** Method to set the width if the stepper item based on its siblings widht, used by the parent element. */
-  @Method()
-  async setWidth(width) {
-    this.el.style.width = `${width}px`;
+  @Listen('internalSddsPropsChange', { target: 'body' })
+  handlePropsChange(event: CustomEvent<InternalSddsStepperPropChange>) {
+    if (this.stepperId === event.detail.stepperId) {
+      event.detail.changed.forEach((changedProp) => {
+        if (typeof this[changedProp] === 'undefined') {
+          throw new Error(`Table prop is not supported: ${changedProp}`);
+        }
+        if (this[changedProp] === this.orientation && event.detail[changedProp] === 'vertical') {
+          this.labelPosition = 'aside';
+        }
+        this[changedProp] = event.detail[changedProp];
+      });
+    }
   }
 
   render() {
@@ -45,7 +57,7 @@ export class SddsStepper {
       <Host>
         <div
           role="listItem"
-          class={`${this.size} ${this.direction} text-${this.labelPosition} ${
+          class={`${this.size} ${this.orientation} text-${this.labelPosition} ${
             this.hideLabel ? 'hide-labels' : ''
           }`}
         >
@@ -56,11 +68,13 @@ export class SddsStepper {
                 size={this.size === 'lg' ? '20px' : '16px'}
               ></sdds-icon>
             ) : (
-              <slot name="index"></slot>
+              this.index
             )}
           </div>
           {!this.hideLabel && (
-            <div class={`label ${this.size} ${this.state}`}>{this.labelText}</div>
+            <div class={`label ${this.size} ${this.state}`}>
+              <slot name="label"></slot>
+            </div>
           )}
         </div>
       </Host>

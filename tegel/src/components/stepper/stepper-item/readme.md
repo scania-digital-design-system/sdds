@@ -7,23 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                      | Type                                              | Default      |
-| ----------- | ------------ | -------------------------------- | ------------------------------------------------- | ------------ |
-| `labelText` | `label-text` | Label text for the stepper-item. | `string`                                          | `''`         |
-| `state`     | `state`      | State of the stepper-item        | `"current" \| "error" \| "success" \| "upcoming"` | `'upcoming'` |
-
-
-## Methods
-
-### `setWidth(width: any) => Promise<void>`
-
-Method to set the width if the stepper item based on its siblings widht, used by the parent element.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
+| Property | Attribute | Description                                                                    | Type                                              | Default      |
+| -------- | --------- | ------------------------------------------------------------------------------ | ------------------------------------------------- | ------------ |
+| `index`  | `index`   | Index of the step. Will be displayed in the step if state is current/upcoming. | `string`                                          | `undefined`  |
+| `state`  | `state`   | State of the stepper-item                                                      | `"current" \| "error" \| "success" \| "upcoming"` | `'upcoming'` |
 
 
 ## Dependencies
