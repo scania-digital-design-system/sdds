@@ -6,51 +6,45 @@ import { Component, h, Prop, Listen, EventEmitter, Event, Method } from '@stenci
   shadow: false,
 })
 export class Slider {
-  wrapperElement: HTMLElement = null;
+  private wrapperElement: HTMLElement = null;
 
-  scrubberElement: HTMLElement = null;
+  private scrubberElement: HTMLElement = null;
 
-  scrubberInnerElement: HTMLElement = null;
+  private scrubberInnerElement: HTMLElement = null;
 
-  dividersElement: HTMLElement = null;
+  private trackElement: HTMLElement = null;
 
-  trackElement: HTMLElement = null;
+  private trackFillElement: HTMLElement = null;
 
-  trackFillElement: HTMLElement = null;
+  private minusElement: HTMLElement = null;
 
-  minusElement: HTMLElement = null;
+  private plusElement: HTMLElement = null;
 
-  plusElement: HTMLElement = null;
+  private inputElement: HTMLInputElement = null;
 
-  inputElement: HTMLInputElement = null;
+  private scrubberGrabbed: boolean = false;
 
-  nativeRangeInputElement: HTMLInputElement = null;
+  private scrubberLeft: number = 0;
 
-  scrubberGrabPos: object = { x: 0, y: 0 };
+  private tickValues: Array<number> = [];
 
-  scrubberGrabbed: boolean = false;
+  private disabledState: boolean = false;
 
-  scrubberLeft: number = 0;
+  private readonlyState: boolean = false;
 
-  tickValues: Array<number> = [];
+  private useControls: boolean = false;
 
-  disabledState: boolean = false;
+  private useInput: boolean = false;
 
-  readonlyState: boolean = false;
+  private useSmall: boolean = false;
 
-  useControls: boolean = false;
+  private useSnapping: boolean = false;
 
-  useInput: boolean = false;
+  private supposedValueSlot: number = -1;
 
-  useSmall: boolean = false;
+  private resizeObserverLoaded: boolean = false;
 
-  useSnapping: boolean = false;
-
-  supposedValueSlot: number = -1;
-
-  resizeObserverLoaded: boolean = false;
-
-  eventListenersAdded: boolean = false;
+  private eventListenersAdded: boolean = false;
 
   /** Change event for the textfield */
   @Event({
@@ -110,7 +104,8 @@ export class Slider {
   @Prop() snap: boolean = null;
 
   /** Public method to re-initialise the slider if some configuration props are changed */
-  @Method() async reset() {
+  @Method()
+  async reset() {
     // @TODO: Maybe use watch-decorator (and a refactor) in the future
     this.componentWillLoad();
     this.componentDidLoad();
@@ -186,7 +181,9 @@ export class Slider {
       localLeft = event.clientX - trackRect.left;
     } else if (event.type === 'touchmove') {
       localLeft = event.touches[0].clientX - trackRect.left;
-    } else console.warn('Slider component: Unsupported event!');
+    } else {
+      console.warn('Slider component: Unsupported event!');
+    }
 
     this.supposedValueSlot = -1;
 
@@ -302,14 +299,11 @@ export class Slider {
 
       this.scrubberElement.addEventListener('mousedown', (event) => {
         event.preventDefault();
-        this.grabScrubber(event.offsetX, event.offsetY);
+        this.grabScrubber();
       });
 
-      this.scrubberElement.addEventListener('touchstart', (event) => {
-        const rect = this.scrubberElement.getBoundingClientRect();
-        const x = event.targetTouches[0].pageX - rect.left;
-        const y = event.targetTouches[0].pageY - rect.top;
-        this.grabScrubber(x, y);
+      this.scrubberElement.addEventListener('touchstart', () => {
+        this.grabScrubber();
       });
 
       if (this.useControls) {
@@ -350,15 +344,10 @@ export class Slider {
     this.updateTrack();
   }
 
-  grabScrubber(xOffset, yOffset) {
+  grabScrubber() {
     if (this.readonlyState) {
       return;
     }
-
-    this.scrubberGrabPos = {
-      x: xOffset,
-      y: yOffset,
-    };
 
     this.scrubberGrabbed = true;
     this.scrubberInnerElement.classList.add('pressed');
@@ -477,7 +466,6 @@ export class Slider {
     return (
       <div class="sdds-slider-wrapper">
         <input
-          ref={(el) => (this.nativeRangeInputElement = el as HTMLInputElement)}
           class="sdds-slider-native-element"
           type="range"
           value={this.value}
@@ -532,10 +520,7 @@ export class Slider {
 
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
-                <div
-                  ref={(el) => (this.dividersElement = el as HTMLElement)}
-                  class="sdds-slider__value-dividers"
-                >
+                <div class="sdds-slider__value-dividers">
                   {this.tickValues.map((value) => (
                     <div class="sdds-slider__value-divider">
                       {this.showTickNumbers && <span>{value}</span>}
