@@ -2,7 +2,7 @@ import { formatHtmlPreview } from '../../utils/utils';
 import { iconsNames } from '../icon/iconsArray';
 
 export default {
-  title: 'Components/Button',
+  title: 'Native Components (Deprecated)/Button',
   parameters: {
     layout: 'padded',
     chromatic: {
@@ -187,7 +187,7 @@ const NativeTemplate = ({
       modeVariant !== 'Inherit from parent'
         ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`
         : ''
-    } sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} 
+    } sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}
    ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
   ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
   ${

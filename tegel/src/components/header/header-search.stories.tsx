@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Header/Native',
+  title: 'Native Components (Deprecated)/Header',
   parameters: {
     notes: readme,
     layout: 'fullscreen',
@@ -73,7 +73,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
         <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
             <span class='sdds-nav__item-core-text'>Item 3</span>
             <span class='sdds-nav__dropdown-icon'>
-              <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon> 
+              <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon>
             </span>
         </button>
         <ul class='sdds-nav__dropdown-menu'>
@@ -99,7 +99,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
               <a href='' class='sdds-nav__searchbar-results-item-core'>User – Eric Mattsson – IXCD Visual designer </a>
               <button class="sdds-nav__app-searchbar-results-x-btn">
                 <div>
-                  <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon> 
+                  <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon>
                 </div>
               </button>
             </li>
@@ -107,7 +107,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
               <a href='' class='sdds-nav__searchbar-results-item-core'>User– Eric Mattsson – IXCD Visual designer </a>
               <button class="sdds-nav__app-searchbar-results-x-btn">
               <div>
-              <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon> 
+              <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon>
             </div>              </button>
               </li>
             </ul>
@@ -118,19 +118,19 @@ const SearchbarMenuTemplate = ({ siteName }) =>
               <a href='' class='sdds-nav__searchbar-results-item-core'>Team– Eric Mattsson – IXCD Visual designer </a>
               <button class="sdds-nav__app-searchbar-results-x-btn">
               <div>
-              <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon> 
+              <sdds-icon class="sdds-nav__app-searchbar-results-x-btn" name="cross" size="16px"></sdds-icon>
             </div>             </button>
               </li>
           </ul>
         </ul>
         <input class="sdds-nav__searchbar-input" type="text" placeholder="Search">
           <button class="sdds-nav__app-searchbar-btn sdds-nav__app-searchbar-x-btn" onclick="toggleSearchbar()">
-            <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="cross" size="20px"></sdds-icon> 
+            <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="cross" size="20px"></sdds-icon>
           </button>
 
       </div>
        <button class="sdds-nav__app-searchbar-btn sdds-nav__app-searchbar-mgl-btn" onclick="toggleSearchbar()">
-          <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="search" size="20px"></sdds-icon> 
+          <sdds-icon class="sdds-nav__app-searchbar-btn-svg" name="search" size="20px"></sdds-icon>
       </button>
     </div>
   </div>
@@ -165,7 +165,7 @@ const SearchbarMenuTemplate = ({ siteName }) =>
         <div class='sdds-nav__right'>
           <div class='sdds-nav__item sdds-nav__app-launcher'>
               <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher()'>
-                <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px"></sdds-icon> 
+                <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px"></sdds-icon>
               </button>
               <ul class='sdds-nav__app-launcher-menu'>
                   <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>

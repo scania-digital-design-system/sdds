@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Chips',
+  title: 'Native Components (Deprecated)/Chips',
   parameters: {
     layout: 'centered',
     design: [
@@ -118,7 +118,7 @@ const Template = ({ active, size, placeholderText, icon, iconPosition, iconType 
           </style>`
       : ''
   }
-    <!-- Below is a chip button implementation. Please use the proper html element 
+    <!-- Below is a chip button implementation. Please use the proper html element
     depending on usage (button, checkbox, radio, etc) -->
     <button class="sdds-chip ${
       icon ? iconPositionLookup[iconPosition] : ''

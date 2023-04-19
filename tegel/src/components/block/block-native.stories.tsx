@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Block',
+  title: 'Native Components (Deprecated)/Block',
   parameters: {
     layout: 'padded',
     design: [

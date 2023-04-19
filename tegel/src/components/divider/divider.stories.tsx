@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Divider',
+  title: 'Native Components (Deprecated)/Divider',
   parameters: {
     layout: 'centered',
     design: [
@@ -59,26 +59,25 @@ export default {
   },
 };
 
-
 const Template = ({ orientation, width, height }) => {
   const classLookup = {
     Horizontal: `sdds-divider`,
     Vertical: `sdds-divider-vertical`,
   };
-  
+
   return formatHtmlPreview(
     `
       <style>
          ${
-      height
-        ? `/* demo-div is for demonstration purposes only*/
+           height
+             ? `/* demo-div is for demonstration purposes only*/
         .demo-div {
           height: ${height}px;
           width: 1px;
           padding: 0px;
         }`
-        : ''
-    }    ${
+             : ''
+         }    ${
       width
         ? `/* demo-div is for demonstration purposes only*/
             .demo-div {
@@ -89,15 +88,15 @@ const Template = ({ orientation, width, height }) => {
         : ''
     }
       </style>
-     
-      
+
+
       <div
   class="demo-div ${classLookup[orientation]}"></div>
   `,
-);
+  );
 };
 
-const BorderTemplate= ({ direction }) => {
+const BorderTemplate = ({ direction }) => {
   const directionLookup = {
     Top: 'top',
     Right: 'right',
@@ -120,29 +119,26 @@ const BorderTemplate= ({ direction }) => {
           text-align: center;
           padding: 10px;
         }
-           
+
       </style>
      <div id= "demo-wrapper">
-      
+
       <div
   class="border-demo-div sdds-divider-border-${directionLookup[direction]}">
   <H4>DEMO</H4></div></div>
   `,
-);
+  );
 };
 
-
 export const Native = Template.bind({});
-Native.argTypes={
-  direction: { table:  { disable: true } }  
- }
+Native.argTypes = {
+  direction: { table: { disable: true } },
+};
 export const Border = BorderTemplate.bind({});
-Border.args={
-  direction: 'Top'
-} 
- 
-Border.argTypes={
- orientation: { table:  { disable: true } }  
-}
+Border.args = {
+  direction: 'Top',
+};
 
-
+Border.argTypes = {
+  orientation: { table: { disable: true } },
+};

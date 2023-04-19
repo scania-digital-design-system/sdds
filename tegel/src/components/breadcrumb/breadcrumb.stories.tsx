@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Breadcrumb',
+  title: 'Native Components (Deprecated)/Breadcrumb',
   parameters: {
     design: [
       {
@@ -16,7 +16,7 @@ export default {
   },
 };
 
-const Template = () => `   
+const Template = () => `
     <div class="sdds-breadcrumb">
       <div class="sdds-breadcrumb-item"><a href="#">Page 1</a></div>
       <div class="sdds-breadcrumb-item"><a href="#">Page 2</a></div>

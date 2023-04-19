@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Data Table/Native',
+  title: 'Native Components (Deprecated)/Data Table',
   argTypes: {
     modeVariant: {
       name: 'Mode variant',

@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Footer',
+  title: 'Native Components (Deprecated)/Footer',
   parameters: {
     notes: readme,
     layout: 'fullscreen',
@@ -22,7 +22,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -42,13 +43,13 @@ export default {
       },
     },
   },
-  args:{
-    modeVariant: 'Inherit from parent', 
+  args: {
+    modeVariant: 'Inherit from parent',
     topPart: false,
-}
+  },
 };
 
-const Template = ({ topPart, modeVariant}) =>
+const Template = ({ topPart, modeVariant }) =>
   formatHtmlPreview(
     `
   <style>
@@ -60,8 +61,8 @@ const Template = ({ topPart, modeVariant}) =>
   </style>
 
   <div class="demo-wrapper">
-  <div class="sdds-footer 
-  ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant.toLowerCase()}`: ''}
+  <div class="sdds-footer
+  ${modeVariant !== 'Inherit from parent' ? `sdds-mode-variant-${modeVariant.toLowerCase()}` : ''}
  ">
     ${
       topPart

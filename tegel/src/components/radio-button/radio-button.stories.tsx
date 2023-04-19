@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Radio Button',
+  title: 'Native Components (Deprecated)/Radio Button',
   parameters: {
     layout: 'centered',
     design: [
@@ -45,11 +45,11 @@ export default {
 const Template = ({ label, disabled }) =>
   formatHtmlPreview(`
   <style>
-    .demo-fieldset-reset { 
+    .demo-fieldset-reset {
       border: 0;
       margin: 0;
       min-width: 0;
-      padding: 0; 
+      padding: 0;
     }
   </style>
   <fieldset class="demo-fieldset-reset" ${disabled ? 'disabled' : ''}>
