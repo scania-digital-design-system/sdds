@@ -1,9 +1,10 @@
 import itemReadme from './sdds-breadcrumb-item/readme.md';
 import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Breadcrumb',
+  title: ComponentsFolder,
   parameters: {
     notes: { 'Breadcumb': readme, 'Breadcumb Item': itemReadme },
     design: [
@@ -38,4 +39,4 @@ const Template = () =>
       `,
   );
 
-export const WebComponent = Template.bind({});
+export const Breadcumb = Template.bind({});

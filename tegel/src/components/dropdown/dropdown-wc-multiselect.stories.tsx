@@ -1,10 +1,10 @@
 import readme from './readme.md';
 import readmeOption from './dropdown-option/readme.md';
-
 import { formatHtmlPreview } from '../../utils/utils';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Dropdown',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: { 'Dropdown': readme, 'Dropdown option': readmeOption },
@@ -24,7 +24,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -93,7 +94,8 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      description:
+        'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
@@ -185,4 +187,4 @@ const Template = ({
   `);
 };
 
-export const WebComponentMultiselect = Template.bind({});
+export const DropdownMultiselect = Template.bind({});

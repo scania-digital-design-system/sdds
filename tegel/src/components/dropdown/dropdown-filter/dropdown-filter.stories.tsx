@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Dropdown Filter',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -22,7 +23,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -91,7 +93,8 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      description:
+        'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
@@ -196,4 +199,4 @@ const FilterTemplate = ({
   `);
 };
 
-export const Default = FilterTemplate.bind({});
+export const DropdownFilter = FilterTemplate.bind({});

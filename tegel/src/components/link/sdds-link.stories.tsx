@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Link',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -58,4 +59,4 @@ const Template = ({ underline, disabled }) =>
     </sdds-link>
   `,
   );
-export const WebComponent = Template.bind({});
+export const Link = Template.bind({});

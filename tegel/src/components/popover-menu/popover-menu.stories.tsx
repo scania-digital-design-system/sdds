@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Popover Menu',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -121,4 +122,4 @@ const Template = ({ menuPosition }) => {
   );
 };
 
-export const Default = Template.bind({});
+export const PopoverMenu = Template.bind({});

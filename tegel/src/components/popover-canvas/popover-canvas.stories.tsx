@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Popover Canvas',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -93,4 +94,4 @@ const ComponentPopoverCanvas = ({ canvasPosition }) => {
     `,
   );
 };
-export const Default = ComponentPopoverCanvas.bind({});
+export const PopoverCanvas = ComponentPopoverCanvas.bind({});

@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Radio Button',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -91,4 +92,4 @@ const Template = ({ label, disabled }) =>
   </script>
   `);
 
-export const WebComponent = Template.bind({});
+export const RadioButton = Template.bind({});

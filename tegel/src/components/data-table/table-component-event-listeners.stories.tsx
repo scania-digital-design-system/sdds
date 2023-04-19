@@ -8,9 +8,10 @@ import sddsBodyRow from './table-body-row/readme.md';
 import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Data Table/Web Component',
+  title: `${ComponentsFolder}/Data Table`,
   parameters: {
     notes: {
       'sdds-table': sddsTable,

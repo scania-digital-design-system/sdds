@@ -2,9 +2,10 @@ import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 import readmeItem from './sdds-footer-item/readme.md';
 import readmeLinkGroup from './sdds-footer-group/readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Footer',
+  title: ComponentsFolder,
   parameters: {
     notes: { 'Footer': readme, 'Footer link group': readmeLinkGroup, 'Footer item': readmeItem },
     layout: 'fullscreen',
@@ -150,4 +151,4 @@ const Template = ({ topPart, modeVariant }) =>
   `,
   );
 
-export const WebComponent = Template.bind({});
+export const Footer = Template.bind({});

@@ -1,9 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import { iconsNames } from '../icon/iconsArray';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Button',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'padded',
@@ -207,17 +208,16 @@ const WebComponentTemplate = ({
 };
 
 /** Button as web component */
-export const WebComponent = WebComponentTemplate.bind({});
-WebComponent.args = {};
+export const Button = WebComponentTemplate.bind({});
 
-export const WebComponentWithIcon = WebComponentTemplate.bind({});
-WebComponentWithIcon.args = {
+export const ButtonWithIcon = WebComponentTemplate.bind({});
+ButtonWithIcon.args = {
   icon: 'truck',
   iconType: 'Web Component',
 };
 
-export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
-WebComponentOnlyIcon.args = {
+export const ButtonOnlyIcon = WebComponentTemplate.bind({});
+ButtonOnlyIcon.args = {
   text: '',
   iconType: 'Web Component',
   onlyIcon: true,

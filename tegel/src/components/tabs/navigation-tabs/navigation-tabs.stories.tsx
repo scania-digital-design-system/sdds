@@ -1,9 +1,10 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 import readmeTab from './navigation-tab/readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Tabs',
+  title: ComponentsFolder,
   parameters: {
     notes: {
       'Navigation tabs': readme,

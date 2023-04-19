@@ -1,8 +1,9 @@
 import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Textarea',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -22,7 +23,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -201,4 +203,4 @@ const Template = ({
   `);
 };
 
-export const Default = Template.bind({});
+export const Textarea = Template.bind({});

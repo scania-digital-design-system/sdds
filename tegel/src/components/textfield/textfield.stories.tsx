@@ -1,8 +1,9 @@
 import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Textfield',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -281,6 +282,4 @@ const Template = ({
 
 // ${true ? '<sdds-icon name="cross" slot="sdds-prefix"></sdds-icon>' : ''}
 
-export const Default = Template.bind({});
-
-Default.args = {};
+export const Textfield = Template.bind({});

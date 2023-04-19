@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Badge',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -68,7 +69,7 @@ const Template = ({ value, size, hidden }) =>
       size="${size}">
     </sdds-badges>`);
 
-export const Default = Template.bind({});
+export const Badge = Template.bind({});
 
 const WithDemoTemplate = ({ value, size, visible }) =>
   formatHtmlPreview(
@@ -105,4 +106,4 @@ const WithDemoTemplate = ({ value, size, visible }) =>
     </div>`,
   );
 
-export const WithDemoComponent = WithDemoTemplate.bind({});
+export const BadgeWithDemo = WithDemoTemplate.bind({});
