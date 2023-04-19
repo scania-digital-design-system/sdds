@@ -8,7 +8,7 @@ import { Component, Element, h, Host } from '@stencil/core';
 export class HeaderLauncherListTitle {
   @Element() host: HTMLElement;
 
-  uuid: string = crypto.randomUUID();
+  private uuid: string = crypto.randomUUID();
 
   render() {
     return (

@@ -11,7 +11,7 @@ export class SideMenuDropdownList {
 
   @State() collapsed: boolean = false;
 
-  sideMenuEl: HTMLSddsSideMenuElement;
+  private sideMenuEl: HTMLSddsSideMenuElement;
 
   @Listen('sddsSideMenuCollapsed', { target: 'body' })
   collapsedSideMenuEventHandler(event: CustomEvent<CollapsedEvent>) {

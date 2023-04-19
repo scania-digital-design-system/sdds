@@ -61,8 +61,6 @@ export class HeaderLauncher {
       },
     };
 
-    console.log('BUTTON PROPS 1', buttonAttributes);
-
     return (
       <Host>
         <div

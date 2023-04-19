@@ -19,9 +19,9 @@ export class SddsSideMenuItem {
 
   @State() collapsed: boolean = false;
 
-  sideMenuEl: HTMLSddsSideMenuElement;
+  private sideMenuEl: HTMLSddsSideMenuElement;
 
-  slotEl: HTMLSlotElement;
+  private slotEl: HTMLSlotElement;
 
   updateSlotted(
     searchPredicate: (element: HTMLElement) => boolean,

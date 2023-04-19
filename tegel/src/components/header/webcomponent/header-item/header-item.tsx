@@ -16,7 +16,7 @@ export class HeaderItem {
   /** If the button should appear selected. */
   @Prop() selected: boolean = false;
 
-  slotEl: HTMLSlotElement;
+  private slotEl: HTMLSlotElement;
 
   updateSlotted(
     searchPredicate: (element: HTMLElement) => boolean,

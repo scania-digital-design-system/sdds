@@ -13,7 +13,7 @@ export class HeaderDropdownList {
   @Element() host: HTMLElement;
 
   // A Map to store the slots and their associated slotchange listeners.
-  slotListeners: Map<HTMLSlotElement, EventListener> = new Map();
+  private slotListeners: Map<HTMLSlotElement, EventListener> = new Map();
 
   @Prop({ reflect: true }) type: 'lg' | 'md' = 'md';
 

@@ -54,7 +54,7 @@ export class SddsSideMenu {
 
   @State() isOpening: boolean = false;
 
-  matchesLgBreakpointMq: MediaQueryList;
+  private matchesLgBreakpointMq: MediaQueryList;
 
   handleMatchesLgBreakpointChange: (e: MediaQueryListEvent) => void = (e) => {
     const isBelowLg = !e.matches;

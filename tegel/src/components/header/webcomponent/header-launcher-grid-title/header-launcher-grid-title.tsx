@@ -6,7 +6,7 @@ import { Component, h, Host } from '@stencil/core';
   shadow: false,
 })
 export class HeaderLauncherGridTitle {
-  uuid: string = crypto.randomUUID();
+  private uuid: string = crypto.randomUUID();
 
   render() {
     return (

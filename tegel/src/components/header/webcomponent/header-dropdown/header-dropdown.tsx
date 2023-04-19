@@ -22,7 +22,7 @@ export class HeaderDropdown {
 
   @State() buttonEl?: HTMLButtonElement;
 
-  uuid: string = crypto.randomUUID();
+  private uuid: string = crypto.randomUUID();
 
   @Listen('click', { target: 'document' })
   onAnyClick(event: MouseEvent) {

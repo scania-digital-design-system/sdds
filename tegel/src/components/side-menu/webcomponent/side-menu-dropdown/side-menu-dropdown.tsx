@@ -25,6 +25,8 @@ export class SideMenuDropdown {
 
   @State() collapsed: boolean = false;
 
+  private sideMenuEl: HTMLSddsSideMenuElement;
+
   @Listen('sddsSideMenuCollapsed', { target: 'body' })
   collapsedSideMenuEventHandler(event: CustomEvent<CollapsedEvent>) {
     this.collapsed = event.detail.collapsed;
@@ -67,8 +69,6 @@ export class SideMenuDropdown {
   getIsOpenState() {
     return this.collapsed ? this.hoverState?.isHovered : this.open;
   }
-
-  sideMenuEl: HTMLSddsSideMenuElement;
 
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');

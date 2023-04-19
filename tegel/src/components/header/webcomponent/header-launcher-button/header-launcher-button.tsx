@@ -21,8 +21,6 @@ export class HeaderLauncherButton {
       ...this.ariaAttributes,
     };
 
-    console.log('BUTTON PROPS2', buttonProps);
-
     return (
       <Host>
         <sdds-header-item active={this.active}>
