@@ -136,7 +136,7 @@ const Template = ({ persistent, collapsible }) =>
 
     <div class="demo-wrap-side-menu-and-main">
       <!-- Note: the "persistent" property keeps the menu open on desktop -->
-      <sdds-side-menu id="demo-side-menu" ${persistent ? 'persistent' : ''}>
+      <sdds-side-menu aria-label="Side menu" id="demo-side-menu" ${persistent ? 'persistent' : ''}>
         <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;"></sdds-side-menu-overlay>
 
         <sdds-side-menu-close-button slot="close-button" aria-label="Close drawer menu" onclick="demoSideMenu.open = false;"></sdds-side-menu-close-button>

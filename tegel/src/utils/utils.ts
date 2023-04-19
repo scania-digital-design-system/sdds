@@ -153,26 +153,32 @@ export const inheritAriaAttributes = (el: HTMLElement, ignoreList?: string[]) =>
 /**
  * Recursively finds the first matching element or child based on a provided condition.
  *
- * @param {HTMLElement} element - The starting element to search from.
+ * @param {ParentNode} parentNode - The starting element or shadow root to search from.
  * @param {(el: HTMLElement) => boolean} searchPredicate - The condition to match the element, receives an HTMLElement and returns a boolean.
+ * @param {boolean} [pierceShadow=false] - Whether to pierce through shadow DOM boundaries.
  * @returns {HTMLElement | null} - The first matching element or child, or null if none is found.
  */
 export function dfs(
-  element: HTMLElement,
+  parentNode: ParentNode,
   searchPredicate: (el: HTMLElement) => boolean,
+  pierceShadow = false,
 ): HTMLElement | null {
-  if (searchPredicate(element)) {
-    return element;
+  if (parentNode instanceof HTMLElement && searchPredicate(parentNode)) {
+    return parentNode;
   }
 
   const childElements =
-    element instanceof HTMLSlotElement
-      ? element.assignedElements({ flatten: true })
-      : Array.from(element.children);
+    parentNode instanceof HTMLSlotElement
+      ? parentNode.assignedElements({ flatten: true })
+      : Array.from(parentNode.children);
+
+  if (pierceShadow && parentNode instanceof HTMLElement && parentNode.shadowRoot) {
+    childElements.push(...Array.from(parentNode.shadowRoot.children));
+  }
 
   let foundElement: HTMLElement | null = null;
   childElements.some((child: HTMLElement) => {
-    foundElement = dfs(child, searchPredicate);
+    foundElement = dfs(child, searchPredicate, pierceShadow);
     return foundElement !== null;
   });
 
@@ -304,3 +310,34 @@ export const updateListChildrenRoles = (targetNode: Node): void => {
     }
   });
 };
+
+export function isFocusable(element: HTMLElement): boolean {
+  if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+    return false;
+  }
+
+  const focusableSelectors = [
+    'a[href]',
+    'area[href]',
+    'input:not([disabled]):not([type="hidden"])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    'button:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+  ];
+
+  // Check if the element matches any of the focusable elements selectors
+  if (focusableSelectors.some((selector) => element.matches(selector))) {
+    return true;
+  }
+
+  // Check if the element is contenteditable
+  if (element.hasAttribute('contenteditable')) {
+    const contentEditableValue = element.getAttribute('contenteditable').toLowerCase();
+    if (contentEditableValue === 'true' || contentEditableValue === '') {
+      return true;
+    }
+  }
+
+  return false;
+}

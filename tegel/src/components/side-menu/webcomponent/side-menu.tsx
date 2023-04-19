@@ -9,6 +9,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
+import { dfs, isFocusable } from '../../../utils/utils';
 
 export interface CollapsedEvent {
   collapsed: boolean;
@@ -105,6 +106,14 @@ export class SddsSideMenu {
     });
   }
 
+  @Watch('isOpening')
+  onIsOpenChange(newVal: boolean) {
+    if (newVal) {
+      const firstFocusableElement = dfs(this.host, isFocusable, true);
+      firstFocusableElement.focus();
+    }
+  }
+
   async setOpening() {
     this.isClosed = false;
 
@@ -133,7 +142,7 @@ export class SddsSideMenu {
 
   render() {
     return (
-      <Host>
+      <Host role="navigation">
         <div
           class={{
             'wrapper': true,

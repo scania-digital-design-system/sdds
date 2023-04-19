@@ -161,7 +161,7 @@ const Template = ({ dummyHtml }) =>
 
     <div class="demo-wrap-side-menu-and-main">
       <!-- Note: the "persistent" property keeps the menu open on desktop -->
-      <sdds-side-menu id="demo-side-menu" persistent>
+      <sdds-side-menu id="demo-side-menu" aria-label="Side menu" persistent>
         <sdds-side-menu-overlay slot="overlay" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-overlay>
 
         <sdds-side-menu-close-button slot="close-button" onclick="demoSideMenu.open = false;demoHamburger.setAttribute('aria-expanded', false);"></sdds-side-menu-close-button>

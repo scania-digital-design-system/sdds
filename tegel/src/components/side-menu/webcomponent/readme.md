@@ -5,7 +5,7 @@ The side menu is a container for navigation items. It can be collapsed on deskto
 Example:
 
 ```html
-<sdds-side-menu id="sidemenu">
+<sdds-side-menu id="sidemenu" aria-label="Side menu">
   <sdds-side-menu-overlay slot="overlay" onclick="getElementById('sidemenu').open = false;"></sdds-side-menu-overlay>
 
   <sdds-side-menu-close-button slot="close-button" onclick="getElementById('sidemenu').open = false;"></sdds-side-menu-close-button>
