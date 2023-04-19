@@ -8,9 +8,6 @@ export default {
   parameters: {
     notes: readme,
     layout: 'padded',
-    chromatic: {
-      disableSnapshot: false, // enables snapshotting for the component
-    },
     design: [
       {
         name: 'Figma',
@@ -178,30 +175,29 @@ const WebComponentTemplate = ({
   </style>
 
   <div class="demo-wrapper">
-  <sdds-button type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${
-      disabled ? 'disabled' : ''
-    } ${fullbleed ? 'fullbleed' : ''}
-    ${!onlyIcon ? `text="${text}"` : ''}
-    ${
-      modeVariant !== 'Inherit from parent'
-        ? `mode-variant="${modeVariantLookup[modeVariant]}"`
-        : ''
-    }
+    <sdds-button
+      type="${btnTypeLookUp[btnType]}"
+      size="${sizeLookUp[size]}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''}
+      ${!onlyIcon ? `text="${text}"` : ''}
+      ${
+        modeVariant !== 'Inherit from parent'
+          ? `mode-variant="${modeVariantLookup[modeVariant]}"`
+          : ''
+      }
     >
-    ${
-      onlyIcon || (icon && icon !== 'none')
-        ? `
-    ${
-      iconType === 'Native'
-        ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
-        : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${
-            sizeLookUp[size] === 'sm' ? '16px' : '20px'
-          }' name='${icon}'></sdds-icon>`
-    }
-  `
-        : ''
-    }
-</sdds-button>
+        ${
+          onlyIcon || (icon && icon !== 'none')
+            ? `
+            ${
+              iconType === 'Native'
+                ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
+                : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${
+                    sizeLookUp[size] === 'sm' ? '16px' : '20px'
+                  }' name='${icon}'></sdds-icon>`
+            }`
+            : ''
+        }
+    </sdds-button>
   </div>
   `,
   );
@@ -209,17 +205,3 @@ const WebComponentTemplate = ({
 
 /** Button as web component */
 export const Button = WebComponentTemplate.bind({});
-
-export const ButtonWithIcon = WebComponentTemplate.bind({});
-ButtonWithIcon.args = {
-  icon: 'truck',
-  iconType: 'Web Component',
-};
-
-export const ButtonOnlyIcon = WebComponentTemplate.bind({});
-ButtonOnlyIcon.args = {
-  text: '',
-  iconType: 'Web Component',
-  onlyIcon: true,
-  icon: 'truck',
-};
