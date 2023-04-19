@@ -63,7 +63,7 @@ export default {
         type: 'number',
       },
       if: { arg: 'showTicks', eq: true },
-      
+
       table: {
         defaultValue: { summary: 0 },
       },
@@ -200,8 +200,8 @@ export default {
 };
 
 const sizeLookUp = {
-  'Large': 'lg',
-  'Small': 'sm',
+  Large: 'lg',
+  Small: 'sm',
 };
 
 const Template = ({
@@ -223,34 +223,42 @@ const Template = ({
   disabled,
 }) =>
   formatHtmlPreview(`
-    <sdds-slider id="sdds-slider"
-      min="${min}" 
-      max="${max}" 
-      ${showControls && step ? `step="${step}"` : ''}
-      value="${initialValue}" 
-      ${showTicks ? `ticks="${numTicks}"` : ''} 
-      ${showTickNumbers ? 'show-tick-numbers' : ''} 
-      ${snapToTicks ? 'snap' : ''} 
-      ${showLabel ? `label="${labelText}"` : ''} 
-      ${showTooltip ? 'tooltip' : ''} 
-      ${showControls ? 'controls' : ''} 
-      ${showInput ? 'input' : ''} 
-      ${disabled ? 'disabled' : ''} 
-      scrubber-size="${sizeLookUp[scrubberSize]}"
-      ${readonly ? 'read-only' : ''} 
-      >
+ <!-- Style code below is just for demo purposes -->
+    <style>
+      .demo-wrapper {
+          width: 500px;
+          margin-left: 150px;
+      }
+    </style>
 
-    </sdds-slider>
+   <div class="demo-wrapper">
+     <sdds-slider id="sdds-slider"
+        min="${min}"
+        max="${max}"
+        ${showControls && step ? `step="${step}"` : ''}
+        value="${initialValue}"
+        ${showTicks ? `ticks="${numTicks}"` : ''}
+        ${showTickNumbers ? 'show-tick-numbers' : ''}
+        ${snapToTicks ? 'snap' : ''}
+        ${showLabel ? `label="${labelText}"` : ''}
+        ${showTooltip ? 'tooltip' : ''}
+        ${showControls ? 'controls' : ''}
+        ${showInput ? 'input' : ''}
+        ${disabled ? 'disabled' : ''}
+        scrubber-size="${sizeLookUp[scrubberSize]}"
+        ${readonly ? 'read-only' : ''}
+        >
+      </sdds-slider>
+    </div>
 
-    <!-- Script tag for demo purposes -->
+     <!-- Script tag for demo purposes -->
     <script>
-    slider = document.querySelectorAll('sdds-slider')[0]
+      slider = document.querySelectorAll('sdds-slider')[0]
 
-    slider.removeEventListener('sddsChange', null)
-    slider.addEventListener('sddsChange', (event) => {
-      console.log(event);
-    });
-
+      slider.removeEventListener('sddsChange', null)
+      slider.addEventListener('sddsChange', (event) => {
+        console.log(event);
+      });
     </script>
   `);
 
