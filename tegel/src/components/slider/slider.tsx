@@ -51,54 +51,48 @@ export class Slider {
   /** Snap to the ticks grid */
   @Prop() snap: boolean = false;
 
-  /** Id for the sliders input element, randomly generated if not specified. */
+  /** ID for the sliders input element, randomly generated if not specified. */
   @Prop() sliderId: string = crypto.randomUUID();
 
-  wrapperElement: HTMLElement = null;
+  private wrapperElement: HTMLElement = null;
 
-  scrubberElement: HTMLElement = null;
+  private scrubberElement: HTMLElement = null;
 
-  scrubberInnerElement: HTMLElement = null;
+  private scrubberInnerElement: HTMLElement = null;
 
-  dividersElement: HTMLElement = null;
+  private trackElement: HTMLElement = null;
 
-  trackElement: HTMLElement = null;
+  private trackFillElement: HTMLElement = null;
 
-  trackFillElement: HTMLElement = null;
+  private minusElement: HTMLElement = null;
 
-  minusElement: HTMLElement = null;
+  private plusElement: HTMLElement = null;
 
-  plusElement: HTMLElement = null;
+  private inputElement: HTMLInputElement = null;
 
-  inputElement: HTMLInputElement = null;
+  private scrubberGrabbed: boolean = false;
 
-  nativeRangeInputElement: HTMLInputElement = null;
+  private scrubberLeft: number = 0;
 
-  scrubberGrabPos: object = { x: 0, y: 0 };
+  private tickValues: Array<number> = [];
 
-  scrubberGrabbed: boolean = false;
+  private disabledState: boolean = false;
 
-  scrubberLeft: number = 0;
+  private readonlyState: boolean = false;
 
-  tickValues: Array<number> = [];
+  private useControls: boolean = false;
 
-  disabledState: boolean = false;
+  private useInput: boolean = false;
 
-  readonlyState: boolean = false;
+  private useSmall: boolean = false;
 
-  useControls: boolean = false;
+  private useSnapping: boolean = false;
 
-  useInput: boolean = false;
+  private supposedValueSlot: number = -1;
 
-  useSmall: boolean = false;
+  private eventListenersAdded: boolean = false;
 
-  useSnapping: boolean = false;
-
-  supposedValueSlot: number = -1;
-
-  eventListenersAdded: boolean = false;
-
-  resizeObserverAdded: boolean = false;
+  private resizeObserverAdded: boolean = false;
 
   /** Sends the value of the slider when changed. */
   @Event({
@@ -166,23 +160,7 @@ export class Slider {
       return;
     }
 
-    const numTicks = parseInt(this.ticks);
-    const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.clientX - trackRect.left;
-    this.supposedValueSlot = -1;
-
-    if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
-
-      this.supposedValueSlot = Math.round(localLeft / v);
-    }
-
-    this.scrubberLeft = this.constrainScrubber(localLeft);
-    this.scrubberElement.style.left = `${this.scrubberLeft}px`;
-
-    this.updateValue();
-    this.updateTrack();
+    this.scrubberCore(event);
   }
 
   @Listen('touchmove', { target: 'window' })
@@ -193,17 +171,35 @@ export class Slider {
       return;
     }
 
+    this.scrubberCore(event);
+  }
+
+  scrubberCore(event) {
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.touches[0].clientX - trackRect.left;
+    let localLeft = 0;
+    if (event.type === 'mousemove') {
+      localLeft = event.clientX - trackRect.left;
+    } else if (event.type === 'touchmove') {
+      localLeft = event.touches[0].clientX - trackRect.left;
+    } else console.warn('Slider component: Unsupported event!');
 
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
+      const trackWidth = this.getTrackWidth();
+      const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+      localLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
 
-      this.supposedValueSlot = Math.round(localLeft / v);
+      let scrubberPositionPX = 0;
+      if (localLeft >= 0 && localLeft <= trackWidth) {
+        scrubberPositionPX = localLeft;
+      } else if (localLeft > trackWidth) {
+        scrubberPositionPX = trackWidth;
+      } else if (localLeft < 0) {
+        scrubberPositionPX = 0;
+      }
+      this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
@@ -216,7 +212,6 @@ export class Slider {
   updateTrack() {
     const trackWidth = this.getTrackWidth();
     const percentageFilled = (this.scrubberLeft / trackWidth) * 100;
-
     this.trackFillElement.style.width = `${percentageFilled}%`;
   }
 
@@ -302,14 +297,11 @@ export class Slider {
 
       this.scrubberElement.addEventListener('mousedown', (event) => {
         event.preventDefault();
-        this.grabScrubber(event.offsetX, event.offsetY);
+        this.grabScrubber();
       });
 
-      this.scrubberElement.addEventListener('touchstart', (event) => {
-        const rect = this.scrubberElement.getBoundingClientRect();
-        const x = event.targetTouches[0].pageX - rect.left;
-        const y = event.targetTouches[0].pageY - rect.top;
-        this.grabScrubber(x, y);
+      this.scrubberElement.addEventListener('touchstart', () => {
+        this.grabScrubber();
       });
 
       if (this.useControls) {
@@ -350,16 +342,10 @@ export class Slider {
     this.updateTrack();
   }
 
-  grabScrubber(xOffset, yOffset) {
+  grabScrubber() {
     if (this.readonlyState) {
       return;
     }
-
-    this.scrubberGrabPos = {
-      x: xOffset,
-      y: yOffset,
-    };
-
     this.scrubberGrabbed = true;
     this.scrubberInnerElement.classList.add('pressed');
   }
@@ -477,9 +463,6 @@ export class Slider {
     return (
       <div class={`sdds-slider-wrapper ${this.readonlyState ? 'read-only' : ''}`}>
         <input
-          ref={(el) => {
-            this.nativeRangeInputElement = el as HTMLInputElement;
-          }}
           class="sdds-slider-native-element"
           type="range"
           value={this.value}
@@ -497,7 +480,6 @@ export class Slider {
             this.wrapperElement = el as HTMLElement;
           }}
         >
-
           <label class={this.showTickNumbers && 'offset'}>{this.label}</label>
 
           {this.useInput && (
@@ -525,16 +507,9 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            
-
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
-                <div
-                  ref={(el) => {
-                    this.dividersElement = el as HTMLElement;
-                  }}
-                  class="sdds-slider__value-dividers"
-                >
+                <div class="sdds-slider__value-dividers">
                   {this.tickValues.map((value) => (
                     <div class="sdds-slider__value-divider">
                       {this.showTickNumbers && <span>{value}</span>}
