@@ -7,6 +7,7 @@
 
 :host {
   position: relative;
+  display: table-cell;
 
   sdds-icon {
     line-height: 1;
@@ -30,7 +31,7 @@
 
       .content-container {
         height: 30px;
-        width: 30px;
+        min-width: 30px;
       }
 
       &.vertical {
@@ -51,7 +52,7 @@
           height: 1px;
           left: calc(50% + 24px);
           right: 0;
-          top: 16px;
+          top: 18px;
         }
 
         &::before {
@@ -60,7 +61,7 @@
           height: 1px;
           right: calc(50% + 24px);
           left: 0;
-          top: 16px;
+          top: 18px;
         }
 
         &.text-aside {
@@ -96,7 +97,7 @@
 
       .content-container {
         height: 24px;
-        width: 24px;
+        min-width: 24px;
       }
 
       &.vertical {
