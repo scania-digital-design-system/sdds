@@ -1,5 +1,5 @@
 import { formatHtmlPreview } from '../../utils/utils';
-import { iconsNames } from '../icon/iconsArray';
+import { iconsNames } from '../../components/icon/iconsArray';
 
 export default {
   title: 'Native Components (Deprecated)/Toast',

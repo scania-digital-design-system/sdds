@@ -1,10 +1,8 @@
-import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Native Components (Deprecated)/Header',
   parameters: {
-    notes: readme,
     layout: 'fullscreen',
     docs: {
       source: {
@@ -38,7 +36,7 @@ export default {
   },
 };
 
-const AllMenusTemplate = ({ siteName }) =>
+const ToolbarMenuTemplate = ({ siteName }) =>
   formatHtmlPreview(
     `
     <nav class='sdds-nav'>
@@ -59,11 +57,11 @@ const AllMenusTemplate = ({ siteName }) =>
 
               <li class='sdds-nav__item'>
                   <a class='sdds-nav__item-core' href='#'>
-                      <span class='sdds-nav__item-core-text'>Item 1</span>
+                      <span class='span'>Item 1</span>
                   </a>
               </li>
 
-              <li class='sdds-nav__item sdds-nav__item--selected'>
+              <li class='sdds-nav__item sdds-nav__item--active'>
                   <a class='sdds-nav__item-core ' href='#'>
                       <span class='sdds-nav__item-core-text'>Item 2</span>
                   </a>
@@ -73,25 +71,20 @@ const AllMenusTemplate = ({ siteName }) =>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
-                        <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon>
-                    </span>
+                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon>
+                  </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>
                   <li class='sdds-nav__dropdown-item'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
-                  <li class='sdds-nav__dropdown-item'><button class='sdds-nav__dropdown-item-core'>Sub item 3</button></li>
-                  <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--selected'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
+                  <li class='sdds-nav__dropdown-item'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3</a></li>
+                  <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--active'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
               </ul>
               </li>
           </ul>
 
           <ul class='sdds-nav__toolbar-menu'>
-              <li class='sdds-nav__item'>
-                  <a class='sdds-nav__item-core' href='#'>
-                      <span class='sdds-nav__item-core-text'>Item 4</span>
-                  </a>
-              </li>
 
-              <li class='sdds-nav__item sdds-nav__avatar'>
+              <li class='sdds-nav__item sdds-nav__avatar' >
                   <button class='sdds-nav__avatar-btn' onclick='toggleAvatarMenu()'>
                       <img class="sdds-nav__avatar-img" src='https://www.svgrepo.com/show/170303/avatar.svg' alt='profile photo'/>
                       <span class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
@@ -111,7 +104,7 @@ const AllMenusTemplate = ({ siteName }) =>
                           <a href='' class='sdds-nav__avatar-item-core'>Link 1</a>
                       </li>
                       <li class='sdds-nav__avatar-item'>
-                          <button class='sdds-nav__avatar-item-core'>Logout</button>
+                          <a href='' class='sdds-nav__avatar-item-core'>Logout</a>
                       </li>
                   </ul>
               </li>
@@ -121,7 +114,7 @@ const AllMenusTemplate = ({ siteName }) =>
         <div class='sdds-nav__right'>
           <div class='sdds-nav__item sdds-nav__app-launcher'>
               <button class='sdds-nav__app-launcher-btn' onclick='toggleAppLauncher()'>
-                  <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" ></sdds-icon>
+                <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px"></sdds-icon>
               </button>
               <ul class='sdds-nav__app-launcher-menu'>
                   <li class='sdds-nav__app-launcher-item sdds-nav__app-launcher-item--category'>
@@ -161,7 +154,7 @@ const AllMenusTemplate = ({ siteName }) =>
                       <a href='' class='sdds-nav__app-launcher-item-core'>Application 4</a>
                   </li>
                   <li class='sdds-nav__app-launcher-item'>
-                      <button class='sdds-nav__app-launcher-item-core'>Application 5 BTN</button>
+                      <a href='' class='sdds-nav__app-launcher-item-core'>Application 5</a>
                   </li>
                   <li class='sdds-nav__app-launcher-item'>
                       <a href='' class='sdds-nav__app-launcher-item-core'>Application 6</a>
@@ -203,23 +196,15 @@ const AllMenusTemplate = ({ siteName }) =>
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
 
     }
-
-    toggleSearchbar = () => {
-        document.getElementsByClassName("sdds-nav")[0].classList.toggle("sdds-nav__searchbar--opened");
-        document.getElementsByClassName("sdds-nav__item sdds-nav__dropdown")[0].classList.remove("sdds-nav__dropdown--opened");
-        document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__avatar--opened");
-        document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
-        document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
-    }
-
     closeDropdownsFromOverlay = () => {
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
 
     }
+
     </script>
     `,
   );
 
-export const AllMenus = AllMenusTemplate.bind({});
+export const ToolbarMenu = ToolbarMenuTemplate.bind({});

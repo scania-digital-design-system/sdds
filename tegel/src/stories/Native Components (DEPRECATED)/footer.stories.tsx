@@ -1,10 +1,8 @@
-import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
   title: 'Native Components (Deprecated)/Footer',
   parameters: {
-    notes: readme,
     layout: 'fullscreen',
     design: [
       {

@@ -1,4 +1,4 @@
-import CardPlaceholder from '../../stories/assets/image/card-placeholder.png';
+import CardPlaceholder from '../assets/image/card-placeholder.png';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
