@@ -18,6 +18,7 @@
       max-height: calc(100vh - var(--sdds-header-height));
       box-shadow: var(--sdds-nav-dropdown-menu-box);
       background-color: var(--sdds-header-app-launcher-menu-background);
+      border-radius: 0;
 
       @media all and (max-width: $media-fullwidth) {
         width: 100vw;

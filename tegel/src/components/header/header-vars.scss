@@ -25,7 +25,10 @@
   --sdds-header-nav-item-dropdown-hover-color: var(--sdds-grey-300);
 
   // sdds-nav__basic-element-style
+  --sdds-header--basic-element-border: var(--sdds-blue-700);
+  --sdds-header--basic-element-border-open: var(--sdds-white);
   --sdds-header--basic-element-background: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-open: var(--sdds-white);
   --sdds-header--basic-element-background-hover: var(--sdds-blue-700);
   --sdds-header--basic-element-background-selected: var(--sdds-blue-700);
 
@@ -115,10 +118,12 @@
   --sdds-header-background: var(--sdds-blue-900);
   --sdds-header-mob-menu-open-color: var(--sdds-white);
   --sdds-header-mob-menu-open-background: var(--sdds-grey-958);
+  --sdds-header-mob-menu-border: var(--sdds-blue-800);
   --sdds-header-mob-menu-open-border: var(--sdds-grey-868);
   --sdds-nav-item-background: var(--sdds-grey-800);
   --sdds-nav-item-background-hover: var(--sdds-grey-700);
   --sdds-nav-item-background-active: var(--sdds-grey-700);
+  --sdds-nav-item-background-selected: var(--sdds-grey-700);
   --sdds-nav-item-border-color: var(--sdds-blue-700);
   --sdds-nav-item-border-color-active: var(--sdds-blue-300);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-700);
@@ -129,6 +134,13 @@
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
+
+  // sdds-nav__basic-element-style
+  --sdds-header--basic-element-border: var(--sdds-blue-700);
+  --sdds-header--basic-element-border-open: var(--sdds-blue-700);
+  --sdds-header--basic-element-background-open: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-hover: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-selected: var(--sdds-blue-800);
 
   // /* Searchbar */
   --sdds-header-searchbar-input-background: var(--sdds-grey-958);

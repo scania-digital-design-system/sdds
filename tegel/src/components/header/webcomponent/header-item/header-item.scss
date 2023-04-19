@@ -8,7 +8,7 @@
     @include sdds-box-sizing;
 
     background-color: var(--sdds-header-background);
-    border-right: 1px solid var(--sdds-header-mob-menu-border);
+    border-right: 1px solid var(--sdds-header--basic-element-border);
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -31,9 +31,9 @@
   .component-active {
     ::slotted(button),
     ::slotted(a) {
-      background-color: var(--sdds-header-nav-item-dropdown-opened-background);
+      background-color: var(--sdds-header--basic-element-background-open);
       color: var(--sdds-header-nav-item-dropdown-opened-color);
-      border-color: var(--sdds-header-nav-item-dropdown-opened-background);
+      border-color: var(--sdds-header--basic-element-border-open);
     }
   }
 

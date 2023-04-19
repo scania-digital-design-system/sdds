@@ -14,6 +14,8 @@
     max-height: calc(100vh - var(--sdds-header-height));
     box-shadow: var(--sdds-nav-dropdown-menu-box);
     background-color: var(--sdds-header-app-launcher-menu-background);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
   }
 
   .state-open {

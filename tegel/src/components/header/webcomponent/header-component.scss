@@ -37,7 +37,7 @@ nav {
     display: block;
     flex-grow: 1;
     height: var(--sdds-header-height);
-    border-right: 1px solid var(--sdds-header-mob-menu-border);
+    border-right: 1px solid var(--sdds-header--basic-element-border);
   }
 
   @media screen and (min-width: $grid-lg) {
@@ -50,6 +50,6 @@ nav {
   sdds-header-item:nth-child(3),
   sdds-header-dropdown:nth-child(3) {
     /* Adds a left border to the button after the title, if any */
-    border-left: 1px solid var(--sdds-header-mob-menu-border);
+    border-left: 1px solid var(--sdds-header--basic-element-border);
   }
 }
