@@ -1,4 +1,5 @@
 import { Component, Host, h, Element, Listen, State } from '@stencil/core';
+import { Attributes, inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-header-launcher',
@@ -14,7 +15,9 @@ export class HeaderLauncher {
 
   @State() hasListTypeMenu = false;
 
-  uuid: string = crypto.randomUUID();
+  private uuid: string = crypto.randomUUID();
+
+  private ariaAttributes: Attributes;
 
   @Listen('click', { target: 'window' })
   onAnyClick(event: MouseEvent) {
@@ -42,6 +45,24 @@ export class HeaderLauncher {
   }
 
   render() {
+    this.ariaAttributes = { ...this.ariaAttributes, ...inheritAriaAttributes(this.host, ['role']) };
+
+    const buttonAttributes = {
+      ...this.ariaAttributes,
+      'aria-expanded': `${this.open}`,
+      'aria-controls': `launcher-${this.uuid}`,
+      'class': 'button',
+      'active': this.open,
+      'onClick': () => {
+        this.toggleLauncher();
+      },
+      'ref': (el: HTMLSddsHeaderLauncherButtonElement) => {
+        this.buttonEl = el;
+      },
+    };
+
+    console.log('BUTTON PROPS 1', buttonAttributes);
+
     return (
       <Host>
         <div
@@ -51,18 +72,7 @@ export class HeaderLauncher {
             'state-list-type-menu': this.hasListTypeMenu,
           }}
         >
-          <sdds-header-launcher-button
-            aria-expanded={`${this.open}`}
-            aria-controls={`launcher-${this.uuid}`}
-            class="button"
-            active={this.open}
-            onClick={() => {
-              this.toggleLauncher();
-            }}
-            ref={(el) => {
-              this.buttonEl = el;
-            }}
-          ></sdds-header-launcher-button>
+          <sdds-header-launcher-button {...buttonAttributes}></sdds-header-launcher-button>
 
           {this.buttonEl && (
             <sdds-popover-canvas

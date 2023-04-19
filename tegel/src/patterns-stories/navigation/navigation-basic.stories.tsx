@@ -37,7 +37,7 @@ const Template = () =>
     <sdds-header-title>
       Example: default
     </sdds-header-title>
-    <sdds-header-launcher slot="end" aria-label="application launcher">
+    <sdds-header-launcher slot="end" aria-label="Application launcher">
       <sdds-header-launcher-list-title>Cool apps</sdds-header-launcher-list-title>
       <sdds-header-launcher-list>
         <sdds-header-launcher-list-item>

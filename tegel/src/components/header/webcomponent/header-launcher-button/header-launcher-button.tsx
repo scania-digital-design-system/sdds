@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core';
-import { inheritAriaAttributes } from '../../../../utils/utils';
+import { Attributes, inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
   tag: 'sdds-header-launcher-button',
@@ -13,10 +13,15 @@ export class HeaderLauncherButton {
    * triggering a dropdown, and the dropdown is open, for example. */
   @Prop() active = false;
 
+  private ariaAttributes: Attributes;
+
   render() {
+    this.ariaAttributes = { ...this.ariaAttributes, ...inheritAriaAttributes(this.host) };
     const buttonProps = {
-      ...inheritAriaAttributes(this.host),
+      ...this.ariaAttributes,
     };
+
+    console.log('BUTTON PROPS2', buttonProps);
 
     return (
       <Host>

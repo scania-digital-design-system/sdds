@@ -110,7 +110,7 @@ const Template = () =>
           </button>
         </sdds-header-item>
 
-        <sdds-header-launcher slot="end" aria-label="application-launcher">
+        <sdds-header-launcher slot="end" aria-label="Application launcher">
           <sdds-header-launcher-grid-title>Operations and Logistics</sdds-header-launcher-grid-title>
           <sdds-header-launcher-grid>
             <sdds-header-launcher-grid-item>
