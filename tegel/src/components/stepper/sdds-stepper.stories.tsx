@@ -1,6 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readmeStepper from './readme.md';
 import readmeStepperItem from './stepper-item/readme.md';
+src/components/stepper/sdds-stepper.stories.tsx
 
 export default {
   title: 'Components/Stepper',
