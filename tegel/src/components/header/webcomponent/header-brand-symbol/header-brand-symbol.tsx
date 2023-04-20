@@ -2,11 +2,11 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
 import { inheritAriaAttributes } from '../../../../utils/utils';
 
 @Component({
-  tag: 'sdds-header-logo',
-  styleUrl: 'header-logo.scss',
+  tag: 'sdds-header-brand-symbol',
+  styleUrl: 'header-brand-symbol.scss',
   shadow: true,
 })
-export class HeaderLogo {
+export class HeaderBrandSymbol {
   @Element() host: HTMLElement;
 
   /** The href for the logo link. */

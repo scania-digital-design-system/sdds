@@ -102,8 +102,8 @@ const Template = () =>
           </sdds-header-dropdown-list>
         </sdds-header-dropdown>
 
-        <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
-        </sdds-header-logo>
+        <sdds-header-brand-symbol slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
+        </sdds-header-brand-symbol>
 
       </sdds-header>
 

@@ -130,8 +130,8 @@ const Template = ({ persistent, collapsible }) =>
 
       <i style="color:white">Header items omitted for brevity. See patterns/navigation</i>
 
-      <sdds-header-logo slot="end" link-href="https://scania.com" aria-label="Scania - red gryphon on blue shield">
-      </sdds-header-logo>
+      <sdds-header-brand-symbol slot="end" link-href="https://scania.com" aria-label="Scania - red gryphon on blue shield">
+      </sdds-header-brand-symbol>
     </sdds-header>
 
     <div class="demo-wrap-side-menu-and-main">

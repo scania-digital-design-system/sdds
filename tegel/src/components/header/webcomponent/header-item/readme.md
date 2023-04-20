@@ -50,7 +50,7 @@ Note: Any aria attributes will be passed to the underlying button tag.
  - [sdds-header-dropdown](../header-dropdown)
  - [sdds-header-hamburger](../header-hamburger)
  - [sdds-header-launcher-button](../header-launcher-button)
- - [sdds-header-logo](../header-logo)
+ - [sdds-header-brand-symbol](../header-logo)
 
 ### Depends on
 
@@ -63,7 +63,7 @@ graph TD;
   sdds-header-dropdown --> sdds-header-item
   sdds-header-hamburger --> sdds-header-item
   sdds-header-launcher-button --> sdds-header-item
-  sdds-header-logo --> sdds-header-item
+  sdds-header-brand-symbol --> sdds-header-item
   style sdds-header-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

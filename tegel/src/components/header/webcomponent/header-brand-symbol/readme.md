@@ -1,4 +1,4 @@
-# sdds-header-logo
+# sdds-header-brand-symbol
 
 Note: Any aria attributes will be passed to the underlying anchor tag.
 
@@ -21,9 +21,9 @@ Note: Any aria attributes will be passed to the underlying anchor tag.
 ### Graph
 ```mermaid
 graph TD;
-  sdds-header-logo --> sdds-header-item
+  sdds-header-brand-symbol --> sdds-header-item
   sdds-header-item --> sdds-core-header-item
-  style sdds-header-logo fill:#f9f,stroke:#333,stroke-width:4px
+  style sdds-header-brand-symbol fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -32,8 +32,8 @@ Example:
     </sdds-header-launcher-list>
   </sdds-header-launcher>
 
-  <sdds-header-logo slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
-  </sdds-header-logo>
+  <sdds-header-brand-symbol slot="end" link-href="https://design.scania.com" aria-label="Scania - red gryphon on blue shield">
+  </sdds-header-brand-symbol>
 
 </sdds-header>
 ```
