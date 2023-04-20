@@ -46,13 +46,21 @@ export default {
         defaultValue: { summary: 'auto' },
       },
     },
+    icons: {
+      name: 'Icons',
+      description: 'Shows the popover menu with/wothout icons.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     menuPosition: 'Auto',
+    icons: false,
   },
 };
 
-const Template = ({ menuPosition }) => {
+const Template = ({ menuPosition, icons }) => {
   const menuPosLookup = {
     'Bottom': 'bottom',
     'Bottom start': 'bottom-start',
@@ -85,22 +93,70 @@ const Template = ({ menuPosition }) => {
       placement="${menuPosLookup[menuPosition]}">
       <ul class="sdds-popover-menu-wrapper">
         <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 1</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            ${
+              icons
+                ? `
+            <i>
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>`
+                : ''
+            }
+          Menu item 1
+          </a>
         </li>
         <li>
           <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            ${
+              icons
+                ? `
+            <i>
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>`
+                : ''
+            }
             Menu item 2
           </a>
         </li>
         <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 3</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            ${
+              icons
+                ? `
+            <i>
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>`
+                : ''
+            }
+            Menu item 3
+          </a>
         </li>
         <li class="divider"></li>
         <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 4</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            ${
+              icons
+                ? `
+            <i>
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>`
+                : ''
+            }
+            Menu item 4
+          </a>
         </li>
         <li>
-          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">Menu item 5</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://digitaldesign.scania.com">
+            ${
+              icons
+                ? `
+            <i>
+              <sdds-icon name="save" size="16px"></sdds-icon>
+            </i>`
+                : ''
+            }  
+            Menu item 5
+          </a>
         </li>
       </ul>
     </sdds-popover-menu>
