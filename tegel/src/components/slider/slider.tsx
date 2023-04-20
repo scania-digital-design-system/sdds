@@ -116,10 +116,14 @@ export class Slider {
   handleKeydown(event) {
     switch (event.key) {
       case 'ArrowLeft':
+      case 'ArrowDown':
+      case '-':
         this.stepLeft();
         break;
 
       case 'ArrowRight':
+      case 'ArrowUp':
+      case '+':
         this.stepRight();
         break;
 
