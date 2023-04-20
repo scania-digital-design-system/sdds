@@ -1,5 +1,6 @@
 import readme from './readme.md';
 import readmeOption from './dropdown-option/readme.md';
+import readmeFilter from './dropdown-filter/readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 import { ComponentsFolder } from '../../utils/constants';
 
@@ -7,7 +8,7 @@ export default {
   title: ComponentsFolder,
   parameters: {
     layout: 'centered',
-    notes: { 'Dropdown': readme, 'Dropdown option': readmeOption },
+    notes: { 'Dropdown': readme, 'Dropdown option': readmeOption, 'Dropdown filter': readmeFilter },
     design: [
       {
         name: 'Figma',
