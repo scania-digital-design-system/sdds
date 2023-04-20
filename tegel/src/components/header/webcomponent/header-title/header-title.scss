@@ -1,0 +1,35 @@
+@import '../../../../mixins/flex-center';
+
+:host {
+  display: block;
+  flex-shrink: 1;
+  box-sizing: border-box;
+  color: var(--sdds-header-nav-item-color);
+  font-weight: normal;
+  font-family: var(--sdds-font-family-headline);
+  letter-spacing: normal;
+  position: relative;
+
+  .component {
+    // FIXME this doesnt work
+    ::after {
+      content: ' ';
+      display: block;
+      height: 100%;
+      width: 24px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to right, transparent, var(--sdds-header-background));
+    }
+  }
+
+  slot {
+    min-width: inherit;
+    display: block;
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: fade;
+    padding: 0 24px;
+  }
+}

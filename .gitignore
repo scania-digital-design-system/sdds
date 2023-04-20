@@ -24,7 +24,7 @@ log.txt
 components/*.d.ts
 
 .idea/
-.vscode/
+.vscode/*
 .sass-cache/
 .versions/
 node_modules/
@@ -34,3 +34,6 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+# Ignore exceptions
+!.vscode/snippets.code-snippets
