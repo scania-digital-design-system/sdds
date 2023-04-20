@@ -1,11 +1,18 @@
 # sdds-header
 
-## States class
 
-| Viewport | Class                            | State class          | Description                                   | Default |
-| -------- | -------------------------------- | -------------------- | --------------------------------------------- | ------- |
-| `Mobile` | `sdds-navbar-side-menu-toggler`  | `expanded`           | Expand menu on mobile view                    | hidden  |
-| `Mobile` | `sdds-navbar-collapsible`        | `expanded`           | Expand menu on mobile view                    | hidden  |
-| `Mobile` | `sdds-navbar-overlay`            | `expanded`           | Add overlay when menu expanded on mobile view | hidden  |
-| `All`    | `sdds-navbar-menu-item-dropdown` | `opened`             | Open dropdown menu                            | Close   |
-| `All`    | `sdds-navbar`                    | `sdds-navbar-static` | Static position for header                    | Fixed   |
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property   | Attribute   | Description                            | Type     | Default         |
+| ---------- | ----------- | -------------------------------------- | -------- | --------------- |
+| `iconHref` | `icon-href` | URL for the sdds-header-icon           | `string` | `'#'`           |
+| `siteName` | `site-name` | The na that is displayed in the header | `string` | `'Application'` |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

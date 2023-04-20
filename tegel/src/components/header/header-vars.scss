@@ -1,3 +1,8 @@
+:root {
+  --sdds-header-height: 64px;
+  --sdds-header-list-item-md-height: 48px;
+}
+
 :root,
 .sdds-mode-light {
   --sdds-header-overlay: var(--sdds-black);
@@ -6,10 +11,12 @@
   --sdds-header-mob-menu-color: var(--sdds-white);
   --sdds-header-mob-menu-open-color: var(--sdds-grey-958);
   --sdds-header-mob-menu-open-background: var(--sdds-white);
+  --sdds-header-mob-menu-border: var(--sdds-blue-700);
   --sdds-header-mob-menu-open-border: var(--sdds-grey-300);
   --sdds-nav-item-background: var(--sdds-white);
   --sdds-nav-item-background-active: var(--sdds-grey-100);
   --sdds-nav-item-background-hover: var(--sdds-grey-100);
+  --sdds-nav-item-background-selected: var(--sdds-grey-100);
   --sdds-nav-item-border-color: var(--sdds-blue-700);
   --sdds-nav-item-border-color-active: var(--sdds-blue-400);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-100);
@@ -20,10 +27,15 @@
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-300);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-white);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-grey-958);
+  --sdds-header-nav-item-dropdown-hover-color: var(--sdds-grey-300);
 
   // sdds-nav__basic-element-style
+  --sdds-header--basic-element-border: var(--sdds-blue-700);
+  --sdds-header--basic-element-border-open: var(--sdds-white);
   --sdds-header--basic-element-background: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-open: var(--sdds-white);
   --sdds-header--basic-element-background-hover: var(--sdds-blue-700);
+  --sdds-header--basic-element-background-selected: var(--sdds-blue-700);
 
   /* Searchbar */
   --sdds-header-searchbar-input-background: var(--sdds-white);
@@ -73,11 +85,17 @@
   --sdds-header-app-launcher-item-border-color: var(--sdds-grey-300);
   --sdds-header-app-launcher-category-title-background: var(--sdds-white);
   --sdds-header-app-launcher-category-title-color: var(--sdds-grey-500);
+  --sdds-header-app-launcher-grid-category-title-color: var(--sdds-grey-800);
   --sdds-header-app-launcher-item-background: var(--sdds-white);
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-100);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-700);
 
   /* MOBILE AND TABLET */
+  --sdds-header-mobile-menu-background: var(--sdds-white);
+  --sdds-header-mobile-menu-item-background: var(--sdds-white);
+  --sdds-header-mobile-menu-item-background-hover: var(--sdds-grey-300);
+  --sdds-header-mobile-menu-item-color: var(--sdds-grey-958);
+  --sdds-header-mobile-menu-item-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-nav-center-background: var(--sdds-white);
   --sdds-header-mobile-nav-center-item-border-color: var(--sdds-grey-300);
   --sdds-header-mobile-nav-center-item-border-color-active-after: var(--sdds-blue-400);
@@ -105,10 +123,12 @@
   --sdds-header-background: var(--sdds-blue-900);
   --sdds-header-mob-menu-open-color: var(--sdds-white);
   --sdds-header-mob-menu-open-background: var(--sdds-grey-958);
+  --sdds-header-mob-menu-border: var(--sdds-blue-800);
   --sdds-header-mob-menu-open-border: var(--sdds-grey-868);
   --sdds-nav-item-background: var(--sdds-grey-800);
   --sdds-nav-item-background-hover: var(--sdds-grey-700);
   --sdds-nav-item-background-active: var(--sdds-grey-700);
+  --sdds-nav-item-background-selected: var(--sdds-grey-700);
   --sdds-nav-item-border-color: var(--sdds-blue-700);
   --sdds-nav-item-border-color-active: var(--sdds-blue-300);
   --sdds-nav-item-core-background-hover: var(--sdds-grey-700);
@@ -119,6 +139,13 @@
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-800);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
+
+  // sdds-nav__basic-element-style
+  --sdds-header--basic-element-border: var(--sdds-blue-700);
+  --sdds-header--basic-element-border-open: var(--sdds-blue-700);
+  --sdds-header--basic-element-background-open: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-hover: var(--sdds-blue-800);
+  --sdds-header--basic-element-background-selected: var(--sdds-blue-800);
 
   // /* Searchbar */
   --sdds-header-searchbar-input-background: var(--sdds-grey-958);

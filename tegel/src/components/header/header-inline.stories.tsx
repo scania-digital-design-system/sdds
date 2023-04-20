@@ -2,7 +2,7 @@ import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Header',
+  title: 'Components/Header/Native',
   parameters: {
     notes: readme,
     layout: 'fullscreen',
@@ -82,6 +82,12 @@ const InlineMenuTemplate = ({ siteName }) =>
                   <li class='sdds-nav__dropdown-item sdds-nav__dropdown-item--active'><a class='sdds-nav__dropdown-item-core' href='#'>Sub item 3 long label...</a></li>
               </ul>
               </li>
+
+              <li class='sdds-nav__item sdds-nav__item--active'>
+                  <a class='sdds-nav__item-core ' href='#'>
+                      <span class='sdds-nav__item-core-text'>Item 2</span>
+                  </a>
+              </li>
           </ul>
         </div>
 
@@ -112,7 +118,6 @@ const InlineMenuTemplate = ({ siteName }) =>
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__mob-menu--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__app-launcher--opened");
         document.getElementsByClassName("sdds-nav")[0].classList.remove("sdds-nav__searchbar--opened");
-
     }
     </script>
     `,
