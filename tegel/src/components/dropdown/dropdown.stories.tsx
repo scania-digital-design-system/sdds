@@ -255,6 +255,7 @@ const Template = ({
             }
           ]'
           default-option="${defaultOptionLookup[defaultOption]}">
+
         </sdds-dropdown-filter>`
     }
 
