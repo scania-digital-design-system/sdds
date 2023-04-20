@@ -361,15 +361,6 @@ export class Slider {
     let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
 
     console.log(`currentValue is: ${currentValue}`);
-    currentValue += delta;
-
-    console.log(`Current value after delta is: ${currentValue}`);
-
-    if (currentValue < this.getMin()) {
-      currentValue = this.getMin();
-    } else if (currentValue > this.getMax()) {
-      currentValue = this.getMax();
-    }
 
     this.value = `${currentValue}`;
 
@@ -388,6 +379,16 @@ export class Slider {
       }
 
       currentValue = this.tickValues[this.supposedValueSlot];
+    } else {
+      currentValue += delta;
+    }
+
+    console.log(`Current value after delta is: ${currentValue}`);
+
+    if (currentValue < this.getMin()) {
+      currentValue = this.getMin();
+    } else if (currentValue > this.getMax()) {
+      currentValue = this.getMax();
     }
 
     console.log(`supposedValueSlot is (after contitional): ${this.supposedValueSlot}`);
