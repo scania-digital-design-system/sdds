@@ -73,16 +73,16 @@ const Template = ({ modeVariant, selectedIndex, defaultSelectedIndex }) =>
       ${modeVariant !== 'Inherit from parent' ? ` mode-variant="${modeVariant.toLowerCase()}"` : ''}
     >
       <sdds-navigation-tab>
-        <button>First tab</button>
+        <a href="#">First tab</a>
       </sdds-navigation-tab>
       <sdds-navigation-tab>
-        <button>Second tab is much longer</button>
+        <a href="#">Second tab is much longer</a>
       </sdds-navigation-tab>
       <sdds-navigation-tab selected>
-        <button>Third tab</button>
+        <a href="#">Third tab</a>
       </sdds-navigation-tab>
       <sdds-navigation-tab disabled>
-        <button>Fourth tab</button>
+        <a href="#">Fourth tab</a>
       </sdds-navigation-tab>
     </sdds-navigation-tabs>
 
