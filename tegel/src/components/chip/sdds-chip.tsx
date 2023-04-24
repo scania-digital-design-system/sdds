@@ -8,8 +8,9 @@ import { Component, Host, h, Event, EventEmitter, Prop } from '@stencil/core';
 })
 export class SddsChip {
   /** Type of chip, depends on usage */
-  @Prop() inputType: 'button' | 'radio' | 'checkbox' = 'button';
+  @Prop() chipType: 'button' | 'radio' | 'checkbox' = 'button';
 
+  /** Size of the chip component */
   @Prop() size: 'sm' | 'lg' = 'lg';
 
   /** ID used for internal chip functionality and events, must be unique.
@@ -18,13 +19,13 @@ export class SddsChip {
    */
   @Prop() chipId: string = crypto.randomUUID();
 
-  /** Setting it to true set component state to checked. Valid only for inputType checkbox and radio. */
+  /** Setting it to true set component state to checked. Valid only for chipType checkbox and radio. */
   @Prop() checked: boolean = false;
 
-  /** Name for the checkbox or radio input element. Also creates a reference between label and input. Valid only for inputType checkbox and radio. */
+  /** Name for the checkbox or radio input element. Also creates a reference between label and input. Valid only for chipType checkbox and radio. */
   @Prop() name: string;
 
-  /** Value of input. Valid only for inputType checkbox and radio. */
+  /** Value of input. Valid only for chipType checkbox and radio. */
   @Prop() value: string;
 
   /** Sends unique chip identifier and value when it is changed (checked/unchecked). Valid only for chipType checkbox and radio. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
@@ -46,7 +47,7 @@ export class SddsChip {
     });
   };
 
-  /** Sends unique chip identifier when chip is clicked. Valid only for chipType="button". If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
+  /** Sends unique chip identifier when chip is clicked. Valid only for chipType button. If no ID is specified a random one will be generated. To use this listener don't use the randomized ID, use a specific one of your choosing. */
   @Event({
     eventName: 'sddsClick',
     composed: true,
@@ -64,7 +65,7 @@ export class SddsChip {
   };
 
   private renderInputAttributes() {
-    if (this.inputType !== 'button') {
+    if (this.chipType !== 'button') {
       return {
         value: this.value,
         checked: this.checked,
@@ -84,7 +85,7 @@ export class SddsChip {
       <Host>
         <div class="component">
           <div class={`sdds-chip-component ${this.size}`}>
-            <input type={this.inputType} id={this.chipId} {...inputAttributes}></input>
+            <input type={this.chipType} id={this.chipId} {...inputAttributes}></input>
             <label htmlFor={this.chipId}>
               <slot name="label" />
             </label>

@@ -103,7 +103,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
   return formatHtmlPreview(`
   ${
     inputType === 'Button'
-      ? `<sdds-chip input-type="button" size="${sizeLookUp[size]}">
+      ? `<sdds-chip chip-type="button" size="${sizeLookUp[size]}">
             <span slot="label">
                 ${
                   icon && iconPosition === 'Prefix'
@@ -137,7 +137,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
     </style>
 
     <div class="demo-wrapper">
-      <sdds-chip input-type="checkbox" size="${sizeLookUp[size]}" checked value="checkbox-1-value">
+      <sdds-chip chip-type="checkbox" size="${sizeLookUp[size]}" checked value="checkbox-1-value">
         <span slot="label">
           ${
             icon && iconPosition === 'Prefix'
@@ -152,7 +152,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
           }
         </span>
       </sdds-chip>
-      <sdds-chip input-type="checkbox" size="${sizeLookUp[size]}" value="checkbox-2-value">
+      <sdds-chip chip-type="checkbox" size="${sizeLookUp[size]}" value="checkbox-2-value">
         <span slot="label">
           ${
             icon && iconPosition === 'Prefix'
@@ -167,7 +167,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
           }
         </span>
       </sdds-chip>
-      <sdds-chip input-type="checkbox" size="${sizeLookUp[size]}" value="checkbox-3-value">
+      <sdds-chip chip-type="checkbox" size="${sizeLookUp[size]}" value="checkbox-3-value">
         <span slot="label">
           ${
             icon && iconPosition === 'Prefix'
@@ -202,7 +202,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
     </style>
 
     <div class="demo-wrapper">
-      <sdds-chip name="test" input-type="radio" size="${sizeLookUp[size]}" value="radio-1-value">
+      <sdds-chip name="test" chip-type="radio" size="${sizeLookUp[size]}" value="radio-1-value">
         <span slot="label">
           ${
             icon && iconPosition === 'Prefix'
@@ -217,7 +217,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
           }
         </span>
       </sdds-chip>
-      <sdds-chip name="test" input-type="radio" size="${
+      <sdds-chip name="test" chip-type="radio" size="${
         sizeLookUp[size]
       }" checked value="radio-2-value">
         <span slot="label">
@@ -234,7 +234,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
           }
         </span>
       </sdds-chip>
-      <sdds-chip name="test" input-type="radio" size="${sizeLookUp[size]}" value="radio-3-value">
+      <sdds-chip name="test" chip-type="radio" size="${sizeLookUp[size]}" value="radio-3-value">
         <span slot="label">
           ${
             icon && iconPosition === 'Prefix'
