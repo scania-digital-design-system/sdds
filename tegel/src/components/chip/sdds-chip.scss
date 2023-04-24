@@ -1,9 +1,24 @@
 @import '../../mixins/focus-state';
 
-/* For content in slot to take styles of label and display in perfect vertical center */
+/* Styling for slotted content */
 ::slotted(*) {
-  display: contents;
+  display: inline-flex;
+  align-items: center;
 }
+
+:host([size='sm']) {
+  ::slotted(*) {
+    gap: 6px;
+  }
+}
+
+:host([size='lg']) {
+  ::slotted(*) {
+    gap: 8px;
+  }
+}
+
+/* Component styling */
 
 .component {
   .sdds-chip-component {
