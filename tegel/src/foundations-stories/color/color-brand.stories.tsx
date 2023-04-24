@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Foundations/Colour',
+  title: 'Foundations/Color',
   parameters: {
     layout: 'fullscreen',
     docs: {
