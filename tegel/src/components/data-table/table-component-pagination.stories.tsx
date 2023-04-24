@@ -175,6 +175,15 @@ const PaginationTemplate = ({
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
           <sdds-table-footer pagination rows-per-page="${rowsPerPageControl}"></sdds-table-footer>
-  </sdds-table>`);
+  </sdds-table>
+  
+
+  <script>
+    document.addEventListener('sddsPageChange', (event) => {
+      console.log(event)
+    })
+  </script>
+  
+  `);
 
 export const Pagination = PaginationTemplate.bind({});

@@ -112,35 +112,36 @@ export class TableFooter {
 
   private previousPage = () => {
     /* Emits pagination event. */
-    const pageChangEvent = this.sddsPageChange.emit({
+    const pageChangeEvent = this.sddsPageChange.emit({
       tableId: this.tableId,
-      paginationValue: Number(this.inputElement.value) + 1,
+      paginationValue: Number(this.inputElement.value) - 1,
     });
-    /* If the change event is not prevented -> do pagination. */
-    if (pageChangEvent.defaultPrevented) {
-      /* Decrease the pagination until the first page. */
-      this.runPagination();
-    }
     /* Decreate pgination value */
     if (this.paginationValue >= 2) {
       this.paginationValue--;
+    }
+    /* If the change event is not prevented -> do pagination. */
+    if (!pageChangeEvent.defaultPrevented) {
+      /* Decrease the pagination until the first page. */
+      this.runPagination();
     }
   };
 
   private nextPage = () => {
     /* Emits pagination event. */
-    const pageChangEvent = this.sddsPageChange.emit({
+    const pageChangeEvent = this.sddsPageChange.emit({
       tableId: this.tableId,
-      paginationValue: Number(this.inputElement.value) - 1,
+      paginationValue: Number(this.inputElement.value) + 1,
     });
-    /* If the change event is not prevented -> do pagination. */
-    if (!pageChangEvent.defaultPrevented) {
-      /* Increase the pagination until the last page. */
-      this.runPagination();
-    }
+
     /* Increase pgination value */
     if (this.paginationValue <= this.numberOfPages) {
       this.paginationValue++;
+    }
+    /* If the change event is not prevented -> do pagination. */
+    if (!pageChangeEvent.defaultPrevented) {
+      /* Increase the pagination until the last page. */
+      this.runPagination();
     }
   };
 
@@ -184,7 +185,6 @@ export class TableFooter {
       } else {
         const lastResult = this.rowsPerPage * this.paginationValue;
         const firstResult = lastResult - this.rowsPerPage;
-
         if (index > firstResult && index <= lastResult) {
           item.classList.remove('sdds-table__row--hidden');
         } else {
