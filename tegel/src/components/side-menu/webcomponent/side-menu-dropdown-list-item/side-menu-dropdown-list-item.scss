@@ -29,7 +29,7 @@
 
     ::slotted(a:hover),
     ::slotted(button:hover) {
-      background-color: var(--sdds-nav-item-background-hover);
+      background-color: var(--sdds-grey-868);
       cursor: pointer;
     }
 
@@ -43,7 +43,7 @@
     ::slotted(button) {
       border-left: 4px solid var(--sdds-nav-item-border-color-active);
       padding-left: 20px;
-      background-color: var(--sdds-nav-item-background-selected);
+      background-color: var(--sdds-grey-868);
     }
   }
 

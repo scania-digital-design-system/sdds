@@ -20,7 +20,7 @@
 
   ::slotted(button:hover),
   ::slotted(a:hover) {
-    background-color: var(--sdds-header--basic-element-background-hover);
+    background-color: var(sdds-grey-800);
   }
 
   ::slotted(button:focus-visible),
@@ -40,7 +40,7 @@
   .component-selected:not(.component-active) {
     ::slotted(button),
     ::slotted(a) {
-      background-color: var(--sdds-header--basic-element-background-selected);
+      background-color: var(sdds-grey-800);
       padding-top: 4px;
       border-bottom-style: solid;
       border-bottom-width: 4px;
