@@ -253,7 +253,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
 
     <script>
       document.addEventListener('sddsChange', (event)=>{
-          console.log('Chip with id: ', event.detail.chipId,' Value is: ', event.detail.value)
+          console.log(event)
       })
     </script>`
       : ''
