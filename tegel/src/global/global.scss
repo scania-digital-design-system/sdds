@@ -6,7 +6,6 @@
 @import '../theme/core/logotype/vars.scss';
 
 // Colors
-// ONLY THIS ONE IS SUFFICIENT AS IT IMPORTS VARS AND TOKENS IN ALREADY
 @import '../theme/core/colour/colour';
 
 // Typography
@@ -14,18 +13,13 @@
 @import 'scania-fonts-vars';
 @import 'scania-fonts-selectors';
 
-//@import '../theme/core/typography/selectors';
-
 // Spacing
 @import '../theme/core/spacing/spacing-vars.scss';
 
 // Grid
 @import '../theme/core/grid/grid';
 
-// Tegel reset
-
-/* @import '../theme/light/src/_reboot.scss'; */
-
+// Vars
 @import '_variables.scss';
 
 // Utility classes
