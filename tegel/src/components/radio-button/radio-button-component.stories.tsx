@@ -21,7 +21,7 @@ export default {
   },
   argTypes: {
     label: {
-      name: 'Label',
+      name: 'Label text',
       description: 'Sets the label for the radio button.',
       controls: {
         type: 'text',
