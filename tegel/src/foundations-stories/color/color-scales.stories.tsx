@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Foundations/Colour',
+  title: 'Foundations/Color',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -10,9 +10,22 @@ export default {
       },
     },
   },
+  argTypes: {
+    color: {
+      name: 'Color',
+      description: 'Choose color scale to display',
+      control: {
+        type: 'select',
+      },
+      options: { Grey: 'grey', Blue: 'blue', Red: 'red' },
+    },
+  },
+  args: {
+    color: 'grey',
+  },
 };
 
-const Template = ({ colour }) => {
+const Template = ({ color }) => {
   const scale = {
     grey: [
       '50',
@@ -32,12 +45,12 @@ const Template = ({ colour }) => {
     blue: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
     red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
   };
-  const picked = scale[colour];
+  const picked = scale[color];
   let div = '';
 
   picked.forEach((num) => {
-    div += `<div id="test" class="demo-wrapper" style="background-color: var(--sdds-${colour}-${num})">
-      <span>--sdds-${colour}-${num}</span>
+    div += `<div id="test" class="demo-wrapper" style="background-color: var(--sdds-${color}-${num})">
+      <span>--sdds-${color}-${num}</span>
       </div>`;
   });
 
@@ -61,18 +74,3 @@ const Template = ({ colour }) => {
 };
 
 export const Scales = Template.bind({});
-
-Scales.argTypes = {
-  colour: {
-    name: 'Colour',
-    description: 'Choose colour scale to display',
-    control: {
-      type: 'select',
-    },
-    options: { Grey: 'grey', Blue: 'blue', Red: 'red' },
-  },
-};
-
-Scales.args = {
-  colour: 'grey',
-};
