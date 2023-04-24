@@ -19,7 +19,7 @@ export default {
   },
   argTypes: {
     label: {
-      name: 'Label',
+      name: 'Label text',
       description: 'Sets the label for the radio button.',
       control: {
         type: 'text',
@@ -42,7 +42,7 @@ export default {
   },
 };
 
-const Template = ({label, disabled}) =>
+const Template = ({ label, disabled }) =>
   formatHtmlPreview(`
   <style>
     .demo-fieldset-reset { 
@@ -72,4 +72,4 @@ const Template = ({label, disabled}) =>
   </fieldset>
   `);
 
-  export const Native = Template.bind({});
+export const Native = Template.bind({});

@@ -34,7 +34,7 @@ export default {
       },
     },
     label: {
-      name: 'Label',
+      name: 'Label text',
       description: 'Sets the label for the toggles input element.',
       control: {
         type: 'text',

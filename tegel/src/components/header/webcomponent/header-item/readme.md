@@ -47,10 +47,10 @@ Note: Any aria attributes will be passed to the underlying button tag.
 
 ### Used by
 
+ - [sdds-header-brand-symbol](../header-brand-symbol)
  - [sdds-header-dropdown](../header-dropdown)
  - [sdds-header-hamburger](../header-hamburger)
  - [sdds-header-launcher-button](../header-launcher-button)
- - [sdds-header-brand-symbol](../header-logo)
 
 ### Depends on
 
@@ -60,10 +60,10 @@ Note: Any aria attributes will be passed to the underlying button tag.
 ```mermaid
 graph TD;
   sdds-header-item --> sdds-core-header-item
+  sdds-header-brand-symbol --> sdds-header-item
   sdds-header-dropdown --> sdds-header-item
   sdds-header-hamburger --> sdds-header-item
   sdds-header-launcher-button --> sdds-header-item
-  sdds-header-brand-symbol --> sdds-header-item
   style sdds-header-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
