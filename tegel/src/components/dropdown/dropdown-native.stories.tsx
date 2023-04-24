@@ -20,7 +20,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -45,7 +46,7 @@ export default {
       options: ['Large', 'Medium', 'Small'],
     },
     label: {
-      name: 'Label',
+      name: 'Label text',
       description: 'Sets a label text to help describe what the dropdown contains.',
       control: {
         type: 'text',
@@ -53,7 +54,8 @@ export default {
     },
     helper: {
       name: 'Helper text',
-      description: 'Sets a helper text to assist the user with additional information about the dropdown.',
+      description:
+        'Sets a helper text to assist the user with additional information about the dropdown.',
       control: {
         type: 'text',
       },
@@ -76,14 +78,7 @@ export default {
   },
 };
 
-const NativeTemplate = ({
-  modeVariant, 
-  state, 
-  size, 
-  label, 
-  helper, 
-  disabled 
-}) => {
+const NativeTemplate = ({ modeVariant, state, size, label, helper, disabled }) => {
   const sizeLookup = { Large: 'lg', Medium: 'md', Small: 'sm' };
   return formatHtmlPreview(`
   <style>
@@ -96,7 +91,9 @@ const NativeTemplate = ({
 <div class="demo-wrapper">
        <div class="sdds-dropdown ${size !== 'Large' ? `sdds-dropdown-${sizeLookup[size]}` : ''} ${
     state ? 'sdds-dropdown--error' : ''
-  } ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+  } ${
+    modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`
+  }">
        ${label !== '' ? `<span class="sdds-dropdown-label-outside">${label}</span> ` : ''}
        <select
        name="nativeDropdown"
