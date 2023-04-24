@@ -47,10 +47,25 @@ export class TableToolbar {
   @Event({
     eventName: 'sddsFilter',
     composed: true,
-    cancelable: false,
+    cancelable: true,
     bubbles: true,
   })
-  sddsFilter: EventEmitter<any>;
+  sddsFilter: EventEmitter<{
+    tableId: string;
+    query: string;
+  }>;
+
+  /** @internal Internal event to notify sdds-table-body that a filter/search has been made. */
+  @Event({
+    eventName: 'internalSddsFilter',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  internalSddsFilter: EventEmitter<{
+    tableId: string;
+    query: string;
+  }>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
@@ -81,8 +96,19 @@ export class TableToolbar {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    this.sddsFilter.emit([this.tableId, searchTerm]);
+    const sddsFilterEvent = this.sddsFilter.emit({
+      tableId: this.tableId,
+      query: searchTerm,
+    });
 
+    if (!sddsFilterEvent.defaultPrevented) {
+      this.internalSddsFilter.emit({
+        tableId: this.tableId,
+        query: searchTerm,
+      });
+    }
+
+    // What does this do?
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
     } else {

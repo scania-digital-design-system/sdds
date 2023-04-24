@@ -264,24 +264,6 @@ export class TableBody {
 
   searchFunction(searchTerm) {
     if (!this.disableFilteringFunction) {
-      /*
-      // Logic for filtering JSON data on all columns
-      // Really nice solution, do not delete, might be needed in future
-      // Reason to go with upper one is not to lose selected state on checkboxes
-      if (searchTerm.length > 0) {
-        this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
-          Object.keys(option).some(
-            (key) =>
-              String(option[key] ?? '')
-                .toLowerCase()
-                .indexOf(searchTerm) >= 0
-          )
-        );
-      } else {
-        this.bodyDataManipulated = this.bodyDataOriginal;
-      }
-  */
-
       // grab all rows in body
       const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
 
@@ -338,11 +320,17 @@ export class TableBody {
     }
   }
 
-  // Listen to sddsFilter from tableToolbar component
-  @Listen('sddsFilter', { target: 'body' })
-  sddsFilterListener(event: CustomEvent<any>) {
-    if (this.tableId === event.detail[0]) {
-      this.searchFunction(event.detail[1]);
+  /** Listens to internalSddsFilter from tableToolbar component */
+  @Listen('internalSddsFilter', { target: 'body' })
+  sddsFilterListener(
+    event: CustomEvent<{
+      tableId: string;
+      query: string;
+    }>,
+  ) {
+    console.log('hejhå');
+    if (this.tableId === event.detail.tableId) {
+      this.searchFunction(event.detail.query);
     }
   }
 

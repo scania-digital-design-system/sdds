@@ -190,6 +190,12 @@ const FilteringTemplate = ({
                 : ''
             }
           </sdds-table-body>
-  </sdds-table>`);
+  </sdds-table>
+  
+  <script>
+    document.addEventListener('sddsFilter', (event) => {
+      console.log(event)
+    })
+  </script>`);
 
 export const Filtering = FilteringTemplate.bind({});

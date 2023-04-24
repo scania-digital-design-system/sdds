@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event        | Description                                                                                                                             | Type               |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `sddsFilter` | Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. | `CustomEvent<any>` |
+| Event        | Description                                                                                                                             | Type                                               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `sddsFilter` | Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. | `CustomEvent<{ tableId: string; query: string; }>` |
 
 
 ----------------------------------------------
