@@ -119,6 +119,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
             </span>
         </sdds-chip>
 
+        <!-- Script tag for demo purposes -->
         <script>
           document.addEventListener('sddsClick', (event)=>{
           console.log(event)
@@ -184,6 +185,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
       </sdds-chip>
     </div>
 
+    <!-- Script tag for demo purposes -->
     <script>
       document.addEventListener('sddsChange', (event)=>{
           console.log(event)
@@ -251,6 +253,7 @@ const Template = ({ inputType, size, label, icon, iconPosition }) => {
       </sdds-chip>
     </div>
 
+    <!-- Script tag for demo purposes -->
     <script>
       document.addEventListener('sddsChange', (event)=>{
           console.log(event)
