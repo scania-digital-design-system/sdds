@@ -72,9 +72,6 @@ export class TableBody {
   /** Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term */
   @Prop() disableFilteringFunction: boolean = false;
 
-  /** Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting */
-  @Prop() disableSortingFunction: boolean = false;
-
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
   @Prop({ mutable: true }) bodyData: any;
 
@@ -201,24 +198,22 @@ export class TableBody {
   };
 
   sortData(keyValue, sortingDirection) {
-    if (!this.disableSortingFunction) {
-      if (this.enableMultiselect) {
-        // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
-        this.uncheckAll();
-      }
-
-      // use spread operator to make enable sorting and modifying array, same as using .slice()
-      this.bodyDataManipulated = [...this.bodyDataManipulated];
-      this.bodyDataManipulated.sort(TableBody.compareValues(keyValue, sortingDirection));
+    if (this.enableMultiselect) {
+      // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
+      this.uncheckAll();
     }
+
+    // use spread operator to make enable sorting and modifying array, same as using .slice()
+    this.bodyDataManipulated = [...this.bodyDataManipulated];
+    this.bodyDataManipulated.sort(TableBody.compareValues(keyValue, sortingDirection));
   }
 
   // Listen to sortColumnData from data-table-header-element - TODO
-  @Listen('sddsSortChange', { target: 'body' })
+  @Listen('internalSddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
-    if (this.tableId === receivedID) {
-      this.sortData(receivedKeyValue, receivedSortingDirection);
+    const { tableId, key, sortingDirection } = event.detail;
+    if (this.tableId === tableId) {
+      this.sortData(key, sortingDirection);
     }
   }
 
