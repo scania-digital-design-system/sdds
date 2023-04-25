@@ -197,7 +197,6 @@ const Template = ({ persistent, collapsible }) =>
         <p><i>Note: The side menu is sticky, and should not scroll with the main content of the page.</i></p>
 
         <p><i>Note: The collapse button is optional.</i></p>
-        <button id="test">Test</button>
       </main>
     </div>
   </div>
