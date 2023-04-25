@@ -1413,3 +1413,76 @@ Change all instances the toast dismiss button like shown below:
   </div>
 </div>
 ```
+
+## Data table
+
+[Web Component](/docs/components-data-table-web-component--default)
+
+#### Renamed `enablePagination` prop to `pagination`.
+
+##### What action is required?
+
+```jsx
+// Old ❌
+<sdds-table >
+  <sdds-table-header>
+    //
+  </sdds-table-header>
+  <sdds-table-body enable-dummy-data>
+    //
+  </sdds-table-body>
+  <sdds-table-footer enable-pagination ></sdds-table-footer>
+</sdds-table>
+
+// New ✅
+<sdds-table >
+  <sdds-table-header>
+    //
+  </sdds-table-header>
+  <sdds-table-body enable-dummy-data>
+    //
+  </sdds-table-body>
+  <sdds-table-footer pagination ></sdds-table-footer>
+</sdds-table>
+```
+
+#### Removed `disableFilteringFunction`, `disableSortingFunction` and `enableClientPagination`.
+
+These props were previously available on the data table component to allow for users to implement
+their own filter/sort and pagination logic. Now we have removed these props, and instead made the
+events that these are emitting cencelable.
+
+The events are: 'sddsPageChange', 'sddsSortChange', 'sddsFilterChange'
+
+##### What action is required?
+
+```jsx
+// Old ❌
+<sdds-table >
+  <sdds-table-header>
+    //
+  </sdds-table-header>
+  <sdds-table-body enable-dummy-data>
+    //
+  </sdds-table-body>
+  <sdds-table-footer pagination enable-client-pagination rows-per-page="4"></sdds-table-footer>
+</sdds-table>
+
+// New ✅
+<sdds-table >
+  <sdds-table-header>
+    //
+  </sdds-table-header>
+  <sdds-table-body enable-dummy-data>
+    //
+  </sdds-table-body>
+  <sdds-table-footer pagination rows-per-page="4"></sdds-table-footer>
+</sdds-table>
+
+<script>
+  document.addEventListener('sddsPageChange', (event) => {
+    event.preventDefault()
+  })
+
+</script>
+```
