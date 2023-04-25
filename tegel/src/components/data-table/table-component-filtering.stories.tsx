@@ -193,7 +193,7 @@ const FilteringTemplate = ({
   </sdds-table>
   
   <script>
-    document.addEventListener('sddsFilter', (event) => {
+    document.addEventListener('sddsFilterChange', (event) => {
       console.log(event)
     })
   </script>`);

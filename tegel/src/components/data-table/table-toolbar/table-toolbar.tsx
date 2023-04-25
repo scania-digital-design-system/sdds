@@ -45,12 +45,12 @@ export class TableToolbar {
 
   /** Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'sddsFilter',
+    eventName: 'sddsFilterChange',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  sddsFilter: EventEmitter<{
+  sddsFilterChange: EventEmitter<{
     tableId: string;
     query: string;
   }>;
@@ -96,7 +96,7 @@ export class TableToolbar {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    const sddsFilterEvent = this.sddsFilter.emit({
+    const sddsFilterEvent = this.sddsFilterChange.emit({
       tableId: this.tableId,
       query: searchTerm,
     });

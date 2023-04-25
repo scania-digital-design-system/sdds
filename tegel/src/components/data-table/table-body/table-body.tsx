@@ -328,7 +328,6 @@ export class TableBody {
       query: string;
     }>,
   ) {
-    console.log('hejhå');
     if (this.tableId === event.detail.tableId) {
       this.searchFunction(event.detail.query);
     }

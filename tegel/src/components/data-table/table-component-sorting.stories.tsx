@@ -211,6 +211,15 @@ const SortingTemplate = ({
           </sdds-table-header>
           <sdds-table-body enable-dummy-data>
           </sdds-table-body>
-  </sdds-table>`);
+  </sdds-table>
+  
+  
+  <script>
+
+    document.addEventListener('sddsSortChange', (event) => {
+      console.log(event)
+    })
+  
+  </script>`);
 
 export const Sorting = SortingTemplate.bind({});
