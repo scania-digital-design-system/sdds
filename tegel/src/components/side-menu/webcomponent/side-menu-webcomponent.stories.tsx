@@ -89,9 +89,8 @@ const Template = ({ persistent, collapsible }) =>
       display: flex;
       flex-grow: 1;
     }
-    ${
-      persistent
-        ? `
+    ${persistent
+      ? `
         /* the lg breakpoint is used here to match the breakpoint used in the header */
     @media (min-width: 992px) {
       #demo-side-menu {
@@ -102,7 +101,7 @@ const Template = ({ persistent, collapsible }) =>
         left: 0px;
       }
     }`
-        : ''
+      : ''
     }
     /* If an extra button in the header is required except on */
     /* very narrow screens, you can use classes like these: */
@@ -182,13 +181,12 @@ const Template = ({ persistent, collapsible }) =>
           </button>
         </sdds-side-menu-item>
 
-        ${
-          collapsible
-            ? `<sdds-side-menu-collapse-button slot="sticky-end">
+        ${collapsible
+      ? `<sdds-side-menu-collapse-button slot="sticky-end">
           Collapse  
         </sdds-side-menu-collapse-button>`
-            : ''
-        }
+      : ''
+    }
 
       </sdds-side-menu>
 
@@ -204,10 +202,6 @@ const Template = ({ persistent, collapsible }) =>
     </div>
   </div>
   <script>
-  sideMenu = document.querySelector('sdds-side-menu')
-        document.querySelector('#test').addEventListener('click', ()=> {
-          sideMenu.collapsed = !sideMenu.collapsed;
-        })
     document.addEventListener('sddsCollapse', (event) => {
       console.log(event)
     })

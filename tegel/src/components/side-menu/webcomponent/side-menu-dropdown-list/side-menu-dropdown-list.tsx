@@ -13,7 +13,7 @@ export class SideMenuDropdownList {
 
   private sideMenuEl: HTMLSddsSideMenuElement;
 
-  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
+  @Listen('internalSddsCollapse', { target: 'body' })
   collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
   }
