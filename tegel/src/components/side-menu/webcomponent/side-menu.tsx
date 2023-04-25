@@ -16,6 +16,14 @@ export type CollapseEvent = {
   collapsed: boolean;
 };
 
+type Props = {
+  collapsed: boolean;
+};
+
+export type InternalSddsSideMenuPropChange = {
+  changed: Array<keyof Props>;
+} & Partial<Props>;
+
 const GRID_LG_BREAKPOINT = '992px';
 const OPENING_ANIMATION_DURATION = 400;
 const INITIALIZE_ANIMATION_DELAY = 500;
@@ -94,7 +102,11 @@ export class SddsSideMenu {
   @Watch('collapsed')
   onCollapsedChange(newVal: boolean) {
     /** Emits the internal collapse event when the prop has changed. */
-    this.internalSddsSideMenuPropChange.emit();
+    this.internalSddsSideMenuPropChange.emit({
+      changed: ['collapsed'],
+      collapsed: newVal,
+    });
+
     this.isCollapsed = newVal;
   }
 
@@ -131,7 +143,7 @@ export class SddsSideMenu {
     cancelable: false,
     composed: true,
   })
-  internalSddsSideMenuPropChange: EventEmitter;
+  internalSddsSideMenuPropChange: EventEmitter<InternalSddsSideMenuPropChange>;
 
   @Listen('internalSddsCollapse', { target: 'body' })
   collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
