@@ -69,9 +69,6 @@ const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   shadow: false,
 })
 export class TableBody {
-  /** Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term */
-  @Prop() disableFilteringFunction: boolean = false;
-
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
   @Prop({ mutable: true }) bodyData: any;
 
@@ -263,60 +260,58 @@ export class TableBody {
   }
 
   searchFunction(searchTerm) {
-    if (!this.disableFilteringFunction) {
-      // grab all rows in body
-      const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
+    // grab all rows in body
+    const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
 
-      if (searchTerm.length > 0) {
-        if (this.enablePaginationTableBody) {
-          this.tempPaginationDisable = true;
-        }
+    if (searchTerm.length > 0) {
+      if (this.enablePaginationTableBody) {
+        this.tempPaginationDisable = true;
+      }
 
-        dataRowsFiltering.forEach((item) => {
-          const cells = item.querySelectorAll('sdds-body-cell');
-          const cellValuesArray = [];
+      dataRowsFiltering.forEach((item) => {
+        const cells = item.querySelectorAll('sdds-body-cell');
+        const cellValuesArray = [];
 
-          // go through cells and save cell-values in array
-          cells.forEach((cellItem) => {
-            const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-            cellValuesArray.push(cellValue);
-          });
-
-          // iterate over array of values and see if one matches search string
-          const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
-
-          // if matches, show parent row, otherwise hide the row
-          if (matchCounter) {
-            item.classList.remove('sdds-table__row--hidden');
-          } else {
-            item.classList.add('sdds-table__row--hidden');
-          }
+        // go through cells and save cell-values in array
+        cells.forEach((cellItem) => {
+          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+          cellValuesArray.push(cellValue);
         });
 
-        this.disableAllSorting = true;
-        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+        // iterate over array of values and see if one matches search string
+        const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
 
-        const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
-
-        // If same, info message will be shown
-        this.showNoResultsMessage = dataRowsHidden.length === dataRowsFiltering.length;
-      } else {
-        if (this.enablePaginationTableBody) {
-          this.tempPaginationDisable = false;
-        }
-
-        // Check if pagination is ON in order to prevent showing all rows
-        if (this.enablePaginationTableBody) {
-          // TODO: EMIT PAGINATION
+        // if matches, show parent row, otherwise hide the row
+        if (matchCounter) {
+          item.classList.remove('sdds-table__row--hidden');
         } else {
-          dataRowsFiltering.forEach((item) => {
-            item.classList.remove('sdds-table__row--hidden');
-          });
+          item.classList.add('sdds-table__row--hidden');
         }
+      });
 
-        this.disableAllSorting = false;
-        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+      this.disableAllSorting = true;
+      this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+
+      const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
+
+      // If same, info message will be shown
+      this.showNoResultsMessage = dataRowsHidden.length === dataRowsFiltering.length;
+    } else {
+      if (this.enablePaginationTableBody) {
+        this.tempPaginationDisable = false;
       }
+
+      // Check if pagination is ON in order to prevent showing all rows
+      if (this.enablePaginationTableBody) {
+        // TODO: EMIT PAGINATION
+      } else {
+        dataRowsFiltering.forEach((item) => {
+          item.classList.remove('sdds-table__row--hidden');
+        });
+      }
+
+      this.disableAllSorting = false;
+      this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
     }
   }
 
