@@ -108,7 +108,6 @@ export class TableToolbar {
       });
     }
 
-    // What does this do?
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
     } else {
