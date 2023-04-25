@@ -40,17 +40,16 @@ export class SideMenuCollapseButton {
     /** If the public event was not prevented. */
     if (!sddsCollapseEvent.defaultPrevented) {
       /** Emit internal event that is listened to by other side-menu components */
-      this.internalSddsCollapse.emit({
-        collapsed: !this.collapsed,
-      });
       this.collapsed = !this.collapsed;
+      this.internalSddsCollapse.emit({
+        collapsed: this.collapsed,
+      });
     }
   };
 
-  @Listen('InternalSddsSideMenuPropChange', { target: 'body' })
-  collapsedSideMenuEventHandler() {
-    this.collapsed = this.sideMenuEl.collapsed;
-    console.log('propschange', this.collapsed);
+  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
+  collapsedSideMenuEventHandeler(event: CustomEvent<CollapseEvent>) {
+    this.collapsed = event.detail.collapsed;
   }
 
   connectedCallback() {

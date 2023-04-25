@@ -68,7 +68,7 @@ export class SddsSideMenuItem {
     this.slotEl.addEventListener('slotchange', this.updateSlottedElements);
   }
 
-  @Listen('internalSddsCollapse', { target: 'body' })
+  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
   collapsedSideMenuEventHandeler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
     this.updateSlottedElements();
