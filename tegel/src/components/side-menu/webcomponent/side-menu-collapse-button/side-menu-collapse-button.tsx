@@ -46,9 +46,9 @@ export class SideMenuCollapseButton {
     }
   };
 
-  @Listen('internalSddsCollapse', { target: 'body' })
-  collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
-    this.collapsed = event.detail.collapsed;
+  @Listen('InternalSddsSideMenuPropChange', { target: 'body' })
+  collapsedSideMenuEventHandler() {
+    this.collapsed = this.sideMenuEl.collapsed;
   }
 
   connectedCallback() {

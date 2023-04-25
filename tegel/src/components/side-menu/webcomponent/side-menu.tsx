@@ -28,24 +28,6 @@ const INITIALIZE_ANIMATION_DELAY = 500;
 export class SddsSideMenu {
   @Element() host: HTMLSddsSideMenuElement;
 
-  /** Event that is emitted when the side menu is collapsed. */
-  @Event({
-    eventName: 'sddsCollapse',
-    bubbles: true,
-    composed: true,
-    cancelable: true,
-  })
-  sddsCollapse: EventEmitter<CollapseEvent>;
-
-  /** @internal Broadcasts collapsed state to child components. */
-  @Event({
-    eventName: 'internalSddsCollapse',
-    bubbles: true,
-    cancelable: false,
-    composed: true,
-  })
-  internalSddsCollapse: EventEmitter<CollapseEvent>;
-
   /** Applicable only for mobile menu usage. If the side menu is open or not. */
   @Prop({ reflect: true }) open: boolean = false;
 
@@ -111,9 +93,7 @@ export class SddsSideMenu {
   @Watch('collapsed')
   onCollapsedChange(newVal: boolean) {
     /** Emits the internal collapse event when the prop has changed. */
-    this.internalSddsCollapse.emit({
-      collapsed: newVal,
-    });
+    this.internalSddsSideMenuPropChange.emit();
     this.isCollapsed = newVal;
   }
 
@@ -124,6 +104,33 @@ export class SddsSideMenu {
       firstFocusableElement.focus();
     }
   }
+
+  /** Event that is emitted when the side menu is collapsed. */
+  @Event({
+    eventName: 'sddsCollapse',
+    bubbles: true,
+    composed: true,
+    cancelable: true,
+  })
+  sddsCollapse: EventEmitter<CollapseEvent>;
+
+  /** @internal Broadcasts collapsed state to child components. */
+  @Event({
+    eventName: 'internalSddsCollapse',
+    bubbles: true,
+    cancelable: false,
+    composed: true,
+  })
+  internalSddsCollapse: EventEmitter<CollapseEvent>;
+
+  /** @internal Broadcasts collapsed state to child components. */
+  @Event({
+    eventName: 'internalSddsSideMenuPropChange',
+    bubbles: true,
+    cancelable: false,
+    composed: true,
+  })
+  internalSddsSideMenuPropChange: EventEmitter;
 
   @Listen('internalSddsCollapse', { target: 'body' })
   collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
