@@ -184,7 +184,9 @@ const Template = ({ persistent, collapsible }) =>
 
         ${
           collapsible
-            ? `<sdds-side-menu-collapse-button slot="sticky-end" onclick="demoSideMenu.collapsed = !demoSideMenu.collapsed;"></sdds-side-menu-collapse-button>`
+            ? `<sdds-side-menu-collapse-button slot="sticky-end">
+          Collapse  
+        </sdds-side-menu-collapse-button>`
             : ''
         }
 
@@ -197,10 +199,15 @@ const Template = ({ persistent, collapsible }) =>
         <p><i>Note: The side menu is sticky, and should not scroll with the main content of the page.</i></p>
 
         <p><i>Note: The collapse button is optional.</i></p>
-        
+        <button id="test">Test</button>
       </main>
     </div>
   </div>
+  <script>
+    document.addEventListener('sddsCollapse', (event) => {
+      console.log(event)
+    })
+  </script>
   `,
   );
 

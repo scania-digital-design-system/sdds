@@ -11,6 +11,13 @@ Example:
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event          | Description                                                    | Type                                   |
+| -------------- | -------------------------------------------------------------- | -------------------------------------- |
+| `sddsCollapse` | Event when is broadcasted when the collapse button is clicked. | `CustomEvent<{ collapsed: boolean; }>` |
+
+
 ## Dependencies
 
 ### Depends on

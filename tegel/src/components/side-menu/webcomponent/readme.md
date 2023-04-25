@@ -40,15 +40,15 @@ Example:
 | Property     | Attribute    | Description                                                                     | Type      | Default |
 | ------------ | ------------ | ------------------------------------------------------------------------------- | --------- | ------- |
 | `collapsed`  | `collapsed`  | If the side menu is collapsed. Only a persistent desktop menu can be collapsed. | `boolean` | `false` |
-| `open`       | `open`       | If the side menu is open or not.                                                | `boolean` | `false` |
+| `open`       | `open`       | Applicable only for mobile menu usage. If the side menu is open or not.         | `boolean` | `false` |
 | `persistent` | `persistent` | If the side menu should always be shown on desktop screens to the side.         | `boolean` | `false` |
 
 
 ## Events
 
-| Event                   | Description                                     | Type                          |
-| ----------------------- | ----------------------------------------------- | ----------------------------- |
-| `sddsSideMenuCollapsed` | Broadcasts collapsed state to child components. | `CustomEvent<CollapsedEvent>` |
+| Event          | Description                                            | Type                                   |
+| -------------- | ------------------------------------------------------ | -------------------------------------- |
+| `sddsCollapse` | Event that is emitted when the side menu is collapsed. | `CustomEvent<{ collapsed: boolean; }>` |
 
 
 ----------------------------------------------

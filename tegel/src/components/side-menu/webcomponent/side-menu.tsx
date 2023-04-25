@@ -5,15 +5,16 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Prop,
   State,
   Watch,
 } from '@stencil/core';
 import { dfs, isFocusable } from '../../../utils/utils';
 
-export interface CollapsedEvent {
+export type CollapseEvent = {
   collapsed: boolean;
-}
+};
 
 const GRID_LG_BREAKPOINT = '992px';
 const OPENING_ANIMATION_DURATION = 400;
@@ -27,16 +28,25 @@ const INITIALIZE_ANIMATION_DELAY = 500;
 export class SddsSideMenu {
   @Element() host: HTMLSddsSideMenuElement;
 
-  /** Broadcasts collapsed state to child components. */
+  /** Event that is emitted when the side menu is collapsed. */
   @Event({
-    eventName: 'sddsSideMenuCollapsed',
+    eventName: 'sddsCollapse',
     bubbles: true,
     composed: true,
     cancelable: true,
   })
-  collapsedEventEmitter: EventEmitter<CollapsedEvent>;
+  sddsCollapse: EventEmitter<CollapseEvent>;
 
-  /** If the side menu is open or not. */
+  /** @internal Broadcasts collapsed state to child components. */
+  @Event({
+    eventName: 'internalSddsCollapse',
+    bubbles: true,
+    cancelable: false,
+    composed: true,
+  })
+  internalSddsCollapse: EventEmitter<CollapseEvent>;
+
+  /** Applicable only for mobile menu usage. If the side menu is open or not. */
   @Prop({ reflect: true }) open: boolean = false;
 
   /** If the side menu should always be shown on desktop screens to the side. */
@@ -53,6 +63,8 @@ export class SddsSideMenu {
 
   @State() isClosing: boolean = false;
 
+  @State() isCollapsed: boolean = false;
+
   @State() isOpening: boolean = false;
 
   private matchesLgBreakpointMq: MediaQueryList;
@@ -65,12 +77,9 @@ export class SddsSideMenu {
   };
 
   connectedCallback() {
-    this.collapsedEventEmitter.emit({
-      collapsed: this.collapsed,
-    });
-
     this.matchesLgBreakpointMq = window.matchMedia(`(min-width: ${GRID_LG_BREAKPOINT})`);
     this.matchesLgBreakpointMq.addEventListener('change', this.handleMatchesLgBreakpointChange);
+    this.isCollapsed = this.collapsed;
   }
 
   componentDidLoad() {
@@ -101,9 +110,11 @@ export class SddsSideMenu {
 
   @Watch('collapsed')
   onCollapsedChange(newVal: boolean) {
-    this.collapsedEventEmitter.emit({
+    /** Emits the internal collapse event when the prop has changed. */
+    this.internalSddsCollapse.emit({
       collapsed: newVal,
     });
+    this.isCollapsed = newVal;
   }
 
   @Watch('isOpening')
@@ -112,6 +123,11 @@ export class SddsSideMenu {
       const firstFocusableElement = dfs(this.host, isFocusable, true);
       firstFocusableElement.focus();
     }
+  }
+
+  @Listen('internalSddsCollapse', { target: 'body' })
+  collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
+    this.collapsed = event.detail.collapsed;
   }
 
   async setOpening() {

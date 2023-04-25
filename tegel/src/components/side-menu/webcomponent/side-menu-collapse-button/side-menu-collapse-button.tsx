@@ -1,5 +1,5 @@
-import { Component, Element, h, Host, Listen, State } from '@stencil/core';
-import { CollapsedEvent } from '../side-menu';
+import { Component, Element, h, Host, Listen, State, Event, EventEmitter } from '@stencil/core';
+import { CollapseEvent } from '../side-menu';
 
 @Component({
   tag: 'sdds-side-menu-collapse-button',
@@ -13,8 +13,41 @@ export class SideMenuCollapseButton {
 
   private sideMenuEl: HTMLSddsSideMenuElement;
 
-  @Listen('sddsSideMenuCollapsed', { target: 'body' })
-  collapsedSideMenuEventHandler(event: CustomEvent<CollapsedEvent>) {
+  /** Event when is broadcasted when the collapse button is clicked. */
+  @Event({
+    eventName: 'sddsCollapse',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  sddsCollapse: EventEmitter<CollapseEvent>;
+
+  /** @internal Event when is broadcasted when the collpse button is clicked, contains the future collapsed state of the side menu. */
+  @Event({
+    eventName: 'internalSddsCollapse',
+    bubbles: true,
+    cancelable: false,
+    composed: true,
+  })
+  internalSddsCollapse: EventEmitter<CollapseEvent>;
+
+  private handleClick = () => {
+    /** Emit public event that the user can prevent. */
+    const sddsCollapseEvent = this.sddsCollapse.emit({
+      collapsed: !this.collapsed,
+    });
+
+    /** If the public event was not prevented. */
+    if (!sddsCollapseEvent.defaultPrevented) {
+      /** Emit internal event that is listened to by other side-menu components */
+      this.internalSddsCollapse.emit({
+        collapsed: !this.collapsed,
+      });
+    }
+  };
+
+  @Listen('internalSddsCollapse', { target: 'body' })
+  collapsedSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
   }
 
@@ -37,7 +70,11 @@ export class SideMenuCollapseButton {
               button: true,
             }}
           >
-            <a>
+            <a
+              onClick={() => {
+                this.handleClick();
+              }}
+            >
               <svg
                 class="icon"
                 slot="icon"
@@ -52,7 +89,7 @@ export class SideMenuCollapseButton {
                   fill="currentColor"
                 />
               </svg>
-              Collapse
+              <slot></slot>
             </a>
           </sdds-side-menu-item>
         </div>
