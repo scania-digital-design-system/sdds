@@ -69,7 +69,7 @@ export class TableFooter {
   })
   sddsPageChange: EventEmitter<{
     tableId: string;
-    paginationValue: number; // Better naming?
+    paginationValue: number;
   }>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
@@ -116,7 +116,8 @@ export class TableFooter {
       tableId: this.tableId,
       paginationValue: Number(this.inputElement.value) - 1,
     });
-    /* Decreate pgination value */
+    /** If pages and greater or equal to 2, decrease pagination value.
+     * This is to not get under 1 in pagination value.  */
     if (this.paginationValue >= 2) {
       this.paginationValue--;
     }
@@ -134,7 +135,8 @@ export class TableFooter {
       paginationValue: Number(this.inputElement.value) + 1,
     });
 
-    /* Increase pgination value */
+    /** If pages and greater or equal to the amount of pages, increase pagination value.
+     * This is to not get above the amount of pages in pagination value.  */
     if (this.paginationValue <= this.numberOfPages) {
       this.paginationValue++;
     }
