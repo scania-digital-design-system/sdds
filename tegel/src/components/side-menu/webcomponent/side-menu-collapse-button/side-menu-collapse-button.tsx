@@ -45,12 +45,14 @@ export class SideMenuCollapseButton {
       this.internalSddsCollapse.emit({
         collapsed: this.collapsed,
       });
+      this.collapsed = !this.collapsed;
     }
   };
 
   @Listen('InternalSddsSideMenuPropChange', { target: 'body' })
   collapsedSideMenuEventHandler() {
     this.collapsed = this.sideMenuEl.collapsed;
+    console.log('propschange', this.collapsed);
   }
 
   connectedCallback() {
