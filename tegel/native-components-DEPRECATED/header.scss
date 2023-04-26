@@ -1,7 +1,7 @@
-@import '../mixins/z-index';
-@import '../mixins/focus-state';
-@import '../mixins/flex-center';
-@import '../mixins/scrollbar';
+@import '../src/mixins/z-index';
+@import '../src/mixins/focus-state';
+@import '../src/mixins/flex-center';
+@import '../src/mixins/scrollbar';
 
 html,
 :root {

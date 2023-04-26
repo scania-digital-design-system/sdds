@@ -1,5 +1,5 @@
-@import '../mixins/box-sizing';
-@import '../mixins/focus-state';
+@import '../src/mixins/box-sizing';
+@import '../src/mixins/focus-state';
 
 .sdds-breadcrumb {
   @include sdds-box-sizing;
