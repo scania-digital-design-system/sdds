@@ -1,11 +1,12 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import { iconsNames } from '../icon/iconsArray';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 // FIXME: CMS: Change state to type in Code tab of component
 
 export default {
-  title: 'Components/Banner',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'fullscreen',
@@ -108,4 +109,4 @@ const Template = ({ type, icon, header, subheader, persistent, link }) =>
         })
       </script>
     `);
-export const WebComponent = Template.bind({});
+export const Banner = Template.bind({});

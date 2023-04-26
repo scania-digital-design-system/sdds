@@ -38,17 +38,17 @@ export class SddsButton {
 
   render() {
     return (
-      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}`: ''}`}>
-      <button
-        class={`sdds-btn sdds-btn-${this.type} 
+      <Host class={`${this.modeVariant !== null ? `sdds-mode-variant-${this.modeVariant}` : ''}`}>
+        <button
+          class={`sdds-btn sdds-btn-${this.type} 
         ${`sdds-btn-${this.size}`}
         ${this.disabled ? 'disabled' : ''}
         ${this.fullbleed ? 'sdds-btn-fullbleed' : ''}
         ${this.onlyIcon ? 'sdds-btn-only-icon' : ''}`}
-      >
-        <span class="sdds-btn-text">{this.text}</span>
-        <slot name="icon" />
-      </button>
+        >
+          <span class="sdds-btn-text">{this.text}</span>
+          <slot name="icon" />
+        </button>
       </Host>
     );
   }

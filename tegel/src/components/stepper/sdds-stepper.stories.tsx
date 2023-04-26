@@ -1,9 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readmeStepper from './readme.md';
 import readmeStepperItem from './stepper-item/readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Stepper',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     design: [
@@ -81,8 +82,7 @@ const sizeLookUp = {
 };
 const Template = ({ size, orientation, labelPosition, hideLabels }) =>
   formatHtmlPreview(
-    `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${
-      orientation === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
+    `<sdds-stepper ${hideLabels ? 'hide-labels' : ''} size="${sizeLookUp[size]}" ${orientation === 'Horizontal' ? `label-position="${labelPosition?.toLowerCase()}"` : ''
     } orientation="${orientation.toLowerCase()}">
     <sdds-stepper-item state="success" index="1">
       <div slot="label">Success step</div>
@@ -99,4 +99,4 @@ const Template = ({ size, orientation, labelPosition, hideLabels }) =>
   </sdds-stepper>
         `,
   );
-export const WebComponent = Template.bind({});
+export const Stepper = Template.bind({});

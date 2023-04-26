@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Message',
+  title: 'Native Components (Deprecated)/Message',
   parameters: {
     layout: 'centered',
     design: [
@@ -123,7 +123,7 @@ const Template = ({ modeVariant, messageType, showExtendedMessage, noIcon, iconT
     <div class="demo-wrapper">
       <div class="sdds-message ${messageTypeClass} ${noIcon ? '' : 'sdds-message-icon-active'} ${
       showExtendedMessage ? 'sdds-message-extended-active' : ''
-    } 
+    }
       ${
         modeVariant === 'Inherit from parent'
           ? ''

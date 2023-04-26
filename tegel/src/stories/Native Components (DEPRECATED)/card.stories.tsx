@@ -1,8 +1,8 @@
-import CardPlaceholder from '../../stories/assets/image/card-placeholder.png';
+import CardPlaceholder from '../assets/image/card-placeholder.png';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Card',
+  title: 'Native Components (Deprecated)/Card',
   parameters: {
     layout: 'centered',
     design: [
@@ -21,7 +21,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -147,7 +148,9 @@ const Template = ({
   }
 </style>
     <div class="demo-wrapper">
-          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`}">
+          <div class="sdds-card${clickable ? ' sdds-clickable' : ''} ${
+      modeVariant === 'Inherit from parent' ? '' : `sdds-mode-variant-${modeVariant.toLowerCase()}`
+    }">
             ${
               bodyImg === true && headerPlacement === 'Below'
                 ? `<img class="sdds-card-img" src="${CardPlaceholder}" alt="Add description to image"/>`

@@ -5,9 +5,10 @@ import readmeSideMenuOverlay from './side-menu-overlay/readme.md';
 import readmeSideMenuUser from './side-menu-user/readme.md';
 import readmeSideMenuCollapseButton from './side-menu-collapse-button/readme.md';
 import readmeSideMenuDropdown from './side-menu-dropdown/readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Side Menu',
+  title: ComponentsFolder,
   parameters: {
     notes: {
       'Side Menu': readme,
@@ -203,4 +204,4 @@ const Template = ({ persistent, collapsible }) =>
   `,
   );
 
-export const WebComponent = Template.bind({});
+export const SideMenu = Template.bind({});

@@ -1,9 +1,10 @@
 import CardPlaceholder from '../../stories/assets/image/card-placeholder.png';
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Card',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -23,7 +24,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -177,4 +179,4 @@ const Template = ({
   `,
   );
 
-export const WebComponent = Template.bind({});
+export const Card = Template.bind({});

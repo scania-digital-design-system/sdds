@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Checkbox',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -80,4 +81,4 @@ const Template = ({ label, checked, disabled }) =>
     </script>
   `);
 
-export const WebComponent = Template.bind({});
+export const Checkbox = Template.bind({});

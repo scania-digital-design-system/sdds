@@ -1,9 +1,10 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
 import readmeItem from './accordion-item/readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Accordion',
+  title: ComponentsFolder,
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
@@ -103,4 +104,4 @@ const Template = ({ disabled, iconPosition, paddingReset, modeVariant }) => {
   </script>`);
 };
 
-export const WebComponent = Template.bind({});
+export const Accordion = Template.bind({});

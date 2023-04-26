@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Stepper',
+  title: 'Native Components (Deprecated)/Stepper',
   parameters: {
     layout: 'centered',
     design: [
@@ -70,12 +70,7 @@ export default {
   },
 };
 
-const Template = ({ 
-  size, 
-  style, 
-  iconType, 
-  hideLabels 
-}) => {
+const Template = ({ size, style, iconType, hideLabels }) => {
   const sizeClass = size === 'Small' ? 'sdds-stepper-sm' : '';
 
   const styleLookup = {
@@ -121,7 +116,9 @@ const Template = ({
           <span class="sdds-stepper__step-icon-value">3</span>
         </div>
         ${
-          hideLabels ? '' : '<label class="sdds-stepper__step_label">Step inactive with text</label>'
+          hideLabels
+            ? ''
+            : '<label class="sdds-stepper__step_label">Step inactive with text</label>'
         }
       </div>
 
@@ -132,7 +129,7 @@ const Template = ({
             ? `<i class="sdds-icon tick"></i>
         `
             : `<div>
-        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}"></sdds-icon> 
+        <sdds-icon name="tick" size="${size === 'Small' ? '16px' : '20px'}"></sdds-icon>
         </div>`
         }
         </div>

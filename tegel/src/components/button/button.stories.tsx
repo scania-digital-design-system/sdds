@@ -1,13 +1,13 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import { iconsNames } from '../icon/iconsArray';
+import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Button',
+  title: ComponentsFolder,
   parameters: {
+    notes: readme,
     layout: 'padded',
-    chromatic: {
-      disableSnapshot: false, // enables snapshotting for the component
-    },
     design: [
       {
         name: 'Figma',
@@ -24,7 +24,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -35,7 +36,8 @@ export default {
     },
     btnType: {
       name: 'Type',
-      description: 'Four different button types to help the user to distinguish the level of importance of the task they represent.',
+      description:
+        'Four different button types to help the user to distinguish the level of importance of the task they represent.',
       control: {
         type: 'radio',
       },
@@ -72,7 +74,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'onlyIcon', eq: false },
+      if: { arg: 'onlyIcon', truthy: false },
     },
     onlyIcon: {
       name: 'Only Icon',
@@ -91,9 +93,6 @@ export default {
       control: {
         type: 'select',
       },
-      table: {
-        defaultValue: { summary: 'none' },
-      },
       options: ['none', ...iconsNames],
       if: { arg: 'size', neq: 'Extra small' },
     },
@@ -104,9 +103,6 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
-      table: {
-        defaultValue: { summary: 'Native' },
-      },
       if: { arg: 'size', neq: 'Extra small' },
     },
     disabled: {
@@ -128,12 +124,12 @@ export default {
     fullbleed: false,
     onlyIcon: false,
     icon: 'none',
-    iconType: 'Native',
+    iconType: 'Web Component',
     disabled: false,
   },
 };
 
-const NativeTemplate = ({
+const WebComponentTemplate = ({
   modeVariant,
   btnType,
   size,
@@ -142,10 +138,8 @@ const NativeTemplate = ({
   onlyIcon,
   icon,
   iconType,
-  disabled = '',
+  disabled,
 }) => {
-  const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
-  const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
   const btnTypeLookUp = {
     Primary: 'primary',
     Secondary: 'secondary',
@@ -166,58 +160,48 @@ const NativeTemplate = ({
 
   return formatHtmlPreview(
     `
-  <style>
-  /* demo-wrapper is for demonstration purposes only*/
-    ${
+    <style>
+    /* demo-wrapper is for demonstration purposes only*/${
       icon && iconType === 'Native'
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    i.sdds-btn-icon{
-      font-size: ${size === 'Small' ? '16' : '20'}px;
+    i.sdds-icon::before{
+      font-size: ${size === 'Large' || size === 'Medium' ? '20' : '16'}px;
     }`
         : ''
-    } .demo-wrapper{
+    },
+    .demo-wrapper{
       width: 100%;
     }
   </style>
 
   <div class="demo-wrapper">
-<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} ${
-      modeVariant !== 'Inherit from parent'
-        ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`
-        : ''
-    } sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss} 
-   ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
-  ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
-  ${
-    onlyIcon || (icon && icon !== 'none')
-      ? `
-    ${
-      iconType === 'Native'
-        ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
-        : `<sdds-icon class='sdds-btn-icon ' size='${
-            sizeLookUp[size] === 'sm' ? '16px' : '20px'
-          }' name='${icon}'></sdds-icon>`
-    }
-  `
-      : ''
-  }
-</button>
+    <sdds-button
+      type="${btnTypeLookUp[btnType]}"
+      size="${sizeLookUp[size]}" ${disabled ? 'disabled' : ''} ${fullbleed ? 'fullbleed' : ''}
+      ${!onlyIcon ? `text="${text}"` : ''}
+      ${
+        modeVariant !== 'Inherit from parent'
+          ? `mode-variant="${modeVariantLookup[modeVariant]}"`
+          : ''
+      }
+    >
+        ${
+          onlyIcon || (icon && icon !== 'none')
+            ? `
+            ${
+              iconType === 'Native'
+                ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
+                : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${
+                    sizeLookUp[size] === 'sm' ? '16px' : '20px'
+                  }' name='${icon}'></sdds-icon>`
+            }`
+            : ''
+        }
+    </sdds-button>
   </div>
   `,
   );
 };
 
-export const Native = NativeTemplate.bind({});
-Native.args = {};
-
-export const NativeWithIcon = NativeTemplate.bind({});
-NativeWithIcon.args = {
-  icon: 'truck',
-};
-
-export const NativeOnlyIcon = NativeTemplate.bind({});
-NativeOnlyIcon.args = {
-  text: '',
-  onlyIcon: true,
-  icon: 'truck',
-};
+/** Button as web component */
+export const Button = WebComponentTemplate.bind({});
