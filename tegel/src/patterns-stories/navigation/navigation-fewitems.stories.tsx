@@ -67,6 +67,11 @@ const Template = () =>
           display: block;
         }
       }
+      @media (min-width: 992px) {
+        .demo-lg-show {
+          display: block;
+        }
+      }
     </style>
 
 
@@ -77,7 +82,7 @@ const Template = () =>
         <sdds-header-hamburger id="demo-hamburger" onclick="demoSideMenu.open = true;demoHamburger.setAttribute('aria-expanded', true);" aria-label="Open application drawer" aria-haspopup="true" aria-expanded="false"></sdds-header-hamburger>
 
         <sdds-header-title>
-          Example: Few items
+          Example: Few items with longer text
         </sdds-header-title>
 
         <sdds-header-item>
@@ -162,7 +167,7 @@ const Template = () =>
 
         </sdds-header-launcher>
 
-        <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-xs-show" selected>
+        <sdds-header-dropdown slot="end" placement="end" no-dropdown-icon class="demo-hide demo-lg-show" selected>
           <img slot="button-icon" src="https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg" alt="User menu."/>
           <sdds-header-dropdown-list type="lg">
             <sdds-header-dropdown-list-user
@@ -225,7 +230,7 @@ const Template = () =>
           </button>
         </sdds-side-menu-item>
         
-        <sdds-side-menu-dropdown slot="end" class="demo-xs-hide" selected>
+        <sdds-side-menu-dropdown slot="end" class="demo-lg-hide" selected>
           <sdds-side-menu-user 
             slot="button-label" 
             heading="Name Namesson" 
