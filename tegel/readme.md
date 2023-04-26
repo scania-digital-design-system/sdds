@@ -7,7 +7,7 @@
 
 https://tegel.scania.com/
 
-The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent and premium brand and user experience across all of Scania's digital touchpoints.
+The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent, premium brand and user experience across all of Scania's digital touchpoints.
 
 - [Status](#status)
 - [Installation](#installation)
