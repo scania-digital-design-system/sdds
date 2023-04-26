@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Native Components (Deprecated)/Dropdown',
   parameters: {
     layout: 'centered',
     design: [

@@ -8,9 +8,10 @@ import readmeDropdownList from './header-dropdown-list/readme.md';
 import readmeDropdownListItem from './header-dropdown-list-item/readme.md';
 import readmeDropdownListUser from './header-dropdown-list-user/readme.md';
 import readmeLauncher from './header-launcher/readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Header/Web Component',
+  title: ComponentsFolder,
   parameters: {
     notes: {
       'Header': readme,
@@ -81,4 +82,4 @@ const Template = () =>
   `,
   );
 
-export const Default = Template.bind({});
+export const Header = Template.bind({});

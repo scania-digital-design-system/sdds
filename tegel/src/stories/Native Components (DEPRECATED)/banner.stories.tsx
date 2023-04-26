@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Banner',
+  title: 'Native Components (Deprecated)/Banner',
   parameters: {
     layout: 'fullscreen',
     design: [

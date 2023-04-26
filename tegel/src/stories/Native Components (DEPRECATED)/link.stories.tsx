@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Link',
+  title: 'Native Components (Deprecated)/Link',
   parameters: {
     layout: 'centered',
     design: [

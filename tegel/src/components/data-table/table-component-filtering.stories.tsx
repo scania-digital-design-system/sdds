@@ -9,9 +9,10 @@ import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
 import dummyData from './table-body/dummy-data.json';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Data Table/Web Component',
+  title: `${ComponentsFolder}/Data Table`,
   parameters: {
     notes: {
       'sdds-table': sddsTable,
@@ -28,7 +29,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -49,7 +51,8 @@ export default {
     },
     responsiveDesign: {
       name: 'Responsive table',
-      description: 'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
+      description:
+        'Enables table to take 100% of available width. For column values less than 192px, "No minimum width" has to be enabled too.',
       control: {
         type: 'boolean',
       },
@@ -76,14 +79,16 @@ export default {
     },
     noMinWidth: {
       name: 'No minimum width',
-      description: 'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
+      description:
+        'Resets min-width rule and enables setting column width value to less than 192px which is the default. When enabled, controls for column width will show here.',
       control: {
         type: 'boolean',
       },
     },
     column1Width: {
       name: 'Column 1 width',
-      description:'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 1. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -91,7 +96,8 @@ export default {
     },
     column2Width: {
       name: 'Column 2 width',
-      description: 'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 2. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -99,7 +105,8 @@ export default {
     },
     column3Width: {
       name: 'Column 3 width',
-      description: 'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 3. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },
@@ -107,7 +114,8 @@ export default {
     },
     column4Width: {
       name: 'Column 4 width',
-      description: 'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
+      description:
+        'Value of width for column 4. In order to work correctly "No minimum width" has to be enabled too. When editing please provide a unit next to the value, eg. 200px.',
       control: {
         type: 'text',
       },

@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Modal',
+  title: 'Native Components (Deprecated)/Modal',
   parameters: {
     layout: 'fullscreen',
     design: [
@@ -69,7 +69,8 @@ export default {
     actions: 'Static',
     size: 'Large',
     headline: 'The buttons for the modal only works in the canvas tab',
-    bodyText: 'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
+    bodyText:
+      'The steps fell lightly and oddly, with a certain swing, for all they went so slowly; it was different indeed from the heavy creaking tread of Henry Jekyll. Utterson sighed. “Is there never anything else?” he asked.',
     showModal: true,
   },
 };
@@ -81,13 +82,7 @@ const sizeLookUp = {
   'Extra small': 'xs',
 };
 
-const Template = ({ 
-  actions, 
-  size, 
-  headline, 
-  bodyText, 
-  showModal 
-}) =>
+const Template = ({ actions, size, headline, bodyText, showModal }) =>
   formatHtmlPreview(
     `    <style>
   /* demo-wrapper and demo-styles is for demonstration purposes only*/

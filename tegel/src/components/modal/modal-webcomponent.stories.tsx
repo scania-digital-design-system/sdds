@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Modal',
+  title: ComponentsFolder,
   parameters: {
     layout: 'fullscreen',
     notes: readme,
@@ -104,4 +105,4 @@ const ModalTemplate = ({ actions, size, headline, bodyText, showModal }) =>
   `,
   );
 
-export const WebComponent = ModalTemplate.bind({});
+export const Modal = ModalTemplate.bind({});

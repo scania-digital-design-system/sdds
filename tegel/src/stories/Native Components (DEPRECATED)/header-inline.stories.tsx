@@ -1,10 +1,8 @@
-import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Header/Native',
+  title: 'Native Components (Deprecated)/Header',
   parameters: {
-    notes: readme,
     layout: 'fullscreen',
     docs: {
       source: {
@@ -73,7 +71,7 @@ const InlineMenuTemplate = ({ siteName }) =>
               <button class='sdds-nav__item-core' onclick='toggleInlineDropdown()'>
                   <span class='sdds-nav__item-core-text'>Item 3</span>
                   <span class='sdds-nav__dropdown-icon'>
-                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon> 
+                    <sdds-icon class="sdds-nav__dropdown-icon-svg" name="chevron_down" size="16px"></sdds-icon>
                   </span>
               </button>
               <ul class='sdds-nav__dropdown-menu'>

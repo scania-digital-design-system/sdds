@@ -1,9 +1,10 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 import readme from './readme.md';
 import readmeTab from './inline-tab/readme.md';
+import { ComponentsFolder } from '../../../utils/constants';
 
 export default {
-  title: 'Components/Tabs',
+  title: ComponentsFolder,
   parameters: {
     notes: {
       'Inline tabs': readme,

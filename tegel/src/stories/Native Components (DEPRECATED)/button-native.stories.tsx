@@ -1,11 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
-import { iconsNames } from '../icon/iconsArray';
-import readme from './readme.md';
+import { iconsNames } from '../../components/icon/iconsArray';
 
 export default {
-  title: 'Components/Button',
+  title: 'Native Components (Deprecated)/Button',
   parameters: {
-    notes: readme,
     layout: 'padded',
     chromatic: {
       disableSnapshot: false, // enables snapshotting for the component
@@ -76,7 +74,7 @@ export default {
       table: {
         defaultValue: { summary: false },
       },
-      if: { arg: 'onlyIcon', truthy: false },
+      if: { arg: 'onlyIcon', eq: false },
     },
     onlyIcon: {
       name: 'Only Icon',
@@ -95,6 +93,9 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        defaultValue: { summary: 'none' },
+      },
       options: ['none', ...iconsNames],
       if: { arg: 'size', neq: 'Extra small' },
     },
@@ -105,6 +106,9 @@ export default {
         type: 'radio',
       },
       options: ['Native', 'Web Component'],
+      table: {
+        defaultValue: { summary: 'Native' },
+      },
       if: { arg: 'size', neq: 'Extra small' },
     },
     disabled: {
@@ -126,12 +130,12 @@ export default {
     fullbleed: false,
     onlyIcon: false,
     icon: 'none',
-    iconType: 'Web Component',
+    iconType: 'Native',
     disabled: false,
   },
 };
 
-const WebComponentTemplate = ({
+const NativeTemplate = ({
   modeVariant,
   btnType,
   size,
@@ -140,8 +144,10 @@ const WebComponentTemplate = ({
   onlyIcon,
   icon,
   iconType,
-  disabled,
+  disabled = '',
 }) => {
+  const fbClass = fullbleed ? 'sdds-btn-fullbleed' : '';
+  const onlyIconCss = onlyIcon ? 'sdds-btn-icon' : '';
   const btnTypeLookUp = {
     Primary: 'primary',
     Secondary: 'secondary',
@@ -162,64 +168,58 @@ const WebComponentTemplate = ({
 
   return formatHtmlPreview(
     `
-    <style>
-    /* demo-wrapper is for demonstration purposes only*/${
+  <style>
+  /* demo-wrapper is for demonstration purposes only*/
+    ${
       icon && iconType === 'Native'
         ? `@import url('https://cdn.digitaldesign.scania.com/icons/webfont/css/sdds-icons.css');
-    i.sdds-icon::before{
-      font-size: ${size === 'Large' || size === 'Medium' ? '20' : '16'}px;
+    i.sdds-btn-icon{
+      font-size: ${size === 'Small' ? '16' : '20'}px;
     }`
         : ''
-    },
-    .demo-wrapper{
+    } .demo-wrapper{
       width: 100%;
     }
   </style>
 
   <div class="demo-wrapper">
-  <sdds-button type="${btnTypeLookUp[btnType]}" size="${sizeLookUp[size]}" ${
-      disabled ? 'disabled' : ''
-    } ${fullbleed ? 'fullbleed' : ''}
-    ${!onlyIcon ? `text="${text}"` : ''}
-    ${
+<button class="sdds-btn sdds-btn-${btnTypeLookUp[btnType]} ${
       modeVariant !== 'Inherit from parent'
-        ? `mode-variant="${modeVariantLookup[modeVariant]}"`
+        ? `sdds-mode-variant-${modeVariantLookup[modeVariant]}`
         : ''
-    }
-    >
-    ${
-      onlyIcon || (icon && icon !== 'none')
-        ? `
+    } sdds-btn-${sizeLookUp[size]} ${fbClass} ${disabled ? 'disabled' : ''} ${onlyIconCss}
+   ${onlyIcon ? 'sdds-btn-only-icon' : ''}">
+  ${!onlyIcon ? `<span class="sdds-btn-text">${text}</span>` : ''}
+  ${
+    onlyIcon || (icon && icon !== 'none')
+      ? `
     ${
       iconType === 'Native'
-        ? `<i class="sdds-btn-icon sdds-icon ${icon}" slot="icon"></i>`
-        : `<sdds-icon slot="icon" class='sdds-btn-icon ' size='${
+        ? `<i class="sdds-btn-icon sdds-icon ${icon}"></i>`
+        : `<sdds-icon class='sdds-btn-icon ' size='${
             sizeLookUp[size] === 'sm' ? '16px' : '20px'
           }' name='${icon}'></sdds-icon>`
     }
   `
-        : ''
-    }
-</sdds-button>
+      : ''
+  }
+</button>
   </div>
   `,
   );
 };
 
-/** Button as web component */
-export const WebComponent = WebComponentTemplate.bind({});
-WebComponent.args = {};
+export const Native = NativeTemplate.bind({});
+Native.args = {};
 
-export const WebComponentWithIcon = WebComponentTemplate.bind({});
-WebComponentWithIcon.args = {
+export const NativeWithIcon = NativeTemplate.bind({});
+NativeWithIcon.args = {
   icon: 'truck',
-  iconType: 'Web Component',
 };
 
-export const WebComponentOnlyIcon = WebComponentTemplate.bind({});
-WebComponentOnlyIcon.args = {
+export const NativeOnlyIcon = NativeTemplate.bind({});
+NativeOnlyIcon.args = {
   text: '',
-  iconType: 'Web Component',
   onlyIcon: true,
   icon: 'truck',
 };

@@ -1,7 +1,7 @@
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Toggle',
+  title: 'Native Components (Deprecated)/Toggle',
   parameters: {
     layout: 'centered',
     design: [
