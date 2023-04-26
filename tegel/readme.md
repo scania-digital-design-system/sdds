@@ -1,19 +1,32 @@
-<!-- TODO: add release -->
-<!-- [![Github release](https://img.shields.io/npm/v/@scania/components?color=1081C2)](https://www.npmjs.com/package/@scania/components)
-[![Github release](https://img.shields.io/github/v/release/scania-digital-design-system/sdds?color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases) -->
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Github release](https://img.shields.io/npm/v/@scania/tegel?color=1081C2)](https://www.npmjs.com/package/@scania/tegel)
+[![Storybook](https://img.shields.io/badge/docs-storybook-ff69b4)](https://tegel-storybook.netlify.app/)
 ![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
-[![Getting Started](https://img.shields.io/badge/Available%20components-tegel.scania.com-orange)](https://tegel.scania.com/getting-started/development)
+![Status: Beta](https://img.shields.io/badge/status-beta-red)
 
-# Tegel Design System - Components
+# Tegel Design System
 
-**Technical documentation**
+https://tegel.scania.com/
 
-Check out [Tegel Design System](https://tegel.scania.com/) for implementation and technical documentation.
+The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent and premium brand and user experience across all of Scania's digital touchpoints.
 
+- [Status](#status)
+- [Installation](#installation)
+  - [React with typescript](#with-typescript)
+  - [React with javascript](#with-javascript)
+  - [Angular](#angular)
+  - [HTML/JS](#html)
+- [Browser support](#browser-support)
+- [Contributing](#contributing)
+- [Code conventions](#code-conventions)
+- [Development environment](#setting-up-the-development-environment)
+- [Community](#community)
 
-[comment]: <> (Needs to be updated once a stable version is released.)
+## Status
+
+This package is currently in a pre-beta stage. We are now working hard towards a 1.0-beta release, but if you want to try out the package today you can! It's available via NPM and can be installed using the installation guide below.
+
 ## Installation
+
 ### React
 
 #### with Typescript
@@ -21,30 +34,33 @@ Check out [Tegel Design System](https://tegel.scania.com/) for implementation an
 1. Run `npm install @scania/tegel`
 2. src folder create a file called `register-webcomponents.ts`
 3. Paste the following into that file:
+
 ```ts
 import { defineCustomElements, JSX as LocalJSX } from '@scania/tegel/loader';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 type StencilProps<T> = {
-    [P in keyof T]?: Omit<T[P], 'ref'> | HTMLAttributes<T>;
-  };
-  
-  type ReactProps<T> = {
-    [P in keyof T]?: DetailedHTMLProps<HTMLAttributes<T[P]>, T[P]>;
-  };
-  
-  type StencilToReact<T = LocalJSX.IntrinsicElements, U = HTMLElementTagNameMap> = StencilProps<T> &
-    ReactProps<U>;
-  
-  declare global {
-    export namespace JSX {
-      interface IntrinsicElements extends StencilToReact { }
-    }
+  [P in keyof T]?: Omit<T[P], 'ref'> | HTMLAttributes<T>;
+};
+
+type ReactProps<T> = {
+  [P in keyof T]?: DetailedHTMLProps<HTMLAttributes<T[P]>, T[P]>;
+};
+
+type StencilToReact<T = LocalJSX.IntrinsicElements, U = HTMLElementTagNameMap> = StencilProps<T> &
+  ReactProps<U>;
+
+declare global {
+  export namespace JSX {
+    interface IntrinsicElements extends StencilToReact {}
   }
-  
-defineCustomElements(window)
+}
+
+defineCustomElements(window);
 ```
+
 4. In your index.tsx import `register-webcomponents.ts`
+
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -53,44 +69,48 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './register-webcomponents';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();
 ```
+
 5. In your global css file (usually `App.css`) import the tegel stylesheet.
+
 ```css
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
 
 #### with Javascript
+
 1. Run `npm install @scania/tegel`
 2. In your index.jsx define the custom components:
+
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {defineCustomElements} from '@scania/tegel/loader'
+import { defineCustomElements } from '@scania/tegel/loader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();
-defineCustomElements()
+defineCustomElements();
 ```
+
 3. In your global css file (usually `App.css`) import the tegel stylesheet.
+
 ```css
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
@@ -102,34 +122,34 @@ defineCustomElements()
 
 ```ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import  { defineCustomElements } from '@scania/tegel/loader'
+import { defineCustomElements } from '@scania/tegel/loader';
 import { AppModule } from './app/app.module';
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
 
 defineCustomElements(window);
 ```
+
 3. In your `app.module.ts` import `CUSTOM_ELEMENTS_SCHEMA`:
+
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent], 
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
 ```
+
 4. In your global css file (`styles.css`) import the tegel stylesheet.
+
 ```css
 @import url('@scania/tegel/dist/tegel/tegel.css');
 ```
@@ -139,32 +159,31 @@ export class AppModule { }
 1. Run `npm init` to generate a package.json
 2. Run `npm install @scania/tegel`
 3. Import the package and its style in your `<head>`:
+
 ```html
- <script type="module">
-        import { defineCustomElements } from "./node_modules/@scania/tegel/loader/index.es2017.js";
-        defineCustomElements();
+<script type="module">
+  import { defineCustomElements } from './node_modules/@scania/tegel/loader/index.es2017.js';
+  defineCustomElements();
 </script>
-<link rel="stylesheet" href="./node_modules/@scania/tegel/dist/tegel/tegel.css">
+<link rel="stylesheet" href="./node_modules/@scania/tegel/dist/tegel/tegel.css" />
 ```
-
-
-
 
 See all available components in the [Tegel Design System](https://tegel.scania.com/components/overview).
 
 ## Events
 
-The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the 
+The tegel components emit custom events to allow the users to repond to changes/updates in the components. These are all named using the
 sdds-prefix. This is done in order to not have conflicting events and to make it clear to the user the specified event is something that is emitted
 from a tegel component.
 
 The events are named according to our naming convention: 'sdds' + event.
 For a click event this would result in the event being called `sddsClick`. To listen for these events in vanilla JS the event name
 should be passed to the `addEventListener` function as the first argument:
+
 ```javascript
 document.addEventListener('sddsClick', (event) => {
   // Do something with/based on the event.
-})
+});
 ```
 
 In React these events needs to be listened to by adding an event listener to the element that emits the event. This can be easily done by
@@ -174,23 +193,25 @@ This solution is a workaround based on how React handles events, you can read mo
 
 ```jsx
 <sdds-textfield
-  ref={element => element.addEventListener('sddsClick', (event) => {
-    {/* Do something with/based on the event. */}
+  ref={(element) =>
+    element.addEventListener('sddsClick', (event) => {
+      {
+        /* Do something with/based on the event. */
+      }
     })
   }
-  >
-</sdds-textfield>
+></sdds-textfield>
 ```
 
 In other JSX-enviroments (apart from React) these events can be listened to by prefixing them with an `on` directly on the component:
+
 ```jsx
 <sdds-textfield
-  onSddsChange={(event) => {/* Do something with/based on the event. */}}
-  >
-
-</sdds-textfield>
+  onSddsChange={(event) => {
+    /* Do something with/based on the event. */
+  }}
+></sdds-textfield>
 ```
-
 
 What is attached to the event object is highlighted in our storybook. Under the docs tab of each component the events are outlined,
 inluding what data is passed with the event to the user.
@@ -213,7 +234,6 @@ Please read through our [contributing guidelines](https://github.com/scania-digi
 - [Report bug](https://github.com/scania-digital-design-system/sdds/issues)
 - [Request feature](https://github.com/scania-digital-design-system/sdds/issues/new)
 
-
 ## Code conventions
 
 The code conventions used in (and enforced by) Tegel is documented [here](https://github.com/scania-digital-design-system/sdds/blob/main/.github/CODE_STYLE.md).
@@ -224,9 +244,10 @@ The code conventions used in (and enforced by) Tegel is documented [here](https:
 2. Run `npm install` in the /tegel directory.
 3. Create a `.env` file in the /tegel directory with the following contents:
 
-  ```
-  STORYBOOK_ENV=development
-  ```
+```
+STORYBOOK_ENV=development
+```
+
 4. Make sure you are in the /tegel directory, and start the dev server with `npm run tegel`.
 
 ## Community
