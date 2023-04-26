@@ -9,6 +9,7 @@
   font-family: var(--sdds-font-family-headline);
   letter-spacing: normal;
   position: relative;
+  overflow: hidden;
 
   .component {
     // FIXME this doesnt work
