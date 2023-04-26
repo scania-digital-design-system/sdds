@@ -1,5 +1,4 @@
-@import './checkbox-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 .sdds-checkbox-item {
   @include sdds-box-sizing;

@@ -28,56 +28,58 @@
 @import 'utility-classes';
 
 //CSS component
-@import 'src/components/header/webcomponent/header-item/header-item-global.scss';
-@import 'src/components/side-menu/webcomponent/side-menu-item/side-menu-item-global.scss';
-@import 'src/components/banner/banner';
-@import 'src/components/block/block-native';
-@import 'src/components/breadcrumb/breadcrumb';
-@import 'src/components/button/button';
-@import 'src/components/card/card';
-@import 'src/components/checkbox/checkbox';
-@import 'src/components/chip/chip';
+
+/* @import 'src/native-components-DEPRECATED/banner';
+@import 'src/native-components-DEPRECATED/block-native';
+@import 'src/native-components-DEPRECATED/card';
+@import 'src/native-components-DEPRECATED/checkbox';
+@import 'src/native-components-DEPRECATED/chip';
+@import 'src/native-components-DEPRECATED/divider';
+@import 'src/native-components-DEPRECATED/footer';
+@import 'src/native-components-DEPRECATED/header';
+@import 'src/native-components-DEPRECATED/link';
+@import 'src/native-components-DEPRECATED/message';
+@import 'src/native-components-DEPRECATED/radio-button';
+@import 'src/native-components-DEPRECATED/side-menu';
+@import 'src/native-components-DEPRECATED/stepper';
+@import 'src/native-components-DEPRECATED/toggle';
+@import 'src/native-components-DEPRECATED/toast';
+@import 'src/native-components-DEPRECATED/breadcrumb'; */
+
 @import 'src/components/data-table/native-table';
-@import 'src/components/divider/divider';
-@import 'src/components/footer/footer';
-@import 'src/components/header/header';
-@import 'src/components/link/link';
-@import 'src/components/message/message';
-@import 'src/components/radio-button/radio-button';
-@import 'src/components/side-menu/side-menu';
-@import 'src/components/stepper/stepper';
-@import 'src/components/toggle/toggle';
-@import 'src/components/toast/toast';
 
 //Web component theme variables
 @import 'src/components/accordion/accordion-vars';
 @import 'src/components/banner/banner-vars';
 @import 'src/components/breadcrumb/breadcrumb-vars';
-@import 'src/components/data-table/data-table-vars';
 @import 'src/components/block/block-vars';
 @import 'src/components/button/button-vars';
+@import 'src/components/card/card-vars';
+@import 'src/components/checkbox/checkbox-vars';
+@import 'src/components/chip/chip-vars';
 @import 'src/components/data-table/data-table-vars';
 @import 'src/components/datetime/datetime-vars';
 @import 'src/components/dropdown/dropdown-select';
 @import 'src/components/dropdown/dropdown-vars';
+@import 'src/components/footer/footer-vars';
+@import 'src/components/header/header-vars';
 @import 'src/components/link/link-vars';
+@import 'src/components/message/message-vars';
 @import 'src/components/modal/modal';
 @import 'src/components/divider/divider-vars';
 @import 'src/components/popover-canvas/popover-canvas-vars';
-@import 'src/components/popover-menu/popover-menu-item';
 @import 'src/components/popover-menu/popover-menu-vars';
-@import 'src/components/spinner/spinner';
+@import 'src/components/radio-button/radio-button-vars';
+@import 'src/components/side-menu/side-menu-vars';
 @import 'src/components/stepper/stepper-vars.scss';
 @import 'src/components/tabs/folder-tabs/folder-tabs-vars';
 @import 'src/components/tabs/inline-tabs/inline-tabs-vars';
 @import 'src/components/tabs/navigation-tabs/navigation-tabs-vars';
 @import 'src/components/textarea/textarea-vars';
 @import 'src/components/textfield/textfield-vars';
+@import 'src/components/toast/toast-vars';
+@import 'src/components/toggle/toggle-vars';
 @import 'src/components/tooltip/tooltip-vars';
-
-:root {
-  --johnny-red: green;
-}
 
 body {
   font-family: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;

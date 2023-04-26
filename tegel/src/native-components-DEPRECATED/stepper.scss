@@ -1,5 +1,4 @@
-@import './stepper-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 .sdds-stepper {
   @include sdds-box-sizing;
@@ -199,7 +198,8 @@
         border-color: var(--sdds-stepper-label-border-color-upcoming);
         opacity: var(--sdds-stepper-label-text-opacity-upcoming);
 
-        &::after, &::before {
+        &::after,
+        &::before {
           opacity: unset;
           opacity: 0.38;
         }

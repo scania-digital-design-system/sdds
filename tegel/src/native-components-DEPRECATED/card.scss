@@ -1,5 +1,4 @@
-@import './card-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 .sdds-card {
   @include sdds-box-sizing;

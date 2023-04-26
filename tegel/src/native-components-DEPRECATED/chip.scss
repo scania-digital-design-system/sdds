@@ -1,6 +1,5 @@
-@import './chip-vars.scss';
-@import '../../mixins/box-sizing';
-@import '../../mixins/focus-state';
+@import '../mixins/box-sizing';
+@import '../mixins/focus-state';
 
 .sdds-chip,
 button.sdds-chip {

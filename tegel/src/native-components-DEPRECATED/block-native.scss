@@ -1,5 +1,4 @@
-@import 'block-vars';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 .sdds-block {
   @include sdds-box-sizing;

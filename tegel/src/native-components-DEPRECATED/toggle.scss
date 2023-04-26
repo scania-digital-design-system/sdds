@@ -1,5 +1,4 @@
-@import './toggle-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 @mixin activeState {
   + .sdds-toggle-switch {

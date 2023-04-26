@@ -1,6 +1,5 @@
-@import './footer-vars.scss';
-@import '../../mixins/box-sizing';
-@import '../../mixins/focus-state';
+@import '../mixins/box-sizing';
+@import '../mixins/focus-state';
 
 @mixin footer-links {
   padding: 0;

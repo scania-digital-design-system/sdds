@@ -1,5 +1,4 @@
-@import './radio-button-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../mixins/box-sizing';
 
 .sdds-radio-button-group {
   @include sdds-box-sizing;

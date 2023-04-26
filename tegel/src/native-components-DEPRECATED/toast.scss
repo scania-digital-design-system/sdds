@@ -1,7 +1,6 @@
-@import './toast-vars.scss';
-@import '../../global/scania-fonts-vars.scss';
-@import '../../mixins/focus-state';
-@import '../../mixins/box-sizing';
+@import '../global/scania-fonts-vars.scss';
+@import '../mixins/focus-state';
+@import '../mixins/box-sizing';
 
 .sdds-toast {
   @include sdds-box-sizing;
