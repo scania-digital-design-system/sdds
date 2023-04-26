@@ -208,9 +208,9 @@ export class TableBody {
   // Listen to sortColumnData from data-table-header-element - TODO
   @Listen('internalSddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    const { tableId, key, sortingDirection } = event.detail;
+    const { tableId, columnKey, sortingDirection } = event.detail;
     if (this.tableId === tableId) {
-      this.sortData(key, sortingDirection);
+      this.sortData(columnKey, sortingDirection);
     }
   }
 

@@ -42,7 +42,7 @@ export class TableHeaderCell {
 
   @State() textAlignState: string;
 
-  @State() sortingDirection: 'asc' | 'desc';
+  @State() sortingDirection: 'asc' | 'desc' = 'asc';
 
   @State() sortedByMyKey: boolean = false;
 
@@ -73,7 +73,11 @@ export class TableHeaderCell {
     cancelable: true,
     bubbles: true,
   })
-  sddsSortChange: EventEmitter<any>;
+  sddsSortChange: EventEmitter<{
+    tableId: string;
+    columnKey: string;
+    sortingDirection: 'asc' | 'desc';
+  }>;
 
   /** @internal Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. */
   @Event({
@@ -96,7 +100,7 @@ export class TableHeaderCell {
   })
   internalSddsSortChange: EventEmitter<{
     tableId: string;
-    key: string;
+    columnKey: string;
     sortingDirection: 'asc' | 'desc';
   }>;
 
@@ -199,11 +203,11 @@ export class TableHeaderCell {
     this.sortedByMyKey = true;
 
     /* Emit sort event */
-    const sddsSortEvent = this.sddsSortChange.emit([
-      this.tableId,
-      this.columnKey,
-      this.sortingDirection,
-    ]);
+    const sddsSortEvent = this.sddsSortChange.emit({
+      tableId: this.tableId,
+      columnKey: this.columnKey,
+      sortingDirection: this.sortingDirection,
+    });
 
     /**
      * Emits sortButtonClicked event which is listened to by all the header-cells.
@@ -219,7 +223,7 @@ export class TableHeaderCell {
       /* Emit internal sort event, which is listened to in table-body <- this does the actual sorting.  */
       this.internalSddsSortChange.emit({
         tableId: this.tableId,
-        key: this.columnKey,
+        columnKey: this.columnKey,
         sortingDirection: this.sortingDirection,
       });
     }
