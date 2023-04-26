@@ -301,10 +301,8 @@ export class TableBody {
         this.tempPaginationDisable = false;
       }
 
-      // Check if pagination is ON in order to prevent showing all rows
-      if (this.enablePaginationTableBody) {
-        // TODO: EMIT PAGINATION
-      } else {
+      // If pagination is NOT enabled, we show all rows.
+      if (!this.enablePaginationTableBody) {
         dataRowsFiltering.forEach((item) => {
           item.classList.remove('sdds-table__row--hidden');
         });
