@@ -1,5 +1,5 @@
-import { Component, Element, h, Host, Listen, State } from '@stencil/core';
-import { CollapsedEvent } from '../side-menu';
+import { Component, Element, h, Host, Listen, State, Event, EventEmitter } from '@stencil/core';
+import { CollapseEvent } from '../side-menu';
 
 @Component({
   tag: 'sdds-side-menu-collapse-button',
@@ -13,8 +13,43 @@ export class SideMenuCollapseButton {
 
   private sideMenuEl: HTMLSddsSideMenuElement;
 
-  @Listen('sddsSideMenuCollapsed', { target: 'body' })
-  collapsedSideMenuEventHandler(event: CustomEvent<CollapsedEvent>) {
+  /** Event that is broadcasted when the collapse button is clicked.
+   * Prevent it to disable automatic collapsing, and set the collapsed prop on the side menu yourself. */
+  @Event({
+    eventName: 'sddsCollapse',
+    bubbles: false,
+    cancelable: true,
+    composed: true,
+  })
+  sddsCollapse: EventEmitter<CollapseEvent>;
+
+  /** @internal Event that is broadcasted when the internal collapse state changes. Contains the future of the collapse state. */
+  @Event({
+    eventName: 'internalSddsCollapse',
+    bubbles: true,
+    cancelable: false,
+    composed: true,
+  })
+  internalSddsCollapse: EventEmitter<CollapseEvent>;
+
+  private handleClick = () => {
+    /** Emit public event that the user can prevent. */
+    const sddsCollapseEvent = this.sddsCollapse.emit({
+      collapsed: !this.collapsed,
+    });
+
+    /** If the public event was not prevented. */
+    if (!sddsCollapseEvent.defaultPrevented) {
+      /** Emit internal event that is listened to by other side-menu components */
+      this.collapsed = !this.collapsed;
+      this.internalSddsCollapse.emit({
+        collapsed: this.collapsed,
+      });
+    }
+  };
+
+  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
+  collapseSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
   }
 
@@ -25,7 +60,13 @@ export class SideMenuCollapseButton {
 
   render() {
     return (
-      <Host role="button" tabindex="0">
+      <Host
+        role="button"
+        tabindex="0"
+        onClick={() => {
+          this.handleClick();
+        }}
+      >
         <div
           class={{
             'wrapper': true,
@@ -52,7 +93,7 @@ export class SideMenuCollapseButton {
                   fill="currentColor"
                 />
               </svg>
-              Collapse
+              <slot></slot>
             </a>
           </sdds-side-menu-item>
         </div>
