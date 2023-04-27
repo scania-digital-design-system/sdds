@@ -37,11 +37,11 @@ Example:
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                     | Type      | Default |
-| ------------ | ------------ | ------------------------------------------------------------------------------- | --------- | ------- |
-| `collapsed`  | `collapsed`  | If the side menu is collapsed. Only a persistent desktop menu can be collapsed. | `boolean` | `false` |
-| `open`       | `open`       | Applicable only for mobile menu usage. If the side menu is open or not.         | `boolean` | `false` |
-| `persistent` | `persistent` | If the side menu should always be shown on desktop screens to the side.         | `boolean` | `false` |
+| Property     | Attribute    | Description                                                                                                                                                                                       | Type      | Default |
+| ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `collapsed`  | `collapsed`  | If the side menu is collapsed. Only a persistent desktop menu can be collapsed. NOTE: Only use this if you have prevented the automatic collapsing with preventDefault on the sddsCollapse event. | `boolean` | `false` |
+| `open`       | `open`       | Applicable only for mobile. If the side menu is open or not.                                                                                                                                      | `boolean` | `false` |
+| `persistent` | `persistent` | Applicable only for desktop. If the side menu should always be shown.                                                                                                                             | `boolean` | `false` |
 
 
 ## Events

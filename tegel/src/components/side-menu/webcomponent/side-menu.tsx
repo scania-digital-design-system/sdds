@@ -36,13 +36,14 @@ const INITIALIZE_ANIMATION_DELAY = 500;
 export class SddsSideMenu {
   @Element() host: HTMLSddsSideMenuElement;
 
-  /** Applicable only for mobile menu usage. If the side menu is open or not. */
+  /** Applicable only for mobile. If the side menu is open or not. */
   @Prop({ reflect: true }) open: boolean = false;
 
-  /** If the side menu should always be shown on desktop screens to the side. */
+  /** Applicable only for desktop. If the side menu should always be shown. */
   @Prop({ reflect: true }) persistent: boolean = false;
 
-  /** If the side menu is collapsed. Only a persistent desktop menu can be collapsed. */
+  /** If the side menu is collapsed. Only a persistent desktop menu can be collapsed.
+   * NOTE: Only use this if you have prevented the automatic collapsing with preventDefault on the sddsCollapse event. */
   @Prop({ reflect: true }) collapsed: boolean = false;
 
   @State() isUpperSlotEmpty: boolean = false;
