@@ -27,25 +27,6 @@
 // Utility classes
 @import 'utility-classes';
 
-//CSS component
-
-/* @import 'src/native-components-DEPRECATED/banner';
-@import 'src/native-components-DEPRECATED/block-native';
-@import 'src/native-components-DEPRECATED/card';
-@import 'src/native-components-DEPRECATED/checkbox';
-@import 'src/native-components-DEPRECATED/chip';
-@import 'src/native-components-DEPRECATED/divider';
-@import 'src/native-components-DEPRECATED/footer';
-@import 'src/native-components-DEPRECATED/header';
-@import 'src/native-components-DEPRECATED/link';
-@import 'src/native-components-DEPRECATED/message';
-@import 'src/native-components-DEPRECATED/radio-button';
-@import 'src/native-components-DEPRECATED/side-menu';
-@import 'src/native-components-DEPRECATED/stepper';
-@import 'src/native-components-DEPRECATED/toggle';
-@import 'src/native-components-DEPRECATED/toast';
-@import 'src/native-components-DEPRECATED/breadcrumb'; */
-
 @import 'src/components/data-table/native-table';
 
 //Web component theme variables
@@ -63,6 +44,9 @@
 @import 'src/components/dropdown/dropdown-vars';
 @import 'src/components/footer/footer-vars';
 @import 'src/components/header/header-vars';
+
+// TODO - Remove the webcomponent folder
+@import 'src/components/header/webcomponent/header-item/header-item-global.scss';
 @import 'src/components/link/link-vars';
 @import 'src/components/message/message-vars';
 @import 'src/components/modal/modal';
@@ -71,6 +55,9 @@
 @import 'src/components/popover-menu/popover-menu-vars';
 @import 'src/components/radio-button/radio-button-vars';
 @import 'src/components/side-menu/side-menu-vars';
+
+// TODO - Remove the webcomponent folder
+@import 'src/components/side-menu/webcomponent/side-menu-item/side-menu-item-global';
 @import 'src/components/stepper/stepper-vars.scss';
 @import 'src/components/tabs/folder-tabs/folder-tabs-vars';
 @import 'src/components/tabs/inline-tabs/inline-tabs-vars';
