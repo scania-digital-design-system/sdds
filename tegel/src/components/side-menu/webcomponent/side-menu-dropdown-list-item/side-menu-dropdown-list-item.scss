@@ -29,7 +29,13 @@
 
     ::slotted(a:hover),
     ::slotted(button:hover) {
-      background-color: var(--sdds-grey-868);
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background-hover);
+      cursor: pointer;
+    }
+
+    ::slotted(a:active),
+    ::slotted(button:active) {
+      background-color: var(--sdds-header-nav-item-dropdown-opened-background-active) !important;
       cursor: pointer;
     }
 
@@ -43,7 +49,9 @@
     ::slotted(button) {
       border-left: 4px solid var(--sdds-nav-item-border-color-active);
       padding-left: 20px;
-      background-color: var(--sdds-grey-868);
+      background-color: var(
+        --sdds-header-nav-item-dropdown-opened-background-selected
+      ); //var(--sdds-grey-868);
     }
   }
 

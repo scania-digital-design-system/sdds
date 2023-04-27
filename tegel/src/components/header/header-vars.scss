@@ -26,6 +26,9 @@
   --sdds-nav-dropdown-item-background: var(--sdds-white);
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-300);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-white);
+  --sdds-header-nav-item-dropdown-opened-background-hover: var(--sdds-grey-100);
+  --sdds-header-nav-item-dropdown-opened-background-selected: var(--sdds-grey-100);
+  --sdds-header-nav-item-dropdown-opened-background-active: var(--sdds-grey-300);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-grey-958);
   --sdds-header-nav-item-dropdown-hover-color: var(--sdds-grey-300);
 
@@ -138,6 +141,9 @@
   --sdds-nav-dropdown-item-background: var(--sdds-grey-800);
   --sdds-nav-dropdown-item-border-color: var(--sdds-grey-700);
   --sdds-header-nav-item-dropdown-opened-background: var(--sdds-grey-958);
+  --sdds-header-nav-item-dropdown-opened-background-hover: var(--sdds-grey-868);
+  --sdds-header-nav-item-dropdown-opened-background-selected: var(--sdds-grey-868);
+  --sdds-header-nav-item-dropdown-opened-background-active: var(--sdds-grey-800);
   --sdds-header-nav-item-dropdown-opened-color: var(--sdds-white);
 
   // sdds-nav__basic-element-style
