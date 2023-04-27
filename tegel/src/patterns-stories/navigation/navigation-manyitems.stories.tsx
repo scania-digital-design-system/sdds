@@ -89,7 +89,7 @@ const Template = ({ dummyHtml }) =>
         display: none;
       }
 
-      @media (min-width: 375px) {
+      @media (min-width: 992px) {
         .demo-xs-hide {
           display: none;
         }
