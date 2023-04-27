@@ -13,9 +13,9 @@ Example:
 
 ## Events
 
-| Event          | Description                                                    | Type                                   |
-| -------------- | -------------------------------------------------------------- | -------------------------------------- |
-| `sddsCollapse` | Event when is broadcasted when the collapse button is clicked. | `CustomEvent<{ collapsed: boolean; }>` |
+| Event          | Description                                                                                                                                                      | Type                                   |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `sddsCollapse` | Event that is broadcasted when the collapse button is clicked. Prevent it to disable automatic collapsing, and set the collapsed prop on the side menu yourself. | `CustomEvent<{ collapsed: boolean; }>` |
 
 
 ## Dependencies
