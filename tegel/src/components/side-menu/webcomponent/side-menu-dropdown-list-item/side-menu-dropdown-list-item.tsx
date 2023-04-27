@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
-import { CollapsedEvent } from '../side-menu';
+import { CollapseEvent } from '../side-menu';
 
 @Component({
   tag: 'sdds-side-menu-dropdown-list-item',
@@ -18,14 +18,13 @@ export class SideMenuDropdownListItem {
 
   private sideMenuEl: HTMLSddsSideMenuElement;
 
-  @Listen('sddsSideMenuCollapsed', { target: 'body' })
-  collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
+  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
+  collapseSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
   }
 
   connectedCallback() {
     this.sideMenuEl = this.host.closest('sdds-side-menu');
-    this.collapsed = this.sideMenuEl.collapsed;
   }
 
   componentDidLoad() {

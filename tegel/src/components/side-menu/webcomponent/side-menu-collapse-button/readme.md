@@ -11,6 +11,13 @@ Example:
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event          | Description                                                                                                                                                      | Type                                   |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `sddsCollapse` | Event that is broadcasted when the collapse button is clicked. Prevent it to disable automatic collapsing, and set the collapsed prop on the side menu yourself. | `CustomEvent<{ collapsed: boolean; }>` |
+
+
 ## Dependencies
 
 ### Depends on

@@ -1,5 +1,5 @@
 import { Component, h, Host, Element, Listen, Prop, State } from '@stencil/core';
-import { CollapsedEvent } from '../side-menu';
+import { CollapseEvent } from '../side-menu';
 import { dfs } from '../../../../utils/utils';
 
 @Component({
@@ -60,7 +60,6 @@ export class SddsSideMenuItem {
     // closest() will return null if side-menu-item is inside a shadowRoot that
     // does not contain a side-menu. This is the case for the side-menu-dropdown.
     this.sideMenuEl = this.host.closest('sdds-side-menu');
-    this.collapsed = this.sideMenuEl?.collapsed;
   }
 
   componentDidLoad() {
@@ -69,8 +68,8 @@ export class SddsSideMenuItem {
     this.slotEl.addEventListener('slotchange', this.updateSlottedElements);
   }
 
-  @Listen('sddsSideMenuCollapsed', { target: 'body' })
-  collapsedSideMenuEventHandeler(event: CustomEvent<CollapsedEvent>) {
+  @Listen('internalSddsSideMenuPropChange', { target: 'body' })
+  collapseSideMenuEventHandler(event: CustomEvent<CollapseEvent>) {
     this.collapsed = event.detail.collapsed;
     this.updateSlottedElements();
   }
