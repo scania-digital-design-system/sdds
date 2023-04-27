@@ -17,7 +17,7 @@ export class SideMenuCollapseButton {
    * Prevent it to disable automatic collapsing, and set the collapsed prop on the side menu yourself. */
   @Event({
     eventName: 'sddsCollapse',
-    bubbles: true,
+    bubbles: false,
     cancelable: true,
     composed: true,
   })
@@ -60,7 +60,13 @@ export class SideMenuCollapseButton {
 
   render() {
     return (
-      <Host role="button" tabindex="0">
+      <Host
+        role="button"
+        tabindex="0"
+        onClick={() => {
+          this.handleClick();
+        }}
+      >
         <div
           class={{
             'wrapper': true,
@@ -72,11 +78,7 @@ export class SideMenuCollapseButton {
               button: true,
             }}
           >
-            <a
-              onClick={() => {
-                this.handleClick();
-              }}
-            >
+            <a>
               <svg
                 class="icon"
                 slot="icon"

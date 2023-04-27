@@ -36,7 +36,7 @@ const INITIALIZE_ANIMATION_DELAY = 500;
 export class SddsSideMenu {
   @Element() host: HTMLSddsSideMenuElement;
 
-  /** Applicable only for mobile menu usage. If the side menu is open or not. */
+  /** Applicable only for mobile. If the side menu is open or not. */
   @Prop({ reflect: true }) open: boolean = false;
 
   /** Applicable only for desktop. If the side menu should always be shown. */
