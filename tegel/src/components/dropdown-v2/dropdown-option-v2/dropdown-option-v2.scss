@@ -5,6 +5,8 @@
   background-color: var(--sdds-dropdown-option-background);
 
   .dropdown-option {
+    display: flex;
+    align-items: center;
     color: var(--sdds-dropdown-option-color);
     border-bottom: 1px solid var(--sdds-dropdown-option-border);
     font: var(--sdds-detail-02);
@@ -48,10 +50,8 @@
     }
 
     .multiselect {
-      display: flex;
-      align-items: center;
-      height: 100%;
       padding: 0 16px;
+      width: 100%;
 
       // This is to make the entire button clickable
       sdds-checkbox,
