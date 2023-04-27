@@ -13,7 +13,7 @@ export class SideMenuCollapseButton {
 
   private sideMenuEl: HTMLSddsSideMenuElement;
 
-  /** Event when is broadcasted when the collapse button is clicked. */
+  /** Event that is broadcasted when the collapsed state changes. */
   @Event({
     eventName: 'sddsCollapse',
     bubbles: true,
