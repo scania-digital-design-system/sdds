@@ -82,7 +82,7 @@ const Template = () =>
         <sdds-header-hamburger id="demo-hamburger" onclick="demoSideMenu.open = true;demoHamburger.setAttribute('aria-expanded', true);" aria-label="Open application drawer" aria-haspopup="true" aria-expanded="false"></sdds-header-hamburger>
 
         <sdds-header-title>
-          Example: Few items with longer text
+          Example: Few items
         </sdds-header-title>
 
         <sdds-header-item>
