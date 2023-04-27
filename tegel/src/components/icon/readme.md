@@ -31,6 +31,7 @@
  - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
+ - [sdds-table-footer](../data-table/table-footer)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
  - [sdds-toast](../toast)
@@ -54,6 +55,7 @@ graph TD;
   sdds-side-menu-dropdown --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon
+  sdds-table-footer --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
   sdds-toast --> sdds-icon
