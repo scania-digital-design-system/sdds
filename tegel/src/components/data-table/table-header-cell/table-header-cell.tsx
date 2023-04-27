@@ -42,7 +42,7 @@ export class TableHeaderCell {
 
   @State() textAlignState: string;
 
-  @State() sortingDirection: string = '';
+  @State() sortingDirection: 'asc' | 'desc' = 'asc';
 
   @State() sortedByMyKey: boolean = false;
 
@@ -70,10 +70,39 @@ export class TableHeaderCell {
   @Event({
     eventName: 'sddsSortChange',
     composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  sddsSortChange: EventEmitter<{
+    tableId: string;
+    columnKey: string;
+    sortingDirection: 'asc' | 'desc';
+  }>;
+
+  /** @internal Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. */
+  @Event({
+    eventName: 'internalSortButtonClicked',
+    composed: true,
     cancelable: false,
     bubbles: true,
   })
-  sddsSortChange: EventEmitter<any>;
+  internalSortButtonClicked: EventEmitter<{
+    tableId: string;
+    key: string;
+  }>;
+
+  /** @internal Sends unique table identifier,column key and sorting direction to the sdds-table-body component, can also be listened to in order to implement custom sorting logic. */
+  @Event({
+    eventName: 'internalSddsSortChange',
+    composed: true,
+    cancelable: false,
+    bubbles: true,
+  })
+  internalSddsSortChange: EventEmitter<{
+    tableId: string;
+    columnKey: string;
+    sortingDirection: 'asc' | 'desc';
+  }>;
 
   /** @internal Sends unique table identifier, column key and text align value so the body cells with same key take the same text alignment as header cell */
   @Event({
@@ -91,7 +120,10 @@ export class TableHeaderCell {
     cancelable: false,
     bubbles: true,
   })
-  internalSddsHover: EventEmitter<any>;
+  internalSddsHover: EventEmitter<{
+    tableId: string;
+    key: string;
+  }>;
 
   @Listen('internalSddsPropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
@@ -116,16 +148,20 @@ export class TableHeaderCell {
     }
   }
 
-  // target is set to body so other instances of same component "listen" and react to the change
-  @Listen('sddsSortChange', { target: 'body' })
-  updateOptionsContent(event: CustomEvent<any>) {
-    if (this.tableId === event.detail[0]) {
-      // grab only value at position 1 as it is the "key"
-      if (this.columnKey !== event.detail[1]) {
+  @Listen('internalSortButtonClicked', { target: 'body' })
+  updateOptionsContent(
+    event: CustomEvent<{
+      tableId: string;
+      key: string;
+    }>,
+  ) {
+    const { tableId, key } = event.detail;
+    if (this.tableId === tableId) {
+      if (this.columnKey !== key) {
         this.sortedByMyKey = false;
         // To sync with CSS transition timing
         setTimeout(() => {
-          this.sortingDirection = '';
+          this.sortingDirection = null;
         }, 200);
       }
     }
@@ -156,7 +192,7 @@ export class TableHeaderCell {
       this.host.closest('sdds-table').getElementsByTagName('sdds-table-toolbar').length >= 1;
   }
 
-  sortButtonClick = (key) => {
+  sortButtonClick = () => {
     // Toggling direction of sorting as we only use one button for sorting
     if (this.sortingDirection !== 'asc') {
       this.sortingDirection = 'asc';
@@ -165,22 +201,43 @@ export class TableHeaderCell {
     }
     // Setting to true we can set enable CSS class for "active" state of column
     this.sortedByMyKey = true;
-    // Use array to send both key and sorting direction
-    this.sddsSortChange.emit([this.tableId, key, this.sortingDirection]);
+
+    /* Emit sort event */
+    const sddsSortEvent = this.sddsSortChange.emit({
+      tableId: this.tableId,
+      columnKey: this.columnKey,
+      sortingDirection: this.sortingDirection,
+    });
+
+    /**
+     * Emits sortButtonClicked event which is listened to by all the header-cells.
+     * This resets the sorting button in the header-cell that was not clicked.
+     */
+    this.internalSortButtonClicked.emit({
+      tableId: this.tableId,
+      key: this.columnKey,
+    });
+
+    /* If the user has not prevented the sort event. */
+    if (!sddsSortEvent.defaultPrevented) {
+      /* Emit internal sort event, which is listened to in table-body <- this does the actual sorting.  */
+      this.internalSddsSortChange.emit({
+        tableId: this.tableId,
+        columnKey: this.columnKey,
+        sortingDirection: this.sortingDirection,
+      });
+    }
   };
 
   headerCellContent = () => {
     if (this.sortable && !this.disableSortingBtn) {
       return (
-        <button
-          class="sdds-table__header-button"
-          onClick={() => this.sortButtonClick(this.columnKey)}
-        >
+        <button class="sdds-table__header-button" onClick={() => this.sortButtonClick()}>
           <span class="sdds-table__header-button-text" style={{ textAlign: this.textAlignState }}>
             {this.columnTitle}
           </span>
 
-          {this.sortingDirection === '' && (
+          {this.sortingDirection === null && (
             <svg
               class="sdds-table__header-button-icon"
               fill="currentColor"
@@ -205,7 +262,7 @@ export class TableHeaderCell {
             </svg>
           )}
           {/* First icon is arrow down as first set direction is ascending, clicking it again rotates the icon as we set descending order */}
-          {this.sortingDirection !== '' && (
+          {this.sortingDirection && (
             <svg
               class={`sdds-table__header-button-icon ${
                 this.sortingDirection === 'desc' ? 'sdds-table__header-button-icon--rotate' : ''
@@ -232,7 +289,10 @@ export class TableHeaderCell {
   };
 
   onHeadCellHover = (key) => {
-    this.internalSddsHover.emit([this.tableId, key]);
+    this.internalSddsHover.emit({
+      tableId: this.tableId,
+      key,
+    });
   };
 
   render() {
