@@ -3,7 +3,7 @@ import readmeDropdownOption from './dropdown-option-v2/readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
 
 export default {
-  title: 'Components/Dropdown-v2',
+  title: 'Beta Components/Dropdown-v2',
   parameters: {
     layout: 'centered',
     notes: { 'Dropdown': readme, 'Dropdown option': readmeDropdownOption },
