@@ -1,8 +1,11 @@
 <sdds-theme></sdds-theme>
 <div class="sdds-navbar-overlay" [ngClass]="{ expanded: isExpanded }"></div>
-<app-header (expand)="onExpand()" [isExpanded]="isExpanded"></app-header>
+<app-header-with-sidemenu></app-header-with-sidemenu>
+<!-- TODO: The below could theoretically be used if you want to test 
+  the standalone sidemenu, however it appears to be broken. -->
+<!-- <app-header (expand)="onExpand()" [isExpanded]="isExpanded"></app-header> -->
 <div class="sdds-push">
-  <app-side-menu [isExpanded]="isExpanded"></app-side-menu>
+  <!-- <app-side-menu [isExpanded]="isExpanded"></app-side-menu> -->
   <div class="sdds-content-push">
     <div class="sdds-container-push-fluid sdds-container">
       <app-main></app-main>
