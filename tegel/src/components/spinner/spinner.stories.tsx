@@ -64,4 +64,4 @@ const Template = ({ size, variant }) => {
   );
 };
 
-export const Slider = Template.bind({});
+export const Spinner = Template.bind({});

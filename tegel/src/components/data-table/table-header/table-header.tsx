@@ -128,15 +128,11 @@ export class TableHeaderRow {
         <tr>
           {this.enableMultiselect && (
             <th class="sdds-table__header-cell sdds-table__header-cell--checkbox">
-              <div class="sdds-checkbox-item">
-                <label class="sdds-form-label sdds-form-label--data-table">
-                  <input
-                    class="sdds-form-input"
-                    type="checkbox"
-                    onChange={(e) => this.headCheckBoxClicked(e)}
-                    checked={this.mainCheckboxSelected}
-                  />
-                </label>
+              <div class="sdds-form-label sdds-form-label--data-table">
+                <sdds-checkbox
+                  checked={this.mainCheckboxSelected}
+                  onSddsChange={(event) => this.headCheckBoxClicked(event)}
+                ></sdds-checkbox>
               </div>
             </th>
           )}
