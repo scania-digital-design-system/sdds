@@ -172,7 +172,7 @@ export class SddsDropdownV2 {
   })
   sddsInput: EventEmitter<InputEvent>;
 
-  @Listen('click', { target: 'window' })
+  @Listen('mousedown', { target: 'window' })
   onAnyClick(event: MouseEvent) {
     if (this.open) {
       // Source: https://lamplightdev.com/blog/2021/04/10/how-to-detect-clicks-outside-of-a-web-component/
