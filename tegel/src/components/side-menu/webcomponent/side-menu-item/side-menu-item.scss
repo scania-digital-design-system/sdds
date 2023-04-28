@@ -38,7 +38,7 @@
     &:active {
       ::slotted(a),
       ::slotted(button) {
-        background-color: var(--sdds-grey-800);
+        background-color: var(--sdds-sidemenu-item-state-active);
       }
     }
 
