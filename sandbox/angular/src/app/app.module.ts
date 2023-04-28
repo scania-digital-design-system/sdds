@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomDropdown } from './components/form/dropdown/dropdown.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { IconButtonComponent } from './components/side-menu/icon-button/icon-button.component';
+import { HeaderWithSidemenuComponent } from './components/header-with-sidemenu/header-with-sidemenu.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { IconButtonComponent } from './components/side-menu/icon-button/icon-but
     CustomDropdown,
     SideMenuComponent,
     IconButtonComponent,
+    HeaderWithSidemenuComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
