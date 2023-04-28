@@ -1,5 +1,4 @@
-@import './message-vars.scss';
-@import '../../mixins/box-sizing';
+@import '../src/mixins/box-sizing';
 
 .sdds-message {
   @include sdds-box-sizing;

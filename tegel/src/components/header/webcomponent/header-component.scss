@@ -4,6 +4,13 @@
 @import '../../../mixins/scrollbar';
 @import '../../../mixins/z-index';
 
+html,
+:root {
+  --sdds-nav-dropdown-menu-box: 0 3px 3px rgb(0 0 0 / 15%), 0 -1px 1px rgb(0 0 0 / 1%);
+  --sdds-nav-dropdown-item-border-radius: 0 0 4px 4px;
+  --sdds-font-family-headline: 'Scania Sans Headline', arial, helvetica, sans-serif;
+}
+
 sdds-header {
   display: block;
   height: var(--sdds-header-height);

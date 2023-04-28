@@ -1,8 +1,7 @@
-@import '../../mixins/z-index';
-@import './header-vars.scss';
-@import '../../mixins/focus-state';
-@import '../../mixins/flex-center';
-@import '../../mixins/scrollbar';
+@import '../src/mixins/z-index';
+@import '../src/mixins/focus-state';
+@import '../src/mixins/flex-center';
+@import '../src/mixins/scrollbar';
 
 html,
 :root {
@@ -275,10 +274,6 @@ html,
       width: 16px;
       height: auto;
     }
-  }
-
-  .sdds-nav__dropdown {
-    //No styling associated, might need in future
   }
 
   .sdds-nav__dropdown--opened {

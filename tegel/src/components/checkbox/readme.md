@@ -39,6 +39,23 @@ Type: `Promise<{ checkboxId: string; checked: boolean; }>`
 
 
 
+## Dependencies
+
+### Used by
+
+ - [sdds-dropdown-option](../dropdown/dropdown-option)
+ - [sdds-table-body-row](../data-table/table-body-row)
+ - [sdds-table-header](../data-table/table-header)
+
+### Graph
+```mermaid
+graph TD;
+  sdds-dropdown-option --> sdds-checkbox
+  sdds-table-body-row --> sdds-checkbox
+  sdds-table-header --> sdds-checkbox
+  style sdds-checkbox fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
