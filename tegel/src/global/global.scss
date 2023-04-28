@@ -68,6 +68,13 @@
 @import 'src/components/toggle/toggle-vars';
 @import 'src/components/tooltip/tooltip-vars';
 
+@import 'src/components/dropdown-v2/dropdown-vars';
+@import 'src/components/dropdown-v2/dropdown-option-v2/dropdown-option-vars';
+
+:root {
+  --johnny-red: green;
+}
+
 body {
   font-family: 'Scania Sans Semi Condensed', 'Scania Sans Condensed', Arial, Helvetica, sans-serif;
   font-size: 14px;

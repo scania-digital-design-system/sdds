@@ -35,16 +35,78 @@ export const appendHiddenInput = (
   name: string,
   value: string | undefined | null,
   disabled: boolean,
-  additionalAttributes: Array<{ key: string; value: string }>,
+  additionalAttributes?: Array<{ key: string; value: string }>,
 ) => {
-  const input = element.ownerDocument!.createElement('input');
-  input.type = 'hidden';
-  element.appendChild(input);
+  let input = element.querySelector('input') as HTMLInputElement | null;
+  if (!element.querySelector('input')) {
+    input = element.ownerDocument!.createElement('input');
+    input.type = 'hidden';
+    if (additionalAttributes) {
+      additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+    }
+    element.appendChild(input);
+  }
   input.disabled = disabled;
   input.name = name;
   input.value = value || '';
-  if (additionalAttributes) {
-    additionalAttributes.forEach((attr) => input.setAttribute(attr.key, attr.value));
+};
+
+/**
+ * Appends a child element to the supplied parentElement.
+ * @param parentElement The element on which the child element with be appended.
+ * @param tag Tag for the child element.
+ * @param attributes List of attributes to be added on the child element.
+ * @param slot Slot for the child element.
+ * @param id Id for the child element.
+ */
+export const appendChildElement = (
+  parentElement: HTMLElement,
+  tag: string,
+  attributes: Array<{ key: string; value: string }>,
+  slot: any,
+  id: string,
+) => {
+  if (!parentElement.querySelector(`#${id}`)) {
+    const childElement = parentElement.ownerDocument!.createElement(tag);
+    attributes.forEach((attr) => {
+      childElement.setAttribute(attr.key, attr.value);
+    });
+    childElement.innerHTML = slot;
+    childElement.id = id;
+    parentElement.appendChild(childElement);
+  }
+};
+
+/**
+ * Find the next focusable element index in a list of focusable elements.
+ * @param items List of focusable elements, element with a attribute of disabled that is true will be skipped over.
+ * @param nextItemIndex The index in the list to start the search on.
+ */
+export const findNextFocusableItem = (items: any[], nextItemIndex: number) => {
+  if (items[nextItemIndex] === undefined) {
+    return 0;
+  }
+  for (let index = nextItemIndex; index < items.length; index++) {
+    if (!items[index].disabled) {
+      return index;
+    }
+  }
+};
+
+/**
+ * Find the previous focusable element index in a list of focusable elements.
+ *
+ * @param items List of focusable elements, element with a attribute of disabled that is true will be skipped over.
+ * @param nextItemIndex The index in the list to start the search on.
+ */
+export const findPreviousFocusableItem = (items: any[], previousItemIndex: number) => {
+  if (items[previousItemIndex] === undefined) {
+    return items.length - 1;
+  }
+  for (let index = previousItemIndex; index >= 0; index--) {
+    if (!items[index].disabled) {
+      return index;
+    }
   }
 };
 
