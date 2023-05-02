@@ -94,6 +94,10 @@
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-100);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-700);
 
+  // App launcher - Grid menu
+  --sdds-header-app-launcher-grid--color: var(--sdds-grey-800);
+  --sdds-header-app-launcher-grid-hover-background: var(--sdds-grey-100);
+
   /* MOBILE AND TABLET */
   --sdds-header-mobile-menu-background: var(--sdds-white);
   --sdds-header-mobile-menu-item-background: var(--sdds-white);
@@ -203,9 +207,14 @@
   --sdds-header-app-launcher-item-border-color: var(--sdds-grey-700);
   --sdds-header-app-launcher-category-title-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-category-title-color: var(--sdds-grey-500);
+  --sdds-header-app-launcher-grid-category-title-color: var(--sdds-grey-500);
   --sdds-header-app-launcher-item-background: var(--sdds-grey-800);
   --sdds-header-app-launcher-item-background-hover: var(--sdds-grey-700);
   --sdds-header-app-launcher-item-color: var(--sdds-grey-50);
+
+  // App launcher - Grid menu
+  --sdds-header-app-launcher-grid-color: var(--sdds-grey-50);
+  --sdds-header-app-launcher-grid-hover-background: var(--sdds-grey-500);
 
   // /* MOBILE AND TABLET */
   --sdds-header-mobile-nav-center-background: var(--sdds-grey-958);

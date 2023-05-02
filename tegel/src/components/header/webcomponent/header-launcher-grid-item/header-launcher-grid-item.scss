@@ -23,14 +23,14 @@
     font: var(--sdds-detail-05);
     letter-spacing: var(--sdds-detail-05-ls);
     background-color: var(--sdds-header-app-launcher-menu-bg);
-    color: var(--sdds-grey-800);
+    color: var(--sdds-header-app-launcher-grid-color);
     border-radius: 4px;
     transition: background-color 150ms ease;
   }
 
   ::slotted(a:hover),
   ::slotted(button:hover) {
-    background-color: var(--sdds-grey-100);
+    background-color: var(--sdds-header-app-launcher-grid-hover-background);
     cursor: pointer;
   }
 
