@@ -4,17 +4,13 @@ import { Meta } from '@storybook/addon-docs';
 
 # Migration Docs
 
-Here is where we document all the breaking changes that we are introducing while migrating SDDS to Tegel.
+This document includes all the breaking changes when migrating from @scania/components version 4 to @scania/tegel.
 
-<!-- TODO: remove link to markdownguide.org -->
-<!-- ### MD cheatsheet
-https://www.markdownguide.org/cheat-sheet/ -->
+## Deprecation of Native Components
 
----
-
-# Breaking changes
-
----
+In @scania/tegel we have removed all of our "native" components and instead introducing web component
+counterparts to these. This means that every component that was available as a "native" component in
+@scania/components will have a web component counterpart in @scania/tegel. This change does not affect the existing @scania/components package.
 
 ## Event name convention
 
@@ -88,7 +84,8 @@ Mode is controlled on a top level, using class `sdds-mode-dark` or `sdds-mode-li
 
 ##### Changing mode variant
 
-For **native components**, you can use the classes `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` to apply the mode variants. For **web components**, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary` as valid input (primary is default). If no class or prop is given, the component is going to inherit the mode variant from its parent.
+For all components, you can use the `mode-variant` prop to apply the mode variants, with `primary` or `secondary`
+as valid input (primary is default). If no prop is given, the component is going to inherit the mode variant from its parent.
 
 To switch between the different modes and mode variants, simply use the appropriate classes or properties in your code.
 
@@ -96,7 +93,7 @@ These changes are also planned for the UI kit in Figma.
 
 ## Accordion
 
-[Web Component](/docs/components-accordion--default/)
+[Story](/docs/components--accordion)
 
 #### Replaced `affix` with `expand-icon-position`
 
@@ -150,7 +147,7 @@ If the component is used on a background with a color of grey-50, mode-variant p
 
 ## Badge
 
-[Web Component](/docs/components-badge--default/)
+[Story](/docs/components--badge)
 
 #### Replaced "isVisible" prop with "hidden"
 
@@ -169,8 +166,6 @@ Replace all intances of `isVisible="false"` with `hidden`.
 <sdds-badges value="1" hidden size="lg"></sdds-badges>
 ```
 
-[Web Component](/docs/components-badge--default/)
-
 #### Replaced "default" value of size prop with "lg"
 
 Size value `default` was replaced with value `lg` as part of standardisation size props to use "t-shirt" naming convention.
@@ -187,91 +182,9 @@ Replace size value `default` with `lg` or just remove prop as component's defaul
 <sdds-badges value="1" is-visible="true" size="lg"></sdds-badges>
 ```
 
-## Banner
-
-[Native](/docs/components-banner--default/)
-
-#### Replaced built in icon with icon component
-
-Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
-For accessibility reasons, we recommend wrapping the icon in a native `button` element.
-
-```jsx
-// Old ❌
-<div class="sdds-banner sdds-banner-error">
-  //...
-  <div  class="sdds-banner-close">
-  </div>
-</div>
-
-// New ✅
-<div class="sdds-banner sdds-banner-error">
-  //...
-  <button type="button" aria-label="close" class="sdds-banner-close">
-    <sdds-icon name="cross" size="20px"></sdds-icon>
-  </button>
-</div>
-```
-
-## Block
-
-[Native](/docs/components-block--default/)
-
-#### Removed classes `sdds-block__ongrey` and `sdds-block__onwhite` to conform with convention
-
-The classes `sdds-block__onwhite` and `sdds-block__ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
-
-##### What action is required?
-
-Replace all instaces of `sdds-block__onwhite` and `sdds-block__ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
-
-```jsx
-// Old ❌
-<div class="sdds-block sdds-block__ongrey">
-    First level content goes here...
-    <div class="sdds-block sdds-block__onwhite">
-        <p>Second level content be here...</p>
-    </div>
-</div>
-
-
-// New ✅
-<div class="sdds-block sdds-mode-variant-secondary">
-    First level content goes here...
-    <div class="sdds-block sdds-mode-variant-primary">
-        <p>Second level content be here...</p>
-    </div>
-</div>
-```
-
 ## Button
 
-[Native](/docs/components-button--native/)
-
-[Web Component](/docs/components-button--native/)
-
-#### Added class `sdds-btn-text`
-
-We added a `sdds-btn-text` class for the span containing the text of the button in order
-to align the children of the button better.
-
-##### What action is required?
-
-If the child of the native `sdds-btn` is a text it will need a class of `sdds-btn-text`
-
-```jsx
-// Old ❌
-<button class="sdds-btn">
-  Some text
-</button>
-
-// New ✅
-<button class="sdds-btn">
-  <span class="sdds-btn-text">
-    Some text
-  </span>
-</button>
-```
+[Story](/docs/components--button)
 
 #### Changed prop `variant` to `mode-variant` in web component
 
@@ -293,51 +206,9 @@ Rename `variant` to `mode-variant` and change type name.
 </sdds-button>
 ```
 
-#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
-
-We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
-
-##### What action is required?
-
-Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
-
-```jsx
-// Old ❌
-<button class="sdds-on-white-bg">
-  Some text
-</button>
-
-// New ✅
-<button class="sdds-mode-variant-primary">
-</button>
-```
-
-## Card
-
-[Native](/docs/components-card--default/)
-
-#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary`
-
-We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
-
-##### What action is required?
-
-Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
-
-```jsx
-// Old ❌
-<div class="sdds-card sdds-on-white-bg">
-  Content
-</div>
-// New ✅
-<div class="sdds-card sdds-mode-variant-primary">
-  Content
-</div>
-```
-
 ## Datetime
 
-[Web Component](/docs/components-datetime--default)
+[Story](/docs/components--datetime)
 
 #### Aligned props for ´label´ and 'helper'
 
@@ -368,153 +239,9 @@ Change all `<sdds-datetime>` that are using slots to use the prop instead.
 ></sdds-datetime>
 ```
 
-#### Added class 'sdds-btn-only-icon'
-
-We added a class for only icon buttons on native button in order to style it correctly.
-
-##### What action is required?
-
-If the button is one with only an icon it needs the class 'sdds-btn-only-icon'.
-
-```jsx
-// Old ❌
-<button
-    class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon"
-  >
-  <sdds-icon
-    class="sdds-btn-icon"
-    size="20px"
-    name="arrow_diagonal"
-  ></sdds-icon>
-</button>
-
-// New ✅
-<button
-    class="sdds-btn sdds-btn-primary sdds-btn-lg sdds-btn-icon sdds-btn-only-icon"
-  >
-  <sdds-icon
-    class="sdds-btn-icon"
-    size="20px"
-    name="arrow_diagonal"
-  ></sdds-icon>
-</button>
-```
-
-## Chip
-
-[Native](/docs/components-chips--default)
-
-#### Renamed class to `sdds-chip-sm`
-
-The class `sdds-chip__small` was changed to `sdds-chip-sm` to conform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-chip__small` to `sdds-chip-sm`.
-
-```jsx
-// Old ❌
-<div class="sdds-chip sdds-chip__small">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-
-// New ✅
-<div class="sdds-chip sdds-chip-sm">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-```
-
-#### Renamed class to `sdds-chip-active`
-
-The class `sdds-chip__active` was changed to `sdds-chip-active` to conform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-chip__active` to `sdds-chip-active`.
-
-```jsx
-// Old ❌
-<div class="sdds-chip sdds-chip__small">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-
-// New ✅
-<div class="sdds-chip sdds-chip-active">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-```
-
-#### Renamed classes to `sdds-chip-icon-right`/`sdds-chip-icon-left`
-
-The classes `sdds-chip__icon-right`/`sdds-chip__icon-left` was changed to `sdds-chip-icon-right`/`sdds-chip-icon-left` to conform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-chip__icon-right`/`sdds-chip__icon-left` to `sdds-chip-icon-right`/`sdds-chip-icon-left`.
-
-```jsx
-// Old ❌
-<div class="sdds-chip sdds-chip__icon-right">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-
-// New ✅
-<div class="sdds-chip sdds-chip-icon-right">
-  <span class="sdds-chip-text">Chip text</span>
-</div>
-```
-
-## Divider
-
-[Native](/docs/components-divider--default)
-
-#### All class names changed and divider color is now controled by dark/light mode
-
-Current classes is replaced by `sdds-divider`, `sdds-divider-vertical` and `sdds-divider-border-#{direction}`.
-To change the color a color mode needs to be applied to the element och parent element; `sdds-mode-light`, `sdds-mode-dark` or `sdds-mode-colored`.
-
-##### What action is required?
-
-Rename all classes.
-
-```jsx
-// Old ❌
-<div class="sdds-divider-dark"></div>
-
-// New ✅
-<div class="sdds-mode-dark">
-  <<div class="sdds-divider"></div>
-</div>
-```
-
 ## Dropdown
 
-[Native](/docs/components-dropdown--native)
-[Web component](/docs/components-dropdown--web-component-default)
-
-#### Renamed size classes to `sdds-dropdown-sm`, and `sdds-dropdown-md`
-
-The classes was changed from `sdds-dropdown-small` and `sdds-dropdown-medium` to comform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-dropdown-small` and `sdds-dropdown-medium`.
-
-```jsx
-// Old ❌
-<div class="sdds-dropdown sdds-dropdown-medium">
-  <select name="nativeDropdown">
-    // ...
-  </select>
-</div>
-
-// New ✅
-<div class="sdds-dropdown sdds-dropdown-md">
-  <select name="nativeDropdown">
-    // ...
-  </select>
-</div>
-```
+[Story](/docs/components--dropdown)
 
 #### Added prop for mode-variant and removed class `sdds-on-white-bg` for web component
 
@@ -537,151 +264,9 @@ If the component is used on a background with a color of grey-50, mode-variant p
 </sdds-dropdown>
 ```
 
-#### Changed class `sdds-on-white-bg` to `sdds-mode-variant-primary` in native component
-
-We added the classes `sdds-mode-variant-primary` (prev. `sdds-on-white-bg`), and `sdds-mode-variant-secondary` (prev. no class required)
-
-##### What action is required?
-
-Rename `sdds-on-white-bg` to `sdds-mode-variant-primary`, or add `sdds-mode-variant-secondary` if the component background is grey-50.
-
-```jsx
-// Old ❌
-<div class="sdds-dropdown sdds-on-white-bg">
-  // ...
-</div>
-// New ✅
-<div class="sdds-dropdown sdds-mode-variant-primary">
-  // ...
-</div>
-```
-
-## Message
-
-[Native](/docs/components-message--information)
-
-#### Renamed multiple classes to conform with convention.
-
-The following classes was changed to conform with convention:
-
-- `sdds-message__icon-active` -> `sdds-message-icon-active`
-- `sdds-message__extended-active` -> `sdds-message-extended-active`
-- `sdds-message__type` -> `sdds-message-type`
-- `sdds-message-icon--informative` -> `sdds-message-icon-informative`
-- `sdds-message-icon--error` -> `sdds-message-icon-error`
-- `sdds-message-icon--warning` -> `sdds-message-icon-warning`
-- `sdds-message-icon--success` -> `sdds-message-icon-success`
-
-The overall change is that we are dropping the use of `__` and `--` in class names and are
-moving to single dashes instead.
-
-##### What action is required?
-
-Rename all instances of `__` and `--` from class names in the message component and replace
-with a single dash (`-`).
-
-```jsx
-// Old ❌
-<div class="sdds-message sdds-message__type-informative sdds-message__icon-active">
-  <div>
-    <sdds-icon class="sdds-message-icon sdds-message-icon--informative" name="info" size="20" />
-  </div>
-  <h4 class="sdds-message-single">Single line message goes here.</h4>
-</div>
-
-// New ✅
-<div class="sdds-message sdds-message-type-informative sdds-message-icon-active">
-  <div>
-    <sdds-icon class="sdds-message-icon sdds-message-icon-informative" name="info" size="20" />
-  </div>
-  <h4 class="sdds-message-single">Single line message goes here.</h4>
-</div>
-```
-
-#### Removed classes `sdds-message-ongrey` and `sdds-message-onwhite` to conform with convention
-
-The classes `sdds-message-onwhite` and `sdds-message-ongrey` are replaced by `sdds-mode-variant-primary` and `sdds-mode-variant-secondary` respectively.
-
-##### What action is required?
-
-Replace all instaces of `sdds-message-onwhite` and `sdds-message-ongrey` with `sdds-mode-variant-primary` and `sdds-mode-variant-secondary`.
-
-```jsx
-// Old ❌
-<div class="sdds-message sdds-message-onwhite">
-    // ...
-</div>
-
-
-// New ✅
-<div class="sdds-message sdds-mode-variant-primary">
-    // ...
-</div>
-```
-
-## Modal
-
-[Native](/docs/components-modal--native)
-
-#### Changed class name 'sdds-modal-btn' to 'sdds-modal-close'
-
-The class `sdds-modal-btn` was renamed to `sdds-modal-close` to conform with other class names.
-
-#### Replaced built in icon with icon component
-
-Support for just adding a `sdds-banner-close` class was removed in favor of using the `<sdds-icon>` component.
-For accessibility reasons, we recommend wrapping the icon in a native `button` element.
-
-##### What action is required?
-
-Rename all instances of `sdds-modal-btn` to `sdds-modal-close` (no action is required if you are using the web component).
-Also use a button element for the button, and set the icon by adding an sdds-icon child. See example below.
-
-```jsx
-// Old ❌
-<div class="sdds-modal">
-  <div class="sdds-modal-header">
-    <span class="sdds-modal-btn"></span>
-  </div>
-</div>
-
-// New ✅
-<div class="sdds-modal">
-  <div class="sdds-modal-header">
-    <button class="sdds-modal-close" aria-label="close">
-      <sdds-icon name="cross" size="20px"></sdds-icon>
-    </button>
-  </div>
-</div>
-```
-
-## Stepper
-
-[Native](/docs/components-stepper--default)
-
-#### Renamed class to `sdds-stepper-sm`
-
-The class `sdds-stepper--small` was changed to `sdds-stepper-sm` to conform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-stepper--small` to `sdds-stepper-sm`.
-
-```jsx
-// Old ❌
-<div class="sdds-stepper sdds-stepper--small">
-  // ...
-</div>
-
-// New ✅
-<div class="sdds-stepper sdds-stepper-sm">
-  // ...
-</div>
-```
-
 ## Navigation Tabs
 
-[Webcomponent](/docs/components-tabs--navigation-tabs)
+[Story](/docs/components--navigation-tabs)
 
 #### Changed class names `sdds-navigation-tabs--tab__active` and `sdds-navigation-tabs--tab__disabled`
 
@@ -742,9 +327,9 @@ and if you have any questions we are always here to help.
 
 The new components are available here in storybook:
 
-- [Inline tabs](/docs/components-tabs--inline-tabs)
-- [Folder tabs](/docs/components-tabs--folder-tabs)
-- [Navigation tabs](/docs/components-tabs--navigation-tabs)
+- [Inline tabs](/docs/components--inline-tabs)
+- [Folder tabs](/docs/components--folder-tabs)
+- [Navigation tabs](/docs/components--navigation-tabs)
 
 ```jsx
 // New sdds-inline-tabs with buttons 🆕
@@ -847,7 +432,7 @@ The new components are available here in storybook:
 
 ## Textarea
 
-[Web Component](/docs/components-textarea--default)
+[Story](/docs/components--textarea)
 
 #### Changed prop name 'max-length'
 
@@ -934,7 +519,7 @@ If the component is used on a background with a color of grey-50, mode-variant p
 
 ## Textfield
 
-[Web Component](/docs/components-textarea--default)
+[Story](/docs/components--textarea)
 
 #### Changed prop name 'maxlength'
 
@@ -1077,346 +662,9 @@ If the component is used on a background with a color of grey-50, mode-variant p
  </sdds-textfield>
 ```
 
-## Toast
-
-#### Changed class name 'sdds-toast-dismiss' to 'sdds-toast-close'
-
-The class `sdds-toast-dismiss` was renamed to `sdds-toast-close` to conform with other class names.
-
-##### What action is required?
-
-Rename all instances of `sdds-toast-dismiss` to `sdds-toast-close`.
-
-```jsx
-// Old ❌
-<div class="sdds-toast-content">
-  <div class="sdds-toast-header">
-    <span class="sdds-toast-headline">This is a success message</span>
-    <button class="sdds-toast-dismiss">
-    </button>
-  </div>
-</div>
-
-// New ✅
-<div class="sdds-toast-content">
-  <div class="sdds-toast-header">
-    <span class="sdds-toast-headline">This is a success message</span>
-    <button class="sdds-toast-close">
-    </button>
-  </div>
-</div>
-```
-
-(**NOTE**: there are more highly suggested changes for this component further down 👇)
-
----
-
-# Not breaing but highly suggested changes
-
----
-
-## Side menu
-
-[Native](/docs/components-side-menu--default)
-
-#### Used `<sdds-icon>` instead of `<svg>`
-
-The side-menu has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
-
-##### What action is required?
-
-Change all instances of `<svg>` to `<sdds-icon>`
-
-```jsx
-// Old ❌
-<button class="sdds-nav__mob-menu-btn">
-  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M3.97 6.998a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 15.982a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1ZM3.97 24.966a1 1 0 0 1 1-1h22.05a1 1 0 0 1 0 2H4.97a1 1 0 0 1-1-1Z"
-        fill="currentColor"
-      />
-    </svg>
-</button>
-
-// New ✅
-<button class="sdds-nav__mob-menu-btn">
-    <sdds-icon name="burger" size="20px" />
-</button>
-```
-
-#### Used `<button>` instead of `<a>` for `sdds-sidebar-nav__item-link` inside `sdds-sidebar-nav__extended`
-
-The header was previously using `<a>` for the `sdds-sidebar-nav__item-link` that was a child of `sdds-sidebar-nav__extended`, we have now changed this
-to a `<button>` instead.
-
-##### What action is required?
-
-Change all instances of `<a class="sdds-sidebar-nav__item-link">` to `<button class="sdds-sidebar-nav__item-link">` if it is a child of `sdds-sidebar-nav__extended`.
-
-```jsx
-// Old ❌
-<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
-  <a class="sdds-sidebar-nav__item-link" href="#">
-    <svg
-      class="sdds-sidebar-nav__icon"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="#e2e2e4"
-      xmlns="http://www.w3.org/2000/svg">
-      <rect y="0.334473" width="20" height="20" />
-    </svg>
-      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
-    <svg
-      class="sdds-sidebar-nav__chevron"
-      width="12"
-      height="7"
-      viewBox="0 0 12 7"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M1 1L6 6L11 1"
-        stroke="currentColor"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round">
-      </path>
-    </svg>
-  </a>
-  // ...
-</li>
-// New ✅
-<li class="sdds-sidebar-nav__item sdds-sidebar-nav__extended">
-  <button class="sdds-sidebar-nav__item-link">
-    <div>
-      <sdds-icon class="sdds-sidebar-nav__icon" name="truck" size="20px"/>
-    </div>
-      <span class="sdds-sidebar-nav__item-text">Sub-menu</span>
-    <div>
-      <sdds-icon class="sdds-sidebar-nav__chevron" name="chevron_down" size="16px"/>
-    </div>
-  </button>
-  // ...
-</li>
-```
-
-#### Used `<button>` instead of `<a>` for `sdds-sidebar-mheader__close` and used `<sdds-icon>` instead of hard `<svg>`
-
-The `sdds-sidebar-mheader` was previously using an `<a>` for it close button, we have changed this to be a button instead.
-
-##### What action is required?
-
-Change all instances of `<a href="#" class="sdds-sidebar-mheader__close">` to `<button class="sdds-sidebar-mheader__close">` and change all instances of `<svg>` to `<sdds-icon>`.
-
-```jsx
-// Old ❌
-<a href="#" class="sdds-sidebar-mheader__close">
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M3.40338 2.34308C3.11048 2.05019 2.63561 2.05019 2.34272 2.34308C2.04982 2.63598 2.04982 3.11085 2.34272 3.40374L6.93897 8L2.34283 12.5961C2.04994 12.889 2.04994 13.3639 2.34283 13.6568C2.63572 13.9497 3.1106 13.9497 3.40349 13.6568L7.99963 9.06066L12.5958 13.6568C12.8887 13.9497 13.3635 13.9497 13.6564 13.6568C13.9493 13.3639 13.9493 12.889 13.6564 12.5961L9.06029 8L13.6565 3.40376C13.9494 3.11086 13.9494 2.63599 13.6565 2.3431C13.3636 2.0502 12.8888 2.0502 12.5959 2.3431L7.99963 6.93934L3.40338 2.34308Z"
-      fill="#171719"/>
-  </svg>
-</a>
-// New ✅
-<button class="sdds-sidebar-mheader__close">
-  <sdds-icon name="cross" size="20px" />
-</button>
-```
-
-## Header
-
-[Native](/docs/components-header--default)
-
-#### Used `<sdds-icon>` instead of `<svg>`
-
-The header has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
-
-##### What action is required?
-
-Change all instances of `<svg>` to `<sdds-icon>`
-
-```jsx
-// Old ❌
-<button class='sdds-nav__app-launcher-btn'>
-  <svg class="sdds-nav__app-launcher-btn-svg" viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <path fill-rule='evenodd' clip-rule='evenodd' d='M1.33333 2.66667C2.06971 2.66667 2.66667 2.06971 2.66667 1.33333C2.66667 0.596954 2.06971 0 1.33333 0C0.596954 0 0 0.596954 0 1.33333C0 2.06971 0.596954 2.66667 1.33333 2.66667ZM9.33307 1.33333C9.33307 2.06971 8.73612 2.66667 7.99974 2.66667C7.26336 2.66667 6.66641 2.06971 6.66641 1.33333C6.66641 0.596954 7.26336 0 7.99974 0C8.73612 0 9.33307 0.596954 9.33307 1.33333ZM16.0003 1.33333C16.0003 2.06971 15.4033 2.66667 14.6669 2.66667C13.9305 2.66667 13.3336 2.06971 13.3336 1.33333C13.3336 0.596954 13.9305 0 14.6669 0C15.4033 0 16.0003 0.596954 16.0003 1.33333ZM16.0003 8C16.0003 8.73638 15.4033 9.33333 14.6669 9.33333C13.9305 9.33333 13.3336 8.73638 13.3336 8C13.3336 7.26362 13.9305 6.66667 14.6669 6.66667C15.4033 6.66667 16.0003 7.26362 16.0003 8ZM14.6669 16C15.4033 16 16.0003 15.403 16.0003 14.6667C16.0003 13.9303 15.4033 13.3333 14.6669 13.3333C13.9305 13.3333 13.3336 13.9303 13.3336 14.6667C13.3336 15.403 13.9305 16 14.6669 16ZM7.99974 9.33333C8.73612 9.33333 9.33307 8.73638 9.33307 8C9.33307 7.26362 8.73612 6.66667 7.99974 6.66667C7.26336 6.66667 6.66641 7.26362 6.66641 8C6.66641 8.73638 7.26336 9.33333 7.99974 9.33333ZM9.33307 14.6667C9.33307 15.403 8.73612 16 7.99974 16C7.26336 16 6.66641 15.403 6.66641 14.6667C6.66641 13.9303 7.26336 13.3333 7.99974 13.3333C8.73612 13.3333 9.33307 13.9303 9.33307 14.6667ZM2.66667 8C2.66667 8.73638 2.06971 9.33333 1.33333 9.33333C0.596954 9.33333 0 8.73638 0 8C0 7.26362 0.596954 6.66667 1.33333 6.66667C2.06971 6.66667 2.66667 7.26362 2.66667 8ZM1.33333 16C2.06971 16 2.66667 15.403 2.66667 14.6667C2.66667 13.9303 2.06971 13.3333 1.33333 13.3333C0.596954 13.3333 0 13.9303 0 14.6667C0 15.403 0.596954 16 1.33333 16Z' fill='currentColor' fill-opacity='1'/>
-  </svg>
-</button>
-
-// New ✅
-<button class='sdds-nav__app-launcher-btn'>
-  <sdds-icon class="sdds-nav__app-launcher-btn-svg" name="bento" size="20px" />
-</button>
-```
-
-#### Changed div to span on `sdds-nav__mob-menu-icon`
-
-The header previously had a `<div>` with the class `sdds-nav__mob-menu-icon`. This has been changed to a `span` instead.
-
-##### What action is required?
-
-Change all `<div>` with class `sdds-nav__mob-menu-icon` to span.
-
-```jsx
-// Old ❌
-<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
-  <div id='sdds-nav__mob-menu-icon'>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
-  </div>
-</button>
-
-// New ✅
-<button class='sdds-nav__mob-menu-btn' onclick='toggleMobileMenu()'>
-  <span id='sdds-nav__mob-menu-icon'>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-1'></span>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-2'></span>
-    <span class='sdds-nav__mob-menu-icon-line' id='sdds-nav__mob-menu-icon-line-3'></span>
-  </span>
-</button>
-```
-
-#### Changed p to span on `sdds-nav__item-core-text`
-
-The header previously had a `<p>` with the class `sdds-nav__item-core-text`. This has been changed to a `span` instead.
-
-##### What action is required?
-
-Change all `<p>` with class `sdds-nav__item-core-text` to span.
-
-```jsx
-// Old ❌
-<li class='sdds-nav__item'>
-    <a class='sdds-nav__item-core' href='#'>
-        <p class='sdds-nav__item-core-text'>Item 1</p>
-    </a>
-</li>
-
-// New ✅
-<li class='sdds-nav__item'>
-    <a class='sdds-nav__item-core' href='#'>
-        <span class='sdds-nav__item-core-text'>Item 1</span>
-    </a>
-</li>
-```
-
-#### Changed p to span on `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`
-
-The header previously had `<p>` with the class `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle`. These has been changed to `span` instead.
-
-##### What action is required?
-
-Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
-
-```jsx
-// Old ❌
-<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
-    <p class='sdds-nav__avatar-title'>Employee Name</p>
-    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
-</div>
-
-// New ✅
-<div class='sdds-nav__avatar-info sdds-nav__avatar-info--mobile'>
-    <span class='sdds-nav__avatar-title'>Employee Name</span>
-    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
-</div>
-```
-
-#### Changed `<div>` to span on `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`
-
-The header previously had `<div>` with the class `sdds-nav__avatar-info sdds-nav__avatar-info--mobile`. These has been changed to `span` instead.
-
-##### What action is required?
-
-Change all `<p>` with classes `sdds-nav__avatar-title` & `sdds-nav__avatar-subtitle` to span.
-
-```jsx
-// Old ❌
-<div class='sdds-nav__avatar-info'>
-    <p class='sdds-nav__avatar-title'>Employee Name</p>
-    <p class='sdds-nav__avatar-subtitle'>Company Name</p>
-</div>
-
-// New ✅
-<span class='sdds-nav__avatar-info'>
-    <span class='sdds-nav__avatar-title'>Employee Name</span>
-    <span class='sdds-nav__avatar-subtitle'>Company Name</span>
-</span>
-```
-
-## Footer
-
-[Native](/docs/components-footer--default)
-
-#### Used `<sdds-icon>` instead of `<svg>`
-
-The footer has previously had `<svg>` in the code example. We have now switched it to our own `<sdds-icon>` instead.
-
-##### What action is required?
-
-Change all instances of `<svg>` to `<sdds-icon>`
-
-```jsx
-// Old ❌
-<span class="sdds-footer-top-icon">
-  <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <path d='M1 1L6 6L11 1' stroke='currentColor' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/>
-  </svg>
-</span>
-
-// New ✅
-<span class='sdds-footer-top-icon'>
-  <sdds-icon name="chevron_down" size="16px" />
-</span>
-```
-
-## Toast
-
-[Native](/docs/components-toast--default)
-
-#### Used `<button>` instead of `<span>`, and icon component for `sdds-toast-dismiss`
-
-The toast has previously used a `<span>` for the close button in the code example. We have now switched it to our own `<button>` instead.
-We also removed the icon from the sdds-toast-dismiss class. The sdds-icon component should be used instead.
-
-##### What action is required?
-
-Change all instances the toast dismiss button like shown below:
-
-```jsx
-// Old ❌
-<div class="sdds-toast-content">
-  <div class="sdds-toast-header">
-    <span class="sdds-toast-headline">This is a success message</span>
-    <span class="sdds-toast-dismiss"></span>
-  </div>
-</div>
-
-
-// New ✅
-<div class="sdds-toast-content">
-  <div class="sdds-toast-header">
-    <span class="sdds-toast-headline">This is a success message</span>
-      <button type="button" aria-label="close" class="sdds-toast-dismiss">
-        <sdds-icon name="cross" size="20px"></sdds-icon>
-      </button>
-  </div>
-</div>
-```
-
 ## Data table
 
-[Web Component](/docs/components-data-table-web-component--default)
+[Story](/docs/components-data-table--default)
 
 #### Renamed `enablePagination` prop to `pagination`.
 
