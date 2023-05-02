@@ -40,7 +40,7 @@
   .component-selected:not(.component-active) {
     ::slotted(button),
     ::slotted(a) {
-      background-color: var(sdds-grey-800);
+      background-color: var(--sdds-header--basic-element-background-selected);
       padding-top: 4px;
       border-bottom-style: solid;
       border-bottom-width: 4px;
