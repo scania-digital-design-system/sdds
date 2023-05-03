@@ -20,7 +20,7 @@
 
   ::slotted(button:hover),
   ::slotted(a:hover) {
-    background-color: var(--sdds-header--basic-element-background-hover);
+    background-color: var(--sdds-header-item-hover);
   }
 
   ::slotted(button:focus-visible),
