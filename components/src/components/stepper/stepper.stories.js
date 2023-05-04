@@ -61,8 +61,6 @@ const Template = ({ size, style, label }) => {
       break;
   }
 
-  console.log('testar');
-
   return `
   <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleClass}">
