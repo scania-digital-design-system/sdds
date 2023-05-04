@@ -61,6 +61,8 @@ const Template = ({ size, style, label }) => {
       break;
   }
 
+  console.log('testar');
+
   return `
   <div class="sdds-stepper-demo-container">
     <div class="sdds-stepper ${sizeClass} ${styleClass}">
@@ -80,11 +82,7 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${
-          showLabel
-            ? '<label class="sdds-stepper__step_label">Step value</label>'
-            : ''
-        }
+        ${showLabel ? '<label class="sdds-stepper__step_label">Step value</label>' : ''}
           
         
       </div>
@@ -104,11 +102,7 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${
-          showLabel
-            ? '<label class="sdds-stepper__step_label">Step warning</label>'
-            : ''
-        }
+        ${showLabel ? '<label class="sdds-stepper__step_label">Step warning</label>' : ''}
       </div>
 
       <div class="sdds-stepper__step sdds-stepper__step--inactive">
@@ -126,11 +120,7 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${
-          showLabel
-            ? '<label class="sdds-stepper__step_label">Step inactive</label>'
-            : ''
-        }
+        ${showLabel ? '<label class="sdds-stepper__step_label">Step inactive</label>' : ''}
       </div>
       
       <div class="sdds-stepper__step sdds-stepper__step--success">
@@ -148,11 +138,7 @@ const Template = ({ size, style, label }) => {
           </svg>
 
         </div>
-        ${
-          showLabel
-            ? '<label class="sdds-stepper__step_label">Step success</label>'
-            : ''
-        }
+        ${showLabel ? '<label class="sdds-stepper__step_label">Step success</label>' : ''}
       </div>
 
     </div>
