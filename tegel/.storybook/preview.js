@@ -129,7 +129,14 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Intro', 'Foundations', 'Utilities', 'Components', 'Patterns'],
+      order: [
+        'Intro',
+        ['Tegel', 'Migrating from components v4', 'Installation', 'Events'],
+        'Foundations',
+        'Utilities',
+        'Patterns',
+        'Components',
+      ],
     },
     enableShortcuts: false,
   },

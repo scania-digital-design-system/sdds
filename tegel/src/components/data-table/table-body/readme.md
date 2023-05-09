@@ -7,12 +7,10 @@
 
 ## Properties
 
-| Property                   | Attribute                    | Description                                                                                                                                                             | Type      | Default     |
-| -------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `bodyData`                 | `body-data`                  | Prop to pass JSON string which enables automatic rendering of table rows and cells                                                                                      | `any`     | `undefined` |
-| `disableFilteringFunction` | `disable-filtering-function` | Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term | `boolean` | `false`     |
-| `disableSortingFunction`   | `disable-sorting-function`   | Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting        | `boolean` | `false`     |
-| `enableDummyData`          | `enable-dummy-data`          | Prop for showcase of rendering JSON in body-data, just for presentation purposes                                                                                        | `boolean` | `false`     |
+| Property          | Attribute           | Description                                                                        | Type      | Default     |
+| ----------------- | ------------------- | ---------------------------------------------------------------------------------- | --------- | ----------- |
+| `bodyData`        | `body-data`         | Prop to pass JSON string which enables automatic rendering of table rows and cells | `any`     | `undefined` |
+| `enableDummyData` | `enable-dummy-data` | Prop for showcase of rendering JSON in body-data, just for presentation purposes   | `boolean` | `false`     |
 
 
 ## Dependencies
@@ -27,6 +25,7 @@
 graph TD;
   sdds-table-body --> sdds-table-body-row
   sdds-table-body --> sdds-body-cell
+  sdds-table-body-row --> sdds-checkbox
   style sdds-table-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

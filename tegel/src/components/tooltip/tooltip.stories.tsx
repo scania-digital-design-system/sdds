@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Tooltip',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -132,4 +133,4 @@ const ComponentTooltip = ({ tooltipPosition, mouseOverTooltip, text, slot }) =>
   `,
   );
 
-export const WebComponent = ComponentTooltip.bind({});
+export const Tooltip = ComponentTooltip.bind({});

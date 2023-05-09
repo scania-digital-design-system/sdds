@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Block',
+  title: ComponentsFolder,
   parameters: {
     layout: 'padded',
     notes: readme,
@@ -54,4 +55,4 @@ const Template = ({ modeVariant }) =>
     `,
   );
 
-export const WebComponent = Template.bind({});
+export const Block = Template.bind({});

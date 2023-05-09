@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Toggle',
+  title: ComponentsFolder,
   parameters: {
     notes: readme,
     layout: 'centered',
@@ -39,7 +40,7 @@ export default {
       },
     },
     label: {
-      name: 'Label',
+      name: 'Label text',
       description: 'Sets the label for the toggles input element.',
       control: {
         type: 'text',
@@ -94,4 +95,4 @@ const Template = ({ size, headline, label, checked, disabled }) =>
       })
     </script>
   `);
-export const WebComponent = Template.bind({});
+export const Toggle = Template.bind({});

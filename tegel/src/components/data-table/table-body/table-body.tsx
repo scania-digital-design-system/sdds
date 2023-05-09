@@ -69,12 +69,6 @@ const relevantTableProps: InternalSddsTablePropChange['changed'] = [
   shadow: false,
 })
 export class TableBody {
-  /** Disables inbuilt filtering logic, leaving user an option to create own filter functionality while listening to events from sdds-table-toolbar component for search term */
-  @Prop() disableFilteringFunction: boolean = false;
-
-  /** Disables inbuilt sorting logic, leaving user an option to create own sorting functionality while listening to events from sdds-header-cell component for sorting */
-  @Prop() disableSortingFunction: boolean = false;
-
   /** Prop to pass JSON string which enables automatic rendering of table rows and cells  */
   @Prop({ mutable: true }) bodyData: any;
 
@@ -201,24 +195,22 @@ export class TableBody {
   };
 
   sortData(keyValue, sortingDirection) {
-    if (!this.disableSortingFunction) {
-      if (this.enableMultiselect) {
-        // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
-        this.uncheckAll();
-      }
-
-      // use spread operator to make enable sorting and modifying array, same as using .slice()
-      this.bodyDataManipulated = [...this.bodyDataManipulated];
-      this.bodyDataManipulated.sort(TableBody.compareValues(keyValue, sortingDirection));
+    if (this.enableMultiselect) {
+      // Uncheck all checkboxes as state of checkbox is lost on sorting. Do it only in case multiSelect is True.
+      this.uncheckAll();
     }
+
+    // use spread operator to make enable sorting and modifying array, same as using .slice()
+    this.bodyDataManipulated = [...this.bodyDataManipulated];
+    this.bodyDataManipulated.sort(TableBody.compareValues(keyValue, sortingDirection));
   }
 
   // Listen to sortColumnData from data-table-header-element - TODO
-  @Listen('sddsSortChange', { target: 'body' })
+  @Listen('internalSddsSortChange', { target: 'body' })
   updateOptionsContent(event: CustomEvent<any>) {
-    const [receivedID, receivedKeyValue, receivedSortingDirection] = event.detail;
-    if (this.tableId === receivedID) {
-      this.sortData(receivedKeyValue, receivedSortingDirection);
+    const { tableId, columnKey, sortingDirection } = event.detail;
+    if (this.tableId === tableId) {
+      this.sortData(columnKey, sortingDirection);
     }
   }
 
@@ -268,86 +260,69 @@ export class TableBody {
   }
 
   searchFunction(searchTerm) {
-    if (!this.disableFilteringFunction) {
-      /*
-      // Logic for filtering JSON data on all columns
-      // Really nice solution, do not delete, might be needed in future
-      // Reason to go with upper one is not to lose selected state on checkboxes
-      if (searchTerm.length > 0) {
-        this.bodyDataManipulated = this.bodyDataOriginal.filter((option) =>
-          Object.keys(option).some(
-            (key) =>
-              String(option[key] ?? '')
-                .toLowerCase()
-                .indexOf(searchTerm) >= 0
-          )
-        );
-      } else {
-        this.bodyDataManipulated = this.bodyDataOriginal;
+    // grab all rows in body
+    const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
+
+    if (searchTerm.length > 0) {
+      if (this.enablePaginationTableBody) {
+        this.tempPaginationDisable = true;
       }
-  */
 
-      // grab all rows in body
-      const dataRowsFiltering = this.host.querySelectorAll('sdds-table-body-row');
+      dataRowsFiltering.forEach((item) => {
+        const cells = item.querySelectorAll('sdds-body-cell');
+        const cellValuesArray = [];
 
-      if (searchTerm.length > 0) {
-        if (this.enablePaginationTableBody) {
-          this.tempPaginationDisable = true;
-        }
-
-        dataRowsFiltering.forEach((item) => {
-          const cells = item.querySelectorAll('sdds-body-cell');
-          const cellValuesArray = [];
-
-          // go through cells and save cell-values in array
-          cells.forEach((cellItem) => {
-            const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
-            cellValuesArray.push(cellValue);
-          });
-
-          // iterate over array of values and see if one matches search string
-          const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
-
-          // if matches, show parent row, otherwise hide the row
-          if (matchCounter) {
-            item.classList.remove('sdds-table__row--hidden');
-          } else {
-            item.classList.add('sdds-table__row--hidden');
-          }
+        // go through cells and save cell-values in array
+        cells.forEach((cellItem) => {
+          const cellValue = cellItem.getAttribute('cell-value').toLowerCase();
+          cellValuesArray.push(cellValue);
         });
 
-        this.disableAllSorting = true;
-        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+        // iterate over array of values and see if one matches search string
+        const matchCounter = cellValuesArray.find((element) => element.includes(searchTerm));
 
-        const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
-
-        // If same, info message will be shown
-        this.showNoResultsMessage = dataRowsHidden.length === dataRowsFiltering.length;
-      } else {
-        if (this.enablePaginationTableBody) {
-          this.tempPaginationDisable = false;
-        }
-
-        // Check if pagination is ON in order to prevent showing all rows
-        if (this.enablePaginationTableBody) {
-          // TODO: EMIT PAGINATION
+        // if matches, show parent row, otherwise hide the row
+        if (matchCounter) {
+          item.classList.remove('sdds-table__row--hidden');
         } else {
-          dataRowsFiltering.forEach((item) => {
-            item.classList.remove('sdds-table__row--hidden');
-          });
+          item.classList.add('sdds-table__row--hidden');
         }
+      });
 
-        this.disableAllSorting = false;
-        this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+      this.disableAllSorting = true;
+      this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
+
+      const dataRowsHidden = this.host.querySelectorAll('.sdds-table__row--hidden');
+
+      // If same, info message will be shown
+      this.showNoResultsMessage = dataRowsHidden.length === dataRowsFiltering.length;
+    } else {
+      if (this.enablePaginationTableBody) {
+        this.tempPaginationDisable = false;
       }
+
+      // If pagination is NOT enabled, we show all rows.
+      if (!this.enablePaginationTableBody) {
+        dataRowsFiltering.forEach((item) => {
+          item.classList.remove('sdds-table__row--hidden');
+        });
+      }
+
+      this.disableAllSorting = false;
+      this.internalSddsSortingChange.emit([this.tableId, this.disableAllSorting]);
     }
   }
 
-  // Listen to sddsFilter from tableToolbar component
-  @Listen('sddsFilter', { target: 'body' })
-  sddsFilterListener(event: CustomEvent<any>) {
-    if (this.tableId === event.detail[0]) {
-      this.searchFunction(event.detail[1]);
+  /** Listens to internalSddsFilter from tableToolbar component */
+  @Listen('internalSddsFilter', { target: 'body' })
+  sddsFilterListener(
+    event: CustomEvent<{
+      tableId: string;
+      query: string;
+    }>,
+  ) {
+    if (this.tableId === event.detail.tableId) {
+      this.searchFunction(event.detail.query);
     }
   }
 

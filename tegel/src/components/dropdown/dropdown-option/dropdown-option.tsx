@@ -120,14 +120,7 @@ export class DropdownOption {
       >
         {this.isMultiSelectOption && (
           <div class="sdds-checkbox-item sdds-option-checkbox">
-            <label class="sdds-form-label">
-              <input
-                class="sdds-form-input"
-                type="checkbox"
-                checked={this.selected}
-                disabled={this.disabled}
-              />
-            </label>
+            <sdds-checkbox checked={this.selected} disabled={this.disabled}></sdds-checkbox>
           </div>
         )}
         <span class="sdds-option-label">

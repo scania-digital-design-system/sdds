@@ -8,9 +8,10 @@ import sddsBodyRow from './table-body-row/readme.md';
 import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Data Table/Web Component',
+  title: `${ComponentsFolder}/Data Table`,
   parameters: {
     notes: {
       'sdds-table': sddsTable,
@@ -140,19 +141,19 @@ const EventListenersTemplate = ({
   formatHtmlPreview(`
     <script>
       // Note: Script here is only for demo purposes
-      window.addEventListener('sddsFilter', e => {
-        document.getElementById('event-name-textarea').value = 'sddsFilter';
-        document.getElementById('event-value-textarea').value = e.detail;
+      window.addEventListener('sddsFilterChange', e => {
+        document.getElementById('event-name-textarea').value = 'sddsFilterChange';
+        document.getElementById('event-value-textarea').value = JSON.stringify(e.detail)
       });
 
       window.addEventListener('sddsSortChange', e => {
         document.getElementById('event-name-textarea').value = 'sddsSortChange';
-        document.getElementById('event-value-textarea').value = e.detail;
+        document.getElementById('event-value-textarea').value = JSON.stringify(e.detail);
       });
 
       window.addEventListener('sddsPageChange', e => {
         document.getElementById('event-name-textarea').value = 'sddsPageChange';
-        document.getElementById('event-value-textarea').value = e.detail;
+        document.getElementById('event-value-textarea').value = JSON.stringify(e.detail);
       });
     </script>
 
@@ -186,7 +187,7 @@ const EventListenersTemplate = ({
                   <sdds-body-cell cell-value="Test value 8" cell-key="mileage"></sdds-body-cell>
               </sdds-table-body-row>
           </sdds-table-body>
-        <sdds-table-footer enable-client-pagination client-max-pages="10"></sdds-table-footer>
+        <sdds-table-footer pagination max-pages="10"></sdds-table-footer>
   </sdds-table>
 
   <!-- Note: Code below is just for demo purposes -->
@@ -196,7 +197,6 @@ const EventListenersTemplate = ({
     <h6 class="sdds-u-mt1 sdds-u-mb0">Event name:</h6>
     <textarea id="event-name-textarea" rows="1" cols="50" readonly></textarea>
     <h6 class="sdds-u-mt0 sdds-u-mb0">Events value (aka detail)</h6>
-    <small>Event always sent an array of items, where first one is always an ID of tabel where event is emitted from</small>
     <br>
     <textarea id="event-value-textarea" rows="1" cols="50" readonly></textarea>
   </div>`);

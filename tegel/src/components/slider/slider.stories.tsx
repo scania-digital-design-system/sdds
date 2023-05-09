@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Slider',
+  title: ComponentsFolder,
   argTypes: {
     min: {
       name: 'Min. value',
@@ -262,4 +263,4 @@ const Template = ({
     </script>
   `);
 
-export const Default = Template.bind({});
+export const Slider = Template.bind({});

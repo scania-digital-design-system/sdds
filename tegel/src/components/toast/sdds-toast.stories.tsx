@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Toast',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -92,4 +93,4 @@ const Template = ({ type, header, subheader, link }) =>
     </script>
   `,
   );
-export const WebComponent = Template.bind({});
+export const Toast = Template.bind({});

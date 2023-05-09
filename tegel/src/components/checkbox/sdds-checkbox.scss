@@ -20,6 +20,8 @@
     height: 24px;
     position: relative;
     cursor: pointer;
+    flex-shrink: 0;
+    align-self: flex-start;
 
     + label {
       color: var(--sdds-checkbox-color);
@@ -27,6 +29,8 @@
       padding-top: var(--sdds-spacing-element-4);
       padding-bottom: var(--sdds-spacing-element-4);
       cursor: pointer;
+      display: flex;
+      align-items: center;
     }
 
     &::before,

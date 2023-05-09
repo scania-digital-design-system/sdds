@@ -131,17 +131,11 @@ export class TableBodyRow {
         }}
       >
         {this.enableMultiselect && (
-          <td class="sdds-table__body-cell sdds-table__body-cell--checkbox">
-            <div class="sdds-checkbox-item">
-              <label class="sdds-form-label sdds-form-label--data-table">
-                <input
-                  class="sdds-form-input"
-                  type="checkbox"
-                  onChange={(event) => this.bodyCheckBoxClicked(event)}
-                  checked={this.bodyCheckBoxStatus}
-                />
-              </label>
-            </div>
+          <td class="sdds-table__body-cell sdds-table__body-cell--checkbox sdds-form-label sdds-form-label--data-table">
+            <sdds-checkbox
+              onSddsChange={(event) => this.bodyCheckBoxClicked(event)}
+              checked={this.bodyCheckBoxStatus}
+            ></sdds-checkbox>
           </td>
         )}
         <slot></slot>

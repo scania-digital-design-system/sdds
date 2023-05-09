@@ -45,12 +45,27 @@ export class TableToolbar {
 
   /** Used for sending users input to main parent <sdds-table> component, can also be listened to in order to implement custom sorting logic. */
   @Event({
-    eventName: 'sddsFilter',
+    eventName: 'sddsFilterChange',
     composed: true,
-    cancelable: false,
+    cancelable: true,
     bubbles: true,
   })
-  sddsFilter: EventEmitter<any>;
+  sddsFilterChange: EventEmitter<{
+    tableId: string;
+    query: string;
+  }>;
+
+  /** @internal Internal event to notify sdds-table-body that a filter/search has been made. */
+  @Event({
+    eventName: 'internalSddsFilter',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  internalSddsFilter: EventEmitter<{
+    tableId: string;
+    query: string;
+  }>;
 
   @Listen('internalSddsTablePropChange', { target: 'body' })
   internalSddsPropChangeListener(event: CustomEvent<InternalSddsTablePropChange>) {
@@ -81,7 +96,17 @@ export class TableToolbar {
     const searchTerm = event.currentTarget.value.toLowerCase();
     const sddsTableSearchBar = event.currentTarget.parentElement;
 
-    this.sddsFilter.emit([this.tableId, searchTerm]);
+    const sddsFilterEvent = this.sddsFilterChange.emit({
+      tableId: this.tableId,
+      query: searchTerm,
+    });
+
+    if (!sddsFilterEvent.defaultPrevented) {
+      this.internalSddsFilter.emit({
+        tableId: this.tableId,
+        query: searchTerm,
+      });
+    }
 
     if (searchTerm.length > 0) {
       sddsTableSearchBar.classList.add('sdds-table__searchbar--active');
