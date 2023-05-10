@@ -116,14 +116,10 @@ export class Slider {
   handleKeydown(event) {
     switch (event.key) {
       case 'ArrowLeft':
-      case 'ArrowDown':
-      case '-':
         this.stepLeft();
         break;
 
       case 'ArrowRight':
-      case 'ArrowUp':
-      case '+':
         this.stepRight();
         break;
 
@@ -134,7 +130,7 @@ export class Slider {
 
   @Listen('mouseup', { target: 'window' })
   @Listen('touchend', { target: 'window' })
-  handleDragEndEvents() {
+  handleTouchEnd() {
     if (!this.scrubberGrabbed) {
       return;
     }
@@ -142,6 +138,7 @@ export class Slider {
     this.scrubberGrabbed = false;
     this.scrubberInnerElement.classList.remove('pressed');
     this.updateValue();
+
     this.trackElement.focus();
   }
 
@@ -351,47 +348,24 @@ export class Slider {
     }
 
     const trackWidth = this.getTrackWidth();
-    console.log(`trackWidth is: ${trackWidth}`);
     const percentage = this.scrubberLeft / trackWidth;
-    console.log(`Scrubber Left is: ${this.scrubberLeft}`);
-    console.log(`Percentage is: ${percentage}`);
     const numTicks = parseInt(this.ticks);
-    console.log(`Number of ticks is: ${numTicks}`);
 
     let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
 
-    console.log(`currentValue is: ${currentValue}`);
-
     this.value = `${currentValue}`;
-
-    console.log(`value is: ${this.value}`);
 
     /* if snapping is enabled, instead just increment or decrement the current "fixed" value from our ticknumber array */
     if (this.useSnapping && numTicks > 0) {
       const stepDir = delta > 0 ? 1 : -1;
       this.supposedValueSlot += stepDir;
-      console.log(`supposedValueSlot is: ${this.supposedValueSlot}`);
 
       if (this.supposedValueSlot < 0) {
         this.supposedValueSlot = 0;
       } else if (this.supposedValueSlot > numTicks + 1) {
         this.supposedValueSlot = numTicks + 1;
       }
-
-      currentValue = this.tickValues[this.supposedValueSlot];
-    } else {
-      currentValue += delta;
     }
-
-    console.log(`Current value after delta is: ${currentValue}`);
-
-    if (currentValue < this.getMin()) {
-      currentValue = this.getMin();
-    } else if (currentValue > this.getMax()) {
-      currentValue = this.getMax();
-    }
-
-    console.log(`supposedValueSlot is (after contitional): ${this.supposedValueSlot}`);
 
     this.calculateScrubberLeftFromValue(currentValue);
     this.updateTrack();
@@ -413,7 +387,6 @@ export class Slider {
       this.tickValues = [this.getMin()];
 
       const step = (this.getMax() - this.getMin()) / (numTicks + 1);
-      console.log(`Step is initiated: ${this.step}`);
 
       for (let i = 1; i < numTicks + 1; i++) {
         this.tickValues.push(this.getMin() + Math.round(step * i));
@@ -422,9 +395,17 @@ export class Slider {
       this.tickValues.push(this.getMax());
     }
 
-    this.disabledState = this.disabled;
+    if (this.disabled) {
+      this.disabledState = true;
+    } else {
+      this.disabledState = false;
+    }
 
-    this.readonlyState = this.readOnly;
+    if (this.readOnly) {
+      this.readonlyState = true;
+    } else {
+      this.readonlyState = false;
+    }
 
     this.useInput = false;
     this.useControls = false;
@@ -435,9 +416,17 @@ export class Slider {
       this.useInput = true;
     }
 
-    this.useSmall = this.scrubberSize === 'sm';
+    this.useSmall = false;
 
-    this.useSnapping = this.snap;
+    if (this.scrubberSize === 'sm') {
+      this.useSmall = true;
+    }
+
+    this.useSnapping = false;
+
+    if (this.snap) {
+      this.useSnapping = true;
+    }
 
     const min = this.getMin();
     const max = this.getMax();
