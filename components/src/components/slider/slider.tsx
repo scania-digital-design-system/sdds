@@ -367,7 +367,7 @@ export class Slider {
     return this.max.length;
   }
 
-  doStep(delta) {
+  controlsStep(delta) {
     if (this.readonlyState) {
       return;
     }
@@ -408,11 +408,11 @@ export class Slider {
   }
 
   stepLeft() {
-    this.doStep(-parseInt(this.step));
+    this.controlsStep(-parseInt(this.step));
   }
 
   stepRight() {
-    this.doStep(parseInt(this.step));
+    this.controlsStep(parseInt(this.step));
   }
 
   componentWillLoad() {
