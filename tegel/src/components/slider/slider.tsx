@@ -129,6 +129,18 @@ export class Slider {
   }
 
   @Listen('mouseup', { target: 'window' })
+  handleMouseUp() {
+    if (!this.scrubberGrabbed) {
+      return;
+    }
+
+    this.scrubberGrabbed = false;
+    this.scrubberInnerElement.classList.remove('pressed');
+    this.updateValue();
+
+    this.trackElement.focus();
+  }
+
   @Listen('touchend', { target: 'window' })
   handleTouchEnd() {
     if (!this.scrubberGrabbed) {
@@ -352,6 +364,14 @@ export class Slider {
     const numTicks = parseInt(this.ticks);
 
     let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
+
+    currentValue += delta;
+
+    if (currentValue < this.getMin()) {
+      currentValue = this.getMin();
+    } else if (currentValue > this.getMax()) {
+      currentValue = this.getMax();
+    }
 
     this.value = `${currentValue}`;
 
