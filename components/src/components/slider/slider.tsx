@@ -367,7 +367,7 @@ export class Slider {
     return this.max.length;
   }
 
-  controlsStep(delta) {
+  doStep(delta) {
     if (this.readonlyState) {
       return;
     }
@@ -384,6 +384,7 @@ export class Slider {
       } else if (this.supposedValueSlot > numTicks + 1) {
         this.supposedValueSlot = numTicks + 1;
       }
+      this.updateValue();
     } else {
       const trackWidth = this.getTrackWidth();
       const percentage = this.scrubberLeft / trackWidth;
@@ -391,6 +392,7 @@ export class Slider {
       let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
 
       currentValue += delta;
+      currentValue = Math.round(currentValue);
 
       if (currentValue < this.getMin()) {
         currentValue = this.getMin();
@@ -400,16 +402,17 @@ export class Slider {
 
       this.value = `${currentValue}`;
       this.calculateScrubberLeftFromValue(this.value);
+      this.updateValueForced(currentValue);
+      this.updateTrack();
     }
-    this.updateValue();
   }
 
   stepLeft() {
-    this.controlsStep(-parseInt(this.step));
+    this.doStep(-parseInt(this.step));
   }
 
   stepRight() {
-    this.controlsStep(parseInt(this.step));
+    this.doStep(parseInt(this.step));
   }
 
   componentWillLoad() {
