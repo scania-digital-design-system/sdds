@@ -27,8 +27,7 @@ components/navigation.e2e.ts
 
 theme/light
 
-tegel/loader
-tegel/stencil.config.ts
+icons/gulpfile.js
 
 **/www
 
