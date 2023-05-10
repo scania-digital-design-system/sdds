@@ -1,14 +1,14 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 
 export default {
-  title: 'Utilities/Colours',
+  title: 'Utilities/Colors',
   parameters: {
     layout: 'centered',
   },
   argTypes: {
     backgroundColor: {
-      name: 'Background colour',
-      description: 'The colour of the text',
+      name: 'Background color',
+      description: 'The color of the text',
       control: {
         type: 'select',
       },
@@ -16,7 +16,7 @@ export default {
     },
     greyScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },
@@ -39,7 +39,7 @@ export default {
     },
     redScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },
@@ -48,7 +48,7 @@ export default {
     },
     blueScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },

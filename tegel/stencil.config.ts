@@ -8,6 +8,7 @@ export const config: Config = {
     experimentalImportInjection: true,
   },
   plugins: [sass()],
+  sourceMap: false,
   outputTargets: [
     {
       type: 'dist',

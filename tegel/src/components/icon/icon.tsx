@@ -34,10 +34,16 @@ export class Icon {
   }
 
   setIcons = () =>
-    this.arrayOfIcons.map(element => {
+    this.arrayOfIcons.map((element) => {
       if (element.name === this.name) {
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-labelledby={`icon ${element.name}`} role="img" style={{ fontSize: this.size }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            aria-labelledby={`icon ${element.name}`}
+            role="img"
+            style={{ fontSize: this.size }}
+          >
             <title>{`icon ${element.name}`}</title>
             <path fill="currentColor" d={element.definition} />
           </svg>

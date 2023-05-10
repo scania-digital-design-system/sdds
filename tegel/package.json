@@ -1,6 +1,6 @@
 {
   "name": "@scania/tegel",
-  "version": "0.0.52",
+  "version": "0.0.7",
   "description": "Tegel - Scania's Digital Design System",
   "keywords": [
     "tegel",
@@ -49,7 +49,6 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@stencil/core": "^3.0.0",
-    "@storybook/addon-google-analytics": "^6.2.9",
     "concurrently": "^7.4.0",
     "dotenv": "^16.0.3",
     "html-format": "^1.0.2",

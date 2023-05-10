@@ -1,8 +1,5 @@
 @import '../../mixins/z-index';
 @import './dropdown-core';
-@import '../../global/scania-fonts-vars.scss';
-
-@import '../checkbox/checkbox.scss';
 @import '../../mixins/box-sizing';
 
 :host,
@@ -17,7 +14,7 @@
   .sdds-dropdown-label-outside {
     color: var(--sdds-dropdown-label-outside);
     text-decoration: none;
-  } 
+  }
 
   font: var(--sdds-detail-02);
   letter-spacing: var(--sdds-detail-02-ls);

@@ -1,14 +1,14 @@
 import { formatHtmlPreview } from '../../../utils/utils';
 
 export default {
-  title: 'Utilities/Colours',
+  title: 'Utilities/Colors',
   parameters: {
     layout: 'centered',
   },
   argTypes: {
-    colour: {
-      name: 'Colour',
-      description: 'The colour of the text',
+    color: {
+      name: 'Color',
+      description: 'The color of the text',
       control: {
         type: 'select',
       },
@@ -16,7 +16,7 @@ export default {
     },
     greyScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },
@@ -35,32 +35,38 @@ export default {
         '900',
         '958',
       ],
-      if: { arg: 'colour', eq: 'grey' },
+      if: { arg: 'color', eq: 'grey' },
     },
     redScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },
       options: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-      if: { arg: 'colour', eq: 'red' },
+      if: { arg: 'color', eq: 'red' },
     },
     blueScale: {
       name: 'Scale',
-      description: 'The colour scale used.',
+      description: 'The color scale used.',
       control: {
         type: 'select',
       },
       options: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-      if: { arg: 'colour', eq: 'blue' },
+      if: { arg: 'color', eq: 'blue' },
     },
+  },
+  args: {
+    color: 'blue',
+    blueScale: '500',
+    redScale: '500',
+    greyScale: '958',
   },
 };
 
-const Template = ({ colour, greyScale, blueScale, redScale }) => {
+const Template = ({ color, greyScale, blueScale, redScale }) => {
   let scale = 100;
-  switch (colour) {
+  switch (color) {
     case 'blue':
       scale = blueScale;
       break;
@@ -83,17 +89,11 @@ const Template = ({ colour, greyScale, blueScale, redScale }) => {
     }
   </style>
   <div class="demo-wrapper">
-  <h1 class="sdds-text-${colour}-${scale}">A text ${colour} heading</h1>
-  <p class="sdds-text-${colour}-${scale}">A text ${colour} paragraph</p>
+  <h1 class="sdds-text-${color}-${scale}">A text ${color} heading</h1>
+  <p class="sdds-text-${color}-${scale}">A text ${color} paragraph</p>
   </div>
   `,
   );
 };
 
-export const textColor = Template.bind({});
-textColor.args = {
-  colour: 'blue',
-  blueScale: '500',
-  redScale: '500',
-  greyScale: '958',
-};
+export const TextColor = Template.bind({});

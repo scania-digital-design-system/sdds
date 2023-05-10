@@ -1,8 +1,9 @@
 import readme from './readme.md';
 import { formatHtmlPreview } from '../../utils/utils';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Datetime',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -22,7 +23,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -64,7 +66,8 @@ export default {
     },
     defaultValue: {
       name: 'Default value',
-      description: 'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
+      description:
+        'Default value of the component. Format for time: HH-MM. Format for date: YY-MM-DD. Format for date-time: YY-MM-DDTHH-MM.',
       control: {
         type: 'radio',
       },
@@ -177,7 +180,7 @@ const datetimeTemplate = ({
     <sdds-datetime
       id="datetime"
       ${defaultValue !== 'None' ? `default-value="${getDefaultValue(defaultValue, type)}"` : ''}
-      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+      ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"` : ''}
       type="${typeLookup[type]}"
       size="${sizeLookup[size]}"
       state="${stateLookup[state]}"
@@ -206,24 +209,4 @@ const datetimeTemplate = ({
   );
 };
 
-export const Default = datetimeTemplate.bind({});
-
-Default.args = {};
-
-export const ErrorState = datetimeTemplate.bind({});
-
-ErrorState.args = {
-  state: 'Error',
-};
-
-export const Time = datetimeTemplate.bind({});
-
-Time.args = {
-  type: 'Time',
-};
-
-export const Date = datetimeTemplate.bind({});
-
-Date.args = {
-  type: 'Date',
-};
+export const Datetime = datetimeTemplate.bind({});

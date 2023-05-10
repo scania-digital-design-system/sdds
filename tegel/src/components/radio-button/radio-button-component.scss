@@ -21,6 +21,8 @@
     border-radius: 50%;
     position: relative;
     cursor: pointer;
+    flex-shrink: 0;
+    align-self: flex-start;
 
     + label {
       padding: var(--sdds-spacing-element-4) 0 var(--sdds-spacing-element-4)

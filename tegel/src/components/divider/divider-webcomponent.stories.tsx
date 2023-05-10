@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Divider',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: { Divider: readme },
@@ -62,4 +63,4 @@ const Template = ({ orientation, width, height }) =>
   </div>
 `);
 
-export const WebComponent = Template.bind({});
+export const Divider = Template.bind({});

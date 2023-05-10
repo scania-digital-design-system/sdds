@@ -18,14 +18,22 @@
  - [sdds-accordion-item](../accordion/accordion-item)
  - [sdds-banner](../banner)
  - [sdds-datetime](../datetime)
+ - [sdds-dropdown-option-v2](../dropdown-v2/dropdown-option-v2)
+ - [sdds-dropdown-v2](../dropdown-v2)
  - [sdds-folder-tabs](../tabs/folder-tabs)
  - [sdds-footer-group](../footer/webcomponent/sdds-footer-group)
+ - [sdds-header-dropdown](../header/webcomponent/header-dropdown)
+ - [sdds-header-hamburger](../header/webcomponent/header-hamburger)
+ - [sdds-header-launcher-button](../header/webcomponent/header-launcher-button)
  - [sdds-inline-tabs](../tabs/inline-tabs)
  - [sdds-message](../message)
  - [sdds-modal](../modal)
  - [sdds-navigation-tabs](../tabs/navigation-tabs)
+ - [sdds-side-menu-close-button](../side-menu/webcomponent/side-menu-close-button)
+ - [sdds-side-menu-dropdown](../side-menu/webcomponent/side-menu-dropdown)
  - [sdds-slider](../slider)
  - [sdds-stepper-item](../stepper/stepper-item)
+ - [sdds-table-footer](../data-table/table-footer)
  - [sdds-textarea](../textarea)
  - [sdds-textfield](../textfield)
  - [sdds-toast](../toast)
@@ -36,14 +44,22 @@ graph TD;
   sdds-accordion-item --> sdds-icon
   sdds-banner --> sdds-icon
   sdds-datetime --> sdds-icon
+  sdds-dropdown-option-v2 --> sdds-icon
+  sdds-dropdown-v2 --> sdds-icon
   sdds-folder-tabs --> sdds-icon
   sdds-footer-group --> sdds-icon
+  sdds-header-dropdown --> sdds-icon
+  sdds-header-hamburger --> sdds-icon
+  sdds-header-launcher-button --> sdds-icon
   sdds-inline-tabs --> sdds-icon
   sdds-message --> sdds-icon
   sdds-modal --> sdds-icon
   sdds-navigation-tabs --> sdds-icon
+  sdds-side-menu-close-button --> sdds-icon
+  sdds-side-menu-dropdown --> sdds-icon
   sdds-slider --> sdds-icon
   sdds-stepper-item --> sdds-icon
+  sdds-table-footer --> sdds-icon
   sdds-textarea --> sdds-icon
   sdds-textfield --> sdds-icon
   sdds-toast --> sdds-icon

@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Spinner',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered', // Center the component horizontally and vertically in the Canvas
     notes: readme,
@@ -63,10 +64,4 @@ const Template = ({ size, variant }) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Inverted = Template.bind({});
-Inverted.args = {
-  variant: 'Inverted',
-};
+export const Spinner = Template.bind({});

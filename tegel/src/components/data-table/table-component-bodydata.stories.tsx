@@ -8,9 +8,10 @@ import sddsBodyRow from './table-body-row/readme.md';
 import sddsBodyRowExpandable from './table-body-row-expandable/readme.md';
 import sddsBodyCell from './table-body-cell/readme.md';
 import sddsTableFooter from './table-footer/readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Data Table/Web Component',
+  title: `${ComponentsFolder}/Data Table`,
   parameters: {
     notes: {
       'sdds-table': sddsTable,
@@ -27,7 +28,8 @@ export default {
   argTypes: {
     bodyData: {
       name: 'Data',
-      description: 'An array of objects with keys matching the header cell `column-key` attributes. Can be passed as an array object, or as a stringified array.',
+      description:
+        'An array of objects with keys matching the header cell `column-key` attributes. Can be passed as an array object, or as a stringified array.',
       control: {
         type: 'array',
       },

@@ -1,8 +1,9 @@
 import { formatHtmlPreview } from '../../utils/utils';
 import readme from './readme.md';
+import { ComponentsFolder } from '../../utils/constants';
 
 export default {
-  title: 'Components/Message',
+  title: ComponentsFolder,
   parameters: {
     layout: 'centered',
     notes: readme,
@@ -22,7 +23,8 @@ export default {
   argTypes: {
     modeVariant: {
       name: 'Mode variant',
-      description: 'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
+      description:
+        'Mode variant adjusts component colors to have better visibility depending on global mode and background.',
       control: {
         type: 'radio',
       },
@@ -81,20 +83,14 @@ export default {
     modeVariant: 'Inherit from parent',
     messageType: 'Information',
     header: 'Message header',
-    extendedMessage: 'Longer message text can be placed here. Longer message text can be placed here.',
+    extendedMessage:
+      'Longer message text can be placed here. Longer message text can be placed here.',
     minimal: false,
     noIcon: false,
   },
 };
 
-const Template = ({ 
-  modeVariant, 
-  messageType, 
-  header, 
-  extendedMessage, 
-  minimal, 
-  noIcon
-}) =>
+const Template = ({ modeVariant, messageType, header, extendedMessage, minimal, noIcon }) =>
   formatHtmlPreview(
     `
     <style>
@@ -109,7 +105,11 @@ const Template = ({
           ${noIcon ? 'no-icon' : ''}
           ${minimal ? 'minimal' : ''}
           mode-variant="${modeVariant.toLowerCase()}"
-          ${modeVariant !== 'Inherit from parent' ? `mode-variant="${modeVariant.toLowerCase()}"`: ''}
+          ${
+            modeVariant !== 'Inherit from parent'
+              ? `mode-variant="${modeVariant.toLowerCase()}"`
+              : ''
+          }
       >
       ${extendedMessage}
       </sdds-message>
@@ -117,4 +117,4 @@ const Template = ({
     `,
   );
 
-export const WebComponent = Template.bind({});
+export const Message = Template.bind({});

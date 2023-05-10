@@ -56,10 +56,10 @@ export class TableBodyCell {
   // Listen to headKey from data-table-header-element
   @Listen('internalSddsHover', { target: 'body' })
   internalSddsHoverListener(event: CustomEvent<any>) {
-    const [receivedID, receivedKeyValue] = event.detail;
+    const { tableId, key } = event.detail;
 
-    if (this.tableId === receivedID) {
-      this.activeSorting = this.cellKey === receivedKeyValue;
+    if (tableId === this.tableId) {
+      this.activeSorting = this.cellKey === key;
     }
   }
 
