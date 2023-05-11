@@ -15,11 +15,5 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": [
-    "components/src",
-    "tegel/src",
-    "components/types/jsx.d.ts",
-    "components/node_modules/@types/jest/index.d.ts",
-    "tegel/node_modules/@types/jest/index.d.ts"
-  ]
+  "include": ["components/src", "components/types/jsx.d.ts", "components/node_modules/@types/jest/index.d.ts"]
 }

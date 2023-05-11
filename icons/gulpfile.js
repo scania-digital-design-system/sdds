@@ -12,7 +12,6 @@ const outputFolder = 'dist';
 const iconFolder = './src/svg/*.svg';
 const tempFolder = 'temp';
 const iconComponentFolder = '../components/src/components/icon/';
-const iconComponentFolderTegel = '../tegel/src/components/icon/';
 
 const runTimestamp = Math.round(Date.now() / 1000);
 const fontName = 'sdds-icons';
@@ -100,9 +99,7 @@ async function generateIcons() {
     iconsNamesArray.push(icon.name);
 
     // Get SVG definition
-    const svgPath = parsedSvg.children.find(
-      (item) => item.name === 'path' || item.name === 'g'
-    );
+    const svgPath = parsedSvg.children.find((item) => item.name === 'path' || item.name === 'g');
     const node = svgPath.children.length
       ? svgPath.children.find((item) => item.name === 'path')
       : svgPath;
@@ -132,9 +129,6 @@ async function generateIcons() {
 
   // write icons into /component/icons folder for component and story usage
   fs.writeFileSync(`${iconComponentFolder}/iconsArray.js`, icons);
-
-  // write icons into /tegel/icons folder for component and story usage
-  fs.writeFileSync(`${iconComponentFolderTegel}/iconsArray.js`, icons);
 }
 
 // create icon fonts from cleaned svgs
@@ -147,7 +141,7 @@ function createIconfont() {
         targetPath: 'css/sdds-icons.css', // final result of the css
         fontPath: '../',
         cssClass: 'sdds-icon',
-      })
+      }),
     )
     .pipe(
       iconfont({
@@ -155,7 +149,7 @@ function createIconfont() {
         prependUnicode: true, // recommended option
         formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
         timestamp: runTimestamp, // recommended to get consistent builds when watching files,
-      })
+      }),
     )
     .pipe(dest(`${outputFolder}/fonts/`));
 }

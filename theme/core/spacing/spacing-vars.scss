@@ -34,16 +34,12 @@
 --sdds-spacing-element-40: 40px;
 --sdds-spacing-element-48: 48px;
 
-// Screen breakpoints
+// Screen breakpoints (TODO remove these, the --sdds-grid- is the one to use)
 --sdds-screen-s: 320px;
 --sdds-screen-md: 672px;
 --sdds-screen-l: 1056px;
 --sdds-screen-xl: 1312px;
 --sdds-screen-xxl: 1584px;
-
-//Screen breakpoints
-//Remove old breakpoints
-//TODO: Fix rem on media queries
 --sdds-grid-xs: 0;
 --sdds-grid-sm: 608px;
 --sdds-grid-md: 800px;
