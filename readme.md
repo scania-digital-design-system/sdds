@@ -6,14 +6,15 @@
 
 The design system supports the design and development of digital solutions at Scania. The purpose is to secure a coherent and premium brand and user experience across all of Scania's digital touchpoints.
 
-- [Browser Support](#browser-support)
-- [Getting started](#getting-started)
-- [Framework demos](#framework-demos)
-- [Local environment](#run-local-environment)
-  - [Commands](#commands-to-start)
-  - [Debugging local environment](#debugging-local-environment)
-- [Migration](#migration)
-- [Contributing](#contributing)
+- [Tegel Design System](#tegel-design-system)
+  - [Browser Support](#browser-support)
+  - [Getting started](#getting-started)
+  - [Framework demos](#framework-demos)
+  - [Run local environment](#run-local-environment)
+        - [Commands to start:](#commands-to-start)
+        - [Debugging local environment](#debugging-local-environment)
+  - [Migration](#migration)
+  - [Contributing](#contributing)
 
 ## Browser Support
 
@@ -45,7 +46,7 @@ You can find everything in [NPM](https://www.npmjs.com/org/scania)
 ## Framework demos
 Clone this repo to run framework demo applications locally. Demos are available Angular, React, Vue and HTML. Each application needs to be installed individually before use. Installing creates a `node_modules` directory with modules needed to run the application as they're listed in the `package.json`-file of each app directory.
 
-Note 1: If you install and start from root level, you will access a local copy of Tegel UI library in Storybook.
+Note 1: If you install and start from root level, you will access a local copy of Tegel UI Library in Storybook.
 
 Note 2: `npm start` not applicable for HTML demo 
 
