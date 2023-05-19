@@ -27,16 +27,12 @@ $spacing-element-32: 32px;
 $spacing-element-40: 40px;
 $spacing-element-48: 48px;
 
-// Screen breakpoints
+// Screen breakpoints (TODO remove these, the $grid- is the one to use)
 $screen-s: 320px;
 $screen-md: 672px;
 $screen-l: 1056px;
 $screen-xl: 1312px;
 $screen-xxl: 1584px;
-
-//Screen breakpoints
-//Remove old breakpoints
-//TODO: Fix rem on media queries
 $grid-xs: 0;
 $grid-sm: 608px;
 $grid-md: 800px;

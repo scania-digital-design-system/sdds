@@ -40,7 +40,7 @@
     "no-underscore-dangle": "warn",
     "import/no-unresolved": "warn",
     "no-return-assign": "warn",
-    "class-methods-use-this": "warn",
+    "class-methods-use-this": ["warn", { "exceptMethods": ["render"] }],
     "array-callback-return": "warn", // TODO: Check this if needed ["warn", { "checkForEach": false }]
     "consistent-return": "warn",
     "no-unused-expressions": "warn",

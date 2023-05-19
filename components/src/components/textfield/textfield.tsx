@@ -220,8 +220,8 @@ export class Textfield {
         </div>
 
         <div class="sdds-textfield-helper">
-          {this.state === 'error' && (
-            <div class="sdds-textfield-helper-error-state">
+          <div class={`sdds-textfield-helper-wrapper ${this.state}`}>
+            {this.state === 'error' && (
               <svg
                 width="16"
                 height="16"
@@ -240,10 +240,9 @@ export class Textfield {
                   fill="#FF2340"
                 />
               </svg>
-              <slot name="sdds-helper" />
-            </div>
-          )}
-          {this.state !== 'error' && <slot name="sdds-helper" />}
+            )}
+            <slot name="sdds-helper" />
+          </div>
 
           {this.maxlength > 0 && (
             <div class="sdds-textfield-textcounter">

@@ -19,7 +19,7 @@ import {
 })
 export class Modal {
   /** Target selector that triggers opening of modal, for example button with id="btn1", then selector is "#btn1" */
-  @Prop() selector: string = '';
+  @Prop() selector: string;
 
   /** Disables closing modal on clicking on overlay area. */
   @Prop() prevent: boolean = false;
@@ -43,20 +43,22 @@ export class Modal {
   }
 
   componentDidLoad() {
-    const targets = document.querySelectorAll(this.selector);
-    this.dismissModal();
+    if (this.selector) {
+      const targets = document.querySelectorAll(this.selector);
 
-    // If the modal doesn't have a selector to be triggered
-    if (!targets) {
-      console.warn('No prop for modal targeted, please add selector attribute');
-      return;
-    }
-    // Find all buttons with selector (id/class) and add onclick event on it
-    targets.forEach((el) => {
-      el.addEventListener('click', () => {
-        this.show = true;
+      // If the modal doesn't have a selector to be triggered
+      if (!targets) {
+        console.warn('No prop for modal targeted, please add selector attribute');
+        return;
+      }
+      // Find all buttons with selector (id/class) and add onclick event on it
+      targets.forEach((el) => {
+        el.addEventListener('click', () => {
+          this.show = true;
+        });
       });
-    });
+    }
+    this.dismissModal();
   }
 
   dismissModal() {

@@ -1,12 +1,4 @@
-import {
-  Component,
-  h,
-  Prop,
-  Listen,
-  EventEmitter,
-  Event,
-  Method,
-} from '@stencil/core';
+import { Component, h, Prop, Listen, EventEmitter, Event, Method } from '@stencil/core';
 
 @Component({
   tag: 'sdds-slider',
@@ -14,51 +6,45 @@ import {
   shadow: false,
 })
 export class Slider {
-  wrapperElement: HTMLElement = null;
+  private wrapperElement: HTMLElement = null;
 
-  scrubberElement: HTMLElement = null;
+  private scrubberElement: HTMLElement = null;
 
-  scrubberInnerElement: HTMLElement = null;
+  private scrubberInnerElement: HTMLElement = null;
 
-  dividersElement: HTMLElement = null;
+  private trackElement: HTMLElement = null;
 
-  trackElement: HTMLElement = null;
+  private trackFillElement: HTMLElement = null;
 
-  trackFillElement: HTMLElement = null;
+  private minusElement: HTMLElement = null;
 
-  minusElement: HTMLElement = null;
+  private plusElement: HTMLElement = null;
 
-  plusElement: HTMLElement = null;
+  private inputElement: HTMLInputElement = null;
 
-  inputElement: HTMLInputElement = null;
+  private scrubberGrabbed: boolean = false;
 
-  nativeRangeInputElement: HTMLInputElement = null;
+  private scrubberLeft: number = 0;
 
-  scrubberGrabPos: object = { x: 0, y: 0 };
+  private tickValues: Array<number> = [];
 
-  scrubberGrabbed: boolean = false;
+  private disabledState: boolean = false;
 
-  scrubberLeft: number = 0;
+  private readonlyState: boolean = false;
 
-  tickValues: Array<number> = [];
+  private useControls: boolean = false;
 
-  disabledState: boolean = false;
+  private useInput: boolean = false;
 
-  readonlyState: boolean = false;
+  private useSmall: boolean = false;
 
-  useControls: boolean = false;
+  private useSnapping: boolean = false;
 
-  useInput: boolean = false;
+  private supposedValueSlot: number = -1;
 
-  useSmall: boolean = false;
+  private resizeObserverLoaded: boolean = false;
 
-  useSnapping: boolean = false;
-
-  supposedValueSlot: number = -1;
-
-  resizeObserverLoaded: boolean = false;
-
-  eventListenersAdded: boolean = false;
+  private eventListenersAdded: boolean = false;
 
   /** Change event for the textfield */
   @Event({
@@ -118,7 +104,8 @@ export class Slider {
   @Prop() snap: boolean = null;
 
   /** Public method to re-initialise the slider if some configuration props are changed */
-  @Method() async reset() {
+  @Method()
+  async reset() {
     // @TODO: Maybe use watch-decorator (and a refactor) in the future
     this.componentWillLoad();
     this.componentDidLoad();
@@ -128,10 +115,14 @@ export class Slider {
   handleKeydown(event) {
     switch (event.key) {
       case 'ArrowLeft':
+      case 'ArrowDown':
+      case '-':
         this.stepLeft();
         break;
 
       case 'ArrowRight':
+      case 'ArrowUp':
+      case '+':
         this.stepRight();
         break;
 
@@ -172,23 +163,7 @@ export class Slider {
       return;
     }
 
-    const numTicks = parseInt(this.ticks);
-    const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.clientX - trackRect.left;
-    this.supposedValueSlot = -1;
-
-    if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
-
-      this.supposedValueSlot = Math.round(localLeft / v);
-    }
-
-    this.scrubberLeft = this.constrainScrubber(localLeft);
-    this.scrubberElement.style.left = `${this.scrubberLeft}px`;
-
-    this.updateValue();
-    this.updateTrack();
+    this.scrubberCore(event);
   }
 
   @Listen('touchmove', { target: 'window' })
@@ -199,24 +174,51 @@ export class Slider {
       return;
     }
 
+    this.scrubberCore(event);
+  }
+
+  updateSupposedValueSlot(localLeft) {
+    const numTicks = parseInt(this.ticks);
+    const trackWidth = this.getTrackWidth();
+    const distanceBetweenTicks = Math.round(trackWidth / (numTicks + 1));
+    const snappedLocalLeft = Math.round(localLeft / distanceBetweenTicks) * distanceBetweenTicks;
+
+    let scrubberPositionPX = 0;
+    if (snappedLocalLeft >= 0 && snappedLocalLeft <= trackWidth) {
+      scrubberPositionPX = snappedLocalLeft;
+    } else if (snappedLocalLeft > trackWidth) {
+      scrubberPositionPX = trackWidth;
+    } else if (snappedLocalLeft < 0) {
+      scrubberPositionPX = 0;
+    }
+
+    this.supposedValueSlot = Math.round(scrubberPositionPX / distanceBetweenTicks);
+
+    return snappedLocalLeft;
+  }
+
+  scrubberCore(event) {
     const numTicks = parseInt(this.ticks);
     const trackRect = this.trackElement.getBoundingClientRect();
-    let localLeft = event.touches[0].clientX - trackRect.left;
+    let localLeft = 0;
+    if (event.type === 'mousemove') {
+      localLeft = event.clientX - trackRect.left;
+    } else if (event.type === 'touchmove') {
+      localLeft = event.touches[0].clientX - trackRect.left;
+    } else {
+      console.warn('Slider component: Unsupported event!');
+    }
 
     this.supposedValueSlot = -1;
 
     if (this.useSnapping && numTicks > 0) {
-      const v = Math.round(this.getTrackWidth() / (numTicks + 1));
-      localLeft = Math.round(localLeft / v) * v;
-
-      this.supposedValueSlot = Math.round(localLeft / v);
+      localLeft = this.updateSupposedValueSlot(localLeft);
     }
 
     this.scrubberLeft = this.constrainScrubber(localLeft);
     this.scrubberElement.style.left = `${this.scrubberLeft}px`;
 
     this.updateValue();
-    this.updateTrack();
   }
 
   updateTrack() {
@@ -232,18 +234,18 @@ export class Slider {
 
   updateValue() {
     const trackWidth = this.getTrackWidth();
+    const numTicks = parseInt(this.ticks);
 
     /* if snapping (supposedValueSlot > 0) is enabled, make sure we display the supposed value (instead of maybe getting a -1/+1 depending on rounding)  */
-    if (this.supposedValueSlot > 0) {
+    if (this.useSnapping && numTicks) {
       const supposedValue = this.tickValues[this.supposedValueSlot];
       this.value = `${supposedValue}`;
+      this.calculateScrubberLeftFromValue(supposedValue);
     } else {
       const percentage = this.scrubberLeft / trackWidth;
-      this.value = `${Math.trunc(
-        this.getMin() + percentage * (this.getMax() - this.getMin())
-      )}`;
+      this.value = `${Math.trunc(this.getMin() + percentage * (this.getMax() - this.getMin()))}`;
     }
-
+    this.updateTrack();
     this.dispatchChangeEvent();
   }
 
@@ -289,6 +291,7 @@ export class Slider {
     const calculatedLeft = (normalizedValue / normalizedMax) * trackWidth;
 
     this.scrubberLeft = calculatedLeft;
+    this.updateSupposedValueSlot(this.scrubberLeft);
 
     this.scrubberElement.style.left = `${this.scrubberLeft}px`;
   }
@@ -310,14 +313,11 @@ export class Slider {
 
       this.scrubberElement.addEventListener('mousedown', (event) => {
         event.preventDefault();
-        this.grabScrubber(event.offsetX, event.offsetY);
+        this.grabScrubber();
       });
 
-      this.scrubberElement.addEventListener('touchstart', (event) => {
-        const rect = this.scrubberElement.getBoundingClientRect();
-        const x = event.targetTouches[0].pageX - rect.left;
-        const y = event.targetTouches[0].pageY - rect.top;
-        this.grabScrubber(x, y);
+      this.scrubberElement.addEventListener('touchstart', () => {
+        this.grabScrubber();
       });
 
       if (this.useControls) {
@@ -358,15 +358,10 @@ export class Slider {
     this.updateTrack();
   }
 
-  grabScrubber(xOffset, yOffset) {
+  grabScrubber() {
     if (this.readonlyState) {
       return;
     }
-
-    this.scrubberGrabPos = {
-      x: xOffset,
-      y: yOffset,
-    };
 
     this.scrubberGrabbed = true;
     this.scrubberInnerElement.classList.add('pressed');
@@ -381,22 +376,7 @@ export class Slider {
       return;
     }
 
-    const trackWidth = this.getTrackWidth();
-    const percentage = this.scrubberLeft / trackWidth;
     const numTicks = parseInt(this.ticks);
-
-    let currentValue =
-      this.getMin() + percentage * (this.getMax() - this.getMin());
-
-    currentValue += delta;
-
-    if (currentValue < this.getMin()) {
-      currentValue = this.getMin();
-    } else if (currentValue > this.getMax()) {
-      currentValue = this.getMax();
-    }
-
-    this.value = `${currentValue}`;
 
     /* if snapping is enabled, instead just increment or decrement the current "fixed" value from our ticknumber array */
     if (this.useSnapping && numTicks > 0) {
@@ -408,11 +388,27 @@ export class Slider {
       } else if (this.supposedValueSlot > numTicks + 1) {
         this.supposedValueSlot = numTicks + 1;
       }
-    }
+      this.updateValue();
+    } else {
+      const trackWidth = this.getTrackWidth();
+      const percentage = this.scrubberLeft / trackWidth;
 
-    this.calculateScrubberLeftFromValue(currentValue);
-    this.updateTrack();
-    this.updateValue();
+      let currentValue = this.getMin() + percentage * (this.getMax() - this.getMin());
+
+      currentValue += delta;
+      currentValue = Math.round(currentValue);
+
+      if (currentValue < this.getMin()) {
+        currentValue = this.getMin();
+      } else if (currentValue > this.getMax()) {
+        currentValue = this.getMax();
+      }
+
+      this.value = `${currentValue}`;
+      this.calculateScrubberLeftFromValue(this.value);
+      this.updateValueForced(currentValue);
+      this.updateTrack();
+    }
   }
 
   stepLeft() {
@@ -476,7 +472,7 @@ export class Slider {
 
     if (min > max) {
       console.warn(
-        'min-prop must have a higher value than max-prop for the component to work correctly.'
+        'min-prop must have a higher value than max-prop for the component to work correctly.',
       );
       this.disabledState = true;
     }
@@ -486,7 +482,6 @@ export class Slider {
     return (
       <div class="sdds-slider-wrapper">
         <input
-          ref={(el) => (this.nativeRangeInputElement = el as HTMLInputElement)}
           class="sdds-slider-native-element"
           type="range"
           value={this.value}
@@ -537,16 +532,11 @@ export class Slider {
           )}
 
           <div class="sdds-slider-inner">
-            <label class={this.tickValues.length > 0 && 'offset'}>
-              {this.label}
-            </label>
+            <label class={this.tickValues.length > 0 && 'offset'}>{this.label}</label>
 
             {this.tickValues.length > 0 && (
               <div class="sdds-slider__value-dividers-wrapper">
-                <div
-                  ref={(el) => (this.dividersElement = el as HTMLElement)}
-                  class="sdds-slider__value-dividers"
-                >
+                <div class="sdds-slider__value-dividers">
                   {this.tickValues.map((value) => (
                     <div class="sdds-slider__value-divider">
                       {this.showTickNumbers && <span>{value}</span>}

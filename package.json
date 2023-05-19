@@ -40,9 +40,9 @@
   },
   "scripts": {
     "install": "lerna bootstrap",
-    "start": "lerna run --parallel start --ignore @scania/tegel",
-    "build": "lerna run --parallel build --ignore @scania/tegel",
-    "storybook": "npm run install && lerna run build --parallel && lerna run build-sb",
+    "start": "lerna run --parallel start",
+    "build": "lerna run --parallel build",
+    "storybook": "npm run install && lerna run build --parallel && lerna run publish-sb",
     "changelog": "lerna-changelog",
     "clean": "lerna clean",
     "release": "lerna publish",

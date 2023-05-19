@@ -1,5 +1,5 @@
-@import "@scania/typography/dist/scss/mixins";
-@import "@scania/typography/dist/scss/tokens";
+@import '@scania/typography/dist/scss/mixins';
+@import '@scania/typography/dist/scss/tokens';
 
 :root,
 html {
@@ -12,14 +12,14 @@ html {
 }
 
 .sdds-checkbox-item {
-  @include type-style("detail-02");
+  @include type-style('detail-02');
 
   color: var(--sdds-checkbox-text);
   display: flex;
   align-items: center;
   margin-left: -1rem;
 
-  .sdds-form-input[type="checkbox"] {
+  .sdds-form-input[type='checkbox'] {
     appearance: none;
     outline: none;
     margin: 0;
@@ -29,6 +29,8 @@ html {
     height: 6rem;
     position: relative;
     cursor: pointer;
+    flex-shrink: 0;
+    align-self: flex-start;
 
     + label {
       padding-left: var(--sdds-spacing-element-8);
@@ -39,7 +41,7 @@ html {
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       box-sizing: border-box;
       border-radius: 2px;
@@ -98,7 +100,7 @@ html {
   }
 }
 
-.sdds-form-input[type="checkbox"]:checked {
+.sdds-form-input[type='checkbox']:checked {
   &::after {
     background-color: var(--sdds-checkbox-interaction-01);
     background-image: url("data:image/svg+xml;utf8,<svg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'> <path d='M1 2.33333L3.4 5C4.80589 3.4379 5.59411 2.5621 7 1' stroke='white' stroke-linecap='round' stroke-linejoin='round'/></svg>");
