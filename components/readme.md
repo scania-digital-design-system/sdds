@@ -2,13 +2,13 @@
 [![Github release](https://img.shields.io/github/v/release/scania-digital-design-system/sdds?color=1081C2)](https://github.com/scania-digital-design-system/sdds/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![](https://img.shields.io/github/license/scania-digital-design-system/sdds)
-[![Getting Started](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://digitaldesign.scania.com/getting-started/development)
+[![Getting Started](https://img.shields.io/badge/Available%20components-digitaldesign.scania.com-orange)](https://tegel.scania.com/getting-started/development)
 
 # Tegel Design System - Components
 
 **Technical documentation**
 
-Check out [Tegel Design System](https://digitaldesign.scania.com/) for implementation and technical documentation.
+Check out [Tegel Design System](https://tegel.scania.com/) for implementation and technical documentation.
 
 ## Quick start
 
@@ -28,7 +28,7 @@ import { defineCustomElements } from '@scania/components';
 defineCustomElements();
 ```
 
-See all available components in the [Tegel Design System](https://digitaldesign.scania.com/components).
+See all available components in the [Tegel Design System](https://tegel.scania.com/components).
 
 ## Styling
 
