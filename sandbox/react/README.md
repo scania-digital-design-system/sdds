@@ -16,9 +16,9 @@ npm start
 
 ## Scania Digital Design System
 
-Visit our Design System at [Digitaldesign.scania.com](https://tegel.scania.com/) for more information
+Visit our Design System at [tegel.scania.com](https://tegel.scania.com/) for more information
 
-For more information about how to use SDDS, go to [digitaldesign.scania.com/getting-started/development](https://tegel.scania.com/getting-started/development)
+For more information about how to use SDDS, go to [tegel.scania.com/development/getting-started-development](https://tegel.scania.com/development/getting-started-development)
 
 ## Project setup
 

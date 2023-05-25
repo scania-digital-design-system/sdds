@@ -25,7 +25,7 @@ const Home = () => {
         <p className="sdds-paragraph-02">
           Check the{' '}
           <a
-            href="https://tegel.scania.com/getting-started/development/installation#angular"
+            href="https://tegel.scania.com/development/getting-started-development/installation#angular"
             target="_blank"
           >
             full documentation here

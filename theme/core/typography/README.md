@@ -15,7 +15,7 @@ This package contains both SCSS and CSS files available
 
 ### How to use
 
-See all available tokens in [Tegel Design System](https://tegel.scania.com/foundation/typography)
+See all available tokens in [Tegel Design System](https://tegel.scania.com/foundations/foundation-typography)
 
 ```html
 // style.scss
