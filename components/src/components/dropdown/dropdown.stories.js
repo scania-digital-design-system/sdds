@@ -3,11 +3,6 @@ import readme from './readme.md';
 export default {
   title: 'Component/Dropdown',
   parameters: {
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
-    },
     layout: 'centered',
     notes: readme,
   },
