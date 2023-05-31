@@ -19,7 +19,7 @@ This grid package contains both SCSS and CSS files available
 
 ### How to use
 
-See implementation in [Tegel Design System](https://digitaldesign.scania.com/foundation/unit-grid-system)
+See implementation in [Tegel Design System](https://tegel.scania.com/foundations/unit-grid-system)
 
 ```html
 

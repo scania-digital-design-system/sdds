@@ -42,22 +42,22 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
         selector="#trigger"> 
         <ul class="sdds-popover-menu-wrapper">
           <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 1</a>
+            <a target="_blank" href="https://tegel.scania.com">Menu item 1</a>
           </li>
           <li>            
-            <a target="_blank" href="https://digitaldesign.scania.com">
+            <a target="_blank" href="https://tegel.scania.com">
               Menu item 2
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 3</a>
+            <a target="_blank" href="https://tegel.scania.com">Menu item 3</a>
           </li>
           <li class="divider"></li>
           <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 4</a>
+            <a target="_blank" href="https://tegel.scania.com">Menu item 4</a>
           </li>
           <li>
-            <a target="_blank" href="https://digitaldesign.scania.com">Menu item 5</a>
+            <a target="_blank" href="https://tegel.scania.com">Menu item 5</a>
           </li>
         </ul>        
       </sdds-popover-menu>
@@ -80,7 +80,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
     selector="#trigger"> 
     <ul class="sdds-popover-menu-wrapper">
       <li>
-        <a target="_blank" href="https://digitaldesign.scania.com">
+        <a target="_blank" href="https://tegel.scania.com">
         
             <i>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
         </a>
       </li>
       <li>            
-        <a target="_blank" href="https://digitaldesign.scania.com">
+        <a target="_blank" href="https://tegel.scania.com">
 
           <i>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +122,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
         </a>
       </li>
       <li>            
-        <a target="_blank" href="https://digitaldesign.scania.com">
+        <a target="_blank" href="https://tegel.scania.com">
 
           <i>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +144,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
       </li>
       <li class="divider"></li>
       <li>            
-        <a target="_blank" href="https://digitaldesign.scania.com">
+        <a target="_blank" href="https://tegel.scania.com">
 
           <i>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +165,7 @@ const ComponentPopoverMenu = ({ ...Basic }) => {
         </a>
       </li>
       <li>            
-        <a target="_blank" href="https://digitaldesign.scania.com">
+        <a target="_blank" href="https://tegel.scania.com">
 
           <i>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -8,7 +8,7 @@ body:
       value: '## Welcome!'
   - type: markdown
     attributes:
-      value: 'Do you need help with your project? In this template you can request design and/or development help. Before you report a issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
+      value: 'Do you need help with your project? In this template you can request design and/or development help. Before you report a issue, please read the [FAQ](https://tegel.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if there is an issue already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
   - type: checkboxes
     attributes:
       label: Requirements before reporting
