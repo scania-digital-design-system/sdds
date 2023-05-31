@@ -44,7 +44,7 @@ We provide a css file that can help you maintain the UI of the components that h
    @import '@scania/theme-light/dist/styles/global-style';
    ```
 
-6. Update components with the new sdds classess or replace with web component. All available components and how to add them, can be seen in https://digitaldesign.scania.com/ . For example, you need to update button classes from Bootstrap to sdds.
+6. Update components with the new sdds classess or replace with web component. All available components and how to add them, can be seen in https://tegel.scania.com/ . For example, you need to update button classes from Bootstrap to sdds.
 
    ```html
     <!-- Before -->

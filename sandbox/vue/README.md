@@ -6,9 +6,9 @@ See the running example on [this link](https://scania.github.io/corporate-ui-vue
 
 ## Scania Digital Design System
 
-Visit our Design System at [digitaldesign.scania.com](https://digitaldesign.scania.com/) for more information
+Visit our Design System at [tegel.scania.com](https://tegel.scania.com/) for more information
 
-For more information about how to use SDDS, go to [digitaldesign.scania.com/getting-started/development](https://digitaldesign.scania.com/getting-started/development)
+For more information about how to use SDDS, go to [tegel.scania.com/development/getting-started-development](https://tegel.scania.com/development/getting-started-development)
 
 ## Getting started
 
@@ -36,7 +36,7 @@ Install `components` and `scania-theme` as devDependencies package from NPM in y
 
 ## Use Scania theme
 
-You can use available CSS variables or classes to style your application. See all tokens in [digitaldesign.scania.com](https://digitaldesign.scania.com/).
+You can use available CSS variables or classes to style your application. See all tokens in [tegel.scania.com](https://tegel.scania.com/).
 
 1. Include the imports in the `main.js` file
 

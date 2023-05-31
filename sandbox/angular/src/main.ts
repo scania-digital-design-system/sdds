@@ -11,7 +11,7 @@ if (environment.production) {
 }
 
 console.warn(
-  'This is a sandbox application, please visit https://digitaldesign.scania.com for more information regarding SDDS implementation'
+  'This is a sandbox application, please visit https://tegel.scania.com for more information regarding SDDS implementation'
 );
 
 platformBrowserDynamic()

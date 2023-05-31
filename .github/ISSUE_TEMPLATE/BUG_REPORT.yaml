@@ -8,7 +8,7 @@ body:
       value: '## Welcome!'
   - type: markdown
     attributes:
-      value: 'Found a bug in the Scania Digital Design System? Fill in this template and we will look into it! Before you report an issue, please read the [FAQ](https://digitaldesign.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if the issue is not already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
+      value: 'Found a bug in the Scania Digital Design System? Fill in this template and we will look into it! Before you report an issue, please read the [FAQ](https://tegel.scania.com/support/faqs) and [Contribution](https://github.com/mmexvr/sdds/blob/master/CONTRIBUTING.md) information and also check if the issue is not already [reported](https://github.com/scania-digital-design-system/sdds-website/issues). '
   - type: checkboxes
     attributes:
       label: Requirements before reporting
