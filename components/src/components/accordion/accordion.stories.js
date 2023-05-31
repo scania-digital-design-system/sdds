@@ -28,11 +28,6 @@ export default {
     },
   },
   parameters: {
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
-    },
     notes: readme,
   },
   args: {
