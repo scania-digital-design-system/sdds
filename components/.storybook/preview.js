@@ -77,6 +77,11 @@ const customBGvalues = [
 //Storybook settings
 export const parameters = {
   // controls: { expanded: true }, // disabled this to hide description and default in control
+  docs: {
+    source: {
+      state: 'open',
+    },
+  },
   viewport: { viewports: customViewports },
   themes: {
     default: 'on-grey',
