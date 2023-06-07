@@ -14,6 +14,19 @@
 | `text`             | `text`               | In case tooltip contains only text, no HTML, text can be passed by this prop                                                                                                             | `string`                                                                                                                                                                                                     | `''`       |
 
 
+## Methods
+
+### `updateTooltip() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

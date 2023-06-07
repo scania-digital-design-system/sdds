@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State, Method } from '@stencil/core';
 import { createPopper } from '@popperjs/core';
 import type { Placement } from '@popperjs/core';
 
@@ -23,7 +23,14 @@ export class Tooltip {
   /** Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end. */
   @Prop() placement: Placement = 'bottom';
 
+  @Method()
+  async updateTooltip() {
+    this.popperInstance.update();
+  }
+
   @State() target: any;
+
+  @State() popperInstance;
 
   border: string;
 
@@ -35,8 +42,9 @@ export class Tooltip {
 
   componentDidLoad() {
     this.target = document.querySelector(this.selector);
+    // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
     const _this = this;
-    createPopper(this.target, this.tooltip, {
+    this.popperInstance = createPopper(this.target, this.tooltip, {
       placement: _this.placement,
       modifiers: [
         {
@@ -44,30 +52,15 @@ export class Tooltip {
           enabled: true,
           phase: 'main',
           fn({ state }) {
-            if (
-              state.placement === 'bottom-start' ||
-              state.placement === 'right-start'
-            ) {
+            if (state.placement === 'bottom-start' || state.placement === 'right-start') {
               _this.border = 'top-left';
-            } else if (
-              state.placement === 'bottom-end' ||
-              state.placement === 'left-start'
-            ) {
+            } else if (state.placement === 'bottom-end' || state.placement === 'left-start') {
               _this.border = 'top-right';
-            } else if (
-              state.placement === 'top-end' ||
-              state.placement === 'left-end'
-            ) {
+            } else if (state.placement === 'top-end' || state.placement === 'left-end') {
               _this.border = 'bottom-right';
-            } else if (
-              state.placement === 'top-start' ||
-              state.placement === 'right-end'
-            ) {
+            } else if (state.placement === 'top-start' || state.placement === 'right-end') {
               _this.border = 'bottom-left';
-            } else if (
-              state.placement === 'bottom' ||
-              state.placement === 'top'
-            ) {
+            } else if (state.placement === 'bottom' || state.placement === 'top') {
               _this.border = 'default';
             }
           },
@@ -115,9 +108,7 @@ export class Tooltip {
     return (
       <span
         ref={(el) => (this.tooltip = el as HTMLInputElement)}
-        class={`sdds-tooltip sdds-tooltip-${this.border} ${
-          this.show ? 'sdds-tooltip-show' : ''
-        }`}
+        class={`sdds-tooltip sdds-tooltip-${this.border} ${this.show ? 'sdds-tooltip-show' : ''}`}
       >
         {this.text}
         <slot />

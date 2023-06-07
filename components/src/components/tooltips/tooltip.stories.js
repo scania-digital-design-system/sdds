@@ -29,6 +29,13 @@ export default {
 };
 
 const ComponentTooltip = ({ ...Basic }) => `
+    <style>
+      .test {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+    </style>
     <sdds-tooltip 
       placement="${Basic.tooltipPosition}"
       selector="#button-1" 
@@ -46,6 +53,15 @@ const ComponentTooltip = ({ ...Basic }) => `
     </sdds-tooltip>
     <sdds-button type="secondary" text="Hover me!" id="button-2"></sdds-button>
 
+    <button id="test">Testar</button>
+    <script>
+      document.querySelector("#test").addEventListener('click', () => {
+
+        document.querySelector('sdds-button').classList.add('test')
+
+        document.querySelector('sdds-tooltip').updateTooltip()
+      })
+    </script>
   `;
 
 export const Basic = ComponentTooltip.bind({});

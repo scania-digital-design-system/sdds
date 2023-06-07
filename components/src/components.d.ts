@@ -608,6 +608,7 @@ export namespace Components {
           * In case tooltip contains only text, no HTML, text can be passed by this prop
          */
         "text": string;
+        "updateTooltip": () => Promise<void>;
     }
 }
 declare global {
