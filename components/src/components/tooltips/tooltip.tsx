@@ -23,6 +23,7 @@ export class Tooltip {
   /** Placement of tooltip. Possible values: auto, auto-start, auto-end, top, top-start, top-end, bottom, bottom-start, bottom-end, right, right-start, right-end, left, left-start, left-end. */
   @Prop() placement: Placement = 'bottom';
 
+  /** Updates and rerenders the popover component. */
   @Method()
   async updateTooltip() {
     this.popperInstance.update();
