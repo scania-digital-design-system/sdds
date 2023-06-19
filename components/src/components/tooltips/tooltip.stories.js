@@ -52,16 +52,6 @@ const ComponentTooltip = ({ ...Basic }) => `
       <p>Paragraph tag inside of Tooltip with <b>bold</b> and <i>italic</i> tags too.</p>
     </sdds-tooltip>
     <sdds-button type="secondary" text="Hover me!" id="button-2"></sdds-button>
-
-    <button id="test">Testar</button>
-    <script>
-      document.querySelector("#test").addEventListener('click', () => {
-
-        document.querySelector('sdds-button').classList.add('test')
-
-        document.querySelector('sdds-tooltip').updateTooltip()
-      })
-    </script>
   `;
 
 export const Basic = ComponentTooltip.bind({});
