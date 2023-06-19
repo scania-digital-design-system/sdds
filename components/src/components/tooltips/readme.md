@@ -18,7 +18,7 @@
 
 ### `updateTooltip() => Promise<void>`
 
-
+Updates and rerenders the popover component.
 
 #### Returns
 
