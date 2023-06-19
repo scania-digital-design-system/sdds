@@ -29,13 +29,6 @@ export default {
 };
 
 const ComponentTooltip = ({ ...Basic }) => `
-    <style>
-      .test {
-        position: absolute;
-        top: 100px;
-        left: 100px;
-      }
-    </style>
     <sdds-tooltip 
       placement="${Basic.tooltipPosition}"
       selector="#button-1" 
