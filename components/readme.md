@@ -8,7 +8,7 @@
 
 **Technical documentation**
 
-Check out [Tegel Design System](https://tegel.scania.com/) for implementation and technical documentation.
+Check out our official [Tegel Design System](https://tegel.scania.com/) page for implementation and technical documentation.
 
 ## Quick start
 
