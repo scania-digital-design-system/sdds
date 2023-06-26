@@ -28,8 +28,6 @@ export class Slider {
 
   private tickValues: Array<number> = [];
 
-  private disabledState: boolean = false;
-
   private readonlyState: boolean = false;
 
   private useControls: boolean = false;
@@ -77,7 +75,7 @@ export class Slider {
   @Prop() tooltip: boolean = null;
 
   /** Sets the disabled state for the whole component  */
-  @Prop() disabled: boolean = null;
+  @Prop() disabled: boolean = false;
 
   /** Sets the read only state for the whole component  */
   @Prop() readonly: boolean = null;
@@ -434,11 +432,6 @@ export class Slider {
       this.tickValues.push(this.getMax());
     }
 
-    if (this.disabled !== null) {
-      this.disabledState = true;
-    } else {
-      this.disabledState = false;
-    }
 
     if (this.readonly !== null) {
       this.readonlyState = true;
@@ -474,7 +467,7 @@ export class Slider {
       console.warn(
         'min-prop must have a higher value than max-prop for the component to work correctly.',
       );
-      this.disabledState = true;
+      this.disabled = true;
     }
   }
 
@@ -491,7 +484,7 @@ export class Slider {
         ></input>
 
         <div
-          class={`sdds-slider ${this.disabledState ? 'disabled' : ''} ${
+          class={`sdds-slider ${this.disabled ? 'disabled' : ''} ${
             this.useSmall ? 'sdds-slider-small' : ''
           }`}
           ref={(el) => (this.wrapperElement = el as HTMLElement)}
