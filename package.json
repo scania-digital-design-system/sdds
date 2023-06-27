@@ -1,7 +1,7 @@
 {
   "name": "sdds",
   "private": true,
-  "version": "4.10.11",
+  "version": "1.1.0",
   "description": "In this repository we're developing the next generation components for Scania Digital Design System",
   "repository": {
     "type": "git",
