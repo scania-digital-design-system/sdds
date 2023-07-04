@@ -19,14 +19,14 @@ const Home = () => {
     <div className="sdds-row">
       <div className="sdds-col-xlg-16 sdds-col-md-8 sdds-col-sm-4">
         <p className="lead-head sdds-paragraph-01">
-          This is a simple example how to implement the SDDS components in
-          React.
+          This is a simple example how to implement the SDDS components in React.
         </p>
         <p className="sdds-paragraph-02">
           Check the{' '}
           <a
             href="https://tegel.scania.com/development/getting-started-development/installation#angular"
             target="_blank"
+            rel="noreferrer"
           >
             full documentation here
           </a>
@@ -34,48 +34,35 @@ const Home = () => {
         </p>
       </div>
 
-
       <div className="section-wrapper sdds-col-xlg-8 sdds-col-md-4 sdds-col-sm-4">
         <h4>Components</h4>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Inline Tabs</h5>
-          
+
           <sdds-inline-tabs auto-height>
-            <div name="Tab with a long name">
-              Content for tab this tab with a long name
-            </div>
+            <div name="Tab with a long name">Content for tab this tab with a long name</div>
             <div default name="Another tab">
-              Content for this tab. This will be the initially visible tab because of the default-attribute.
+              Content for this tab. This will be the initially visible tab because of the
+              default-attribute.
             </div>
             <div disabled name="Tab 3">
-              This tab is disabled because of the disabled attribute and cannot be selected. Hence you will never get to read this text sadly.
+              This tab is disabled because of the disabled attribute and cannot be selected. Hence
+              you will never get to read this text sadly.
             </div>
           </sdds-inline-tabs>
-
         </div>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Accordion</h5>
           <sdds-accordion>
-            <sdds-accordion-item
-              header="First item"
-              affix="prefix"
-              tabIndex="1"
-            >
-              This is the panel, which contains associated information with the
-              header. Usually it contains text, set in the same size as the
-              header. Lorem ipsum doler sit amet.
+            <sdds-accordion-item header="First item" affix="prefix" tabIndex="1">
+              This is the panel, which contains associated information with the header. Usually it
+              contains text, set in the same size as the header. Lorem ipsum doler sit amet.
             </sdds-accordion-item>
-            <sdds-accordion-item
-              header="Second Item"
-              affix="prefix"
-              tabIndex="2"
-              expanded="true"
-            >
-              This is the panel, which contains associated information with the
-              header. Usually it contains text, set in the same size as the
-              header. Lorem ipsum doler sit amet.
+            <sdds-accordion-item header="Second Item" affix="prefix" tabIndex="2" expanded="true">
+              This is the panel, which contains associated information with the header. Usually it
+              contains text, set in the same size as the header. Lorem ipsum doler sit amet.
             </sdds-accordion-item>
           </sdds-accordion>
         </div>
@@ -145,15 +132,12 @@ const Home = () => {
             </div>
 
             <div className="sdds-card-body">
-              This is a short and consist detail text describing for the user
-              what this text is really about.
+              This is a short and consist detail text describing for the user what this text is
+              really about.
             </div>
 
             <div className="sdds-card-footer">
-              <sdds-icon
-                name="scania-arrow"
-                style={{ fontSize: '20px' }}
-              ></sdds-icon>
+              <sdds-icon name="scania-arrow" style={{ fontSize: '20px' }}></sdds-icon>
             </div>
           </div>
         </div>
@@ -161,23 +145,13 @@ const Home = () => {
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Checkbox</h5>
           <div className="sdds-checkbox-item">
-            <input
-              className="sdds-form-input"
-              type="checkbox"
-              name="cb-example"
-              id="cb-option-1"
-            />
+            <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-1" />
             <label className="sdds-form-label" htmlFor="cb-option-1">
               Label Text 1
             </label>
           </div>
           <div className="sdds-checkbox-item">
-            <input
-              className="sdds-form-input"
-              type="checkbox"
-              name="cb-example"
-              id="cb-option-2"
-            />
+            <input className="sdds-form-input" type="checkbox" name="cb-example" id="cb-option-2" />
             <label className="sdds-form-label" htmlFor="cb-option-2">
               Label Text 2
             </label>
@@ -209,22 +183,38 @@ const Home = () => {
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Dropdown</h5>
           <sdds-dropdown placeholder="Select option">
-            <sdds-dropdown-option value="option-1">
-              Option 1
+            <sdds-dropdown-option value="option-1">Option 1</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-2">Option 2</sdds-dropdown-option>
+            <sdds-dropdown-option value="option-3">Option 3</sdds-dropdown-option>
+          </sdds-dropdown>
+
+          <h5 className="sdds-headline-05">Multiselect dropdown with preselect values</h5>
+          <sdds-dropdown
+            id="sdds-dropdown-reg"
+            size="lg"
+            placeholder="Placeholder"
+            disabled="false"
+            open-direction="auto"
+            label-position="no-label"
+            state="false"
+            type="multiselect"
+            default-option="option-1,option-2"
+          >
+            <sdds-dropdown-option value="option-1" tabindex="0">
+              Malmö
             </sdds-dropdown-option>
-            <sdds-dropdown-option value="option-2">
-              Option 2
+            <sdds-dropdown-option value="option-2" tabindex="0">
+              Gothenburg
             </sdds-dropdown-option>
-            <sdds-dropdown-option value="option-3">
-              Option 3
+            <sdds-dropdown-option value="option-3" tabindex="0">
+              Stockholm
             </sdds-dropdown-option>
           </sdds-dropdown>
         </div>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Link</h5>
-          This is an example of <a href="1">a link</a> inside a paragraph. This
-          is an example of{' '}
+          This is an example of <a href="1">a link</a> inside a paragraph. This is an example of{' '}
           <a className="disabled" href="2">
             a link
           </a>{' '}
@@ -239,14 +229,10 @@ const Home = () => {
           <sdds-modal size="md" selector="#modal">
             <h5 slot="sdds-modal-headline">Header 1</h5>
             <p slot="sdds-modal-body">
-              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
-              ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus, tellus
-              eget condimentum rhoncus.
+              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
+              nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
             </p>
-            <button
-              slot="sdds-modal-actions"
-              className="sdds-btn sdds-btn-danger sdds-btn-md"
-            >
+            <button slot="sdds-modal-actions" className="sdds-btn sdds-btn-danger sdds-btn-md">
               Delete
             </button>
             <button
@@ -286,9 +272,8 @@ const Home = () => {
               </div>
               <div className="sdds-modal-body">
                 <p>
-                  Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
-                  ullamcorper ultricies nisi. Nam eget dui. Maecenas tempus,
-                  tellus eget condimentum rhoncus.
+                  Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
+                  nisi. Nam eget dui. Maecenas tempus, tellus eget condimentum rhoncus.
                 </p>
               </div>
               <div className="sdds-modal-actions">
@@ -319,23 +304,13 @@ const Home = () => {
           <h5 className="sdds-headline-05">Radio button</h5>
           <div className="sdds-radio-button-group">
             <div className="sdds-radio-item">
-              <input
-                className="sdds-form-input"
-                type="radio"
-                name="rb-example"
-                id="rb-option-1"
-              />
+              <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-1" />
               <label className="sdds-form-label" htmlFor="rb-option-1">
                 Label Text 1
               </label>
             </div>
             <div className="sdds-radio-item">
-              <input
-                className="sdds-form-input"
-                type="radio"
-                name="rb-example"
-                id="rb-option-2"
-              />
+              <input className="sdds-form-input" type="radio" name="rb-example" id="rb-option-2" />
               <label className="sdds-form-label" htmlFor="rb-option-2">
                 Label Text 2
               </label>
@@ -364,21 +339,14 @@ const Home = () => {
               labelinside="Label text"
               maxlength="20"
             ></sdds-textfield>
-            <sdds-textarea
-              placeholder="Placeholder textarea"
-              helper="Helper text"
-            ></sdds-textarea>
+            <sdds-textarea placeholder="Placeholder textarea" helper="Helper text"></sdds-textarea>
           </div>
         </div>
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Toggle</h5>
           <div className="sdds-toggle" tabIndex="0">
-            <input
-              type="checkbox"
-              className="sdds-toggle-input"
-              id="customSwitch1"
-            />
+            <input type="checkbox" className="sdds-toggle-input" id="customSwitch1" />
             <span className="sdds-toggle-switch"></span>
             <label className="sdds-toggle-label" htmlFor="customSwitch1">
               Toggle this switch element
@@ -417,11 +385,7 @@ const Home = () => {
 
         <div className="component-wrapper">
           <h5 className="sdds-headline-05">Tooltip</h5>
-          <sdds-tooltip
-            placement="right"
-            selector="#right-1"
-            text="Tooltip"
-          ></sdds-tooltip>
+          <sdds-tooltip placement="right" selector="#right-1" text="Tooltip"></sdds-tooltip>
           <button className="sdds-btn sdds-btn-primary" id="right-1">
             Button
           </button>
