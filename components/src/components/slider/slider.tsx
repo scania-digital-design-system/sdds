@@ -432,7 +432,6 @@ export class Slider {
       this.tickValues.push(this.getMax());
     }
 
-
     if (this.readonly !== null) {
       this.readonlyState = true;
     } else {
@@ -484,9 +483,11 @@ export class Slider {
         ></input>
 
         <div
-          class={`sdds-slider ${this.disabled ? 'disabled' : ''} ${
-            this.useSmall ? 'sdds-slider-small' : ''
-          }`}
+          class={{
+            'sdds-slider': true,
+            'disabled': this.disabled,
+            'sdds-slider-small': this.useSmall,
+          }}
           ref={(el) => (this.wrapperElement = el as HTMLElement)}
         >
           {this.useInput && (
