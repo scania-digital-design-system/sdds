@@ -608,6 +608,9 @@ export namespace Components {
           * In case tooltip contains only text, no HTML, text can be passed by this prop
          */
         "text": string;
+        /**
+          * Updates and rerenders the popover component.
+         */
         "updateTooltip": () => Promise<void>;
     }
 }
