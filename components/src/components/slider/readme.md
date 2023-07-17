@@ -10,7 +10,7 @@
 | Property          | Attribute           | Description                                                                      | Type         | Default |
 | ----------------- | ------------------- | -------------------------------------------------------------------------------- | ------------ | ------- |
 | `controls`        | `controls`          | Decide to show the controls or not                                               | `boolean`    | `null`  |
-| `disabled`        | `disabled`          | Sets the disabled state for the whole component                                  | `boolean`    | `null`  |
+| `disabled`        | `disabled`          | Sets the disabled state for the whole component                                  | `boolean`    | `false` |
 | `input`           | `input`             | Decide to show the input field or not                                            | `boolean`    | `null`  |
 | `label`           | `label`             | Text for label                                                                   | `string`     | `''`    |
 | `max`             | `max`               | Maximum value                                                                    | `string`     | `'100'` |
