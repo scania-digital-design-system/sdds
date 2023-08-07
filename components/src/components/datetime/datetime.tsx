@@ -1,12 +1,4 @@
-import {
-  Component,
-  State,
-  h,
-  Prop,
-  Listen,
-  Event,
-  EventEmitter,
-} from '@stencil/core';
+import { Component, State, h, Prop, Listen, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'sdds-datetime',
@@ -17,11 +9,17 @@ export class Datetime {
   /** Textinput for focus state */
   textInput?: HTMLInputElement;
 
-  /** Which input type, text, password or similar */
-  @Prop({ reflect: true }) type: string = 'text';
+  /** Which input type, 'datetime-local', 'date', 'time' */
+  @Prop({ reflect: true }) type: 'datetime-local' | 'date' | 'time' = 'datetime-local';
 
   /** Value of the input text */
   @Prop({ reflect: true }) value = '';
+
+  /** Sets min value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00" */
+  @Prop() min: string;
+
+  /** Sets max value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00" */
+  @Prop() max: string;
 
   /** Set input in disabled state */
   @Prop() disabled: boolean = false;
@@ -92,19 +90,13 @@ export class Datetime {
       <div
         class={`
         ${this.nominwidth ? 'sdds-form-datetime-nomin' : ''}
-        ${
-          this.focusInput
-            ? 'sdds-form-datetime sdds-datetime-focus'
-            : ' sdds-form-datetime'
-        }
+        ${this.focusInput ? 'sdds-form-datetime sdds-datetime-focus' : ' sdds-form-datetime'}
         ${this.value.length > 0 ? 'sdds-datetime-data' : ''}
         ${this.disabled ? 'sdds-form-datetime-disabled' : ''}
         ${this.size == 'md' ? 'sdds-form-datetime-md' : ''}
         ${this.size == 'sm' ? 'sdds-form-datetime-sm' : ''}
         ${
-          this.state == 'error' || this.state == 'success'
-            ? `sdds-form-datetime-${this.state}`
-            : ''
+          this.state == 'error' || this.state == 'success' ? `sdds-form-datetime-${this.state}` : ''
         }
         `}
       >
@@ -121,6 +113,8 @@ export class Datetime {
               type={this.type}
               disabled={this.disabled}
               value={this.value}
+              min={this.min}
+              max={this.max}
               autofocus={this.autofocus}
               name={this.name}
               onInput={(e) => this.handleInput(e)}
@@ -128,11 +122,7 @@ export class Datetime {
             />
 
             <div class="datetime-icon icon-datetime-local">
-              <svg
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-              >
+              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -143,11 +133,7 @@ export class Datetime {
             </div>
 
             <div class="datetime-icon icon-time">
-              <svg
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-              >
+              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path
                   d="M17 7a1 1 0 1 0-2 0v8a2 2 0 0 0 2 2h6a1 1 0 1 0 0-2h-6V7Z"
                   fill="currentColor"
