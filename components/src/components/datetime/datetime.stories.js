@@ -44,7 +44,22 @@ export default {
         type: 'text',
       },
     },
-
+    minValue: {
+      description:
+        'Sets min value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"',
+      name: 'Min value',
+      control: {
+        type: 'text',
+      },
+    },
+    maxValue: {
+      description:
+        'Sets max value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"',
+      name: 'Max value',
+      control: {
+        type: 'text',
+      },
+    },
     helper: {
       name: 'Helper text',
       description: 'Add helper text for the textfield',
@@ -66,7 +81,9 @@ export default {
     size: 'Default',
     minWidth: 'Default',
     disabled: false,
-    state: 'default',
+    state: 'none',
+    minValue: '2023-01-01T00:00',
+    maxValue: '2024-12-31T00:00',
     label: '',
     helper: '',
   },
@@ -78,6 +95,8 @@ const datetimeTemplate = ({
   minWidth,
   disabled,
   label,
+  minValue,
+  maxValue,
   state,
   helper,
 }) => {
@@ -110,10 +129,13 @@ const datetimeTemplate = ({
       type="${type}"
       size="${sizeValue}"
       state="${state}"
+      min="${minValue}"
+      max="${maxValue}"
       ${disabled ? 'disabled' : ''}
       ${minWidthValue ? 'noMinWidth' : ''} >
       ${label ? `<label slot='sdds-label'>${label}</label>` : ''}
       ${helper ? `<span slot='sdds-helper'>${helper}</span>` : ''}
+   
     </sdds-datetime>
   </div>
   `;

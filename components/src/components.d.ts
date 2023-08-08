@@ -105,6 +105,14 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Sets max value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"
+         */
+        "max": string;
+        /**
+          * Sets min value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"
+         */
+        "min": string;
+        /**
           * Name property
          */
         "name": string;
@@ -121,9 +129,9 @@ export namespace Components {
          */
         "state": string;
         /**
-          * Which input type, text, password or similar
+          * Which input type, 'datetime-local', 'date', 'time'
          */
-        "type": string;
+        "type": 'datetime-local' | 'date' | 'time';
         /**
           * Value of the input text
          */
@@ -966,6 +974,14 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Sets max value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"
+         */
+        "max"?: string;
+        /**
+          * Sets min value. Example for different types: datetime="2023-01-31T00:00" date="2023-01-01" time="15:00"
+         */
+        "min"?: string;
+        /**
           * Name property
          */
         "name"?: string;
@@ -986,9 +1002,9 @@ declare namespace LocalJSX {
          */
         "state"?: string;
         /**
-          * Which input type, text, password or similar
+          * Which input type, 'datetime-local', 'date', 'time'
          */
-        "type"?: string;
+        "type"?: 'datetime-local' | 'date' | 'time';
         /**
           * Value of the input text
          */
