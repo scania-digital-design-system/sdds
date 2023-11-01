@@ -100,8 +100,9 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Foundation', 'Utilities', 'Component', 'Patterns', 'Pre-alpha'],
+      order: ['Intro', 'Foundation', 'Utilities', 'Component', 'Patterns', 'Pre-alpha'],
     },
+    showPanel: true,
   },
 };
 
