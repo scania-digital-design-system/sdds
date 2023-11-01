@@ -1,6 +1,6 @@
 {
   "name": "@scania/colour",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Scania Digital Design System colour package",
   "main": "dist/scss/colour.scss",
   "scripts": {
