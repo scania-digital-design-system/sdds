@@ -26,7 +26,7 @@ We suggest exploring the Tegel Design System, which is the successor of SDDS and
 
 **What should you do now?**
 
-1. **Migrate to an alternative package**: We strongly encourage you to transition to one of the recommended alternatives mentioned above by following their documentation and migration guides on npm or [official Tegel website](https://tegel.scania.com/development/getting-started-development/installation).
+1. **Migrate to an alternative package**: We strongly encourage you to transition to one of the recommended alternatives mentioned above by following their documentation and migration guides on npm, [SDDS -> TDS migration guide](https://tegel.scania.com/development/migration) and [Tegel installation](https://tegel.scania.com/development/getting-started-development/installation) on the official Tegel website.
 
 2. **Remove the deprecated package**: You can safely remove this package from your project once you have successfully migrated to an alternative solution.
 
