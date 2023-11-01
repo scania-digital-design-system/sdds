@@ -28,7 +28,7 @@ const DeprecationTemplate = () => `
     <p><strong>Recommended Alternatives</strong></p>
     <p>We suggest exploring the Tegel Design System, which is the successor of SDDS and is actively maintained:</p>
     <ul>
-        <li><a href="https://www.npmjs.com/package/@scania/tegel">@scania/tegel</a>: One package for the entire Tegel design system. Based on Web Components.</li>
+        <li><a href="https://www.npmjs.com/package/@scania/tegel">@scania/tegel</a>: One package for the entire Tegel design system. Based on web components.</li>
         <li><a href="https://www.npmjs.com/package/@scania/tegel-react">@scania/tegel-react</a>: Version of @scania/tegel that provides React component wrappers.</li>
         <li><a href="https://www.npmjs.com/package/@scania/tegel-angular">@scania/tegel-angular</a>: Version of @scania/tegel that provides Angular component wrappers.</li>
     </ul>
