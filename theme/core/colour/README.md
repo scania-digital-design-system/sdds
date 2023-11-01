@@ -12,7 +12,7 @@ This package has reached the end of its development lifecycle, and we have decid
 
 We suggest exploring the Tegel Design System, which is the successor of SDDS and is actively maintained:
 
-- [@scania/tegel](https://www.npmjs.com/package/@scania/tegel): One package for the entire Tegel design system. Based on Web Components.
+- [@scania/tegel](https://www.npmjs.com/package/@scania/tegel): One package for the entire Tegel design system. Based on web components.
 - [@scania/tegel-react](https://www.npmjs.com/package/@scania/tegel-react): Version of @scania/tegel that provides React component wrappers.
 - [@scania/tegel-angular](https://www.npmjs.com/package/@scania/tegel-angular): Version of @scania/tegel that provides Angular component wrappers.
 
