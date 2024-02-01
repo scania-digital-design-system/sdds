@@ -39,7 +39,7 @@
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@popperjs/core": "^2.11.4",
     "@scania/grid": "^2.0.1",
-    "@scania/icons": "^1.1.1",
+    "@scania/icons": "1.1.1",
     "@scania/theme-light": "4.4.0",
     "@scania/typography": "^1.2.1",
     "@stencil/core": "2.14.2",
